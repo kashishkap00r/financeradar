@@ -184,7 +184,11 @@ export async function onRequestGet({ request, env }) {
         const sourceCount = c.sources.size || 1;
 
         // Recency: exponential decay. 18h time constant works well for news.
-        const recency = 100 * Math.exp(-ageHours / 18);
+       // Recency: gentle freshness boost.
+        // Exponential decay with a long half-life so older but important stories
+        // can still rank. Fresh news gets a nudge, not a veto.
+        const recency = 25 * Math.exp(-ageHours / 36);
+
 
         // Crowd: log-scaled so it doesn't explode
         const crowd = 12 * Math.log2(1 + mentions) + 8 * Math.log2(1 + sourceCount);
