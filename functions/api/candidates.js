@@ -48,7 +48,7 @@ export async function onRequestGet({ request, env }) {
 
     // Stop early when enough unique-ish clusters are formed (bounds runtime)
     const stopWhenClusters = clampInt(
-      reqUrl.searchParams.get("stop_when_clusters") || "1800",
+      reqUrl.searchParams.get("stop_when_clusters") || "1000",
       200,
       8000
     );
