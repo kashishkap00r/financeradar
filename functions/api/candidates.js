@@ -1,3 +1,28 @@
+// functions/api/candidates.js
+// FinanceRadar Candidates API (Miniflux proxy)
+// Features:
+// - Fetches from Miniflux with time bound (days) + pagination
+// - Supports status=all by fetching unread+read (your Miniflux version limitation)
+// - URL dedupe (canonicalized URLs)
+// - Per-feed cap (diversity control)
+// - Lightweight title clustering (signature-based) to reduce repeats
+// - Heuristic ranking (recency + mentions + source diversity)
+// - Returns: top N (default 50) + groups by day (for day separators)
+// - Debug mode: include sources list + full ranked list if requested
+//
+// Query params (all optional):
+// - days=5
+// - status=all|unread|read|removed
+// - top=50 (default 50; you can set to 100 etc.)
+// - all=1 (include full ranked list in response; heavy)
+// - debug=1 (include sources arrays)
+// - limit=200 (miniflux page size)
+// - max=6000 (hard cap on total raw entries scanned)
+// - per_feed=30 (per-feed cap)
+// - stop_when_clusters=1800 (stop early when clusters reach this count)
+// - min_token_len=3
+// - sig_tokens=7
+
 export async function onRequestGet({ request, env }) {
   try {
     if (!env.MINIFLUX_URL) return json({ error: "MINIFLUX_URL is missing in env vars" }, 500);
@@ -10,8 +35,9 @@ export async function onRequestGet({ request, env }) {
     const days = clampInt(reqUrl.searchParams.get("days") || "5", 1, 30);
 
     // Output controls
-    const topN = clampInt(reqUrl.searchParams.get("top") || "100", 1, 200);
-    const includeAll = (reqUrl.searchParams.get("all") || "0") === "1"; // include full ranked list
+    const topN = clampInt(reqUrl.searchParams.get("top") || "100", 1, 200); // default TOP 50
+    const includeAll = (reqUrl.searchParams.get("all") || "0") === "1";
+    const debug = (reqUrl.searchParams.get("debug") || "0") === "1";
 
     // Pagination / safety
     const perPage = clampInt(reqUrl.searchParams.get("limit") || "200", 50, 500);
@@ -20,10 +46,14 @@ export async function onRequestGet({ request, env }) {
     // Noise controls
     const perFeedCap = clampInt(reqUrl.searchParams.get("per_feed") || "30", 1, 200);
 
-    // How many unique-ish items we try to collect (bounded work)
-    const stopWhenClusters = clampInt(reqUrl.searchParams.get("stop_when_clusters") || "1800", 200, 8000);
+    // Stop early when enough unique-ish clusters are formed (bounds runtime)
+    const stopWhenClusters = clampInt(
+      reqUrl.searchParams.get("stop_when_clusters") || "1800",
+      200,
+      8000
+    );
 
-    // Lightweight title clustering knobs (keeps repeats down a bit, but not CPU-expensive)
+    // Lightweight title clustering knobs
     const minTokenLen = clampInt(reqUrl.searchParams.get("min_token_len") || "3", 1, 10);
     const sigTokens = clampInt(reqUrl.searchParams.get("sig_tokens") || "7", 3, 20);
 
@@ -32,10 +62,10 @@ export async function onRequestGet({ request, env }) {
     const publishedAfter = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
     const statuses = normalizeStatuses(statusParam);
 
-    // Timing instrumentation (so you can measure)
+    // Timing instrumentation
     const t0 = Date.now();
 
-    // Streaming-ish: process pages as we fetch
+    // Streaming-ish: process while fetching (keeps memory stable)
     const seenUrl = new Set();
     const perFeedCounts = new Map();
     const clusters = new Map(); // sig -> { rep, mentions, sources(Set) }
@@ -65,7 +95,12 @@ export async function onRequestGet({ request, env }) {
 
         if (!resp.ok) {
           return json(
-            { error: "Miniflux request failed", status: resp.status, upstream: upstream.toString(), body: text.slice(0, 500) },
+            {
+              error: "Miniflux request failed",
+              status: resp.status,
+              upstream: upstream.toString(),
+              body: text.slice(0, 800),
+            },
             502
           );
         }
@@ -74,7 +109,14 @@ export async function onRequestGet({ request, env }) {
         try {
           data = JSON.parse(text);
         } catch {
-          return json({ error: "Miniflux JSON parse failed", upstream: upstream.toString(), body_preview: text.slice(0, 500) }, 502);
+          return json(
+            {
+              error: "Miniflux JSON parse failed",
+              upstream: upstream.toString(),
+              body_preview: text.slice(0, 800),
+            },
+            502
+          );
         }
 
         const entries = Array.isArray(data.entries) ? data.entries : [];
@@ -102,12 +144,12 @@ export async function onRequestGet({ request, env }) {
           const tokens = titleTokens(e.title || "", minTokenLen);
           const sig1 = tokens.slice(0, sigTokens).join(" ");
           const sig2 = Array.from(new Set(tokens)).slice(0, sigTokens).sort().join(" ");
-          const sig = (sig1 || sig2 || `id:${e.id}`);
+          const sig = sig1 || sig2 || `id:${e.id}`;
 
           let cl = clusters.get(sig);
           if (!cl) cl = { rep: e, mentions: 0, sources: new Set() };
 
-          // keep newest as rep
+          // keep newest as representative
           if ((e.published_at || "") > (cl.rep.published_at || "")) cl.rep = e;
 
           cl.mentions += 1;
@@ -141,33 +183,56 @@ export async function onRequestGet({ request, env }) {
         const mentions = c.mentions || 1;
         const sourceCount = c.sources.size || 1;
 
-        // Recency: exponential decay. 18h time constant feels good for news.
+        // Recency: exponential decay. 18h time constant works well for news.
         const recency = 100 * Math.exp(-ageHours / 18);
 
-        // Crowd signals: log so 1->2 matters, 20->21 doesn't dominate.
+        // Crowd: log-scaled so it doesn't explode
         const crowd = 12 * Math.log2(1 + mentions) + 8 * Math.log2(1 + sourceCount);
 
-        // Final score
         const score = recency + crowd;
 
-        return {
+        const why = [
+          ageHours < 6 ? "very recent" : ageHours < 24 ? "recent" : "older",
+          mentions > 1 ? `${mentions} mentions` : null,
+          sourceCount > 1 ? `${sourceCount} sources` : null,
+        ]
+          .filter(Boolean)
+          .join(" · ");
+
+        const baseItem = {
           id: rep.id,
           title: rep.title,
           url: rep.url,
           published_at: rep.published_at,
-          day: (rep.published_at || "").slice(0, 10), // YYYY-MM-DD for separators
+          day: (rep.published_at || "").slice(0, 10), // YYYY-MM-DD
           age_hours: round1(ageHours),
           status: rep.status,
           feed: rep.feed ? { id: rep.feed.id, title: rep.feed.title, site_url: rep.feed.site_url } : null,
           tags: rep.tags || [],
           mentions,
-          sources: Array.from(c.sources),
+          sources_count: sourceCount,
           score: round2(score),
+          why,
         };
+
+        if (debug) {
+          baseItem.sources = Array.from(c.sources);
+        }
+
+        return baseItem;
       })
       .sort((a, b) => (b.score - a.score) || (b.published_at || "").localeCompare(a.published_at || ""));
 
     const top = ranked.slice(0, topN);
+
+    // Group top results by day for easy UI separators
+    const groupsMap = new Map();
+    for (const item of top) {
+      const d = item.day || "unknown";
+      if (!groupsMap.has(d)) groupsMap.set(d, []);
+      groupsMap.get(d).push(item);
+    }
+    const groups = Array.from(groupsMap.entries()).map(([day, items]) => ({ day, items }));
 
     const tEnd = Date.now();
 
@@ -201,7 +266,11 @@ export async function onRequestGet({ request, env }) {
             fetch_ms: tFetchDone - t0,
             processing_ms: tEnd - tFetchDone,
           },
+
+          debug,
+          include_all: includeAll,
         },
+        groups,
         top,
         ...(includeAll ? { ranked } : {}),
       },
@@ -213,6 +282,7 @@ export async function onRequestGet({ request, env }) {
   }
 }
 
+// Your Miniflux only accepts read/unread/removed. Implement "all" here.
 function normalizeStatuses(statusParam) {
   if (statusParam === "all") return ["unread", "read"];
   if (statusParam === "unread") return ["unread"];
@@ -221,6 +291,7 @@ function normalizeStatuses(statusParam) {
   return ["unread", "read"];
 }
 
+// Tokenize normalized title (cheap)
 function titleTokens(title, minTokenLen) {
   const t = normalizeTitle(title);
   const stop = new Set([
@@ -237,7 +308,7 @@ function titleTokens(title, minTokenLen) {
 function normalizeTitle(title) {
   return String(title)
     .toLowerCase()
-    .replace(/\b\d+(\.\d+)?\b/g, "0")
+    .replace(/\b\d+(\.\d+)?\b/g, "0") // normalize numbers
     .replace(/[’‘]/g, "'")
     .replace(/[“”]/g, '"')
     .replace(/[–—]/g, "-")
@@ -281,5 +352,10 @@ function clampInt(value, min, max) {
   return Math.max(min, Math.min(max, n));
 }
 
-function round1(n) { return Math.round(n * 10) / 10; }
-function round2(n) { return Math.round(n * 100) / 100; }
+function round1(n) {
+  return Math.round(n * 10) / 10;
+}
+
+function round2(n) {
+  return Math.round(n * 100) / 100;
+}
