@@ -10,7 +10,7 @@ export async function onRequestGet({ request, env }) {
     const days = clampInt(reqUrl.searchParams.get("days") || "5", 1, 30);
 
     // Output controls
-    const topN = clampInt(reqUrl.searchParams.get("top") || "50", 1, 200);
+    const topN = clampInt(reqUrl.searchParams.get("top") || "100", 1, 200);
     const includeAll = (reqUrl.searchParams.get("all") || "0") === "1"; // include full ranked list
 
     // Pagination / safety
