@@ -275,7 +275,7 @@ export async function onRequestGet({ request, env }) {
         ...(includeAll ? { ranked } : {}),
       },
       200,
-      { "Access-Control-Allow-Origin": "*", "Cache-Control": "no-store" }
+      {"Access-Control-Allow-Origin": "*","Cache-Control": "public, max-age=60, s-maxage=60, stale-while-revalidate=300"}
     );
   } catch (err) {
     return json({ error: "Function crashed", message: String(err?.message || err), stack: err?.stack || null }, 500);
