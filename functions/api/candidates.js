@@ -8,25 +8,30 @@ export async function onRequestGet({ request, env }) {
     const statusParam = (reqUrl.searchParams.get("status") || "all").toLowerCase();
     const days = clampInt(reqUrl.searchParams.get("days") || "5", 1, 30);
     const perPage = clampInt(reqUrl.searchParams.get("limit") || "200", 1, 500);
+
+    // raw fetch safety cap
     const maxRaw = clampInt(reqUrl.searchParams.get("max") || "50000", 1000, 200000);
 
-    // Existing controls
+    // diversity control
     const perFeedCap = clampInt(reqUrl.searchParams.get("per_feed") || "50", 1, 1000);
 
-    // New: story clustering controls
-    const clusterOn = (reqUrl.searchParams.get("cluster") || "1") !== "0";
-    const minTokenLen = clampInt(reqUrl.searchParams.get("min_token_len") || "3", 1, 10);
-    const jaccardThreshold = clampFloat(reqUrl.searchParams.get("jaccard") || "0.72", 0.3, 0.95);
+    // CRITICAL: cap what enters clustering (keeps CPU/memory sane)
+    // You are ranking top 30, so you do NOT need to cluster 6000 items.
+    const preClusterMax = clampInt(reqUrl.searchParams.get("pre_cluster_max") || "2500", 200, 10000);
 
-    // Final output cap (clusters)
-    const outMax = clampInt(reqUrl.searchParams.get("out_max") || "2000", 100, 50000);
+    // final output cap (clusters)
+    const outMax = clampInt(reqUrl.searchParams.get("out_max") || "2000", 50, 50000);
+
+    // title normalization knobs
+    const minTokenLen = clampInt(reqUrl.searchParams.get("min_token_len") || "3", 1, 10);
+    const sigTokens = clampInt(reqUrl.searchParams.get("sig_tokens") || "10", 3, 20);
 
     const base = env.MINIFLUX_URL.replace(/\/$/, "");
     const headers = { "X-Auth-Token": env.MINIFLUX_TOKEN, "Accept": "application/json" };
     const publishedAfter = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
     const statuses = normalizeStatuses(statusParam);
 
-    // 1) fetch raw
+    // 1) Fetch raw entries
     let raw = [];
     for (const st of statuses) {
       const entries = await fetchAllEntries({
@@ -42,22 +47,22 @@ export async function onRequestGet({ request, env }) {
     }
     if (raw.length > maxRaw) raw = raw.slice(0, maxRaw);
 
-    // 2) sort newest first
+    // 2) Sort newest first (important: newest becomes cluster representative naturally)
     raw.sort((a, b) => (b.published_at || "").localeCompare(a.published_at || ""));
 
-    // 3) URL-level dedupe
-    const seenUrl = new Set();
+    // 3) URL-level dedupe (canonical URL; fallback feed+title)
+    const seen = new Set();
     const urlDeduped = [];
     for (const e of raw) {
-      const key = canonicalizeUrl(e.url || "") || "";
+      const u = canonicalizeUrl(e.url || "");
       const fallback = `${e.feed?.id ?? "unknown"}::${(e.title || "").trim().toLowerCase()}`;
-      const k = key ? `u:${key}` : `t:${fallback}`;
-      if (seenUrl.has(k)) continue;
-      seenUrl.add(k);
+      const key = u ? `u:${u}` : `t:${fallback}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
       urlDeduped.push(e);
     }
 
-    // 4) per-feed cap (still important before clustering, to avoid flooders biasing clusters)
+    // 4) Per-feed cap
     const byFeed = new Map();
     const capped = [];
     for (const e of urlDeduped) {
@@ -68,20 +73,56 @@ export async function onRequestGet({ request, env }) {
       capped.push(e);
     }
 
-    // 5) Cluster by near-duplicate titles
-    let clusters;
-    if (clusterOn) {
-      clusters = clusterEntries(capped, { minTokenLen, jaccardThreshold });
-    } else {
-      // 1 entry = 1 cluster
-      clusters = capped.map((e) => ({ rep: e, members: [e] }));
+    // 5) Pre-cluster cap (this is what prevents 1102)
+    const toCluster = capped.slice(0, preClusterMax);
+
+    // 6) FAST clustering (no n^2 comparisons)
+    // We build a signature from normalized title tokens and group by it.
+    const clusters = new Map(); // sig -> { rep, membersCount, sourcesSet }
+    for (const e of toCluster) {
+      const tokens = titleTokens(e.title || "", minTokenLen);
+
+      // signature 1: first N tokens in order (catches near-identical titles)
+      const sig1 = tokens.slice(0, sigTokens).join(" ");
+
+      // signature 2: first N unique tokens sorted (catches reorder/format variations)
+      const uniqSorted = Array.from(new Set(tokens)).slice(0, sigTokens).sort();
+      const sig2 = uniqSorted.join(" ");
+
+      // pick the stronger signature; if empty, fallback
+      const sig = (sig1 || sig2 || `id:${e.id}`);
+
+      let c = clusters.get(sig);
+      if (!c) {
+        c = {
+          rep: e, // newest wins because input is sorted newest-first
+          mentions: 0,
+          sources: new Set(),
+        };
+        clusters.set(sig, c);
+      }
+
+      c.mentions += 1;
+      if (e.feed?.title) c.sources.add(e.feed.title);
     }
 
-    // 6) Create candidate list (one per cluster)
-    // Representative = newest item in cluster (because input already sorted newest-first)
-    const candidates = clusters
+    // 7) Turn clusters into candidates (newest first by rep.published_at)
+    const candidateArr = Array.from(clusters.values())
+      .sort((a, b) => (b.rep.published_at || "").localeCompare(a.rep.published_at || ""))
       .slice(0, outMax)
-      .map((c) => toCandidate(c.rep, c.members));
+      .map((c) => ({
+        id: c.rep.id,
+        title: c.rep.title,
+        url: c.rep.url,
+        published_at: c.rep.published_at,
+        status: c.rep.status,
+        feed: c.rep.feed
+          ? { id: c.rep.feed.id, title: c.rep.feed.title, site_url: c.rep.feed.site_url }
+          : null,
+        tags: c.rep.tags || [],
+        mentions: c.mentions,
+        sources: Array.from(c.sources),
+      }));
 
     return json(
       {
@@ -97,12 +138,16 @@ export async function onRequestGet({ request, env }) {
           per_feed_cap: perFeedCap,
           after_per_feed: capped.length,
 
-          cluster: clusterOn,
-          jaccard: jaccardThreshold,
-          clusters: clusters.length,
-          returned: candidates.length,
+          pre_cluster_max: preClusterMax,
+          clustered_input: toCluster.length,
+          clusters: clusters.size,
+          out_max: outMax,
+          returned: candidateArr.length,
+
+          sig_tokens: sigTokens,
+          min_token_len: minTokenLen,
         },
-        candidates,
+        candidates: candidateArr,
       },
       200,
       { "Access-Control-Allow-Origin": "*", "Cache-Control": "no-store" }
@@ -113,130 +158,6 @@ export async function onRequestGet({ request, env }) {
       500
     );
   }
-}
-
-function toCandidate(rep, members) {
-  // keep it small but useful for ranking
-  return {
-    id: rep.id,
-    title: rep.title,
-    url: rep.url,
-    published_at: rep.published_at,
-    status: rep.status,
-    feed: rep.feed ? { id: rep.feed.id, title: rep.feed.title, site_url: rep.feed.site_url } : null,
-    tags: rep.tags || [],
-    // crowd signal (very valuable later)
-    mentions: members.length,
-    sources: uniq(
-      members
-        .map((m) => m.feed?.title)
-        .filter(Boolean)
-    ),
-  };
-}
-
-function clusterEntries(entries, { minTokenLen, jaccardThreshold }) {
-  // Cheap, effective clustering:
-  // - normalize title -> tokens
-  // - compare to existing cluster reps using Jaccard similarity
-  // O(n*k) but fine for a few thousand with a reasonable cap.
-  const clusters = [];
-
-  for (const e of entries) {
-    const title = e.title || "";
-    const tokens = titleTokens(title, minTokenLen);
-    const norm = tokens.join(" ");
-
-    // If no tokens, treat as unique
-    if (!tokens.length) {
-      clusters.push({ rep: e, repTokens: tokens, repNorm: norm, members: [e] });
-      continue;
-    }
-
-    let placed = false;
-
-    // compare against existing cluster reps
-    for (const c of clusters) {
-      // fast path: exact normalized match
-      if (norm && c.repNorm === norm) {
-        c.members.push(e);
-        placed = true;
-        break;
-      }
-
-      // Jaccard similarity
-      const sim = jaccard(tokens, c.repTokens);
-      if (sim >= jaccardThreshold) {
-        c.members.push(e);
-        placed = true;
-        break;
-      }
-    }
-
-    if (!placed) {
-      clusters.push({ rep: e, repTokens: tokens, repNorm: norm, members: [e] });
-    }
-  }
-
-  // Ensure rep is newest (first encountered) — already true because entries are sorted newest-first.
-  // Sort clusters by rep published_at desc
-  clusters.sort((a, b) => (b.rep.published_at || "").localeCompare(a.rep.published_at || ""));
-
-  return clusters.map((c) => ({ rep: c.rep, members: c.members }));
-}
-
-function titleTokens(title, minTokenLen) {
-  const t = normalizeTitle(title);
-
-  // split into tokens
-  let parts = t.split(" ").filter(Boolean);
-
-  // drop short tokens and generic junk
-  const stop = new Set([
-    "the","a","an","and","or","to","of","in","on","for","with","as","at","by","from",
-    "india","indian","says","say","said","report","reports","reported","live","update","updates",
-    "today","latest","news"
-  ]);
-
-  parts = parts
-    .map((p) => p.trim())
-    .filter((p) => p.length >= minTokenLen)
-    .filter((p) => !stop.has(p));
-
-  // cap tokens to avoid huge comparisons
-  if (parts.length > 30) parts = parts.slice(0, 30);
-
-  return parts;
-}
-
-function normalizeTitle(title) {
-  return String(title)
-    .toLowerCase()
-    // normalize quotes/dashes
-    .replace(/[’‘]/g, "'")
-    .replace(/[“”]/g, '"')
-    .replace(/[–—]/g, "-")
-    // replace numbers with a placeholder to reduce trivial differences
-    .replace(/\b\d+(\.\d+)?\b/g, "0")
-    // remove punctuation
-    .replace(/[^a-z0-9\s-]/g, " ")
-    // collapse spaces
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function jaccard(aTokens, bTokens) {
-  if (!aTokens.length || !bTokens.length) return 0;
-  const a = new Set(aTokens);
-  const b = new Set(bTokens);
-  let inter = 0;
-  for (const x of a) if (b.has(x)) inter += 1;
-  const union = a.size + b.size - inter;
-  return union ? inter / union : 0;
-}
-
-function uniq(arr) {
-  return Array.from(new Set(arr));
 }
 
 function normalizeStatuses(statusParam) {
@@ -290,6 +211,37 @@ async function fetchAllEntries({ base, headers, status, perPage, maxItems, publi
   return all;
 }
 
+function titleTokens(title, minTokenLen) {
+  const t = normalizeTitle(title);
+
+  // stopwords (keep it short; too many wastes CPU)
+  const stop = new Set([
+    "the","a","an","and","or","to","of","in","on","for","with","as","at","by","from",
+    "says","say","said","report","reports","reported","live","update","updates",
+    "today","latest","news"
+  ]);
+
+  let parts = t.split(" ").filter(Boolean);
+  parts = parts
+    .filter((p) => p.length >= minTokenLen)
+    .filter((p) => !stop.has(p));
+
+  if (parts.length > 30) parts = parts.slice(0, 30);
+  return parts;
+}
+
+function normalizeTitle(title) {
+  return String(title)
+    .toLowerCase()
+    .replace(/\b\d+(\.\d+)?\b/g, "0") // normalize numbers
+    .replace(/[’‘]/g, "'")
+    .replace(/[“”]/g, '"')
+    .replace(/[–—]/g, "-")
+    .replace(/[^a-z0-9\s-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function canonicalizeUrl(input) {
   try {
     if (!input) return "";
@@ -323,12 +275,6 @@ function json(obj, status = 200, extraHeaders = {}) {
 
 function clampInt(value, min, max) {
   const n = parseInt(value, 10);
-  if (Number.isNaN(n)) return min;
-  return Math.max(min, Math.min(max, n));
-}
-
-function clampFloat(value, min, max) {
-  const n = parseFloat(value);
   if (Number.isNaN(n)) return min;
   return Math.max(min, Math.min(max, n));
 }
