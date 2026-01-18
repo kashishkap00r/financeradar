@@ -19,7 +19,7 @@
 // - limit=200 (miniflux page size)
 // - max=6000 (hard cap on total raw entries scanned)
 // - per_feed=30 (per-feed cap)
-// - stop_when_clusters=1800 (stop early when clusters reach this count)
+// - stop_when_clusters=1000 (stop early when clusters reach this count)
 // - min_token_len=3
 // - sig_tokens=7
 
