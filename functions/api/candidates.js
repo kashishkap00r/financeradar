@@ -1,20 +1,18 @@
 // functions/api/candidates.js
-// FinanceRadar Candidates API (Miniflux proxy)
+// FinanceRadar Candidates API (Miniflux proxy) — NO RANKING
 // Features:
 // - Fetches from Miniflux with time bound (days) + pagination
-// - Supports status=all by fetching unread+read (your Miniflux version limitation)
+// - Supports status=all by fetching unread+read (Miniflux limitation you hit)
 // - URL dedupe (canonicalized URLs)
 // - Per-feed cap (diversity control)
 // - Lightweight title clustering (signature-based) to reduce repeats
-// - Heuristic ranking (recency + mentions + source diversity)
-// - Returns: top N (default 50) + groups by day (for day separators)
-// - Debug mode: include sources list + full ranked list if requested
+// - Output is sorted strictly by published_at (latest first)
+// - Returns: top N (default 100) + groups by day (for day separators)
 //
-// Query params (all optional):
+// Query params (optional):
 // - days=5
 // - status=all|unread|read|removed
-// - top=50 (default 50; you can set to 100 etc.)
-// - all=1 (include full ranked list in response; heavy)
+// - top=100
 // - debug=1 (include sources arrays)
 // - limit=200 (miniflux page size)
 // - max=6000 (hard cap on total raw entries scanned)
@@ -35,62 +33,57 @@ export async function onRequestGet({ request, env }) {
     const days = clampInt(reqUrl.searchParams.get("days") || "5", 1, 30);
 
     // Output controls
-    const topN = clampInt(reqUrl.searchParams.get("top") || "100", 1, 200); // default TOP 50
-    const includeAll = (reqUrl.searchParams.get("all") || "0") === "1";
+    const topN = clampInt(reqUrl.searchParams.get("top") || "100", 1, 200);
     const debug = (reqUrl.searchParams.get("debug") || "0") === "1";
 
     // Pagination / safety
     const perPage = clampInt(reqUrl.searchParams.get("limit") || "200", 50, 500);
-    const maxRaw = clampInt(reqUrl.searchParams.get("max") || "6000", 500, 20000);
+    const maxRaw = clampInt(reqUrl.searchParams.get("max") || "6000", 200, 20000);
 
-    // Noise controls
+    // Dedupe / diversity
     const perFeedCap = clampInt(reqUrl.searchParams.get("per_feed") || "30", 1, 200);
+    const stopWhenClusters = clampInt(reqUrl.searchParams.get("stop_when_clusters") || "1000", 50, 5000);
 
-    // Stop early when enough unique-ish clusters are formed (bounds runtime)
-    const stopWhenClusters = clampInt(
-      reqUrl.searchParams.get("stop_when_clusters") || "1000",
-      200,
-      8000
-    );
-
-    // Lightweight title clustering knobs
-    const minTokenLen = clampInt(reqUrl.searchParams.get("min_token_len") || "3", 1, 10);
+    // Clustering config
+    const minTokenLen = clampInt(reqUrl.searchParams.get("min_token_len") || "3", 2, 10);
     const sigTokens = clampInt(reqUrl.searchParams.get("sig_tokens") || "7", 3, 20);
 
-    const base = env.MINIFLUX_URL.replace(/\/$/, "");
-    const headers = { "X-Auth-Token": env.MINIFLUX_TOKEN, "Accept": "application/json" };
-    const publishedAfter = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
-    const statuses = normalizeStatuses(statusParam);
-
-    // Timing instrumentation
     const t0 = Date.now();
 
-    // Streaming-ish: process while fetching (keeps memory stable)
-    const seenUrl = new Set();
-    const perFeedCounts = new Map();
-    const clusters = new Map(); // sig -> { rep, mentions, sources(Set) }
+    const statuses = normalizeStatuses(statusParam); // array of statuses we actually fetch
 
+    // Time window
+    const publishedAfterIso = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
+
+    // Raw fetch loop
     let rawFetched = 0;
     let pagesFetched = 0;
 
-    // Fetch newest-first, stop early once we have enough clusters
+    // URL dedupe
+    const seenUrl = new Set();
+
+    // Per-feed cap counters
+    const perFeedCount = new Map();
+
+    // Cluster map: key -> { rep, mentions, sources:Set }
+    const clusters = new Map();
+
     for (const st of statuses) {
       let offset = 0;
-      let safetyIters = 0;
 
       while (rawFetched < maxRaw) {
-        safetyIters += 1;
-        if (safetyIters > 200) break;
-
-        const upstream = new URL(`${base}/v1/entries`);
+        const upstream = new URL(env.MINIFLUX_URL.replace(/\/+$/, "") + "/v1/entries");
         upstream.searchParams.set("status", st);
         upstream.searchParams.set("limit", String(perPage));
         upstream.searchParams.set("offset", String(offset));
         upstream.searchParams.set("order", "published_at");
         upstream.searchParams.set("direction", "desc");
-        upstream.searchParams.set("published_after", publishedAfter);
+        upstream.searchParams.set("published_after", publishedAfterIso);
 
-        const resp = await fetch(upstream.toString(), { headers });
+        const resp = await fetch(upstream.toString(), {
+          headers: { "X-Auth-Token": env.MINIFLUX_TOKEN },
+        });
+
         const text = await resp.text();
 
         if (!resp.ok) {
@@ -125,83 +118,61 @@ export async function onRequestGet({ request, env }) {
 
         for (const e of entries) {
           rawFetched += 1;
-          if (rawFetched > maxRaw) break;
+          if (rawFetched >= maxRaw) break;
 
-          // 1) URL dedupe
-          const u = canonicalizeUrl(e.url || "");
-          const fallback = `${e.feed?.id ?? "unknown"}::${(e.title || "").trim().toLowerCase()}`;
-          const key = u ? `u:${u}` : `t:${fallback}`;
-          if (seenUrl.has(key)) continue;
-          seenUrl.add(key);
+          // Canonical URL dedupe
+          const canonUrl = canonicalizeUrl(e.url || "");
+          if (!canonUrl) continue;
+          if (seenUrl.has(canonUrl)) continue;
+          seenUrl.add(canonUrl);
 
-          // 2) per-feed cap
-          const fid = e.feed?.id ?? "unknown";
-          const c = perFeedCounts.get(fid) || 0;
-          if (c >= perFeedCap) continue;
-          perFeedCounts.set(fid, c + 1);
+          // Per-feed cap
+          const feedId = e.feed?.id ?? "unknown";
+          const count = perFeedCount.get(feedId) || 0;
+          if (count >= perFeedCap) continue;
+          perFeedCount.set(feedId, count + 1);
 
-          // 3) lightweight title clustering
-          const tokens = titleTokens(e.title || "", minTokenLen);
-          const sig1 = tokens.slice(0, sigTokens).join(" ");
-          const sig2 = Array.from(new Set(tokens)).slice(0, sigTokens).sort().join(" ");
-          const sig = sig1 || sig2 || `id:${e.id}`;
+          // Title clustering
+          const sig = makeSignature(e.title || "", sigTokens, minTokenLen);
+          const key = sig || canonUrl; // fallback
 
-          let cl = clusters.get(sig);
-          if (!cl) cl = { rep: e, mentions: 0, sources: new Set() };
+          const feedTitle = e.feed?.title || "unknown";
+          const prev = clusters.get(key);
 
-          // keep newest as representative
-          if ((e.published_at || "") > (cl.rep.published_at || "")) cl.rep = e;
+          if (!prev) {
+            clusters.set(key, {
+              rep: e,
+              mentions: 1,
+              sources: new Set([feedTitle]),
+            });
+          } else {
+            prev.mentions += 1;
+            prev.sources.add(feedTitle);
 
-          cl.mentions += 1;
-          if (e.feed?.title) cl.sources.add(e.feed.title);
+            // Keep newest rep (by published_at)
+            const prevTs = Date.parse(prev.rep?.published_at || "") || 0;
+            const newTs = Date.parse(e.published_at || "") || 0;
+            if (newTs > prevTs) prev.rep = e;
+          }
 
-          clusters.set(sig, cl);
-
-          // stop early when we have enough unique-ish clusters
+          // Stop early if we have enough clusters
           if (clusters.size >= stopWhenClusters) break;
         }
 
         if (clusters.size >= stopWhenClusters) break;
-        if (entries.length < perPage) break;
-        offset += perPage;
-      }
 
-      if (clusters.size >= stopWhenClusters) break;
+        offset += entries.length;
+        // If upstream returned fewer than perPage, we're done
+        if (entries.length < perPage) break;
+      }
     }
 
     const tFetchDone = Date.now();
 
-    // Build ranked list
-    const now = Date.now();
-
-    const ranked = Array.from(clusters.values())
+    // Build output list (NO ranking): latest-first
+    const items = Array.from(clusters.values())
       .map((c) => {
         const rep = c.rep;
-        const publishedMs = Date.parse(rep.published_at || "") || now;
-        const ageHours = Math.max(0, (now - publishedMs) / (1000 * 60 * 60));
-
-        const mentions = c.mentions || 1;
-        const sourceCount = c.sources.size || 1;
-
-        // Recency: exponential decay. 18h time constant works well for news.
-       // Recency: gentle freshness boost.
-        // Exponential decay with a long half-life so older but important stories
-        // can still rank. Fresh news gets a nudge, not a veto.
-        const recency = 25 * Math.exp(-ageHours / 36);
-
-
-        // Crowd: log-scaled so it doesn't explode
-        const crowd = 12 * Math.log2(1 + mentions) + 8 * Math.log2(1 + sourceCount);
-
-        const score = recency + crowd;
-
-        const why = [
-          ageHours < 6 ? "very recent" : ageHours < 24 ? "recent" : "older",
-          mentions > 1 ? `${mentions} mentions` : null,
-          sourceCount > 1 ? `${sourceCount} sources` : null,
-        ]
-          .filter(Boolean)
-          .join(" · ");
 
         const baseItem = {
           id: rep.id,
@@ -209,27 +180,21 @@ export async function onRequestGet({ request, env }) {
           url: rep.url,
           published_at: rep.published_at,
           day: (rep.published_at || "").slice(0, 10), // YYYY-MM-DD
-          age_hours: round1(ageHours),
           status: rep.status,
           feed: rep.feed ? { id: rep.feed.id, title: rep.feed.title, site_url: rep.feed.site_url } : null,
           tags: rep.tags || [],
-          mentions,
-          sources_count: sourceCount,
-          score: round2(score),
-          why,
+          mentions: c.mentions || 1,
+          sources_count: c.sources.size || 1,
         };
 
-        if (debug) {
-          baseItem.sources = Array.from(c.sources);
-        }
-
+        if (debug) baseItem.sources = Array.from(c.sources);
         return baseItem;
       })
-      .sort((a, b) => (b.score - a.score) || (b.published_at || "").localeCompare(a.published_at || ""));
+      .sort((a, b) => (b.published_at || "").localeCompare(a.published_at || ""));
 
-    const top = ranked.slice(0, topN);
+    const top = items.slice(0, topN);
 
-    // Group top results by day for easy UI separators
+    // Group by day for UI separators (day is derived from published_at)
     const groupsMap = new Map();
     for (const item of top) {
       const d = item.day || "unknown";
@@ -238,115 +203,135 @@ export async function onRequestGet({ request, env }) {
     }
     const groups = Array.from(groupsMap.entries()).map(([day, items]) => ({ day, items }));
 
-    const tEnd = Date.now();
+    const tDone = Date.now();
 
+    return json({
+      meta: {
+        requested_status: statusParam,
+        fetched_statuses: statuses,
+        days,
+        top: topN,
+        per_page: perPage,
+        max_raw: maxRaw,
+        published_after: publishedAfterIso,
+
+        raw_fetched: rawFetched,
+        after_url_dedupe: seenUrl.size,
+        per_feed_cap: perFeedCap,
+        after_per_feed: Array.from(perFeedCount.values()).reduce((a, b) => a + b, 0),
+        clusters: clusters.size,
+        returned: top.length,
+
+        timing: {
+          total_ms: tDone - t0,
+          fetch_ms: tFetchDone - t0,
+          processing_ms: tDone - tFetchDone,
+        },
+
+        debug,
+      },
+      top,
+      groups,
+    });
+  } catch (err) {
     return json(
       {
-        meta: {
-          requested_status: statusParam,
-          fetched_statuses: statuses,
-          days,
-          top: topN,
-
-          per_page: perPage,
-          published_after: publishedAfter,
-
-          max_raw: maxRaw,
-          raw_fetched: rawFetched,
-          pages_fetched: pagesFetched,
-
-          per_feed_cap: perFeedCap,
-          stop_when_clusters: stopWhenClusters,
-
-          clusters: clusters.size,
-          ranked_count: ranked.length,
-          returned: top.length,
-
-          sig_tokens: sigTokens,
-          min_token_len: minTokenLen,
-
-          timing: {
-            total_ms: tEnd - t0,
-            fetch_ms: tFetchDone - t0,
-            processing_ms: tEnd - tFetchDone,
-          },
-
-          debug,
-          include_all: includeAll,
-        },
-        groups,
-        top,
-        ...(includeAll ? { ranked } : {}),
+        error: "Function crashed",
+        message: String(err?.message || err),
+        stack: String(err?.stack || ""),
       },
-      200,
-      {"Access-Control-Allow-Origin": "*","Cache-Control": "public, max-age=60, s-maxage=60, stale-while-revalidate=300"}
+      500
     );
-  } catch (err) {
-    return json({ error: "Function crashed", message: String(err?.message || err), stack: err?.stack || null }, 500);
   }
 }
 
-// Your Miniflux only accepts read/unread/removed. Implement "all" here.
 function normalizeStatuses(statusParam) {
+  // Your Miniflux returns 400 for status=all; so we fetch read+unread.
+  // If user asks removed explicitly, we only fetch removed.
+  const allowed = new Set(["unread", "read", "removed"]);
   if (statusParam === "all") return ["unread", "read"];
-  if (statusParam === "unread") return ["unread"];
-  if (statusParam === "read") return ["read"];
-  if (statusParam === "removed") return ["removed"];
+  if (allowed.has(statusParam)) return [statusParam];
+  // default
   return ["unread", "read"];
 }
 
-// Tokenize normalized title (cheap)
-function titleTokens(title, minTokenLen) {
-  const t = normalizeTitle(title);
-  const stop = new Set([
-    "the","a","an","and","or","to","of","in","on","for","with","as","at","by","from",
-    "says","say","said","report","reports","reported","live","update","updates",
-    "today","latest","news"
-  ]);
-  let parts = t.split(" ").filter(Boolean);
-  parts = parts.filter((p) => p.length >= minTokenLen).filter((p) => !stop.has(p));
-  if (parts.length > 30) parts = parts.slice(0, 30);
-  return parts;
+function titleTokens(title, minLen) {
+  return normalizeTitle(title)
+    .split(/\s+/)
+    .map((t) => t.trim())
+    .filter((t) => t.length >= minLen);
 }
 
-function normalizeTitle(title) {
-  return String(title)
+function normalizeTitle(s) {
+  return (s || "")
     .toLowerCase()
-    .replace(/\b\d+(\.\d+)?\b/g, "0") // normalize numbers
-    .replace(/[’‘]/g, "'")
-    .replace(/[“”]/g, '"')
-    .replace(/[–—]/g, "-")
-    .replace(/[^a-z0-9\s-]/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/[’']/g, "")
+    .replace(/[^a-z0-9\s]+/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
 
-function canonicalizeUrl(input) {
+function makeSignature(title, sigTokens, minTokenLen) {
+  const tokens = titleTokens(title, minTokenLen);
+  if (tokens.length === 0) return "";
+
+  // Primary signature: first N tokens (keeps phrase structure)
+  const head = tokens.slice(0, sigTokens).join(" ");
+
+  // Fallback signature: unique tokens sorted (helps minor reorderings)
+  const uniq = Array.from(new Set(tokens)).sort().slice(0, sigTokens).join(" ");
+
+  return head || uniq;
+}
+
+function canonicalizeUrl(u) {
   try {
-    if (!input) return "";
-    const u = new URL(input);
-    u.hash = "";
+    if (!u) return "";
+    const url = new URL(u);
 
-    const dropPrefixes = ["utm_"];
-    const dropExact = new Set(["fbclid","gclid","igshid","mc_cid","mc_eid","mkt_tok","ref","ref_src","spm","cmpid"]);
+    // drop fragments
+    url.hash = "";
 
-    for (const [k] of Array.from(u.searchParams.entries())) {
-      const kl = k.toLowerCase();
-      if (dropExact.has(kl) || dropPrefixes.some((p) => kl.startsWith(p))) u.searchParams.delete(k);
+    // remove common tracking params
+    const drop = new Set([
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_term",
+      "utm_content",
+      "utm_id",
+      "utm_name",
+      "gclid",
+      "fbclid",
+      "yclid",
+      "mc_cid",
+      "mc_eid",
+      "ref",
+      "ref_src",
+      "ref_url",
+      "igshid",
+      "mkt_tok",
+    ]);
+
+    for (const k of Array.from(url.searchParams.keys())) {
+      if (drop.has(k.toLowerCase())) url.searchParams.delete(k);
     }
 
-    u.hostname = u.hostname.toLowerCase();
-    const s = u.toString();
-    return s.endsWith("/") ? s.slice(0, -1) : s;
+    // normalize host/path
+    url.hostname = url.hostname.toLowerCase();
+    url.pathname = url.pathname.replace(/\/+$/, "");
+
+    return url.toString();
   } catch {
     return "";
   }
 }
 
-function json(obj, status = 200, extraHeaders = {}) {
+function json(obj, status = 200, headers = {}) {
   return new Response(JSON.stringify(obj), {
     status,
-    headers: { "Content-Type": "application/json", ...extraHeaders },
+    headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", ...headers },
   });
 }
 
@@ -354,12 +339,4 @@ function clampInt(value, min, max) {
   const n = parseInt(value, 10);
   if (Number.isNaN(n)) return min;
   return Math.max(min, Math.min(max, n));
-}
-
-function round1(n) {
-  return Math.round(n * 10) / 10;
-}
-
-function round2(n) {
-  return Math.round(n * 100) / 100;
 }
