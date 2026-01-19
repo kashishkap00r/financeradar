@@ -174,18 +174,28 @@ export async function onRequestGet({ request, env }) {
       .map((c) => {
         const rep = c.rep;
 
-        const baseItem = {
-          id: rep.id,
-          title: rep.title,
-          url: rep.url,
-          published_at: rep.published_at,
-          day: (rep.published_at || "").slice(0, 10), // YYYY-MM-DD
-          status: rep.status,
-          feed: rep.feed ? { id: rep.feed.id, title: rep.feed.title, site_url: rep.feed.site_url } : null,
-          tags: rep.tags || [],
-          mentions: c.mentions || 1,
-          sources_count: c.sources.size || 1,
-        };
+        const publishedAt = rep.published_at || null;
+const publishedTs = publishedAt ? Date.parse(publishedAt) : null;
+
+const baseItem = {
+  id: rep.id,
+  title: rep.title,
+  url: rep.url,
+
+  // publish timing
+  published_at: publishedAt,        // exact ISO string
+  published_ts: publishedTs,         // epoch ms (easy for UI)
+  day: publishedAt ? publishedAt.slice(0, 10) : null,
+
+  status: rep.status,
+  feed: rep.feed
+    ? { id: rep.feed.id, title: rep.feed.title, site_url: rep.feed.site_url }
+    : null,
+
+  tags: rep.tags || [],
+  mentions: c.mentions || 1,
+  sources_count: c.sources.size || 1,
+};
 
         if (debug) baseItem.sources = Array.from(c.sources);
         return baseItem;
