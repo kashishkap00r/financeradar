@@ -54,6 +54,10 @@ export async function onRequestGet({ request, env }) {
       "order for compliance",
       "recovery certificate",
       "Remittance advice"
+      "stocks to buy",
+      "buy or sell",
+      "d-street",
+      "stocks to sell",
     ];
 
     // =========================================================
