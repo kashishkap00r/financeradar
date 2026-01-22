@@ -69,6 +69,7 @@ export async function onRequestGet({ request, env }) {
       "IND",
       "reserve money",
       "auction result",
+      "T20I",
     ];
 
     // =========================================================
