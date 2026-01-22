@@ -42,6 +42,10 @@ export async function onRequestGet({ request, env }) {
       "day trading guide",
       "bl morning report",
       "variable rate repo (VRR) auction",
+      "share price",
+      "share prices",
+      "stock price",
+      "stock prices",
     ];
 
     // =========================================================
