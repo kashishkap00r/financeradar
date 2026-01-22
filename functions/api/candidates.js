@@ -46,6 +46,14 @@ export async function onRequestGet({ request, env }) {
       "share prices",
       "stock price",
       "stock prices",
+      "appeal no.",
+      "certificate no.",
+      "adjudication order",
+      "addendum to",
+      "enquiry order",
+      "order for compliance",
+      "recovery certificate",
+      "Remittance advice"
     ];
 
     // =========================================================
