@@ -70,6 +70,7 @@ export async function onRequestGet({ request, env }) {
       "reserve money",
       "auction result",
       "T20I",
+      "auction result",
     ];
 
     // =========================================================
