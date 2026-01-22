@@ -71,6 +71,8 @@ export async function onRequestGet({ request, env }) {
       "auction result",
       "T20I",
       "auction result",
+      "broker's call:",
+      "stocks to watch",
     ];
 
     // =========================================================
