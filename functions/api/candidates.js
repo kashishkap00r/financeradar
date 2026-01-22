@@ -41,7 +41,7 @@ export async function onRequestGet({ request, env }) {
     const TRUMP_RE = /trump('?s)?/i;
 
     // Output controls
-    const topN = clampInt(reqUrl.searchParams.get("top") || "100", 1, 200);
+   const topN = clampInt(reqUrl.searchParams.get("top") || "500", 1, 500);
 
     // Pagination / safety
     const perPage = clampInt(reqUrl.searchParams.get("limit") || "200", 50, 500);
