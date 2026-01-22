@@ -2,7 +2,7 @@
 // FinanceRadar Candidates API (Miniflux proxy) — HYGIENE ONLY (NO RANKING)
 //
 // What this endpoint does:
-// - Fetches entries from Miniflux (your RSS reader) via /v1/entries
+// - Fetches entries from Miniflux via /v1/entries
 // - Hard limits results to ONLY the last 5 days (cannot be overridden by query params)
 // - Supports status=all by fetching unread + read (because Miniflux rejects status=all)
 // - Canonicalizes URLs and removes tracking params
@@ -27,25 +27,31 @@ export async function onRequestGet({ request, env }) {
     const DAYS_LIMIT = 5;
 
     // Blocked editorial phrases (case-insensitive, phrase-based)
+    // NOTE: As requested:
+    // - Removed "IND"
+    // - Removed ALL auction-related phrases
     const BLOCKED_PHRASES = [
       "trump",
       "trump's",
       "nifty",
       "sensex",
+
       "money market operations",
       "premature redemption under sovereign gold bond",
       "sovereign gold bond",
       "auction results",
+
       "stock market highlights",
       "today’s stock recommendation",
       "today's stock recommendation",
       "day trading guide",
       "bl morning report",
-      "variable rate repo (VRR) auction",
+
       "share price",
       "share prices",
       "stock price",
       "stock prices",
+
       "appeal no.",
       "certificate no.",
       "adjudication order",
@@ -53,33 +59,39 @@ export async function onRequestGet({ request, env }) {
       "enquiry order",
       "order for compliance",
       "recovery certificate",
-      "Remittance advice",
-      "stocks to buy",
-      "buy or sell",
-      "d-street",
-      "stocks to sell",
-      "underwriting auction",
-      "results today live",
-      "results today",
-      "top gainers and losers",
-      "q3 results",
-      "stocks to buy,",
-      "stocks to watch",
-      "cricket",
-      "IND",
-      "reserve money",
-      "auction result",
-      "T20I",
-      "auction result",
-      "broker's call:",
-      "stocks to watch",
-      "davos",
-      "T20",
+      "remittance advice",
+      "auction results",
       "auction of state government securities",
       "OMO Purchase Auction",
       "RBI imposes monetary penalty",
-      "auction"
+
+      "stocks to buy",
+      "stocks to sell",
+      "stocks to watch",
+      "buy or sell",
+      "d-street",
+      "top gainers and losers",
+      "q3 results",
+      "results today",
+      "results today live",
+
+      "broker's call:",
+      "davos",
+
+      "cricket",
+      "t20",
+      "t20i",
+
+      "reserve money",
+
+      // (Removed: all auction / auctions / underwriting auction / auction results / vrr auction / omo purchase auction etc.)
     ];
+
+    // PERFORMANCE FIX:
+    // Normalize the blocked phrases ONCE, not inside the hot loop.
+    const BLOCKED_NORM = BLOCKED_PHRASES
+      .map(normalizeTitle)
+      .filter(Boolean);
 
     // =========================================================
     // Output controls
@@ -92,7 +104,14 @@ export async function onRequestGet({ request, env }) {
 
     // Diversity control
     const perFeedCap = clampInt(reqUrl.searchParams.get("per_feed") || "30", 1, 200);
-    const stopWhenClusters = clampInt(reqUrl.searchParams.get("stop_when_clusters") || "1000", 50, 5000);
+
+    // IMPORTANT: collecting 1000 clusters when you only return 500 is extra work.
+    // Lower default reduces CPU spikes (still overridable if you want).
+    const stopWhenClusters = clampInt(
+      reqUrl.searchParams.get("stop_when_clusters") || "750",
+      50,
+      5000
+    );
 
     // Clustering config
     const minTokenLen = 3;
@@ -150,8 +169,8 @@ export async function onRequestGet({ request, env }) {
           const normTitle = normalizeTitle(rawTitle);
 
           let blocked = false;
-          for (const phrase of BLOCKED_PHRASES) {
-            if (normTitle.includes(normalizeTitle(phrase))) {
+          for (const p of BLOCKED_NORM) {
+            if (normTitle.includes(p)) {
               blocked = true;
               break;
             }
