@@ -40,6 +40,7 @@ export async function onRequestGet({ request, env }) {
       "today’s stock recommendation",
       "today's stock recommendation",
       "day trading guide",
+      "bl morning report",
     ];
 
     // =========================================================
