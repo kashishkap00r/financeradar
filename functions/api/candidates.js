@@ -75,6 +75,10 @@ export async function onRequestGet({ request, env }) {
       "stocks to watch",
       "davos",
       "T20",
+      "auction of state government securities",
+      "OMO Purchase Auction",
+      "RBI imposes monetary penalty",
+      "auction"
     ];
 
     // =========================================================
