@@ -58,6 +58,17 @@ export async function onRequestGet({ request, env }) {
       "buy or sell",
       "d-street",
       "stocks to sell",
+      "underwriting auction",
+      "results today live",
+      "results today",
+      "top gainers and losers",
+      "q3 results",
+      "stocks to buy,",
+      "stocks to watch",
+      "cricket",
+      "IND",
+      "reserve money",
+      "auction result",
     ];
 
     // =========================================================
