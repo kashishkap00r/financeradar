@@ -81,6 +81,7 @@ export async function onRequestGet({ request, env }) {
       "cricket",
       "t20",
       "t20i",
+      "open market operation",
 
       "reserve money",
 
