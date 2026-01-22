@@ -53,7 +53,7 @@ export async function onRequestGet({ request, env }) {
       "enquiry order",
       "order for compliance",
       "recovery certificate",
-      "Remittance advice"
+      "Remittance advice",
       "stocks to buy",
       "buy or sell",
       "d-street",
