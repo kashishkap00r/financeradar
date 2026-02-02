@@ -158,7 +158,7 @@ def load_feeds():
         return []
 
 
-def parse_date(date_str):
+def parse_date(date_str, source_name=None):
     """Try to parse various date formats from RSS feeds."""
     if not date_str:
         return None
@@ -182,7 +182,12 @@ def parse_date(date_str):
 
     for fmt in formats:
         try:
-            return datetime.strptime(date_str, fmt)
+            dt = datetime.strptime(date_str, fmt)
+            if dt.tzinfo is None:
+                # RBI feeds are typically in IST but omit timezone
+                if source_name and "RBI" in source_name:
+                    dt = dt.replace(tzinfo=IST_TZ)
+            return dt
         except ValueError:
             continue
 
@@ -238,7 +243,7 @@ def fetch_feed(feed_config):
                 articles.append({
                     "title": title.text if title is not None and title.text else "No title",
                     "link": link_href,
-                    "date": parse_date(pub_date.text if pub_date is not None else ""),
+                    "date": parse_date(pub_date.text if pub_date is not None else "", feed_name),
                     "description": summary.text[:300] if summary is not None and summary.text else "",
                     "source": feed_name,
                     "source_url": source_url
@@ -254,7 +259,7 @@ def fetch_feed(feed_config):
                 articles.append({
                     "title": title.text if title is not None and title.text else "No title",
                     "link": link.text if link is not None and link.text else "",
-                    "date": parse_date(pub_date.text if pub_date is not None else ""),
+                    "date": parse_date(pub_date.text if pub_date is not None else "", feed_name),
                     "description": description.text[:300] if description is not None and description.text else "",
                     "source": feed_name,
                     "source_url": source_url
