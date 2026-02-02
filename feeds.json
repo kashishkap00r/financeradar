@@ -3,450 +3,560 @@
     "id": "adb-org-features-rss",
     "name": "ADB — Features",
     "url": "https://www.adb.org/",
-    "feed": "https://feeds.feedburner.com/adb_features"
+    "feed": "https://feeds.feedburner.com/adb_features",
+    "category": "Institutions"
   },
   {
     "id": "adb-org-publications-rss",
     "name": "ADB — Publications",
     "url": "https://www.adb.org/",
-    "feed": "https://feeds.feedburner.com/adb_publications"
+    "feed": "https://feeds.feedburner.com/adb_publications",
+    "category": "Institutions"
   },
   {
     "id": "asia-news-cnbc",
     "name": "Asia News",
     "url": "https://www.cnbc.com/asia-news/",
-    "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19832390"
+    "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19832390",
+    "category": "News"
   },
   {
     "id": "bbc-news-business",
     "name": "BBC News — Business",
     "url": "https://www.bbc.co.uk/news/business",
-    "feed": "https://feeds.bbci.co.uk/news/business/rss.xml?edition=int"
+    "feed": "https://feeds.bbci.co.uk/news/business/rss.xml?edition=int",
+    "category": "News"
   },
   {
     "id": "et-bfsi-editors-view",
     "name": "ET BFSI — Editor's View",
     "url": "https://bfsi.economictimes.indiatimes.com/news/editors-view",
-    "feed": "https://bfsi.economictimes.indiatimes.com/rss/editors-view"
+    "feed": "https://bfsi.economictimes.indiatimes.com/rss/editors-view",
+    "category": "News"
   },
   {
     "id": "et-bfsi-articles",
     "name": "ET BFSI — Articles",
     "url": "https://bfsi.economictimes.indiatimes.com/news/articles",
-    "feed": "https://bfsi.economictimes.indiatimes.com/rss/articles"
+    "feed": "https://bfsi.economictimes.indiatimes.com/rss/articles",
+    "category": "News"
   },
   {
     "id": "the-hindu-budget",
     "name": "The Hindu — Budget",
     "url": "https://www.thehindu.com/business/budget/",
-    "feed": "https://www.thehindu.com/business/budget/feeder/default.rss"
+    "feed": "https://www.thehindu.com/business/budget/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "business-news-cnbc",
     "name": "Business News",
     "url": "https://www.cnbc.com/business/",
-    "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10001147"
+    "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10001147",
+    "category": "News"
   },
   {
     "id": "the-hindu-agri-business",
     "name": "The Hindu — Agri Business",
     "url": "https://www.thehindu.com/business/agri-business/",
-    "feed": "https://www.thehindu.com/business/agri-business/feeder/default.rss"
+    "feed": "https://www.thehindu.com/business/agri-business/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "business-standard-number-wise",
     "name": "Business Standard",
     "url": "https://businessstandard.substack.com",
-    "feed": "https://businessstandard.substack.com/feed"
+    "feed": "https://businessstandard.substack.com/feed",
+    "category": "Ideas"
   },
   {
     "id": "businessline-companies-rss-feeder",
     "name": "BusinessLine — Companies",
     "url": "https://www.thehindubusinessline.com/companies/",
-    "feed": "https://www.thehindubusinessline.com/companies/feeder/default.rss"
+    "feed": "https://www.thehindubusinessline.com/companies/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "et-now-companies",
     "name": "ET Now — Companies",
     "url": "https://www.etnownews.com/companies",
-    "feed": "https://www.etnownews.com/feeds/gns-etn-companies.xml"
+    "feed": "https://www.etnownews.com/feeds/gns-etn-companies.xml",
+    "category": "News"
   },
   {
     "id": "data-for-india",
     "name": "Data For India — Data",
     "url": "https://www.dataforindia.com/",
-    "feed": "https://www.dataforindia.com/rss/"
+    "feed": "https://www.dataforindia.com/rss/",
+    "category": "Ideas"
   },
   {
     "id": "downtoearth",
     "name": "downtoearth",
     "url": "https://www.downtoearth.org.in",
-    "feed": "https://prod-qt-images.s3.amazonaws.com/production/downtoearth/feed.xml"
+    "feed": "https://prod-qt-images.s3.amazonaws.com/production/downtoearth/feed.xml",
+    "category": "Ideas"
   },
   {
     "id": "ecb-statpress",
     "name": "ECB — Statistical Press",
     "url": "https://www.ecb.europa.eu/",
-    "feed": "https://www.ecb.europa.eu/rss/statpress.html"
+    "feed": "https://www.ecb.europa.eu/rss/statpress.html",
+    "category": "Institutions"
   },
   {
     "id": "ecb-wppub",
     "name": "ECB — Working Papers",
     "url": "https://www.ecb.europa.eu/",
-    "feed": "https://www.ecb.europa.eu/rss/wppub.html"
+    "feed": "https://www.ecb.europa.eu/rss/wppub.html",
+    "category": "Institutions"
   },
   {
     "id": "ecb-blog",
     "name": "ECB — Blog",
     "url": "https://www.ecb.europa.eu/",
-    "feed": "https://www.ecb.europa.eu/rss/blog.html"
+    "feed": "https://www.ecb.europa.eu/rss/blog.html",
+    "category": "Institutions"
   },
   {
     "id": "ecb-press",
     "name": "ECB — Press",
     "url": "https://www.ecb.europa.eu/",
-    "feed": "https://www.ecb.europa.eu/rss/press.html"
+    "feed": "https://www.ecb.europa.eu/rss/press.html",
+    "category": "Institutions"
   },
   {
     "id": "ecb-rbu",
     "name": "ECB — Research Bulletin",
     "url": "https://www.ecb.europa.eu/",
-    "feed": "https://www.ecb.europa.eu/rss/rbu.html"
+    "feed": "https://www.ecb.europa.eu/rss/rbu.html",
+    "category": "Institutions"
   },
   {
     "id": "ecb-pub",
     "name": "ECB — Publications",
     "url": "https://www.ecb.europa.eu/",
-    "feed": "https://www.ecb.europa.eu/rss/pub.html"
+    "feed": "https://www.ecb.europa.eu/rss/pub.html",
+    "category": "Institutions"
   },
   {
     "id": "economic-times-default",
     "name": "Economic Times — Latest",
     "url": "https://economictimes.indiatimes.com",
-    "feed": "https://economictimes.indiatimes.com/rssfeedsdefault.cms"
+    "feed": "https://economictimes.indiatimes.com/rssfeedsdefault.cms",
+    "category": "News"
   },
   {
     "id": "economic-times-bfsi-recentstories",
     "name": "ET BFSI — Recent Stories",
     "url": "https://bfsi.economictimes.indiatimes.com/rss/recentstories",
-    "feed": "https://bfsi.economictimes.indiatimes.com/rss/recentstories"
+    "feed": "https://bfsi.economictimes.indiatimes.com/rss/recentstories",
+    "category": "News"
   },
   {
     "id": "economic-times-industry",
     "name": "Economic Times — Latest",
     "url": "https://economictimes.indiatimes.com/industry",
-    "feed": "https://economictimes.indiatimes.com/rssfeeds/13352306.cms"
+    "feed": "https://economictimes.indiatimes.com/rssfeeds/13352306.cms",
+    "category": "News"
   },
   {
     "id": "cnbc-economy",
     "name": "Economy — Economy",
     "url": "https://www.cnbc.com/economy/",
-    "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258"
+    "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+    "category": "News"
   },
   {
     "id": "economic-times-economy-news",
     "name": "Economic Times — Latest",
     "url": "https://economictimes.indiatimes.com/news/economy",
-    "feed": "https://economictimes.indiatimes.com/rssfeeds/1373380680.cms"
+    "feed": "https://economictimes.indiatimes.com/rssfeeds/1373380680.cms",
+    "category": "News"
   },
   {
     "id": "et-now-economy",
     "name": "ET Now — Economy",
     "url": "https://www.etnownews.com/economy",
-    "feed": "https://www.etnownews.com/feeds/gns-etn-economy.xml"
+    "feed": "https://www.etnownews.com/feeds/gns-etn-economy.xml",
+    "category": "News"
   },
   {
     "id": "the-hindu-economy",
     "name": "The Hindu — Business",
     "url": "https://www.thehindu.com/business/Economy/",
-    "feed": "https://www.thehindu.com/business/Economy/feeder/default.rss"
+    "feed": "https://www.thehindu.com/business/Economy/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "businessline-economy",
     "name": "BusinessLine — Economy",
     "url": "https://www.thehindubusinessline.com/economy/",
-    "feed": "https://www.thehindubusinessline.com/economy/feeder/default.rss"
+    "feed": "https://www.thehindubusinessline.com/economy/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "cnbc-energy",
     "name": "Energy",
     "url": "https://www.cnbc.com/energy/",
-    "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19836768"
+    "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19836768",
+    "category": "News"
   },
   {
     "id": "et-now-latest",
     "name": "ET Now",
     "url": "https://www.etnownews.com",
-    "feed": "https://www.etnownews.com/feeds/gns-etn-latest.xml"
+    "feed": "https://www.etnownews.com/feeds/gns-etn-latest.xml",
+    "category": "News"
   },
   {
     "id": "economist-finance-and-economics",
     "name": "Finance & economics",
     "url": "https://www.economist.com/finance-and-economics",
-    "feed": "https://www.economist.com/finance-and-economics/rss.xml"
+    "feed": "https://www.economist.com/finance-and-economics/rss.xml",
+    "category": "News"
   },
   {
     "id": "economic-times-finance-economy",
     "name": "Economic Times — Latest",
     "url": "https://economictimes.indiatimes.com/news/economy/finance",
-    "feed": "https://economictimes.indiatimes.com/rssfeeds/1286551815.cms"
+    "feed": "https://economictimes.indiatimes.com/rssfeeds/1286551815.cms",
+    "category": "News"
   },
   {
     "id": "guardian-global-economy",
     "name": "The Guardian — Business",
     "url": "https://www.theguardian.com/business/global-economy",
-    "feed": "https://www.theguardian.com/business/global-economy/rss"
+    "feed": "https://www.theguardian.com/business/global-economy/rss",
+    "category": "News"
   },
   {
     "id": "businessline-all",
     "name": "BusinessLine",
     "url": "https://www.thehindubusinessline.com/",
-    "feed": "https://www.thehindubusinessline.com/?service=rss"
+    "feed": "https://www.thehindubusinessline.com/?service=rss",
+    "category": "News"
   },
   {
     "id": "adb-org-blogs",
     "name": "ADB — Blogs",
     "url": "https://www.adb.org/",
-    "feed": "https://feeds.feedburner.com/adb_blogs"
+    "feed": "https://feeds.feedburner.com/adb_blogs",
+    "category": "Institutions"
   },
   {
     "id": "adb-org-research-publications",
     "name": "ADB — Research Publications",
     "url": "https://www.adb.org/",
-    "feed": "https://feeds.feedburner.com/research-publications"
+    "feed": "https://feeds.feedburner.com/research-publications",
+    "category": "Institutions"
   },
   {
     "id": "india-dispatch",
     "name": "India Dispatch",
     "url": "https://indiadispatch.com",
-    "feed": "https://indiadispatch.com/feed"
+    "feed": "https://indiadispatch.com/feed",
+    "category": "Ideas"
   },
   {
     "id": "the-hindu-industry",
     "name": "The Hindu — Business",
     "url": "https://www.thehindu.com/business/Industry/",
-    "feed": "https://www.thehindu.com/business/Industry/feeder/default.rss"
+    "feed": "https://www.thehindu.com/business/Industry/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "businessline-data-stories",
     "name": "BusinessLine — Data Stories",
     "url": "https://www.thehindubusinessline.com/data-stories/",
-    "feed": "https://www.thehindubusinessline.com/data-stories/feeder/default.rss"
+    "feed": "https://www.thehindubusinessline.com/data-stories/feeder/default.rss",
+    "category": "Ideas"
   },
   {
     "id": "businessline-latest-news",
     "name": "BusinessLine — News",
     "url": "https://www.thehindubusinessline.com/news/",
-    "feed": "https://www.thehindubusinessline.com/news/?service=rss"
+    "feed": "https://www.thehindubusinessline.com/news/?service=rss",
+    "category": "News"
   },
   {
     "id": "et-now-infrastructure",
     "name": "ET Now",
     "url": "https://www.etnownews.com/infrastructure",
-    "feed": "https://www.etnownews.com/feeds/gns-etn-infrastructure.xml"
+    "feed": "https://www.etnownews.com/feeds/gns-etn-infrastructure.xml",
+    "category": "News"
   },
   {
     "id": "businessline-macro-economy",
     "name": "BusinessLine — Economy",
     "url": "https://www.thehindubusinessline.com/economy/macro-economy/",
-    "feed": "https://www.thehindubusinessline.com/economy/macro-economy/feeder/default.rss"
+    "feed": "https://www.thehindubusinessline.com/economy/macro-economy/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "businessline-money-and-banking",
     "name": "BusinessLine — Money & Banking",
     "url": "https://www.thehindubusinessline.com/money-and-banking/",
-    "feed": "https://www.thehindubusinessline.com/money-and-banking/feeder/default.rss"
+    "feed": "https://www.thehindubusinessline.com/money-and-banking/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "businessline-economy-policy",
     "name": "BusinessLine — Economy",
     "url": "https://www.thehindubusinessline.com/economy/policy/",
-    "feed": "https://www.thehindubusinessline.com/economy/policy/?service=rss"
+    "feed": "https://www.thehindubusinessline.com/economy/policy/?service=rss",
+    "category": "News"
   },
   {
     "id": "businessline-markets-service",
     "name": "BusinessLine — Markets",
     "url": "https://www.thehindubusinessline.com/markets/",
-    "feed": "https://www.thehindubusinessline.com/markets/?service=rss"
+    "feed": "https://www.thehindubusinessline.com/markets/?service=rss",
+    "category": "News"
   },
   {
     "id": "et-now-markets",
     "name": "ET Now",
     "url": "https://www.etnownews.com/markets",
-    "feed": "https://www.etnownews.com/feeds/gns-etn-markets.xml"
+    "feed": "https://www.etnownews.com/feeds/gns-etn-markets.xml",
+    "category": "News"
   },
   {
     "id": "livemint-budget",
     "name": "Mint — Budget",
     "url": "https://www.livemint.com/rss/budget",
-    "feed": "https://www.livemint.com/rss/budget"
+    "feed": "https://www.livemint.com/rss/budget",
+    "category": "News"
   },
   {
     "id": "livemint-companies",
     "name": "Mint — Companies",
     "url": "https://www.livemint.com/rss/companies",
-    "feed": "https://www.livemint.com/rss/companies"
+    "feed": "https://www.livemint.com/rss/companies",
+    "category": "News"
   },
   {
     "id": "livemint-industry",
     "name": "Mint — Industry",
     "url": "https://www.livemint.com/rss/industry",
-    "feed": "https://www.livemint.com/rss/industry"
+    "feed": "https://www.livemint.com/rss/industry",
+    "category": "News"
   },
   {
     "id": "livemint-markets",
     "name": "Mint — Markets",
     "url": "https://www.livemint.com/rss/markets",
-    "feed": "https://www.livemint.com/rss/markets"
+    "feed": "https://www.livemint.com/rss/markets",
+    "category": "News"
   },
   {
     "id": "livemint-money",
     "name": "Mint — Money",
     "url": "https://www.livemint.com/rss/money",
-    "feed": "https://www.livemint.com/rss/money"
+    "feed": "https://www.livemint.com/rss/money",
+    "category": "News"
   },
   {
     "id": "livemint-news",
     "name": "Mint — News",
     "url": "https://www.livemint.com/rss/news",
-    "feed": "https://www.livemint.com/rss/news"
+    "feed": "https://www.livemint.com/rss/news",
+    "category": "News"
   },
   {
     "id": "livemint-opinion",
     "name": "Mint — Opinion",
     "url": "https://www.livemint.com/rss/opinion",
-    "feed": "https://www.livemint.com/rss/opinion"
+    "feed": "https://www.livemint.com/rss/opinion",
+    "category": "News"
   },
   {
     "id": "et-now-mutual-funds",
     "name": "ET Now",
     "url": "https://www.etnownews.com/mutual-funds",
-    "feed": "https://www.etnownews.com/feeds/gns-etn-mutual-funds.xml"
+    "feed": "https://www.etnownews.com/feeds/gns-etn-mutual-funds.xml",
+    "category": "News"
   },
   {
     "id": "et-now-news",
     "name": "ET Now",
     "url": "https://www.etnownews.com/news",
-    "feed": "https://www.etnownews.com/feeds/gns-etn-news.xml"
+    "feed": "https://www.etnownews.com/feeds/gns-etn-news.xml",
+    "category": "News"
   },
   {
     "id": "businessline-opinion",
     "name": "BusinessLine — Opinion",
     "url": "https://www.thehindubusinessline.com/opinion/",
-    "feed": "https://www.thehindubusinessline.com/opinion/feeder/default.rss"
+    "feed": "https://www.thehindubusinessline.com/opinion/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "pib-india-youtube",
     "name": "PIB India — YouTube",
     "url": "https://www.youtube.com/channel/UCGn6a5SI8SNlj7WylmPD6GQ",
-    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGn6a5SI8SNlj7WylmPD6GQ"
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGn6a5SI8SNlj7WylmPD6GQ",
+    "category": "Institutions"
   },
   {
     "id": "rest-of-world-latest-slash",
     "name": "Rest of World",
     "url": "https://restofworld.org",
-    "feed": "https://restofworld.org/feed/latest/"
+    "feed": "https://restofworld.org/feed/latest/",
+    "category": "Ideas"
   },
   {
     "id": "sebi-rss",
     "name": "SEBI — Press Releases",
     "url": "https://www.sebi.gov.in/sebirss.xml",
-    "feed": "https://www.sebi.gov.in/sebirss.xml"
+    "feed": "https://www.sebi.gov.in/sebirss.xml",
+    "category": "Institutions"
   },
   {
     "id": "the-hindu-markets",
     "name": "The Hindu — Markets",
     "url": "https://www.thehindu.com/business/markets/",
-    "feed": "https://www.thehindu.com/business/markets/feeder/default.rss"
+    "feed": "https://www.thehindu.com/business/markets/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "the-hindu-business-all",
     "name": "The Hindu — Business",
     "url": "https://www.thehindu.com/business/",
-    "feed": "https://www.thehindu.com/business/feeder/default.rss"
+    "feed": "https://www.thehindu.com/business/feeder/default.rss",
+    "category": "News"
   },
   {
     "id": "this-week-in-data",
     "name": "This Week In Data — Data",
     "url": "https://thisweekindata.indiadatahub.com",
-    "feed": "https://thisweekindata.indiadatahub.com/feed"
+    "feed": "https://thisweekindata.indiadatahub.com/feed",
+    "category": "Ideas"
   },
   {
     "id": "et-bfsi-topstories",
     "name": "ET BFSI — Top Stories",
     "url": "https://bfsi.economictimes.indiatimes.com/rss/topstories",
-    "feed": "https://bfsi.economictimes.indiatimes.com/rss/topstories"
+    "feed": "https://bfsi.economictimes.indiatimes.com/rss/topstories",
+    "category": "News"
   },
   {
     "id": "a-wealth-of-common-sense",
     "name": "A Wealth of Common Sense",
     "url": "https://awealthofcommonsense.com",
-    "feed": "http://awealthofcommonsense.com/feed/"
+    "feed": "http://awealthofcommonsense.com/feed/",
+    "category": "Ideas"
   },
   {
     "id": "fred-blog",
     "name": "FRED Blog",
     "url": "https://fredblog.stlouisfed.org",
-    "feed": "http://fredblog.stlouisfed.org/feed/"
+    "feed": "http://fredblog.stlouisfed.org/feed/",
+    "category": "Institutions"
   },
   {
     "id": "fundooprofessor",
     "name": "Fundoo Professor",
     "url": "https://fundooprofessor.wordpress.com",
-    "feed": "https://fundooprofessor.com/feed/"
+    "feed": "https://fundooprofessor.com/feed/",
+    "category": "Ideas"
   },
   {
     "id": "musings-on-markets-substack",
     "name": "Musings on Markets — Markets",
     "url": "https://aswathdamodaran.substack.com",
-    "feed": "https://aswathdamodaran.substack.com/feed"
+    "feed": "https://aswathdamodaran.substack.com/feed",
+    "category": "Ideas"
   },
   {
     "id": "businessline-editorial",
     "name": "BusinessLine — Opinion",
     "url": "https://www.thehindubusinessline.com/opinion/editorial/",
-    "feed": "http://www.thehindubusinessline.com/opinion/editorial/?service=rss"
+    "feed": "http://www.thehindubusinessline.com/opinion/editorial/?service=rss",
+    "category": "News"
   },
   {
     "id": "economic-times-company-news-http",
     "name": "Economic Times — Latest",
     "url": "https://economictimes.indiatimes.com/news/company",
-    "feed": "http://economictimes.indiatimes.com/rssfeeds/2143429.cms"
+    "feed": "http://economictimes.indiatimes.com/rssfeeds/2143429.cms",
+    "category": "News"
   },
   {
     "id": "livemint-insurance",
     "name": "Mint — Insurance",
     "url": "https://www.livemint.com/rss/insurance",
-    "feed": "https://www.livemint.com/rss/insurance"
+    "feed": "https://www.livemint.com/rss/insurance",
+    "category": "News"
   },
   {
     "id": "our-world-in-data",
     "name": "Our World in Data",
     "url": "https://ourworldindata.org",
-    "feed": "https://ourworldindata.org/atom.xml"
+    "feed": "https://ourworldindata.org/atom.xml",
+    "category": "Ideas"
   },
   {
     "id": "our-world-in-data-insights",
     "name": "Our World in Data — Data Insights",
     "url": "https://ourworldindata.org/data-insights",
-    "feed": "https://ourworldindata.org/atom-data-insights.xml"
+    "feed": "https://ourworldindata.org/atom-data-insights.xml",
+    "category": "Ideas"
   },
   {
     "id": "rbi-press-releases",
     "name": "RBI — Press Releases",
     "url": "http://www.rbi.org.in",
-    "feed": "https://www.rbi.org.in/pressreleases_rss.xml"
+    "feed": "https://www.rbi.org.in/pressreleases_rss.xml",
+    "category": "Institutions"
   },
   {
     "id": "techmeme",
     "name": "Techmeme",
     "url": "http://www.techmeme.com/",
-    "feed": "https://www.techmeme.com/feed.xml"
+    "feed": "https://www.techmeme.com/feed.xml",
+    "category": "News"
   },
   {
     "id": "by-the-numbers",
     "name": "By the Numbers",
     "url": "https://hannahritchie.substack.com",
-    "feed": "https://hannahritchie.substack.com/feed"
+    "feed": "https://hannahritchie.substack.com/feed",
+    "category": "Ideas"
+  },
+  {
+    "id": "ft-india",
+    "name": "Financial Times — India",
+    "url": "https://www.ft.com/india",
+    "feed": "https://www.ft.com/india?format=rss",
+    "category": "News"
+  },
+  {
+    "id": "carbon-brief",
+    "name": "Carbon Brief",
+    "url": "https://www.carbonbrief.org",
+    "feed": "https://www.carbonbrief.org/feed/",
+    "category": "Ideas"
+  },
+  {
+    "id": "business-standard-india",
+    "name": "Business Standard — India",
+    "url": "https://www.business-standard.com/india-news",
+    "feed": "https://news.google.com/rss/search?q=site:business-standard.com/india-news&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News"
+  },
+  {
+    "id": "business-standard-industry",
+    "name": "Business Standard — Industry",
+    "url": "https://www.business-standard.com/industry",
+    "feed": "https://news.google.com/rss/search?q=site:business-standard.com/industry&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News"
+  },
+  {
+    "id": "business-standard-economy",
+    "name": "Business Standard — Economy",
+    "url": "https://www.business-standard.com/economy",
+    "feed": "https://news.google.com/rss/search?q=site:business-standard.com/economy&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News"
   }
 ]
