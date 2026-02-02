@@ -713,6 +713,243 @@ def generate_html(articles):
             color: var(--accent);
         }}
 
+        /* Bookmark Button (per article) */
+        .bookmark-btn {{
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            color: var(--text-muted);
+            transition: color 0.15s, transform 0.15s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }}
+        .bookmark-btn:hover {{
+            color: var(--accent);
+            transform: scale(1.1);
+        }}
+        .bookmark-btn.bookmarked {{
+            color: var(--accent);
+        }}
+        .bookmark-btn svg {{
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }}
+        .bookmark-btn.bookmarked svg {{
+            fill: currentColor;
+        }}
+
+        /* Bookmarks Header Button */
+        .bookmarks-toggle {{
+            position: relative;
+            padding: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }}
+        .bookmarks-toggle:hover {{
+            border-color: var(--border-light);
+            background: var(--bg-hover);
+        }}
+        .bookmarks-toggle svg {{
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }}
+        .bookmarks-toggle.has-bookmarks svg {{
+            fill: var(--accent);
+            stroke: var(--accent);
+        }}
+        .bookmark-count {{
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            min-width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }}
+        .bookmark-count.hidden {{
+            display: none;
+        }}
+
+        /* Bookmarks Sidebar */
+        .sidebar-overlay {{
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 200;
+        }}
+        .sidebar-overlay.open {{
+            opacity: 1;
+            visibility: visible;
+        }}
+        .bookmarks-sidebar {{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            max-width: 90vw;
+            height: 100vh;
+            background: var(--bg-primary);
+            border-left: 1px solid var(--border);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 201;
+            display: flex;
+            flex-direction: column;
+        }}
+        .sidebar-overlay.open .bookmarks-sidebar {{
+            transform: translateX(0);
+        }}
+        .sidebar-header {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }}
+        .sidebar-title {{
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }}
+        .sidebar-close {{
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.15s;
+        }}
+        .sidebar-close:hover {{
+            color: var(--text-primary);
+        }}
+        .sidebar-close svg {{
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+        }}
+        .sidebar-content {{
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 0;
+        }}
+        .sidebar-empty {{
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }}
+        .sidebar-article {{
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+        }}
+        .sidebar-article:hover {{
+            background: var(--bg-hover);
+        }}
+        .sidebar-article-title {{
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }}
+        .sidebar-article-title a {{
+            color: var(--text-primary);
+            text-decoration: none;
+        }}
+        .sidebar-article-title a:hover {{
+            color: var(--accent);
+        }}
+        .sidebar-article-meta {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-muted);
+        }}
+        .sidebar-article-source {{
+            color: var(--text-secondary);
+        }}
+        .sidebar-remove {{
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            padding: 2px;
+            transition: color 0.15s;
+        }}
+        .sidebar-remove:hover {{
+            color: var(--accent);
+        }}
+        .sidebar-footer {{
+            padding: 12px 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }}
+        .sidebar-btn {{
+            flex: 1;
+            padding: 8px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }}
+        .sidebar-btn:hover {{
+            background: var(--bg-hover);
+            border-color: var(--border-light);
+            color: var(--text-primary);
+        }}
+        .sidebar-btn.danger:hover {{
+            border-color: var(--accent);
+            color: var(--accent);
+        }}
+        .sidebar-btn.copied {{
+            border-color: #22c55e;
+            color: #22c55e;
+        }}
+
         /* Back to Top */
         .back-to-top {{
             position: fixed;
@@ -819,6 +1056,12 @@ def generate_html(articles):
                 <option value="">All Sources ({len(sources)})</option>
                 {"".join(f'<option value="{escape(s.lower())}">{escape(s[:40])}</option>' for s in sources)}
             </select>
+            <button id="bookmarks-toggle" class="bookmarks-toggle" type="button" aria-label="View bookmarks" title="View bookmarks">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span id="bookmark-count" class="bookmark-count hidden">0</span>
+            </button>
             <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
                 <svg class="icon-moon feather feather-moon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -835,6 +1078,36 @@ def generate_html(articles):
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                 </svg>
             </button>
+        </div>
+    </div>
+
+    <!-- Bookmarks Sidebar -->
+    <div id="sidebar-overlay" class="sidebar-overlay">
+        <div class="bookmarks-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Bookmarks
+                </div>
+                <button class="sidebar-close" onclick="closeSidebar()" aria-label="Close sidebar">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div id="sidebar-content" class="sidebar-content">
+                <div class="sidebar-empty">No bookmarks yet.<br>Click the bookmark icon on articles to save them.</div>
+            </div>
+            <div class="sidebar-footer">
+                <button class="sidebar-btn copy-btn" onclick="copyBookmarks()">
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>Copy All</span>
+                </button>
+                <button class="sidebar-btn danger" onclick="clearAllBookmarks()">Clear All</button>
+            </div>
         </div>
     </div>
 
@@ -882,11 +1155,15 @@ def generate_html(articles):
         # Truncate long source names for display
         source_display = source[:35] + "..." if len(source) > 35 else source
 
-        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}">
+        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}" data-url="{link}" data-title="{title}">
                 <h3 class="article-title"><a href="{link}" target="_blank" rel="noopener">{title}</a></h3>
                 <div class="article-meta">
                     <a href="{source_url}" target="_blank" class="source-tag" title="{source}">{source_display}</a>
                     {f'<span class="meta-dot">·</span><span class="article-time">{time_str}</span>' if time_str else ''}
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
                 </div>
             </article>
 """
@@ -1147,6 +1424,185 @@ def generate_html(articles):
         // Initial pagination
         setPageToToday();
         applyPagination();
+
+        // ==================== BOOKMARKS ====================
+        const BOOKMARKS_KEY = 'financeradar_bookmarks';
+
+        function getBookmarks() {
+            try {
+                const data = localStorage.getItem(BOOKMARKS_KEY);
+                return data ? JSON.parse(data) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveBookmarks(bookmarks) {
+            try {
+                localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bookmarks));
+            } catch (e) { /* no-op */ }
+        }
+
+        function isBookmarked(url) {
+            return getBookmarks().some(b => b.url === url);
+        }
+
+        function toggleBookmark(btn) {
+            const article = btn.closest('.article');
+            const url = article.dataset.url;
+            const title = article.dataset.title;
+            const source = article.querySelector('.source-tag')?.textContent || '';
+
+            let bookmarks = getBookmarks();
+            const idx = bookmarks.findIndex(b => b.url === url);
+
+            if (idx >= 0) {
+                bookmarks.splice(idx, 1);
+                btn.classList.remove('bookmarked');
+            } else {
+                bookmarks.unshift({ url, title, source, addedAt: Date.now() });
+                btn.classList.add('bookmarked');
+            }
+
+            saveBookmarks(bookmarks);
+            updateBookmarkCount();
+            renderSidebarContent();
+        }
+
+        function updateBookmarkCount() {
+            const count = getBookmarks().length;
+            const badge = document.getElementById('bookmark-count');
+            const toggle = document.getElementById('bookmarks-toggle');
+
+            badge.textContent = count;
+            badge.classList.toggle('hidden', count === 0);
+            toggle.classList.toggle('has-bookmarks', count > 0);
+        }
+
+        function initBookmarkButtons() {
+            document.querySelectorAll('.article').forEach(article => {
+                const url = article.dataset.url;
+                const btn = article.querySelector('.bookmark-btn');
+                if (btn && isBookmarked(url)) {
+                    btn.classList.add('bookmarked');
+                }
+            });
+            updateBookmarkCount();
+        }
+
+        function openSidebar() {
+            document.getElementById('sidebar-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            renderSidebarContent();
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar-overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function renderSidebarContent() {
+            const container = document.getElementById('sidebar-content');
+            const bookmarks = getBookmarks();
+
+            if (bookmarks.length === 0) {
+                container.innerHTML = '<div class="sidebar-empty">No bookmarks yet.<br>Click the bookmark icon on articles to save them.</div>';
+                return;
+            }
+
+            container.innerHTML = bookmarks.map(b => `
+                <div class="sidebar-article" data-url="${escapeHtml(b.url)}">
+                    <div class="sidebar-article-title">
+                        <a href="${escapeHtml(b.url)}" target="_blank" rel="noopener">${escapeHtml(b.title)}</a>
+                    </div>
+                    <div class="sidebar-article-meta">
+                        <span class="sidebar-article-source">${escapeHtml(b.source)}</span>
+                        <button class="sidebar-remove" onclick="removeBookmark('${escapeHtml(b.url)}')" title="Remove bookmark">✕</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text || '';
+            return div.innerHTML;
+        }
+
+        function removeBookmark(url) {
+            let bookmarks = getBookmarks();
+            bookmarks = bookmarks.filter(b => b.url !== url);
+            saveBookmarks(bookmarks);
+
+            // Update main list button
+            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"]`);
+            if (article) {
+                const btn = article.querySelector('.bookmark-btn');
+                if (btn) btn.classList.remove('bookmarked');
+            }
+
+            updateBookmarkCount();
+            renderSidebarContent();
+        }
+
+        function copyBookmarks() {
+            const bookmarks = getBookmarks();
+            if (bookmarks.length === 0) {
+                return;
+            }
+
+            const text = bookmarks.map(b => b.title + '\\n' + b.url).join('\\n\\n');
+
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const span = btn.querySelector('span');
+                const originalText = span.textContent;
+
+                btn.classList.add('copied');
+                span.textContent = 'Copied!';
+
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    span.textContent = originalText;
+                }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            });
+        }
+
+        function clearAllBookmarks() {
+            if (!confirm('Are you sure you want to clear all bookmarks?')) return;
+            saveBookmarks([]);
+            document.querySelectorAll('.bookmark-btn.bookmarked').forEach(btn => {
+                btn.classList.remove('bookmarked');
+            });
+            updateBookmarkCount();
+            renderSidebarContent();
+        }
+
+        // Sidebar toggle
+        document.getElementById('bookmarks-toggle').addEventListener('click', openSidebar);
+        document.getElementById('sidebar-overlay').addEventListener('click', (e) => {
+            if (e.target.id === 'sidebar-overlay') closeSidebar();
+        });
+
+        // Close sidebar with Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('sidebar-overlay').classList.contains('open')) {
+                closeSidebar();
+            }
+        });
+
+        // Initialize bookmarks
+        initBookmarkButtons();
     </script>
 </body>
 </html>
