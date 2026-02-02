@@ -558,5 +558,12 @@
     "url": "https://www.business-standard.com/economy",
     "feed": "https://news.google.com/rss/search?q=site:business-standard.com/economy&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News"
+  },
+  {
+    "id": "reuters-india",
+    "name": "Reuters — India",
+    "url": "https://www.reuters.com/world/india/",
+    "feed": "https://news.google.com/rss/search?q=site:reuters.com/world/india&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News"
   }
 ]
