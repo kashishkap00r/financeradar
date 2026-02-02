@@ -8,7 +8,7 @@ import json
 import urllib.request
 import urllib.error
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from html import escape, unescape
 import re
 import ssl
@@ -24,6 +24,9 @@ OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
 SSL_CONTEXT = ssl.create_default_context()
 SSL_CONTEXT.check_hostname = False
 SSL_CONTEXT.verify_mode = ssl.CERT_NONE
+
+# IST timezone for consistent display
+IST_TZ = timezone(timedelta(hours=5, minutes=30))
 
 # =============================================================================
 # CONTENT FILTERS - Patterns to filter out irrelevant/routine content
@@ -292,13 +295,15 @@ def get_sort_timestamp(article):
 
 
 def to_local_datetime(dt):
-    """Convert a datetime to local time for display."""
+    """Convert a datetime to IST for display."""
     if dt is None:
         return None
 
     try:
-        # Convert to local datetime via timestamp
-        return datetime.fromtimestamp(dt.timestamp())
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        # Convert to IST via timestamp
+        return datetime.fromtimestamp(dt.timestamp(), IST_TZ)
     except (OSError, OverflowError, ValueError):
         return dt
 
@@ -331,7 +336,8 @@ def generate_html(articles):
     sorted_articles = capped_articles
 
     # Group by date
-    today = datetime.now().date()
+    now_ist = datetime.now(IST_TZ)
+    today = now_ist.date()
     yesterday = today - timedelta(days=1)
     today_iso = today.isoformat()
 
@@ -832,7 +838,7 @@ def generate_html(articles):
                 <span><strong>{len(sorted_articles)}</strong> articles</span>
                 <span><strong>{len(sources)}</strong> sources</span>
             </div>
-            <div class="update-time">Updated {datetime.now().strftime("%b %d, %I:%M %p")}</div>
+            <div class="update-time">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</div>
         </div>
 
         <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
