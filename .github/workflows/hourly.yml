@@ -1,14 +1,14 @@
-name: Update FinanceRadar
+  name: Update FinanceRadar
 
-on:
+  on:
     schedule:
-      - cron: '0 * * * *'
+      - cron: "0 * * * *"
     workflow_dispatch:
 
-permissions:
+  permissions:
     contents: write
 
-jobs:
+  jobs:
     build:
       runs-on: ubuntu-latest
       steps:
@@ -20,7 +20,7 @@ jobs:
         - name: Set up Python
           uses: actions/setup-python@v5
           with:
-            python-version: '3.x'
+            python-version: "3.x"
 
         - name: Run aggregator
           run: python3 aggregator.py
