@@ -13,6 +13,7 @@ from html import escape, unescape
 import re
 import ssl
 import os
+import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Get script directory
@@ -172,6 +173,8 @@ def parse_date(date_str, source_name=None):
         "%Y-%m-%dT%H:%M:%S.%f%z",
         "%Y-%m-%d %H:%M:%S",
         "%d %b %Y %H:%M:%S %z",
+        "%d %b, %Y %z",  # SEBI format (02 Feb, 2026 +0530)
+        "%d %b %Y %z",   # SEBI format without comma
     ]
 
     # Clean up common timezone issues
@@ -203,15 +206,37 @@ def fetch_feed(feed_config):
     articles = []
 
     try:
-        req = urllib.request.Request(
-            feed_url,
-            headers={
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-            }
-        )
+        content = None
 
-        with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT) as response:
-            content = response.read()
+        # Try urllib first
+        try:
+            req = urllib.request.Request(
+                feed_url,
+                headers={
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                    "Accept-Language": "en-US,en;q=0.9"
+                }
+            )
+            with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT) as response:
+                content = response.read()
+        except urllib.error.HTTPError as e:
+            if e.code == 403:
+                # Fallback to curl for Cloudflare-protected sites
+                result = subprocess.run(
+                    ["curl", "-sL", "-A", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", feed_url],
+                    capture_output=True,
+                    timeout=20
+                )
+                if result.returncode == 0 and result.stdout:
+                    content = result.stdout
+                else:
+                    raise e
+            else:
+                raise e
+
+        if not content:
+            raise Exception("No content received")
 
         # Parse XML
         root = ET.fromstring(content)
@@ -246,7 +271,8 @@ def fetch_feed(feed_config):
                     "date": parse_date(pub_date.text if pub_date is not None else "", feed_name),
                     "description": summary.text[:300] if summary is not None and summary.text else "",
                     "source": feed_name,
-                    "source_url": source_url
+                    "source_url": source_url,
+                    "category": feed_config.get("category", "News")
                 })
         else:
             # RSS 2.0 format
@@ -262,7 +288,8 @@ def fetch_feed(feed_config):
                     "date": parse_date(pub_date.text if pub_date is not None else "", feed_name),
                     "description": description.text[:300] if description is not None and description.text else "",
                     "source": feed_name,
-                    "source_url": source_url
+                    "source_url": source_url,
+                    "category": feed_config.get("category", "News")
                 })
 
         print(f"  [OK] {feed_name}: {len(articles)} articles")
@@ -479,22 +506,6 @@ def generate_html(articles):
             font-size: 14px;
         }}
 
-        #source-filter {{
-            height: 36px;
-            padding: 0 12px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-primary);
-            font-size: 14px;
-            cursor: pointer;
-            min-width: 150px;
-        }}
-
-        #source-filter:focus {{
-            outline: none;
-            border-color: var(--accent);
-        }}
         .theme-toggle {{
             padding: 0;
             background: var(--bg-secondary);
@@ -569,6 +580,38 @@ def generate_html(articles):
         .update-time {{
             font-size: 13px;
             color: var(--text-muted);
+        }}
+
+        /* Category Tabs */
+        .category-tabs {{
+            display: flex;
+            gap: 8px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }}
+        .category-tab {{
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }}
+        .category-tab:hover {{
+            border-color: var(--border-light);
+            color: var(--text-primary);
+        }}
+        .category-tab.active {{
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            border-color: var(--text-primary);
+        }}
+        .category-tab .count {{
+            margin-left: 6px;
+            opacity: 0.7;
         }}
 
         /* Pagination */
@@ -1052,10 +1095,6 @@ def generate_html(articles):
                 <span class="search-icon">&#128269;</span>
                 <input type="text" id="search" placeholder="Search articles..." oninput="filterArticles()">
             </div>
-            <select id="source-filter" onchange="filterBySource()">
-                <option value="">All Sources ({len(sources)})</option>
-                {"".join(f'<option value="{escape(s.lower())}">{escape(s[:40])}</option>' for s in sources)}
-            </select>
             <button id="bookmarks-toggle" class="bookmarks-toggle" type="button" aria-label="View bookmarks" title="View bookmarks">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -1120,6 +1159,13 @@ def generate_html(articles):
             <div class="update-time">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</div>
         </div>
 
+        <div class="category-tabs" id="category-tabs">
+            <button class="category-tab active" data-category="" onclick="filterByCategory('')">All</button>
+            <button class="category-tab" data-category="news" onclick="filterByCategory('news')">News</button>
+            <button class="category-tab" data-category="institutions" onclick="filterByCategory('institutions')">Institutions</button>
+            <button class="category-tab" data-category="ideas" onclick="filterByCategory('ideas')">Ideas</button>
+        </div>
+
         <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
 
         <div id="articles">
@@ -1155,7 +1201,8 @@ def generate_html(articles):
         # Truncate long source names for display
         source_display = source[:35] + "..." if len(source) > 35 else source
 
-        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}" data-url="{link}" data-title="{title}">
+        category = escape(article.get("category", "News").lower())
+        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}" data-url="{link}" data-title="{title}" data-category="{category}">
                 <h3 class="article-title"><a href="{link}" target="_blank" rel="noopener">{title}</a></h3>
                 <div class="article-meta">
                     <a href="{source_url}" target="_blank" class="source-tag" title="{source}">{source_display}</a>
@@ -1213,19 +1260,20 @@ def generate_html(articles):
         initTheme();
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
-        // Search filter
+        // Search and category filter
+        let currentCategory = '';
+
         function filterArticles() {
             const query = document.getElementById('search').value.toLowerCase();
-            const sourceFilter = document.getElementById('source-filter').value.toLowerCase();
             const articles = document.querySelectorAll('.article');
             const dateHeaders = document.querySelectorAll('.date-header');
 
             articles.forEach(article => {
                 const text = article.textContent.toLowerCase();
-                const source = article.dataset.source || '';
+                const category = article.dataset.category || '';
                 const matchesSearch = !query || text.includes(query);
-                const matchesSource = !sourceFilter || source.includes(sourceFilter);
-                article.classList.toggle('hidden', !(matchesSearch && matchesSource));
+                const matchesCategory = !currentCategory || category === currentCategory;
+                article.classList.toggle('hidden', !(matchesSearch && matchesCategory));
             });
 
             // Hide empty date headers
@@ -1246,7 +1294,14 @@ def generate_html(articles):
             applyPagination();
         }
 
-        function filterBySource() {
+        function filterByCategory(category) {
+            currentCategory = category;
+
+            // Update active tab
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.category === category);
+            });
+
             filterArticles();
         }
 
@@ -1277,7 +1332,7 @@ def generate_html(articles):
                 } else {
                     btn.addEventListener('click', () => {
                         currentPage = page;
-                        applyPagination();
+                        applyPagination(true);
                     });
                 }
                 return btn;
@@ -1329,7 +1384,7 @@ def generate_html(articles):
             build(bottom);
         }
 
-        function applyPagination() {
+        function applyPagination(shouldScroll = false) {
             const articles = getFilteredArticles();
             const totalPages = Math.max(1, Math.ceil(articles.length / PAGE_SIZE));
             if (currentPage > totalPages) {
@@ -1363,7 +1418,9 @@ def generate_html(articles):
             });
 
             renderPagination(totalPages);
-            document.getElementById('articles').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (shouldScroll) {
+                window.scrollTo(0, 0);
+            }
         }
 
         function setPageToToday() {
@@ -1603,6 +1660,11 @@ def generate_html(articles):
 
         // Initialize bookmarks
         initBookmarkButtons();
+
+        // Ensure page starts at top on load
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+        });
     </script>
 </body>
 </html>
@@ -1675,6 +1737,29 @@ def main():
             filtered_articles.append(article)
 
     print(f"After content filtering: {len(filtered_articles)} ({filtered_count} filtered out)")
+
+    # Filter out articles older than 10 days
+    now = datetime.now(IST_TZ)
+    cutoff_date = now - timedelta(days=10)
+    recent_articles = []
+    old_count = 0
+
+    for article in filtered_articles:
+        article_date = article.get("date")
+        if article_date is None:
+            # Keep articles without dates (will be sorted to end)
+            recent_articles.append(article)
+        else:
+            # Ensure timezone-aware comparison
+            if article_date.tzinfo is None:
+                article_date = article_date.replace(tzinfo=IST_TZ)
+            if article_date >= cutoff_date:
+                recent_articles.append(article)
+            else:
+                old_count += 1
+
+    filtered_articles = recent_articles
+    print(f"After removing old articles (>10 days): {len(filtered_articles)} ({old_count} removed)")
 
     generate_html(filtered_articles)
 
