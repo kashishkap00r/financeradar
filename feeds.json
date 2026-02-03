@@ -530,5 +530,19 @@
     "url": "https://blog.theleapjournal.org",
     "feed": "https://blog.theleapjournal.org/feeds/posts/default?alt=rss",
     "category": "Ideas"
+  },
+  {
+    "id": "bloomberg-economics",
+    "name": "Bloomberg — Economics",
+    "url": "https://www.bloomberg.com/economics",
+    "feed": "https://feeds.bloomberg.com/economics/news.rss",
+    "category": "News"
+  },
+  {
+    "id": "bloomberg-india",
+    "name": "Bloomberg — India",
+    "url": "https://www.bloomberg.com/india",
+    "feed": "https://news.google.com/rss/search?q=site:bloomberg.com+india&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News"
   }
 ]
