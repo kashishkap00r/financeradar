@@ -350,13 +350,6 @@
     "category": "News"
   },
   {
-    "id": "livemint-money",
-    "name": "Mint — Money",
-    "url": "https://www.livemint.com/rss/money",
-    "feed": "https://www.livemint.com/rss/money",
-    "category": "News"
-  },
-  {
     "id": "livemint-news",
     "name": "Mint — News",
     "url": "https://www.livemint.com/rss/news",
