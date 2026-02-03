@@ -42,13 +42,6 @@
     "category": "News"
   },
   {
-    "id": "the-hindu-budget",
-    "name": "The Hindu — Budget",
-    "url": "https://www.thehindu.com/business/budget/",
-    "feed": "https://www.thehindu.com/business/budget/feeder/default.rss",
-    "category": "News"
-  },
-  {
     "id": "business-news-cnbc",
     "name": "Business News",
     "url": "https://www.cnbc.com/business/",
@@ -193,13 +186,6 @@
     "name": "BusinessLine — Economy",
     "url": "https://www.thehindubusinessline.com/economy/",
     "feed": "https://www.thehindubusinessline.com/economy/feeder/default.rss",
-    "category": "News"
-  },
-  {
-    "id": "cnbc-energy",
-    "name": "Energy",
-    "url": "https://www.cnbc.com/energy/",
-    "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19836768",
     "category": "News"
   },
   {
@@ -383,13 +369,6 @@
     "url": "https://www.thehindubusinessline.com/opinion/",
     "feed": "https://www.thehindubusinessline.com/opinion/feeder/default.rss",
     "category": "News"
-  },
-  {
-    "id": "pib-india-youtube",
-    "name": "PIB India — YouTube",
-    "url": "https://www.youtube.com/channel/UCGn6a5SI8SNlj7WylmPD6GQ",
-    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGn6a5SI8SNlj7WylmPD6GQ",
-    "category": "Institutions"
   },
   {
     "id": "rest-of-world-latest-slash",
