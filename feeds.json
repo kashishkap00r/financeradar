@@ -521,14 +521,7 @@
     "id": "ft-indian-business-finance",
     "name": "Financial Times — Indian Business & Finance",
     "url": "https://www.ft.com/indian-business-finance",
-    "feed": "https://news.google.com/rss/search?q=site:ft.com/indian-business-finance&hl=en-IN&gl=IN&ceid=IN:en",
-    "category": "News"
-  },
-  {
-    "id": "bloomberg-india",
-    "name": "Bloomberg — India",
-    "url": "https://www.bloomberg.com/india",
-    "feed": "https://news.google.com/rss/search?q=site:bloomberg.com/india&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://www.ft.com/indian-business-finance?format=rss",
     "category": "News"
   }
 ]
