@@ -42,13 +42,6 @@
     "category": "News"
   },
   {
-    "id": "business-news-cnbc",
-    "name": "Business News",
-    "url": "https://www.cnbc.com/business/",
-    "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10001147",
-    "category": "News"
-  },
-  {
     "id": "the-hindu-agri-business",
     "name": "The Hindu — Agri Business",
     "url": "https://www.thehindu.com/business/agri-business/",
@@ -336,13 +329,6 @@
     "category": "News"
   },
   {
-    "id": "livemint-news",
-    "name": "Mint — News",
-    "url": "https://www.livemint.com/rss/news",
-    "feed": "https://www.livemint.com/rss/news",
-    "category": "News"
-  },
-  {
     "id": "livemint-opinion",
     "name": "Mint — Opinion",
     "url": "https://www.livemint.com/rss/opinion",
@@ -425,13 +411,6 @@
     "url": "https://fredblog.stlouisfed.org",
     "feed": "http://fredblog.stlouisfed.org/feed/",
     "category": "Institutions"
-  },
-  {
-    "id": "fundooprofessor",
-    "name": "Fundoo Professor",
-    "url": "https://fundooprofessor.wordpress.com",
-    "feed": "https://fundooprofessor.com/feed/",
-    "category": "Ideas"
   },
   {
     "id": "musings-on-markets-substack",
