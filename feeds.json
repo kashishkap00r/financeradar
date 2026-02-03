@@ -523,5 +523,12 @@
     "url": "https://www.ft.com/indian-business-finance",
     "feed": "https://www.ft.com/indian-business-finance?format=rss",
     "category": "News"
+  },
+  {
+    "id": "ndtv-profit",
+    "name": "NDTV Profit (Bloomberg Quint)",
+    "url": "https://www.ndtvprofit.com",
+    "feed": "https://www.ndtvprofit.com/rss",
+    "category": "News"
   }
 ]
