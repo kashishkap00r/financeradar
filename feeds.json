@@ -523,5 +523,19 @@
     "url": "https://www.ft.com/indian-business-finance",
     "feed": "https://www.ft.com/indian-business-finance?format=rss",
     "category": "News"
+  },
+  {
+    "id": "the-ken",
+    "name": "The Ken",
+    "url": "https://the-ken.com",
+    "feed": "https://the-ken.com/feed/",
+    "category": "Ideas"
+  },
+  {
+    "id": "the-leap-blog",
+    "name": "The LEAP Blog",
+    "url": "https://blog.theleapjournal.org",
+    "feed": "https://blog.theleapjournal.org/feeds/posts/default?alt=rss",
+    "category": "Ideas"
   }
 ]
