@@ -15,6 +15,7 @@ import ssl
 import os
 import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from difflib import SequenceMatcher
 
 # Get script directory
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -57,6 +58,8 @@ FILTER_TITLE_PATTERNS = [
     r"auction of state government securities",
     r"weekly statistical supplement",
     r"lending and deposit rates of scheduled commercial banks",
+    r"directions under section 35a",
+    r"auction result",
 
     # Live tickers
     r"live updates.*sensex",
@@ -122,11 +125,11 @@ FILTER_URL_PATTERNS = [
     "/infographic",
     "/fashion",
     "/entertainment",
+    "downtoearth.org.in/food",
 ]
 
 # Compile regex patterns for performance
 COMPILED_TITLE_PATTERNS = [re.compile(p, re.IGNORECASE) for p in FILTER_TITLE_PATTERNS]
-
 
 def should_filter_article(article):
     """Check if an article should be filtered out."""
@@ -144,6 +147,137 @@ def should_filter_article(article):
             return True
 
     return False
+
+
+# =============================================================================
+# DUPLICATE HEADLINE GROUPING - Functions for similarity detection
+# =============================================================================
+
+def normalize_title(title):
+    """Normalize title for comparison (lowercase, remove prefixes, clean)."""
+    if not title:
+        return ""
+
+    # Convert to lowercase
+    normalized = title.lower()
+
+    # Remove common prefixes like "BREAKING:", "EXCLUSIVE:", "UPDATE:", etc.
+    prefixes = [
+        r'^breaking:\s*', r'^exclusive:\s*', r'^update:\s*', r'^urgent:\s*',
+        r'^just in:\s*', r'^live:\s*', r'^watch:\s*', r'^video:\s*',
+        r'^opinion:\s*', r'^analysis:\s*', r'^explained:\s*',
+    ]
+    for prefix in prefixes:
+        normalized = re.sub(prefix, '', normalized, flags=re.IGNORECASE)
+
+    # Remove punctuation and extra whitespace
+    normalized = re.sub(r'[^\w\s]', ' ', normalized)
+    normalized = re.sub(r'\s+', ' ', normalized).strip()
+
+    return normalized
+
+
+def titles_are_similar(title1, title2, threshold=0.75):
+    """Check similarity using difflib.SequenceMatcher."""
+    norm1 = normalize_title(title1)
+    norm2 = normalize_title(title2)
+
+    if not norm1 or not norm2:
+        return False
+
+    # Quick check: if titles are identical after normalization
+    if norm1 == norm2:
+        return True
+
+    # Use SequenceMatcher for fuzzy matching
+    ratio = SequenceMatcher(None, norm1, norm2).ratio()
+    return ratio >= threshold
+
+
+def get_title_signature(title):
+    """Get a set of significant words from title for quick comparison."""
+    normalized = normalize_title(title)
+    words = set(normalized.split())
+    # Filter out very short words and common words
+    significant = {w for w in words if len(w) >= 4}
+    return significant
+
+
+def group_similar_articles(articles):
+    """
+    Group articles with similar titles.
+    Returns list of article groups, each containing:
+    - primary: Main article to display (first encountered)
+    - related_sources: List of {name, url, link} from other sources
+    - all_articles: All articles in the group
+
+    Optimized: Only compare articles from the same date and uses word overlap
+    as a quick filter before expensive SequenceMatcher comparison.
+    """
+    # Group articles by date first to reduce comparisons
+    from collections import defaultdict
+
+    articles_by_date = defaultdict(list)
+    for i, article in enumerate(articles):
+        date_key = ""
+        if article.get("date"):
+            try:
+                date_key = article["date"].strftime("%Y-%m-%d")
+            except:
+                pass
+        articles_by_date[date_key].append((i, article))
+
+    groups = []
+    used = set()
+
+    # Pre-compute title signatures for all articles
+    signatures = {}
+    for i, article in enumerate(articles):
+        signatures[i] = get_title_signature(article["title"])
+
+    for date_key, date_articles in articles_by_date.items():
+        for idx, (i, article) in enumerate(date_articles):
+            if i in used:
+                continue
+
+            # Start a new group with this article
+            group = {
+                "primary": article,
+                "related_sources": [],
+                "all_articles": [article],
+            }
+            used.add(i)
+
+            sig_i = signatures[i]
+
+            # Only compare with other articles from the same date
+            for j, other in date_articles[idx + 1:]:
+                if j in used:
+                    continue
+
+                # Quick filter: check word overlap first
+                sig_j = signatures[j]
+                if sig_i and sig_j:
+                    overlap = len(sig_i & sig_j)
+                    min_len = min(len(sig_i), len(sig_j))
+                    if min_len > 0 and overlap / min_len < 0.5:
+                        # Not enough word overlap, skip expensive comparison
+                        continue
+
+                if titles_are_similar(article["title"], other["title"]):
+                    # Don't add duplicates from the same source
+                    if other["source"] != article["source"]:
+                        group["related_sources"].append({
+                            "name": other["source"],
+                            "url": other["source_url"],
+                            "link": other["link"],
+                        })
+                    group["all_articles"].append(other)
+                    used.add(j)
+
+            groups.append(group)
+
+    return groups
 
 
 def load_feeds():
@@ -340,32 +474,37 @@ def to_local_datetime(dt):
         return dt
 
 
-def generate_html(articles):
+def generate_html(article_groups):
     """Generate the static HTML website."""
 
-    # Sort by date (newest first), put articles without dates at the end
-    articles_with_date = [a for a in articles if a["date"]]
-    articles_without_date = [a for a in articles if not a["date"]]
+    # Sort groups by date of primary article (newest first)
+    def get_group_timestamp(group):
+        return get_sort_timestamp(group["primary"])
 
-    # Sort using timestamps to handle timezone differences correctly
-    articles_with_date.sort(key=get_sort_timestamp, reverse=True)
-    all_sorted = articles_with_date + articles_without_date
+    groups_with_date = [g for g in article_groups if g["primary"]["date"]]
+    groups_without_date = [g for g in article_groups if not g["primary"]["date"]]
+
+    groups_with_date.sort(key=get_group_timestamp, reverse=True)
+    all_sorted_groups = groups_with_date + groups_without_date
 
     # Apply per-feed cap (max 50 articles per feed)
     MAX_PER_FEED = 50
     source_counts = {}
-    capped_articles = []
+    capped_groups = []
 
-    for article in all_sorted:
-        source = article["source"]
+    for group in all_sorted_groups:
+        source = group["primary"]["source"]
         count = source_counts.get(source, 0)
         if count < MAX_PER_FEED:
-            capped_articles.append(article)
+            capped_groups.append(group)
             source_counts[source] = count + 1
 
-    # Re-sort after capping to ensure proper chronological order for date headers
-    capped_articles.sort(key=get_sort_timestamp, reverse=True)
-    sorted_articles = capped_articles
+    # Re-sort after capping
+    capped_groups.sort(key=get_group_timestamp, reverse=True)
+    sorted_groups = capped_groups
+
+    # Extract flat list of primary articles for counting
+    sorted_articles = [g["primary"] for g in sorted_groups]
 
     # Group by date
     now_ist = datetime.now(IST_TZ)
@@ -375,6 +514,9 @@ def generate_html(articles):
 
     # Get unique sources for filter dropdown
     sources = sorted(set(a['source'] for a in sorted_articles))
+
+    # Count in-focus articles (covered by multiple sources)
+    in_focus_count = sum(1 for g in sorted_groups if g["related_sources"])
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1055,6 +1197,77 @@ def generate_html(articles):
             display: none !important;
         }}
 
+        /* Also Covered By */
+        .also-covered {{
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }}
+        .also-covered a {{
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s;
+        }}
+        .also-covered a:hover {{
+            color: var(--accent);
+        }}
+
+        /* Source Count Badge */
+        .source-badge {{
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 500;
+            border-radius: 10px;
+            margin-left: 8px;
+        }}
+
+        /* In Focus Filter */
+        .filter-bar {{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }}
+        .in-focus-toggle {{
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }}
+        .in-focus-toggle:hover {{
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }}
+        .in-focus-toggle.active {{
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }}
+        .in-focus-toggle svg {{
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }}
+        .in-focus-count {{
+            font-size: 12px;
+            color: var(--text-muted);
+        }}
+
         /* Responsive */
         @media (max-width: 640px) {{
             .top-bar-inner {{
@@ -1166,6 +1379,14 @@ def generate_html(articles):
             <button class="category-tab" data-category="ideas" onclick="filterByCategory('ideas')">Ideas</button>
         </div>
 
+        <div class="filter-bar">
+            <button class="in-focus-toggle" id="in-focus-toggle" onclick="toggleInFocus()">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
+                In Focus
+            </button>
+            <span class="in-focus-count" id="in-focus-count"></span>
+        </div>
+
         <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
 
         <div id="articles">
@@ -1173,7 +1394,10 @@ def generate_html(articles):
 
     current_date = None
 
-    for article in sorted_articles:
+    for group in sorted_groups:
+        article = group["primary"]
+        related_sources = group["related_sources"]
+
         # Convert to local time for display
         local_dt = to_local_datetime(article["date"])
 
@@ -1201,9 +1425,25 @@ def generate_html(articles):
         # Truncate long source names for display
         source_display = source[:35] + "..." if len(source) > 35 else source
 
+        # Build "Also covered by" HTML and source badge if there are related sources
+        also_covered_html = ""
+        source_badge_html = ""
+        is_in_focus = "true" if related_sources else "false"
+        if related_sources:
+            total_sources = len(related_sources) + 1  # +1 for the primary source
+            source_badge_html = f'<span class="source-badge">{total_sources} sources</span>'
+            source_links = []
+            for rs in related_sources[:5]:  # Limit to 5 additional sources
+                rs_name = escape(rs["name"])
+                rs_link = escape(rs["link"])
+                # Truncate source name for display
+                rs_display = rs_name[:25] + "..." if len(rs_name) > 25 else rs_name
+                source_links.append(f'<a href="{rs_link}" target="_blank" rel="noopener" title="{rs_name}">{rs_display}</a>')
+            also_covered_html = f'\n                <div class="also-covered">Also covered by: {", ".join(source_links)}</div>'
+
         category = escape(article.get("category", "News").lower())
-        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}" data-url="{link}" data-title="{title}" data-category="{category}">
-                <h3 class="article-title"><a href="{link}" target="_blank" rel="noopener">{title}</a></h3>
+        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}" data-url="{link}" data-title="{title}" data-category="{category}" data-in-focus="{is_in_focus}">
+                <h3 class="article-title"><a href="{link}" target="_blank" rel="noopener">{title}</a>{source_badge_html}</h3>
                 <div class="article-meta">
                     <a href="{source_url}" target="_blank" class="source-tag" title="{source}">{source_display}</a>
                     {f'<span class="meta-dot">·</span><span class="article-time">{time_str}</span>' if time_str else ''}
@@ -1211,7 +1451,7 @@ def generate_html(articles):
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
-                </div>
+                </div>{also_covered_html}
             </article>
 """
 
@@ -1260,8 +1500,13 @@ def generate_html(articles):
         initTheme();
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
-        // Search and category filter
+        // Search, category, and In Focus filter
         let currentCategory = '';
+        let inFocusOnly = false;
+        const IN_FOCUS_COUNT = {in_focus_count};
+
+        // Initialize In Focus count display
+        document.getElementById('in-focus-count').textContent = IN_FOCUS_COUNT + ' stories covered by multiple sources';
 
         function filterArticles() {
             const query = document.getElementById('search').value.toLowerCase();
@@ -1271,9 +1516,11 @@ def generate_html(articles):
             articles.forEach(article => {
                 const text = article.textContent.toLowerCase();
                 const category = article.dataset.category || '';
+                const isInFocus = article.dataset.inFocus === 'true';
                 const matchesSearch = !query || text.includes(query);
                 const matchesCategory = !currentCategory || category === currentCategory;
-                article.classList.toggle('hidden', !(matchesSearch && matchesCategory));
+                const matchesInFocus = !inFocusOnly || isInFocus;
+                article.classList.toggle('hidden', !(matchesSearch && matchesCategory && matchesInFocus));
             });
 
             // Hide empty date headers
@@ -1302,6 +1549,12 @@ def generate_html(articles):
                 tab.classList.toggle('active', tab.dataset.category === category);
             });
 
+            filterArticles();
+        }
+
+        function toggleInFocus() {
+            inFocusOnly = !inFocusOnly;
+            document.getElementById('in-focus-toggle').classList.toggle('active', inFocusOnly);
             filterArticles();
         }
 
@@ -1668,7 +1921,7 @@ def generate_html(articles):
     </script>
 </body>
 </html>
-""".replace("{source_count}", str(len(sources)))
+""".replace("{source_count}", str(len(sources))).replace("{in_focus_count}", str(in_focus_count))
 
     try:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
@@ -1761,7 +2014,12 @@ def main():
     filtered_articles = recent_articles
     print(f"After removing old articles (>10 days): {len(filtered_articles)} ({old_count} removed)")
 
-    generate_html(filtered_articles)
+    # Group similar articles by headline
+    article_groups = group_similar_articles(filtered_articles)
+    grouped_count = len(filtered_articles) - len(article_groups)
+    print(f"After grouping similar headlines: {len(article_groups)} groups ({grouped_count} articles merged)")
+
+    generate_html(article_groups)
 
     print("\nDone!")
     print("=" * 50)

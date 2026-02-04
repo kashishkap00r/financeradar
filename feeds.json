@@ -455,6 +455,27 @@
     "category": "Institutions"
   },
   {
+    "id": "rbi-notifications",
+    "name": "RBI — Notifications",
+    "url": "http://www.rbi.org.in",
+    "feed": "https://rbi.org.in/notifications_rss.xml",
+    "category": "Institutions"
+  },
+  {
+    "id": "rbi-speeches",
+    "name": "RBI — Speeches",
+    "url": "http://www.rbi.org.in",
+    "feed": "https://rbi.org.in/speeches_rss.xml",
+    "category": "Institutions"
+  },
+  {
+    "id": "rbi-publications",
+    "name": "RBI — Publications",
+    "url": "http://www.rbi.org.in",
+    "feed": "https://rbi.org.in/Publication_rss.xml",
+    "category": "Institutions"
+  },
+  {
     "id": "techmeme",
     "name": "Techmeme",
     "url": "http://www.techmeme.com/",
