@@ -565,5 +565,47 @@
     "url": "https://www.bloomberg.com/india",
     "feed": "https://news.google.com/rss/search?q=site:bloomberg.com+india&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News"
+  },
+  {
+    "id": "alphaecon-substack",
+    "name": "AlphaEcon",
+    "url": "https://dhananjaysinha1.substack.com",
+    "feed": "https://dhananjaysinha1.substack.com/feed",
+    "category": "Ideas"
+  },
+  {
+    "id": "filtercoffee-substack",
+    "name": "Filter Coffee",
+    "url": "https://filtercoffee.substack.com",
+    "feed": "https://filtercoffee.substack.com/feed",
+    "category": "News"
+  },
+  {
+    "id": "marketbites-substack",
+    "name": "Market Bites",
+    "url": "https://marketbites.substack.com",
+    "feed": "https://marketbites.substack.com/feed",
+    "category": "Ideas"
+  },
+  {
+    "id": "capitalquill-substack",
+    "name": "Capital Quill",
+    "url": "https://capitalquill.substack.com",
+    "feed": "https://capitalquill.substack.com/feed",
+    "category": "Ideas"
+  },
+  {
+    "id": "soic-substack",
+    "name": "SOIC",
+    "url": "https://soic.substack.com",
+    "feed": "https://soic.substack.com/feed",
+    "category": "Ideas"
+  },
+  {
+    "id": "soic-wisdom-board-substack",
+    "name": "SOIC Wisdom Board",
+    "url": "https://soicwisdomboard.substack.com",
+    "feed": "https://soicwisdomboard.substack.com/feed",
+    "category": "Ideas"
   }
 ]
