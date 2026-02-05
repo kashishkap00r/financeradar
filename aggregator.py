@@ -773,44 +773,62 @@ def generate_html(article_groups):
             gap: 6px;
         }}
 
-        /* Filter Container */
-        .filter-container {{
-            position: relative;
+        /* In Focus Row */
+        .in-focus-row {{
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
         }}
 
-        /* In Focus Floating Badge */
-        .in-focus-badge {{
-            position: absolute;
-            top: 12px;
-            right: 0;
+        /* In Focus Button with Pulsing Dot */
+        .in-focus-btn {{
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: var(--accent);
-            border: none;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 12px;
+            gap: 10px;
+            padding: 8px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 13px;
             font-family: inherit;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
             cursor: pointer;
             transition: all 0.15s;
         }}
-        .in-focus-badge:hover {{
-            background: var(--accent-hover);
-            transform: scale(1.02);
+        .in-focus-btn:hover {{
+            border-color: var(--accent);
+            color: var(--text-primary);
         }}
-        .in-focus-badge.active {{
-            background: var(--text-primary);
+        .in-focus-btn.active {{
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
         }}
-        .in-focus-badge .count {{
-            background: rgba(255,255,255,0.25);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: 700;
+        .in-focus-btn.active .pulse-dot {{
+            background: #fff;
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+        }}
+
+        /* Pulsing Dot */
+        .pulse-dot {{
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }}
+
+        @keyframes pulse {{
+            0% {{
+                box-shadow: 0 0 0 0 rgba(225, 75, 75, 0.6);
+            }}
+            70% {{
+                box-shadow: 0 0 0 10px rgba(225, 75, 75, 0);
+            }}
+            100% {{
+                box-shadow: 0 0 0 0 rgba(225, 75, 75, 0);
+            }}
         }}
 
         .update-time {{
@@ -1475,34 +1493,35 @@ def generate_html(article_groups):
             <span class="update-time">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
         </div>
 
-        <div class="filter-container">
-            <button class="in-focus-badge" id="in-focus-toggle" onclick="toggleInFocus()">
-                🚨 In Focus <span class="count">{in_focus_count}</span>
+        <div class="category-links" id="category-tabs">
+            <span class="filter-label">Category:</span>
+            <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
+            <span class="category-sep">·</span>
+            <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
+            <span class="category-sep">·</span>
+            <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
+        </div>
+
+        <div class="publisher-links">
+            <span class="publisher-label">Publisher:</span>
+            <a href="#" class="publisher-link" data-publisher="ET" onclick="togglePublisher('ET'); return false;">ET</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="The Hindu" onclick="togglePublisher('The Hindu'); return false;">The Hindu</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="BusinessLine" onclick="togglePublisher('BusinessLine'); return false;">BusinessLine</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="BS" onclick="togglePublisher('BS'); return false;">BS</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="Mint" onclick="togglePublisher('Mint'); return false;">Mint</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="Global" onclick="togglePublisher('Global'); return false;">Global</a>
+        </div>
+
+        <div class="in-focus-row">
+            <button class="in-focus-btn" id="in-focus-toggle" onclick="toggleInFocus()">
+                <span class="pulse-dot"></span>
+                In Focus: <strong>{in_focus_count}</strong> stories covered by multiple sources
             </button>
-
-            <div class="category-links" id="category-tabs">
-                <span class="filter-label">Category:</span>
-                <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
-                <span class="category-sep">·</span>
-                <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
-                <span class="category-sep">·</span>
-                <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
-            </div>
-
-            <div class="publisher-links">
-                <span class="publisher-label">Publisher:</span>
-                <a href="#" class="publisher-link" data-publisher="ET" onclick="togglePublisher('ET'); return false;">ET</a>
-                <span class="publisher-sep">·</span>
-                <a href="#" class="publisher-link" data-publisher="The Hindu" onclick="togglePublisher('The Hindu'); return false;">The Hindu</a>
-                <span class="publisher-sep">·</span>
-                <a href="#" class="publisher-link" data-publisher="BusinessLine" onclick="togglePublisher('BusinessLine'); return false;">BusinessLine</a>
-                <span class="publisher-sep">·</span>
-                <a href="#" class="publisher-link" data-publisher="BS" onclick="togglePublisher('BS'); return false;">BS</a>
-                <span class="publisher-sep">·</span>
-                <a href="#" class="publisher-link" data-publisher="Mint" onclick="togglePublisher('Mint'); return false;">Mint</a>
-                <span class="publisher-sep">·</span>
-                <a href="#" class="publisher-link" data-publisher="Global" onclick="togglePublisher('Global'); return false;">Global</a>
-            </div>
         </div>
 
         <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
