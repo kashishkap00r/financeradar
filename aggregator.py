@@ -458,7 +458,8 @@ def fetch_feed(feed_config):
                     "description": summary.text[:300] if summary is not None and summary.text else "",
                     "source": feed_name,
                     "source_url": source_url,
-                    "category": feed_config.get("category", "News")
+                    "category": feed_config.get("category", "News"),
+                    "publisher": feed_config.get("publisher", "")
                 })
         else:
             # RSS 2.0 format
@@ -475,7 +476,8 @@ def fetch_feed(feed_config):
                     "description": description.text[:300] if description is not None and description.text else "",
                     "source": feed_name,
                     "source_url": source_url,
-                    "category": feed_config.get("category", "News")
+                    "category": feed_config.get("category", "News"),
+                    "publisher": feed_config.get("publisher", "")
                 })
 
         print(f"  [OK] {feed_name}: {len(articles)} articles")
@@ -1431,6 +1433,16 @@ def generate_html(article_groups):
             <button class="category-tab" data-category="ideas" onclick="filterByCategory('ideas')">Ideas</button>
         </div>
 
+        <div class="category-tabs" id="publisher-tabs">
+            <button class="category-tab active" data-publisher="" onclick="filterByPublisher('')">All</button>
+            <button class="category-tab" data-publisher="ET" onclick="filterByPublisher('ET')">ET</button>
+            <button class="category-tab" data-publisher="The Hindu" onclick="filterByPublisher('The Hindu')">The Hindu</button>
+            <button class="category-tab" data-publisher="BusinessLine" onclick="filterByPublisher('BusinessLine')">BusinessLine</button>
+            <button class="category-tab" data-publisher="BS" onclick="filterByPublisher('BS')">BS</button>
+            <button class="category-tab" data-publisher="Mint" onclick="filterByPublisher('Mint')">Mint</button>
+            <button class="category-tab" data-publisher="Global" onclick="filterByPublisher('Global')">Global</button>
+        </div>
+
         <div class="filter-bar">
             <button class="in-focus-toggle" id="in-focus-toggle" onclick="toggleInFocus()">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
@@ -1494,7 +1506,8 @@ def generate_html(article_groups):
             also_covered_html = f'\n                <div class="also-covered">Also covered by: {", ".join(source_links)}</div>'
 
         category = escape(article.get("category", "News").lower())
-        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}" data-url="{link}" data-title="{title}" data-category="{category}" data-in-focus="{is_in_focus}">
+        publisher = escape(article.get("publisher", ""))
+        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}" data-url="{link}" data-title="{title}" data-category="{category}" data-in-focus="{is_in_focus}" data-publisher="{publisher}">
                 <h3 class="article-title"><a href="{link}" target="_blank" rel="noopener">{title}</a>{source_badge_html}</h3>
                 <div class="article-meta">
                     <a href="{source_url}" target="_blank" class="source-tag" title="{source}">{source_display}</a>
@@ -1552,8 +1565,9 @@ def generate_html(article_groups):
         initTheme();
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
-        // Search, category, and In Focus filter
+        // Search, category, publisher, and In Focus filter
         let currentCategory = '';
+        let currentPublisher = '';
         let inFocusOnly = false;
         const IN_FOCUS_COUNT = {in_focus_count};
 
@@ -1568,11 +1582,13 @@ def generate_html(article_groups):
             articles.forEach(article => {
                 const text = article.textContent.toLowerCase();
                 const category = article.dataset.category || '';
+                const publisher = article.dataset.publisher || '';
                 const isInFocus = article.dataset.inFocus === 'true';
                 const matchesSearch = !query || text.includes(query);
                 const matchesCategory = !currentCategory || category === currentCategory;
+                const matchesPublisher = !currentPublisher || publisher === currentPublisher;
                 const matchesInFocus = !inFocusOnly || isInFocus;
-                article.classList.toggle('hidden', !(matchesSearch && matchesCategory && matchesInFocus));
+                article.classList.toggle('hidden', !(matchesSearch && matchesCategory && matchesPublisher && matchesInFocus));
             });
 
             // Hide empty date headers
@@ -1597,8 +1613,19 @@ def generate_html(article_groups):
             currentCategory = category;
 
             // Update active tab
-            document.querySelectorAll('.category-tab').forEach(tab => {
+            document.querySelectorAll('#category-tabs .category-tab').forEach(tab => {
                 tab.classList.toggle('active', tab.dataset.category === category);
+            });
+
+            filterArticles();
+        }
+
+        function filterByPublisher(publisher) {
+            currentPublisher = publisher;
+
+            // Update active tab
+            document.querySelectorAll('#publisher-tabs .category-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.publisher === publisher);
             });
 
             filterArticles();
