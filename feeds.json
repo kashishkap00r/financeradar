@@ -518,6 +518,13 @@
     "category": "News"
   },
   {
+    "id": "business-standard-companies",
+    "name": "Business Standard — Companies",
+    "url": "https://www.business-standard.com/companies",
+    "feed": "https://news.google.com/rss/search?q=site:business-standard.com/companies&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News"
+  },
+  {
     "id": "business-standard-economy",
     "name": "Business Standard — Economy",
     "url": "https://www.business-standard.com/economy",
@@ -550,6 +557,13 @@
     "name": "The Ken",
     "url": "https://the-ken.com",
     "feed": "https://the-ken.com/feed/",
+    "category": "Ideas"
+  },
+  {
+    "id": "the-morning-context",
+    "name": "The Morning Context",
+    "url": "https://themorningcontext.com",
+    "feed": "https://news.google.com/rss/search?q=site:themorningcontext.com&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Ideas"
   },
   {
