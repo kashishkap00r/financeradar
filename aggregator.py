@@ -775,20 +775,38 @@ def generate_html(article_groups):
 
         /* In Focus Row */
         .in-focus-row {{
-            padding: 12px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--border);
-            font-size: 13px;
+            display: flex;
+            justify-content: center;
         }}
-        .in-focus-link {{
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.15s;
+        .in-focus-btn {{
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: var(--accent);
+            border: none;
+            border-radius: 24px;
+            color: #fff;
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 0 20px rgba(225, 75, 75, 0.3);
         }}
-        .in-focus-link:hover {{
-            color: var(--text-primary);
+        .in-focus-btn:hover {{
+            background: var(--accent-hover);
+            box-shadow: 0 0 30px rgba(225, 75, 75, 0.5);
+            transform: translateY(-1px);
         }}
-        .in-focus-link.active {{
-            color: var(--accent);
+        .in-focus-btn.active {{
+            background: var(--text-primary);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }}
+        .in-focus-btn .emoji {{
+            font-size: 16px;
         }}
 
         .update-time {{
@@ -1478,9 +1496,9 @@ def generate_html(article_groups):
         </div>
 
         <div class="in-focus-row">
-            <a href="#" class="in-focus-link" id="in-focus-toggle" onclick="toggleInFocus(); return false;">
-                ◉ In Focus: <strong>{in_focus_count}</strong> stories covered by multiple sources
-            </a>
+            <button class="in-focus-btn" id="in-focus-toggle" onclick="toggleInFocus()">
+                <span class="emoji">🚨</span> In Focus: <strong>{in_focus_count}</strong> stories covered by multiple sources
+            </button>
         </div>
 
         <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
