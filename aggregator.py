@@ -528,6 +528,25 @@ def to_local_datetime(dt):
         return dt
 
 
+def export_articles_json(article_groups):
+    """Export articles to JSON for AI ranker to consume."""
+    articles = []
+    for group in article_groups:
+        article = group["primary"]
+        articles.append({
+            "title": article["title"],
+            "url": article["link"],
+            "source": article["source"],
+            "date": article["date"].isoformat() if article["date"] else None,
+            "category": article.get("category", "News"),
+            "has_related": len(group["related_sources"]) > 0
+        })
+    output_path = os.path.join(SCRIPT_DIR, "static", "articles.json")
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump({"generated_at": datetime.now(IST_TZ).isoformat(), "articles": articles}, f, indent=2)
+    print(f"Exported {len(articles)} articles to {output_path}")
+
+
 def generate_html(article_groups):
     """Generate the static HTML website."""
 
@@ -1127,6 +1146,27 @@ def generate_html(article_groups):
             display: none;
         }}
 
+        /* AI Toggle Button */
+        .ai-toggle {{
+            position: relative;
+            padding: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }}
+        .ai-toggle:hover {{
+            border-color: var(--border-light);
+            background: var(--bg-hover);
+        }}
+
         /* Bookmarks Sidebar */
         .sidebar-overlay {{
             position: fixed;
@@ -1281,6 +1321,120 @@ def generate_html(article_groups):
         .sidebar-btn.copied {{
             border-color: #22c55e;
             color: #22c55e;
+        }}
+
+        /* AI Sidebar */
+        .ai-sidebar {{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            max-width: 90vw;
+            height: 100vh;
+            background: var(--bg-primary);
+            border-left: 1px solid var(--border);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 201;
+            display: flex;
+            flex-direction: column;
+        }}
+        .sidebar-overlay.open .ai-sidebar {{
+            transform: translateX(0);
+        }}
+        .ai-provider-select {{
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }}
+        .ai-provider-select label {{
+            font-size: 13px;
+            color: var(--text-secondary);
+        }}
+        .ai-provider-select select {{
+            flex: 1;
+            padding: 6px 10px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 13px;
+        }}
+        .ai-rank-item {{
+            display: flex;
+            gap: 12px;
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border);
+            align-items: flex-start;
+        }}
+        .ai-rank-item:hover {{
+            background: var(--bg-hover);
+        }}
+        .rank-num {{
+            font-weight: 600;
+            color: var(--accent);
+            min-width: 20px;
+            font-size: 13px;
+        }}
+        .rank-content {{
+            flex: 1;
+            min-width: 0;
+        }}
+        .rank-content a {{
+            display: block;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 13px;
+            line-height: 1.4;
+        }}
+        .rank-content a:hover {{
+            color: var(--accent);
+        }}
+        .rank-reason {{
+            display: block;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }}
+        .ai-updated-time {{
+            font-size: 11px;
+            color: var(--text-muted);
+        }}
+        .ai-error {{
+            padding: 40px 20px;
+            text-align: center;
+        }}
+        .ai-error-title {{
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }}
+        .ai-bookmark-btn {{
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            padding: 4px;
+            flex-shrink: 0;
+        }}
+        .ai-bookmark-btn:hover {{
+            color: var(--accent);
+        }}
+        .ai-bookmark-btn.bookmarked {{
+            color: var(--accent);
+        }}
+        .ai-bookmark-btn svg {{
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }}
+        .ai-bookmark-btn.bookmarked svg {{
+            fill: var(--accent);
         }}
 
         /* Back to Top */
@@ -1466,6 +1620,9 @@ def generate_html(article_groups):
                 <span class="search-icon">&#128269;</span>
                 <input type="text" id="search" placeholder="Search articles..." oninput="filterArticles()">
             </div>
+            <button id="ai-toggle" class="ai-toggle" type="button" aria-label="AI Picks" title="AI Picks" onclick="openAiSidebar()">
+                <span style="font-size: 16px;">🤖</span>
+            </button>
             <button id="bookmarks-toggle" class="bookmarks-toggle" type="button" aria-label="View bookmarks" title="View bookmarks">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -1517,6 +1674,30 @@ def generate_html(article_groups):
                     <span>Copy All</span>
                 </button>
                 <button class="sidebar-btn danger" onclick="clearAllBookmarks()">Clear All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Rankings Sidebar -->
+    <div id="ai-sidebar-overlay" class="sidebar-overlay">
+        <div class="ai-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title"><span style="font-size: 18px;">🤖</span> AI Picks</div>
+                <button class="sidebar-close" onclick="closeAiSidebar()" aria-label="Close sidebar">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="ai-provider-select">
+                <label for="ai-provider">Provider:</label>
+                <select id="ai-provider" onchange="switchAiProvider()">
+                    <option value="openrouter">OpenRouter (Nemotron)</option>
+                </select>
+            </div>
+            <div id="ai-rankings-content" class="sidebar-content">
+                <div class="sidebar-empty">Loading AI rankings...</div>
+            </div>
+            <div class="sidebar-footer">
+                <span id="ai-updated" class="ai-updated-time">Updated: --</span>
             </div>
         </div>
     </div>
@@ -2115,6 +2296,103 @@ def generate_html(article_groups):
         // Initialize bookmarks
         initBookmarkButtons();
 
+        // ==================== AI RANKINGS SIDEBAR ====================
+        let aiRankings = null;
+        let currentAiProvider = 'openrouter';
+
+        async function loadAiRankings() {
+            try {
+                const res = await fetch('static/ai_rankings.json');
+                if (!res.ok) throw new Error('Rankings not found');
+                aiRankings = await res.json();
+                renderAiRankings();
+            } catch (e) {
+                document.getElementById('ai-rankings-content').innerHTML =
+                    '<div class="ai-error"><div class="ai-error-title">AI Rankings Unavailable</div><div>Run ai_ranker.py to generate rankings</div></div>';
+            }
+        }
+
+        function switchAiProvider() {
+            currentAiProvider = document.getElementById('ai-provider').value;
+            renderAiRankings();
+        }
+
+        function renderAiRankings() {
+            if (!aiRankings || !aiRankings.providers) return;
+            const provider = aiRankings.providers[currentAiProvider];
+            const container = document.getElementById('ai-rankings-content');
+            if (!provider) {
+                container.innerHTML = '<div class="ai-error">Provider not available</div>';
+                return;
+            }
+            if (provider.status !== 'ok') {
+                container.innerHTML = `<div class="ai-error"><div class="ai-error-title">Error</div><div>${escapeHtml(provider.error || 'Unknown error')}</div></div>`;
+                return;
+            }
+            container.innerHTML = provider.rankings.map((r, i) => `
+                <div class="ai-rank-item">
+                    <span class="rank-num">${i + 1}</span>
+                    <div class="rank-content">
+                        <a href="${escapeHtml(r.url || '#')}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>
+                        <span class="rank-reason">${escapeHtml(r.reason)}</span>
+                    </div>
+                    <button class="ai-bookmark-btn ${isBookmarked(r.url) ? 'bookmarked' : ''}"
+                            onclick="toggleAiBookmark(this, '${escapeHtml(r.url)}', '${escapeHtml(r.title)}', '${escapeHtml(r.source)}')" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            `).join('');
+            const date = new Date(aiRankings.generated_at);
+            document.getElementById('ai-updated').textContent = `Updated: ${date.toLocaleDateString()} ${date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+        }
+
+        function isBookmarked(url) {
+            if (!url) return false;
+            return getBookmarks().some(b => b.url === url);
+        }
+
+        function toggleAiBookmark(btn, url, title, source) {
+            if (!url) return;
+            let bookmarks = getBookmarks();
+            const exists = bookmarks.some(b => b.url === url);
+            if (exists) {
+                bookmarks = bookmarks.filter(b => b.url !== url);
+                btn.classList.remove('bookmarked');
+            } else {
+                bookmarks.push({ url, title, source, date: new Date().toISOString() });
+                btn.classList.add('bookmarked');
+            }
+            saveBookmarks(bookmarks);
+            updateBookmarkCount();
+            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"]`);
+            if (article) {
+                const mainBtn = article.querySelector('.bookmark-btn');
+                if (mainBtn) mainBtn.classList.toggle('bookmarked', !exists);
+            }
+        }
+
+        function openAiSidebar() {
+            document.getElementById('ai-sidebar-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAiSidebar() {
+            document.getElementById('ai-sidebar-overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('ai-sidebar-overlay').addEventListener('click', (e) => {
+            if (e.target.id === 'ai-sidebar-overlay') closeAiSidebar();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('ai-sidebar-overlay').classList.contains('open')) {
+                closeAiSidebar();
+            }
+        });
+
+        loadAiRankings();
+
         // Ensure page starts at top on load
         window.addEventListener('load', () => {
             window.scrollTo(0, 0);
@@ -2221,6 +2499,7 @@ def main():
     print(f"After grouping similar headlines: {len(article_groups)} groups ({grouped_count} articles merged)")
 
     generate_html(article_groups)
+    export_articles_json(article_groups)
 
     print("\nDone!")
     print("=" * 50)

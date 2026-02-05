@@ -1,15 +1,16 @@
-name: Update FinanceRadar
+name: AI News Ranking
 
 "on":
   schedule:
-    - cron: "0 * * * *"
+    # 7:30 AM IST = 2:00 AM UTC
+    - cron: "0 2 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  rank:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,15 +23,17 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Run aggregator
-        run: python3 aggregator.py
+      - name: Run AI ranker
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 ai_ranker.py
 
       - name: Commit and push if changed
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html static/articles.json
-            git commit -m "Update news feeds"
+            git add static/ai_rankings.json
+            git commit -m "Update AI rankings - $(date +'%Y-%m-%d')"
             git push
           fi
