@@ -118,6 +118,43 @@ FILTER_TITLE_PATTERNS = [
     r"shares?\s*to\s*watch\s*today",
     r"stocks?\s*in\s*focus\s*today",
     r"stocks?\s*in\s*news\s*today",
+
+    # Market opening predictions
+    r"(flat|flattish|positive|negative|cautious|muted|weak|strong|higher|lower)\s*opening\s*(seen|expected|likely)",
+    r"opening\s*(seen|expected)\s*(for|on)\s*(sensex|nifty|market)",
+
+    # Stock Market Today/Highlights (daily roundups)
+    r"stock\s*market\s*today",
+    r"stock\s*market\s*highlights",
+    r"market\s*highlights.*(sensex|nifty)",
+
+    # Sensex/Nifty with big movement verbs
+    r"sensex\s*(surges?|zooms?|jumps?|soars?|rallies?|tanks?|plunges?|crashes?|tumbles?|slumps?|skyrockets?)",
+    r"nifty\s*(surges?|zooms?|jumps?|soars?|rallies?|tanks?|plunges?|crashes?|tumbles?|slumps?|skyrockets?)",
+
+    # Point/percentage movements
+    r"(sensex|nifty).{0,30}(up|down|adds?|sheds?|gains?|loses?)\s*\d+\s*(pts|points?|%)",
+
+    # Prediction articles
+    r"(sensex|nifty)\s*prediction",
+    r"what\s*to\s*expect.*stock\s*market",
+    r"what\s*to\s*expect.*(sensex|nifty)",
+
+    # Top gainers/losers
+    r"top\s*gainers",
+    r"top\s*losers",
+    r"gainers.{0,20}losers",
+
+    # Technical analysis jargon
+    r"(support|resistance).{0,15}(support|resistance)?\s*levels?",
+
+    # Closing/Opening Bell
+    r"closing\s*bell",
+    r"opening\s*bell",
+
+    # "Sensex today" / "Nifty today" patterns
+    r"(sensex|nifty)\s*today\s*:",
+    r"(sensex|nifty)\s*\d+.{0,10}(sensex|nifty)\s*today",
 ]
 
 # URL patterns to filter (case-insensitive, substring match)
