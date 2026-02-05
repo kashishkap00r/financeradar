@@ -103,6 +103,21 @@ FILTER_TITLE_PATTERNS = [
     r"\bbuy or sell\b",
     r"multibagger",
     r"stocks to buy",
+
+    # Quarterly results roundups (routine lists)
+    r"q[1-4]\s*results?\s*today",
+    r"q[1-4]\s*results?\s*live",
+    r"q[1-4]\s*earnings?\s*today",
+    r"q[1-4]\s*earnings?\s*live",
+    r"results?\s*today\s*live",
+    r"earnings?\s*today\s*live",
+
+    # Stocks to watch (routine daily lists)
+    r"stocks?\s*to\s*watch\s*today",
+    r"stocks?\s*to\s*watch\s*on",
+    r"shares?\s*to\s*watch\s*today",
+    r"stocks?\s*in\s*focus\s*today",
+    r"stocks?\s*in\s*news\s*today",
 ]
 
 # URL patterns to filter (case-insensitive, substring match)
