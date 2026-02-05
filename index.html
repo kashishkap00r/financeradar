@@ -199,40 +199,44 @@
             gap: 6px;
         }
 
-        /* In Focus Row */
-        .in-focus-row {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: center;
+        /* Filter Container */
+        .filter-container {
+            position: relative;
         }
-        .in-focus-btn {
+
+        /* In Focus Floating Badge */
+        .in-focus-badge {
+            position: absolute;
+            top: 12px;
+            right: 0;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 24px;
+            gap: 6px;
+            padding: 6px 12px;
             background: var(--accent);
             border: none;
-            border-radius: 24px;
+            border-radius: 4px;
             color: #fff;
-            font-size: 14px;
+            font-size: 12px;
             font-family: inherit;
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 0 20px rgba(225, 75, 75, 0.3);
+            transition: all 0.15s;
         }
-        .in-focus-btn:hover {
+        .in-focus-badge:hover {
             background: var(--accent-hover);
-            box-shadow: 0 0 30px rgba(225, 75, 75, 0.5);
-            transform: translateY(-1px);
+            transform: scale(1.02);
         }
-        .in-focus-btn.active {
+        .in-focus-badge.active {
             background: var(--text-primary);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
-        .in-focus-btn .emoji {
-            font-size: 16px;
+        .in-focus-badge .count {
+            background: rgba(255,255,255,0.25);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 700;
         }
 
         .update-time {
@@ -891,48 +895,114 @@
     <div class="container">
         <div class="stats-bar">
             <div class="stats">
-                <span><strong>1474</strong> articles</span>
-                <span><strong>72</strong> sources</span>
+                <span><strong>1490</strong> articles</span>
+                <span><strong>73</strong> sources</span>
             </div>
-            <span class="update-time">Updated Feb 05, 01:51 PM IST</span>
+            <span class="update-time">Updated Feb 05, 01:55 PM IST</span>
         </div>
 
-        <div class="category-links" id="category-tabs">
-            <span class="filter-label">Category:</span>
-            <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
-            <span class="category-sep">·</span>
-            <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
-            <span class="category-sep">·</span>
-            <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
-        </div>
-
-        <div class="publisher-links">
-            <span class="publisher-label">Publisher:</span>
-            <a href="#" class="publisher-link" data-publisher="ET" onclick="togglePublisher('ET'); return false;">ET</a>
-            <span class="publisher-sep">·</span>
-            <a href="#" class="publisher-link" data-publisher="The Hindu" onclick="togglePublisher('The Hindu'); return false;">The Hindu</a>
-            <span class="publisher-sep">·</span>
-            <a href="#" class="publisher-link" data-publisher="BusinessLine" onclick="togglePublisher('BusinessLine'); return false;">BusinessLine</a>
-            <span class="publisher-sep">·</span>
-            <a href="#" class="publisher-link" data-publisher="BS" onclick="togglePublisher('BS'); return false;">BS</a>
-            <span class="publisher-sep">·</span>
-            <a href="#" class="publisher-link" data-publisher="Mint" onclick="togglePublisher('Mint'); return false;">Mint</a>
-            <span class="publisher-sep">·</span>
-            <a href="#" class="publisher-link" data-publisher="Global" onclick="togglePublisher('Global'); return false;">Global</a>
-        </div>
-
-        <div class="in-focus-row">
-            <button class="in-focus-btn" id="in-focus-toggle" onclick="toggleInFocus()">
-                <span class="emoji">🚨</span> In Focus: <strong>36</strong> stories covered by multiple sources
+        <div class="filter-container">
+            <button class="in-focus-badge" id="in-focus-toggle" onclick="toggleInFocus()">
+                🚨 In Focus <span class="count">36</span>
             </button>
+
+            <div class="category-links" id="category-tabs">
+                <span class="filter-label">Category:</span>
+                <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
+                <span class="category-sep">·</span>
+                <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
+                <span class="category-sep">·</span>
+                <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
+            </div>
+
+            <div class="publisher-links">
+                <span class="publisher-label">Publisher:</span>
+                <a href="#" class="publisher-link" data-publisher="ET" onclick="togglePublisher('ET'); return false;">ET</a>
+                <span class="publisher-sep">·</span>
+                <a href="#" class="publisher-link" data-publisher="The Hindu" onclick="togglePublisher('The Hindu'); return false;">The Hindu</a>
+                <span class="publisher-sep">·</span>
+                <a href="#" class="publisher-link" data-publisher="BusinessLine" onclick="togglePublisher('BusinessLine'); return false;">BusinessLine</a>
+                <span class="publisher-sep">·</span>
+                <a href="#" class="publisher-link" data-publisher="BS" onclick="togglePublisher('BS'); return false;">BS</a>
+                <span class="publisher-sep">·</span>
+                <a href="#" class="publisher-link" data-publisher="Mint" onclick="togglePublisher('Mint'); return false;">Mint</a>
+                <span class="publisher-sep">·</span>
+                <a href="#" class="publisher-link" data-publisher="Global" onclick="togglePublisher('Global'); return false;">Global</a>
+            </div>
         </div>
 
         <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
 
         <div id="articles">
             <h2 class="date-header">Today</h2>
-            <article class="article" data-source="businessline — economy" data-date="2026-02-05" data-url="https://www.thehindubusinessline.com/economy/india-us-likely-to-finalise-sign-joint-statement-on-bilateral-trade-deal-in-4-5-days-goyal/article70594902.ece" data-title="India, US likely to finalise, sign joint statement on bilateral trade deal in 4-5 days: Goyal" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
-                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/economy/india-us-likely-to-finalise-sign-joint-statement-on-bilateral-trade-deal-in-4-5-days-goyal/article70594902.ece" target="_blank" rel="noopener">India, US likely to finalise, sign joint statement on bilateral trade deal in 4-5 days: Goyal</a></h3>
+            <article class="article" data-source="et now" data-date="2026-02-05" data-url=" https://www.etnownews.com/economy/rbi-repo-rate-cut-mpc-meeting-outcome-tomorrow-likely-to-hold-rate-maintain-neutral-stance-here-is-why-explained-article-153564531 " data-title="RBI repo rate cut: MPC meeting outcome tomorrow; likely to hold rate, maintain neutral stance - Here&#x27;s why | EXPLAINED" data-category="news" data-in-focus="false" data-publisher="ET">
+                <h3 class="article-title"><a href=" https://www.etnownews.com/economy/rbi-repo-rate-cut-mpc-meeting-outcome-tomorrow-likely-to-hold-rate-maintain-neutral-stance-here-is-why-explained-article-153564531 " target="_blank" rel="noopener">RBI repo rate cut: MPC meeting outcome tomorrow; likely to hold rate, maintain neutral stance - Here&#x27;s why | EXPLAINED</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <span class="meta-dot">·</span><span class="article-time">1:54 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="et now" data-date="2026-02-05" data-url=" https://www.etnownews.com/economy/india-us-trade-deal-1st-phase-of-trade-agreement-joint-statement-soon-says-piyush-goyal-article-153564459 " data-title="India-US Trade Deal: 1st phase of trade agreement, joint statement soon, says Piyush Goyal" data-category="news" data-in-focus="false" data-publisher="ET">
+                <h3 class="article-title"><a href=" https://www.etnownews.com/economy/india-us-trade-deal-1st-phase-of-trade-agreement-joint-statement-soon-says-piyush-goyal-article-153564459 " target="_blank" rel="noopener">India-US Trade Deal: 1st phase of trade agreement, joint statement soon, says Piyush Goyal</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <span class="meta-dot">·</span><span class="article-time">1:53 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="mint — markets" data-date="2026-02-05" data-url="https://www.livemint.com/market/stock-market-news/pvr-inox-q3-results-profit-zooms-166-yoy-to-rs-96-crore-revenue-up-9-11770279667250.html" data-title="PVR Inox Q3 Results: Profit zooms 166% YoY to ₹96 crore; revenue up 9%" data-category="news" data-in-focus="false" data-publisher="Mint">
+                <h3 class="article-title"><a href="https://www.livemint.com/market/stock-market-news/pvr-inox-q3-results-profit-zooms-166-yoy-to-rs-96-crore-revenue-up-9-11770279667250.html" target="_blank" rel="noopener">PVR Inox Q3 Results: Profit zooms 166% YoY to ₹96 crore; revenue up 9%</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.livemint.com/rss/markets" target="_blank" class="source-tag" title="Mint — Markets">Mint — Markets</a>
+                    <span class="meta-dot">·</span><span class="article-time">1:53 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="mint — markets" data-date="2026-02-05" data-url="https://www.livemint.com/market/stock-market-news/pfc-q3-results-maharatna-psus-profit-jumps-15-yoy-to-4-763-33-crore-declares-dividend-of-40-11770279568405.html" data-title="PFC Q3 results: Maharatna PSU&#x27;s profit jumps 15% YoY to ₹4,763.33 crore, declares dividend of ₹40" data-category="news" data-in-focus="false" data-publisher="Mint">
+                <h3 class="article-title"><a href="https://www.livemint.com/market/stock-market-news/pfc-q3-results-maharatna-psus-profit-jumps-15-yoy-to-4-763-33-crore-declares-dividend-of-40-11770279568405.html" target="_blank" rel="noopener">PFC Q3 results: Maharatna PSU&#x27;s profit jumps 15% YoY to ₹4,763.33 crore, declares dividend of ₹40</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.livemint.com/rss/markets" target="_blank" class="source-tag" title="Mint — Markets">Mint — Markets</a>
+                    <span class="meta-dot">·</span><span class="article-time">1:53 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="et bfsi — articles" data-date="2026-02-05" data-url="https://bfsi.economictimes.indiatimes.com/articles/govts-rs-2000-cr-upi-incentive-thins-at-scale-as-fintechs-flag-rising-cost-strain/127927815" data-title="Govt’s Rs 2,000 Cr UPI incentive thins at scale as fintechs flag rising cost strain" data-category="news" data-in-focus="false" data-publisher="ET">
+                <h3 class="article-title"><a href="https://bfsi.economictimes.indiatimes.com/articles/govts-rs-2000-cr-upi-incentive-thins-at-scale-as-fintechs-flag-rising-cost-strain/127927815" target="_blank" rel="noopener">Govt’s Rs 2,000 Cr UPI incentive thins at scale as fintechs flag rising cost strain</a></h3>
+                <div class="article-meta">
+                    <a href="https://bfsi.economictimes.indiatimes.com/news/articles" target="_blank" class="source-tag" title="ET BFSI — Articles">ET BFSI — Articles</a>
+                    <span class="meta-dot">·</span><span class="article-time">1:50 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="business standard — india" data-date="2026-02-05" data-url="https://news.google.com/rss/articles/CBMi0gFBVV95cUxQOExhOXQ4dGRZWWZ4ZVdHUzJvT2pPaDBYbUlCSDVCd21yV0g4UzFaS0dzSXJIOGFid2VUejItRGRxMnFxa0hiUERfYUR0UG9LQ1hxaWozdVdwaDhPc1J0b2VoZ1hyczg4VTNqNWhZRk5YWlIyTUFEMTdMb1hxQVhiVzl4c21TN2JHNWVmSldiajJsWjFyZUxzWkZoYUgzVTBTV0Z2YV84X3lmUlVFem5lbmFmc0VLZ0pPX1YzUlNTWHY1WFJqZWJSLTE4dl9EcUhzLUHSAdcBQVVfeXFMT0tUdkktMXRwaWtJRHVPYW1HdlhsQTdiQlM2ZjFRQXdOM21wMUhOVWdobGxPLWl1VE5zRTB3cjZEX3pTczZWSlFaREJtVVlvYjFCOGQ4aVA5SmhOZzhwc055eEI3RHZRSFhxZGlubkkzNkhfQ3hqWG9hVFVQamhlZHpRbVJPZHdtNVNMRm1QLW5BLVpWTi1scTZPcEtmUjJQT3hpclNpVTRyNEgzTXJvUUNjVDNIMHdyUVNMV1AwWk9KQW1hUXVORzVhUEhSQ2lQQ1d6emwtNUk?oc=5" data-title="West Bengal govt moves resolution in assembly over &#x27;hardships&#x27; due to SIR - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
+                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxQOExhOXQ4dGRZWWZ4ZVdHUzJvT2pPaDBYbUlCSDVCd21yV0g4UzFaS0dzSXJIOGFid2VUejItRGRxMnFxa0hiUERfYUR0UG9LQ1hxaWozdVdwaDhPc1J0b2VoZ1hyczg4VTNqNWhZRk5YWlIyTUFEMTdMb1hxQVhiVzl4c21TN2JHNWVmSldiajJsWjFyZUxzWkZoYUgzVTBTV0Z2YV84X3lmUlVFem5lbmFmc0VLZ0pPX1YzUlNTWHY1WFJqZWJSLTE4dl9EcUhzLUHSAdcBQVVfeXFMT0tUdkktMXRwaWtJRHVPYW1HdlhsQTdiQlM2ZjFRQXdOM21wMUhOVWdobGxPLWl1VE5zRTB3cjZEX3pTczZWSlFaREJtVVlvYjFCOGQ4aVA5SmhOZzhwc055eEI3RHZRSFhxZGlubkkzNkhfQ3hqWG9hVFVQamhlZHpRbVJPZHdtNVNMRm1QLW5BLVpWTi1scTZPcEtmUjJQT3hpclNpVTRyNEgzTXJvUUNjVDNIMHdyUVNMV1AwWk9KQW1hUXVORzVhUEhSQ2lQQ1d6emwtNUk?oc=5" target="_blank" rel="noopener">West Bengal govt moves resolution in assembly over &#x27;hardships&#x27; due to SIR - Business Standard</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.business-standard.com/india-news" target="_blank" class="source-tag" title="Business Standard — India">Business Standard — India</a>
+                    <span class="meta-dot">·</span><span class="article-time">1:49 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="businessline — economy" data-date="2026-02-05" data-url="https://www.thehindubusinessline.com/economy/india-us-likely-to-finalise-sign-joint-statement-on-bilateral-trade-deal-in-4-5-days-goyal/article70594902.ece" data-title="India, US likely to finalise, sign joint statement on bilateral trade deal in 4-5 days: Goyal" data-category="news" data-in-focus="true" data-publisher="BusinessLine">
+                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/economy/india-us-likely-to-finalise-sign-joint-statement-on-bilateral-trade-deal-in-4-5-days-goyal/article70594902.ece" target="_blank" rel="noopener">India, US likely to finalise, sign joint statement on bilateral trade deal in 4-5 days: Goyal</a><span class="source-badge">2 sources</span></h3>
                 <div class="article-meta">
                     <a href="https://www.thehindubusinessline.com/economy/" target="_blank" class="source-tag" title="BusinessLine — Economy">BusinessLine — Economy</a>
                     <span class="meta-dot">·</span><span class="article-time">1:49 PM</span>
@@ -941,6 +1011,7 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
+                <div class="also-covered">Also covered by: <a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxOSHl0bXhKZG5BUjgtRnlZNDg5dXRuV1ktMmVQczN0c09OMENrbUxvT09ZTVdFT1FvSG5BdjF2UDY0cldPVjY4UE1NV0xTZUtleGxZRF8xRks3elR5MnpwVzNiZmhQeU16a1Y3dmdocm16eGxoOE9hTHljYmNlMVFZdDRTUFFZUUd0U2JsaWtvTDZ0Y1B4eXpqaDNWSlg2WE1QLWZUMUJLZFNwZ1prM0lBRFhGVHpZbnNBWDctVjZUR192bVhlX0JOdU5SWVVWd2dNbHhOONIB2gFBVV95cUxOdnVESmR5cnVvRWlXZ0llemhJX2tTNlh3cTY1bWNjUHQ0QU9xMlktVmlTTmtfR29CLXNqV1l4UnRsR1lSWkV5REd4Ry0xYzlnRDdjMzFDMFN4eDFoSVF5NE9EaktkV1BnQmpTMmExX3MtRzVhUkVWVlJBM01TeTEydEx1R2RJTzBkLXQzUVJ5UWdrbEdiLThIUml2RnNJb2pKREdGNElPM25VR3ZtMXlhYTBtNXJWQm5KN0FpbGFsOGJ0MDJVT0dGS1VYbnNIeHFoLTRiZmRnSWxsQQ?oc=5" target="_blank" rel="noopener" title="Business Standard — Economy">Business Standard — Econo...</a></div>
             </article>
             <article class="article" data-source="et now" data-date="2026-02-05" data-url=" https://www.etnownews.com/markets/indian-oil-dividend-2026-iocl-board-meeting-tomorrow-to-announce-cash-reward-article-153558730 " data-title="Indian Oil dividend 2026: IOCL board meeting tomorrow to announce cash reward?" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/markets/indian-oil-dividend-2026-iocl-board-meeting-tomorrow-to-announce-cash-reward-article-153558730 " target="_blank" rel="noopener">Indian Oil dividend 2026: IOCL board meeting tomorrow to announce cash reward?</a></h3>
@@ -969,17 +1040,6 @@
                 <div class="article-meta">
                     <a href="https://economictimes.indiatimes.com/news/economy" target="_blank" class="source-tag" title="Economic Times — Latest">Economic Times — Latest</a>
                     <span class="meta-dot">·</span><span class="article-time">1:43 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="et now — economy" data-date="2026-02-05" data-url=" https://www.etnownews.com/economy/india-us-trade-deal-1st-phase-of-trade-agreement-joint-statement-soon-says-piyush-goyal-article-153564459 " data-title="India-US Trade Deal: 1st phase of trade agreement, joint statement soon, says Piyush Goyal" data-category="news" data-in-focus="false" data-publisher="ET">
-                <h3 class="article-title"><a href=" https://www.etnownews.com/economy/india-us-trade-deal-1st-phase-of-trade-agreement-joint-statement-soon-says-piyush-goyal-article-153564459 " target="_blank" rel="noopener">India-US Trade Deal: 1st phase of trade agreement, joint statement soon, says Piyush Goyal</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.etnownews.com/economy" target="_blank" class="source-tag" title="ET Now — Economy">ET Now — Economy</a>
-                    <span class="meta-dot">·</span><span class="article-time">1:42 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -1728,18 +1788,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="et bfsi — recent stories" data-date="2026-02-05" data-url="https://bfsi.economictimes.indiatimes.com/news/banking/kotak-mahindra-banks-hiring-spree-means-jobs-for-500-engineers-as-it-eyes-ginger-and-cardamom-in-chai/127925431" data-title="Kotak Mahindra Bank&#x27;s hiring spree means jobs for 500 engineers as it eyes ginger and cardamom in chai" data-category="news" data-in-focus="true" data-publisher="ET">
-                <h3 class="article-title"><a href="https://bfsi.economictimes.indiatimes.com/news/banking/kotak-mahindra-banks-hiring-spree-means-jobs-for-500-engineers-as-it-eyes-ginger-and-cardamom-in-chai/127925431" target="_blank" rel="noopener">Kotak Mahindra Bank&#x27;s hiring spree means jobs for 500 engineers as it eyes ginger and cardamom in chai</a><span class="source-badge">2 sources</span></h3>
-                <div class="article-meta">
-                    <a href="https://bfsi.economictimes.indiatimes.com/rss/recentstories" target="_blank" class="source-tag" title="ET BFSI — Recent Stories">ET BFSI — Recent Stories</a>
-                    <span class="meta-dot">·</span><span class="article-time">11:52 AM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-                <div class="also-covered">Also covered by: <a href="https://economictimes.indiatimes.com/industry/banking/finance/banking/kotak-mahindra-banks-hiring-spree-means-jobs-for-500-engineers-as-it-eyes-ginger-and-cardamom-in-chai/articleshow/127924684.cms" target="_blank" rel="noopener" title="Economic Times — Latest">Economic Times — Latest</a></div>
-            </article>
             <article class="article" data-source="business standard — economy" data-date="2026-02-05" data-url="https://news.google.com/rss/articles/CBMi2AFBVV95cUxPeWNRbG91ZE1BTFptZmsxeDFnMnJkU19veFJfMi1EbHQya2NCRGFZVTd6WlB5cEp3WE1fZ3pnS3B0V1BIR2EteE05ZzZjLVUwV21oWVUySlZoanZyYl9PTWFwMzdXbWdiN0FGcXlhalBwLW1SaXp1NTVQS2gtczZpSEZTdEtXNjdtSHZaWnF3eTJ1WkZ3QlZoUkxIemRYU3o0dTg0U1pGaGNWRlhVOXAyWlJmRTBlN1NYOXkxYTAxdkhNNjY1NkZhWkR3UDBQRndkZUhyZ09LaEHSAd4BQVVfeXFMTkdhLWdCVXlBeXlsdFBicS0yT1RvdlU5ejBJZ1pVb2stU0hhT25aQWpOUVpUVnFFNXhjZWkwWTU1T21zRUljZVJzWkFXYThQYUNtRXRFWkNZNGZVNkNRMHByVGVWdGFaNG9VdWpYLXBNUjRpZ3Nqd2tGVktxQnJ1TjdDWndvRVkydi1ZbUFpRG1xN2NidTJOWkJOQkI0OExQbDBTUFpQbmk0YlVSN2xYU0M0T1ZhVmxKS3hGMWZnd2FnVGtQMWlfR2tYNVZWdzRGUUd6Zk8zS1N5NGhpMThR?oc=5" data-title="Russian oil tankers position close to India amid lack of clarity on US FTA - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxPeWNRbG91ZE1BTFptZmsxeDFnMnJkU19veFJfMi1EbHQya2NCRGFZVTd6WlB5cEp3WE1fZ3pnS3B0V1BIR2EteE05ZzZjLVUwV21oWVUySlZoanZyYl9PTWFwMzdXbWdiN0FGcXlhalBwLW1SaXp1NTVQS2gtczZpSEZTdEtXNjdtSHZaWnF3eTJ1WkZ3QlZoUkxIemRYU3o0dTg0U1pGaGNWRlhVOXAyWlJmRTBlN1NYOXkxYTAxdkhNNjY1NkZhWkR3UDBQRndkZUhyZ09LaEHSAd4BQVVfeXFMTkdhLWdCVXlBeXlsdFBicS0yT1RvdlU5ejBJZ1pVb2stU0hhT25aQWpOUVpUVnFFNXhjZWkwWTU1T21zRUljZVJzWkFXYThQYUNtRXRFWkNZNGZVNkNRMHByVGVWdGFaNG9VdWpYLXBNUjRpZ3Nqd2tGVktxQnJ1TjdDWndvRVkydi1ZbUFpRG1xN2NidTJOWkJOQkI0OExQbDBTUFpQbmk0YlVSN2xYU0M0T1ZhVmxKS3hGMWZnd2FnVGtQMWlfR2tYNVZWdzRGUUd6Zk8zS1N5NGhpMThR?oc=5" target="_blank" rel="noopener">Russian oil tankers position close to India amid lack of clarity on US FTA - Business Standard</a></h3>
                 <div class="article-meta">
@@ -1971,6 +2019,18 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
+            </article>
+            <article class="article" data-source="economic times — latest" data-date="2026-02-05" data-url="https://economictimes.indiatimes.com/industry/banking/finance/banking/kotak-mahindra-banks-hiring-spree-means-jobs-for-500-engineers-as-it-eyes-ginger-and-cardamom-in-chai/articleshow/127924684.cms" data-title="Kotak Mahindra Bank&#x27;s hiring spree means jobs for 500 engineers as it eyes ginger and cardamom in chai" data-category="news" data-in-focus="true" data-publisher="ET">
+                <h3 class="article-title"><a href="https://economictimes.indiatimes.com/industry/banking/finance/banking/kotak-mahindra-banks-hiring-spree-means-jobs-for-500-engineers-as-it-eyes-ginger-and-cardamom-in-chai/articleshow/127924684.cms" target="_blank" rel="noopener">Kotak Mahindra Bank&#x27;s hiring spree means jobs for 500 engineers as it eyes ginger and cardamom in chai</a><span class="source-badge">2 sources</span></h3>
+                <div class="article-meta">
+                    <a href="https://economictimes.indiatimes.com/industry" target="_blank" class="source-tag" title="Economic Times — Latest">Economic Times — Latest</a>
+                    <span class="meta-dot">·</span><span class="article-time">11:22 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+                <div class="also-covered">Also covered by: <a href="https://bfsi.economictimes.indiatimes.com/news/banking/kotak-mahindra-banks-hiring-spree-means-jobs-for-500-engineers-as-it-eyes-ginger-and-cardamom-in-chai/127925431" target="_blank" rel="noopener" title="ET BFSI — Recent Stories">ET BFSI — Recent Stories</a></div>
             </article>
             <article class="article" data-source="businessline — companies" data-date="2026-02-05" data-url="https://www.thehindubusinessline.com/companies/abd-maestro-launches-11-lakh-limited-edition-single-malt-whisky/article70594416.ece" data-title="ABD Maestro launches ₹11 lakh limited edition single malt whisky" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/companies/abd-maestro-launches-11-lakh-limited-edition-single-malt-whisky/article70594416.ece" target="_blank" rel="noopener">ABD Maestro launches ₹11 lakh limited edition single malt whisky</a></h3>
@@ -3213,17 +3273,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="mint — markets" data-date="2026-02-05" data-url="https://www.livemint.com/market/stock-market-news/indian-stock-market-10-key-things-that-changed-overnight-gift-nifty-trump-xi-talks-nasdaq-fall-to-alphabet-earnings-11770226575845.html" data-title="Indian stock market: 10 things that changed overnight - Gift Nifty, Trump-Xi talks, Nasdaq’s fall to Alphabet earnings" data-category="news" data-in-focus="false" data-publisher="Mint">
-                <h3 class="article-title"><a href="https://www.livemint.com/market/stock-market-news/indian-stock-market-10-key-things-that-changed-overnight-gift-nifty-trump-xi-talks-nasdaq-fall-to-alphabet-earnings-11770226575845.html" target="_blank" rel="noopener">Indian stock market: 10 things that changed overnight - Gift Nifty, Trump-Xi talks, Nasdaq’s fall to Alphabet earnings</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.livemint.com/rss/markets" target="_blank" class="source-tag" title="Mint — Markets">Mint — Markets</a>
-                    <span class="meta-dot">·</span><span class="article-time">7:07 AM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="et now" data-date="2026-02-05" data-url=" https://www.etnownews.com/news/us-iran-agree-to-hold-talks-in-oman-amid-rising-middle-east-tensions-article-153562376 " data-title="US, Iran agree to hold talks in Oman amid rising Middle East tensions" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/us-iran-agree-to-hold-talks-in-oman-amid-rising-middle-east-tensions-article-153562376 " target="_blank" rel="noopener">US, Iran agree to hold talks in Oman amid rising Middle East tensions</a></h3>
                 <div class="article-meta">
@@ -3240,17 +3289,6 @@
                 <div class="article-meta">
                     <a href="https://economictimes.indiatimes.com" target="_blank" class="source-tag" title="Economic Times — Latest">Economic Times — Latest</a>
                     <span class="meta-dot">·</span><span class="article-time">7:06 AM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="mint — markets" data-date="2026-02-05" data-url="https://www.livemint.com/market/stock-market-news/alphabet-q4-earnings-annual-revenue-tops-400-billion-for-first-time-google-parent-could-double-ai-spending-in-2026-11770254055228.html" data-title="Alphabet Q4 earnings: Annual revenue tops $400 billion for first time, Google parent could double AI spending in 2026" data-category="news" data-in-focus="false" data-publisher="Mint">
-                <h3 class="article-title"><a href="https://www.livemint.com/market/stock-market-news/alphabet-q4-earnings-annual-revenue-tops-400-billion-for-first-time-google-parent-could-double-ai-spending-in-2026-11770254055228.html" target="_blank" rel="noopener">Alphabet Q4 earnings: Annual revenue tops $400 billion for first time, Google parent could double AI spending in 2026</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.livemint.com/rss/markets" target="_blank" class="source-tag" title="Mint — Markets">Mint — Markets</a>
-                    <span class="meta-dot">·</span><span class="article-time">7:02 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -4784,17 +4822,6 @@
                 <div class="article-meta">
                     <a href="https://www.thehindubusinessline.com/" target="_blank" class="source-tag" title="BusinessLine">BusinessLine</a>
                     <span class="meta-dot">·</span><span class="article-time">9:26 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="economic times — latest" data-date="2026-02-04" data-url="https://economictimes.indiatimes.com/news/international/world-news/thousands-evacuated-as-storm-hits-spain-portugal/articleshow/127913957.cms" data-title="Thousands evacuated as storm hits Spain, Portugal" data-category="news" data-in-focus="false" data-publisher="ET">
-                <h3 class="article-title"><a href="https://economictimes.indiatimes.com/news/international/world-news/thousands-evacuated-as-storm-hits-spain-portugal/articleshow/127913957.cms" target="_blank" rel="noopener">Thousands evacuated as storm hits Spain, Portugal</a></h3>
-                <div class="article-meta">
-                    <a href="https://economictimes.indiatimes.com" target="_blank" class="source-tag" title="Economic Times — Latest">Economic Times — Latest</a>
-                    <span class="meta-dot">·</span><span class="article-time">9:17 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -7512,7 +7539,7 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
-                <div class="also-covered">Also covered by: <a href=" https://www.etnownews.com/economy/india-services-sector-growth-hits-2-month-high-in-january-pmi-report-article-153558269 " target="_blank" rel="noopener" title="ET Now — Economy">ET Now — Economy</a></div>
+                <div class="also-covered">Also covered by: <a href=" https://www.etnownews.com/economy/india-services-sector-growth-hits-2-month-high-in-january-pmi-report-article-153558269 " target="_blank" rel="noopener" title="ET Now">ET Now</a></div>
             </article>
             <article class="article" data-source="businessline — companies" data-date="2026-02-04" data-url="https://www.thehindubusinessline.com/companies/jiostar-group-appoints-stephan-bugaj-as-senior-vp-of-genai-content/article70590244.ece" data-title="JioStar Group appoints Stephan Bugaj as senior VP of GenAI content" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/companies/jiostar-group-appoints-stephan-bugaj-as-senior-vp-of-genai-content/article70590244.ece" target="_blank" rel="noopener">JioStar Group appoints Stephan Bugaj as senior VP of GenAI content</a></h3>
@@ -8233,10 +8260,10 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="et now — economy" data-date="2026-02-04" data-url=" https://www.etnownews.com/economy/rbi-mpc-meeting-from-today-governor-to-announce-outcome-on-feb-6-article-153557208 " data-title="RBI MPC meeting from today; Governor to announce outcome on Feb 6" data-category="news" data-in-focus="false" data-publisher="ET">
+            <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/economy/rbi-mpc-meeting-from-today-governor-to-announce-outcome-on-feb-6-article-153557208 " data-title="RBI MPC meeting from today; Governor to announce outcome on Feb 6" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/economy/rbi-mpc-meeting-from-today-governor-to-announce-outcome-on-feb-6-article-153557208 " target="_blank" rel="noopener">RBI MPC meeting from today; Governor to announce outcome on Feb 6</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/economy" target="_blank" class="source-tag" title="ET Now — Economy">ET Now — Economy</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">10:29 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -8657,17 +8684,6 @@
                 <div class="article-meta">
                     <a href="https://bfsi.economictimes.indiatimes.com/news/articles" target="_blank" class="source-tag" title="ET BFSI — Articles">ET BFSI — Articles</a>
                     <span class="meta-dot">·</span><span class="article-time">8:23 AM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="et bfsi — articles" data-date="2026-02-04" data-url="https://bfsi.economictimes.indiatimes.com/articles/chryscap-buys-into-design-manufacturing-co-nash/127898518" data-title="ChrysCap buys into design &amp; manufacturing co Nash" data-category="news" data-in-focus="false" data-publisher="ET">
-                <h3 class="article-title"><a href="https://bfsi.economictimes.indiatimes.com/articles/chryscap-buys-into-design-manufacturing-co-nash/127898518" target="_blank" rel="noopener">ChrysCap buys into design &amp; manufacturing co Nash</a></h3>
-                <div class="article-meta">
-                    <a href="https://bfsi.economictimes.indiatimes.com/news/articles" target="_blank" class="source-tag" title="ET BFSI — Articles">ET BFSI — Articles</a>
-                    <span class="meta-dot">·</span><span class="article-time">8:22 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -9283,6 +9299,61 @@
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/exclusive-calling-india-a-dead-economy-insults-its-people-says-fm-nirmala-sitharaman-in-swipe-at-rahul-gandhi-article-153555880 " target="_blank" rel="noopener">EXCLUSIVE: Calling India a dead economy insults its people, says FM Nirmala Sitharaman in swipe at Rahul Gandhi</a></h3>
                 <div class="article-meta">
                     <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-04" data-url="https://www.sebi.gov.in/media-and-notifications/press-releases/feb-2026/inauguration-of-pan-india-bond-issuer-outreach-program-by-chairman-sebi_99515.html" data-title="Inauguration of PAN India Bond Issuer Outreach Program by Chairman, SEBI" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/media-and-notifications/press-releases/feb-2026/inauguration-of-pan-india-bond-issuer-outreach-program-by-chairman-sebi_99515.html" target="_blank" rel="noopener">Inauguration of PAN India Bond Issuer Outreach Program by Chairman, SEBI</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-04" data-url="https://www.sebi.gov.in/enforcement/orders/feb-2026/adjudication-order-in-respect-of-ravi-ludhiyani-huf-in-the-matter-of-dealings-in-illiquid-stock-options-on-bse_99513.html" data-title="Adjudication Order in respect of Ravi Ludhiyani HUF in the matter of dealings in Illiquid Stock Options on BSE" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/feb-2026/adjudication-order-in-respect-of-ravi-ludhiyani-huf-in-the-matter-of-dealings-in-illiquid-stock-options-on-bse_99513.html" target="_blank" rel="noopener">Adjudication Order in respect of Ravi Ludhiyani HUF in the matter of dealings in Illiquid Stock Options on BSE</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-04" data-url="https://www.sebi.gov.in/enforcement/orders/feb-2026/adjudication-order-in-the-matter-of-pragnya-fund-ii_99509.html" data-title="Adjudication Order in the matter of Pragnya Fund II" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/feb-2026/adjudication-order-in-the-matter-of-pragnya-fund-ii_99509.html" target="_blank" rel="noopener">Adjudication Order in the matter of Pragnya Fund II</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-04" data-url="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/general-remittance-order-dated-04-02-2026-in-recovery-certificate-no-8973-of-2025-issued-against-investment-research-advisor-proprietor-amit-gangrade-pan-avrpg8196p-in-the-matter-of-investment-r-_99507.html" data-title="General Remittance Order dated 04.02.2026 in Recovery Certificate No. 8973 of 2025 issued against Investment Research Advisor (Proprietor – Amit Gangrade, PAN: AVRPG8196P in the matter of Investment Research Advisor." data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/general-remittance-order-dated-04-02-2026-in-recovery-certificate-no-8973-of-2025-issued-against-investment-research-advisor-proprietor-amit-gangrade-pan-avrpg8196p-in-the-matter-of-investment-r-_99507.html" target="_blank" rel="noopener">General Remittance Order dated 04.02.2026 in Recovery Certificate No. 8973 of 2025 issued against Investment Research Advisor (Proprietor – Amit Gangrade, PAN: AVRPG8196P in the matter of Investment Research Advisor.</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-04" data-url="https://www.sebi.gov.in/legal/circulars/feb-2026/revision-of-order-to-trade-ratio-otr-framework_99501.html" data-title="Revision of Order-to-Trade Ratio (OTR) framework" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/legal/circulars/feb-2026/revision-of-order-to-trade-ratio-otr-framework_99501.html" target="_blank" rel="noopener">Revision of Order-to-Trade Ratio (OTR) framework</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
                     <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -10105,17 +10176,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="business standard — india" data-date="2026-02-03" data-url="https://news.google.com/rss/articles/CBMi0gFBVV95cUxOQnlJUUpKNW80NVUzc2g2bjhHT3pnZHhRd2tuOHRCZFJlYUN0aFZFZDhfUFp4bHpsbzFMa1VhQjJYblNNSzB6UWc0bFNIb0ZyQXNGMFNJbHl0SlE2X3dFcm85RHFLMmxidURxWUhreTVVclYzODRZcTNjdVVRbEZxNWpEX2ZLSHFFa1hldEFIXzFBXy11akIyT2poQkl5R0FtNmdWY0s0OFNnYV80Ml9ZMFJmWmxUM3NWUG9qR01MU2JacHA3Ym9lQldxeWtmMUFQenfSAdcBQVVfeXFMUGtwdVRZNm9ReUJ1Z05SZXVBTFpCWjlMa0g5VzdwbzBpYmxfclMxVGh0OWdHaWRjNGxjNGUwQ1ZjbVNWdkRVd1l1eXVWNVZRS0RUN1lGY1ZZanZwRm9DMjYzVlRUZTdwdWNrcXhhR05HNmwzSzdqdGw0bkI1dmp0RmpvZFVETzhPZ25tY0xVNGR4SV95UnBaVHphTmh4YVFPVHJ3ZUZXeXlkdWFCajl6bnlJQ3V5b0NZNGZaRXZkeFQ1Rm1xNHJLQ0dzTVEwaFFDbTZxTUUtS1E?oc=5" data-title="CJI flags delay in reserved judgments; issue to be raised with HC chiefs - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
-                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxOQnlJUUpKNW80NVUzc2g2bjhHT3pnZHhRd2tuOHRCZFJlYUN0aFZFZDhfUFp4bHpsbzFMa1VhQjJYblNNSzB6UWc0bFNIb0ZyQXNGMFNJbHl0SlE2X3dFcm85RHFLMmxidURxWUhreTVVclYzODRZcTNjdVVRbEZxNWpEX2ZLSHFFa1hldEFIXzFBXy11akIyT2poQkl5R0FtNmdWY0s0OFNnYV80Ml9ZMFJmWmxUM3NWUG9qR01MU2JacHA3Ym9lQldxeWtmMUFQenfSAdcBQVVfeXFMUGtwdVRZNm9ReUJ1Z05SZXVBTFpCWjlMa0g5VzdwbzBpYmxfclMxVGh0OWdHaWRjNGxjNGUwQ1ZjbVNWdkRVd1l1eXVWNVZRS0RUN1lGY1ZZanZwRm9DMjYzVlRUZTdwdWNrcXhhR05HNmwzSzdqdGw0bkI1dmp0RmpvZFVETzhPZ25tY0xVNGR4SV95UnBaVHphTmh4YVFPVHJ3ZUZXeXlkdWFCajl6bnlJQ3V5b0NZNGZaRXZkeFQ1Rm1xNHJLQ0dzTVEwaFFDbTZxTUUtS1E?oc=5" target="_blank" rel="noopener">CJI flags delay in reserved judgments; issue to be raised with HC chiefs - Business Standard</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.business-standard.com/india-news" target="_blank" class="source-tag" title="Business Standard — India">Business Standard — India</a>
-                    <span class="meta-dot">·</span><span class="article-time">8:06 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="businessline — news" data-date="2026-02-03" data-url="https://www.thehindubusinessline.com/news/infrastructure-deficit-lost-value-chain-holds-back-sericultures-full-potential-in-jk/article70588165.ece" data-title="Infrastructure deficit, lost value chain holds back sericulture’s full potential in J&amp;K" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/news/infrastructure-deficit-lost-value-chain-holds-back-sericultures-full-potential-in-jk/article70588165.ece" target="_blank" rel="noopener">Infrastructure deficit, lost value chain holds back sericulture’s full potential in J&amp;K</a></h3>
                 <div class="article-meta">
@@ -10336,17 +10396,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="et now" data-date="2026-02-03" data-url=" https://www.etnownews.com/markets/mankind-pharma-q3-results-fy26-pat-rises-7-5-to-rs-408-crore-check-revenue-and-other-earning-details-article-153554254 " data-title="Mankind Pharma Q3 Results FY26: PAT rises 7.5% to Rs 408 crore | Check revenue and other earning DETAILS" data-category="news" data-in-focus="false" data-publisher="ET">
-                <h3 class="article-title"><a href=" https://www.etnownews.com/markets/mankind-pharma-q3-results-fy26-pat-rises-7-5-to-rs-408-crore-check-revenue-and-other-earning-details-article-153554254 " target="_blank" rel="noopener">Mankind Pharma Q3 Results FY26: PAT rises 7.5% to Rs 408 crore | Check revenue and other earning DETAILS</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.etnownews.com/markets" target="_blank" class="source-tag" title="ET Now">ET Now</a>
-                    <span class="meta-dot">·</span><span class="article-time">7:10 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="business standard — companies" data-date="2026-02-03" data-url="https://news.google.com/rss/articles/CBMizwFBVV95cUxPUU5ZNlE2aXVocWFRTTZKQ0dWTlhWZGhBY1Izcm5XSEhiZmx0NmFES2JFNTdkNzYtaVRrYmJJZGZXemQ5X1UzS3Q1WWx3Yl8ycHJ2TVp3SWY3bk1CdmJCSERCcTFnck1NZjlWOEpleWF5anVSaVNhZUJSaVdwWUdtdFZacGRaOHRSMmFyRDhMR1I0cHA5b0s2VFdaNDhsMUtZYTZFZG1QTGgxelg2SVF4OEhtdjVLcndyeG1KVmhGOVI0SjZFX2VqQlBIVXVLUGvSAdQBQVVfeXFMT0d6anZJeWFuZXY2YUFaWGcyaUJXZHFXRWFXSFBrQm82X3M5enVzZFU2M3lYOG1BSHRHTGREWi1Wc2wwSEptVXpTc05Oc3ZQUVhXQjhTM2JJLWEtVWx4cXUzVldNaXpTTS0zVXZCZ1JkUF9VdmVGQ0xHNFZUZkJzRnJzQ2pYS3BlTVdsWEg4eXVab2RMeUFXdW56OExSQ1JmbnB4T1JDMzA1VWkwS2ZyWUlyOW95N0ZvMDhGWk9FYkc5Mmh6VVA1SW9GWVlhWm9BMzBSUDk?oc=5" data-title="Paytm receives RBI compounding order, company to pay Rs 18.76 lakh - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMizwFBVV95cUxPUU5ZNlE2aXVocWFRTTZKQ0dWTlhWZGhBY1Izcm5XSEhiZmx0NmFES2JFNTdkNzYtaVRrYmJJZGZXemQ5X1UzS3Q1WWx3Yl8ycHJ2TVp3SWY3bk1CdmJCSERCcTFnck1NZjlWOEpleWF5anVSaVNhZUJSaVdwWUdtdFZacGRaOHRSMmFyRDhMR1I0cHA5b0s2VFdaNDhsMUtZYTZFZG1QTGgxelg2SVF4OEhtdjVLcndyeG1KVmhGOVI0SjZFX2VqQlBIVXVLUGvSAdQBQVVfeXFMT0d6anZJeWFuZXY2YUFaWGcyaUJXZHFXRWFXSFBrQm82X3M5enVzZFU2M3lYOG1BSHRHTGREWi1Wc2wwSEptVXpTc05Oc3ZQUVhXQjhTM2JJLWEtVWx4cXUzVldNaXpTTS0zVXZCZ1JkUF9VdmVGQ0xHNFZUZkJzRnJzQ2pYS3BlTVdsWEg4eXVab2RMeUFXdW56OExSQ1JmbnB4T1JDMzA1VWkwS2ZyWUlyOW95N0ZvMDhGWk9FYkc5Mmh6VVA1SW9GWVlhWm9BMzBSUDk?oc=5" target="_blank" rel="noopener">Paytm receives RBI compounding order, company to pay Rs 18.76 lakh - Business Standard</a></h3>
                 <div class="article-meta">
@@ -10501,17 +10550,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="et now" data-date="2026-02-03" data-url=" https://www.etnownews.com/news/free-lpg-cylinder-for-households-on-holi-diwali-in-delhi-heres-who-are-eligible-article-153554635 " data-title="Free LPG cylinder for households on Holi, Diwali in Delhi –Here’s who are eligible" data-category="news" data-in-focus="false" data-publisher="ET">
-                <h3 class="article-title"><a href=" https://www.etnownews.com/news/free-lpg-cylinder-for-households-on-holi-diwali-in-delhi-heres-who-are-eligible-article-153554635 " target="_blank" rel="noopener">Free LPG cylinder for households on Holi, Diwali in Delhi –Here’s who are eligible</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
-                    <span class="meta-dot">·</span><span class="article-time">6:16 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="mint — opinion" data-date="2026-02-03" data-url="https://www.livemint.com/opinion/budget-diaspora-capital-growth-lever-remittance-stream-11769949781066.html" data-title="Budget 2026 positions diaspora capital as a growth lever, not just a remittance stream" data-category="news" data-in-focus="false" data-publisher="Mint">
                 <h3 class="article-title"><a href="https://www.livemint.com/opinion/budget-diaspora-capital-growth-lever-remittance-stream-11769949781066.html" target="_blank" rel="noopener">Budget 2026 positions diaspora capital as a growth lever, not just a remittance stream</a></h3>
                 <div class="article-meta">
@@ -10538,17 +10576,6 @@
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxPOXVrLWZNbUNaeUMydEFGYWJpUGtaUDZadlQtTjljQnVQMmtCcXBtTXFybDd1bHA5bUhnMkFYdlJMRThrUDgtVUk4YTNraGU3MzJrRHpWSFhkVV85a2FLQV82Sk10VzZpaE1BbU5GQl9Pb3JhUXNOSldhVno1NG1kSHVIZUEyU0hPWjRMY0NIQ1AyYktWeS1mTG9GVERUcHZHWFd2SWJxaFV0Q0xHck5qVnhhdHRjY1RjT21FaVBDcTTSAcYBQVVfeXFMUGNkRVp3TDZGSDFDS3ZxUG9RWUFjVlpsem5NVDQwZGxHZXdOZ0JUMW91Unk2QkNNRFpPcnZGWkFNOElGREFRY0RUQk5KNXNFN2lDMHVlNkxDT0F3WnZBTGJhQ0pZMVRjMVF2aDlKendmZ1VwTXEwbl9IQ2dCZmlxSXczeWZMaGNETUw0T2RWRENWeXZPWU1XYWo5SnJ5REFRODRyOWlScVlITzQwZVFuNlJSTEFjRl9rWkxpY0pGcmF3YW12QWp3?oc=5" target="_blank" rel="noopener">Fuel control checks found satisfactory on Air India&#x27;s Dreamliner: DGCA - Business Standard</a></h3>
                 <div class="article-meta">
                     <a href="https://www.business-standard.com/industry" target="_blank" class="source-tag" title="Business Standard — Industry">Business Standard — Industry</a>
-                    <span class="meta-dot">·</span><span class="article-time">6:13 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="et now" data-date="2026-02-03" data-url=" https://www.etnownews.com/markets/adani-enterprises-q3-results-fy26-profit-zooms-90x-to-rs-5627-cr-revenue-rises-9-yoy-gautam-adani-led-firms-quarterly-earnings-details-article-153553964 " data-title="Adani Enterprises Q3 results FY26: Profit zooms 90x to Rs 5627 cr, revenue rises 9% YoY - Gautam Adani-led firm&#x27;s quarterly earnings details" data-category="news" data-in-focus="false" data-publisher="ET">
-                <h3 class="article-title"><a href=" https://www.etnownews.com/markets/adani-enterprises-q3-results-fy26-profit-zooms-90x-to-rs-5627-cr-revenue-rises-9-yoy-gautam-adani-led-firms-quarterly-earnings-details-article-153553964 " target="_blank" rel="noopener">Adani Enterprises Q3 results FY26: Profit zooms 90x to Rs 5627 cr, revenue rises 9% YoY - Gautam Adani-led firm&#x27;s quarterly earnings details</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.etnownews.com/markets" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">6:13 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -12186,6 +12213,50 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-03" data-url="https://www.sebi.gov.in/enforcement/orders/feb-2026/settlement-order-in-the-matter-of-kerala-ayurveda-limited_99499.html" data-title="Settlement Order in the matter of Kerala Ayurveda Limited" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/feb-2026/settlement-order-in-the-matter-of-kerala-ayurveda-limited_99499.html" target="_blank" rel="noopener">Settlement Order in the matter of Kerala Ayurveda Limited</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-03" data-url="https://www.sebi.gov.in/enforcement/orders/feb-2026/appeal-no-6689-of-2026-filed-by-sushma-garg_99497.html" data-title="Appeal No. 6689 of 2026 filed by Sushma Garg" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/feb-2026/appeal-no-6689-of-2026-filed-by-sushma-garg_99497.html" target="_blank" rel="noopener">Appeal No. 6689 of 2026 filed by Sushma Garg</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-03" data-url="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/sebi-order-for-compliance-cancellation-order-for-recovery-certificate-no-8492-of-2025-against-insight-research-proprietor-anil-gurjar-in-the-matter-of-unregistered-investment-adviser-_99478.html" data-title="SEBI Order for Compliance - Cancellation Order for Recovery Certificate No. 8492 of 2025 against Insight Research Proprietor - Anil Gurjar in the matter of Unregistered Investment Adviser." data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/sebi-order-for-compliance-cancellation-order-for-recovery-certificate-no-8492-of-2025-against-insight-research-proprietor-anil-gurjar-in-the-matter-of-unregistered-investment-adviser-_99478.html" target="_blank" rel="noopener">SEBI Order for Compliance - Cancellation Order for Recovery Certificate No. 8492 of 2025 against Insight Research Proprietor - Anil Gurjar in the matter of Unregistered Investment Adviser.</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-03" data-url="https://www.sebi.gov.in/enforcement/orders/feb-2026/adjudication-order-in-respect-of-amit-s-yadav-in-the-matter-of-dealings-in-illiquid-stock-options-on-bse_99473.html" data-title="Adjudication Order in respect of Amit S Yadav in the matter of dealings in Illiquid Stock Options on BSE" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/feb-2026/adjudication-order-in-respect-of-amit-s-yadav-in-the-matter-of-dealings-in-illiquid-stock-options-on-bse_99473.html" target="_blank" rel="noopener">Adjudication Order in respect of Amit S Yadav in the matter of dealings in Illiquid Stock Options on BSE</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <h2 class="date-header">Monday, February 02</h2>
             <article class="article" data-source="et now — economy" data-date="2026-02-02" data-url=" https://www.etnownews.com/economy/india-us-trade-deal-donald-trump-cuts-tariffs-to-18-what-might-get-cheaper-for-indians-and-americans-article-153550127 " data-title="India-US Trade Deal: Donald Trump cuts tariffs to 18% – What might get cheaper for Indians and Americans" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/economy/india-us-trade-deal-donald-trump-cuts-tariffs-to-18-what-might-get-cheaper-for-indians-and-americans-article-153550127 " target="_blank" rel="noopener">India-US Trade Deal: Donald Trump cuts tariffs to 18% – What might get cheaper for Indians and Americans</a></h3>
@@ -12484,18 +12555,6 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
-            </article>
-            <article class="article" data-source="businessline — money &amp; banking" data-date="2026-02-02" data-url="https://www.thehindubusinessline.com/money-and-banking/govt-mulls-raising-fdi-in-public-sector-banks-to-49-says-secretary-nagaraju/article70582560.ece" data-title="Govt mulls raising FDI in public sector banks to 49%, says Financial Services Secretary M Nagaraju" data-category="news" data-in-focus="true" data-publisher="BusinessLine">
-                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/money-and-banking/govt-mulls-raising-fdi-in-public-sector-banks-to-49-says-secretary-nagaraju/article70582560.ece" target="_blank" rel="noopener">Govt mulls raising FDI in public sector banks to 49%, says Financial Services Secretary M Nagaraju</a><span class="source-badge">2 sources</span></h3>
-                <div class="article-meta">
-                    <a href="https://www.thehindubusinessline.com/money-and-banking/" target="_blank" class="source-tag" title="BusinessLine — Money &amp; Banking">BusinessLine — Money &amp; Banking</a>
-                    <span class="meta-dot">·</span><span class="article-time">7:34 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-                <div class="also-covered">Also covered by: <a href="https://www.thehindubusinessline.com/economy/govt-mulls-raising-fdi-in-public-sector-banks-to-49-says-secretary-nagaraju/article70582560.ece" target="_blank" rel="noopener" title="BusinessLine — Economy">BusinessLine — Economy</a></div>
             </article>
             <article class="article" data-source="businessline — news" data-date="2026-02-02" data-url="https://www.thehindubusinessline.com/news/tourism-ministry-preparing-framework-to-develop-50-top-destinations/article70583591.ece" data-title="Tourism Ministry preparing framework to develop 50 top destinations" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/news/tourism-ministry-preparing-framework-to-develop-50-top-destinations/article70583591.ece" target="_blank" rel="noopener">Tourism Ministry preparing framework to develop 50 top destinations</a></h3>
@@ -13536,6 +13595,105 @@
                 <div class="article-meta">
                     <a href="https://www.thehindubusinessline.com/data-stories/" target="_blank" class="source-tag" title="BusinessLine — Data Stories">BusinessLine — Data Stories</a>
                     <span class="meta-dot">·</span><span class="article-time">12:02 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-02" data-url="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/prohibitory-order-recovery-certificate-no-4704-of-2022-issued-against-vadlamudi-srikrishna-pan-adnpv5504c-in-the-matter-of-venus-power-ventures-india-ltd_99468.html" data-title="Prohibitory order - Recovery Certificate No. 4704 of 2022 issued against Vadlamudi Srikrishna (PAN: ADNPV5504C) in the matter of Venus Power Ventures (India) Ltd" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/prohibitory-order-recovery-certificate-no-4704-of-2022-issued-against-vadlamudi-srikrishna-pan-adnpv5504c-in-the-matter-of-venus-power-ventures-india-ltd_99468.html" target="_blank" rel="noopener">Prohibitory order - Recovery Certificate No. 4704 of 2022 issued against Vadlamudi Srikrishna (PAN: ADNPV5504C) in the matter of Venus Power Ventures (India) Ltd</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-02" data-url="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/completion-of-recovery-certificate-no-7462-of-2023-issued-to-prashant-boorugu-in-the-matter-of-metkore-alloys-industries-limited_99467.html" data-title="Completion of Recovery Certificate No. 7462 of 2023 issued to Prashant Boorugu in the matter of Metkore Alloys Industries Limited" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/completion-of-recovery-certificate-no-7462-of-2023-issued-to-prashant-boorugu-in-the-matter-of-metkore-alloys-industries-limited_99467.html" target="_blank" rel="noopener">Completion of Recovery Certificate No. 7462 of 2023 issued to Prashant Boorugu in the matter of Metkore Alloys Industries Limited</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-02" data-url="https://www.sebi.gov.in/enforcement/orders/feb-2026/appeal-no-6691-of-2026-filed-by-sunil-singh_99466.html" data-title="Appeal No. 6691 of 2026 filed by Sunil Singh" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/feb-2026/appeal-no-6691-of-2026-filed-by-sunil-singh_99466.html" target="_blank" rel="noopener">Appeal No. 6691 of 2026 filed by Sunil Singh</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-02" data-url="https://www.sebi.gov.in/enforcement/orders/feb-2026/appeal-no-6690-of-2026-filed-by-pawar-suraj-balaji_99464.html" data-title="Appeal No. 6690 of 2026 filed by Pawar Suraj Balaji" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/feb-2026/appeal-no-6690-of-2026-filed-by-pawar-suraj-balaji_99464.html" target="_blank" rel="noopener">Appeal No. 6690 of 2026 filed by Pawar Suraj Balaji</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-02" data-url="https://www.sebi.gov.in/enforcement/orders/feb-2026/appeal-no-6688-of-2026-filed-by-rajendra-kumar-agrawal_99462.html" data-title="Appeal No. 6688 of 2026 filed by Rajendra Kumar Agrawal" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/feb-2026/appeal-no-6688-of-2026-filed-by-rajendra-kumar-agrawal_99462.html" target="_blank" rel="noopener">Appeal No. 6688 of 2026 filed by Rajendra Kumar Agrawal</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-02" data-url="https://www.sebi.gov.in/enforcement/orders/feb-2026/appeal-no-6684-of-2026-filed-by-bapu-tukaram-nale_99457.html" data-title="Appeal No. 6684 of 2026 filed by Bapu Tukaram Nale" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/feb-2026/appeal-no-6684-of-2026-filed-by-bapu-tukaram-nale_99457.html" target="_blank" rel="noopener">Appeal No. 6684 of 2026 filed by Bapu Tukaram Nale</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-02" data-url="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/sebi-order-for-compliance-prohibitory-order-for-recovery-certificate-no-4698-of-2022-6591-of-2023-and-7913-of-2024-against-nina-ajay-maloo-and-ajay-sureshchandra-maloo-in-the-matter-of-timbor-home-limi-_99451.html" data-title="SEBI Order for Compliance - Prohibitory Order for Recovery Certificate No.4698 of 2022, 6591 of 2023 &amp; 7913 of 2024 against Nina Ajay Maloo &amp; Ajay Sureshchandra Maloo in the matter of Timbor Home Limited." data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/sebi-order-for-compliance-prohibitory-order-for-recovery-certificate-no-4698-of-2022-6591-of-2023-and-7913-of-2024-against-nina-ajay-maloo-and-ajay-sureshchandra-maloo-in-the-matter-of-timbor-home-limi-_99451.html" target="_blank" rel="noopener">SEBI Order for Compliance - Prohibitory Order for Recovery Certificate No.4698 of 2022, 6591 of 2023 &amp; 7913 of 2024 against Nina Ajay Maloo &amp; Ajay Sureshchandra Maloo in the matter of Timbor Home Limited.</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-02" data-url="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/certificate-no-rc9011-of-2026-notice-of-demand-in-respect-of-kusum-devi-agarwal-pan-afbpa5176p-in-the-matter-of-illiquid-stock-options_99447.html" data-title="Certificate No. RC9011 of 2026_ Notice of Demand in respect of Kusum Devi Agarwal (PAN: AFBPA5176P) in the matter of Illiquid Stock Options" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/recovery-proceedings/feb-2026/certificate-no-rc9011-of-2026-notice-of-demand-in-respect-of-kusum-devi-agarwal-pan-afbpa5176p-in-the-matter-of-illiquid-stock-options_99447.html" target="_blank" rel="noopener">Certificate No. RC9011 of 2026_ Notice of Demand in respect of Kusum Devi Agarwal (PAN: AFBPA5176P) in the matter of Illiquid Stock Options</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-02-02" data-url="https://www.sebi.gov.in/enforcement/orders/feb-2026/adjudication-order-in-respect-of-anil-n-pacholi-in-the-matter-of-dealings-in-illiquid-stock-options-on-bse_99446.html" data-title="Adjudication Order in respect of Anil N Pacholi in the matter of dealings in Illiquid Stock Options on BSE" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/feb-2026/adjudication-order-in-respect-of-anil-n-pacholi-in-the-matter-of-dealings-in-illiquid-stock-options-on-bse_99446.html" target="_blank" rel="noopener">Adjudication Order in respect of Anil N Pacholi in the matter of dealings in Illiquid Stock Options on BSE</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -15283,6 +15441,17 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="businessline — money &amp; banking" data-date="2026-01-30" data-url="https://www.thehindubusinessline.com/money-and-banking/eu-banks-can-open-15-branches-over-four-years-under-fta-with-india/article70568749.ece" data-title="India grants EU banks access to open 15 branches under FTA" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
+                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/money-and-banking/eu-banks-can-open-15-branches-over-four-years-under-fta-with-india/article70568749.ece" target="_blank" rel="noopener">India grants EU banks access to open 15 branches under FTA</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.thehindubusinessline.com/money-and-banking/" target="_blank" class="source-tag" title="BusinessLine — Money &amp; Banking">BusinessLine — Money &amp; Banking</a>
+                    <span class="meta-dot">·</span><span class="article-time">9:21 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="business standard" data-date="2026-01-30" data-url="https://businessstandard.substack.com/p/money-and-power-the-business-of-political" data-title="Money and power — the business of political donations" data-category="ideas" data-in-focus="false" data-publisher="BS">
                 <h3 class="article-title"><a href="https://businessstandard.substack.com/p/money-and-power-the-business-of-political" target="_blank" rel="noopener">Money and power — the business of political donations</a></h3>
                 <div class="article-meta">
@@ -15398,6 +15567,17 @@
                 <div class="article-meta">
                     <a href="https://www.thehindubusinessline.com/opinion/" target="_blank" class="source-tag" title="BusinessLine — Opinion">BusinessLine — Opinion</a>
                     <span class="meta-dot">·</span><span class="article-time">12:03 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="sebi — press releases" data-date="2026-01-30" data-url="https://www.sebi.gov.in/enforcement/orders/jan-2026/order-in-the-matter-of-kkp-marketing-india-limited-_99444.html" data-title="Order in the matter of KKP Marketing India Limited." data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.sebi.gov.in/enforcement/orders/jan-2026/order-in-the-matter-of-kkp-marketing-india-limited-_99444.html" target="_blank" rel="noopener">Order in the matter of KKP Marketing India Limited.</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.sebi.gov.in/sebirss.xml" target="_blank" class="source-tag" title="SEBI — Press Releases">SEBI — Press Releases</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -16011,17 +16191,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="ecb — press" data-date="2026-01-28" data-url="https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260128~c294dcefde.en.html" data-title="Frank Elderson: Hearing of the Committee on Economic and Monetary Affairs of the European Parliament" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260128~c294dcefde.en.html" target="_blank" rel="noopener">Frank Elderson: Hearing of the Committee on Economic and Monetary Affairs of the European Parliament</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Press">ECB — Press</a>
-                    <span class="meta-dot">·</span><span class="article-time">3:30 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="ecb — statistical press" data-date="2026-01-28" data-url="https://www.ecb.europa.eu//press/stats/ffi/html/ecb.eaefd_full2025q3~cf562d9538.en.html" data-title="Euro area economic and financial developments by institutional sector: third quarter of 2025" data-category="institutions" data-in-focus="false" data-publisher="">
                 <h3 class="article-title"><a href="https://www.ecb.europa.eu//press/stats/ffi/html/ecb.eaefd_full2025q3~cf562d9538.en.html" target="_blank" rel="noopener">Euro area economic and financial developments by institutional sector: third quarter of 2025</a></h3>
                 <div class="article-meta">
@@ -16048,6 +16217,17 @@
                 <h3 class="article-title"><a href="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3178~b26ab71d26.en.pdf" target="_blank" rel="noopener">Do banks respond to their friends’ markets? Social spillovers in deposit pricing</a></h3>
                 <div class="article-meta">
                     <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Working Papers">ECB — Working Papers</a>
+                    <span class="meta-dot">·</span><span class="article-time">3:30 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="ecb — press" data-date="2026-01-28" data-url="https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260128~c294dcefde.en.html" data-title="Frank Elderson: Hearing of the Committee on Economic and Monetary Affairs of the European Parliament" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260128~c294dcefde.en.html" target="_blank" rel="noopener">Frank Elderson: Hearing of the Committee on Economic and Monetary Affairs of the European Parliament</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Press">ECB — Press</a>
                     <span class="meta-dot">·</span><span class="article-time">3:30 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -16861,6 +17041,116 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/mapping-poverty-satellite-imagery-maldives" data-title="Mapping the Spatial Distribution of Poverty in Maldives" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.adb.org/publications/mapping-poverty-satellite-imagery-maldives" target="_blank" rel="noopener">Mapping the Spatial Distribution of Poverty in Maldives</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
+                    
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/mapping-poverty-satellite-imagery-indonesia" data-title="Mapping the Spatial Distribution of Poverty Using Satellite Imagery and Other Geospatial Data in Indonesia" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.adb.org/publications/mapping-poverty-satellite-imagery-indonesia" target="_blank" rel="noopener">Mapping the Spatial Distribution of Poverty Using Satellite Imagery and Other Geospatial Data in Indonesia</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
+                    
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/asian-development-outlook-december-2025" data-title="Asian Development Outlook (ADO) December 2025: Growth Steadies But Uncertainty Lingers" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.adb.org/publications/asian-development-outlook-december-2025" target="_blank" rel="noopener">Asian Development Outlook (ADO) December 2025: Growth Steadies But Uncertainty Lingers</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
+                    
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/foreign-exchange-regulatory-asean3" data-title="Data Transformation: Implications for Foreign Exchange Regulatory Reporting in ASEAN+3" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.adb.org/publications/foreign-exchange-regulatory-asean3" target="_blank" rel="noopener">Data Transformation: Implications for Foreign Exchange Regulatory Reporting in ASEAN+3</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
+                    
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/adoption-challenges-new-technology" data-title="Solving Adoption Challenges of New Technology: The Case of ISO 20022 for Cross-Border Payment Messages" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.adb.org/publications/adoption-challenges-new-technology" target="_blank" rel="noopener">Solving Adoption Challenges of New Technology: The Case of ISO 20022 for Cross-Border Payment Messages</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
+                    
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/digital-bond-market-forum" data-title="Introduction to the Digital Bond Market Forum" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.adb.org/publications/digital-bond-market-forum" target="_blank" rel="noopener">Introduction to the Digital Bond Market Forum</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
+                    
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/nonperforming-loans-watch-asia-2025" data-title="Nonperforming Loans Watch in Asia 2025" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.adb.org/publications/nonperforming-loans-watch-asia-2025" target="_blank" rel="noopener">Nonperforming Loans Watch in Asia 2025</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
+                    
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/asian-development-outlook-july-2025" data-title="Asian Development Outlook (ADO) July 2025: Slower Growth Amid Tariffs and Uncertainty" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.adb.org/publications/asian-development-outlook-july-2025" target="_blank" rel="noopener">Asian Development Outlook (ADO) July 2025: Slower Growth Amid Tariffs and Uncertainty</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
+                    
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/pakistan-digital-ecosystem-diagnostic-report" data-title="Pakistan’s Digital Ecosystem: A Diagnostic Report" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.adb.org/publications/pakistan-digital-ecosystem-diagnostic-report" target="_blank" rel="noopener">Pakistan’s Digital Ecosystem: A Diagnostic Report</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
+                    
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/intraday-liquidity-cross-border-collateral" data-title="Intraday Liquidity and Cross-Border Collateral: Central Bank Perspectives" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.adb.org/publications/intraday-liquidity-cross-border-collateral" target="_blank" rel="noopener">Intraday Liquidity and Cross-Border Collateral: Central Bank Perspectives</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
+                    
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="adb — blogs" data-date="" data-url="https://www.adb.org/node/1119196" data-title="Development Asia: Strengthening State-Owned Enterprises through Improved Governance, Business Restructuring" data-category="institutions" data-in-focus="false" data-publisher="">
                 <h3 class="article-title"><a href="https://www.adb.org/node/1119196" target="_blank" rel="noopener">Development Asia: Strengthening State-Owned Enterprises through Improved Governance, Business Restructuring</a></h3>
                 <div class="article-meta">
@@ -17081,122 +17371,12 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/mapping-poverty-satellite-imagery-maldives" data-title="Mapping the Spatial Distribution of Poverty in Maldives" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.adb.org/publications/mapping-poverty-satellite-imagery-maldives" target="_blank" rel="noopener">Mapping the Spatial Distribution of Poverty in Maldives</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
-                    
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/mapping-poverty-satellite-imagery-indonesia" data-title="Mapping the Spatial Distribution of Poverty Using Satellite Imagery and Other Geospatial Data in Indonesia" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.adb.org/publications/mapping-poverty-satellite-imagery-indonesia" target="_blank" rel="noopener">Mapping the Spatial Distribution of Poverty Using Satellite Imagery and Other Geospatial Data in Indonesia</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
-                    
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/asian-development-outlook-december-2025" data-title="Asian Development Outlook (ADO) December 2025: Growth Steadies But Uncertainty Lingers" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.adb.org/publications/asian-development-outlook-december-2025" target="_blank" rel="noopener">Asian Development Outlook (ADO) December 2025: Growth Steadies But Uncertainty Lingers</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
-                    
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/foreign-exchange-regulatory-asean3" data-title="Data Transformation: Implications for Foreign Exchange Regulatory Reporting in ASEAN+3" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.adb.org/publications/foreign-exchange-regulatory-asean3" target="_blank" rel="noopener">Data Transformation: Implications for Foreign Exchange Regulatory Reporting in ASEAN+3</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
-                    
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/adoption-challenges-new-technology" data-title="Solving Adoption Challenges of New Technology: The Case of ISO 20022 for Cross-Border Payment Messages" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.adb.org/publications/adoption-challenges-new-technology" target="_blank" rel="noopener">Solving Adoption Challenges of New Technology: The Case of ISO 20022 for Cross-Border Payment Messages</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
-                    
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/digital-bond-market-forum" data-title="Introduction to the Digital Bond Market Forum" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.adb.org/publications/digital-bond-market-forum" target="_blank" rel="noopener">Introduction to the Digital Bond Market Forum</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
-                    
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/nonperforming-loans-watch-asia-2025" data-title="Nonperforming Loans Watch in Asia 2025" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.adb.org/publications/nonperforming-loans-watch-asia-2025" target="_blank" rel="noopener">Nonperforming Loans Watch in Asia 2025</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
-                    
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/asian-development-outlook-july-2025" data-title="Asian Development Outlook (ADO) July 2025: Slower Growth Amid Tariffs and Uncertainty" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.adb.org/publications/asian-development-outlook-july-2025" target="_blank" rel="noopener">Asian Development Outlook (ADO) July 2025: Slower Growth Amid Tariffs and Uncertainty</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
-                    
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/pakistan-digital-ecosystem-diagnostic-report" data-title="Pakistan’s Digital Ecosystem: A Diagnostic Report" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.adb.org/publications/pakistan-digital-ecosystem-diagnostic-report" target="_blank" rel="noopener">Pakistan’s Digital Ecosystem: A Diagnostic Report</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
-                    
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="adb — research publications" data-date="" data-url="https://www.adb.org/publications/intraday-liquidity-cross-border-collateral" data-title="Intraday Liquidity and Cross-Border Collateral: Central Bank Perspectives" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.adb.org/publications/intraday-liquidity-cross-border-collateral" target="_blank" rel="noopener">Intraday Liquidity and Cross-Border Collateral: Central Bank Perspectives</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.adb.org/" target="_blank" class="source-tag" title="ADB — Research Publications">ADB — Research Publications</a>
-                    
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
         </div>
 
         <div id="pagination-bottom" class="pagination bottom" aria-label="Pagination"></div>
 
         <footer>
-            Aggregated from 72 sources · Built with Python · Made by <a href="https://kashishkapoor.com/" target="_blank" rel="noopener">Kashish Kapoor</a> · Built for <a href="https://thedailybrief.zerodha.com/" target="_blank" rel="noopener">The Daily Brief by Zerodha</a>
+            Aggregated from 73 sources · Built with Python · Made by <a href="https://kashishkapoor.com/" target="_blank" rel="noopener">Kashish Kapoor</a> · Built for <a href="https://thedailybrief.zerodha.com/" target="_blank" rel="noopener">The Daily Brief by Zerodha</a>
         </footer>
     </div>
 
