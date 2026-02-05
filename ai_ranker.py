@@ -16,29 +16,93 @@ IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 
-RANKING_PROMPT = """You are a senior financial news editor for an Indian audience tracking markets, economy, and business.
+RANKING_PROMPT = """You are a senior research analyst at a financial media company (like Zerodha's Daily Brief) curating stories for an Indian audience interested in markets, business, and economic policy.
 
-From these headlines (last 48 hours), select the TOP 20 most important stories. Rank by:
-1. Market impact (stocks, forex, commodities)
-2. Policy significance (RBI, govt, regulations)
-3. Corporate news (major deals, earnings, scandals)
-4. Economic indicators and data
-5. Global events affecting India
+Your readers are NOT day traders. They are long-term investors, policy watchers, and business professionals who want to understand structural shifts, not daily noise.
+
+From these headlines (last 48 hours), select the TOP 20 most important stories.
+
+## PRIORITIZE stories about:
+
+### 1. Policy & Regulatory Changes (HIGH PRIORITY)
+- RBI monetary policy, banking regulations, NBFC rules
+- SEBI market structure changes, F&O rules, disclosure norms
+- Government policy: PLI schemes, tariffs, FDI rules, labor laws
+- Sector-specific regulation: telecom, pharma, energy, fintech
+- Tax policy changes affecting businesses or investors
+
+### 2. Structural Business & Corporate News (HIGH PRIORITY)
+- Business model shifts, pivots, or existential challenges
+- M&A deals that reshape industry structure
+- IPO filings with detailed business model insights
+- Corporate governance issues, frauds, whistleblower reports
+- Companies entering/exiting major business lines
+
+### 3. Macro & Fiscal Developments (HIGH PRIORITY)
+- GDP data, inflation prints, employment numbers
+- Budget announcements, fiscal deficit concerns
+- Government borrowing, bond yields, liquidity conditions
+- State-level fiscal stress or reforms
+- Current account, forex reserves, trade balance
+
+### 4. Infrastructure & Industrial Policy (MEDIUM-HIGH)
+- Energy transition: renewables, coal phase-down, grid modernization
+- Manufacturing: electronics, semiconductors, defense, auto
+- Logistics: ports, railways, highways, warehousing
+- Critical minerals, mining policy, resource nationalism
+
+### 5. Commodities & Supply Chains (MEDIUM-HIGH)
+- Global commodity price shifts with India impact
+- Supply chain disruptions affecting Indian industries
+- Agricultural commodities, MSP, food inflation
+- Oil, gas, metals with structural (not daily) significance
+
+### 6. Geopolitics Affecting India (MEDIUM)
+- Trade deals, tariff negotiations (US, EU, UK)
+- China+1 shifts benefiting/hurting India
+- Global events affecting FII flows or trade
+- Sanctions, export controls on tech/commodities
+
+### 7. Banking & Financial Sector (MEDIUM)
+- Bank results revealing NPA trends or credit growth shifts
+- NBFC stress, liquidity issues, or regulatory action
+- Insurance, AMC, or fintech structural changes
+- Credit cycle indicators
+
+## DEPRIORITIZE or IGNORE:
+- Daily stock price movements ("Sensex up 200 points")
+- Routine quarterly results without structural insight
+- Short-term FII/DII flow data
+- Broker upgrades/downgrades
+- Crypto price movements
+- Celebrity CEO statements without substance
+- "Top 5 stocks to buy" type content
+- Market volatility without underlying cause
+
+## RANKING CRITERIA (in order):
+1. Structural importance: Does this change how an industry/market works?
+2. Policy signal: Does this indicate government/regulator direction?
+3. Investment relevance: Does this affect long-term capital allocation?
+4. Explanatory value: Does this help understand WHY something is happening?
+5. Timeliness: Is this genuinely new information?
 
 Headlines:
 {headlines}
 
 Return ONLY a valid JSON array with exactly 20 items (no markdown, no explanation, no code blocks):
 [
-  {{"rank": 1, "title": "exact headline text from above", "reason": "10 words max why important"}},
-  {{"rank": 2, "title": "exact headline text from above", "reason": "10 words max why important"}},
+  {{"rank": 1, "title": "exact headline text from above", "reason": "15 words max explaining structural importance"}},
+  {{"rank": 2, "title": "exact headline text from above", "reason": "15 words max explaining structural importance"}},
   ...continue to rank 20...
 ]
 
-IMPORTANT: Use the EXACT headline text from the list above. Do not paraphrase or modify titles."""
+IMPORTANT:
+- Use the EXACT headline text from the list above. Do not paraphrase.
+- Prefer depth over breadth - one major policy change beats five routine updates.
+- If a story explains WHY something is happening, rank it higher than one that just reports WHAT happened."""
 
 
-def load_articles_48h(max_articles=150):
+def load_articles_48h(max_articles=200):
     articles_path = os.path.join(SCRIPT_DIR, "static", "articles.json")
     try:
         with open(articles_path, "r", encoding="utf-8") as f:
