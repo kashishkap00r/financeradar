@@ -1709,7 +1709,7 @@ def generate_html(article_groups):
                     <span><strong>{len(sorted_articles)}</strong> articles</span>
                     <span><strong>{len(sources)}</strong> sources</span>
                 </div>
-                <span class="update-time">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
+                <span class="update-time" id="update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
             </div>
 
             <div class="category-links" id="category-tabs">
@@ -2392,6 +2392,23 @@ def generate_html(article_groups):
         });
 
         loadAiRankings();
+
+        // Update relative time
+        function updateRelativeTime() {
+            const el = document.getElementById('update-time');
+            if (!el) return;
+            const time = new Date(el.dataset.time);
+            const now = new Date();
+            const diff = Math.floor((now - time) / 1000);
+            let text;
+            if (diff < 60) text = 'Updated just now';
+            else if (diff < 3600) text = `Updated ${Math.floor(diff / 60)} min ago`;
+            else if (diff < 86400) text = `Updated ${Math.floor(diff / 3600)} hr ago`;
+            else text = `Updated ${Math.floor(diff / 86400)} day ago`;
+            el.textContent = text;
+        }
+        updateRelativeTime();
+        setInterval(updateRelativeTime, 60000);
 
         // Ensure page starts at top on load
         window.addEventListener('load', () => {
