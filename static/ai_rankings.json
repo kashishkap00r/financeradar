@@ -1,11 +1,153 @@
 {
-  "generated_at": "2026-02-05T22:31:20.151505+05:30",
+  "generated_at": "2026-02-05T22:44:42.001829+05:30",
   "article_count": 200,
   "providers": {
     "openrouter": {
       "name": "OpenRouter (Nemotron)",
-      "status": "error",
-      "error": "Expecting ',' delimiter: line 1 column 1968 (char 1967)"
+      "status": "ok",
+      "count": 20,
+      "rankings": [
+        {
+          "rank": 1,
+          "title": "India-US trade pact timeline set; first tranche  in 4-5 days",
+          "url": "https://www.thehindubusinessline.com/news/goyal-sets-mid-march-timeline-for-india-us-trade-pact/article70595887.ece",
+          "source": "BusinessLine",
+          "reason": "Policy signals long-term trade policy shift"
+        },
+        {
+          "rank": 2,
+          "title": "India-US Trade deal provides much-needed macro predictability",
+          "url": "",
+          "source": "",
+          "reason": "Structural impact on trade and investment"
+        },
+        {
+          "rank": 3,
+          "title": "Government restricts platinum article imports to curb gold blending loophole",
+          "url": "https://www.thehindubusinessline.com/markets/gold/government-restricts-platinum-article-imports-to-curb-gold-blending-loophole/article70597183.ece",
+          "source": "BusinessLine",
+          "reason": "Regulatory shift in precious metals policy"
+        },
+        {
+          "rank": 4,
+          "title": "New Income Tax Rules 2026: 88% switched to new tax regime",
+          "url": "",
+          "source": "",
+          "reason": "Major tax policy overhaul affecting businesses"
+        },
+        {
+          "rank": 5,
+          "title": "DPIIT revises start-up definition, introduces deep-tech category",
+          "url": "https://www.thehindubusinessline.com/news/dpiit-revises-start-up-definition-introduces-deep-tech-category/article70596858.ece",
+          "source": "BusinessLine",
+          "reason": "Policy change to boost innovation ecosystems"
+        },
+        {
+          "rank": 6,
+          "title": "SEBI proposes reforms to boost operational, financial Flexibility for REITs, InvITs",
+          "url": "https://www.thehindubusinessline.com/companies/sebi-proposes-reforms-to-boost-operational-financial-flexibility-for-reits-invits/article70596506.ece",
+          "source": "BusinessLine \u2014 Companies",
+          "reason": "Structural changes in real estate and investment sectors"
+        },
+        {
+          "rank": 7,
+          "title": "Blackstone gets RBI approval for 9.99% stake purchase in Federal Bank",
+          "url": "",
+          "source": "",
+          "reason": "Significant FII policy approval impacting banking"
+        },
+        {
+          "rank": 8,
+          "title": "Air India planes identified for defects: 267 since Jan 2025",
+          "url": "",
+          "source": "",
+          "reason": "Operational risks with potential regulatory implications"
+        },
+        {
+          "rank": 9,
+          "title": "LIC takes \u20b91,400 crore hit from loss of GST-linked input tax credit",
+          "url": "",
+          "source": "",
+          "reason": "Policy change impacting financial services sector"
+        },
+        {
+          "rank": 10,
+          "title": "India may increase coal imports from Washington under bilateral deal",
+          "url": "",
+          "source": "",
+          "reason": "Energy policy shift affecting imports"
+        },
+        {
+          "rank": 11,
+          "title": "India battery demand to surge to 700 GWh by 2045",
+          "url": "https://www.thehindubusinessline.com/economy/india-battery-demand-to-surge-to-700-gwh-by-2045/article70596241.ece",
+          "source": "BusinessLine",
+          "reason": "Structural shift in energy storage infrastructure"
+        },
+        {
+          "rank": 12,
+          "title": "TPRI starts pan-India rollout in three years",
+          "url": "",
+          "source": "",
+          "reason": "Business model evolution in ride-hailing sector"
+        },
+        {
+          "rank": 13,
+          "title": "SEBI moves to ease post-concession, cash-management rules for InvITs, REITs",
+          "url": "",
+          "source": "",
+          "reason": "Policy tweaks in real estate investment structures"
+        },
+        {
+          "rank": 14,
+          "title": "India status for deeptechs extended to 20 years",
+          "url": "",
+          "source": "",
+          "reason": "Policy boosting advanced technology startups"
+        },
+        {
+          "rank": 15,
+          "title": "Airtel Q3 net down 55% due to strategic spends",
+          "url": "",
+          "source": "",
+          "reason": "Business pivot with structural cost implications"
+        },
+        {
+          "rank": 16,
+          "title": "SOPA opposes GM soyameal imports, cites domestic sufficiency",
+          "url": "",
+          "source": "",
+          "reason": "Trade policy impacting agricultural sector"
+        },
+        {
+          "rank": 17,
+          "title": "Gold, silver snap uptrend amid US Fed hawkish signals",
+          "url": "",
+          "source": "",
+          "reason": "Macro policy impacting commodity markets"
+        },
+        {
+          "rank": 18,
+          "title": "Startup hiring rebounds with focus on high-impact roles",
+          "url": "",
+          "source": "",
+          "reason": "Workforce strategy shift in tech sector"
+        },
+        {
+          "rank": 19,
+          "title": "Duna raises \u20ac30M for AI compliance tools in banking",
+          "url": "",
+          "source": "",
+          "reason": "Structural fintech innovation funding"
+        },
+        {
+          "rank": 20,
+          "title": "India-U.S. Tech Forum targets $500B trade target",
+          "url": "",
+          "source": "",
+          "reason": "Policy-driven trade strategy expansion"
+        }
+      ]
     }
   }
 }
