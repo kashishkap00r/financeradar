@@ -581,6 +581,13 @@
     "category": "News"
   },
   {
+    "id": "finshots",
+    "name": "Finshots",
+    "url": "https://finshots.in",
+    "feed": "https://finshots.in/feed/",
+    "category": "Ideas"
+  },
+  {
     "id": "marketbites-substack",
     "name": "Market Bites",
     "url": "https://marketbites.substack.com",
