@@ -199,41 +199,76 @@
             gap: 6px;
         }
 
+        .in-focus-btn {
+            padding: 6px 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .in-focus-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .in-focus-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+        .in-focus-btn .emoji {
+            font-size: 14px;
+        }
+
         .update-time {
             font-size: 13px;
             color: var(--text-muted);
         }
 
-        /* Category Tabs */
-        .category-tabs {
+        /* Filter Row */
+        .filter-row {
             display: flex;
-            gap: 8px;
+            justify-content: space-between;
+            align-items: center;
             padding: 12px 0;
             border-bottom: 1px solid var(--border);
             flex-wrap: wrap;
+            gap: 12px;
         }
-        .category-tab {
-            padding: 8px 16px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            color: var(--text-secondary);
+
+        /* Category Links */
+        .category-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 13px;
-            cursor: pointer;
-            transition: all 0.15s;
+            flex-wrap: wrap;
         }
-        .category-tab:hover {
-            border-color: var(--border-light);
+        .filter-label {
+            color: var(--text-muted);
+            margin-right: 4px;
+        }
+        .category-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding-bottom: 2px;
+            transition: color 0.15s;
+        }
+        .category-link:hover {
             color: var(--text-primary);
         }
-        .category-tab.active {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            border-color: var(--text-primary);
+        .category-link.active {
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent);
         }
-        .category-tab .count {
-            margin-left: 6px;
-            opacity: 0.7;
+        .category-sep {
+            color: var(--text-muted);
         }
 
         /* Pagination */
@@ -706,45 +741,33 @@
             margin-left: 8px;
         }
 
-        /* In Focus Filter */
-        .filter-bar {
+        /* Publisher text links */
+        .publisher-links {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .in-focus-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            color: var(--text-secondary);
             font-size: 13px;
-            cursor: pointer;
-            transition: all 0.15s;
+            flex-wrap: wrap;
         }
-        .in-focus-toggle:hover {
-            border-color: var(--accent);
+        .publisher-label {
+            color: var(--text-muted);
+            margin-right: 4px;
+        }
+        .publisher-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding-bottom: 2px;
+            transition: color 0.15s;
+        }
+        .publisher-link:hover {
             color: var(--text-primary);
         }
-        .in-focus-toggle.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
+        .publisher-link.active {
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent);
         }
-        .in-focus-toggle svg {
-            width: 14px;
-            height: 14px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-        }
-        .in-focus-count {
-            font-size: 12px;
+        .publisher-sep {
             color: var(--text-muted);
         }
 
@@ -846,35 +869,39 @@
     <div class="container">
         <div class="stats-bar">
             <div class="stats">
-                <span><strong>1488</strong> articles</span>
-                <span><strong>65</strong> sources</span>
+                <span><strong>1501</strong> articles</span>
+                <span><strong>73</strong> sources</span>
             </div>
-            <div class="update-time">Updated Feb 05, 01:15 PM IST</div>
+            <span class="update-time">Updated Feb 05, 01:15 PM IST</span>
         </div>
 
-        <div class="category-tabs" id="category-tabs">
-            <button class="category-tab active" data-category="" onclick="filterByCategory('')">All</button>
-            <button class="category-tab" data-category="news" onclick="filterByCategory('news')">News</button>
-            <button class="category-tab" data-category="institutions" onclick="filterByCategory('institutions')">Institutions</button>
-            <button class="category-tab" data-category="ideas" onclick="filterByCategory('ideas')">Ideas</button>
-        </div>
-
-        <div class="category-tabs" id="publisher-tabs">
-            <button class="category-tab active" data-publisher="" onclick="filterByPublisher('')">All</button>
-            <button class="category-tab" data-publisher="ET" onclick="filterByPublisher('ET')">ET</button>
-            <button class="category-tab" data-publisher="The Hindu" onclick="filterByPublisher('The Hindu')">The Hindu</button>
-            <button class="category-tab" data-publisher="BusinessLine" onclick="filterByPublisher('BusinessLine')">BusinessLine</button>
-            <button class="category-tab" data-publisher="BS" onclick="filterByPublisher('BS')">BS</button>
-            <button class="category-tab" data-publisher="Mint" onclick="filterByPublisher('Mint')">Mint</button>
-            <button class="category-tab" data-publisher="Global" onclick="filterByPublisher('Global')">Global</button>
-        </div>
-
-        <div class="filter-bar">
-            <button class="in-focus-toggle" id="in-focus-toggle" onclick="toggleInFocus()">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
-                In Focus
+        <div class="filter-row">
+            <div class="category-links" id="category-tabs">
+                <span class="filter-label">Category:</span>
+                <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
+                <span class="category-sep">·</span>
+                <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
+                <span class="category-sep">·</span>
+                <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
+            </div>
+            <button class="in-focus-btn" id="in-focus-toggle" onclick="toggleInFocus()">
+                <span class="emoji">◉</span> In Focus: <strong>36</strong>
             </button>
-            <span class="in-focus-count" id="in-focus-count"></span>
+        </div>
+
+        <div class="publisher-links">
+            <span class="publisher-label">Publisher:</span>
+            <a href="#" class="publisher-link" data-publisher="ET" onclick="togglePublisher('ET'); return false;">ET</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="The Hindu" onclick="togglePublisher('The Hindu'); return false;">The Hindu</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="BusinessLine" onclick="togglePublisher('BusinessLine'); return false;">BusinessLine</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="BS" onclick="togglePublisher('BS'); return false;">BS</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="Mint" onclick="togglePublisher('Mint'); return false;">Mint</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="Global" onclick="togglePublisher('Global'); return false;">Global</a>
         </div>
 
         <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
@@ -892,32 +919,10 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="business standard — economy" data-date="2026-02-05" data-url="https://news.google.com/rss/articles/CBMi0wFBVV95cUxQR1FST2FaTkU1dEY4ejl5d3VybkE5QldEY3VXZGZmdXJPY09rYWx0S3llNG1NMDJqSlRIQlR0NjF6RDlXTUxPdXRBSlAwTFBEcnA2ak9mWW12b2xCczlTUmY4Z1N2ZlltVWRodldYdkRwYWNPeXhOSjdCb2dqWmNOMklCWnBfbWMxZDlGYzN5cWRvR0FOdFppcTB2VkNxTldlSkJyWExZZ1lFR2tKN1ltakhaMnVRQjZOdnI5elQwbFd3dTMySnotTlhCRjI0Q2R5dnNr0gHYAUFVX3lxTE5Bb29HWDd1ekFRUTNaOEZpb3d3d1VqT2xNS3JxRnJ5OTYzS0pOTnFwX2lZZnVSVW0yR2J1NndYSmN6S0NNZnNQVWIyREVFSUJ3RWpJTGR2TzhQUjBFZm0yQVVGcW9Udno4WTR2azcxN1VkbzgzVUVFcHhicWZGRVpBMjBnUEhVVnVaRmF5elpTdnR0SHpWS0JpbkVOd1hFUHZ6eVBybmZLdDNPLWQ5YlhPLVk5eF9nYXFhZUFUeXlIaFpYZEd6ZGdIOTJYcHFTX3NyQ19RbDRBRQ?oc=5" data-title="Ready to &#x27;elevate&#x27; relationship with India, says US Ambassador Sergio Gor - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
-                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxQR1FST2FaTkU1dEY4ejl5d3VybkE5QldEY3VXZGZmdXJPY09rYWx0S3llNG1NMDJqSlRIQlR0NjF6RDlXTUxPdXRBSlAwTFBEcnA2ak9mWW12b2xCczlTUmY4Z1N2ZlltVWRodldYdkRwYWNPeXhOSjdCb2dqWmNOMklCWnBfbWMxZDlGYzN5cWRvR0FOdFppcTB2VkNxTldlSkJyWExZZ1lFR2tKN1ltakhaMnVRQjZOdnI5elQwbFd3dTMySnotTlhCRjI0Q2R5dnNr0gHYAUFVX3lxTE5Bb29HWDd1ekFRUTNaOEZpb3d3d1VqT2xNS3JxRnJ5OTYzS0pOTnFwX2lZZnVSVW0yR2J1NndYSmN6S0NNZnNQVWIyREVFSUJ3RWpJTGR2TzhQUjBFZm0yQVVGcW9Udno4WTR2azcxN1VkbzgzVUVFcHhicWZGRVpBMjBnUEhVVnVaRmF5elpTdnR0SHpWS0JpbkVOd1hFUHZ6eVBybmZLdDNPLWQ5YlhPLVk5eF9nYXFhZUFUeXlIaFpYZEd6ZGdIOTJYcHFTX3NyQ19RbDRBRQ?oc=5" target="_blank" rel="noopener">Ready to &#x27;elevate&#x27; relationship with India, says US Ambassador Sergio Gor - Business Standard</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.business-standard.com/economy" target="_blank" class="source-tag" title="Business Standard — Economy">Business Standard — Economy</a>
-                    <span class="meta-dot">·</span><span class="article-time">1:09 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="businessline" data-date="2026-02-05" data-url="https://www.thehindubusinessline.com/markets/gold/gold-silver-snap-2-day-uptrend-as-investors-book-profits-on-rising-us-fed-hawkish-signal-investors/article70594807.ece" data-title="Gold, silver snap 2-day uptrend as investors book profits on rising $, US Fed hawkish signal investors" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/markets/gold/gold-silver-snap-2-day-uptrend-as-investors-book-profits-on-rising-us-fed-hawkish-signal-investors/article70594807.ece" target="_blank" rel="noopener">Gold, silver snap 2-day uptrend as investors book profits on rising $, US Fed hawkish signal investors</a></h3>
                 <div class="article-meta">
                     <a href="https://www.thehindubusinessline.com/" target="_blank" class="source-tag" title="BusinessLine">BusinessLine</a>
-                    <span class="meta-dot">·</span><span class="article-time">1:08 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="the hindu — business" data-date="2026-02-05" data-url="https://www.thehindu.com/business/markets/silver-gold-futures-tumble-10-as-strong-us-dollar-fed-jitters-spark-selloff/article70594801.ece" data-title="Silver, gold futures tumble 10% as strong U.S. dollar, Fed jitters spark selloff" data-category="news" data-in-focus="false" data-publisher="The Hindu">
-                <h3 class="article-title"><a href="https://www.thehindu.com/business/markets/silver-gold-futures-tumble-10-as-strong-us-dollar-fed-jitters-spark-selloff/article70594801.ece" target="_blank" rel="noopener">Silver, gold futures tumble 10% as strong U.S. dollar, Fed jitters spark selloff</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.thehindu.com/business/" target="_blank" class="source-tag" title="The Hindu — Business">The Hindu — Business</a>
                     <span class="meta-dot">·</span><span class="article-time">1:08 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -1096,17 +1101,6 @@
                 <h3 class="article-title"><a href="https://www.livemint.com/market/stock-market-news/smallcap-stock-under-rs-50-sudarshan-pharma-share-price-hits-10-upper-circuit-despite-stock-market-crash-11770273586299.html" target="_blank" rel="noopener">Small-cap stock under ₹50 Sudarshan Pharma share price hits 10% upper circuit despite stock market crash</a></h3>
                 <div class="article-meta">
                     <a href="https://www.livemint.com/rss/markets" target="_blank" class="source-tag" title="Mint — Markets">Mint — Markets</a>
-                    <span class="meta-dot">·</span><span class="article-time">12:40 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="reuters — business" data-date="2026-02-05" data-url="https://news.google.com/rss/articles/CBMiuwFBVV95cUxPTnVBVnhxQi0temVWSTVxOHh3LWFoOHRXdWdHeWF1TTg2S2NXbmtSMXFRNHZ4RVBaZUZneUhmdGtXdG05Q3ZvTDZpQUZkeEV6akRqS3JGTWVueWpEVHZiOEszR0VkNGdDdjRpZmphd3RIS2IwU3RTVE1SMTNvZ2RIUzc1azliVVBjcE1wNHdNbDN0UFNtSVBGLXlHTmpBc0ZXLUtjeTZhTUNxbExmMmphVkNTNzVURUVQWkxF?oc=5" data-title="French Minister: 2026 will be year of resistance against Shein - Reuters" data-category="news" data-in-focus="false" data-publisher="Global">
-                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxPTnVBVnhxQi0temVWSTVxOHh3LWFoOHRXdWdHeWF1TTg2S2NXbmtSMXFRNHZ4RVBaZUZneUhmdGtXdG05Q3ZvTDZpQUZkeEV6akRqS3JGTWVueWpEVHZiOEszR0VkNGdDdjRpZmphd3RIS2IwU3RTVE1SMTNvZ2RIUzc1azliVVBjcE1wNHdNbDN0UFNtSVBGLXlHTmpBc0ZXLUtjeTZhTUNxbExmMmphVkNTNzVURUVQWkxF?oc=5" target="_blank" rel="noopener">French Minister: 2026 will be year of resistance against Shein - Reuters</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.reuters.com/business/" target="_blank" class="source-tag" title="Reuters — Business">Reuters — Business</a>
                     <span class="meta-dot">·</span><span class="article-time">12:40 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -1778,6 +1772,18 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="the hindu — business" data-date="2026-02-05" data-url="https://www.thehindu.com/business/markets/rupee-rises-7-paise-to-9040-against-us-dollar-in-early-trade/article70594385.ece" data-title="Rupee rises 7 paise to 90.40 against U.S. dollar in early trade" data-category="news" data-in-focus="true" data-publisher="The Hindu">
+                <h3 class="article-title"><a href="https://www.thehindu.com/business/markets/rupee-rises-7-paise-to-9040-against-us-dollar-in-early-trade/article70594385.ece" target="_blank" rel="noopener">Rupee rises 7 paise to 90.40 against U.S. dollar in early trade</a><span class="source-badge">2 sources</span></h3>
+                <div class="article-meta">
+                    <a href="https://www.thehindu.com/business/Economy/" target="_blank" class="source-tag" title="The Hindu — Business">The Hindu — Business</a>
+                    <span class="meta-dot">·</span><span class="article-time">10:58 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+                <div class="also-covered">Also covered by: <a href="https://www.thehindubusinessline.com/markets/forex/rupee-rises-7-paise-to-9040-against-the-us-dollar-in-early-trade/article70594468.ece" target="_blank" rel="noopener" title="BusinessLine">BusinessLine</a></div>
+            </article>
             <article class="article" data-source="the hindu — markets" data-date="2026-02-05" data-url="https://www.thehindu.com/business/markets/stock-markets-decline-in-early-trade-after-three-day-rally/article70594387.ece" data-title="Stock markets decline in early trade after three-day rally" data-category="news" data-in-focus="false" data-publisher="The Hindu">
                 <h3 class="article-title"><a href="https://www.thehindu.com/business/markets/stock-markets-decline-in-early-trade-after-three-day-rally/article70594387.ece" target="_blank" rel="noopener">Stock markets decline in early trade after three-day rally</a></h3>
                 <div class="article-meta">
@@ -1788,18 +1794,6 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
-            </article>
-            <article class="article" data-source="businessline" data-date="2026-02-05" data-url="https://www.thehindubusinessline.com/markets/forex/rupee-rises-7-paise-to-9040-against-the-us-dollar-in-early-trade/article70594468.ece" data-title="Rupee rises 7 paise to 90.40 against the US dollar in early trade" data-category="news" data-in-focus="true" data-publisher="BusinessLine">
-                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/markets/forex/rupee-rises-7-paise-to-9040-against-the-us-dollar-in-early-trade/article70594468.ece" target="_blank" rel="noopener">Rupee rises 7 paise to 90.40 against the US dollar in early trade</a><span class="source-badge">2 sources</span></h3>
-                <div class="article-meta">
-                    <a href="https://www.thehindubusinessline.com/" target="_blank" class="source-tag" title="BusinessLine">BusinessLine</a>
-                    <span class="meta-dot">·</span><span class="article-time">10:57 AM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-                <div class="also-covered">Also covered by: <a href="https://www.thehindu.com/business/markets/rupee-rises-7-paise-to-9040-against-us-dollar-in-early-trade/article70594385.ece" target="_blank" rel="noopener" title="The Hindu — Business">The Hindu — Business</a></div>
             </article>
             <article class="article" data-source="et now" data-date="2026-02-05" data-url=" https://www.etnownews.com/markets/markets-slip-in-red-nifty-below-25750-sectoral-indices-drag-three-reasons-behind-the-fall-article-153563404 " data-title="Markets slip in Red: Nifty below 25,750, sectoral indices drag - Three reasons behind the fall" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/markets/markets-slip-in-red-nifty-below-25750-sectoral-indices-drag-three-reasons-behind-the-fall-article-153563404 " target="_blank" rel="noopener">Markets slip in Red: Nifty below 25,750, sectoral indices drag - Three reasons behind the fall</a></h3>
@@ -2345,7 +2339,7 @@
             <article class="article" data-source="et now" data-date="2026-02-05" data-url=" https://www.etnownews.com/news/i-have-not-been-involved-donald-trump-will-stay-out-of-netflix-paramount-fight-over-warner-bros-what-us-prez-said-article-153562875 " data-title="&#x27;I haven’t been involved&#x27; - Donald Trump will stay out of Netflix-Paramount fight over Warner Bros - What US Prez said" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/i-have-not-been-involved-donald-trump-will-stay-out-of-netflix-paramount-fight-over-warner-bros-what-us-prez-said-article-153562875 " target="_blank" rel="noopener">&#x27;I haven’t been involved&#x27; - Donald Trump will stay out of Netflix-Paramount fight over Warner Bros - What US Prez said</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">9:18 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -2378,7 +2372,7 @@
             <article class="article" data-source="et now" data-date="2026-02-05" data-url=" https://www.etnownews.com/infrastructure/vande-bharat-sleeper-trains-big-announcement-by-ashwini-vaishnaw-railways-to-manufacture-260-trainsets-latest-update-article-153560474 " data-title="Vande Bharat Sleeper Trains: BIG announcement by Ashwini Vaishnaw; Railways to manufacture 260 trainsets - Latest update" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/infrastructure/vande-bharat-sleeper-trains-big-announcement-by-ashwini-vaishnaw-railways-to-manufacture-260-trainsets-latest-update-article-153560474 " target="_blank" rel="noopener">Vande Bharat Sleeper Trains: BIG announcement by Ashwini Vaishnaw; Railways to manufacture 260 trainsets - Latest update</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/infrastructure" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">9:14 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -2522,6 +2516,17 @@
                 <h3 class="article-title"><a href="https://economictimes.indiatimes.com/industry/cons-products/electronics/how-the-ai-boom-could-push-up-the-price-of-your-next-pc/articleshow/127922513.cms" target="_blank" rel="noopener">How the AI boom could push up the price of your next PC</a></h3>
                 <div class="article-meta">
                     <a href="https://economictimes.indiatimes.com/industry" target="_blank" class="source-tag" title="Economic Times — Latest">Economic Times — Latest</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:30 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="filter coffee" data-date="2026-02-05" data-url="https://filtercoffee.substack.com/p/what-exactly-is-saaspocalypse" data-title="What exactly is SaaSpocalypse?" data-category="news" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://filtercoffee.substack.com/p/what-exactly-is-saaspocalypse" target="_blank" rel="noopener">What exactly is SaaSpocalypse?</a></h3>
+                <div class="article-meta">
+                    <a href="https://filtercoffee.substack.com" target="_blank" class="source-tag" title="Filter Coffee">Filter Coffee</a>
                     <span class="meta-dot">·</span><span class="article-time">8:30 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -2923,7 +2928,7 @@
             <article class="article" data-source="et now" data-date="2026-02-05" data-url=" https://www.etnownews.com/news/us-iran-agree-to-hold-talks-in-oman-amid-rising-middle-east-tensions-article-153562376 " data-title="US, Iran agree to hold talks in Oman amid rising Middle East tensions" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/us-iran-agree-to-hold-talks-in-oman-amid-rising-middle-east-tensions-article-153562376 " target="_blank" rel="noopener">US, Iran agree to hold talks in Oman amid rising Middle East tensions</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">7:07 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -3349,17 +3354,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="reuters — business" data-date="2026-02-05" data-url="https://news.google.com/rss/articles/CBMi5AFBVV95cUxOQllRVDF4a2d1ekNCMEVjQ3lsX0RoVlpYeUhaS2p2dHo1RTF5Qkg2c2lZWlF0cjRxUG15dGR2WDE3cFgwUHhraXlaVTR6N1ItOU1CaG1yaUJad05EOUJsdDlLLWRXMDVGb0lhcUJCbGhLeHc0OXZGMGdsNm5Md3VQQzFiQzBqVWs1N1dUTGxSb0x6WHFSVWZqSDdYZF96SzJWSlRreFRBcW90SkJaNmtXZ1YtN1Y2Q0N6SlMycHA1YV82R18tZWloWjg2VG9qdjVkbUsyMVh2czJGOU45cDhFS2dWVFc?oc=5" data-title="Align Technology beats fourth-quarter results estimates on dental products demand - Reuters" data-category="news" data-in-focus="false" data-publisher="Global">
-                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi5AFBVV95cUxOQllRVDF4a2d1ekNCMEVjQ3lsX0RoVlpYeUhaS2p2dHo1RTF5Qkg2c2lZWlF0cjRxUG15dGR2WDE3cFgwUHhraXlaVTR6N1ItOU1CaG1yaUJad05EOUJsdDlLLWRXMDVGb0lhcUJCbGhLeHc0OXZGMGdsNm5Md3VQQzFiQzBqVWs1N1dUTGxSb0x6WHFSVWZqSDdYZF96SzJWSlRreFRBcW90SkJaNmtXZ1YtN1Y2Q0N6SlMycHA1YV82R18tZWloWjg2VG9qdjVkbUsyMVh2czJGOU45cDhFS2dWVFc?oc=5" target="_blank" rel="noopener">Align Technology beats fourth-quarter results estimates on dental products demand - Reuters</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.reuters.com/business/" target="_blank" class="source-tag" title="Reuters — Business">Reuters — Business</a>
-                    <span class="meta-dot">·</span><span class="article-time">4:46 AM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="bbc news — business" data-date="2026-02-05" data-url="https://www.bbc.com/news/articles/c5y31vnnjepo?at_medium=RSS&amp;at_campaign=rss" data-title="US probes Nike over white workers discrimination claims" data-category="news" data-in-focus="false" data-publisher="">
                 <h3 class="article-title"><a href="https://www.bbc.com/news/articles/c5y31vnnjepo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">US probes Nike over white workers discrimination claims</a></h3>
                 <div class="article-meta">
@@ -3547,10 +3541,10 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="economic times — latest" data-date="2026-02-05" data-url="https://economictimes.indiatimes.com/news/company/corporate-trends/et-exclusive-the-biggest-change-in-india-is-to-be-able-to-convince-biz-families-to-let-go-of-enterprises-that-they-have-been-so-emotionally-attached-to/articleshow/127917739.cms" data-title="Warburg Pincus: Biggest change in India is to be able to convince biz families to let go of enterprises that they have been so emotionally attached to" data-category="news" data-in-focus="false" data-publisher="ET">
-                <h3 class="article-title"><a href="https://economictimes.indiatimes.com/news/company/corporate-trends/et-exclusive-the-biggest-change-in-india-is-to-be-able-to-convince-biz-families-to-let-go-of-enterprises-that-they-have-been-so-emotionally-attached-to/articleshow/127917739.cms" target="_blank" rel="noopener">Warburg Pincus: Biggest change in India is to be able to convince biz families to let go of enterprises that they have been so emotionally attached to</a></h3>
+            <article class="article" data-source="reuters — business" data-date="2026-02-05" data-url="https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNFR2dHhDU0J3VmE3RUlLbUt2QWROVXB1RnhJYkRQekxYYk0wRU5USjBfMGRydzdnUVNON2s5UTBqbGs2dGRjXzVwLXgxemtBVUR4YTZfVnVVeGlMM1M5NmhNeWtocVZkM19lYWk1RkxlYnp0QUhpejJuUVBKRm1HaEROU1BvbEV6S09aZ2daRWY4TmY5QV93WVBrU2ZwTVZYTklpSXhULTMwYXNWWUEyMm9pMFpfWE85ZUNOQnJoOFU?oc=5" data-title="Telegram&#x27;s Durov says proposed Spanish social media restrictions seek to censor critics - Reuters" data-category="news" data-in-focus="false" data-publisher="Global">
+                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNFR2dHhDU0J3VmE3RUlLbUt2QWROVXB1RnhJYkRQekxYYk0wRU5USjBfMGRydzdnUVNON2s5UTBqbGs2dGRjXzVwLXgxemtBVUR4YTZfVnVVeGlMM1M5NmhNeWtocVZkM19lYWk1RkxlYnp0QUhpejJuUVBKRm1HaEROU1BvbEV6S09aZ2daRWY4TmY5QV93WVBrU2ZwTVZYTklpSXhULTMwYXNWWUEyMm9pMFpfWE85ZUNOQnJoOFU?oc=5" target="_blank" rel="noopener">Telegram&#x27;s Durov says proposed Spanish social media restrictions seek to censor critics - Reuters</a></h3>
                 <div class="article-meta">
-                    <a href="https://economictimes.indiatimes.com/news/company" target="_blank" class="source-tag" title="Economic Times — Latest">Economic Times — Latest</a>
+                    <a href="https://www.reuters.com/business/" target="_blank" class="source-tag" title="Reuters — Business">Reuters — Business</a>
                     <span class="meta-dot">·</span><span class="article-time">12:40 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -3558,10 +3552,10 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="reuters — business" data-date="2026-02-05" data-url="https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNFR2dHhDU0J3VmE3RUlLbUt2QWROVXB1RnhJYkRQekxYYk0wRU5USjBfMGRydzdnUVNON2s5UTBqbGs2dGRjXzVwLXgxemtBVUR4YTZfVnVVeGlMM1M5NmhNeWtocVZkM19lYWk1RkxlYnp0QUhpejJuUVBKRm1HaEROU1BvbEV6S09aZ2daRWY4TmY5QV93WVBrU2ZwTVZYTklpSXhULTMwYXNWWUEyMm9pMFpfWE85ZUNOQnJoOFU?oc=5" data-title="Telegram&#x27;s Durov says proposed Spanish social media restrictions seek to censor critics - Reuters" data-category="news" data-in-focus="false" data-publisher="Global">
-                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNFR2dHhDU0J3VmE3RUlLbUt2QWROVXB1RnhJYkRQekxYYk0wRU5USjBfMGRydzdnUVNON2s5UTBqbGs2dGRjXzVwLXgxemtBVUR4YTZfVnVVeGlMM1M5NmhNeWtocVZkM19lYWk1RkxlYnp0QUhpejJuUVBKRm1HaEROU1BvbEV6S09aZ2daRWY4TmY5QV93WVBrU2ZwTVZYTklpSXhULTMwYXNWWUEyMm9pMFpfWE85ZUNOQnJoOFU?oc=5" target="_blank" rel="noopener">Telegram&#x27;s Durov says proposed Spanish social media restrictions seek to censor critics - Reuters</a></h3>
+            <article class="article" data-source="economic times — latest" data-date="2026-02-05" data-url="https://economictimes.indiatimes.com/news/company/corporate-trends/et-exclusive-the-biggest-change-in-india-is-to-be-able-to-convince-biz-families-to-let-go-of-enterprises-that-they-have-been-so-emotionally-attached-to/articleshow/127917739.cms" data-title="Warburg Pincus: Biggest change in India is to be able to convince biz families to let go of enterprises that they have been so emotionally attached to" data-category="news" data-in-focus="false" data-publisher="ET">
+                <h3 class="article-title"><a href="https://economictimes.indiatimes.com/news/company/corporate-trends/et-exclusive-the-biggest-change-in-india-is-to-be-able-to-convince-biz-families-to-let-go-of-enterprises-that-they-have-been-so-emotionally-attached-to/articleshow/127917739.cms" target="_blank" rel="noopener">Warburg Pincus: Biggest change in India is to be able to convince biz families to let go of enterprises that they have been so emotionally attached to</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.reuters.com/business/" target="_blank" class="source-tag" title="Reuters — Business">Reuters — Business</a>
+                    <a href="https://economictimes.indiatimes.com/news/company" target="_blank" class="source-tag" title="Economic Times — Latest">Economic Times — Latest</a>
                     <span class="meta-dot">·</span><span class="article-time">12:40 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -3844,18 +3838,6 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
-            </article>
-            <article class="article" data-source="mint — companies" data-date="2026-02-04" data-url="https://www.livemint.com/companies/news/cci-orders-probe-into-indigo-over-alleged-abuse-of-dominance-after-mass-flight-cancellations-11770220108034.html" data-title="CCI orders probe into IndiGo over alleged abuse of dominance after mass flight cancellations" data-category="news" data-in-focus="true" data-publisher="Mint">
-                <h3 class="article-title"><a href="https://www.livemint.com/companies/news/cci-orders-probe-into-indigo-over-alleged-abuse-of-dominance-after-mass-flight-cancellations-11770220108034.html" target="_blank" rel="noopener">CCI orders probe into IndiGo over alleged abuse of dominance after mass flight cancellations</a><span class="source-badge">2 sources</span></h3>
-                <div class="article-meta">
-                    <a href="https://www.livemint.com/rss/companies" target="_blank" class="source-tag" title="Mint — Companies">Mint — Companies</a>
-                    <span class="meta-dot">·</span><span class="article-time">11:10 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-                <div class="also-covered">Also covered by: <a href=" https://www.etnownews.com/news/cci-orders-investigation-into-indigo-over-alleged-unfair-practices-after-mass-flight-cancellations-article-153561089 " target="_blank" rel="noopener" title="ET Now">ET Now</a></div>
             </article>
             <article class="article" data-source="business standard — industry" data-date="2026-02-04" data-url="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQRXowNnRsTmF6N0J1U1h0d2hkWWgtbkFwaE94eFdIY2ZpZ1FHb0tJTTBuMlpJLW5xUjA1SmEydXhVUWI1aHR4M1hsaDRQbm9qNmZtcnBMeHNscFMxZ2VXV29idDRITmlJaTFmbTE4N2gxMGUwYjdlSXd3amVvR3lweXpFUXRrNVFveUVnOUVmVDhWMG5kd2JhanUtUG1GUDFxM0ZzZ3JFbmRJQ2llYVFIdXowTVJrU2ZPLU5zR3VnS2ZxckdFd04zY2pvRk5QdlM5OEpJTDRPVdIB3AFBVV95cUxPclFHMl8zSm0tMEkwQ1Nzb1Q2OFVhNmlDWW53X2cxU0JuNzN4b3cybHhFZHNTYmVTLVdVUktod0FYTWJFbFRRLVRZTmg1bG9saE5qdXA1NGRHUzd6c3BhUWZmdEtPVThVSVRacFBkdzBxd2FCQjNsYmhmTndyTHpRdkZWM3AxVWxTVkczaTBZQzFaVTdJV1NibDQ4c1RxMVhzOWNvY0o1QTRBUDNrWUdTS1ctaWNPNkpUY0czR28xU0w4TVJmdFloOTJUREJ5aG1kTHpBXzRCY1JvdHJp?oc=5" data-title="A season for textiles, from Union Budget to biggest India Art Fair so far - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQRXowNnRsTmF6N0J1U1h0d2hkWWgtbkFwaE94eFdIY2ZpZ1FHb0tJTTBuMlpJLW5xUjA1SmEydXhVUWI1aHR4M1hsaDRQbm9qNmZtcnBMeHNscFMxZ2VXV29idDRITmlJaTFmbTE4N2gxMGUwYjdlSXd3amVvR3lweXpFUXRrNVFveUVnOUVmVDhWMG5kd2JhanUtUG1GUDFxM0ZzZ3JFbmRJQ2llYVFIdXowTVJrU2ZPLU5zR3VnS2ZxckdFd04zY2pvRk5QdlM5OEpJTDRPVdIB3AFBVV95cUxPclFHMl8zSm0tMEkwQ1Nzb1Q2OFVhNmlDWW53X2cxU0JuNzN4b3cybHhFZHNTYmVTLVdVUktod0FYTWJFbFRRLVRZTmg1bG9saE5qdXA1NGRHUzd6c3BhUWZmdEtPVThVSVRacFBkdzBxd2FCQjNsYmhmTndyTHpRdkZWM3AxVWxTVkczaTBZQzFaVTdJV1NibDQ4c1RxMVhzOWNvY0o1QTRBUDNrWUdTS1ctaWNPNkpUY0czR28xU0w4TVJmdFloOTJUREJ5aG1kTHpBXzRCY1JvdHJp?oc=5" target="_blank" rel="noopener">A season for textiles, from Union Budget to biggest India Art Fair so far - Business Standard</a></h3>
@@ -4408,6 +4390,18 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
+            </article>
+            <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/news/cci-orders-investigation-into-indigo-over-alleged-unfair-practices-after-mass-flight-cancellations-article-153561089 " data-title="CCI orders investigation into IndiGo over alleged unfair practices after mass flight cancellations" data-category="news" data-in-focus="true" data-publisher="ET">
+                <h3 class="article-title"><a href=" https://www.etnownews.com/news/cci-orders-investigation-into-indigo-over-alleged-unfair-practices-after-mass-flight-cancellations-article-153561089 " target="_blank" rel="noopener">CCI orders investigation into IndiGo over alleged unfair practices after mass flight cancellations</a><span class="source-badge">2 sources</span></h3>
+                <div class="article-meta">
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <span class="meta-dot">·</span><span class="article-time">9:42 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+                <div class="also-covered">Also covered by: <a href="https://www.livemint.com/companies/news/cci-orders-probe-into-indigo-over-alleged-abuse-of-dominance-after-mass-flight-cancellations-11770220108034.html" target="_blank" rel="noopener" title="Mint — Companies">Mint — Companies</a></div>
             </article>
             <article class="article" data-source="businessline" data-date="2026-02-04" data-url="https://www.thehindubusinessline.com/money-and-banking/shriram-general-insurance-q3-net-jumps-26-aims-to-grow-bancassurance-channel/article70592763.ece" data-title="Shriram General Insurance Q3 net jumps 26%, aims to grow bancassurance channel" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/money-and-banking/shriram-general-insurance-q3-net-jumps-26-aims-to-grow-bancassurance-channel/article70592763.ece" target="_blank" rel="noopener">Shriram General Insurance Q3 net jumps 26%, aims to grow bancassurance channel</a></h3>
@@ -5202,6 +5196,17 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="businessline" data-date="2026-02-04" data-url="https://www.thehindubusinessline.com/news/real-estate/google-parent-gains-exclusive-option-on-more-space-at-bengalurus-alembic-city/article70592100.ece" data-title="Google parent gains exclusive option on more space at Bengaluru’s Alembic City" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
+                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/news/real-estate/google-parent-gains-exclusive-option-on-more-space-at-bengalurus-alembic-city/article70592100.ece" target="_blank" rel="noopener">Google parent gains exclusive option on more space at Bengaluru’s Alembic City</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.thehindubusinessline.com/" target="_blank" class="source-tag" title="BusinessLine">BusinessLine</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:00 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="business standard — industry" data-date="2026-02-04" data-url="https://news.google.com/rss/articles/CBMi4wFBVV95cUxOMFJPZlJfYnUyZzVLUnVxa25URlhLeWZ3Z0dYallkNkNOenY4V3l0NU50ZGtSMFVkbXFaWnpTQTFTaXViZkJBUFAxaUFweWU1MHlETGZtaC1sTzBtU2VpbUMzZzNXTm9OQ3R3VmNObUNaSUhHdE5BSTZiRW53RncyTUxEVno5eTRRRWl4MTJsWjdhTjFLQlN6VXJmb2dTRE5veWZKdldDd0dYOENDNmV4YkdIY1BvLUdyUkNMYlAzZlg5ajJlVGtSLWpxNXBBZ3A5NUNVN2xORW9yMnFnYTJYU3EtRdIB6AFBVV95cUxOTlIwWnZIckdndTQweXA4aU41c1ZXS21jMW1jQ0xhcHU1VlAxUGl0M0ZTMkptQXU1OThjaDcteVAtU1JWNzhER2xxUHFHWTV1aEVCODZRTW5uaTBpYUhQT3J5RmRuSVllT25naUd3UzNocHJXbmFCUWpXMU1oQ2o3RkphbmZpRXFZQkNGX2VPQVJ0bTVwTkVYV0lqZEtsbnZmME4xTjRvY0F0dnk3LVBXVzhHVWhyQWkxTnRJejJmamJVSjVLbDBJZGYxeWU5Z2puZy1fenhwVlRVWGVmQUJXVUhlVzFsMVRL?oc=5" data-title="IndiGo&#x27;s December cancellations hit nearly 1 million passengers: DGCA - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi4wFBVV95cUxOMFJPZlJfYnUyZzVLUnVxa25URlhLeWZ3Z0dYallkNkNOenY4V3l0NU50ZGtSMFVkbXFaWnpTQTFTaXViZkJBUFAxaUFweWU1MHlETGZtaC1sTzBtU2VpbUMzZzNXTm9OQ3R3VmNObUNaSUhHdE5BSTZiRW53RncyTUxEVno5eTRRRWl4MTJsWjdhTjFLQlN6VXJmb2dTRE5veWZKdldDd0dYOENDNmV4YkdIY1BvLUdyUkNMYlAzZlg5ajJlVGtSLWpxNXBBZ3A5NUNVN2xORW9yMnFnYTJYU3EtRdIB6AFBVV95cUxOTlIwWnZIckdndTQweXA4aU41c1ZXS21jMW1jQ0xhcHU1VlAxUGl0M0ZTMkptQXU1OThjaDcteVAtU1JWNzhER2xxUHFHWTV1aEVCODZRTW5uaTBpYUhQT3J5RmRuSVllT25naUd3UzNocHJXbmFCUWpXMU1oQ2o3RkphbmZpRXFZQkNGX2VPQVJ0bTVwTkVYV0lqZEtsbnZmME4xTjRvY0F0dnk3LVBXVzhHVWhyQWkxTnRJejJmamJVSjVLbDBJZGYxeWU5Z2puZy1fenhwVlRVWGVmQUJXVUhlVzFsMVRL?oc=5" target="_blank" rel="noopener">IndiGo&#x27;s December cancellations hit nearly 1 million passengers: DGCA - Business Standard</a></h3>
                 <div class="article-meta">
@@ -5282,7 +5287,7 @@
             <article class="article" data-source="economic times — latest" data-date="2026-02-04" data-url="https://economictimes.indiatimes.com/news/economy/indicators/cbdt-chief-says-88-pc-of-individual-taxpayers-have-opted-for-new-tax-regime/articleshow/127912277.cms" data-title="CBDT chief says 88 per cent of individual taxpayers have opted for new tax regime" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href="https://economictimes.indiatimes.com/news/economy/indicators/cbdt-chief-says-88-pc-of-individual-taxpayers-have-opted-for-new-tax-regime/articleshow/127912277.cms" target="_blank" rel="noopener">CBDT chief says 88 per cent of individual taxpayers have opted for new tax regime</a></h3>
                 <div class="article-meta">
-                    <a href="https://economictimes.indiatimes.com/news/economy" target="_blank" class="source-tag" title="Economic Times — Latest">Economic Times — Latest</a>
+                    <a href="https://economictimes.indiatimes.com" target="_blank" class="source-tag" title="Economic Times — Latest">Economic Times — Latest</a>
                     <span class="meta-dot">·</span><span class="article-time">7:44 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -5447,7 +5452,7 @@
             <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/news/etnow-in-india-investment-summit-2026-on-6th-feb-in-mumbai-themed-on-indias-fiscal-playbook-budget-and-market-outlook-for-2026-article-153560843 " data-title="ETNow.in India Investment Summit 2026 on 6th Feb in Mumbai | Themed on &#x27;India’s Fiscal Playbook: Budget and Market Outlook for 2026&#x27;" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/etnow-in-india-investment-summit-2026-on-6th-feb-in-mumbai-themed-on-indias-fiscal-playbook-budget-and-market-outlook-for-2026-article-153560843 " target="_blank" rel="noopener">ETNow.in India Investment Summit 2026 on 6th Feb in Mumbai | Themed on &#x27;India’s Fiscal Playbook: Budget and Market Outlook for 2026&#x27;</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">7:13 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -6175,7 +6180,7 @@
             <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/news/budget-2026-what-are-she-marts-market-access-for-women-shg-entrepreneurs-objectives-eligibility-how-to-apply-explained-article-153559990 " data-title="Budget 2026: What are SHE-Marts? Market access for women SHG entrepreneurs | Objectives, eligibility, how to apply - EXPLAINED" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/budget-2026-what-are-she-marts-market-access-for-women-shg-entrepreneurs-objectives-eligibility-how-to-apply-explained-article-153559990 " target="_blank" rel="noopener">Budget 2026: What are SHE-Marts? Market access for women SHG entrepreneurs | Objectives, eligibility, how to apply - EXPLAINED</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">4:54 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -6215,6 +6220,18 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
+            </article>
+            <article class="article" data-source="the hindu — business" data-date="2026-02-04" data-url="https://www.thehindu.com/business/markets/rupee-falls-against-us-dollar-on-february-4-2026/article70591336.ece" data-title="Rupee falls 11 paise to close at 90.43 against U.S. dollar" data-category="news" data-in-focus="true" data-publisher="The Hindu">
+                <h3 class="article-title"><a href="https://www.thehindu.com/business/markets/rupee-falls-against-us-dollar-on-february-4-2026/article70591336.ece" target="_blank" rel="noopener">Rupee falls 11 paise to close at 90.43 against U.S. dollar</a><span class="source-badge">2 sources</span></h3>
+                <div class="article-meta">
+                    <a href="https://www.thehindu.com/business/Economy/" target="_blank" class="source-tag" title="The Hindu — Business">The Hindu — Business</a>
+                    <span class="meta-dot">·</span><span class="article-time">4:44 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+                <div class="also-covered">Also covered by: <a href="https://www.thehindubusinessline.com/markets/forex/rupee-drops-11-paise-to-close-at-9043-against-us-dollar/article70591310.ece" target="_blank" rel="noopener" title="BusinessLine — Markets">BusinessLine — Markets</a></div>
             </article>
             <article class="article" data-source="businessline — economy" data-date="2026-02-04" data-url="https://www.thehindubusinessline.com/economy/agri-business/indias-coir-exports-set-to-gain-from-us-tariff-cut/article70590846.ece" data-title="India’s coir exports set to gain from US tariff cut" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/economy/agri-business/indias-coir-exports-set-to-gain-from-us-tariff-cut/article70590846.ece" target="_blank" rel="noopener">India’s coir exports set to gain from US tariff cut</a></h3>
@@ -6404,18 +6421,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="businessline — markets" data-date="2026-02-04" data-url="https://www.thehindubusinessline.com/markets/forex/rupee-drops-11-paise-to-close-at-9043-against-us-dollar/article70591310.ece" data-title="Rupee drops 11 paise to close at 90.43 against US dollar" data-category="news" data-in-focus="true" data-publisher="BusinessLine">
-                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/markets/forex/rupee-drops-11-paise-to-close-at-9043-against-us-dollar/article70591310.ece" target="_blank" rel="noopener">Rupee drops 11 paise to close at 90.43 against US dollar</a><span class="source-badge">2 sources</span></h3>
-                <div class="article-meta">
-                    <a href="https://www.thehindubusinessline.com/markets/" target="_blank" class="source-tag" title="BusinessLine — Markets">BusinessLine — Markets</a>
-                    <span class="meta-dot">·</span><span class="article-time">4:08 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-                <div class="also-covered">Also covered by: <a href="https://www.thehindu.com/business/markets/rupee-falls-against-us-dollar-on-february-4-2026/article70591336.ece" target="_blank" rel="noopener" title="The Hindu — Business">The Hindu — Business</a></div>
-            </article>
             <article class="article" data-source="the hindu — business" data-date="2026-02-04" data-url="https://www.thehindu.com/business/sebi-mulls-over-overhaul-of-fit-and-proper-person-framework-governing-market-intermediaries/article70591186.ece" data-title="SEBI mulls over overhaul of &#x27;fit and proper person&#x27; framework governing market intermediaries" data-category="news" data-in-focus="true" data-publisher="The Hindu">
                 <h3 class="article-title"><a href="https://www.thehindu.com/business/sebi-mulls-over-overhaul-of-fit-and-proper-person-framework-governing-market-intermediaries/article70591186.ece" target="_blank" rel="noopener">SEBI mulls over overhaul of &#x27;fit and proper person&#x27; framework governing market intermediaries</a><span class="source-badge">2 sources</span></h3>
                 <div class="article-meta">
@@ -6453,7 +6458,7 @@
             <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/news/indigo-to-suspend-copenhagen-services-from-feb-17-tweak-long-haul-flight-schedule-article-153559620 " data-title="IndiGo to suspend Copenhagen services from Feb 17; tweak long-haul flight schedule" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/indigo-to-suspend-copenhagen-services-from-feb-17-tweak-long-haul-flight-schedule-article-153559620 " target="_blank" rel="noopener">IndiGo to suspend Copenhagen services from Feb 17; tweak long-haul flight schedule</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">4:02 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -7189,6 +7194,18 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="businessline — news" data-date="2026-02-04" data-url="https://www.thehindubusinessline.com/news/sc-directs-cbi-ed-to-conduct-fair-probes-against-anil-ambani-adag-firms/article70590751.ece" data-title="SC directs CBI, ED to conduct fair probes against Anil Ambani, ADAG firms" data-category="news" data-in-focus="true" data-publisher="BusinessLine">
+                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/news/sc-directs-cbi-ed-to-conduct-fair-probes-against-anil-ambani-adag-firms/article70590751.ece" target="_blank" rel="noopener">SC directs CBI, ED to conduct fair probes against Anil Ambani, ADAG firms</a><span class="source-badge">2 sources</span></h3>
+                <div class="article-meta">
+                    <a href="https://www.thehindubusinessline.com/news/" target="_blank" class="source-tag" title="BusinessLine — News">BusinessLine — News</a>
+                    <span class="meta-dot">·</span><span class="article-time">1:10 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+                <div class="also-covered">Also covered by: <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPYm5sTnJvZGNMSVh6bDN2YWtJWU9fbnp0bzlPc0diUkZOaDZxNGdqeFZHY1lZYllqLXlKbXZFSy1YUGdzUlV4OURlaTlqbzlwd0djRTVfRDdLREdaa1FyTEhFZGhlZmVuZ253V1JPb3B0aWtCZjJSUjZxR1lCVm9pUzRUTnZUZzl6TGtFQWpXTm85S0lrM2t6U2RMZHV3bm5Zc3VzUURhM25XLUdSYmw3ZkJFemFkMEt4NmFMT2JxWkZrZEHSAcgBQVVfeXFMTVJTWUZfVENZVm5HZTF3bk9wNFhXZm8tMDAtaHNRWEI0OGpyRXN2UmZnelBKYU8wamRycFV3dlhkV2VJc0tQT2xEMk8ySVBvY1NmRkZxSGJBSE93cGJGQlVyUkFhZjFDWkFSaXVab1pTeTYxU0E4Y29aWFc1dE14a0UtdjdoSWZCRFhaWlhTZGRZYldRUGROd0xSaW1sWmhXX1NaTzZDaU1CYmRZcmcydFdWTTd5c0ZEY25DSDJDRnEyZnJUQXZGYlA?oc=5" target="_blank" rel="noopener" title="Business Standard — Companies">Business Standard — Compa...</a></div>
+            </article>
             <article class="article" data-source="business standard — india" data-date="2026-02-04" data-url="https://news.google.com/rss/articles/CBMi1AFBVV95cUxPZGNRMnVRSVEtaGVoRXV4c01yWkw5bFAtVHh1N3U4aUJnVm16RUJaZnktVlh6UVVBeDUyRU94R21ZbUZPTUFMcWRYYi0zLWN0UWNHY1FNQ0tQXzlOVlVWa1JkUHZUaXVqSmtJcjFlN09FQWIxc19TVmI0R21yNVZncWNBdG9rUjlYLVRxZlN2cE4wUWp3a0xnODZfMGUzbHJqTjFkaVl6a3RUN01aOEpNcjFjRHRSWW1sWEFsc3E4ZEQyVnlYanh5SDJFY0ZPUjVCeXpxcNIB2gFBVV95cUxOZTF5Q3BzNmVCZXNPSlQ2b3hZRlhCWFlNWXFXQUNYQjlpdFNQX01qUTVHTVhBU0c4Q3pzcGo4T3NyeG5FeWlNRFhmQm1wSE5oR0I4U2E4dVc4aXdFbTRNOXRwSjZWWHNxZlg3a2F1b3VUeE12M2NnbngtTXk4dUtvRVBpQ01SejhfcGtBVDNpbnFwdFVYdE1ma3hUaTZEMmpyRVJObVdSREszazc4SnN2d2ZWWE9mb1h5a0g5SlpaZThkbnFzQldtMWdKZ2w0T20taHNadnlwNGdUdw?oc=5" data-title="Rahul displays Naravane memoir, claims PM didn&#x27;t fulfil his responsibility - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxPZGNRMnVRSVEtaGVoRXV4c01yWkw5bFAtVHh1N3U4aUJnVm16RUJaZnktVlh6UVVBeDUyRU94R21ZbUZPTUFMcWRYYi0zLWN0UWNHY1FNQ0tQXzlOVlVWa1JkUHZUaXVqSmtJcjFlN09FQWIxc19TVmI0R21yNVZncWNBdG9rUjlYLVRxZlN2cE4wUWp3a0xnODZfMGUzbHJqTjFkaVl6a3RUN01aOEpNcjFjRHRSWW1sWEFsc3E4ZEQyVnlYanh5SDJFY0ZPUjVCeXpxcNIB2gFBVV95cUxOZTF5Q3BzNmVCZXNPSlQ2b3hZRlhCWFlNWXFXQUNYQjlpdFNQX01qUTVHTVhBU0c4Q3pzcGo4T3NyeG5FeWlNRFhmQm1wSE5oR0I4U2E4dVc4aXdFbTRNOXRwSjZWWHNxZlg3a2F1b3VUeE12M2NnbngtTXk4dUtvRVBpQ01SejhfcGtBVDNpbnFwdFVYdE1ma3hUaTZEMmpyRVJObVdSREszazc4SnN2d2ZWWE9mb1h5a0g5SlpaZThkbnFzQldtMWdKZ2w0T20taHNadnlwNGdUdw?oc=5" target="_blank" rel="noopener">Rahul displays Naravane memoir, claims PM didn&#x27;t fulfil his responsibility - Business Standard</a></h3>
                 <div class="article-meta">
@@ -7310,6 +7327,18 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="the hindu — business" data-date="2026-02-04" data-url="https://www.thehindu.com/business/Economy/indias-services-sector-growth-touches-2-month-high-in-january-pmi/article70590540.ece" data-title="India&#x27;s services sector growth touches 2-month high in January: PMI" data-category="news" data-in-focus="true" data-publisher="The Hindu">
+                <h3 class="article-title"><a href="https://www.thehindu.com/business/Economy/indias-services-sector-growth-touches-2-month-high-in-january-pmi/article70590540.ece" target="_blank" rel="noopener">India&#x27;s services sector growth touches 2-month high in January: PMI</a><span class="source-badge">2 sources</span></h3>
+                <div class="article-meta">
+                    <a href="https://www.thehindu.com/business/Economy/" target="_blank" class="source-tag" title="The Hindu — Business">The Hindu — Business</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:35 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+                <div class="also-covered">Also covered by: <a href=" https://www.etnownews.com/economy/india-services-sector-growth-hits-2-month-high-in-january-pmi-report-article-153558269 " target="_blank" rel="noopener" title="ET Now">ET Now</a></div>
+            </article>
             <article class="article" data-source="businessline — companies" data-date="2026-02-04" data-url="https://www.thehindubusinessline.com/companies/jiostar-group-appoints-stephan-bugaj-as-senior-vp-of-genai-content/article70590244.ece" data-title="JioStar Group appoints Stephan Bugaj as senior VP of GenAI content" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/companies/jiostar-group-appoints-stephan-bugaj-as-senior-vp-of-genai-content/article70590244.ece" target="_blank" rel="noopener">JioStar Group appoints Stephan Bugaj as senior VP of GenAI content</a></h3>
                 <div class="article-meta">
@@ -7332,17 +7361,17 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="et now — economy" data-date="2026-02-04" data-url=" https://www.etnownews.com/economy/india-services-sector-growth-hits-2-month-high-in-january-pmi-report-article-153558269 " data-title="India&#x27;s services sector growth hits 2-month high in January: PMI report" data-category="news" data-in-focus="true" data-publisher="ET">
-                <h3 class="article-title"><a href=" https://www.etnownews.com/economy/india-services-sector-growth-hits-2-month-high-in-january-pmi-report-article-153558269 " target="_blank" rel="noopener">India&#x27;s services sector growth hits 2-month high in January: PMI report</a><span class="source-badge">2 sources</span></h3>
+            <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/personal-finance/lords-mark-industries-limited-appoints-vignesh-waman-poojari-as-chief-financial-officer-article-153558292 " data-title="Lord’s Mark Industries Limited Appoints Vignesh Waman Poojari as Chief Financial Officer" data-category="news" data-in-focus="true" data-publisher="ET">
+                <h3 class="article-title"><a href=" https://www.etnownews.com/personal-finance/lords-mark-industries-limited-appoints-vignesh-waman-poojari-as-chief-financial-officer-article-153558292 " target="_blank" rel="noopener">Lord’s Mark Industries Limited Appoints Vignesh Waman Poojari as Chief Financial Officer</a><span class="source-badge">2 sources</span></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/economy" target="_blank" class="source-tag" title="ET Now — Economy">ET Now — Economy</a>
-                    <span class="meta-dot">·</span><span class="article-time">12:33 PM</span>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:31 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
-                <div class="also-covered">Also covered by: <a href="https://www.thehindu.com/business/Economy/indias-services-sector-growth-touches-2-month-high-in-january-pmi/article70590540.ece" target="_blank" rel="noopener" title="The Hindu — Business">The Hindu — Business</a></div>
+                <div class="also-covered">Also covered by: <a href="https://economictimes.indiatimes.com/news/company/corporate-trends/lords-mark-industries-appoints-vignesh-waman-poojari-as-chief-financial-officer/articleshow/127902022.cms" target="_blank" rel="noopener" title="Economic Times — Latest">Economic Times — Latest</a></div>
             </article>
             <article class="article" data-source="businessline — companies" data-date="2026-02-04" data-url="https://www.thehindubusinessline.com/companies/banganga-paper-industries-inducts-dr-keshav-lakshminarayana-patkar-as-independent-director/article70590490.ece" data-title="Banganga Paper Industries inducts Dr Keshav Lakshminarayana Patkar as independent director" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/companies/banganga-paper-industries-inducts-dr-keshav-lakshminarayana-patkar-as-independent-director/article70590490.ece" target="_blank" rel="noopener">Banganga Paper Industries inducts Dr Keshav Lakshminarayana Patkar as independent director</a></h3>
@@ -7366,18 +7395,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="business standard — companies" data-date="2026-02-04" data-url="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPYm5sTnJvZGNMSVh6bDN2YWtJWU9fbnp0bzlPc0diUkZOaDZxNGdqeFZHY1lZYllqLXlKbXZFSy1YUGdzUlV4OURlaTlqbzlwd0djRTVfRDdLREdaa1FyTEhFZGhlZmVuZ253V1JPb3B0aWtCZjJSUjZxR1lCVm9pUzRUTnZUZzl6TGtFQWpXTm85S0lrM2t6U2RMZHV3bm5Zc3VzUURhM25XLUdSYmw3ZkJFemFkMEt4NmFMT2JxWkZrZEHSAcgBQVVfeXFMTVJTWUZfVENZVm5HZTF3bk9wNFhXZm8tMDAtaHNRWEI0OGpyRXN2UmZnelBKYU8wamRycFV3dlhkV2VJc0tQT2xEMk8ySVBvY1NmRkZxSGJBSE93cGJGQlVyUkFhZjFDWkFSaXVab1pTeTYxU0E4Y29aWFc1dE14a0UtdjdoSWZCRFhaWlhTZGRZYldRUGROd0xSaW1sWmhXX1NaTzZDaU1CYmRZcmcydFdWTTd5c0ZEY25DSDJDRnEyZnJUQXZGYlA?oc=5" data-title="SC asks CBI, ED to conduct &#x27;fair, prompt&#x27; probes against Anil Ambani, ADAG - Business Standard" data-category="news" data-in-focus="true" data-publisher="BS">
-                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPYm5sTnJvZGNMSVh6bDN2YWtJWU9fbnp0bzlPc0diUkZOaDZxNGdqeFZHY1lZYllqLXlKbXZFSy1YUGdzUlV4OURlaTlqbzlwd0djRTVfRDdLREdaa1FyTEhFZGhlZmVuZ253V1JPb3B0aWtCZjJSUjZxR1lCVm9pUzRUTnZUZzl6TGtFQWpXTm85S0lrM2t6U2RMZHV3bm5Zc3VzUURhM25XLUdSYmw3ZkJFemFkMEt4NmFMT2JxWkZrZEHSAcgBQVVfeXFMTVJTWUZfVENZVm5HZTF3bk9wNFhXZm8tMDAtaHNRWEI0OGpyRXN2UmZnelBKYU8wamRycFV3dlhkV2VJc0tQT2xEMk8ySVBvY1NmRkZxSGJBSE93cGJGQlVyUkFhZjFDWkFSaXVab1pTeTYxU0E4Y29aWFc1dE14a0UtdjdoSWZCRFhaWlhTZGRZYldRUGROd0xSaW1sWmhXX1NaTzZDaU1CYmRZcmcydFdWTTd5c0ZEY25DSDJDRnEyZnJUQXZGYlA?oc=5" target="_blank" rel="noopener">SC asks CBI, ED to conduct &#x27;fair, prompt&#x27; probes against Anil Ambani, ADAG - Business Standard</a><span class="source-badge">2 sources</span></h3>
-                <div class="article-meta">
-                    <a href="https://www.business-standard.com/companies" target="_blank" class="source-tag" title="Business Standard — Companies">Business Standard — Companies</a>
-                    <span class="meta-dot">·</span><span class="article-time">12:29 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-                <div class="also-covered">Also covered by: <a href="https://www.thehindubusinessline.com/news/sc-directs-cbi-ed-to-conduct-fair-probes-against-anil-ambani-adag-firms/article70590751.ece" target="_blank" rel="noopener" title="BusinessLine — News">BusinessLine — News</a></div>
-            </article>
             <article class="article" data-source="reuters — business" data-date="2026-02-04" data-url="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOcWxnV0pGcTdwZUtfRkk0VjYxX09JbzRGUFNsUGNtZ0REQUE2d1ZYdXRjSFVJbHRlM3gtQ0RqY3dBZGszajVNcnU1di1sTkdoTkZhRXI0WXM4MHVMcVZhN214akNVbTVYRmpaekFPcWJ2QWJGREhqTWdSZTkwdzN3eVVUTndfRHNXUS13akRObnotelhSZ19XcnlfRWllcVZhemJGU1ROZWJuMWtRczBROXdBRkowVk1BSXF6WF9lQVIxZw?oc=5" data-title="India says will diversify energy supply after deal with US on Russia oil - Reuters" data-category="news" data-in-focus="false" data-publisher="Global">
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOcWxnV0pGcTdwZUtfRkk0VjYxX09JbzRGUFNsUGNtZ0REQUE2d1ZYdXRjSFVJbHRlM3gtQ0RqY3dBZGszajVNcnU1di1sTkdoTkZhRXI0WXM4MHVMcVZhN214akNVbTVYRmpaekFPcWJ2QWJGREhqTWdSZTkwdzN3eVVUTndfRHNXUS13akRObnotelhSZ19XcnlfRWllcVZhemJGU1ROZWJuMWtRczBROXdBRkowVk1BSXF6WF9lQVIxZw?oc=5" target="_blank" rel="noopener">India says will diversify energy supply after deal with US on Russia oil - Reuters</a></h3>
                 <div class="article-meta">
@@ -7400,10 +7417,10 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="businessline — markets" data-date="2026-02-04" data-url="https://www.thehindubusinessline.com/news/real-estate/nexus-select-trust-raises-700-crore-in-10-year-retail-reit-sustainability-bond/article70590586.ece" data-title="Nexus Select Trust raises ₹700 crore in 10-year retail REIT sustainability bond" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
+            <article class="article" data-source="businessline — news" data-date="2026-02-04" data-url="https://www.thehindubusinessline.com/news/real-estate/nexus-select-trust-raises-700-crore-in-10-year-retail-reit-sustainability-bond/article70590586.ece" data-title="Nexus Select Trust raises ₹700 crore in 10-year retail REIT sustainability bond" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/news/real-estate/nexus-select-trust-raises-700-crore-in-10-year-retail-reit-sustainability-bond/article70590586.ece" target="_blank" rel="noopener">Nexus Select Trust raises ₹700 crore in 10-year retail REIT sustainability bond</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.thehindubusinessline.com/markets/" target="_blank" class="source-tag" title="BusinessLine — Markets">BusinessLine — Markets</a>
+                    <a href="https://www.thehindubusinessline.com/news/" target="_blank" class="source-tag" title="BusinessLine — News">BusinessLine — News</a>
                     <span class="meta-dot">·</span><span class="article-time">12:28 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -7480,7 +7497,7 @@
             <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/news/india-committed-to-stop-buying-russian-oil-white-house-article-153557718 " data-title="&#x27;India committed to stop buying Russian oil&#x27;: White House at it again" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/india-committed-to-stop-buying-russian-oil-white-house-article-153557718 " target="_blank" rel="noopener">&#x27;India committed to stop buying Russian oil&#x27;: White House at it again</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">12:14 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -7535,7 +7552,7 @@
             <article class="article" data-source="the hindu — business" data-date="2026-02-04" data-url="https://www.thehindu.com/business/Industry/indian-and-american-industry-bodies-leaders-laud-india-us-tariff-deal/article70586227.ece" data-title="Indian, American industry bodies and leaders laud India-U.S. tariff deal" data-category="news" data-in-focus="false" data-publisher="The Hindu">
                 <h3 class="article-title"><a href="https://www.thehindu.com/business/Industry/indian-and-american-industry-bodies-leaders-laud-india-us-tariff-deal/article70586227.ece" target="_blank" rel="noopener">Indian, American industry bodies and leaders laud India-U.S. tariff deal</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.thehindu.com/business/Industry/" target="_blank" class="source-tag" title="The Hindu — Business">The Hindu — Business</a>
+                    <a href="https://www.thehindu.com/business/Economy/" target="_blank" class="source-tag" title="The Hindu — Business">The Hindu — Business</a>
                     <span class="meta-dot">·</span><span class="article-time">12:01 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -7945,7 +7962,7 @@
             <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/news/india-us-trade-deal-which-are-the-key-american-sectors-inside-indias-usd-500-billion-commitment-detailsexclusive-article-153557346 " data-title="India-US Trade Deal: Which are the key American sectors inside India’s USD 500 billion commitment; Details | EXCLUSIVE" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/india-us-trade-deal-which-are-the-key-american-sectors-inside-indias-usd-500-billion-commitment-detailsexclusive-article-153557346 " target="_blank" rel="noopener">India-US Trade Deal: Which are the key American sectors inside India’s USD 500 billion commitment; Details | EXCLUSIVE</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">10:46 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -8041,10 +8058,10 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="et now — economy" data-date="2026-02-04" data-url=" https://www.etnownews.com/economy/rbi-mpc-meeting-from-today-governor-to-announce-outcome-on-feb-6-article-153557208 " data-title="RBI MPC meeting from today; Governor to announce outcome on Feb 6" data-category="news" data-in-focus="false" data-publisher="ET">
+            <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/economy/rbi-mpc-meeting-from-today-governor-to-announce-outcome-on-feb-6-article-153557208 " data-title="RBI MPC meeting from today; Governor to announce outcome on Feb 6" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/economy/rbi-mpc-meeting-from-today-governor-to-announce-outcome-on-feb-6-article-153557208 " target="_blank" rel="noopener">RBI MPC meeting from today; Governor to announce outcome on Feb 6</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/economy" target="_blank" class="source-tag" title="ET Now — Economy">ET Now — Economy</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">10:29 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -8066,7 +8083,7 @@
             <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/mutual-funds/are-you-investing-right-expert-tips-to-fix-your-mutual-fund-portfolio-article-153557555 " data-title="Are you investing right? Expert tips to fix your mutual fund portfolio" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/mutual-funds/are-you-investing-right-expert-tips-to-fix-your-mutual-fund-portfolio-article-153557555 " target="_blank" rel="noopener">Are you investing right? Expert tips to fix your mutual fund portfolio</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/mutual-funds" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">10:19 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -8394,6 +8411,17 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="filter coffee" data-date="2026-02-04" data-url="https://filtercoffee.substack.com/p/rupee-makes-a-comeback" data-title="Rupee makes a comeback 🥵" data-category="news" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://filtercoffee.substack.com/p/rupee-makes-a-comeback" target="_blank" rel="noopener">Rupee makes a comeback 🥵</a></h3>
+                <div class="article-meta">
+                    <a href="https://filtercoffee.substack.com" target="_blank" class="source-tag" title="Filter Coffee">Filter Coffee</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:30 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="bloomberg — india" data-date="2026-02-04" data-url="https://news.google.com/rss/articles/CBMirwFBVV95cUxOVUk3eVZCeXNCSGZzMU8wVzNTR3lVUUFjUURnazRUOWlYSEtWdUhoOFdQNDl3eWI1ZUhEWXVzYjJ0SkdVelZWMVhCLUNzbmFiNXlvdnc4MlYtV04td01GY1M0dmRjeV9mQjRnN1FXTUZRLU9kTDZOQ1dydm9lTTdYRFF3SlVSei1HMTdxamgyaEQyQ1EyN0VZamRObzN2bGpTV1NiM1cxZTFRaFl4V0tB?oc=5" data-title="China Stock Rally Draws 4.9 Million Retail Accounts in January - Bloomberg.com" data-category="news" data-in-focus="false" data-publisher="Global">
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOVUk3eVZCeXNCSGZzMU8wVzNTR3lVUUFjUURnazRUOWlYSEtWdUhoOFdQNDl3eWI1ZUhEWXVzYjJ0SkdVelZWMVhCLUNzbmFiNXlvdnc4MlYtV04td01GY1M0dmRjeV9mQjRnN1FXTUZRLU9kTDZOQ1dydm9lTTdYRFF3SlVSei1HMTdxamgyaEQyQ1EyN0VZamRObzN2bGpTV1NiM1cxZTFRaFl4V0tB?oc=5" target="_blank" rel="noopener">China Stock Rally Draws 4.9 Million Retail Accounts in January - Bloomberg.com</a></h3>
                 <div class="article-meta">
@@ -8595,7 +8623,7 @@
             <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/news/trump-signs-usd-1-2-trillion-spending-deal-to-end-partial-us-government-shutdown-article-153556876 " data-title="Trump signs USD 1.2 trillion spending deal to end partial US government shutdown" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/trump-signs-usd-1-2-trillion-spending-deal-to-end-partial-us-government-shutdown-article-153556876 " target="_blank" rel="noopener">Trump signs USD 1.2 trillion spending deal to end partial US government shutdown</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">7:01 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -9057,7 +9085,7 @@
             <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/news/exclusive-india-us-trade-deal-everything-will-be-known-what-india-gives-what-it-gets-timelines-reciprocity-fm-sitharaman-article-153556092 " data-title="EXCLUSIVE | India-US Trade Deal: Everything will be known - what India gives, what it gets, timelines, reciprocity - FM Sitharaman" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/exclusive-india-us-trade-deal-everything-will-be-known-what-india-gives-what-it-gets-timelines-reciprocity-fm-sitharaman-article-153556092 " target="_blank" rel="noopener">EXCLUSIVE | India-US Trade Deal: Everything will be known - what India gives, what it gets, timelines, reciprocity - FM Sitharaman</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">12:01 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -9068,7 +9096,7 @@
             <article class="article" data-source="et now" data-date="2026-02-04" data-url=" https://www.etnownews.com/news/exclusive-calling-india-a-dead-economy-insults-its-people-says-fm-nirmala-sitharaman-in-swipe-at-rahul-gandhi-article-153555880 " data-title="EXCLUSIVE: Calling India a dead economy insults its people, says FM Nirmala Sitharaman in swipe at Rahul Gandhi" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/news/exclusive-calling-india-a-dead-economy-insults-its-people-says-fm-nirmala-sitharaman-in-swipe-at-rahul-gandhi-article-153555880 " target="_blank" rel="noopener">EXCLUSIVE: Calling India a dead economy insults its people, says FM Nirmala Sitharaman in swipe at Rahul Gandhi</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.etnownews.com/news" target="_blank" class="source-tag" title="ET Now">ET Now</a>
+                    <a href="https://www.etnownews.com" target="_blank" class="source-tag" title="ET Now">ET Now</a>
                     <span class="meta-dot">·</span><span class="article-time">12:00 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -10397,17 +10425,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="et now" data-date="2026-02-03" data-url=" https://www.etnownews.com/markets/adani-enterprises-q3-results-fy26-profit-zooms-90x-to-rs-5627-cr-revenue-rises-9-yoy-gautam-adani-led-firms-quarterly-earnings-details-article-153553964 " data-title="Adani Enterprises Q3 results FY26: Profit zooms 90x to Rs 5627 cr, revenue rises 9% YoY - Gautam Adani-led firm&#x27;s quarterly earnings details" data-category="news" data-in-focus="false" data-publisher="ET">
-                <h3 class="article-title"><a href=" https://www.etnownews.com/markets/adani-enterprises-q3-results-fy26-profit-zooms-90x-to-rs-5627-cr-revenue-rises-9-yoy-gautam-adani-led-firms-quarterly-earnings-details-article-153553964 " target="_blank" rel="noopener">Adani Enterprises Q3 results FY26: Profit zooms 90x to Rs 5627 cr, revenue rises 9% YoY - Gautam Adani-led firm&#x27;s quarterly earnings details</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.etnownews.com/markets" target="_blank" class="source-tag" title="ET Now">ET Now</a>
-                    <span class="meta-dot">·</span><span class="article-time">6:13 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="business standard — industry" data-date="2026-02-03" data-url="https://news.google.com/rss/articles/CBMi2AFBVV95cUxQNllDWHB6b0Q0S3BRN2dfcDkybUtPOFNNa3JuUWR5eFlsUGl6S1ppZFFwZjh3ZFVvQWp1LVZuaXZPaHdQaEwxc0xIdnhpY0JKX2tEd1lfb1NwQ0NseExWVjl5amZxN280NW1tVlZLaVFMQklkTUJJYlJMa1Q5VnFfdVh0Umx2ckNjMGxlZXZJZmV4U1Q0RkJKS1FGWnJUY0c1MUV1RWwtOFFnMlhiOGZjTnl4bXdtRXlpc3h4WmJtTmFBQ3NNVVFnRmdMUk9jMlQtZWpfMVVOOXfSAd4BQVVfeXFMTnlMaXRSaHhmOFNwMkh5c1hsVExXZ2Q3b2tHNGtuMVM1dUdWakpqUGtVU0t6Tnp4di1qelF5bFZucXlrS3VTRURDdWJQNWlSSm9WckdjVWw1R1htOTNOX3ZsWENJT1Y3UkxQRUpGbmxyQ3lhWVlxTzhfdVR6N2diT3EteXd1Ni1IcHNHRjZrdGxpTFdKTkg0SG9BU2NvdTBDX3Y2TzZnOGR5RWtIOEJrWXVBRUp1b0M2SXBsNE9UUThvczd6Wk1VWEgtbnQ4TWs1VnZnbXMzMjFxZTl0b2RB?oc=5" data-title="Indian agrochemical companies scale up via product deals with MNCs - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxQNllDWHB6b0Q0S3BRN2dfcDkybUtPOFNNa3JuUWR5eFlsUGl6S1ppZFFwZjh3ZFVvQWp1LVZuaXZPaHdQaEwxc0xIdnhpY0JKX2tEd1lfb1NwQ0NseExWVjl5amZxN280NW1tVlZLaVFMQklkTUJJYlJMa1Q5VnFfdVh0Umx2ckNjMGxlZXZJZmV4U1Q0RkJKS1FGWnJUY0c1MUV1RWwtOFFnMlhiOGZjTnl4bXdtRXlpc3h4WmJtTmFBQ3NNVVFnRmdMUk9jMlQtZWpfMVVOOXfSAd4BQVVfeXFMTnlMaXRSaHhmOFNwMkh5c1hsVExXZ2Q3b2tHNGtuMVM1dUdWakpqUGtVU0t6Tnp4di1qelF5bFZucXlrS3VTRURDdWJQNWlSSm9WckdjVWw1R1htOTNOX3ZsWENJT1Y3UkxQRUpGbmxyQ3lhWVlxTzhfdVR6N2diT3EteXd1Ni1IcHNHRjZrdGxpTFdKTkg0SG9BU2NvdTBDX3Y2TzZnOGR5RWtIOEJrWXVBRUp1b0M2SXBsNE9UUThvczd6Wk1VWEgtbnQ4TWs1VnZnbXMzMjFxZTl0b2RB?oc=5" target="_blank" rel="noopener">Indian agrochemical companies scale up via product deals with MNCs - Business Standard</a></h3>
                 <div class="article-meta">
@@ -10430,33 +10447,11 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="et now" data-date="2026-02-03" data-url=" https://www.etnownews.com/markets/rs-252-dividend-itc-gillette-india-great-eastern-shipping-and-11-others-record-date-on-feb-4-article-153554018 " data-title="Rs 252 Dividend! ITC, Gillette India, Great Eastern Shipping and 11 others - Record date on Feb 4" data-category="news" data-in-focus="false" data-publisher="ET">
-                <h3 class="article-title"><a href=" https://www.etnownews.com/markets/rs-252-dividend-itc-gillette-india-great-eastern-shipping-and-11-others-record-date-on-feb-4-article-153554018 " target="_blank" rel="noopener">Rs 252 Dividend! ITC, Gillette India, Great Eastern Shipping and 11 others - Record date on Feb 4</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.etnownews.com/markets" target="_blank" class="source-tag" title="ET Now">ET Now</a>
-                    <span class="meta-dot">·</span><span class="article-time">6:05 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="reuters — business" data-date="2026-02-03" data-url="https://news.google.com/rss/articles/CBMipAFBVV95cUxPQXhvblNiXzg5NzRrYS1Ybk1Vemh3WDRNREtWRExQb0piYkpIOHl1ZFk0OHZnOFc4ellFMWRuLUFIUW5vMnQ1Q2ctdTJJdFlGN1JHZ19ORlppdTI2OHdDd0d5UTY0Umx1OUY0cEZKaHVBNVoxemUyMmRFSVBLWVRYbHJOa3JYVm01VVZDSW9EcUJ6Vlk5R0Q4RzZ5S0hrWURPQ0sxeA?oc=5" data-title="Anthropic&#x27;s new AI tools deepen selloff in data analytics and software stocks, investors say - Reuters" data-category="news" data-in-focus="false" data-publisher="Global">
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxPQXhvblNiXzg5NzRrYS1Ybk1Vemh3WDRNREtWRExQb0piYkpIOHl1ZFk0OHZnOFc4ellFMWRuLUFIUW5vMnQ1Q2ctdTJJdFlGN1JHZ19ORlppdTI2OHdDd0d5UTY0Umx1OUY0cEZKaHVBNVoxemUyMmRFSVBLWVRYbHJOa3JYVm01VVZDSW9EcUJ6Vlk5R0Q4RzZ5S0hrWURPQ0sxeA?oc=5" target="_blank" rel="noopener">Anthropic&#x27;s new AI tools deepen selloff in data analytics and software stocks, investors say - Reuters</a></h3>
                 <div class="article-meta">
                     <a href="https://www.reuters.com/business/" target="_blank" class="source-tag" title="Reuters — Business">Reuters — Business</a>
                     <span class="meta-dot">·</span><span class="article-time">6:02 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="et now" data-date="2026-02-03" data-url=" https://www.etnownews.com/markets/bajaj-finance-q3-results-fy26-profit-declines-6-yoy-to-rs-3977-crore-nii-rises-21-article-153554241 " data-title="Bajaj Finance Q3 Results FY26: Profit declines 6% YoY to Rs 3977 crore; NII rises 21%" data-category="news" data-in-focus="false" data-publisher="ET">
-                <h3 class="article-title"><a href=" https://www.etnownews.com/markets/bajaj-finance-q3-results-fy26-profit-declines-6-yoy-to-rs-3977-crore-nii-rises-21-article-153554241 " target="_blank" rel="noopener">Bajaj Finance Q3 Results FY26: Profit declines 6% YoY to Rs 3977 crore; NII rises 21%</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.etnownews.com/markets" target="_blank" class="source-tag" title="ET Now">ET Now</a>
-                    <span class="meta-dot">·</span><span class="article-time">6:01 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -11146,6 +11141,17 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="business standard — companies" data-date="2026-02-03" data-url="https://news.google.com/rss/articles/CBMi4AFBVV95cUxNUTduc1A5LWZVT2JEWTB3Y3JTX2lKUjRzTlpUUkk3c1Bpb3RrWVdyOWR4bXROdV94YTVJRkwzZ1l4eTJ4NnhWZzRwVHpkdFhBbXNrY2piTm11Z00xTndKcjdLdmZ1NDkxSWx1OWJCLU5NTkJnak16MC00VHJyREJuUWg3NVo1d29DRWhPeEpHNDhha053LU5wa2ZWNFYwckJZUWVnc1BGOW5TTkRoNW42VVhNTjBFT0c5VTRHdUxwaGpxMVpDdjZRUUpQZzlWcjNpU2ZIanQ3SVBJNW14QnZwRNIB5gFBVV95cUxOWmNobnNQbl9lLVY4TnliVV8tcEc0emZ2SFZyTzRyclRCUTI5cU83TnZEQ1NFWHNQWHdmb0ZWd0Z6RU4wVGRUQ3g2VlprQVlkb2EtY0IwYkQxT1pXQUN5RUh2aU1EZXdlSVY0YTNJSVN6a1VDUk1tWmk5ay1aZkd5NUlWcTVmc2x6TkdlSnp6Y0NWS1RfcDFPWVpQbkdwQklmOVBMWjM0QnNCZ2N6a1lxRjU0NDkweGstVkg1eTJjaW9ndS0yQUM2N3pJVkVBWEMyODZPVTZEUWM0SE5FNVR0b1Q5WEZCUQ?oc=5" data-title="MobiKwik turns profitable in Q3FY26 on revenue growth, lower costs - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
+                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxNUTduc1A5LWZVT2JEWTB3Y3JTX2lKUjRzTlpUUkk3c1Bpb3RrWVdyOWR4bXROdV94YTVJRkwzZ1l4eTJ4NnhWZzRwVHpkdFhBbXNrY2piTm11Z00xTndKcjdLdmZ1NDkxSWx1OWJCLU5NTkJnak16MC00VHJyREJuUWg3NVo1d29DRWhPeEpHNDhha053LU5wa2ZWNFYwckJZUWVnc1BGOW5TTkRoNW42VVhNTjBFT0c5VTRHdUxwaGpxMVpDdjZRUUpQZzlWcjNpU2ZIanQ3SVBJNW14QnZwRNIB5gFBVV95cUxOWmNobnNQbl9lLVY4TnliVV8tcEc0emZ2SFZyTzRyclRCUTI5cU83TnZEQ1NFWHNQWHdmb0ZWd0Z6RU4wVGRUQ3g2VlprQVlkb2EtY0IwYkQxT1pXQUN5RUh2aU1EZXdlSVY0YTNJSVN6a1VDUk1tWmk5ay1aZkd5NUlWcTVmc2x6TkdlSnp6Y0NWS1RfcDFPWVpQbkdwQklmOVBMWjM0QnNCZ2N6a1lxRjU0NDkweGstVkg1eTJjaW9ndS0yQUM2N3pJVkVBWEMyODZPVTZEUWM0SE5FNVR0b1Q5WEZCUQ?oc=5" target="_blank" rel="noopener">MobiKwik turns profitable in Q3FY26 on revenue growth, lower costs - Business Standard</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.business-standard.com/companies" target="_blank" class="source-tag" title="Business Standard — Companies">Business Standard — Companies</a>
+                    <span class="meta-dot">·</span><span class="article-time">2:37 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="businessline — markets" data-date="2026-02-03" data-url="https://www.thehindubusinessline.com/markets/kotak-mutual-fund-launches-services-sector-focused-equity-scheme/article70586664.ece" data-title="Kotak Mutual Fund launches services sector-focused equity scheme" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/markets/kotak-mutual-fund-launches-services-sector-focused-equity-scheme/article70586664.ece" target="_blank" rel="noopener">Kotak Mutual Fund launches services sector-focused equity scheme</a></h3>
                 <div class="article-meta">
@@ -11173,6 +11179,17 @@
                 <div class="article-meta">
                     <a href="https://www.business-standard.com/industry" target="_blank" class="source-tag" title="Business Standard — Industry">Business Standard — Industry</a>
                     <span class="meta-dot">·</span><span class="article-time">2:34 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="reuters — business" data-date="2026-02-03" data-url="https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdVNMX2g1YlQ5X0swMWc3Vk5Bc0dIRWJwZW1uTE1McUtTYmg1MjBJb2t3VEp5MXJpTXROV3NXeEFkZXdGcWZUNE5tM29pUUNZYzhBNWRvR2NtREd0Q1FlWnhSRmkyc2J6anp0LXF0aVgzUks3Tjl5QnJxTDBMVnNLY01kcUVwaGlHd0VfVjN4M051aGxpeGtTODlBVnVmZnhyY09oU3kwcjBGRGVqdFo5Y0pXMjFCYzFYMURF?oc=5" data-title="Euro zone banks tightening access to business credit, ECB survey shows - Reuters" data-category="news" data-in-focus="false" data-publisher="Global">
+                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdVNMX2g1YlQ5X0swMWc3Vk5Bc0dIRWJwZW1uTE1McUtTYmg1MjBJb2t3VEp5MXJpTXROV3NXeEFkZXdGcWZUNE5tM29pUUNZYzhBNWRvR2NtREd0Q1FlWnhSRmkyc2J6anp0LXF0aVgzUks3Tjl5QnJxTDBMVnNLY01kcUVwaGlHd0VfVjN4M051aGxpeGtTODlBVnVmZnhyY09oU3kwcjBGRGVqdFo5Y0pXMjFCYzFYMURF?oc=5" target="_blank" rel="noopener">Euro zone banks tightening access to business credit, ECB survey shows - Reuters</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.reuters.com/business/" target="_blank" class="source-tag" title="Reuters — Business">Reuters — Business</a>
+                    <span class="meta-dot">·</span><span class="article-time">2:33 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -11674,33 +11691,22 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="the hindu — business" data-date="2026-02-03" data-url="https://www.thehindu.com/news/national/donald-trump-holds-telephone-discussion-with-pm-modi-as-jaishankar-reaches-us/article70584558.ece" data-title="18% U.S. tariff on ‘Made in India’ products, says PM Modi after phone call with President Trump" data-category="news" data-in-focus="false" data-publisher="The Hindu">
-                <h3 class="article-title"><a href="https://www.thehindu.com/news/national/donald-trump-holds-telephone-discussion-with-pm-modi-as-jaishankar-reaches-us/article70584558.ece" target="_blank" rel="noopener">18% U.S. tariff on ‘Made in India’ products, says PM Modi after phone call with President Trump</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.thehindu.com/business/Economy/" target="_blank" class="source-tag" title="The Hindu — Business">The Hindu — Business</a>
-                    <span class="meta-dot">·</span><span class="article-time">11:18 AM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="the hindu — business" data-date="2026-02-03" data-url="https://www.thehindu.com/sci-tech/technology/robotaxi-pioneer-waymo-gets-16-billion-injection-to-accelerate-its-expansion-plans/article70585899.ece" data-title="Robotaxi pioneer Waymo gets $16 billion injection to accelerate its expansion plans" data-category="news" data-in-focus="false" data-publisher="The Hindu">
-                <h3 class="article-title"><a href="https://www.thehindu.com/sci-tech/technology/robotaxi-pioneer-waymo-gets-16-billion-injection-to-accelerate-its-expansion-plans/article70585899.ece" target="_blank" rel="noopener">Robotaxi pioneer Waymo gets $16 billion injection to accelerate its expansion plans</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.thehindu.com/business/Industry/" target="_blank" class="source-tag" title="The Hindu — Business">The Hindu — Business</a>
-                    <span class="meta-dot">·</span><span class="article-time">11:15 AM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="businessline — news" data-date="2026-02-03" data-url="https://www.thehindubusinessline.com/news/world/trump-demands-1-billion-from-harvard-in-latest-fight/article70586113.ece" data-title="Trump demands $1 billion from Harvard in latest fight" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/news/world/trump-demands-1-billion-from-harvard-in-latest-fight/article70586113.ece" target="_blank" rel="noopener">Trump demands $1 billion from Harvard in latest fight</a></h3>
                 <div class="article-meta">
                     <a href="https://www.thehindubusinessline.com/news/" target="_blank" class="source-tag" title="BusinessLine — News">BusinessLine — News</a>
                     <span class="meta-dot">·</span><span class="article-time">11:14 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="business standard — economy" data-date="2026-02-03" data-url="https://news.google.com/rss/articles/CBMi0AFBVV95cUxNNTBXZHhxOTdka1pweWFsNWpUcE05aVhzN1pXX1FUU0QxcXBEY1NHSWs4RFFZVFpvREdJTnRnVGdzZ3F6clhZc3FzcUszV2drTUdXTTIxMEZoVHhYVkR6cHVzTk9Hc3NTbW54YllCZkVMald3ajFsMUdFVjB1eW1YM091aXBjbldLRGhSa29vVEFDMktaTnAtRUVWMVo0ZFFTa0Vlb1ZzTjRGWHNwVFBpMWVBU1VGNFBnZndSSHJJeXNhQUs5Y0pQZnhOUU80Smdf0gHWAUFVX3lxTE03ME5HaWpUNnN0bDhfMy0weERETGpOMjR6UkxIa3VPQmRrbjlseXpEcjBJQ0JnMkxjb01UakRfczBMVmZNODNHdnlRUGc2bko0Vks3TldyWEE0RXhpOU1OY3hKS3dnUy1jWmRac3A5NktnQnNnSEhMQ0RwVllodTk3dUhDT1B0WmVZcThNM0Q3eXhjd0c5cDVZbm9udWVtWkg2MXBqM2NpczBPbmJ2bkg4YU8yLS1rZFhaOWNGUnpsUDJnQkc0NFZRZVJocnFIZm5XcXlWTlE?oc=5" data-title="US tariff cut to 18% to boost Indian rice exports, says exporters&#x27; body - Business Standard" data-category="news" data-in-focus="false" data-publisher="BS">
+                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxNNTBXZHhxOTdka1pweWFsNWpUcE05aVhzN1pXX1FUU0QxcXBEY1NHSWs4RFFZVFpvREdJTnRnVGdzZ3F6clhZc3FzcUszV2drTUdXTTIxMEZoVHhYVkR6cHVzTk9Hc3NTbW54YllCZkVMald3ajFsMUdFVjB1eW1YM091aXBjbldLRGhSa29vVEFDMktaTnAtRUVWMVo0ZFFTa0Vlb1ZzTjRGWHNwVFBpMWVBU1VGNFBnZndSSHJJeXNhQUs5Y0pQZnhOUU80Smdf0gHWAUFVX3lxTE03ME5HaWpUNnN0bDhfMy0weERETGpOMjR6UkxIa3VPQmRrbjlseXpEcjBJQ0JnMkxjb01UakRfczBMVmZNODNHdnlRUGc2bko0Vks3TldyWEE0RXhpOU1OY3hKS3dnUy1jWmRac3A5NktnQnNnSEhMQ0RwVllodTk3dUhDT1B0WmVZcThNM0Q3eXhjd0c5cDVZbm9udWVtWkg2MXBqM2NpczBPbmJ2bkg4YU8yLS1rZFhaOWNGUnpsUDJnQkc0NFZRZVJocnFIZm5XcXlWTlE?oc=5" target="_blank" rel="noopener">US tariff cut to 18% to boost Indian rice exports, says exporters&#x27; body - Business Standard</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.business-standard.com/economy" target="_blank" class="source-tag" title="Business Standard — Economy">Business Standard — Economy</a>
+                    <span class="meta-dot">·</span><span class="article-time">10:54 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -11883,6 +11889,17 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="filter coffee" data-date="2026-02-03" data-url="https://filtercoffee.substack.com/p/india-us-tariff-truce-sealed" data-title="India-US tariff truce sealed 🤝" data-category="news" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://filtercoffee.substack.com/p/india-us-tariff-truce-sealed" target="_blank" rel="noopener">India-US tariff truce sealed 🤝</a></h3>
+                <div class="article-meta">
+                    <a href="https://filtercoffee.substack.com" target="_blank" class="source-tag" title="Filter Coffee">Filter Coffee</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:30 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="bloomberg — india" data-date="2026-02-03" data-url="https://news.google.com/rss/articles/CBMiswFBVV95cUxQckZxVDZFTTJaVzUwYUJETWltYXVlY1pXR1lGNHNlRU82ckY3Z0hCQlNfZzZicmxZbzZCa3JHT1BmeHd4dUpKVm1ER3ZmaDlvQXpjY0wxMzd1X0h0bUIyVVU5RFkyM1JadVNJWkIyWklnUUU4QkhQWGR2eWo0WmJnanZPRUFXOE5vZWN0TEc1NWhISEZhSnVfcnpYVE00Y084eGczd2xDSmM4dVRNUjI0TnRXMA?oc=5" data-title="Trump Cuts India Tariffs in Deal He Links to Russian Oil - Bloomberg.com" data-category="news" data-in-focus="false" data-publisher="Global">
                 <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxQckZxVDZFTTJaVzUwYUJETWltYXVlY1pXR1lGNHNlRU82ckY3Z0hCQlNfZzZicmxZbzZCa3JHT1BmeHd4dUpKVm1ER3ZmaDlvQXpjY0wxMzd1X0h0bUIyVVU5RFkyM1JadVNJWkIyWklnUUU4QkhQWGR2eWo0WmJnanZPRUFXOE5vZWN0TEc1NWhISEZhSnVfcnpYVE00Y084eGczd2xDSmM4dVRNUjI0TnRXMA?oc=5" target="_blank" rel="noopener">Trump Cuts India Tariffs in Deal He Links to Russian Oil - Bloomberg.com</a></h3>
                 <div class="article-meta">
@@ -11898,6 +11915,17 @@
                 <h3 class="article-title"><a href="https://the-ken.com/story/the-most-successful-edtech-you-havent-heard-of/" target="_blank" rel="noopener">NEET PG built this rare profitable edtech. Now the exam may change</a></h3>
                 <div class="article-meta">
                     <a href="https://the-ken.com" target="_blank" class="source-tag" title="The Ken">The Ken</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="reuters — business" data-date="2026-02-03" data-url="https://news.google.com/rss/articles/CBMi3AFBVV95cUxPUWh1UUJKTVJxbDZIZ1lLd3Atc1JNWnJ1ZGlENVhsUEZPR0dsRWFSN0tpVWg4dFRLOTd5ZTc3eGZKLVBvOTRVLXpXb290R3EyYkxuV2ZHY0tBZnV1MWxIVUZNaW9wbHdGMjBOQ0REOXV1eWx5WGxvS3F2ZUZiT3E1cTNLbmZFREs0Y2VJdEZSbDFPOF95cC01NFdEWWVETzk4RWRmSDJrQ1RBRkJ3Ml9oOEJ0NVpiajJObXBWbzByaU82aEltSVN1ZndOWDYwZGstSjk1S3Zsc3JuZUdt?oc=5" data-title="Toyota supplier Denso slashes full-year operating profit forecast on higher costs - Reuters" data-category="news" data-in-focus="false" data-publisher="Global">
+                <h3 class="article-title"><a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxPUWh1UUJKTVJxbDZIZ1lLd3Atc1JNWnJ1ZGlENVhsUEZPR0dsRWFSN0tpVWg4dFRLOTd5ZTc3eGZKLVBvOTRVLXpXb290R3EyYkxuV2ZHY0tBZnV1MWxIVUZNaW9wbHdGMjBOQ0REOXV1eWx5WGxvS3F2ZUZiT3E1cTNLbmZFREs0Y2VJdEZSbDFPOF95cC01NFdEWWVETzk4RWRmSDJrQ1RBRkJ3Ml9oOEJ0NVpiajJObXBWbzByaU82aEltSVN1ZndOWDYwZGstSjk1S3Zsc3JuZUdt?oc=5" target="_blank" rel="noopener">Toyota supplier Denso slashes full-year operating profit forecast on higher costs - Reuters</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.reuters.com/business/" target="_blank" class="source-tag" title="Reuters — Business">Reuters — Business</a>
                     <span class="meta-dot">·</span><span class="article-time">8:00 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -12108,6 +12136,17 @@
                 <div class="article-meta">
                     <a href="https://www.bloomberg.com/india" target="_blank" class="source-tag" title="Bloomberg — India">Bloomberg — India</a>
                     <span class="meta-dot">·</span><span class="article-time">3:08 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="alphaecon" data-date="2026-02-03" data-url="https://dhananjaysinha1.substack.com/p/trumps-trade-tweet-india-us-deal" data-title="Trump&#x27;s Trade Tweet: India-US Deal Eases Tensions, But at a Steep Price" data-category="ideas" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://dhananjaysinha1.substack.com/p/trumps-trade-tweet-india-us-deal" target="_blank" rel="noopener">Trump&#x27;s Trade Tweet: India-US Deal Eases Tensions, But at a Steep Price</a></h3>
+                <div class="article-meta">
+                    <a href="https://dhananjaysinha1.substack.com" target="_blank" class="source-tag" title="AlphaEcon">AlphaEcon</a>
+                    <span class="meta-dot">·</span><span class="article-time">2:17 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -12346,6 +12385,18 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="businessline — news" data-date="2026-02-02" data-url="https://www.thehindubusinessline.com/news/variety/indias-semiconductor-moment-depends-on-capability-not-just-capacity/article70584509.ece" data-title="India’s semiconductor moment depends on capability, not just capacity" data-category="news" data-in-focus="true" data-publisher="BusinessLine">
+                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/news/variety/indias-semiconductor-moment-depends-on-capability-not-just-capacity/article70584509.ece" target="_blank" rel="noopener">India’s semiconductor moment depends on capability, not just capacity</a><span class="source-badge">2 sources</span></h3>
+                <div class="article-meta">
+                    <a href="https://www.thehindubusinessline.com/news/" target="_blank" class="source-tag" title="BusinessLine — News">BusinessLine — News</a>
+                    <span class="meta-dot">·</span><span class="article-time">10:03 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+                <div class="also-covered">Also covered by: <a href="https://www.thehindubusinessline.com/economy/budget/indias-semiconductor-moment-depends-on-capability-not-just-capacity/article70580112.ece" target="_blank" rel="noopener" title="BusinessLine — Opinion">BusinessLine — Opinion</a></div>
+            </article>
             <article class="article" data-source="businessline — opinion" data-date="2026-02-02" data-url="https://www.thehindubusinessline.com/opinion/editorial/better-options-ahead/article70583461.ece" data-title="Editorial. Better options ahead" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/opinion/editorial/better-options-ahead/article70583461.ece" target="_blank" rel="noopener">Editorial. Better options ahead</a></h3>
                 <div class="article-meta">
@@ -12522,18 +12573,6 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="businessline — money &amp; banking" data-date="2026-02-02" data-url="https://www.thehindubusinessline.com/money-and-banking/govt-mulls-raising-fdi-in-public-sector-banks-to-49-says-secretary-nagaraju/article70582560.ece" data-title="Govt mulls raising FDI in public sector banks to 49%, says Financial Services Secretary M Nagaraju" data-category="news" data-in-focus="true" data-publisher="BusinessLine">
-                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/money-and-banking/govt-mulls-raising-fdi-in-public-sector-banks-to-49-says-secretary-nagaraju/article70582560.ece" target="_blank" rel="noopener">Govt mulls raising FDI in public sector banks to 49%, says Financial Services Secretary M Nagaraju</a><span class="source-badge">2 sources</span></h3>
-                <div class="article-meta">
-                    <a href="https://www.thehindubusinessline.com/money-and-banking/" target="_blank" class="source-tag" title="BusinessLine — Money &amp; Banking">BusinessLine — Money &amp; Banking</a>
-                    <span class="meta-dot">·</span><span class="article-time">7:34 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-                <div class="also-covered">Also covered by: <a href="https://www.thehindubusinessline.com/economy/govt-mulls-raising-fdi-in-public-sector-banks-to-49-says-secretary-nagaraju/article70582560.ece" target="_blank" rel="noopener" title="BusinessLine — Economy">BusinessLine — Economy</a></div>
-            </article>
             <article class="article" data-source="businessline — news" data-date="2026-02-02" data-url="https://www.thehindubusinessline.com/news/tourism-ministry-preparing-framework-to-develop-50-top-destinations/article70583591.ece" data-title="Tourism Ministry preparing framework to develop 50 top destinations" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
                 <h3 class="article-title"><a href="https://www.thehindubusinessline.com/news/tourism-ministry-preparing-framework-to-develop-50-top-destinations/article70583591.ece" target="_blank" rel="noopener">Tourism Ministry preparing framework to develop 50 top destinations</a></h3>
                 <div class="article-meta">
@@ -12698,18 +12737,6 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
-            </article>
-            <article class="article" data-source="businessline — opinion" data-date="2026-02-02" data-url="https://www.thehindubusinessline.com/economy/budget/indias-semiconductor-moment-depends-on-capability-not-just-capacity/article70580112.ece" data-title="India’s semiconductor moment depends on capability, not just capacity" data-category="news" data-in-focus="true" data-publisher="BusinessLine">
-                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/economy/budget/indias-semiconductor-moment-depends-on-capability-not-just-capacity/article70580112.ece" target="_blank" rel="noopener">India’s semiconductor moment depends on capability, not just capacity</a><span class="source-badge">2 sources</span></h3>
-                <div class="article-meta">
-                    <a href="https://www.thehindubusinessline.com/opinion/" target="_blank" class="source-tag" title="BusinessLine — Opinion">BusinessLine — Opinion</a>
-                    <span class="meta-dot">·</span><span class="article-time">5:51 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-                <div class="also-covered">Also covered by: <a href="https://www.thehindubusinessline.com/news/variety/indias-semiconductor-moment-depends-on-capability-not-just-capacity/article70584509.ece" target="_blank" rel="noopener" title="BusinessLine — News">BusinessLine — News</a></div>
             </article>
             <article class="article" data-source="et now — companies" data-date="2026-02-02" data-url=" https://www.etnownews.com/companies/everstone-in-talks-for-stake-buy-in-hospital-chain-aakash-article-153548586 " data-title="Everstone in Talks for Stake Buy in Hospital Chain Aakash" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/companies/everstone-in-talks-for-stake-buy-in-hospital-chain-aakash-article-153548586 " target="_blank" rel="noopener">Everstone in Talks for Stake Buy in Hospital Chain Aakash</a></h3>
@@ -12942,10 +12969,10 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="ecb — publications" data-date="2026-02-02" data-url="https://www.ecb.europa.eu//stats/ecb_surveys/safe/html/ecb.safe202602.en.html" data-title="Survey on the Access to Finance of Enterprises in the euro area - Fourth quarter of 2025" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.ecb.europa.eu//stats/ecb_surveys/safe/html/ecb.safe202602.en.html" target="_blank" rel="noopener">Survey on the Access to Finance of Enterprises in the euro area - Fourth quarter of 2025</a></h3>
+            <article class="article" data-source="ecb — press" data-date="2026-02-02" data-url="https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260202~71c8405376.en.html" data-title="Survey on the Access to Finance of Enterprises: lending conditions tightened" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260202~71c8405376.en.html" target="_blank" rel="noopener">Survey on the Access to Finance of Enterprises: lending conditions tightened</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Publications">ECB — Publications</a>
+                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Press">ECB — Press</a>
                     <span class="meta-dot">·</span><span class="article-time">2:30 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -12953,10 +12980,10 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="ecb — press" data-date="2026-02-02" data-url="https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260202~71c8405376.en.html" data-title="Survey on the Access to Finance of Enterprises: lending conditions tightened" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260202~71c8405376.en.html" target="_blank" rel="noopener">Survey on the Access to Finance of Enterprises: lending conditions tightened</a></h3>
+            <article class="article" data-source="ecb — publications" data-date="2026-02-02" data-url="https://www.ecb.europa.eu//stats/ecb_surveys/safe/html/ecb.safe202602.en.html" data-title="Survey on the Access to Finance of Enterprises in the euro area - Fourth quarter of 2025" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.ecb.europa.eu//stats/ecb_surveys/safe/html/ecb.safe202602.en.html" target="_blank" rel="noopener">Survey on the Access to Finance of Enterprises in the euro area - Fourth quarter of 2025</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Press">ECB — Press</a>
+                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Publications">ECB — Publications</a>
                     <span class="meta-dot">·</span><span class="article-time">2:30 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -13085,33 +13112,22 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="by the numbers" data-date="2026-02-02" data-url="https://hannahritchie.substack.com/p/the-changing-and-perhaps-surprising" data-title="The changing (and perhaps surprising) geography of diabetes" data-category="ideas" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://hannahritchie.substack.com/p/the-changing-and-perhaps-surprising" target="_blank" rel="noopener">The changing (and perhaps surprising) geography of diabetes</a></h3>
+                <div class="article-meta">
+                    <a href="https://hannahritchie.substack.com" target="_blank" class="source-tag" title="By the Numbers">By the Numbers</a>
+                    <span class="meta-dot">·</span><span class="article-time">12:29 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="mint — industry" data-date="2026-02-02" data-url="https://www.livemint.com/industry/media/universal-music-bollywood-films-soundtracks-streaming-catalogues-monetization-11769938835791.html" data-title="Universal Music returns to Bollywood with Excel, Maddock deals; eyes bigger slice of storytelling pie" data-category="news" data-in-focus="false" data-publisher="Mint">
                 <h3 class="article-title"><a href="https://www.livemint.com/industry/media/universal-music-bollywood-films-soundtracks-streaming-catalogues-monetization-11769938835791.html" target="_blank" rel="noopener">Universal Music returns to Bollywood with Excel, Maddock deals; eyes bigger slice of storytelling pie</a></h3>
                 <div class="article-meta">
                     <a href="https://www.livemint.com/rss/industry" target="_blank" class="source-tag" title="Mint — Industry">Mint — Industry</a>
                     <span class="meta-dot">·</span><span class="article-time">12:28 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="businessline — news" data-date="2026-02-02" data-url="https://www.thehindubusinessline.com/economy/logistics/budgets-focus-on-high-speed-rail-inland-waterways-to-boost-steel-demand/article70581760.ece" data-title="Budget’s focus on high-speed rail, inland waterways to boost steel demand" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
-                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/economy/logistics/budgets-focus-on-high-speed-rail-inland-waterways-to-boost-steel-demand/article70581760.ece" target="_blank" rel="noopener">Budget’s focus on high-speed rail, inland waterways to boost steel demand</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.thehindubusinessline.com/news/" target="_blank" class="source-tag" title="BusinessLine — News">BusinessLine — News</a>
-                    <span class="meta-dot">·</span><span class="article-time">12:25 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="businessline — news" data-date="2026-02-02" data-url="https://www.thehindubusinessline.com/news/govt-raises-limit-for-bringing-duty-free-imported-goods-to-75000-under-new-baggage-rules/article70581718.ece" data-title="Govt raises limit for bringing duty-free imported goods to ₹75,000 under new baggage rules" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
-                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/news/govt-raises-limit-for-bringing-duty-free-imported-goods-to-75000-under-new-baggage-rules/article70581718.ece" target="_blank" rel="noopener">Govt raises limit for bringing duty-free imported goods to ₹75,000 under new baggage rules</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.thehindubusinessline.com/news/" target="_blank" class="source-tag" title="BusinessLine — News">BusinessLine — News</a>
-                    <span class="meta-dot">·</span><span class="article-time">12:18 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -13272,11 +13288,11 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="businessline — news" data-date="2026-02-02" data-url="https://www.thehindubusinessline.com/news/world/why-trumps-new-pick-for-fed-chair-hit-gold-and-silver-markets-for-good-reasons/article70581496.ece" data-title="Why Trump’s new pick for Fed chair hit gold and silver markets – for good reasons" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
-                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/news/world/why-trumps-new-pick-for-fed-chair-hit-gold-and-silver-markets-for-good-reasons/article70581496.ece" target="_blank" rel="noopener">Why Trump’s new pick for Fed chair hit gold and silver markets – for good reasons</a></h3>
+            <article class="article" data-source="musings on markets — markets" data-date="2026-02-02" data-url="https://aswathdamodaran.substack.com/p/data-update-4-for-2026-a-risk-journey" data-title="Data Update 4 for 2026: A Risk Journey around the World!" data-category="ideas" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://aswathdamodaran.substack.com/p/data-update-4-for-2026-a-risk-journey" target="_blank" rel="noopener">Data Update 4 for 2026: A Risk Journey around the World!</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.thehindubusinessline.com/news/" target="_blank" class="source-tag" title="BusinessLine — News">BusinessLine — News</a>
-                    <span class="meta-dot">·</span><span class="article-time">9:33 AM</span>
+                    <a href="https://aswathdamodaran.substack.com" target="_blank" class="source-tag" title="Musings on Markets — Markets">Musings on Markets — Markets</a>
+                    <span class="meta-dot">·</span><span class="article-time">9:56 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -13332,6 +13348,17 @@
                 <div class="article-meta">
                     <a href="https://www.reuters.com/world/india/" target="_blank" class="source-tag" title="Reuters — India">Reuters — India</a>
                     <span class="meta-dot">·</span><span class="article-time">8:33 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="filter coffee" data-date="2026-02-02" data-url="https://filtercoffee.substack.com/p/nestle-delivers-a-sweet-q3" data-title="Nestlé delivers a sweet Q3 😋" data-category="news" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://filtercoffee.substack.com/p/nestle-delivers-a-sweet-q3" target="_blank" rel="noopener">Nestlé delivers a sweet Q3 😋</a></h3>
+                <div class="article-meta">
+                    <a href="https://filtercoffee.substack.com" target="_blank" class="source-tag" title="Filter Coffee">Filter Coffee</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:30 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -13955,6 +13982,17 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="alphaecon" data-date="2026-02-01" data-url="https://dhananjaysinha1.substack.com/p/union-budget-fy27-yielding-to-subpar" data-title="Union Budget FY27: Yielding to Subpar Equilibrium amid Tightening Gridlock" data-category="ideas" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://dhananjaysinha1.substack.com/p/union-budget-fy27-yielding-to-subpar" target="_blank" rel="noopener">Union Budget FY27: Yielding to Subpar Equilibrium amid Tightening Gridlock</a></h3>
+                <div class="article-meta">
+                    <a href="https://dhananjaysinha1.substack.com" target="_blank" class="source-tag" title="AlphaEcon">AlphaEcon</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:47 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="mint — budget" data-date="2026-02-01" data-url="https://www.livemint.com/budget/news/budget-2026-tactical-but-not-a-breakthrough-what-moodys-said-on-indias-fiscal-consolidation-deficit-11769951473678.html" data-title="Budget 2026 ‘tactical’ but not a ‘breakthrough’: What Moody&#x27;s said about India&#x27;s fiscal consolidation, deficit" data-category="news" data-in-focus="false" data-publisher="Mint">
                 <h3 class="article-title"><a href="https://www.livemint.com/budget/news/budget-2026-tactical-but-not-a-breakthrough-what-moodys-said-on-indias-fiscal-consolidation-deficit-11769951473678.html" target="_blank" rel="noopener">Budget 2026 ‘tactical’ but not a ‘breakthrough’: What Moody&#x27;s said about India&#x27;s fiscal consolidation, deficit</a></h3>
                 <div class="article-meta">
@@ -14312,6 +14350,17 @@
                 <div class="article-meta">
                     <a href="https://www.thehindubusinessline.com/opinion/" target="_blank" class="source-tag" title="BusinessLine — Opinion">BusinessLine — Opinion</a>
                     <span class="meta-dot">·</span><span class="article-time">6:03 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="filter coffee" data-date="2026-02-01" data-url="https://filtercoffee.substack.com/p/a-rough-budget-day-for-markets" data-title="A rough budget day for markets" data-category="news" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://filtercoffee.substack.com/p/a-rough-budget-day-for-markets" target="_blank" rel="noopener">A rough budget day for markets</a></h3>
+                <div class="article-meta">
+                    <a href="https://filtercoffee.substack.com" target="_blank" class="source-tag" title="Filter Coffee">Filter Coffee</a>
+                    <span class="meta-dot">·</span><span class="article-time">5:49 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -14764,6 +14813,17 @@
                 <div class="article-meta">
                     <a href="https://www.etnownews.com/companies" target="_blank" class="source-tag" title="ET Now — Companies">ET Now — Companies</a>
                     <span class="meta-dot">·</span><span class="article-time">1:12 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="market bites" data-date="2026-01-31" data-url="https://marketbites.substack.com/p/when-was-the-last-time-you-checked" data-title="When was the last time you checked your horoscope?" data-category="ideas" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://marketbites.substack.com/p/when-was-the-last-time-you-checked" target="_blank" rel="noopener">When was the last time you checked your horoscope?</a></h3>
+                <div class="article-meta">
+                    <a href="https://marketbites.substack.com" target="_blank" class="source-tag" title="Market Bites">Market Bites</a>
+                    <span class="meta-dot">·</span><span class="article-time">10:57 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -15442,6 +15502,39 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="businessline — money &amp; banking" data-date="2026-01-30" data-url="https://www.thehindubusinessline.com/money-and-banking/eu-banks-can-open-15-branches-over-four-years-under-fta-with-india/article70568749.ece" data-title="India grants EU banks access to open 15 branches under FTA" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
+                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/money-and-banking/eu-banks-can-open-15-branches-over-four-years-under-fta-with-india/article70568749.ece" target="_blank" rel="noopener">India grants EU banks access to open 15 branches under FTA</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.thehindubusinessline.com/money-and-banking/" target="_blank" class="source-tag" title="BusinessLine — Money &amp; Banking">BusinessLine — Money &amp; Banking</a>
+                    <span class="meta-dot">·</span><span class="article-time">9:21 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="business standard" data-date="2026-01-30" data-url="https://businessstandard.substack.com/p/money-and-power-the-business-of-political" data-title="Money and power — the business of political donations" data-category="ideas" data-in-focus="false" data-publisher="BS">
+                <h3 class="article-title"><a href="https://businessstandard.substack.com/p/money-and-power-the-business-of-political" target="_blank" rel="noopener">Money and power — the business of political donations</a></h3>
+                <div class="article-meta">
+                    <a href="https://businessstandard.substack.com" target="_blank" class="source-tag" title="Business Standard">Business Standard</a>
+                    <span class="meta-dot">·</span><span class="article-time">9:00 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="filter coffee" data-date="2026-01-30" data-url="https://filtercoffee.substack.com/p/indias-economic-report-card-is-in" data-title="India’s economic report card is in 💪🏻" data-category="news" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://filtercoffee.substack.com/p/indias-economic-report-card-is-in" target="_blank" rel="noopener">India’s economic report card is in 💪🏻</a></h3>
+                <div class="article-meta">
+                    <a href="https://filtercoffee.substack.com" target="_blank" class="source-tag" title="Filter Coffee">Filter Coffee</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:30 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="et bfsi — editor&#x27;s view" data-date="2026-01-30" data-url="https://bfsi.economictimes.indiatimes.com/news/editors-view/economic-survey-highlights-indias-sizzling-growth/127789317" data-title="Economic Survey highlights India&#x27;s sizzling growth" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href="https://bfsi.economictimes.indiatimes.com/news/editors-view/economic-survey-highlights-indias-sizzling-growth/127789317" target="_blank" rel="noopener">Economic Survey highlights India&#x27;s sizzling growth</a></h3>
                 <div class="article-meta">
@@ -15938,6 +16031,17 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="filter coffee" data-date="2026-01-29" data-url="https://filtercoffee.substack.com/p/driverless-metros-in-the-making" data-title="Driverless metros in the making? 🚇" data-category="news" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://filtercoffee.substack.com/p/driverless-metros-in-the-making" target="_blank" rel="noopener">Driverless metros in the making? 🚇</a></h3>
+                <div class="article-meta">
+                    <a href="https://filtercoffee.substack.com" target="_blank" class="source-tag" title="Filter Coffee">Filter Coffee</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:30 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="the ken" data-date="2026-01-29" data-url="https://the-ken.com/story/a-dmart-playbook-thats-making-cult-fit-sweat/" data-title="A Dmart playbook that’s making Cult.fit sweat" data-category="ideas" data-in-focus="false" data-publisher="">
                 <h3 class="article-title"><a href="https://the-ken.com/story/a-dmart-playbook-thats-making-cult-fit-sweat/" target="_blank" rel="noopener">A Dmart playbook that’s making Cult.fit sweat</a></h3>
                 <div class="article-meta">
@@ -16038,6 +16142,28 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="musings on markets — markets" data-date="2026-01-28" data-url="https://aswathdamodaran.substack.com/p/data-update-3-the-trust-deficit-bonds" data-title="Data Update 3: The Trust Deficit - Bonds, Currencies, Gold and Bitcoin in 2025!" data-category="ideas" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://aswathdamodaran.substack.com/p/data-update-3-the-trust-deficit-bonds" target="_blank" rel="noopener">Data Update 3: The Trust Deficit - Bonds, Currencies, Gold and Bitcoin in 2025!</a></h3>
+                <div class="article-meta">
+                    <a href="https://aswathdamodaran.substack.com" target="_blank" class="source-tag" title="Musings on Markets — Markets">Musings on Markets — Markets</a>
+                    <span class="meta-dot">·</span><span class="article-time">10:26 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="businessline — opinion" data-date="2026-01-28" data-url="https://www.thehindubusinessline.com/opinion/letters-to-editor/article70562136.ece" data-title="Letters to the Editor dated January 28, 2026" data-category="news" data-in-focus="false" data-publisher="BusinessLine">
+                <h3 class="article-title"><a href="https://www.thehindubusinessline.com/opinion/letters-to-editor/article70562136.ece" target="_blank" rel="noopener">Letters to the Editor dated January 28, 2026</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.thehindubusinessline.com/opinion/" target="_blank" class="source-tag" title="BusinessLine — Opinion">BusinessLine — Opinion</a>
+                    <span class="meta-dot">·</span><span class="article-time">9:37 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="carbon brief" data-date="2026-01-28" data-url="https://www.carbonbrief.org/climate-change-could-lead-to-500000-additional-malaria-deaths-in-africa-by-2050/" data-title="Climate change could lead to 500,000 ‘additional’ malaria deaths in Africa by 2050" data-category="ideas" data-in-focus="false" data-publisher="">
                 <h3 class="article-title"><a href="https://www.carbonbrief.org/climate-change-could-lead-to-500000-additional-malaria-deaths-in-africa-by-2050/" target="_blank" rel="noopener">Climate change could lead to 500,000 ‘additional’ malaria deaths in Africa by 2050</a></h3>
                 <div class="article-meta">
@@ -16093,6 +16219,17 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="capital quill" data-date="2026-01-28" data-url="https://capitalquill.substack.com/p/hindcopper-hindzinc-nalco-the-metallic" data-title="HindCopper, HindZinc, NALCO: The Metallic Renaissance" data-category="ideas" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://capitalquill.substack.com/p/hindcopper-hindzinc-nalco-the-metallic" target="_blank" rel="noopener">HindCopper, HindZinc, NALCO: The Metallic Renaissance</a></h3>
+                <div class="article-meta">
+                    <a href="https://capitalquill.substack.com" target="_blank" class="source-tag" title="Capital Quill">Capital Quill</a>
+                    <span class="meta-dot">·</span><span class="article-time">5:05 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="et now — economy" data-date="2026-01-28" data-url=" https://www.etnownews.com/economy/exclusive-india-eu-deal-to-surge-exports-by-rs-416500-cr-says-ubs-india-chief-economist-tanvee-gupta-jain-article-153520670 " data-title="EXCLUSIVE | &#x27;India-EU deal to surge exports by Rs 416500 cr,&#x27; says UBS India Chief Economist Tanvee Gupta Jain" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/economy/exclusive-india-eu-deal-to-surge-exports-by-rs-416500-cr-says-ubs-india-chief-economist-tanvee-gupta-jain-article-153520670 " target="_blank" rel="noopener">EXCLUSIVE | &#x27;India-EU deal to surge exports by Rs 416500 cr,&#x27; says UBS India Chief Economist Tanvee Gupta Jain</a></h3>
                 <div class="article-meta">
@@ -16126,32 +16263,32 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="ecb — publications" data-date="2026-01-28" data-url="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3179~6233349fcb.en.pdf" data-title="What drives business expectations? A tale of demand and supply" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3179~6233349fcb.en.pdf" target="_blank" rel="noopener">What drives business expectations? A tale of demand and supply</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Publications">ECB — Publications</a>
-                    <span class="meta-dot">·</span><span class="article-time">3:30 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
-            <article class="article" data-source="ecb — publications" data-date="2026-01-28" data-url="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3178~b26ab71d26.en.pdf" data-title="Do banks respond to their friends’ markets? Social spillovers in deposit pricing" data-category="institutions" data-in-focus="false" data-publisher="">
-                <h3 class="article-title"><a href="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3178~b26ab71d26.en.pdf" target="_blank" rel="noopener">Do banks respond to their friends’ markets? Social spillovers in deposit pricing</a></h3>
-                <div class="article-meta">
-                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Publications">ECB — Publications</a>
-                    <span class="meta-dot">·</span><span class="article-time">3:30 PM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            </article>
             <article class="article" data-source="ecb — statistical press" data-date="2026-01-28" data-url="https://www.ecb.europa.eu//press/stats/ffi/html/ecb.eaefd_full2025q3~cf562d9538.en.html" data-title="Euro area economic and financial developments by institutional sector: third quarter of 2025" data-category="institutions" data-in-focus="false" data-publisher="">
                 <h3 class="article-title"><a href="https://www.ecb.europa.eu//press/stats/ffi/html/ecb.eaefd_full2025q3~cf562d9538.en.html" target="_blank" rel="noopener">Euro area economic and financial developments by institutional sector: third quarter of 2025</a></h3>
                 <div class="article-meta">
                     <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Statistical Press">ECB — Statistical Press</a>
+                    <span class="meta-dot">·</span><span class="article-time">3:30 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="ecb — working papers" data-date="2026-01-28" data-url="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3179~6233349fcb.en.pdf" data-title="What drives business expectations? A tale of demand and supply" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3179~6233349fcb.en.pdf" target="_blank" rel="noopener">What drives business expectations? A tale of demand and supply</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Working Papers">ECB — Working Papers</a>
+                    <span class="meta-dot">·</span><span class="article-time">3:30 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="ecb — working papers" data-date="2026-01-28" data-url="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3178~b26ab71d26.en.pdf" data-title="Do banks respond to their friends’ markets? Social spillovers in deposit pricing" data-category="institutions" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3178~b26ab71d26.en.pdf" target="_blank" rel="noopener">Do banks respond to their friends’ markets? Social spillovers in deposit pricing</a></h3>
+                <div class="article-meta">
+                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Working Papers">ECB — Working Papers</a>
                     <span class="meta-dot">·</span><span class="article-time">3:30 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -16169,6 +16306,18 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
+            </article>
+            <article class="article" data-source="ecb — press" data-date="2026-01-28" data-url="https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260128~0a881b24b9.en.html" data-title="Results of the December 2025 survey on credit terms and conditions in euro-denominated securities financing and OTC derivatives markets (SESFOD)" data-category="institutions" data-in-focus="true" data-publisher="">
+                <h3 class="article-title"><a href="https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260128~0a881b24b9.en.html" target="_blank" rel="noopener">Results of the December 2025 survey on credit terms and conditions in euro-denominated securities financing and OTC derivatives markets (SESFOD)</a><span class="source-badge">2 sources</span></h3>
+                <div class="article-meta">
+                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Press">ECB — Press</a>
+                    <span class="meta-dot">·</span><span class="article-time">2:30 PM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+                <div class="also-covered">Also covered by: <a href="https://www.ecb.europa.eu//pub/pdf/other/SESFOD_2025_Q4_Summary.en.pdf" target="_blank" rel="noopener" title="ECB — Publications">ECB — Publications</a></div>
             </article>
             <article class="article" data-source="rest of world" data-date="2026-01-28" data-url="https://restofworld.org/2026/internet-shutdown-tech-crash-iran-ukraine/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=feeds" data-title="When war destroys the internet economy" data-category="ideas" data-in-focus="false" data-publisher="">
                 <h3 class="article-title"><a href="https://restofworld.org/2026/internet-shutdown-tech-crash-iran-ukraine/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=feeds" target="_blank" rel="noopener">When war destroys the internet economy</a></h3>
@@ -16236,6 +16385,17 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="filter coffee" data-date="2026-01-28" data-url="https://filtercoffee.substack.com/p/india-eu-sign-mother-of-all-deals" data-title="India-EU sign mother of all deals 🤝" data-category="news" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://filtercoffee.substack.com/p/india-eu-sign-mother-of-all-deals" target="_blank" rel="noopener">India-EU sign mother of all deals 🤝</a></h3>
+                <div class="article-meta">
+                    <a href="https://filtercoffee.substack.com" target="_blank" class="source-tag" title="Filter Coffee">Filter Coffee</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:30 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="the ken" data-date="2026-01-28" data-url="https://the-ken.com/story/narayana-healths-viren-shetty-on-learning-how-much-insurance-is-about-selling-and-how-little-about-health/" data-title="Narayana Health’s Viren Shetty on learning ‘how much insurance is about selling and how little about health’" data-category="ideas" data-in-focus="false" data-publisher="">
                 <h3 class="article-title"><a href="https://the-ken.com/story/narayana-healths-viren-shetty-on-learning-how-much-insurance-is-about-selling-and-how-little-about-health/" target="_blank" rel="noopener">Narayana Health’s Viren Shetty on learning ‘how much insurance is about selling and how little about health’</a></h3>
                 <div class="article-meta">
@@ -16268,18 +16428,6 @@
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
-            </article>
-            <article class="article" data-source="ecb — publications" data-date="2026-01-28" data-url="https://www.ecb.europa.eu//pub/pdf/other/SESFOD_2025_Q4_Summary.en.pdf" data-title="Survey on credit terms and conditions in euro-denominated securities financing and OTC derivatives markets (SESFOD)" data-category="institutions" data-in-focus="true" data-publisher="">
-                <h3 class="article-title"><a href="https://www.ecb.europa.eu//pub/pdf/other/SESFOD_2025_Q4_Summary.en.pdf" target="_blank" rel="noopener">Survey on credit terms and conditions in euro-denominated securities financing and OTC derivatives markets (SESFOD)</a><span class="source-badge">2 sources</span></h3>
-                <div class="article-meta">
-                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Publications">ECB — Publications</a>
-                    <span class="meta-dot">·</span><span class="article-time">4:30 AM</span>
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-                <div class="also-covered">Also covered by: <a href="https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260128~0a881b24b9.en.html" target="_blank" rel="noopener" title="ECB — Press">ECB — Press</a></div>
             </article>
             <article class="article" data-source="the guardian — business" data-date="2026-01-28" data-url="https://www.theguardian.com/business/2026/jan/27/very-low-bar-analysts-say-starmer-faces-slim-pickings-in-china" data-title="‘Very low bar’: analysts say Starmer faces slim pickings in China" data-category="news" data-in-focus="false" data-publisher="">
                 <h3 class="article-title"><a href="https://www.theguardian.com/business/2026/jan/27/very-low-bar-analysts-say-starmer-faces-slim-pickings-in-china" target="_blank" rel="noopener">‘Very low bar’: analysts say Starmer faces slim pickings in China</a></h3>
@@ -16480,10 +16628,10 @@
                     </button>
                 </div>
             </article>
-            <article class="article" data-source="ecb — publications" data-date="2026-01-27" data-url="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3177~c5feb7f15a.en.pdf" data-title="The EU’s CBAM: implications for member states and trading partners" data-category="institutions" data-in-focus="false" data-publisher="">
+            <article class="article" data-source="ecb — working papers" data-date="2026-01-27" data-url="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3177~c5feb7f15a.en.pdf" data-title="The EU’s CBAM: implications for member states and trading partners" data-category="institutions" data-in-focus="false" data-publisher="">
                 <h3 class="article-title"><a href="https://www.ecb.europa.eu//pub/pdf/scpwps/ecb.wp3177~c5feb7f15a.en.pdf" target="_blank" rel="noopener">The EU’s CBAM: implications for member states and trading partners</a></h3>
                 <div class="article-meta">
-                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Publications">ECB — Publications</a>
+                    <a href="https://www.ecb.europa.eu/" target="_blank" class="source-tag" title="ECB — Working Papers">ECB — Working Papers</a>
                     <span class="meta-dot">·</span><span class="article-time">3:30 PM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
@@ -16601,6 +16749,17 @@
                     </button>
                 </div>
             </article>
+            <article class="article" data-source="by the numbers" data-date="2026-01-27" data-url="https://hannahritchie.substack.com/p/biofuels-vs-solar-land" data-title="We could produce a lot of electricity on the land used for biofuels" data-category="ideas" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://hannahritchie.substack.com/p/biofuels-vs-solar-land" target="_blank" rel="noopener">We could produce a lot of electricity on the land used for biofuels</a></h3>
+                <div class="article-meta">
+                    <a href="https://hannahritchie.substack.com" target="_blank" class="source-tag" title="By the Numbers">By the Numbers</a>
+                    <span class="meta-dot">·</span><span class="article-time">11:25 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
             <article class="article" data-source="et now — economy" data-date="2026-01-27" data-url=" https://www.etnownews.com/economy/india-eu-fta-25-percent-of-global-gdp-and-1-3rd-of-global-trade-pm-modi-hails-mother-of-all-deals-article-153511853 " data-title="India-EU FTA: &#x27;25% of global GDP and 1/3rd of global trade&#x27; - PM Modi hails &#x27;Mother of all deals&#x27;" data-category="news" data-in-focus="false" data-publisher="ET">
                 <h3 class="article-title"><a href=" https://www.etnownews.com/economy/india-eu-fta-25-percent-of-global-gdp-and-1-3rd-of-global-trade-pm-modi-hails-mother-of-all-deals-article-153511853 " target="_blank" rel="noopener">India-EU FTA: &#x27;25% of global GDP and 1/3rd of global trade&#x27; - PM Modi hails &#x27;Mother of all deals&#x27;</a></h3>
                 <div class="article-meta">
@@ -16628,6 +16787,17 @@
                 <div class="article-meta">
                     <a href="https://www.cnbc.com/economy/" target="_blank" class="source-tag" title="Economy — Economy">Economy — Economy</a>
                     <span class="meta-dot">·</span><span class="article-time">9:19 AM</span>
+                    <span class="meta-dot">·</span>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </article>
+            <article class="article" data-source="filter coffee" data-date="2026-01-27" data-url="https://filtercoffee.substack.com/p/2026-gets-its-first-unicorn" data-title="2026 gets its first unicorn 🦄" data-category="news" data-in-focus="false" data-publisher="">
+                <h3 class="article-title"><a href="https://filtercoffee.substack.com/p/2026-gets-its-first-unicorn" target="_blank" rel="noopener">2026 gets its first unicorn 🦄</a></h3>
+                <div class="article-meta">
+                    <a href="https://filtercoffee.substack.com" target="_blank" class="source-tag" title="Filter Coffee">Filter Coffee</a>
+                    <span class="meta-dot">·</span><span class="article-time">8:31 AM</span>
                     <span class="meta-dot">·</span>
                     <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -17300,7 +17470,7 @@
         <div id="pagination-bottom" class="pagination bottom" aria-label="Pagination"></div>
 
         <footer>
-            Aggregated from 65 sources · Built with Python · Made by <a href="https://kashishkapoor.com/" target="_blank" rel="noopener">Kashish Kapoor</a> · Built for <a href="https://thedailybrief.zerodha.com/" target="_blank" rel="noopener">The Daily Brief by Zerodha</a>
+            Aggregated from 73 sources · Built with Python · Made by <a href="https://kashishkapoor.com/" target="_blank" rel="noopener">Kashish Kapoor</a> · Built for <a href="https://thedailybrief.zerodha.com/" target="_blank" rel="noopener">The Daily Brief by Zerodha</a>
         </footer>
     </div>
 
@@ -17344,10 +17514,6 @@
         let currentCategory = '';
         let currentPublisher = '';
         let inFocusOnly = false;
-        const IN_FOCUS_COUNT = 36;
-
-        // Initialize In Focus count display
-        document.getElementById('in-focus-count').textContent = IN_FOCUS_COUNT + ' stories covered by multiple sources';
 
         function filterArticles() {
             const query = document.getElementById('search').value.toLowerCase();
@@ -17384,23 +17550,33 @@
             applyPagination();
         }
 
-        function filterByCategory(category) {
-            currentCategory = category;
+        // Toggle category (click again to deselect)
+        function toggleCategory(category) {
+            if (currentCategory === category) {
+                currentCategory = ''; // deselect = show all
+            } else {
+                currentCategory = category;
+            }
 
-            // Update active tab
-            document.querySelectorAll('#category-tabs .category-tab').forEach(tab => {
-                tab.classList.toggle('active', tab.dataset.category === category);
+            // Update active state
+            document.querySelectorAll('.category-link').forEach(link => {
+                link.classList.toggle('active', link.dataset.category === currentCategory);
             });
 
             filterArticles();
         }
 
-        function filterByPublisher(publisher) {
-            currentPublisher = publisher;
+        // Toggle publisher (click again to deselect)
+        function togglePublisher(publisher) {
+            if (currentPublisher === publisher) {
+                currentPublisher = ''; // deselect = show all
+            } else {
+                currentPublisher = publisher;
+            }
 
-            // Update active tab
-            document.querySelectorAll('#publisher-tabs .category-tab').forEach(tab => {
-                tab.classList.toggle('active', tab.dataset.publisher === publisher);
+            // Update active state
+            document.querySelectorAll('.publisher-link').forEach(link => {
+                link.classList.toggle('active', link.dataset.publisher === currentPublisher);
             });
 
             filterArticles();

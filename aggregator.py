@@ -773,41 +773,76 @@ def generate_html(article_groups):
             gap: 6px;
         }}
 
+        .in-focus-btn {{
+            padding: 6px 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }}
+        .in-focus-btn:hover {{
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }}
+        .in-focus-btn.active {{
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }}
+        .in-focus-btn .emoji {{
+            font-size: 14px;
+        }}
+
         .update-time {{
             font-size: 13px;
             color: var(--text-muted);
         }}
 
-        /* Category Tabs */
-        .category-tabs {{
+        /* Filter Row */
+        .filter-row {{
             display: flex;
-            gap: 8px;
+            justify-content: space-between;
+            align-items: center;
             padding: 12px 0;
             border-bottom: 1px solid var(--border);
             flex-wrap: wrap;
+            gap: 12px;
         }}
-        .category-tab {{
-            padding: 8px 16px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            color: var(--text-secondary);
+
+        /* Category Links */
+        .category-links {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 13px;
-            cursor: pointer;
-            transition: all 0.15s;
+            flex-wrap: wrap;
         }}
-        .category-tab:hover {{
-            border-color: var(--border-light);
+        .filter-label {{
+            color: var(--text-muted);
+            margin-right: 4px;
+        }}
+        .category-link {{
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding-bottom: 2px;
+            transition: color 0.15s;
+        }}
+        .category-link:hover {{
             color: var(--text-primary);
         }}
-        .category-tab.active {{
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            border-color: var(--text-primary);
+        .category-link.active {{
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent);
         }}
-        .category-tab .count {{
-            margin-left: 6px;
-            opacity: 0.7;
+        .category-sep {{
+            color: var(--text-muted);
         }}
 
         /* Pagination */
@@ -1280,45 +1315,33 @@ def generate_html(article_groups):
             margin-left: 8px;
         }}
 
-        /* In Focus Filter */
-        .filter-bar {{
+        /* Publisher text links */
+        .publisher-links {{
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }}
-        .in-focus-toggle {{
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            color: var(--text-secondary);
             font-size: 13px;
-            cursor: pointer;
-            transition: all 0.15s;
+            flex-wrap: wrap;
         }}
-        .in-focus-toggle:hover {{
-            border-color: var(--accent);
+        .publisher-label {{
+            color: var(--text-muted);
+            margin-right: 4px;
+        }}
+        .publisher-link {{
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding-bottom: 2px;
+            transition: color 0.15s;
+        }}
+        .publisher-link:hover {{
             color: var(--text-primary);
         }}
-        .in-focus-toggle.active {{
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
+        .publisher-link.active {{
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent);
         }}
-        .in-focus-toggle svg {{
-            width: 14px;
-            height: 14px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-        }}
-        .in-focus-count {{
-            font-size: 12px;
+        .publisher-sep {{
             color: var(--text-muted);
         }}
 
@@ -1423,32 +1446,36 @@ def generate_html(article_groups):
                 <span><strong>{len(sorted_articles)}</strong> articles</span>
                 <span><strong>{len(sources)}</strong> sources</span>
             </div>
-            <div class="update-time">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</div>
+            <span class="update-time">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
         </div>
 
-        <div class="category-tabs" id="category-tabs">
-            <button class="category-tab active" data-category="" onclick="filterByCategory('')">All</button>
-            <button class="category-tab" data-category="news" onclick="filterByCategory('news')">News</button>
-            <button class="category-tab" data-category="institutions" onclick="filterByCategory('institutions')">Institutions</button>
-            <button class="category-tab" data-category="ideas" onclick="filterByCategory('ideas')">Ideas</button>
-        </div>
-
-        <div class="category-tabs" id="publisher-tabs">
-            <button class="category-tab active" data-publisher="" onclick="filterByPublisher('')">All</button>
-            <button class="category-tab" data-publisher="ET" onclick="filterByPublisher('ET')">ET</button>
-            <button class="category-tab" data-publisher="The Hindu" onclick="filterByPublisher('The Hindu')">The Hindu</button>
-            <button class="category-tab" data-publisher="BusinessLine" onclick="filterByPublisher('BusinessLine')">BusinessLine</button>
-            <button class="category-tab" data-publisher="BS" onclick="filterByPublisher('BS')">BS</button>
-            <button class="category-tab" data-publisher="Mint" onclick="filterByPublisher('Mint')">Mint</button>
-            <button class="category-tab" data-publisher="Global" onclick="filterByPublisher('Global')">Global</button>
-        </div>
-
-        <div class="filter-bar">
-            <button class="in-focus-toggle" id="in-focus-toggle" onclick="toggleInFocus()">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
-                In Focus
+        <div class="filter-row">
+            <div class="category-links" id="category-tabs">
+                <span class="filter-label">Category:</span>
+                <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
+                <span class="category-sep">·</span>
+                <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
+                <span class="category-sep">·</span>
+                <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
+            </div>
+            <button class="in-focus-btn" id="in-focus-toggle" onclick="toggleInFocus()">
+                <span class="emoji">◉</span> In Focus: <strong>{in_focus_count}</strong>
             </button>
-            <span class="in-focus-count" id="in-focus-count"></span>
+        </div>
+
+        <div class="publisher-links">
+            <span class="publisher-label">Publisher:</span>
+            <a href="#" class="publisher-link" data-publisher="ET" onclick="togglePublisher('ET'); return false;">ET</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="The Hindu" onclick="togglePublisher('The Hindu'); return false;">The Hindu</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="BusinessLine" onclick="togglePublisher('BusinessLine'); return false;">BusinessLine</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="BS" onclick="togglePublisher('BS'); return false;">BS</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="Mint" onclick="togglePublisher('Mint'); return false;">Mint</a>
+            <span class="publisher-sep">·</span>
+            <a href="#" class="publisher-link" data-publisher="Global" onclick="togglePublisher('Global'); return false;">Global</a>
         </div>
 
         <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
@@ -1569,10 +1596,6 @@ def generate_html(article_groups):
         let currentCategory = '';
         let currentPublisher = '';
         let inFocusOnly = false;
-        const IN_FOCUS_COUNT = {in_focus_count};
-
-        // Initialize In Focus count display
-        document.getElementById('in-focus-count').textContent = IN_FOCUS_COUNT + ' stories covered by multiple sources';
 
         function filterArticles() {
             const query = document.getElementById('search').value.toLowerCase();
@@ -1609,23 +1632,33 @@ def generate_html(article_groups):
             applyPagination();
         }
 
-        function filterByCategory(category) {
-            currentCategory = category;
+        // Toggle category (click again to deselect)
+        function toggleCategory(category) {
+            if (currentCategory === category) {
+                currentCategory = ''; // deselect = show all
+            } else {
+                currentCategory = category;
+            }
 
-            // Update active tab
-            document.querySelectorAll('#category-tabs .category-tab').forEach(tab => {
-                tab.classList.toggle('active', tab.dataset.category === category);
+            // Update active state
+            document.querySelectorAll('.category-link').forEach(link => {
+                link.classList.toggle('active', link.dataset.category === currentCategory);
             });
 
             filterArticles();
         }
 
-        function filterByPublisher(publisher) {
-            currentPublisher = publisher;
+        // Toggle publisher (click again to deselect)
+        function togglePublisher(publisher) {
+            if (currentPublisher === publisher) {
+                currentPublisher = ''; // deselect = show all
+            } else {
+                currentPublisher = publisher;
+            }
 
-            // Update active tab
-            document.querySelectorAll('#publisher-tabs .category-tab').forEach(tab => {
-                tab.classList.toggle('active', tab.dataset.publisher === publisher);
+            // Update active state
+            document.querySelectorAll('.publisher-link').forEach(link => {
+                link.classList.toggle('active', link.dataset.publisher === currentPublisher);
             });
 
             filterArticles();
