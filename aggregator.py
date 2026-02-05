@@ -773,31 +773,22 @@ def generate_html(article_groups):
             gap: 6px;
         }}
 
-        .in-focus-btn {{
-            padding: 6px 14px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            color: var(--text-secondary);
+        /* In Focus Row */
+        .in-focus-row {{
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
             font-size: 13px;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all 0.15s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }}
-        .in-focus-btn:hover {{
-            border-color: var(--accent);
+        .in-focus-link {{
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s;
+        }}
+        .in-focus-link:hover {{
             color: var(--text-primary);
         }}
-        .in-focus-btn.active {{
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
-        }}
-        .in-focus-btn .emoji {{
-            font-size: 14px;
+        .in-focus-link.active {{
+            color: var(--accent);
         }}
 
         .update-time {{
@@ -805,24 +796,15 @@ def generate_html(article_groups):
             color: var(--text-muted);
         }}
 
-        /* Filter Row */
-        .filter-row {{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-            flex-wrap: wrap;
-            gap: 12px;
-        }}
-
         /* Category Links */
         .category-links {{
             display: flex;
             align-items: center;
             gap: 8px;
+            padding: 12px 0;
             font-size: 13px;
             flex-wrap: wrap;
+            border-bottom: 1px solid var(--border);
         }}
         .filter-label {{
             color: var(--text-muted);
@@ -1372,6 +1354,28 @@ def generate_html(article_groups):
             .keyboard-hint {{
                 display: none;
             }}
+
+            /* Mobile bookmarks sidebar fix */
+            .bookmarks-sidebar {{
+                height: 100%;
+                height: 100dvh;
+                max-height: -webkit-fill-available;
+            }}
+
+            .sidebar-content {{
+                flex: 1;
+                min-height: 0;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }}
+
+            .sidebar-footer {{
+                padding: 16px 20px;
+                padding-bottom: max(16px, env(safe-area-inset-bottom));
+                background: var(--bg-primary);
+                position: sticky;
+                bottom: 0;
+            }}
         }}
     </style>
 </head>
@@ -1449,18 +1453,13 @@ def generate_html(article_groups):
             <span class="update-time">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
         </div>
 
-        <div class="filter-row">
-            <div class="category-links" id="category-tabs">
-                <span class="filter-label">Category:</span>
-                <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
-                <span class="category-sep">·</span>
-                <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
-                <span class="category-sep">·</span>
-                <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
-            </div>
-            <button class="in-focus-btn" id="in-focus-toggle" onclick="toggleInFocus()">
-                <span class="emoji">◉</span> In Focus: <strong>{in_focus_count}</strong>
-            </button>
+        <div class="category-links" id="category-tabs">
+            <span class="filter-label">Category:</span>
+            <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
+            <span class="category-sep">·</span>
+            <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
+            <span class="category-sep">·</span>
+            <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
         </div>
 
         <div class="publisher-links">
@@ -1476,6 +1475,12 @@ def generate_html(article_groups):
             <a href="#" class="publisher-link" data-publisher="Mint" onclick="togglePublisher('Mint'); return false;">Mint</a>
             <span class="publisher-sep">·</span>
             <a href="#" class="publisher-link" data-publisher="Global" onclick="togglePublisher('Global'); return false;">Global</a>
+        </div>
+
+        <div class="in-focus-row">
+            <a href="#" class="in-focus-link" id="in-focus-toggle" onclick="toggleInFocus(); return false;">
+                ◉ In Focus: <strong>{in_focus_count}</strong> stories covered by multiple sources
+            </a>
         </div>
 
         <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
