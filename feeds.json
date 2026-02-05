@@ -532,6 +532,13 @@
     "category": "News"
   },
   {
+    "id": "reuters-business",
+    "name": "Reuters — Business",
+    "url": "https://www.reuters.com/business/",
+    "feed": "https://news.google.com/rss/search?q=site:reuters.com/business&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News"
+  },
+  {
     "id": "ft-indian-business-finance",
     "name": "Financial Times — Indian Business & Finance",
     "url": "https://www.ft.com/indian-business-finance",
