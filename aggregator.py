@@ -750,14 +750,21 @@ def generate_html(article_groups):
             padding: 16px;
         }}
 
+        /* Filter Card */
+        .filter-card {{
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+        }}
+
         /* Stats Bar */
         .stats-bar {{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
-            margin-bottom: 8px;
-            border-bottom: 1px solid var(--border);
+            padding: 0 0 8px 0;
         }}
 
         .stats {{
@@ -775,8 +782,7 @@ def generate_html(article_groups):
 
         /* In Focus Row */
         .in-focus-row {{
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border);
+            padding: 8px 0 0 0;
             display: flex;
             justify-content: center;
         }}
@@ -841,10 +847,9 @@ def generate_html(article_groups):
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 0;
+            padding: 6px 0;
             font-size: 13px;
             flex-wrap: wrap;
-            border-bottom: 1px solid var(--border);
         }}
         .filter-label {{
             color: var(--text-muted);
@@ -871,36 +876,68 @@ def generate_html(article_groups):
         .pagination {{
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            padding: 12px 0 4px 0;
-            border-bottom: 1px solid var(--border);
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 12px 0;
             width: 100%;
         }}
         .pagination.bottom {{
-            border-top: 1px solid var(--border);
-            border-bottom: none;
             margin-top: 20px;
-            padding: 12px 0 0 0;
+            border-top: 1px solid var(--border);
+        }}
+        .page-numbers {{
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }}
         .page-btn {{
-            padding: 6px 10px;
-            border: 1px solid var(--border);
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
+            padding: 6px 12px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
             font-size: 13px;
+            font-family: inherit;
             border-radius: 6px;
             cursor: pointer;
-        }}
-        .page-btn.active {{
-            border-color: var(--accent);
-            color: var(--text-primary);
+            transition: all 0.15s;
         }}
         .page-btn:hover {{
-            border-color: var(--border-light);
             background: var(--bg-hover);
+            color: var(--text-primary);
+        }}
+        .page-btn:disabled {{
+            opacity: 0.4;
+            cursor: default;
+        }}
+        .page-btn:disabled:hover {{
+            background: transparent;
+            color: var(--text-muted);
+        }}
+        .page-btn.active {{
+            background: var(--accent);
+            color: #fff;
+            font-weight: 500;
+        }}
+        .page-btn.active:hover {{
+            background: var(--accent-hover);
+            color: #fff;
+        }}
+        .page-btn.nav {{
+            color: var(--text-secondary);
+            font-weight: 500;
+        }}
+        .page-btn.nav:hover {{
+            color: var(--text-primary);
+        }}
+        .page-btn.nav.prev {{
+            margin-right: 8px;
+        }}
+        .page-btn.nav.next {{
+            margin-left: 8px;
         }}
         .page-ellipsis {{
-            padding: 6px 8px;
+            padding: 6px 4px;
             color: var(--text-muted);
             font-size: 13px;
         }}
@@ -1342,7 +1379,7 @@ def generate_html(article_groups):
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 0;
+            padding: 6px 0;
             font-size: 13px;
             flex-wrap: wrap;
         }}
@@ -1485,43 +1522,45 @@ def generate_html(article_groups):
     </div>
 
     <div class="container">
-        <div class="stats-bar">
-            <div class="stats">
-                <span><strong>{len(sorted_articles)}</strong> articles</span>
-                <span><strong>{len(sources)}</strong> sources</span>
+        <div class="filter-card">
+            <div class="stats-bar">
+                <div class="stats">
+                    <span><strong>{len(sorted_articles)}</strong> articles</span>
+                    <span><strong>{len(sources)}</strong> sources</span>
+                </div>
+                <span class="update-time">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
             </div>
-            <span class="update-time">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
-        </div>
 
-        <div class="category-links" id="category-tabs">
-            <span class="filter-label">Category:</span>
-            <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
-            <span class="category-sep">·</span>
-            <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
-            <span class="category-sep">·</span>
-            <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
-        </div>
+            <div class="category-links" id="category-tabs">
+                <span class="filter-label">Category:</span>
+                <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
+                <span class="category-sep">·</span>
+                <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
+                <span class="category-sep">·</span>
+                <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
+            </div>
 
-        <div class="publisher-links">
-            <span class="publisher-label">Publisher:</span>
-            <a href="#" class="publisher-link" data-publisher="ET" onclick="togglePublisher('ET'); return false;">ET</a>
-            <span class="publisher-sep">·</span>
-            <a href="#" class="publisher-link" data-publisher="The Hindu" onclick="togglePublisher('The Hindu'); return false;">The Hindu</a>
-            <span class="publisher-sep">·</span>
-            <a href="#" class="publisher-link" data-publisher="BusinessLine" onclick="togglePublisher('BusinessLine'); return false;">BusinessLine</a>
-            <span class="publisher-sep">·</span>
-            <a href="#" class="publisher-link" data-publisher="BS" onclick="togglePublisher('BS'); return false;">BS</a>
-            <span class="publisher-sep">·</span>
-            <a href="#" class="publisher-link" data-publisher="Mint" onclick="togglePublisher('Mint'); return false;">Mint</a>
-            <span class="publisher-sep">·</span>
-            <a href="#" class="publisher-link" data-publisher="Global" onclick="togglePublisher('Global'); return false;">Global</a>
-        </div>
+            <div class="publisher-links">
+                <span class="publisher-label">Publisher:</span>
+                <a href="#" class="publisher-link" data-publisher="ET" onclick="togglePublisher('ET'); return false;">ET</a>
+                <span class="publisher-sep">·</span>
+                <a href="#" class="publisher-link" data-publisher="The Hindu" onclick="togglePublisher('The Hindu'); return false;">The Hindu</a>
+                <span class="publisher-sep">·</span>
+                <a href="#" class="publisher-link" data-publisher="BusinessLine" onclick="togglePublisher('BusinessLine'); return false;">BusinessLine</a>
+                <span class="publisher-sep">·</span>
+                <a href="#" class="publisher-link" data-publisher="BS" onclick="togglePublisher('BS'); return false;">BS</a>
+                <span class="publisher-sep">·</span>
+                <a href="#" class="publisher-link" data-publisher="Mint" onclick="togglePublisher('Mint'); return false;">Mint</a>
+                <span class="publisher-sep">·</span>
+                <a href="#" class="publisher-link" data-publisher="Global" onclick="togglePublisher('Global'); return false;">Global</a>
+            </div>
 
-        <div class="in-focus-row">
-            <button class="in-focus-btn" id="in-focus-toggle" onclick="toggleInFocus()">
-                <span class="pulse-dot"></span>
-                In Focus: <strong>{in_focus_count}</strong> stories covered by multiple sources
-            </button>
+            <div class="in-focus-row">
+                <button class="in-focus-btn" id="in-focus-toggle" onclick="toggleInFocus()">
+                    <span class="pulse-dot"></span>
+                    In Focus: <strong>{in_focus_count}</strong> stories covered by multiple sources
+                </button>
+            </div>
         </div>
 
         <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
@@ -1768,7 +1807,9 @@ def generate_html(article_groups):
             }
 
             const build = (container) => {
-                container.appendChild(makeBtn('Prev', Math.max(1, currentPage - 1), false, currentPage === 1));
+                const prevBtn = makeBtn('← Prev', Math.max(1, currentPage - 1), false, currentPage === 1);
+                prevBtn.classList.add('nav', 'prev');
+                container.appendChild(prevBtn);
 
                 if (start > 1) {
                     container.appendChild(makeBtn('1', 1, currentPage === 1));
@@ -1788,7 +1829,9 @@ def generate_html(article_groups):
                     container.appendChild(makeBtn(String(totalPages), totalPages, currentPage === totalPages));
                 }
 
-                container.appendChild(makeBtn('Next', Math.min(totalPages, currentPage + 1), false, currentPage === totalPages));
+                const nextBtn = makeBtn('Next →', Math.min(totalPages, currentPage + 1), false, currentPage === totalPages);
+                nextBtn.classList.add('nav', 'next');
+                container.appendChild(nextBtn);
             };
 
             build(top);
