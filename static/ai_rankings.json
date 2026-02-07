@@ -1,11 +1,153 @@
 {
-  "generated_at": "2026-02-06T09:40:20.027678+05:30",
+  "generated_at": "2026-02-07T09:33:54.752786+05:30",
   "article_count": 200,
   "providers": {
     "openrouter": {
       "name": "OpenRouter (Nemotron)",
-      "status": "error",
-      "error": "Expecting ',' delimiter: line 1 column 2710 (char 2709)"
+      "status": "ok",
+      "count": 20,
+      "rankings": [
+        {
+          "rank": 1,
+          "title": "India, US agree on interim trade deal framework with 18% tariff on India",
+          "url": "",
+          "source": "",
+          "reason": "Structural shift in trade policy reducing tariffs for key sectors."
+        },
+        {
+          "rank": 2,
+          "title": "US removes India\u2019s 25% Russia-related tariff after deal",
+          "url": "",
+          "source": "",
+          "reason": "Policy signal addressing geopolitical leverage and trade compliance."
+        },
+        {
+          "rank": 3,
+          "title": "India-US trade deal: Pharma and agri gains highlighted",
+          "url": "",
+          "source": "",
+          "reason": "Policy protection for critical industries ensuring long-term competitiveness."
+        },
+        {
+          "rank": 4,
+          "title": "RBI proposes risk-based deposit insurance premium from April 2026",
+          "url": "",
+          "source": "",
+          "reason": "Regulatory change impacting banking sector costs and risk management."
+        },
+        {
+          "rank": 5,
+          "title": "RBI to allow banks to lend directly to REITs",
+          "url": "",
+          "source": "",
+          "reason": "Structural shift in financial sector funding dynamics."
+        },
+        {
+          "rank": 6,
+          "title": "India\u2019s Jupiter-like quantum valley project approved in Andhra Pradesh",
+          "url": "",
+          "source": "",
+          "reason": "Infrastructure policy boosting tech manufacturing and R&D."
+        },
+        {
+          "rank": 7,
+          "title": "India to buy up to $80B in Boeing aircraft post-US trade deal",
+          "url": "",
+          "source": "",
+          "reason": "Strategic industrial policy enhancing aviation self-reliance."
+        },
+        {
+          "rank": 8,
+          "title": "Gland Pharma gets FDA nod for generic Parkinson\u2019s drug",
+          "url": "",
+          "source": "",
+          "reason": "Structural growth in India\u2019s pharma export ecosystem."
+        },
+        {
+          "rank": 9,
+          "title": "India-US trade deal to open $30T market for exporters",
+          "url": "",
+          "source": "",
+          "reason": "Policy-driven market access changing global trade flows."
+        },
+        {
+          "rank": 10,
+          "title": "RBI sets \u20b925,000 cyberfraud compensation for victims",
+          "url": "",
+          "source": "",
+          "reason": "Regulatory move addressing digital security gaps."
+        },
+        {
+          "rank": 11,
+          "title": "Big tech\u2019s $660B capex plans exacerbate AI investment debates",
+          "url": "",
+          "source": "",
+          "reason": "Macro shift in capital allocation toward AI infrastructure."
+        },
+        {
+          "rank": 12,
+          "title": "India aims to become strategically indispensable: CEA statement",
+          "url": "",
+          "source": "",
+          "reason": "Policy emphasis on global economic influence."
+        },
+        {
+          "rank": 13,
+          "title": "Federal Reserve signals sustainable AI spending",
+          "url": "",
+          "source": "",
+          "reason": "Global economic policy impacting Indian tech investments."
+        },
+        {
+          "rank": 14,
+          "title": "IDBI Bank stake sale: Strategic disinvestment bids received",
+          "url": "",
+          "source": "",
+          "reason": "Financial sector restructuring under structural reforms."
+        },
+        {
+          "rank": 15,
+          "title": "India-US trade deal exempts sensitive agri products",
+          "url": "",
+          "source": "",
+          "reason": "Policy safeguards ensuring food security and export viability."
+        },
+        {
+          "rank": 16,
+          "title": "RBI raises loan limits for small businesses and REIT lending",
+          "url": "",
+          "source": "",
+          "reason": "Structural support for MSMEs and real estate finance."
+        },
+        {
+          "rank": 17,
+          "title": "India\u2019s IPOMarket to debut with NSE IPO in first step",
+          "url": "",
+          "source": "",
+          "reason": "Policy enabling new capital markets entrants."
+        },
+        {
+          "rank": 18,
+          "title": "Apple plans third-party AI chatbots in CarPlay",
+          "url": "",
+          "source": "",
+          "reason": "Tech policy shifts in consumer electronics integration."
+        },
+        {
+          "rank": 19,
+          "title": "Fractal Analytics raises \u20b91,249 crore for AI IPO",
+          "url": "",
+          "source": "",
+          "reason": "Structural growth in India\u2019s AI sector attracting global capital."
+        },
+        {
+          "rank": 20,
+          "title": "PM Modi hails India-US trade deal as win for jobs, MSMEs",
+          "url": "",
+          "source": "",
+          "reason": "Policy outcomes directly impacting small businesses and employment."
+        }
+      ]
     }
   }
 }
