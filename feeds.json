@@ -685,5 +685,19 @@
     "url": "https://soicwisdomboard.substack.com",
     "feed": "https://soicwisdomboard.substack.com/feed",
     "category": "Ideas"
+  },
+  {
+    "id": "theprint-economy",
+    "name": "ThePrint — Economy",
+    "url": "https://theprint.in/category/economy/",
+    "feed": "https://theprint.in/category/economy/feed/",
+    "category": "News"
+  },
+  {
+    "id": "firstpost-business",
+    "name": "Firstpost — Business",
+    "url": "https://www.firstpost.com/business",
+    "feed": "https://www.firstpost.com/commonfeeds/v1/mfp/rss/business.xml",
+    "category": "News"
   }
 ]

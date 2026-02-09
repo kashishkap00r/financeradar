@@ -408,15 +408,17 @@ def fetch_feed(feed_config):
                 content = response.read()
         except urllib.error.HTTPError as e:
             if e.code == 403:
-                # Fallback to curl for Cloudflare-protected sites
-                result = subprocess.run(
-                    ["curl", "-sL", "-A", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", feed_url],
-                    capture_output=True,
-                    timeout=20
-                )
-                if result.returncode == 0 and result.stdout:
-                    content = result.stdout
-                else:
+                # Fallback to curl with different User-Agents
+                for ua in ["FeedFetcher/1.0", "Mozilla/5.0 (compatible; RSS Reader)"]:
+                    result = subprocess.run(
+                        ["curl", "-sL", "-A", ua, feed_url],
+                        capture_output=True,
+                        timeout=20
+                    )
+                    if result.returncode == 0 and result.stdout and result.stdout.strip().startswith(b'<'):
+                        content = result.stdout
+                        break
+                if not content:
                     raise e
             else:
                 raise e
@@ -2209,7 +2211,7 @@ def generate_html(article_groups):
                     </div>
                     <div class="sidebar-article-meta">
                         <span class="sidebar-article-source">${escapeHtml(b.source)}</span>
-                        <button class="sidebar-remove" onclick="removeBookmark('${escapeHtml(b.url)}')" title="Remove bookmark">✕</button>
+                        <button class="sidebar-remove" onclick="removeBookmark('${escapeForAttr(b.url)}')" title="Remove bookmark">✕</button>
                     </div>
                 </div>
             `).join('');
@@ -2219,6 +2221,10 @@ def generate_html(article_groups):
             const div = document.createElement('div');
             div.textContent = text || '';
             return div.innerHTML;
+        }
+
+        function escapeForAttr(text) {
+            return escapeHtml(text).replace(/'/g, '&#39;');
         }
 
         function removeBookmark(url) {
@@ -2337,7 +2343,7 @@ def generate_html(article_groups):
                         <span class="rank-reason">${escapeHtml(r.reason)}</span>
                     </div>
                     <button class="ai-bookmark-btn ${isBookmarked(r.url) ? 'bookmarked' : ''}"
-                            onclick="toggleAiBookmark(this, '${escapeHtml(r.url)}', '${escapeHtml(r.title)}', '${escapeHtml(r.source)}')" title="Bookmark">
+                            onclick="toggleAiBookmark(this, '${escapeForAttr(r.url)}', '${escapeForAttr(r.title)}', '${escapeForAttr(r.source)}')" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
