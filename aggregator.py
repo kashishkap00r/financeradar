@@ -2332,7 +2332,7 @@ def generate_html(article_groups):
                 return;
             }
             if (provider.status !== 'ok') {
-                container.innerHTML = `<div class="ai-error"><div class="ai-error-title">Error</div><div>${escapeHtml(provider.error || 'Unknown error')}</div></div>`;
+                container.innerHTML = `<div class="ai-error"><div class="ai-error-title">AI Rankings Temporarily Unavailable</div><div style="margin-top:8px;font-size:12px;color:var(--text-muted)">Rankings will refresh on next scheduled run.</div></div>`;
                 return;
             }
             container.innerHTML = provider.rankings.map((r, i) => `

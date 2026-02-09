@@ -134,29 +134,70 @@ def load_articles_48h(max_articles=200):
 
 def parse_json_response(text):
     text = text.strip()
+    # Remove markdown code blocks
     if "```" in text:
         match = re.search(r'```(?:json)?\s*([\s\S]*?)```', text)
         if match:
             text = match.group(1).strip()
         else:
             text = text.replace("```json", "").replace("```", "").strip()
+    # Extract JSON array
     if not text.startswith("["):
         start = text.find("[")
         if start != -1:
             end = text.rfind("]")
             if end > start:
                 text = text[start:end+1]
-    text = text.replace("\n", " ")
-    text = re.sub(r',\s*]', ']', text)
-    text = re.sub(r',\s*}', '}', text)
+
+    # Try parsing as-is first
     try:
         return json.loads(text)
     except json.JSONDecodeError:
-        if text.count('[') > text.count(']'):
-            text = text + ']' * (text.count('[') - text.count(']'))
-        if text.count('{') > text.count('}'):
-            text = text + '}' * (text.count('{') - text.count('}'))
+        pass
+
+    # Clean up common issues
+    text = text.replace("\n", " ").replace("\r", " ")
+    text = re.sub(r',\s*]', ']', text)  # trailing comma before ]
+    text = re.sub(r',\s*}', '}', text)  # trailing comma before }
+    text = re.sub(r'\s+', ' ', text)    # normalize whitespace
+
+    try:
         return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
+    # Try to extract items using regex as fallback
+    items = []
+    pattern = r'\{\s*"rank"\s*:\s*(\d+)\s*,\s*"title"\s*:\s*"([^"]*(?:"[^"]*"[^"]*)*)"\s*,\s*"reason"\s*:\s*"([^"]*)"\s*\}'
+    matches = re.findall(pattern, text, re.DOTALL)
+    if matches:
+        for rank, title, reason in matches:
+            # Clean up title - remove any embedded quotes
+            title = title.replace('\\"', "'").replace('"', "'").strip()
+            reason = reason.replace('\\"', "'").replace('"', "'").strip()
+            items.append({"rank": int(rank), "title": title, "reason": reason})
+        if items:
+            return items
+
+    # Last resort: try to fix bracket mismatches
+    if text.count('[') > text.count(']'):
+        text = text + ']' * (text.count('[') - text.count(']'))
+    if text.count('{') > text.count('}'):
+        text = text + '}' * (text.count('{') - text.count('}'))
+
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError as e:
+        # If all else fails, try to salvage partial data
+        # Find the last complete item
+        last_complete = text.rfind('},')
+        if last_complete > 0:
+            partial = text[:last_complete+1] + ']'
+            try:
+                return json.loads(partial)
+            except:
+                pass
+        raise e
 
 
 def call_openrouter(headlines):
@@ -166,7 +207,8 @@ def call_openrouter(headlines):
         "https://openrouter.ai/api/v1/chat/completions",
         data=json.dumps({
             "model": "nvidia/nemotron-nano-9b-v2:free",
-            "messages": [{"role": "user", "content": RANKING_PROMPT.format(headlines=headlines)}]
+            "messages": [{"role": "user", "content": RANKING_PROMPT.format(headlines=headlines)}],
+            "temperature": 0.3  # Lower temperature for more consistent JSON output
         }).encode("utf-8"),
         headers={
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
@@ -177,7 +219,16 @@ def call_openrouter(headlines):
     )
     with urllib.request.urlopen(request, timeout=120, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
-    return parse_json_response(result["choices"][0]["message"]["content"])
+    raw_content = result["choices"][0]["message"]["content"]
+    try:
+        return parse_json_response(raw_content)
+    except json.JSONDecodeError as e:
+        # Log the raw response for debugging
+        debug_path = os.path.join(SCRIPT_DIR, "static", "ai_debug.txt")
+        with open(debug_path, "w", encoding="utf-8") as f:
+            f.write(f"Error: {str(e)}\n\n")
+            f.write(f"Raw response:\n{raw_content}")
+        raise ValueError(f"JSON parse failed: {str(e)[:100]}. See static/ai_debug.txt for raw response.")
 
 
 def main():
