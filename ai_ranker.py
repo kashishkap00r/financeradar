@@ -17,23 +17,15 @@ IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 
-# Free models available on OpenRouter (verified from API)
+# Free models on OpenRouter - using auto-router + one specific model
 MODELS = {
+    "auto": {
+        "id": "openrouter/free",
+        "name": "Auto (Best Free)"
+    },
     "nemotron": {
         "id": "nvidia/nemotron-3-nano-30b-a3b:free",
         "name": "Nemotron 3 Nano"
-    },
-    "solar": {
-        "id": "upstage/solar-pro-3:free",
-        "name": "Solar Pro 3"
-    },
-    "trinity": {
-        "id": "arcee-ai/trinity-large-preview:free",
-        "name": "Trinity Large"
-    },
-    "liquid": {
-        "id": "liquid/lfm-2.5-1.2b-instruct:free",
-        "name": "Liquid LFM 2.5"
     }
 }
 
@@ -198,7 +190,7 @@ def call_openrouter(headlines, model_id):
             "X-Title": "FinanceRadar"
         }
     )
-    with urllib.request.urlopen(request, timeout=120, context=SSL_CONTEXT) as response:
+    with urllib.request.urlopen(request, timeout=60, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
     return parse_json_response(result["choices"][0]["message"]["content"])
 
