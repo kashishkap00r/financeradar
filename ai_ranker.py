@@ -17,23 +17,23 @@ IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 
-# Free models available on OpenRouter
+# Free models available on OpenRouter (verified from API)
 MODELS = {
     "nemotron": {
-        "id": "nvidia/llama-3.1-nemotron-nano-8b-v1:free",
-        "name": "Nemotron Nano"
+        "id": "nvidia/nemotron-3-nano-30b-a3b:free",
+        "name": "Nemotron 3 Nano"
     },
-    "gemini": {
-        "id": "google/gemini-2.0-flash-thinking-exp:free",
-        "name": "Gemini 2.0 Flash"
+    "solar": {
+        "id": "upstage/solar-pro-3:free",
+        "name": "Solar Pro 3"
     },
-    "llama": {
-        "id": "meta-llama/llama-4-scout:free",
-        "name": "Llama 4 Scout"
+    "trinity": {
+        "id": "arcee-ai/trinity-large-preview:free",
+        "name": "Trinity Large"
     },
-    "mistral": {
-        "id": "mistralai/mistral-small-3.1-24b-instruct:free",
-        "name": "Mistral Small 3.1"
+    "liquid": {
+        "id": "liquid/lfm-2.5-1.2b-instruct:free",
+        "name": "Liquid LFM 2.5"
     }
 }
 
