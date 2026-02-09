@@ -1,26 +1,300 @@
 {
-  "generated_at": "2026-02-09T23:31:57.046966+05:30",
+  "generated_at": "2026-02-09T23:46:28.747213+05:30",
   "article_count": 200,
   "providers": {
+    "auto": {
+      "name": "Auto (Best Free)",
+      "status": "ok",
+      "count": 20,
+      "rankings": [
+        {
+          "rank": 1,
+          "title": "SEBI proposes slashing minimum investment in social impact funds to \u20b91,000",
+          "url": "https://www.thehindubusinessline.com/markets/sebi-proposes-slashing-minimum-investment-in-social-impact-funds-to-1000/article70612570.ece",
+          "source": "BusinessLine",
+          "reason": "Enables retail participation in impact investing, aligns with financial inclusion."
+        },
+        {
+          "rank": 2,
+          "title": "RBI amends MSME lending directions, increases collateral-free loan limit to Rs 20 lakh",
+          "url": "https://theprint.in/economy/rbi-amends-msme-lending-directions-increases-collateral-free-loan-limit-to-rs-20-lakh/2850354/",
+          "source": "ThePrint \u2014 Economy",
+          "reason": "Boosts credit access for small businesses, supports economic growth."
+        },
+        {
+          "rank": 3,
+          "title": "India needs over $22 tn for green transition to become Net Zero by 2070: NITI Aayog ",
+          "url": "https://economictimes.indiatimes.com/industry/renewables/india-needs-over-22-tn-for-green-transition-to-become-net-zero-by-2070-niti-aayog/articleshow/128117143.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Signals long-term capital allocation towards sustainable infrastructure."
+        },
+        {
+          "rank": 4,
+          "title": "UBS picks up entire commercial tower in Pune\u2019s Yerwada in Rs 263-crore rental deal ",
+          "url": "https://economictimes.indiatimes.com/industry/services/property-/-cstruction/ubs-picks-up-entire-commercial-tower-in-punes-yerwada-in-rs-263-crore-rental-deal/articleshow/128121448.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Indicates foreign institutional confidence in Indian real estate."
+        },
+        {
+          "rank": 5,
+          "title": "CCI probing alleged cartelisation by steel makers, says FM Sitharaman",
+          "url": "",
+          "source": "",
+          "reason": "Regulatory scrutiny on pricing could impact steel industry dynamics."
+        },
+        {
+          "rank": 6,
+          "title": " NSE raises red flag on STT increase, says higher trading tax can impact market depth ",
+          "url": " https://www.etnownews.com/markets/nse-raises-red-flag-on-stt-increase-says-higher-trading-tax-can-impact-market-depth-article-153587646 ",
+          "source": "ET Now",
+          "reason": "Potential liquidity impact on derivatives trading ecosystem."
+        },
+        {
+          "rank": 7,
+          "title": "India\u2019s import bill to rise as Russian crude still 7-12% cheaper than US, gulf oil",
+          "url": "https://www.thehindubusinessline.com/data-stories/data-focus/indias-crude-import-bill-to-rise-as-russian-crude-still-cheaper-by-7-to-12-per-cent-compared-to-us-and-gulf-suppliers/article70611525.ece",
+          "source": "BusinessLine",
+          "reason": "Energy import strategy shifts amidst geopolitical pricing pressures."
+        },
+        {
+          "rank": 8,
+          "title": "Railways begins viability assessment for 7 new bullet train corridors",
+          "url": "",
+          "source": "",
+          "reason": "Infrastructure development signals mobility-focused capital expenditure."
+        },
+        {
+          "rank": 9,
+          "title": "India will support steel exports hit by Europe's carbon tax, federal secretary says",
+          "url": "https://www.thehindu.com/business/Industry/india-will-support-steel-exports-hit-by-europes-carbon-tax-federal-secretary-says/article70612415.ece",
+          "source": "The Hindu \u2014 Business",
+          "reason": "Policy support for industry facing global trade barriers."
+        },
+        {
+          "rank": 10,
+          "title": "Niti Aayog charts 'development-first' roadmap to Net Zero by 2070",
+          "url": "",
+          "source": "",
+          "reason": "National climate strategy balances growth with sustainability goals."
+        },
+        {
+          "rank": 11,
+          "title": "Micro, small enterprises with good track record can get collateral-free loans up to \u20b925 lakh: RBI",
+          "url": "https://www.thehindubusinessline.com/money-and-banking/micro-small-enterprises-with-good-track-record-can-get-collateral-free-loans-up-to-25-lakh-rbi/article70611740.ece",
+          "source": "BusinessLine",
+          "reason": "Working capital relief strengthens MSME sector fundamentals."
+        },
+        {
+          "rank": 12,
+          "title": "India's petroleum reserves can last 74 days in case of global turbulence: Oil Minister Hardeep Singh Puri ",
+          "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/indias-petroleum-reserves-can-last-74-days-in-case-of-global-turbulence-oil-minister-hardeep-singh-puri/articleshow/128118648.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Energy security preparedness amid geopolitical volatility."
+        },
+        {
+          "rank": 13,
+          "title": "Higher Credit Growth Flags Year of Big Policy Action for Indian Banks",
+          "url": "",
+          "source": "",
+          "reason": "Indicates systemic shift in banking sector priorities."
+        },
+        {
+          "rank": 14,
+          "title": "US India Trade Deal: Tariff cut to 18%, access to $30-trillion market, 0% duty on key agri exports",
+          "url": "",
+          "source": "",
+          "reason": "Structural shift in bilateral trade terms."
+        },
+        {
+          "rank": 15,
+          "title": "EPFO weighs performance-linked incentives for fund managers",
+          "url": "https://bfsi.economictimes.indiatimes.com/news/policy/epfo-weighs-performance-linked-incentives-for-fund-managers/128116504",
+          "source": "ET BFSI \u2014 Recent Stories",
+          "reason": "Potential improvement in retirement fund investment returns."
+        },
+        {
+          "rank": 16,
+          "title": "New NHAI InvIT for retail investors gets five NHs for \u20b99,500 crore",
+          "url": "",
+          "source": "",
+          "reason": "Expands infrastructure investment avenues for retail participants."
+        },
+        {
+          "rank": 17,
+          "title": "India may cap apple imports from US below 1 lakh tonnes at concessional 25% duty",
+          "url": "https://www.thehindubusinessline.com/economy/agri-business/india-may-cap-apple-imports-from-us-below-1-lakh-tonnes-at-concessional-25-duty/article70611765.ece",
+          "source": "BusinessLine \u2014 Economy",
+          "reason": "Trade policy balances domestic growers and importers."
+        },
+        {
+          "rank": 18,
+          "title": "Pharma leaders seek regulatory reform, faster trials to spur innovation",
+          "url": "",
+          "source": "",
+          "reason": "Industry push for competitive drug development framework."
+        },
+        {
+          "rank": 19,
+          "title": "Gravita India to acquire Rashtriya Metal Industries for Rs 800 crore, marking entry into copper alloys ",
+          "url": "https://economictimes.indiatimes.com/industry/indl-goods/svs/metals-mining/gravita-india-to-acquire-rashtriya-metal-industries-for-rs-800-crore-marking-entry-into-copper-alloys/articleshow/128120935.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Diversification into high-growth non-ferrous metals segment."
+        },
+        {
+          "rank": 20,
+          "title": "Marico to acquire 75% stake in Vietnamese skincare start-up Skinetiq",
+          "url": "https://www.thehindubusinessline.com/companies/marico-acquires-75-stake-in-vietnamese-skincare-startup-skinetiq/article70611526.ece",
+          "source": "BusinessLine \u2014 Companies",
+          "reason": "FMCG expansion into Southeast Asian markets."
+        }
+      ]
+    },
     "nemotron": {
-      "name": "Nemotron Nano",
-      "status": "error",
-      "error": "HTTP Error 404: Not Found"
-    },
-    "gemini": {
-      "name": "Gemini 2.0 Flash",
-      "status": "error",
-      "error": "HTTP Error 400: Bad Request"
-    },
-    "llama": {
-      "name": "Llama 4 Scout",
-      "status": "error",
-      "error": "HTTP Error 404: Not Found"
-    },
-    "mistral": {
-      "name": "Mistral Small 3.1",
-      "status": "error",
-      "error": "HTTP Error 429: Too Many Requests"
+      "name": "Nemotron 3 Nano",
+      "status": "ok",
+      "count": 20,
+      "rankings": [
+        {
+          "rank": 1,
+          "title": "SEBI proposes slashing minimum investment in social impact funds to \u20b91,000",
+          "url": "https://www.thehindubusinessline.com/markets/sebi-proposes-slashing-minimum-investment-in-social-impact-funds-to-1000/article70612570.ece",
+          "source": "BusinessLine",
+          "reason": "Lowers entry barrier, expands retail participation in ESG investing."
+        },
+        {
+          "rank": 2,
+          "title": "RBI amends MSME lending directions, increases collateral-free loan limit to Rs 20 lakh",
+          "url": "https://theprint.in/economy/rbi-amends-msme-lending-directions-increases-collateral-free-loan-limit-to-rs-20-lakh/2850354/",
+          "source": "ThePrint \u2014 Economy",
+          "reason": "Boosts credit access for small businesses, spurs entrepreneurship."
+        },
+        {
+          "rank": 3,
+          "title": "CCI probing alleged cartelisation by steel makers, says FM Sitharaman",
+          "url": "",
+          "source": "",
+          "reason": "Potential antitrust action could reshape steel pricing and competition."
+        },
+        {
+          "rank": 4,
+          "title": "India will support steel exports hit by Europe's carbon tax, federal secretary says",
+          "url": "https://www.thehindu.com/business/Industry/india-will-support-steel-exports-hit-by-europes-carbon-tax-federal-secretary-says/article70612415.ece",
+          "source": "The Hindu \u2014 Business",
+          "reason": "Signals government backing, may influence global steel trade dynamics."
+        },
+        {
+          "rank": 5,
+          "title": "India needs over $22 tn for green transition to become Net Zero by 2070: NITI Aayog ",
+          "url": "https://economictimes.indiatimes.com/industry/renewables/india-needs-over-22-tn-for-green-transition-to-become-net-zero-by-2070-niti-aayog/articleshow/128117143.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Sets massive investment agenda, drives infrastructure and renewable projects."
+        },
+        {
+          "rank": 6,
+          "title": "Higher Credit Growth Flags Year of Big Policy Action for Indian Banks",
+          "url": "",
+          "source": "",
+          "reason": "Signals upcoming regulatory reforms, could affect banking sector structure."
+        },
+        {
+          "rank": 7,
+          "title": "The long road to $500 billion: India's US trade pledge won't be easy",
+          "url": "",
+          "source": "",
+          "reason": "Sets expectations for trade negotiations, influences investment outlook."
+        },
+        {
+          "rank": 8,
+          "title": "Neara, which builds digital twins of critical infrastructure to help prepare for disasters, raised a AU$90M Series D, a source says at a AU$1.1B valuation",
+          "url": "",
+          "source": "",
+          "reason": "Digital twin tech enhances resilience of critical assets, attracting capital."
+        },
+        {
+          "rank": 9,
+          "title": "US India Trade Deal: Tariff cut to 18%, access to $30-trillion market, 0% duty on key agri exports \u2014 what   the numbers show ",
+          "url": "https://economictimes.indiatimes.com/news/economy/foreign-trade/us-india-trade-deal-tariff-cut-to-18-access-to-30-trillion-market-0-duty-on-key-agri-exports-what-the-numbers-show/articleshow/128117587.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Quantifies trade benefits, signals growth opportunities for exporters."
+        },
+        {
+          "rank": 10,
+          "title": "India offers quota-based auto duty cuts, tariff reduction on alcohol under US trade pact ",
+          "url": "https://economictimes.indiatimes.com/news/economy/foreign-trade/india-offers-quota-based-auto-duty-cuts-tariff-reduction-on-alcohol-under-us-trade-pact/articleshow/128118820.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Encourages auto investment, boosts exports under new trade terms."
+        },
+        {
+          "rank": 11,
+          "title": "India may cap apple imports from US below 1 lakh tonnes at concessional 25% duty",
+          "url": "https://www.thehindubusinessline.com/economy/agri-business/india-may-cap-apple-imports-from-us-below-1-lakh-tonnes-at-concessional-25-duty/article70611765.ece",
+          "source": "BusinessLine \u2014 Economy",
+          "reason": "Protects domestic growers, signals selective tariff strategy."
+        },
+        {
+          "rank": 12,
+          "title": "Railways begins viability assessment for 7 new bullet train corridors",
+          "url": "",
+          "source": "",
+          "reason": "Plans high-speed expansion, could transform freight and passenger transport."
+        },
+        {
+          "rank": 13,
+          "title": "NHAI\u2019s public InvIT wins five highway concessions",
+          "url": "https://www.thehindubusinessline.com/economy/logistics/nhais-public-invit-wins-five-highway-concessions/article70611996.ece",
+          "source": "BusinessLine \u2014 Economy",
+          "reason": "Provides investors exposure to highway revenue, supports funding of roads."
+        },
+        {
+          "rank": 14,
+          "title": "RIIT wins concession of five national highway assets ",
+          "url": "https://economictimes.indiatimes.com/industry/transportation/roadways/riit-wins-concession-of-five-national-highway-assets/articleshow/128118721.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Secures private investment in critical road network, enhances connectivity."
+        },
+        {
+          "rank": 15,
+          "title": "India\u2019s import bill to rise as Russian crude still 7-12% cheaper than US, gulf oil",
+          "url": "https://www.thehindubusinessline.com/data-stories/data-focus/indias-crude-import-bill-to-rise-as-russian-crude-still-cheaper-by-7-to-12-per-cent-compared-to-us-and-gulf-suppliers/article70611525.ece",
+          "source": "BusinessLine",
+          "reason": "Highlights continued cheap energy imports, impacts trade balance."
+        },
+        {
+          "rank": 16,
+          "title": "India's petroleum reserves can last 74 days in case of global turbulence: Oil Minister Hardeep Singh Puri ",
+          "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/indias-petroleum-reserves-can-last-74-days-in-case-of-global-turbulence-oil-minister-hardeep-singh-puri/articleshow/128118648.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Shows energy security buffer, informs risk management for imports."
+        },
+        {
+          "rank": 17,
+          "title": "National interests will guide country's energy sourcing decision: Foreign Secretary Vikram Misri ",
+          "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/national-interests-will-guide-countrys-energy-sourcing-decision-foreign-secretary-vikram-misri/articleshow/128122574.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Signals strategic energy policy direction, affects long-term supply planning."
+        },
+        {
+          "rank": 18,
+          "title": " NSE raises red flag on STT increase, says higher trading tax can impact market depth ",
+          "url": " https://www.etnownews.com/markets/nse-raises-red-flag-on-stt-increase-says-higher-trading-tax-can-impact-market-depth-article-153587646 ",
+          "source": "ET Now",
+          "reason": "Potential tax hike could deter trading activity, affect market liquidity."
+        },
+        {
+          "rank": 19,
+          "title": "UBS picks up entire commercial tower in Pune\u2019s Yerwada in Rs 263-crore rental deal ",
+          "url": "https://economictimes.indiatimes.com/industry/services/property-/-cstruction/ubs-picks-up-entire-commercial-tower-in-punes-yerwada-in-rs-263-crore-rental-deal/articleshow/128121448.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Major real estate transaction indicates robust commercial property demand."
+        },
+        {
+          "rank": 20,
+          "title": "Gravita India to acquire Rashtriya Metal Industries for Rs 800 crore, marking entry into copper alloys ",
+          "url": "https://economictimes.indiatimes.com/industry/indl-goods/svs/metals-mining/gravita-india-to-acquire-rashtriya-metal-industries-for-rs-800-crore-marking-entry-into-copper-alloys/articleshow/128120935.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Entry into copper recycling strengthens domestic metal supply chain."
+        }
+      ]
     }
   }
 }
