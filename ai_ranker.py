@@ -132,6 +132,11 @@ def load_articles_48h(max_articles=200):
     return articles[:max_articles]
 
 
+def sanitize_headline(title):
+    """Remove quotes and special chars that break JSON when AI echoes them back."""
+    return title.replace('"', "'").replace('\n', ' ').replace('\r', ' ').strip()
+
+
 def parse_json_response(text):
     text = text.strip()
     # Remove markdown code blocks
@@ -148,56 +153,11 @@ def parse_json_response(text):
             end = text.rfind("]")
             if end > start:
                 text = text[start:end+1]
-
-    # Try parsing as-is first
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        pass
-
     # Clean up common issues
     text = text.replace("\n", " ").replace("\r", " ")
-    text = re.sub(r',\s*]', ']', text)  # trailing comma before ]
-    text = re.sub(r',\s*}', '}', text)  # trailing comma before }
-    text = re.sub(r'\s+', ' ', text)    # normalize whitespace
-
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        pass
-
-    # Try to extract items using regex as fallback
-    items = []
-    pattern = r'\{\s*"rank"\s*:\s*(\d+)\s*,\s*"title"\s*:\s*"([^"]*(?:"[^"]*"[^"]*)*)"\s*,\s*"reason"\s*:\s*"([^"]*)"\s*\}'
-    matches = re.findall(pattern, text, re.DOTALL)
-    if matches:
-        for rank, title, reason in matches:
-            # Clean up title - remove any embedded quotes
-            title = title.replace('\\"', "'").replace('"', "'").strip()
-            reason = reason.replace('\\"', "'").replace('"', "'").strip()
-            items.append({"rank": int(rank), "title": title, "reason": reason})
-        if items:
-            return items
-
-    # Last resort: try to fix bracket mismatches
-    if text.count('[') > text.count(']'):
-        text = text + ']' * (text.count('[') - text.count(']'))
-    if text.count('{') > text.count('}'):
-        text = text + '}' * (text.count('{') - text.count('}'))
-
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError as e:
-        # If all else fails, try to salvage partial data
-        # Find the last complete item
-        last_complete = text.rfind('},')
-        if last_complete > 0:
-            partial = text[:last_complete+1] + ']'
-            try:
-                return json.loads(partial)
-            except:
-                pass
-        raise e
+    text = re.sub(r',\s*]', ']', text)
+    text = re.sub(r',\s*}', '}', text)
+    return json.loads(text)
 
 
 def call_openrouter(headlines):
@@ -207,8 +167,7 @@ def call_openrouter(headlines):
         "https://openrouter.ai/api/v1/chat/completions",
         data=json.dumps({
             "model": "nvidia/nemotron-nano-9b-v2:free",
-            "messages": [{"role": "user", "content": RANKING_PROMPT.format(headlines=headlines)}],
-            "temperature": 0.3  # Lower temperature for more consistent JSON output
+            "messages": [{"role": "user", "content": RANKING_PROMPT.format(headlines=headlines)}]
         }).encode("utf-8"),
         headers={
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
@@ -219,16 +178,7 @@ def call_openrouter(headlines):
     )
     with urllib.request.urlopen(request, timeout=120, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
-    raw_content = result["choices"][0]["message"]["content"]
-    try:
-        return parse_json_response(raw_content)
-    except json.JSONDecodeError as e:
-        # Log the raw response for debugging
-        debug_path = os.path.join(SCRIPT_DIR, "static", "ai_debug.txt")
-        with open(debug_path, "w", encoding="utf-8") as f:
-            f.write(f"Error: {str(e)}\n\n")
-            f.write(f"Raw response:\n{raw_content}")
-        raise ValueError(f"JSON parse failed: {str(e)[:100]}. See static/ai_debug.txt for raw response.")
+    return parse_json_response(result["choices"][0]["message"]["content"])
 
 
 def main():
@@ -243,8 +193,14 @@ def main():
         return
 
     print(f"\nLoaded {len(articles)} articles from last 48 hours")
-    headlines = "\n".join(f"- {a['title']}" for a in articles)
-    title_to_article = {a["title"]: a for a in articles}
+
+    # Sanitize headlines to avoid JSON parsing issues when AI echoes them back
+    sanitized_to_article = {}
+    for a in articles:
+        sanitized = sanitize_headline(a['title'])
+        sanitized_to_article[sanitized] = a
+
+    headlines = "\n".join(f"- {sanitize_headline(a['title'])}" for a in articles)
 
     providers = {"openrouter": ("OpenRouter (Nemotron)", call_openrouter)}
     results = {"generated_at": datetime.now(IST_TZ).isoformat(), "article_count": len(articles), "providers": {}}
@@ -257,11 +213,12 @@ def main():
                 rankings = rankings.get("rankings", rankings.get("items", []))
             enriched = []
             for item in rankings[:20]:
-                title = item.get("title", "")
-                article = title_to_article.get(title)
+                title = item.get("title", "").strip()
+                # Look up using sanitized title
+                article = sanitized_to_article.get(title)
                 enriched.append({
                     "rank": item.get("rank", len(enriched) + 1),
-                    "title": title,
+                    "title": article["title"] if article else title,  # Use original title
                     "url": article["url"] if article else "",
                     "source": article["source"] if article else "",
                     "reason": item.get("reason", "")
