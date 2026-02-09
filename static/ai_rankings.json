@@ -1,11 +1,153 @@
 {
-  "generated_at": "2026-02-09T09:53:12.173824+05:30",
+  "generated_at": "2026-02-09T18:39:28.020396+05:30",
   "article_count": 200,
   "providers": {
     "openrouter": {
       "name": "OpenRouter (Nemotron)",
-      "status": "error",
-      "error": "Expecting ',' delimiter: line 1 column 2052 (char 2051)"
+      "status": "ok",
+      "count": 20,
+      "rankings": [
+        {
+          "rank": 1,
+          "title": "India says it will maintain multiple sources of energy supply - Reuters",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQcThaYzloYVZCcHoxZFAteXk0U2syX29uaDNDQThvaHhuRTNhc3NoV2p2Ylc5MUMza0RRVEdydXBMcFlMU0trZE1tWW85QUl6TmtJS01hSUFaQVpicjFZV2hrYThZX3NVeFhWSEEzbUlpbXBuVUEta2tkU0wtVWgzakd4NmNMWE5NX2VHamFCRl9xeG91MDhLRFd4a19iWjJRVDZYZk5RcXRSZVU1Q0JJ?oc=5",
+          "source": "Reuters \u2014 Business",
+          "reason": "Energy diversification policy reduces import dependency and geopolitical risks."
+        },
+        {
+          "rank": 2,
+          "title": " Adani-led Ambuja Cements and Sanghi Industries merger approved by NCLT; check share ratio ",
+          "url": " https://www.etnownews.com/companies/adani-led-ambuja-cements-and-sanghi-industries-merger-approved-by-nclt-article-153586369 ",
+          "source": "ET Now \u2014 Companies",
+          "reason": "M&A reshapes cement industry structure and vertical integration."
+        },
+        {
+          "rank": 3,
+          "title": "GDP growth at 6.4%! India will continue as fastest G-20 economy; banking sector to remain resilient in FY27",
+          "url": "https://bfsi.economictimes.indiatimes.com/news/industry/gdp-growth-at-6-4-india-will-continue-as-fastest-g-20-economy-banking-sector-to-remain-resilient-in-fy27/128104942",
+          "source": "ET BFSI \u2014 Recent Stories",
+          "reason": "High growth validates structural economic reforms and investment potential."
+        },
+        {
+          "rank": 4,
+          "title": "RBI allows gold, silver pledged voluntarily for collateral-free MSE loans ",
+          "url": "https://economictimes.indiatimes.com/industry/banking/finance/banking/rbi-allows-gold-silver-pledged-voluntarily-for-collateral-free-mse-loans/articleshow/128114817.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Policy eases credit access for MSMEs, boosting manufacturing and trade."
+        },
+        {
+          "rank": 5,
+          "title": "India\u2013US Defence partnership stays firm despite trade negotiation swings, says Defence Secretary Rajesh Kumar Singh",
+          "url": "",
+          "source": "",
+          "reason": "Strategic alignment with US impacts defense procurement and foreign investment."
+        },
+        {
+          "rank": 6,
+          "title": "NCLT approves merger of Adani-led Ambuja Cements and Sanghi Industries",
+          "url": "",
+          "source": "",
+          "reason": "Consolidation alters market dynamics in cement and infrastructure sectors."
+        },
+        {
+          "rank": 7,
+          "title": "India\u2019s startup surge driven by local entrepreneurs, not returning diaspora: Study",
+          "url": "https://www.firstpost.com/business/indias-startup-surge-driven-by-local-entrepreneurs-not-returning-diaspora-study-13977927.html",
+          "source": "Firstpost \u2014 Business",
+          "reason": "Indigenous innovation signals structural shift in tech and entrepreneurship."
+        },
+        {
+          "rank": 8,
+          "title": "Steel ministry signs \u20b913,203 crore MoUs with companies under PLI 1.2",
+          "url": "",
+          "source": "",
+          "reason": "PLI-driven manufacturing push counters global supply chain shifts."
+        },
+        {
+          "rank": 9,
+          "title": "India\u2019s olee.space unveils compact AI-powered laser sniper on UGV platform",
+          "url": "https://www.thehindubusinessline.com/info-tech/indias-oleespace-unveils-compact-ai-powered-laser-sniper-on-ugv-platform/article70610146.ece",
+          "source": "BusinessLine \u2014 News",
+          "reason": "New defense tech may redefine India\u2019s military-industrial structure."
+        },
+        {
+          "rank": 10,
+          "title": "India\u2019s Russian oil imports likely to halve after White House trade order",
+          "url": "",
+          "source": "",
+          "reason": "Trade policy shift revises energy trade fundamentals and fiscal risks."
+        },
+        {
+          "rank": 11,
+          "title": "GloxoSmithKline Pharma Q3 profit up 29 pc at Rs 296 cr",
+          "url": "",
+          "source": "",
+          "reason": "Pharma innovation drive aligns with global demand for generics and biologics."
+        },
+        {
+          "rank": 12,
+          "title": "China\u2019s trade deficit from digital services rose 100%+ to $33B in 2025",
+          "url": "",
+          "source": "",
+          "reason": "Indo-China tech trade dynamics could reshape digital services policy."
+        },
+        {
+          "rank": 13,
+          "title": "India\u2019s Nifty-50: Domestic Investors Overtake Foreigners in Record Stake Shift",
+          "url": "",
+          "source": "",
+          "reason": "Sentiment shift indicates structural growth confidence in Indian markets."
+        },
+        {
+          "rank": 14,
+          "title": "Budget 2026 pushes for dedicated REITs to recycle CPSE land assets",
+          "url": "",
+          "source": "",
+          "reason": "REITs unlock value from public assets, affecting real estate investment flows."
+        },
+        {
+          "rank": 15,
+          "title": "EDGE report: Climate risks far exceed traditional economic models",
+          "url": "",
+          "source": "",
+          "reason": "Structural vulnerability to climate change impacts long-term asset value."
+        },
+        {
+          "rank": 16,
+          "title": "EPFO weighs performance-linked incentives for fund managers ",
+          "url": "https://economictimes.indiatimes.com/news/economy/policy/epfo-weighs-performance-linked-incentives-for-fund-managers/articleshow/128114444.cms",
+          "source": "Economic Times \u2014 Latest",
+          "reason": "Reforms may attract private capital to public pension schemes."
+        },
+        {
+          "rank": 17,
+          "title": "Adani Airport Holdings Ltd to begin phase-2 construction at Navi Mumbai airport",
+          "url": "",
+          "source": "",
+          "reason": "Infrastructure expansion supports logistics and industrial growth."
+        },
+        {
+          "rank": 18,
+          "title": "India could create its own Big Four audit firms as envisioned by the PM",
+          "url": "",
+          "source": "",
+          "reason": "Regulatory push for transparency affects corporate governance standards."
+        },
+        {
+          "rank": 19,
+          "title": "India\u2013US Defence partnership stays firm despite trade negotiation swings",
+          "url": "",
+          "source": "",
+          "reason": "Strategic defense ties outweigh short-term trade tensions."
+        },
+        {
+          "rank": 20,
+          "title": "IMF pegs India\u2019s FY27 growth at 6.4%: Moody\u2019s calls India \u2018Fastest among G20 nations\u2019",
+          "url": "",
+          "source": "",
+          "reason": "High growth estimate reinforces India\u2019s role in global economic rebalancing."
+        }
+      ]
     }
   }
 }
