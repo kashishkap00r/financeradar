@@ -9,12 +9,33 @@ import urllib.error
 import os
 import ssl
 import re
+import time
 from datetime import datetime, timedelta, timezone
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+
+# Free models available on OpenRouter
+MODELS = {
+    "nemotron": {
+        "id": "nvidia/llama-3.1-nemotron-nano-8b-v1:free",
+        "name": "Nemotron Nano"
+    },
+    "gemini": {
+        "id": "google/gemini-2.0-flash-thinking-exp:free",
+        "name": "Gemini 2.0 Flash"
+    },
+    "llama": {
+        "id": "meta-llama/llama-4-scout:free",
+        "name": "Llama 4 Scout"
+    },
+    "mistral": {
+        "id": "mistralai/mistral-small-3.1-24b-instruct:free",
+        "name": "Mistral Small 3.1"
+    }
+}
 
 RANKING_PROMPT = """You are a senior research analyst at a financial media company (like Zerodha's Daily Brief) curating stories for an Indian audience interested in markets, business, and economic policy.
 
@@ -160,19 +181,20 @@ def parse_json_response(text):
     return json.loads(text)
 
 
-def call_openrouter(headlines):
+def call_openrouter(headlines, model_id):
+    """Call OpenRouter API with specified model."""
     if not OPENROUTER_API_KEY:
         raise ValueError("OPENROUTER_API_KEY not set")
     request = urllib.request.Request(
         "https://openrouter.ai/api/v1/chat/completions",
         data=json.dumps({
-            "model": "nvidia/nemotron-nano-9b-v2:free",
+            "model": model_id,
             "messages": [{"role": "user", "content": RANKING_PROMPT.format(headlines=headlines)}]
         }).encode("utf-8"),
         headers={
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://financeradar.pages.dev",
+            "HTTP-Referer": "https://financeradar.kashishkapoor.com",
             "X-Title": "FinanceRadar"
         }
     )
@@ -202,13 +224,14 @@ def main():
 
     headlines = "\n".join(f"- {sanitize_headline(a['title'])}" for a in articles)
 
-    providers = {"openrouter": ("OpenRouter (Nemotron)", call_openrouter)}
     results = {"generated_at": datetime.now(IST_TZ).isoformat(), "article_count": len(articles), "providers": {}}
 
-    print(f"\nCalling AI provider...\n")
-    for key, (name, fn) in providers.items():
+    print(f"\nCalling {len(MODELS)} AI models...\n")
+    for key, model_config in MODELS.items():
+        model_id = model_config["id"]
+        model_name = model_config["name"]
         try:
-            rankings = fn(headlines)
+            rankings = call_openrouter(headlines, model_id)
             if isinstance(rankings, dict):
                 rankings = rankings.get("rankings", rankings.get("items", []))
             enriched = []
@@ -223,17 +246,19 @@ def main():
                     "source": article["source"] if article else "",
                     "reason": item.get("reason", "")
                 })
-            results["providers"][key] = {"name": name, "status": "ok", "count": len(enriched), "rankings": enriched}
-            print(f"  [OK] {name}: {len(enriched)} rankings")
+            results["providers"][key] = {"name": model_name, "status": "ok", "count": len(enriched), "rankings": enriched}
+            print(f"  [OK] {model_name}: {len(enriched)} rankings")
         except Exception as e:
-            results["providers"][key] = {"name": name, "status": "error", "error": str(e)[:200]}
-            print(f"  [FAIL] {name}: {str(e)[:200]}")
+            results["providers"][key] = {"name": model_name, "status": "error", "error": str(e)[:200]}
+            print(f"  [FAIL] {model_name}: {str(e)[:200]}")
+        # Rate limit: wait 2 seconds between calls
+        time.sleep(2)
 
     output_path = os.path.join(SCRIPT_DIR, "static", "ai_rankings.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
     print(f"\nSaved to {output_path}")
-    print(f"\nSuccess: {sum(1 for p in results['providers'].values() if p['status'] == 'ok')}/{len(providers)} providers")
+    print(f"\nSuccess: {sum(1 for p in results['providers'].values() if p['status'] == 'ok')}/{len(MODELS)} models")
     print("=" * 50)
 
 

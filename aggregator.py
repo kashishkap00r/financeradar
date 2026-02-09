@@ -1690,9 +1690,9 @@ def generate_html(article_groups):
                 </button>
             </div>
             <div class="ai-provider-select">
-                <label for="ai-provider">Provider:</label>
+                <label for="ai-provider">Model:</label>
                 <select id="ai-provider" onchange="switchAiProvider()">
-                    <option value="openrouter">OpenRouter (Nemotron)</option>
+                    <option value="">Loading...</option>
                 </select>
             </div>
             <div id="ai-rankings-content" class="sidebar-content">
@@ -2304,17 +2304,40 @@ def generate_html(article_groups):
 
         // ==================== AI RANKINGS SIDEBAR ====================
         let aiRankings = null;
-        let currentAiProvider = 'openrouter';
+        let currentAiProvider = 'nemotron';
 
         async function loadAiRankings() {
             try {
                 const res = await fetch('static/ai_rankings.json');
                 if (!res.ok) throw new Error('Rankings not found');
                 aiRankings = await res.json();
+                populateProviderDropdown();
                 renderAiRankings();
             } catch (e) {
                 document.getElementById('ai-rankings-content').innerHTML =
                     '<div class="ai-error"><div class="ai-error-title">AI Rankings Unavailable</div><div>Run ai_ranker.py to generate rankings</div></div>';
+            }
+        }
+
+        function populateProviderDropdown() {
+            const select = document.getElementById('ai-provider');
+            select.innerHTML = '';
+            if (!aiRankings || !aiRankings.providers) return;
+            const providers = Object.entries(aiRankings.providers);
+            providers.forEach(([key, p]) => {
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.textContent = p.name + (p.status !== 'ok' ? ' (unavailable)' : '');
+                if (key === currentAiProvider) opt.selected = true;
+                select.appendChild(opt);
+            });
+            // If current provider not in list, select first available
+            if (!aiRankings.providers[currentAiProvider]) {
+                const firstOk = providers.find(([k, p]) => p.status === 'ok');
+                if (firstOk) {
+                    currentAiProvider = firstOk[0];
+                    select.value = currentAiProvider;
+                }
             }
         }
 
