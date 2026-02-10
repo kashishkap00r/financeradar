@@ -29,90 +29,59 @@ MODELS = {
     }
 }
 
-RANKING_PROMPT = """You are a senior research analyst at a financial media company (like Zerodha's Daily Brief) curating stories for an Indian audience interested in markets, business, and economic policy.
+RANKING_PROMPT = """You are the editor of a daily finance newsletter modelled on Zerodha's Daily Brief. Your readers are curious, informed Indians — long-term investors, founders, policy nerds — who open the newsletter for the "aha" stories they missed, not the headlines they already saw on Twitter.
 
-Your readers are NOT day traders. They are long-term investors, policy watchers, and business professionals who want to understand structural shifts, not daily noise.
+Your job: pick the 20 best stories from the list below (last 48 hours).
 
-From these headlines (last 48 hours), select the TOP 20 most important stories.
+## WHAT TO PICK — ranked by priority
 
-## PRIORITIZE stories about:
+### Priority 1 — Explanatory / "why-how" journalism (HIGHEST)
+Stories that unpack the mechanism behind a headline. Think pieces titled "Why India's solar tariff flip matters for your power bill" or "How UPI's market-share cap could reshape fintech". If a headline promises to explain *why* something happened or *how* a system works, it almost certainly belongs.
 
-### 1. Policy & Regulatory Changes (HIGH PRIORITY)
-- RBI monetary policy, banking regulations, NBFC rules
-- SEBI market structure changes, F&O rules, disclosure norms
-- Government policy: PLI schemes, tariffs, FDI rules, labor laws
-- Sector-specific regulation: telecom, pharma, energy, fintech
-- Tax policy changes affecting businesses or investors
+### Priority 2 — Structural company / sector narratives
+Deep dives into business-model shifts, industry restructurings, M&A that redraws boundaries, or governance blow-ups. Not "Company X beats estimates" but "Company X is quietly pivoting from Y to Z — here's what it means."
 
-### 2. Structural Business & Corporate News (HIGH PRIORITY)
-- Business model shifts, pivots, or existential challenges
-- M&A deals that reshape industry structure
-- IPO filings with detailed business model insights
-- Corporate governance issues, frauds, whistleblower reports
-- Companies entering/exiting major business lines
+### Priority 3 — Commodity, supply-chain, and trade narratives with India impact
+Oil, metals, agri-commodities, logistics bottlenecks, tariff wars — but only when the story explains the chain of cause-and-effect for Indian producers or consumers. Skip pure price tickers.
 
-### 3. Macro & Fiscal Developments (HIGH PRIORITY)
-- GDP data, inflation prints, employment numbers
-- Budget announcements, fiscal deficit concerns
-- Government borrowing, bond yields, liquidity conditions
-- State-level fiscal stress or reforms
-- Current account, forex reserves, trade balance
+### Priority 4 — Major policy analysis (not announcements)
+RBI, SEBI, government policy — but only when the piece analyses *implications*, not when it merely announces the gazette notification. Prefer "What RBI's new LCR norms mean for bank lending" over "RBI issues circular on LCR."
 
-### 4. Infrastructure & Industrial Policy (MEDIUM-HIGH)
-- Energy transition: renewables, coal phase-down, grid modernization
-- Manufacturing: electronics, semiconductors, defense, auto
-- Logistics: ports, railways, highways, warehousing
-- Critical minerals, mining policy, resource nationalism
+### Priority 5 — High-quality opinion / insider analysis
+Columns, guest essays, or interviews that surface an original thesis — e.g., a former regulator explaining an under-reported risk, or a sector veteran connecting dots others miss.
 
-### 5. Commodities & Supply Chains (MEDIUM-HIGH)
-- Global commodity price shifts with India impact
-- Supply chain disruptions affecting Indian industries
-- Agricultural commodities, MSP, food inflation
-- Oil, gas, metals with structural (not daily) significance
+### Priority 6 — Labour, employment, and social-economy trends
+Stories on hiring/firing cycles, gig-economy regulation, skilling initiatives, rural consumption shifts — the human side of the economy that most market-focused feeds ignore.
 
-### 6. Geopolitics Affecting India (MEDIUM)
-- Trade deals, tariff negotiations (US, EU, UK)
-- China+1 shifts benefiting/hurting India
-- Global events affecting FII flows or trade
-- Sanctions, export controls on tech/commodities
+## HARD SKIP — always exclude
+- **All earnings / quarterly results** — even "record profit" or "revenue miss" headlines. No exceptions.
+- **Wire-style breaking news** — one-line headlines that state a fact with no analysis ("Sensex rises 300 pts", "RBI keeps repo rate unchanged", "Company X appoints new CFO").
+- **Routine regulatory filings** — board meeting notices, insider-trading disclosures, SEBI show-cause unless it's a major crackdown.
+- **Market noise** — intraday moves, FII/DII daily flow tables, broker upgrades/downgrades, "top 5 stocks to buy" listicles.
+- **Repetitive / duplicate coverage** — if five outlets report the same event, pick at most the one with the best explanatory angle.
+- **Crypto price movements** and celebrity CEO fluff.
 
-### 7. Banking & Financial Sector (MEDIUM)
-- Bank results revealing NPA trends or credit growth shifts
-- NBFC stress, liquidity issues, or regulatory action
-- Insurance, AMC, or fintech structural changes
-- Credit cycle indicators
+## DIVERSITY RULE — strictly enforced
+No more than 2–3 stories from the same topic or sector. If you have four banking stories, keep only the two most insightful. Spread picks across sectors, themes, and story types.
 
-## DEPRIORITIZE or IGNORE:
-- Daily stock price movements ("Sensex up 200 points")
-- Routine quarterly results without structural insight
-- Short-term FII/DII flow data
-- Broker upgrades/downgrades
-- Crypto price movements
-- Celebrity CEO statements without substance
-- "Top 5 stocks to buy" type content
-- Market volatility without underlying cause
+## SCOPE
+India lens only. A global story qualifies only if the piece explicitly connects it to Indian industry, policy, or consumers.
 
-## RANKING CRITERIA (in order):
-1. Structural importance: Does this change how an industry/market works?
-2. Policy signal: Does this indicate government/regulator direction?
-3. Investment relevance: Does this affect long-term capital allocation?
-4. Explanatory value: Does this help understand WHY something is happening?
-5. Timeliness: Is this genuinely new information?
-
-Headlines:
+## Headlines
 {headlines}
 
 Return ONLY a valid JSON array with exactly 20 items (no markdown, no explanation, no code blocks):
 [
-  {{"rank": 1, "title": "exact headline text from above", "reason": "15 words max explaining structural importance"}},
-  {{"rank": 2, "title": "exact headline text from above", "reason": "15 words max explaining structural importance"}},
+  {{"rank": 1, "title": "exact headline text from above"}},
+  {{"rank": 2, "title": "exact headline text from above"}},
   ...continue to rank 20...
 ]
 
 IMPORTANT:
-- Use the EXACT headline text from the list above. Do not paraphrase.
-- Prefer depth over breadth - one major policy change beats five routine updates.
-- If a story explains WHY something is happening, rank it higher than one that just reports WHAT happened."""
+- Use the EXACT headline text from the list above — do not paraphrase or add anything.
+- The headline may include a [Source Name] tag at the end. Include it exactly as shown so the match works.
+- When in doubt, pick the story that makes the reader say "I didn't know that" over the one that makes them say "I already saw that."
+- Quality over quantity: 20 genuinely interesting picks beat 30 padded ones."""
 
 
 def load_articles_48h(max_articles=200):
@@ -214,7 +183,7 @@ def main():
         sanitized = sanitize_headline(a['title'])
         sanitized_to_article[sanitized] = a
 
-    headlines = "\n".join(f"- {sanitize_headline(a['title'])}" for a in articles)
+    headlines = "\n".join(f"- {sanitize_headline(a['title'])} [{a.get('source', '')}]" for a in articles)
 
     results = {"generated_at": datetime.now(IST_TZ).isoformat(), "article_count": len(articles), "providers": {}}
 
@@ -229,14 +198,15 @@ def main():
             enriched = []
             for item in rankings[:20]:
                 title = item.get("title", "").strip()
+                # Strip echoed [Source] bracket suffix the AI may repeat
+                title = re.sub(r'\s*\[.*?\]\s*$', '', title)
                 # Look up using sanitized title
                 article = sanitized_to_article.get(title)
                 enriched.append({
                     "rank": item.get("rank", len(enriched) + 1),
                     "title": article["title"] if article else title,  # Use original title
                     "url": article["url"] if article else "",
-                    "source": article["source"] if article else "",
-                    "reason": item.get("reason", "")
+                    "source": article["source"] if article else ""
                 })
             results["providers"][key] = {"name": model_name, "status": "ok", "count": len(enriched), "rankings": enriched}
             print(f"  [OK] {model_name}: {len(enriched)} rankings")
