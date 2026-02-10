@@ -600,46 +600,51 @@ def generate_html(article_groups):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinanceRadar</title>
     <link rel="icon" href="static/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
         :root {{
             --bg-primary: #ffffff;
-            --bg-secondary: #ffffff;
-            --bg-hover: #faf7f5;
-            --text-primary: #1f1f1f;
-            --text-secondary: #4b4b4b;
-            --text-muted: #7a7a7a;
+            --bg-secondary: #f8f9fa;
+            --bg-hover: #f1f3f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a68;
+            --text-muted: #8a8aa3;
             --accent: #e14b4b;
             --accent-hover: #c73b3b;
-            --border: #e7e7e7;
-            --border-light: #e0e0e0;
-            --card-shadow: none;
+            --border: #e2e4e9;
+            --border-light: #d0d3da;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            --danger: #dc3545;
         }}
         [data-theme="light"] {{
             --bg-primary: #ffffff;
-            --bg-secondary: #ffffff;
-            --bg-hover: #faf7f5;
-            --text-primary: #1f1f1f;
-            --text-secondary: #4b4b4b;
-            --text-muted: #7a7a7a;
+            --bg-secondary: #f8f9fa;
+            --bg-hover: #f1f3f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a68;
+            --text-muted: #8a8aa3;
             --accent: #e14b4b;
             --accent-hover: #c73b3b;
-            --border: #e7e7e7;
-            --border-light: #e0e0e0;
-            --card-shadow: none;
+            --border: #e2e4e9;
+            --border-light: #d0d3da;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            --danger: #dc3545;
         }}
         [data-theme="dark"] {{
-            --bg-primary: #0f0f0f;
-            --bg-secondary: #141414;
-            --bg-hover: #1b1b1b;
-            --text-primary: #e8e8e8;
-            --text-secondary: #bdbdbd;
-            --text-muted: #9a9a9a;
+            --bg-primary: #0f1419;
+            --bg-secondary: #161b22;
+            --bg-hover: #1c2430;
+            --text-primary: #e6edf3;
+            --text-secondary: #b0bac5;
+            --text-muted: #7d8590;
             --accent: #e14b4b;
             --accent-hover: #ff6b6b;
-            --border: #262626;
-            --border-light: #2f2f2f;
-            --card-shadow: none;
+            --border: #2a3140;
+            --border-light: #363f50;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            --danger: #ff6b6b;
         }}
 
         * {{
@@ -648,24 +653,30 @@ def generate_html(article_groups):
             padding: 0;
         }}
 
+        *:focus-visible {{
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }}
+
         html {{
             scroll-behavior: smooth;
         }}
 
         body {{
-            font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
-            font-size: 15px;
+            font-size: 16px;
         }}
 
         /* Sticky Header */
         .top-bar {{
             position: sticky;
             top: 0;
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
             padding: 12px 16px;
             z-index: 100;
         }}
@@ -685,11 +696,13 @@ def generate_html(article_groups):
             white-space: nowrap;
         }}
         .logo {{
-            font-weight: 600;
-            font-size: 1.05em;
+            font-family: 'Merriweather', Georgia, serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            letter-spacing: -0.5px;
             color: var(--text-primary);
             padding-bottom: 2px;
-            border-bottom: 2px solid var(--accent);
+            border-bottom: 3px solid var(--accent);
         }}
 
         .search-box {{
@@ -703,7 +716,7 @@ def generate_html(article_groups):
             padding: 0 12px 0 34px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 8px;
             color: var(--text-primary);
             font-size: 14px;
             transition: border-color 0.2s;
@@ -727,7 +740,7 @@ def generate_html(article_groups):
             padding: 0;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 8px;
             color: var(--text-primary);
             cursor: pointer;
             transition: border-color 0.2s, background 0.2s;
@@ -766,18 +779,19 @@ def generate_html(article_groups):
 
         /* Main Content */
         .container {{
-            max-width: 860px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 16px;
         }}
 
         /* Filter Card */
         .filter-card {{
-            background: var(--bg-hover);
+            background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 12px 16px;
-            margin-bottom: 8px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            box-shadow: var(--card-shadow);
         }}
 
         /* Stats Bar */
@@ -919,7 +933,7 @@ def generate_html(article_groups):
             color: var(--text-muted);
             font-size: 13px;
             font-family: inherit;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.15s;
         }}
@@ -970,12 +984,12 @@ def generate_html(article_groups):
             background: var(--bg-primary);
             padding: 16px 0 12px 0;
             margin-top: 24px;
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid var(--border);
+            letter-spacing: 1px;
             z-index: 50;
         }}
 
@@ -985,17 +999,24 @@ def generate_html(article_groups):
 
         /* Article List */
         .article {{
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border);
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-secondary);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
         }}
         .article:hover {{
-            background: var(--bg-hover);
+            box-shadow: var(--card-shadow);
+            border-color: var(--border-light);
+            transform: translateY(-1px);
         }}
 
         .article-title {{
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.4;
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.45;
             margin-bottom: 6px;
         }}
 
@@ -1043,15 +1064,15 @@ def generate_html(article_groups):
 
         .article-description {{
             margin-top: 8px;
-            font-size: 14px;
+            font-size: 14.5px;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.55;
         }}
 
         /* Footer */
         footer {{
-            margin-top: 40px;
-            padding: 24px 0;
+            margin-top: 48px;
+            padding: 28px 0;
             border-top: 1px solid var(--border);
             text-align: center;
             font-size: 13px;
@@ -1106,7 +1127,7 @@ def generate_html(article_groups):
             padding: 0;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 8px;
             color: var(--text-primary);
             cursor: pointer;
             transition: border-color 0.2s, background 0.2s;
@@ -1157,7 +1178,7 @@ def generate_html(article_groups):
             padding: 0;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 8px;
             color: var(--text-primary);
             cursor: pointer;
             transition: border-color 0.2s, background 0.2s;
@@ -1213,6 +1234,7 @@ def generate_html(article_groups):
             flex-shrink: 0;
         }}
         .sidebar-title {{
+            font-family: 'Merriweather', Georgia, serif;
             font-size: 16px;
             font-weight: 600;
             display: flex;
@@ -1259,6 +1281,7 @@ def generate_html(article_groups):
             background: var(--bg-hover);
         }}
         .sidebar-article-title {{
+            font-family: 'Merriweather', Georgia, serif;
             font-size: 14px;
             font-weight: 500;
             line-height: 1.4;
@@ -1304,7 +1327,7 @@ def generate_html(article_groups):
             padding: 8px 12px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 8px;
             color: var(--text-secondary);
             font-size: 12px;
             cursor: pointer;
@@ -1320,8 +1343,8 @@ def generate_html(article_groups):
             color: var(--text-primary);
         }}
         .sidebar-btn.danger:hover {{
-            border-color: var(--accent);
-            color: var(--accent);
+            border-color: var(--danger);
+            color: var(--danger);
         }}
         .sidebar-btn.copied {{
             border-color: #22c55e;
@@ -1390,6 +1413,7 @@ def generate_html(article_groups):
         }}
         .rank-content a {{
             display: block;
+            font-family: 'Merriweather', Georgia, serif;
             color: var(--text-primary);
             text-decoration: none;
             font-size: 13px;
@@ -1398,11 +1422,12 @@ def generate_html(article_groups):
         .rank-content a:hover {{
             color: var(--accent);
         }}
-        .rank-reason {{
+        .rank-source {{
             display: block;
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-muted);
             margin-top: 2px;
+            opacity: 0.7;
         }}
         .ai-updated-time {{
             font-size: 11px;
@@ -1413,7 +1438,7 @@ def generate_html(article_groups):
             text-align: center;
         }}
         .ai-error-title {{
-            color: var(--accent);
+            color: var(--danger);
             font-weight: 600;
             margin-bottom: 8px;
         }}
@@ -1457,7 +1482,8 @@ def generate_html(article_groups):
             height: 40px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
             color: var(--text-secondary);
             font-size: 18px;
             cursor: pointer;
@@ -1489,7 +1515,7 @@ def generate_html(article_groups):
             color: var(--text-muted);
             background: var(--bg-secondary);
             padding: 8px 12px;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid var(--border);
             opacity: 0.7;
         }}
@@ -1588,9 +1614,16 @@ def generate_html(article_groups):
                 min-width: 120px;
             }}
 
+            .article {{
+                padding: 14px 16px;
+                margin-bottom: 10px;
+                border-radius: 8px;
+            }}
+
             .article:hover {{
                 transform: none;
                 box-shadow: none;
+                border-color: var(--border);
             }}
 
             .keyboard-hint {{
@@ -2372,7 +2405,7 @@ def generate_html(article_groups):
                     <span class="rank-num">${i + 1}</span>
                     <div class="rank-content">
                         <a href="${escapeHtml(r.url || '#')}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>
-                        <span class="rank-reason">${escapeHtml(r.reason)}</span>
+                        <span class="rank-source">${escapeHtml(r.source)}</span>
                     </div>
                     <button class="ai-bookmark-btn ${isBookmarked(r.url) ? 'bookmarked' : ''}"
                             data-url="${escapeForAttr(r.url)}" data-title="${escapeForAttr(r.title)}" data-source="${escapeForAttr(r.source)}" title="Bookmark">
