@@ -155,6 +155,70 @@ FILTER_TITLE_PATTERNS = [
     # "Sensex today" / "Nifty today" patterns
     r"(sensex|nifty)\s*today\s*:",
     r"(sensex|nifty)\s*\d+.{0,10}(sensex|nifty)\s*today",
+
+    # Corporate actions — dividends, record dates, ex-dates, buybacks, splits
+    r"dividend.*(declared|announced|record\s+date|ex.?date|payout|per\s+share|next\s+week)",
+    r"(record\s+date|ex.?date).*(dividend|bonus|split|buyback)",
+    r"(fixes?|fixed|sets?)\s+.{0,30}(record\s+date|ex.?date)",
+    r"stocks?\s*(to\s+)?go\s+ex.?date",
+    r"dividend\s+stocks?\s+today",
+    r"(stock|share)\s+split.*(announced|record|ratio)",
+    r"bonus\s+shares?\s*(announced|record|ratio|issue)",
+    r"(share|stock)\s+buyback.*(announced|opens?|closes?|record)",
+    r"board\s+meet(ing)?.*(dividend|buyback|split|bonus)",
+    r"corporate\s+announcement.*(monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
+
+    # Brokerage calls & share price targets
+    r"share\s+price\s+target",
+    r"target\s+price.*(rs|Rs|\u20b9|\$|\d)",
+    r"(brokerage|broker)s?\s*(raise|hike|cut|slash|maintain|upgrade|downgrade)",
+    r"\bBUY\s+call\b",
+    r"\bSELL\s+call\b",
+    r"reasons?\s+to\s+(BUY|SELL)\b",
+    r"(check|see)\s+target\s+price",
+    r"\d+%\s+upside",
+
+    # Quarterly results — roundups/schedules only
+    r"Q[1-4]\s*FY\s*\d{2,4}\s*results?",
+    r"Q[1-4]FY\s*\d{2,4}\s*results?",
+    r"Q[1-4]\s*results?\s*FY\s*\d{2,4}",
+    r"Q[1-4]\s*results?\s*next\s*week",
+    r"Q[1-4]\s*results?\s*preview",
+    r"shares?\s*(surge|jump|rise|drop|fall|slip|climb)\s+.{0,30}(Q[1-4]\s*results?|strong\s+results?|weak\s+results?)",
+
+    # Personal finance clickbait
+    r"(SIP|PPF|NPS|FD|fixed deposit)\s+vs\s+(SIP|PPF|NPS|FD|fixed deposit)",
+    r"(best|top|highest)\s+.{0,15}(FD|fixed deposit)\s+(rate|interest)",
+    r"(best|top|highest)\s+.{0,15}savings?\s+account\s+.{0,15}(rate|interest)",
+    r"how\s+(much|to)\s+.{0,30}(corpus|retire|retirement|pension|wealth\s+creat)",
+    r"(tax\s+saving|save\s+tax).*(tips?|schemes?|options?|ways?)",
+    r"(gold|silver)\s+.{0,15}(city.?wise|rate|price).*(check|today)",
+    r"how\s+pure\s+is\s+your\s+(gold|silver)",
+    r"(buying|buy)\s+gold.*(sell|selling).*(india|profit|return)",
+
+    # Government salary / pay commission noise
+    r"\d+(th|st|nd|rd)\s+pay\s+commission",
+    r"(DA|dearness\s+allowance)\s+(hike|increase|announcement|calculation)",
+    r"(salary|arrears?).*(central\s+govt|government\s+employee)",
+
+    # Penny stocks & celebrity net worth
+    r"penny\s+stock",
+    r"here.?s?\s+(his|her|their)\s+net\s+worth",
+    r"(net\s+worth).*(richest|billionaire|millionaire)",
+    r"who\s+is\s+.{0,40}(owner|richest|net\s+worth)",
+
+    # Event promotions
+    r"(investment\s+summit|business\s+summit)\s*\d{4}",
+    r"ETNow\s*.{0,5}\s*(summit|event)",
+    r"Global\s+Business\s+Summit\s+\d{4}",
+
+    # Video tags in titles (ET Now pattern)
+    r"\|\s*Video\s*$",
+    r"\bWatch\s+Video\s*$",
+
+    # Gold/silver price movements
+    r"(gold|silver)\s+(price|rate)\s+(falls?|rises?|drops?|surges?|crashes?|slips?|jumps?)",
+    r"(gold|silver)\s+at\s+(rs|Rs|\u20b9)",
 ]
 
 # URL patterns to filter (case-insensitive, substring match)
@@ -178,6 +242,11 @@ FILTER_URL_PATTERNS = [
     "/fashion",
     "/entertainment",
     "downtoearth.org.in/food",
+    "etnownews.com/technology",
+    "etnownews.com/personal-finance",
+    "/personal-finance/",
+    "/lifestyle",
+    "/multimedia/audio/",
 ]
 
 # Compile regex patterns for performance
