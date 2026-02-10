@@ -4,14 +4,16 @@
     "name": "ADB — Features",
     "url": "https://www.adb.org/",
     "feed": "https://feeds.feedburner.com/adb_features",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "ADB"
   },
   {
     "id": "adb-org-publications-rss",
     "name": "ADB — Publications",
     "url": "https://www.adb.org/",
     "feed": "https://feeds.feedburner.com/adb_publications",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "ADB"
   },
   {
     "id": "asia-news-cnbc",
@@ -19,14 +21,15 @@
     "url": "https://www.cnbc.com/asia-news/",
     "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19832390",
     "category": "News",
-    "publisher": "Global"
+    "publisher": "CNBC"
   },
   {
     "id": "bbc-news-business",
     "name": "BBC News — Business",
     "url": "https://www.bbc.co.uk/news/business",
     "feed": "https://feeds.bbci.co.uk/news/business/rss.xml?edition=int",
-    "category": "News"
+    "category": "News",
+    "publisher": "BBC"
   },
   {
     "id": "et-bfsi-editors-view",
@@ -58,7 +61,7 @@
     "url": "https://businessstandard.substack.com",
     "feed": "https://businessstandard.substack.com/feed",
     "category": "Ideas",
-    "publisher": "BS"
+    "publisher": "BS Number Wise"
   },
   {
     "id": "businessline-companies-rss-feeder",
@@ -81,56 +84,64 @@
     "name": "Data For India — Data",
     "url": "https://www.dataforindia.com/",
     "feed": "https://www.dataforindia.com/rss/",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "Data For India"
   },
   {
     "id": "downtoearth",
     "name": "downtoearth",
     "url": "https://www.downtoearth.org.in",
     "feed": "https://prod-qt-images.s3.amazonaws.com/production/downtoearth/feed.xml",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "Down To Earth"
   },
   {
     "id": "ecb-statpress",
     "name": "ECB — Statistical Press",
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/statpress.html",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "ECB"
   },
   {
     "id": "ecb-wppub",
     "name": "ECB — Working Papers",
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/wppub.html",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "ECB"
   },
   {
     "id": "ecb-blog",
     "name": "ECB — Blog",
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/blog.html",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "ECB"
   },
   {
     "id": "ecb-press",
     "name": "ECB — Press",
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/press.html",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "ECB"
   },
   {
     "id": "ecb-rbu",
     "name": "ECB — Research Bulletin",
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/rbu.html",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "ECB"
   },
   {
     "id": "ecb-pub",
     "name": "ECB — Publications",
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/pub.html",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "ECB"
   },
   {
     "id": "economic-times-default",
@@ -162,7 +173,7 @@
     "url": "https://www.cnbc.com/economy/",
     "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
     "category": "News",
-    "publisher": "Global"
+    "publisher": "CNBC"
   },
   {
     "id": "economic-times-economy-news",
@@ -209,7 +220,8 @@
     "name": "Finance & economics",
     "url": "https://www.economist.com/finance-and-economics",
     "feed": "https://www.economist.com/finance-and-economics/rss.xml",
-    "category": "News"
+    "category": "News",
+    "publisher": "The Economist"
   },
   {
     "id": "economic-times-finance-economy",
@@ -224,7 +236,8 @@
     "name": "The Guardian — Business",
     "url": "https://www.theguardian.com/business/global-economy",
     "feed": "https://www.theguardian.com/business/global-economy/rss",
-    "category": "News"
+    "category": "News",
+    "publisher": "The Guardian"
   },
   {
     "id": "businessline-all",
@@ -239,21 +252,24 @@
     "name": "ADB — Blogs",
     "url": "https://www.adb.org/",
     "feed": "https://feeds.feedburner.com/adb_blogs",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "ADB"
   },
   {
     "id": "adb-org-research-publications",
     "name": "ADB — Research Publications",
     "url": "https://www.adb.org/",
     "feed": "https://feeds.feedburner.com/research-publications",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "ADB"
   },
   {
     "id": "india-dispatch",
     "name": "India Dispatch",
     "url": "https://indiadispatch.com",
     "feed": "https://indiadispatch.com/feed",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "India Dispatch"
   },
   {
     "id": "the-hindu-industry",
@@ -396,14 +412,16 @@
     "name": "Rest of World",
     "url": "https://restofworld.org",
     "feed": "https://restofworld.org/feed/latest/",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "Rest of World"
   },
   {
     "id": "sebi-rss",
     "name": "SEBI — Press Releases",
     "url": "https://www.sebi.gov.in/sebirss.xml",
     "feed": "https://www.sebi.gov.in/sebirss.xml",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "SEBI"
   },
   {
     "id": "the-hindu-markets",
@@ -426,28 +444,32 @@
     "name": "This Week In Data — Data",
     "url": "https://thisweekindata.indiadatahub.com",
     "feed": "https://thisweekindata.indiadatahub.com/feed",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "This Week In Data"
   },
   {
     "id": "a-wealth-of-common-sense",
     "name": "A Wealth of Common Sense",
     "url": "https://awealthofcommonsense.com",
     "feed": "http://awealthofcommonsense.com/feed/",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "A Wealth of Common Sense"
   },
   {
     "id": "fred-blog",
     "name": "FRED Blog",
     "url": "https://fredblog.stlouisfed.org",
     "feed": "http://fredblog.stlouisfed.org/feed/",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "FRED"
   },
   {
     "id": "musings-on-markets-substack",
     "name": "Musings on Markets — Markets",
     "url": "https://aswathdamodaran.substack.com",
     "feed": "https://aswathdamodaran.substack.com/feed",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "Musings on Markets"
   },
   {
     "id": "businessline-editorial",
@@ -478,56 +500,64 @@
     "name": "Our World in Data",
     "url": "https://ourworldindata.org",
     "feed": "https://ourworldindata.org/atom.xml",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "Our World in Data"
   },
   {
     "id": "our-world-in-data-insights",
     "name": "Our World in Data — Data Insights",
     "url": "https://ourworldindata.org/data-insights",
     "feed": "https://ourworldindata.org/atom-data-insights.xml",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "Our World in Data"
   },
   {
     "id": "rbi-press-releases",
     "name": "RBI — Press Releases",
     "url": "http://www.rbi.org.in",
     "feed": "https://www.rbi.org.in/pressreleases_rss.xml",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "RBI"
   },
   {
     "id": "rbi-notifications",
     "name": "RBI — Notifications",
     "url": "http://www.rbi.org.in",
     "feed": "https://rbi.org.in/notifications_rss.xml",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "RBI"
   },
   {
     "id": "rbi-speeches",
     "name": "RBI — Speeches",
     "url": "http://www.rbi.org.in",
     "feed": "https://rbi.org.in/speeches_rss.xml",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "RBI"
   },
   {
     "id": "rbi-publications",
     "name": "RBI — Publications",
     "url": "http://www.rbi.org.in",
     "feed": "https://rbi.org.in/Publication_rss.xml",
-    "category": "Institutions"
+    "category": "Institutions",
+    "publisher": "RBI"
   },
   {
     "id": "techmeme",
     "name": "Techmeme",
     "url": "http://www.techmeme.com/",
     "feed": "https://www.techmeme.com/feed.xml",
-    "category": "News"
+    "category": "News",
+    "publisher": "Techmeme"
   },
   {
     "id": "by-the-numbers",
     "name": "By the Numbers",
     "url": "https://hannahritchie.substack.com",
     "feed": "https://hannahritchie.substack.com/feed",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "By the Numbers"
   },
   {
     "id": "ft-india",
@@ -535,14 +565,15 @@
     "url": "https://www.ft.com/india",
     "feed": "https://www.ft.com/india?format=rss",
     "category": "News",
-    "publisher": "Global"
+    "publisher": "Financial Times"
   },
   {
     "id": "carbon-brief",
     "name": "Carbon Brief",
     "url": "https://www.carbonbrief.org",
     "feed": "https://www.carbonbrief.org/feed/",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "Carbon Brief"
   },
   {
     "id": "business-standard-india",
@@ -550,7 +581,7 @@
     "url": "https://www.business-standard.com/india-news",
     "feed": "https://news.google.com/rss/search?q=site:business-standard.com/india-news&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
-    "publisher": "BS"
+    "publisher": "Business Standard"
   },
   {
     "id": "business-standard-industry",
@@ -558,7 +589,7 @@
     "url": "https://www.business-standard.com/industry",
     "feed": "https://news.google.com/rss/search?q=site:business-standard.com/industry&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
-    "publisher": "BS"
+    "publisher": "Business Standard"
   },
   {
     "id": "business-standard-companies",
@@ -566,7 +597,7 @@
     "url": "https://www.business-standard.com/companies",
     "feed": "https://news.google.com/rss/search?q=site:business-standard.com/companies&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
-    "publisher": "BS"
+    "publisher": "Business Standard"
   },
   {
     "id": "business-standard-economy",
@@ -574,7 +605,7 @@
     "url": "https://www.business-standard.com/economy",
     "feed": "https://news.google.com/rss/search?q=site:business-standard.com/economy&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
-    "publisher": "BS"
+    "publisher": "Business Standard"
   },
   {
     "id": "reuters-india",
@@ -582,7 +613,7 @@
     "url": "https://www.reuters.com/world/india/",
     "feed": "https://news.google.com/rss/search?q=site:reuters.com/world/india&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
-    "publisher": "Global"
+    "publisher": "Reuters"
   },
   {
     "id": "reuters-business",
@@ -590,7 +621,7 @@
     "url": "https://www.reuters.com/business/",
     "feed": "https://news.google.com/rss/search?q=site:reuters.com/business&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
-    "publisher": "Global"
+    "publisher": "Reuters"
   },
   {
     "id": "ft-indian-business-finance",
@@ -598,28 +629,31 @@
     "url": "https://www.ft.com/indian-business-finance",
     "feed": "https://www.ft.com/indian-business-finance?format=rss",
     "category": "News",
-    "publisher": "Global"
+    "publisher": "Financial Times"
   },
   {
     "id": "the-ken",
     "name": "The Ken",
     "url": "https://the-ken.com",
     "feed": "https://the-ken.com/feed/",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "The Ken"
   },
   {
     "id": "the-morning-context",
     "name": "The Morning Context",
     "url": "https://themorningcontext.com",
     "feed": "https://news.google.com/rss/search?q=site:themorningcontext.com&hl=en-IN&gl=IN&ceid=IN:en",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "The Morning Context"
   },
   {
     "id": "the-leap-blog",
     "name": "The LEAP Blog",
     "url": "https://blog.theleapjournal.org",
     "feed": "https://blog.theleapjournal.org/feeds/posts/default?alt=rss",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "The LEAP Blog"
   },
   {
     "id": "bloomberg-economics",
@@ -627,7 +661,7 @@
     "url": "https://www.bloomberg.com/economics",
     "feed": "https://feeds.bloomberg.com/economics/news.rss",
     "category": "News",
-    "publisher": "Global"
+    "publisher": "Bloomberg"
   },
   {
     "id": "bloomberg-india",
@@ -635,90 +669,102 @@
     "url": "https://www.bloomberg.com/india",
     "feed": "https://news.google.com/rss/search?q=site:bloomberg.com+india&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
-    "publisher": "Global"
+    "publisher": "Bloomberg"
   },
   {
     "id": "alphaecon-substack",
     "name": "AlphaEcon",
     "url": "https://dhananjaysinha1.substack.com",
     "feed": "https://dhananjaysinha1.substack.com/feed",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "AlphaEcon"
   },
   {
     "id": "filtercoffee-substack",
     "name": "Filter Coffee",
     "url": "https://filtercoffee.substack.com",
     "feed": "https://filtercoffee.substack.com/feed",
-    "category": "News"
+    "category": "News",
+    "publisher": "Filter Coffee"
   },
   {
     "id": "finshots",
     "name": "Finshots",
     "url": "https://finshots.in",
     "feed": "https://finshots.in/feed/",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "Finshots"
   },
   {
     "id": "marketbites-substack",
     "name": "Market Bites",
     "url": "https://marketbites.substack.com",
     "feed": "https://marketbites.substack.com/feed",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "Market Bites"
   },
   {
     "id": "capitalquill-substack",
     "name": "Capital Quill",
     "url": "https://capitalquill.substack.com",
     "feed": "https://capitalquill.substack.com/feed",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "Capital Quill"
   },
   {
     "id": "soic-substack",
     "name": "SOIC",
     "url": "https://soic.substack.com",
     "feed": "https://soic.substack.com/feed",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "SOIC"
   },
   {
     "id": "soic-wisdom-board-substack",
     "name": "SOIC Wisdom Board",
     "url": "https://soicwisdomboard.substack.com",
     "feed": "https://soicwisdomboard.substack.com/feed",
-    "category": "Ideas"
+    "category": "Ideas",
+    "publisher": "SOIC"
   },
   {
     "id": "theprint-economy",
     "name": "ThePrint — Economy",
     "url": "https://theprint.in/category/economy/",
     "feed": "https://theprint.in/category/economy/feed/",
-    "category": "News"
+    "category": "News",
+    "publisher": "ThePrint"
   },
   {
     "id": "firstpost-business",
     "name": "Firstpost — Business",
     "url": "https://www.firstpost.com/business",
     "feed": "https://www.firstpost.com/commonfeeds/v1/mfp/rss/business.xml",
-    "category": "News"
+    "category": "News",
+    "publisher": "Firstpost"
   },
   {
     "id": "indian-express-business",
     "name": "Indian Express — Business",
     "url": "https://indianexpress.com/section/business/",
     "feed": "https://indianexpress.com/section/business/feed/",
-    "category": "News"
+    "category": "News",
+    "publisher": "Indian Express"
   },
   {
     "id": "thecore-economy",
     "name": "The Core — Economy",
     "url": "https://www.thecore.in/economy",
     "feed": "https://www.thecore.in/category/economy/google_feeds.xml",
-    "category": "News"
+    "category": "News",
+    "publisher": "The Core"
   },
   {
     "id": "thecore-business",
     "name": "The Core — Business",
     "url": "https://www.thecore.in/business",
     "feed": "https://www.thecore.in/category/business/google_feeds.xml",
-    "category": "News"
+    "category": "News",
+    "publisher": "The Core"
   }
 ]

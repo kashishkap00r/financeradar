@@ -659,6 +659,21 @@ def generate_html(article_groups):
     # Get unique sources for filter dropdown
     sources = sorted(set(a['source'] for a in sorted_articles))
 
+    # Get unique publishers for multi-select dropdown
+    all_publishers = sorted(set(a['publisher'] for a in sorted_articles if a.get('publisher')))
+
+    # Publisher presets
+    publisher_presets = {
+        "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Techmeme"],
+        "World Desk": ["BBC", "CNBC", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World"],
+        "Indie Voices": ["Finshots", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data"],
+        "Official Channels": ["RBI", "SEBI", "ECB", "ADB", "FRED", "PIB"]
+    }
+
+    # JSON for injection into script
+    all_publishers_json = json.dumps(all_publishers)
+    publisher_presets_json = json.dumps(publisher_presets)
+
     # Count in-focus articles (covered by multiple sources)
     in_focus_count = sum(1 for g in sorted_groups if g["related_sources"])
 
@@ -946,34 +961,160 @@ def generate_html(article_groups):
             color: var(--text-muted);
         }}
 
-        /* Category Links */
-        .category-links {{
+        /* Preset Buttons */
+        .preset-row {{
             display: flex;
             align-items: center;
             gap: 8px;
             padding: 6px 0;
-            font-size: 13px;
             flex-wrap: wrap;
         }}
-        .filter-label {{
-            color: var(--text-muted);
-            margin-right: 4px;
-        }}
-        .category-link {{
+        .preset-btn {{
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            background: transparent;
             color: var(--text-secondary);
-            text-decoration: none;
-            padding-bottom: 2px;
-            transition: color 0.15s;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
         }}
-        .category-link:hover {{
+        .preset-btn:hover {{
+            border-color: var(--accent);
+            color: var(--accent);
+        }}
+        .preset-btn.active {{
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }}
+        .preset-btn.partial {{
+            background: transparent;
+            border-color: var(--accent);
+            color: var(--accent);
+        }}
+
+        /* Publisher Dropdown */
+        .publisher-dropdown {{
+            position: relative;
+            padding: 4px 0;
+        }}
+        .publisher-dropdown-trigger {{
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }}
+        .publisher-dropdown-trigger:hover {{
+            border-color: var(--accent);
+            color: var(--accent);
+        }}
+        .publisher-dropdown-trigger.has-selection {{
+            border-color: var(--accent);
+            color: var(--accent);
+        }}
+        .dropdown-arrow {{
+            font-size: 10px;
+            transition: transform 0.15s;
+        }}
+        .publisher-dropdown.open .dropdown-arrow {{
+            transform: rotate(180deg);
+        }}
+        .publisher-dropdown-panel {{
+            display: none;
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0;
+            z-index: 100;
+            min-width: 260px;
+            max-width: 320px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            overflow: hidden;
+        }}
+        .publisher-dropdown.open .publisher-dropdown-panel {{
+            display: block;
+        }}
+        .dropdown-search {{
+            width: 100%;
+            padding: 10px 14px;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-primary);
             color: var(--text-primary);
+            font-family: inherit;
+            font-size: 13px;
+            outline: none;
+            box-sizing: border-box;
         }}
-        .category-link.active {{
-            color: var(--text-primary);
-            border-bottom: 2px solid var(--accent);
-        }}
-        .category-sep {{
+        .dropdown-search::placeholder {{
             color: var(--text-muted);
+        }}
+        .dropdown-actions {{
+            display: flex;
+            gap: 12px;
+            padding: 8px 14px;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+        }}
+        .dropdown-action {{
+            color: var(--accent);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 12px;
+            padding: 0;
+        }}
+        .dropdown-action:hover {{
+            text-decoration: underline;
+        }}
+        .dropdown-list {{
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 4px 0;
+        }}
+        .dropdown-item {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--text-primary);
+            transition: background 0.1s;
+        }}
+        .dropdown-item:hover {{
+            background: var(--bg-hover);
+        }}
+        .dropdown-item.hidden {{
+            display: none;
+        }}
+        .dropdown-item input[type="checkbox"] {{
+            accent-color: var(--accent);
+            cursor: pointer;
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }}
+        .dropdown-item label {{
+            cursor: pointer;
+            flex: 1;
+            user-select: none;
         }}
 
         /* Pagination */
@@ -1634,35 +1775,6 @@ def generate_html(article_groups):
             margin-left: 8px;
         }}
 
-        /* Publisher text links */
-        .publisher-links {{
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 0;
-            font-size: 13px;
-            flex-wrap: wrap;
-        }}
-        .publisher-label {{
-            color: var(--text-muted);
-            margin-right: 4px;
-        }}
-        .publisher-link {{
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding-bottom: 2px;
-            transition: color 0.15s;
-        }}
-        .publisher-link:hover {{
-            color: var(--text-primary);
-        }}
-        .publisher-link.active {{
-            color: var(--text-primary);
-            border-bottom: 2px solid var(--accent);
-        }}
-        .publisher-sep {{
-            color: var(--text-muted);
-        }}
 
         /* Responsive */
         @media (max-width: 640px) {{
@@ -1679,8 +1791,17 @@ def generate_html(article_groups):
                 flex: 1;
             }}
 
-            #source-filter {{
-                min-width: 120px;
+            .preset-row {{
+                gap: 6px;
+            }}
+            .preset-btn {{
+                font-size: 12px;
+                padding: 4px 10px;
+            }}
+            .publisher-dropdown-panel {{
+                min-width: 240px;
+                max-width: calc(100vw - 32px);
+                right: auto;
             }}
 
             .article {{
@@ -1825,28 +1946,26 @@ def generate_html(article_groups):
                 <span class="update-time" id="update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
             </div>
 
-            <div class="category-links" id="category-tabs">
-                <span class="filter-label">Category:</span>
-                <a href="#" class="category-link" data-category="news" onclick="toggleCategory('news'); return false;">News</a>
-                <span class="category-sep">·</span>
-                <a href="#" class="category-link" data-category="institutions" onclick="toggleCategory('institutions'); return false;">Institutions</a>
-                <span class="category-sep">·</span>
-                <a href="#" class="category-link" data-category="ideas" onclick="toggleCategory('ideas'); return false;">Ideas</a>
+            <div class="preset-row" id="preset-row">
+                <button class="preset-btn" data-preset="India Desk" onclick="togglePreset('India Desk')">India Desk</button>
+                <button class="preset-btn" data-preset="World Desk" onclick="togglePreset('World Desk')">World Desk</button>
+                <button class="preset-btn" data-preset="Indie Voices" onclick="togglePreset('Indie Voices')">Indie Voices</button>
+                <button class="preset-btn" data-preset="Official Channels" onclick="togglePreset('Official Channels')">Official Channels</button>
             </div>
 
-            <div class="publisher-links">
-                <span class="publisher-label">Publisher:</span>
-                <a href="#" class="publisher-link" data-publisher="ET" onclick="togglePublisher('ET'); return false;">ET</a>
-                <span class="publisher-sep">·</span>
-                <a href="#" class="publisher-link" data-publisher="The Hindu" onclick="togglePublisher('The Hindu'); return false;">The Hindu</a>
-                <span class="publisher-sep">·</span>
-                <a href="#" class="publisher-link" data-publisher="BusinessLine" onclick="togglePublisher('BusinessLine'); return false;">BusinessLine</a>
-                <span class="publisher-sep">·</span>
-                <a href="#" class="publisher-link" data-publisher="BS" onclick="togglePublisher('BS'); return false;">BS</a>
-                <span class="publisher-sep">·</span>
-                <a href="#" class="publisher-link" data-publisher="Mint" onclick="togglePublisher('Mint'); return false;">Mint</a>
-                <span class="publisher-sep">·</span>
-                <a href="#" class="publisher-link" data-publisher="Global" onclick="togglePublisher('Global'); return false;">Global</a>
+            <div class="publisher-dropdown" id="publisher-dropdown">
+                <button class="publisher-dropdown-trigger" id="publisher-trigger" onclick="toggleDropdown()">
+                    <span id="publisher-summary">All publishers</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="publisher-dropdown-panel" id="publisher-panel">
+                    <input type="text" class="dropdown-search" id="dropdown-search" placeholder="Search publishers..." oninput="filterPublisherList()">
+                    <div class="dropdown-actions">
+                        <button class="dropdown-action" onclick="selectAllPublishers()">Select All</button>
+                        <button class="dropdown-action" onclick="clearAllPublishers()">Clear All</button>
+                    </div>
+                    <div class="dropdown-list" id="dropdown-list"></div>
+                </div>
             </div>
 
             <div class="in-focus-row">
@@ -1942,6 +2061,12 @@ def generate_html(article_groups):
     </div>
 
     <script>
+"""
+    # Inject publisher data as JSON
+    html += f"""        const ALL_PUBLISHERS = {all_publishers_json};
+        const PUBLISHER_PRESETS = {publisher_presets_json};
+"""
+    html += """
         // Theme toggle (persisted)
         const safeStorage = {
             get(key) {
@@ -1971,10 +2096,141 @@ def generate_html(article_groups):
         initTheme();
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
-        // Search, category, publisher, and In Focus filter
-        let currentCategory = '';
-        let currentPublisher = '';
+        // Multi-select publisher filter
+        let selectedPublishers = new Set();
         let inFocusOnly = false;
+
+        function initPublisherDropdown() {
+            const list = document.getElementById('dropdown-list');
+            list.innerHTML = '';
+            ALL_PUBLISHERS.forEach(pub => {
+                const item = document.createElement('div');
+                item.className = 'dropdown-item';
+                item.dataset.publisher = pub;
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.id = 'pub-' + pub.replace(/\\s+/g, '-');
+                cb.dataset.publisher = pub;
+                cb.addEventListener('change', () => onPublisherCheckChange(pub, cb.checked));
+                const lbl = document.createElement('label');
+                lbl.htmlFor = cb.id;
+                lbl.textContent = pub;
+                item.appendChild(cb);
+                item.appendChild(lbl);
+                item.addEventListener('click', (e) => {
+                    if (e.target !== cb) {
+                        cb.checked = !cb.checked;
+                        onPublisherCheckChange(pub, cb.checked);
+                    }
+                });
+                list.appendChild(item);
+            });
+        }
+
+        function toggleDropdown() {
+            const dd = document.getElementById('publisher-dropdown');
+            dd.classList.toggle('open');
+            if (dd.classList.contains('open')) {
+                document.getElementById('dropdown-search').focus();
+            }
+        }
+
+        function closeDropdown() {
+            document.getElementById('publisher-dropdown').classList.remove('open');
+            document.getElementById('dropdown-search').value = '';
+            filterPublisherList();
+        }
+
+        function filterPublisherList() {
+            const query = document.getElementById('dropdown-search').value.toLowerCase();
+            document.querySelectorAll('#dropdown-list .dropdown-item').forEach(item => {
+                const pub = item.dataset.publisher.toLowerCase();
+                item.classList.toggle('hidden', query && !pub.includes(query));
+            });
+        }
+
+        function selectAllPublishers() {
+            selectedPublishers.clear();
+            syncCheckboxes();
+            syncPresetButtons();
+            updatePublisherSummary();
+            filterArticles();
+        }
+
+        function clearAllPublishers() {
+            selectedPublishers.clear();
+            syncCheckboxes();
+            syncPresetButtons();
+            updatePublisherSummary();
+            filterArticles();
+        }
+
+        function onPublisherCheckChange(pub, checked) {
+            if (checked) {
+                selectedPublishers.add(pub);
+            } else {
+                selectedPublishers.delete(pub);
+            }
+            syncPresetButtons();
+            updatePublisherSummary();
+            filterArticles();
+        }
+
+        function syncCheckboxes() {
+            document.querySelectorAll('#dropdown-list input[type="checkbox"]').forEach(cb => {
+                cb.checked = selectedPublishers.has(cb.dataset.publisher);
+            });
+        }
+
+        function togglePreset(name) {
+            const pubs = PUBLISHER_PRESETS[name];
+            if (!pubs) return;
+            const allSelected = pubs.every(p => selectedPublishers.has(p));
+            if (allSelected) {
+                pubs.forEach(p => selectedPublishers.delete(p));
+            } else {
+                pubs.forEach(p => selectedPublishers.add(p));
+            }
+            syncCheckboxes();
+            syncPresetButtons();
+            updatePublisherSummary();
+            filterArticles();
+        }
+
+        function syncPresetButtons() {
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                const name = btn.dataset.preset;
+                const pubs = PUBLISHER_PRESETS[name];
+                if (!pubs) return;
+                const selected = pubs.filter(p => selectedPublishers.has(p));
+                if (selectedPublishers.size === 0) {
+                    btn.classList.remove('active', 'partial');
+                } else if (selected.length === pubs.length) {
+                    btn.classList.add('active');
+                    btn.classList.remove('partial');
+                } else if (selected.length > 0) {
+                    btn.classList.remove('active');
+                    btn.classList.add('partial');
+                } else {
+                    btn.classList.remove('active', 'partial');
+                }
+            });
+        }
+
+        function updatePublisherSummary() {
+            const el = document.getElementById('publisher-summary');
+            const trigger = document.getElementById('publisher-trigger');
+            if (selectedPublishers.size === 0) {
+                el.textContent = 'All publishers';
+                trigger.classList.remove('has-selection');
+            } else if (selectedPublishers.size === 1) {
+                el.textContent = [...selectedPublishers][0];
+                trigger.classList.add('has-selection');
+            } else {
+                el.textContent = selectedPublishers.size + ' of ' + ALL_PUBLISHERS.length + ' publishers';
+                trigger.classList.add('has-selection');
+            }
+        }
 
         function filterArticles() {
             const query = document.getElementById('search').value.toLowerCase();
@@ -1983,14 +2239,12 @@ def generate_html(article_groups):
 
             articles.forEach(article => {
                 const text = article.textContent.toLowerCase();
-                const category = article.dataset.category || '';
                 const publisher = article.dataset.publisher || '';
                 const isInFocus = article.dataset.inFocus === 'true';
                 const matchesSearch = !query || text.includes(query);
-                const matchesCategory = !currentCategory || category === currentCategory;
-                const matchesPublisher = !currentPublisher || publisher === currentPublisher;
+                const matchesPublisher = selectedPublishers.size === 0 || selectedPublishers.has(publisher);
                 const matchesInFocus = !inFocusOnly || isInFocus;
-                article.classList.toggle('hidden', !(matchesSearch && matchesCategory && matchesPublisher && matchesInFocus));
+                article.classList.toggle('hidden', !(matchesSearch && matchesPublisher && matchesInFocus));
             });
 
             // Hide empty date headers
@@ -2011,43 +2265,34 @@ def generate_html(article_groups):
             applyPagination();
         }
 
-        // Toggle category (click again to deselect)
-        function toggleCategory(category) {
-            if (currentCategory === category) {
-                currentCategory = ''; // deselect = show all
-            } else {
-                currentCategory = category;
-            }
-
-            // Update active state
-            document.querySelectorAll('.category-link').forEach(link => {
-                link.classList.toggle('active', link.dataset.category === currentCategory);
-            });
-
-            filterArticles();
-        }
-
-        // Toggle publisher (click again to deselect)
-        function togglePublisher(publisher) {
-            if (currentPublisher === publisher) {
-                currentPublisher = ''; // deselect = show all
-            } else {
-                currentPublisher = publisher;
-            }
-
-            // Update active state
-            document.querySelectorAll('.publisher-link').forEach(link => {
-                link.classList.toggle('active', link.dataset.publisher === currentPublisher);
-            });
-
-            filterArticles();
-        }
-
         function toggleInFocus() {
             inFocusOnly = !inFocusOnly;
             document.getElementById('in-focus-toggle').classList.toggle('active', inFocusOnly);
             filterArticles();
         }
+
+        // Close dropdown on outside click
+        document.addEventListener('click', (e) => {
+            const dd = document.getElementById('publisher-dropdown');
+            if (dd.classList.contains('open') && !dd.contains(e.target)) {
+                closeDropdown();
+            }
+        });
+
+        // Close dropdown on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const dd = document.getElementById('publisher-dropdown');
+                if (dd.classList.contains('open')) {
+                    closeDropdown();
+                    e.stopImmediatePropagation();
+                    return;
+                }
+            }
+        });
+
+        // Initialize publisher dropdown
+        initPublisherDropdown();
 
         // Pagination
         const PAGE_SIZE = 20;
@@ -2221,7 +2466,6 @@ def generate_html(article_groups):
                 document.getElementById('search').focus();
             } else if (e.key === 'Escape') {
                 document.getElementById('search').value = '';
-                document.getElementById('source-filter').value = '';
                 filterArticles();
             }
         });
@@ -2570,7 +2814,11 @@ def generate_html(article_groups):
     </script>
 </body>
 </html>
-""".replace("{source_count}", str(len(sources))).replace("{in_focus_count}", str(in_focus_count))
+"""
+    # Apply template replacements
+    html = html.replace("{source_count}", str(len(sources)))
+    html = html.replace("{in_focus_count}", str(in_focus_count))
+    html = html.replace("{today_iso}", today_iso)
 
     try:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
