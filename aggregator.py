@@ -664,8 +664,8 @@ def generate_html(article_groups):
 
     # Publisher presets
     publisher_presets = {
-        "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Techmeme"],
-        "World Desk": ["BBC", "CNBC", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World"],
+        "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core"],
+        "World Desk": ["BBC", "CNBC", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World", "Techmeme"],
         "Indie Voices": ["Finshots", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data"],
         "Official Channels": ["RBI", "SEBI", "ECB", "ADB", "FRED", "PIB"]
     }
@@ -961,8 +961,8 @@ def generate_html(article_groups):
             color: var(--text-muted);
         }}
 
-        /* Preset Buttons */
-        .preset-row {{
+        /* Filter Row (presets + dropdown on one line) */
+        .filter-row {{
             display: flex;
             align-items: center;
             gap: 8px;
@@ -1000,7 +1000,7 @@ def generate_html(article_groups):
         /* Publisher Dropdown */
         .publisher-dropdown {{
             position: relative;
-            padding: 4px 0;
+            margin-left: auto;
         }}
         .publisher-dropdown-trigger {{
             font-family: inherit;
@@ -1036,7 +1036,7 @@ def generate_html(article_groups):
             display: none;
             position: absolute;
             top: calc(100% + 4px);
-            left: 0;
+            right: 0;
             z-index: 100;
             min-width: 260px;
             max-width: 320px;
@@ -1791,16 +1791,21 @@ def generate_html(article_groups):
                 flex: 1;
             }}
 
-            .preset-row {{
+            .filter-row {{
                 gap: 6px;
             }}
             .preset-btn {{
                 font-size: 12px;
                 padding: 4px 10px;
             }}
+            .publisher-dropdown {{
+                margin-left: 0;
+                width: 100%;
+            }}
             .publisher-dropdown-panel {{
                 min-width: 240px;
                 max-width: calc(100vw - 32px);
+                left: 0;
                 right: auto;
             }}
 
@@ -1946,25 +1951,24 @@ def generate_html(article_groups):
                 <span class="update-time" id="update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
             </div>
 
-            <div class="preset-row" id="preset-row">
+            <div class="filter-row" id="filter-row">
                 <button class="preset-btn" data-preset="India Desk" onclick="togglePreset('India Desk')">India Desk</button>
                 <button class="preset-btn" data-preset="World Desk" onclick="togglePreset('World Desk')">World Desk</button>
                 <button class="preset-btn" data-preset="Indie Voices" onclick="togglePreset('Indie Voices')">Indie Voices</button>
                 <button class="preset-btn" data-preset="Official Channels" onclick="togglePreset('Official Channels')">Official Channels</button>
-            </div>
-
-            <div class="publisher-dropdown" id="publisher-dropdown">
-                <button class="publisher-dropdown-trigger" id="publisher-trigger" onclick="toggleDropdown()">
-                    <span id="publisher-summary">All publishers</span>
-                    <span class="dropdown-arrow">▼</span>
-                </button>
-                <div class="publisher-dropdown-panel" id="publisher-panel">
-                    <input type="text" class="dropdown-search" id="dropdown-search" placeholder="Search publishers..." oninput="filterPublisherList()">
-                    <div class="dropdown-actions">
-                        <button class="dropdown-action" onclick="selectAllPublishers()">Select All</button>
-                        <button class="dropdown-action" onclick="clearAllPublishers()">Clear All</button>
+                <div class="publisher-dropdown" id="publisher-dropdown">
+                    <button class="publisher-dropdown-trigger" id="publisher-trigger" onclick="toggleDropdown()">
+                        <span id="publisher-summary">All publishers</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="publisher-dropdown-panel" id="publisher-panel">
+                        <input type="text" class="dropdown-search" id="dropdown-search" placeholder="Search publishers..." oninput="filterPublisherList()">
+                        <div class="dropdown-actions">
+                            <button class="dropdown-action" onclick="selectAllPublishers()">Select All</button>
+                            <button class="dropdown-action" onclick="clearAllPublishers()">Clear All</button>
+                        </div>
+                        <div class="dropdown-list" id="dropdown-list"></div>
                     </div>
-                    <div class="dropdown-list" id="dropdown-list"></div>
                 </div>
             </div>
 
