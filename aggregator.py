@@ -2640,9 +2640,9 @@ def main():
 
     print(f"After content filtering: {len(filtered_articles)} ({filtered_count} filtered out)")
 
-    # Filter out articles older than 10 days
+    # Filter out articles older than 5 days
     now = datetime.now(IST_TZ)
-    cutoff_date = now - timedelta(days=10)
+    cutoff_date = now - timedelta(days=5)
     recent_articles = []
     old_count = 0
 
