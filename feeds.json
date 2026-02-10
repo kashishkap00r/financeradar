@@ -699,5 +699,26 @@
     "url": "https://www.firstpost.com/business",
     "feed": "https://www.firstpost.com/commonfeeds/v1/mfp/rss/business.xml",
     "category": "News"
+  },
+  {
+    "id": "indian-express-business",
+    "name": "Indian Express — Business",
+    "url": "https://indianexpress.com/section/business/",
+    "feed": "https://indianexpress.com/section/business/feed/",
+    "category": "News"
+  },
+  {
+    "id": "thecore-economy",
+    "name": "The Core — Economy",
+    "url": "https://www.thecore.in/economy",
+    "feed": "https://www.thecore.in/category/economy/google_feeds.xml",
+    "category": "News"
+  },
+  {
+    "id": "thecore-business",
+    "name": "The Core — Business",
+    "url": "https://www.thecore.in/business",
+    "feed": "https://www.thecore.in/category/business/google_feeds.xml",
+    "category": "News"
   }
 ]

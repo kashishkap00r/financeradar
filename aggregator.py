@@ -1072,12 +1072,14 @@ def generate_html(article_groups):
             background: none;
             border: none;
             cursor: pointer;
-            padding: 4px;
+            padding: 10px;
             color: var(--text-muted);
             transition: color 0.15s, transform 0.15s;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }}
         .bookmark-btn:hover {{
             color: var(--accent);
@@ -1092,6 +1094,7 @@ def generate_html(article_groups):
             stroke: currentColor;
             stroke-width: 2;
             fill: none;
+            pointer-events: none;
         }}
         .bookmark-btn.bookmarked svg {{
             fill: currentColor;
@@ -1419,8 +1422,13 @@ def generate_html(article_groups):
             border: none;
             cursor: pointer;
             color: var(--text-muted);
-            padding: 4px;
+            padding: 12px;
+            margin: -8px -8px -8px 0;
             flex-shrink: 0;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            z-index: 1;
         }}
         .ai-bookmark-btn:hover {{
             color: var(--accent);
@@ -1429,11 +1437,12 @@ def generate_html(article_groups):
             color: var(--accent);
         }}
         .ai-bookmark-btn svg {{
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             stroke: currentColor;
             fill: none;
             stroke-width: 2;
+            pointer-events: none;
         }}
         .ai-bookmark-btn.bookmarked svg {{
             fill: var(--accent);
@@ -2366,7 +2375,7 @@ def generate_html(article_groups):
                         <span class="rank-reason">${escapeHtml(r.reason)}</span>
                     </div>
                     <button class="ai-bookmark-btn ${isBookmarked(r.url) ? 'bookmarked' : ''}"
-                            onclick="toggleAiBookmark(this, '${escapeForAttr(r.url)}', '${escapeForAttr(r.title)}', '${escapeForAttr(r.source)}')" title="Bookmark">
+                            data-url="${escapeForAttr(r.url)}" data-title="${escapeForAttr(r.title)}" data-source="${escapeForAttr(r.source)}" title="Bookmark">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </button>
                 </div>
@@ -2412,6 +2421,19 @@ def generate_html(article_groups):
 
         document.getElementById('ai-sidebar-overlay').addEventListener('click', (e) => {
             if (e.target.id === 'ai-sidebar-overlay') closeAiSidebar();
+        });
+
+        // Event delegation for AI sidebar bookmark buttons (mobile fix)
+        document.getElementById('ai-rankings-content').addEventListener('click', (e) => {
+            const btn = e.target.closest('.ai-bookmark-btn');
+            if (btn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const url = btn.getAttribute('data-url');
+                const title = btn.getAttribute('data-title');
+                const source = btn.getAttribute('data-source');
+                if (url) toggleAiBookmark(btn, url, title, source);
+            }
         });
 
         document.addEventListener('keydown', (e) => {
