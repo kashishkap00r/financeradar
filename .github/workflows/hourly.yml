@@ -22,6 +22,9 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Fetch Telegram reports
+        run: python3 telegram_fetcher.py
+
       - name: Run aggregator
         run: python3 aggregator.py
 
@@ -30,7 +33,7 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html static/articles.json
+            git add index.html static/articles.json static/telegram_reports.json
             git commit -m "Update news feeds"
             git pull --rebase origin main
             git push

@@ -674,6 +674,17 @@ def generate_html(article_groups):
     all_publishers_json = json.dumps(all_publishers)
     publisher_presets_json = json.dumps(publisher_presets)
 
+    # Load Telegram reports if available
+    telegram_reports_file = os.path.join(SCRIPT_DIR, "static", "telegram_reports.json")
+    try:
+        with open(telegram_reports_file, "r", encoding="utf-8") as f:
+            telegram_data = json.load(f)
+        telegram_reports_json = json.dumps(telegram_data.get("reports", []))
+        telegram_generated_at = telegram_data.get("generated_at", "")
+    except (IOError, json.JSONDecodeError):
+        telegram_reports_json = "[]"
+        telegram_generated_at = ""
+
     # Count in-focus articles (covered by multiple sources)
     in_focus_count = sum(1 for g in sorted_groups if g["related_sources"])
 
@@ -1683,6 +1694,120 @@ def generate_html(article_groups):
             fill: var(--accent);
         }}
 
+        /* Reports Toggle Button */
+        .reports-toggle {{
+            position: relative;
+            padding: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }}
+        .reports-toggle:hover {{
+            border-color: var(--border-light);
+            background: var(--bg-hover);
+        }}
+        .reports-count {{
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            min-width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }}
+        .reports-count.hidden {{
+            display: none;
+        }}
+
+        /* Reports Sidebar */
+        .reports-sidebar {{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 420px;
+            max-width: 90vw;
+            height: 100vh;
+            background: var(--bg-primary);
+            border-left: 1px solid var(--border);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 201;
+            display: flex;
+            flex-direction: column;
+        }}
+        .sidebar-overlay.open .reports-sidebar {{
+            transform: translateX(0);
+        }}
+        .report-card {{
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+        }}
+        .report-card:hover {{
+            background: var(--bg-hover);
+        }}
+        .report-channel {{
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 6px;
+        }}
+        .report-text {{
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }}
+        .report-doc {{
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }}
+        .report-meta {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-muted);
+        }}
+        .report-meta a {{
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }}
+        .report-meta a:hover {{
+            text-decoration: underline;
+        }}
+
         /* Back to Top */
         .back-to-top {{
             position: fixed;
@@ -1862,6 +1987,10 @@ def generate_html(article_groups):
             <button id="ai-toggle" class="ai-toggle" type="button" aria-label="AI Picks" title="AI Picks" onclick="openAiSidebar()">
                 <span style="font-size: 16px;">🤖</span>
             </button>
+            <button id="reports-toggle" class="reports-toggle" type="button" aria-label="Reports" title="Reports" onclick="openReportsSidebar()">
+                <span style="font-size: 15px;">📑</span>
+                <span id="reports-count" class="reports-count hidden">0</span>
+            </button>
             <button id="bookmarks-toggle" class="bookmarks-toggle" type="button" aria-label="View bookmarks" title="View bookmarks">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -1937,6 +2066,24 @@ def generate_html(article_groups):
             </div>
             <div class="sidebar-footer">
                 <span id="ai-updated" class="ai-updated-time">Updated: --</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reports Sidebar -->
+    <div id="reports-sidebar-overlay" class="sidebar-overlay">
+        <div class="reports-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title"><span style="font-size: 18px;">📑</span> Reports</div>
+                <button class="sidebar-close" onclick="closeReportsSidebar()" aria-label="Close sidebar">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div id="reports-sidebar-content" class="sidebar-content">
+                <div class="sidebar-empty">Loading reports...</div>
+            </div>
+            <div class="sidebar-footer">
+                <span id="reports-updated" class="ai-updated-time">Updated: --</span>
             </div>
         </div>
     </div>
@@ -2069,6 +2216,8 @@ def generate_html(article_groups):
     # Inject publisher data as JSON
     html += f"""        const ALL_PUBLISHERS = {all_publishers_json};
         const PUBLISHER_PRESETS = {publisher_presets_json};
+        const TELEGRAM_REPORTS = {telegram_reports_json};
+        const TELEGRAM_GENERATED_AT = "{telegram_generated_at}";
 """
     html += """
         // Theme toggle (persisted)
@@ -2793,6 +2942,87 @@ def generate_html(article_groups):
         });
 
         loadAiRankings();
+
+        // ==================== REPORTS SIDEBAR ====================
+        function openReportsSidebar() {
+            document.getElementById('reports-sidebar-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            renderReportsContent();
+        }
+
+        function closeReportsSidebar() {
+            document.getElementById('reports-sidebar-overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('reports-sidebar-overlay').addEventListener('click', (e) => {
+            if (e.target.id === 'reports-sidebar-overlay') closeReportsSidebar();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('reports-sidebar-overlay').classList.contains('open')) {
+                closeReportsSidebar();
+            }
+        });
+
+        function formatReportDate(isoStr) {
+            if (!isoStr) return '';
+            const date = new Date(isoStr);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMin = Math.floor(diffMs / 60000);
+            const diffHr = Math.floor(diffMs / 3600000);
+            const diffDay = Math.floor(diffMs / 86400000);
+            if (diffMin < 1) return 'Just now';
+            if (diffMin < 60) return diffMin + 'm ago';
+            if (diffHr < 24) return diffHr + 'h ago';
+            if (diffDay === 1) return 'Yesterday';
+            if (diffDay < 7) return diffDay + 'd ago';
+            return date.toLocaleDateString();
+        }
+
+        function renderReportsContent() {
+            const container = document.getElementById('reports-sidebar-content');
+            if (!TELEGRAM_REPORTS || TELEGRAM_REPORTS.length === 0) {
+                container.innerHTML = '<div class="sidebar-empty">No reports available.<br>Reports are fetched from Telegram channels hourly.</div>';
+                return;
+            }
+            container.innerHTML = TELEGRAM_REPORTS.map(r => {
+                const text = escapeHtml(r.text || '').replace(/\\n/g, '<br>');
+                const firstLine = (r.text || '').split('\\n')[0].trim();
+                const docHtml = r.document && r.document.title
+                    ? `<div class="report-doc">📄 ${escapeHtml(r.document.title)}${r.document.size ? ' · ' + escapeHtml(r.document.size) : ''}</div>`
+                    : '';
+                return `
+                    <div class="report-card">
+                        <div class="report-channel">${escapeHtml(r.channel)}</div>
+                        ${docHtml}
+                        <div class="report-text">${text}</div>
+                        <div class="report-meta">
+                            <span>${formatReportDate(r.date)}${r.views ? ' · ' + escapeHtml(r.views) + ' views' : ''}</span>
+                            <a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">Open in Telegram →</a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Update timestamp
+            if (TELEGRAM_GENERATED_AT) {
+                const d = new Date(TELEGRAM_GENERATED_AT);
+                document.getElementById('reports-updated').textContent =
+                    'Updated: ' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            }
+        }
+
+        // Update reports count badge
+        (function() {
+            const count = TELEGRAM_REPORTS ? TELEGRAM_REPORTS.length : 0;
+            const badge = document.getElementById('reports-count');
+            if (count > 0) {
+                badge.textContent = count;
+                badge.classList.remove('hidden');
+            }
+        })();
 
         // Update relative time
         function updateRelativeTime() {
