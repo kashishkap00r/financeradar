@@ -682,11 +682,17 @@ def generate_html(article_groups):
         telegram_reports_json = json.dumps(telegram_data.get("reports", []))
         telegram_generated_at = telegram_data.get("generated_at", "")
     except (IOError, json.JSONDecodeError):
+        telegram_data = {}
         telegram_reports_json = "[]"
         telegram_generated_at = ""
 
     # Count in-focus articles (covered by multiple sources)
     in_focus_count = sum(1 for g in sorted_groups if g["related_sources"])
+
+    # Telegram reports stats for tabs
+    telegram_reports_list = telegram_data.get("reports", [])
+    report_count = len(telegram_reports_list)
+    channel_count = len(set(r.get("channel", "") for r in telegram_reports_list))
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1694,104 +1700,58 @@ def generate_html(article_groups):
             fill: var(--accent);
         }}
 
-        /* Reports Toggle Button */
-        .reports-toggle {{
-            position: relative;
-            padding: 0;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text-primary);
-            cursor: pointer;
-            transition: border-color 0.2s, background 0.2s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-        }}
-        .reports-toggle:hover {{
-            border-color: var(--border-light);
-            background: var(--bg-hover);
-        }}
-        .reports-count {{
-            position: absolute;
-            top: -6px;
-            right: -6px;
-            background: var(--accent);
-            color: #fff;
-            font-size: 10px;
-            font-weight: 600;
-            min-width: 16px;
-            height: 16px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 4px;
-        }}
-        .reports-count.hidden {{
-            display: none;
-        }}
-
-        /* Reports Sidebar */
-        .reports-sidebar {{
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 420px;
-            max-width: 90vw;
-            height: 100vh;
-            background: var(--bg-primary);
-            border-left: 1px solid var(--border);
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            z-index: 201;
-            display: flex;
-            flex-direction: column;
-        }}
-        .sidebar-overlay.open .reports-sidebar {{
-            transform: translateX(0);
-        }}
+        /* Report Cards (main area) */
         .report-card {{
-            padding: 14px 20px;
-            border-bottom: 1px solid var(--border);
-            transition: background 0.15s;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-secondary);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
         }}
         .report-card:hover {{
-            background: var(--bg-hover);
+            box-shadow: var(--card-shadow);
+            border-color: var(--border-light);
+            transform: translateY(-1px);
+        }}
+        .report-card-header {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
         }}
         .report-channel {{
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 0.3px;
-            margin-bottom: 6px;
+            letter-spacing: 0.5px;
         }}
         .report-text {{
             font-family: 'Merriweather', Georgia, serif;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
             line-height: 1.5;
             color: var(--text-primary);
             margin-bottom: 8px;
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 8;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }}
-        .report-doc {{
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            color: var(--text-secondary);
-            background: var(--bg-secondary);
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-        }}
+        .report-doc-list {{ display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }}
+        .report-doc-item {{ display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); background: var(--bg-hover); padding: 6px 10px; border-radius: 8px; }}
+        .report-doc-item:hover {{ background: var(--border); }}
+        .report-doc-icon {{ flex-shrink: 0; font-size: 14px; }}
+        .report-doc-name {{ flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-primary); font-weight: 500; }}
+        .report-doc-size {{ flex-shrink: 0; font-size: 11px; color: var(--text-muted); white-space: nowrap; }}
+        .report-images {{ margin-bottom: 10px; position: relative; border-radius: 8px; overflow: hidden; }}
+        .report-images img {{ width: 100%; max-height: 200px; object-fit: cover; border-radius: 8px; display: block; }}
+        .report-images-badge {{ position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: #fff; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 12px; }}
+        .report-doc-indicator {{ display: inline-flex; align-items: center; font-size: 11px; color: var(--text-secondary); background: var(--bg-hover); padding: 2px 6px; border-radius: 10px; white-space: nowrap; }}
+        .report-text.expanded {{ -webkit-line-clamp: unset; overflow: visible; }}
+        .report-expand-btn {{ background: none; border: none; color: var(--accent); font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px 0; margin-bottom: 8px; font-family: 'Source Sans Pro', sans-serif; }}
+        .report-expand-btn:hover {{ text-decoration: underline; }}
         .report-meta {{
             display: flex;
             align-items: center;
@@ -1807,6 +1767,74 @@ def generate_html(article_groups):
         .report-meta a:hover {{
             text-decoration: underline;
         }}
+
+        /* Tabs */
+        .content-tabs {{
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 12px;
+        }}
+        .content-tab {{
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.15s, border-color 0.15s;
+        }}
+        .content-tab:hover {{
+            color: var(--text-secondary);
+        }}
+        .content-tab.active {{
+            color: var(--text-primary);
+            border-bottom-color: var(--accent);
+        }}
+        .tab-count {{
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-left: 4px;
+        }}
+        .tab-content {{
+            display: none;
+        }}
+        .tab-content.active {{
+            display: block;
+        }}
+
+        /* Reports stats & search */
+        .reports-stats-bar {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0 8px 0;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }}
+        .reports-filter-btn {{
+            height: 36px;
+            padding: 0 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-family: inherit;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }}
+        .reports-filter-btn:hover {{ border-color: var(--accent); color: var(--text-primary); }}
+        .reports-filter-btn.active {{ background: var(--accent); color: #fff; border-color: var(--accent); }}
 
         /* Back to Top */
         .back-to-top {{
@@ -1946,6 +1974,17 @@ def generate_html(article_groups):
                 border-color: var(--border);
             }}
 
+            .report-card:hover {{
+                transform: none;
+                box-shadow: none;
+                border-color: var(--border);
+            }}
+
+            .content-tab {{
+                padding: 8px 14px;
+                font-size: 13px;
+            }}
+
             .keyboard-hint {{
                 display: none;
             }}
@@ -1982,14 +2021,10 @@ def generate_html(article_groups):
             </div>
             <div class="search-box">
                 <span class="search-icon">&#128269;</span>
-                <input type="text" id="search" placeholder="Search articles..." oninput="filterArticles()">
+                <input type="text" id="search" placeholder="Search articles..." oninput="onSearchInput()">
             </div>
             <button id="ai-toggle" class="ai-toggle" type="button" aria-label="AI Picks" title="AI Picks" onclick="openAiSidebar()">
                 <span style="font-size: 16px;">🤖</span>
-            </button>
-            <button id="reports-toggle" class="reports-toggle" type="button" aria-label="Reports" title="Reports" onclick="openReportsSidebar()">
-                <span style="font-size: 15px;">📑</span>
-                <span id="reports-count" class="reports-count hidden">0</span>
             </button>
             <button id="bookmarks-toggle" class="bookmarks-toggle" type="button" aria-label="View bookmarks" title="View bookmarks">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2070,25 +2105,17 @@ def generate_html(article_groups):
         </div>
     </div>
 
-    <!-- Reports Sidebar -->
-    <div id="reports-sidebar-overlay" class="sidebar-overlay">
-        <div class="reports-sidebar">
-            <div class="sidebar-header">
-                <div class="sidebar-title"><span style="font-size: 18px;">📑</span> Reports</div>
-                <button class="sidebar-close" onclick="closeReportsSidebar()" aria-label="Close sidebar">
-                    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-            </div>
-            <div id="reports-sidebar-content" class="sidebar-content">
-                <div class="sidebar-empty">Loading reports...</div>
-            </div>
-            <div class="sidebar-footer">
-                <span id="reports-updated" class="ai-updated-time">Updated: --</span>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
+        <div class="content-tabs">
+            <button class="content-tab active" data-tab="news" onclick="switchTab('news')">
+                News <span class="tab-count">{len(sorted_articles)}</span>
+            </button>
+            <button class="content-tab" data-tab="reports" onclick="switchTab('reports')">
+                Telegram <span class="tab-count">{report_count}</span>
+            </button>
+        </div>
+
+        <div id="tab-news" class="tab-content active">
         <div class="filter-card">
             <div class="stats-bar">
                 <div class="stats">
@@ -2196,11 +2223,24 @@ def generate_html(article_groups):
             </article>
 """
 
-    html += """        </div>
+    html += f"""        </div>
 
         <div id="pagination-bottom" class="pagination bottom" aria-label="Pagination"></div>
+        </div><!-- /tab-news -->
 
-        <footer>
+        <div id="tab-reports" class="tab-content">
+            <div class="reports-stats-bar">
+                <span><strong id="reports-visible-count">{report_count}</strong> messages from {channel_count} channels</span>
+                <button class="reports-filter-btn" id="reports-pdf-filter" onclick="togglePdfFilter()">📄 PDFs</button>
+                <span class="update-time" id="reports-update-time">Updated: --</span>
+            </div>
+            <div id="reports-pagination-top" class="pagination"></div>
+            <div id="reports-container"></div>
+            <div id="reports-pagination-bottom" class="pagination bottom"></div>
+        </div><!-- /tab-reports -->
+"""
+
+    html += """        <footer>
             Aggregated from {source_count} sources · Built with Python · Made by <a href="https://kashishkapoor.com/" target="_blank" rel="noopener">Kashish Kapoor</a> · Built for <a href="https://thedailybrief.zerodha.com/" target="_blank" rel="noopener">The Daily Brief by Zerodha</a>
         </footer>
     </div>
@@ -2208,7 +2248,7 @@ def generate_html(article_groups):
     <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
     <div class="keyboard-hint">
-        <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
+        <kbd>1</kbd> <kbd>2</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
     </div>
 
     <script>
@@ -2382,6 +2422,18 @@ def generate_html(article_groups):
             } else {
                 el.textContent = selectedPublishers.size + ' of ' + ALL_PUBLISHERS.length + ' publishers';
                 trigger.classList.add('has-selection');
+            }
+        }
+
+        function getActiveTab() {
+            return document.querySelector('.content-tab.active')?.dataset.tab || 'news';
+        }
+
+        function onSearchInput() {
+            if (getActiveTab() === 'reports') {
+                filterReports();
+            } else {
+                filterArticles();
             }
         }
 
@@ -2619,7 +2671,11 @@ def generate_html(article_groups):
                 document.getElementById('search').focus();
             } else if (e.key === 'Escape') {
                 document.getElementById('search').value = '';
-                filterArticles();
+                onSearchInput();
+            } else if (e.key === '1') {
+                switchTab('news');
+            } else if (e.key === '2') {
+                switchTab('reports');
             }
         });
 
@@ -2943,27 +2999,33 @@ def generate_html(article_groups):
 
         loadAiRankings();
 
-        // ==================== REPORTS SIDEBAR ====================
-        function openReportsSidebar() {
-            document.getElementById('reports-sidebar-overlay').classList.add('open');
-            document.body.style.overflow = 'hidden';
-            renderReportsContent();
-        }
+        // ==================== REPORTS TAB ====================
+        let reportsRendered = false;
+        let filteredReports = [];
+        let reportsPdfFilterActive = false;
+        let reportsPage = 1;
+        const REPORTS_PAGE_SIZE = 20;
 
-        function closeReportsSidebar() {
-            document.getElementById('reports-sidebar-overlay').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        document.getElementById('reports-sidebar-overlay').addEventListener('click', (e) => {
-            if (e.target.id === 'reports-sidebar-overlay') closeReportsSidebar();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.getElementById('reports-sidebar-overlay').classList.contains('open')) {
-                closeReportsSidebar();
+        function switchTab(tab) {
+            document.querySelectorAll('.content-tab').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.toggle('active', el.id === 'tab-' + tab);
+            });
+            const searchEl = document.getElementById('search');
+            searchEl.placeholder = tab === 'reports' ? 'Search Telegram...' : 'Search articles...';
+            if (tab === 'reports') {
+                if (!reportsRendered) {
+                    renderMainReports();
+                    reportsRendered = true;
+                }
+                filterReports();
+            } else {
+                filterArticles();
             }
-        });
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
 
         function formatReportDate(isoStr) {
             if (!isoStr) return '';
@@ -2981,48 +3043,248 @@ def generate_html(article_groups):
             return date.toLocaleDateString();
         }
 
-        function renderReportsContent() {
-            const container = document.getElementById('reports-sidebar-content');
-            if (!TELEGRAM_REPORTS || TELEGRAM_REPORTS.length === 0) {
-                container.innerHTML = '<div class="sidebar-empty">No reports available.<br>Reports are fetched from Telegram channels hourly.</div>';
-                return;
-            }
-            container.innerHTML = TELEGRAM_REPORTS.map(r => {
-                const text = escapeHtml(r.text || '').replace(/\\n/g, '<br>');
-                const firstLine = (r.text || '').split('\\n')[0].trim();
-                const docHtml = r.document && r.document.title
-                    ? `<div class="report-doc">📄 ${escapeHtml(r.document.title)}${r.document.size ? ' · ' + escapeHtml(r.document.size) : ''}</div>`
-                    : '';
-                return `
-                    <div class="report-card">
-                        <div class="report-channel">${escapeHtml(r.channel)}</div>
-                        ${docHtml}
-                        <div class="report-text">${text}</div>
-                        <div class="report-meta">
-                            <span>${formatReportDate(r.date)}${r.views ? ' · ' + escapeHtml(r.views) + ' views' : ''}</span>
-                            <a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">Open in Telegram →</a>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+        function formatReportDateHeader(isoStr) {
+            if (!isoStr) return 'Unknown Date';
+            const date = new Date(isoStr);
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const articleDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+            const diffDays = Math.floor((today - articleDay) / 86400000);
+            if (diffDays === 0) return 'Today';
+            if (diffDays === 1) return 'Yesterday';
+            return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+        }
 
-            // Update timestamp
+        function renderMainReports() {
+            filteredReports = [...TELEGRAM_REPORTS];
+            reportsPage = 1;
+            applyReportsPagination();
+
             if (TELEGRAM_GENERATED_AT) {
                 const d = new Date(TELEGRAM_GENERATED_AT);
-                document.getElementById('reports-updated').textContent =
+                document.getElementById('reports-update-time').textContent =
                     'Updated: ' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
             }
         }
 
-        // Update reports count badge
-        (function() {
-            const count = TELEGRAM_REPORTS ? TELEGRAM_REPORTS.length : 0;
-            const badge = document.getElementById('reports-count');
-            if (count > 0) {
-                badge.textContent = count;
-                badge.classList.remove('hidden');
+        function togglePdfFilter() {
+            reportsPdfFilterActive = !reportsPdfFilterActive;
+            document.getElementById('reports-pdf-filter').classList.toggle('active', reportsPdfFilterActive);
+            filterReports();
+        }
+
+        function reportHasPdf(r) {
+            if (r.documents && r.documents.length > 0) return true;
+            if (r.document && r.document.title) return true;
+            if (/https?:\/\/\S+\.pdf(\b|\?)/i.test(r.text || '')) return true;
+            return false;
+        }
+
+        function filterReports() {
+            const query = document.getElementById('search').value.toLowerCase().trim();
+            if (!query) {
+                filteredReports = [...TELEGRAM_REPORTS];
+            } else {
+                filteredReports = TELEGRAM_REPORTS.filter(r => {
+                    const text = (r.text || '').toLowerCase();
+                    const channel = (r.channel || '').toLowerCase();
+                    const docTitle = (r.documents && r.documents.length > 0
+                        ? r.documents.map(d => d.title || '').join(' ')
+                        : (r.document && r.document.title || '')).toLowerCase();
+                    return text.includes(query) || channel.includes(query) || docTitle.includes(query);
+                });
             }
-        })();
+            if (reportsPdfFilterActive) {
+                filteredReports = filteredReports.filter(reportHasPdf);
+            }
+            document.getElementById('reports-visible-count').textContent = filteredReports.length;
+            reportsPage = 1;
+            applyReportsPagination();
+        }
+
+        function applyReportsPagination() {
+            const totalPages = Math.max(1, Math.ceil(filteredReports.length / REPORTS_PAGE_SIZE));
+            if (reportsPage > totalPages) reportsPage = totalPages;
+
+            const start = (reportsPage - 1) * REPORTS_PAGE_SIZE;
+            const end = start + REPORTS_PAGE_SIZE;
+            const pageReports = filteredReports.slice(start, end);
+
+            const container = document.getElementById('reports-container');
+            if (pageReports.length === 0) {
+                container.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">No reports found.</div>';
+                renderReportsPagination(totalPages);
+                return;
+            }
+
+            let html = '';
+            let currentDateHeader = '';
+            const bookmarks = getBookmarks();
+
+            pageReports.forEach(r => {
+                const dateHeader = formatReportDateHeader(r.date);
+                if (dateHeader !== currentDateHeader) {
+                    currentDateHeader = dateHeader;
+                    html += `<h2 class="date-header">${dateHeader}</h2>`;
+                }
+
+                const text = escapeHtml(r.text || '').replace(/\\n/g, '<br>');
+                const reportUrl = r.url || '';
+                const isBookmarkedReport = bookmarks.some(b => b.url === reportUrl);
+                let docHtml = '';
+                const docs = (r.documents && r.documents.length > 0) ? r.documents
+                    : (r.document && r.document.title) ? [r.document] : [];
+                if (docs.length > 0) {
+                    const docItems = docs.map(d => {
+                        const name = escapeHtml(d.title || 'Document');
+                        const size = d.size ? `<span class="report-doc-size">${escapeHtml(d.size)}</span>` : '';
+                        return `<div class="report-doc-item"><span class="report-doc-icon">📄</span><span class="report-doc-name">${name}</span>${size}</div>`;
+                    }).join('');
+                    docHtml = `<div class="report-doc-list">${docItems}</div>`;
+                }
+
+                let imgHtml = '';
+                const images = r.images || [];
+                if (images.length > 0) {
+                    const badge = images.length > 1
+                        ? `<span class="report-images-badge">+${images.length - 1} more</span>` : '';
+                    imgHtml = `<div class="report-images">
+                        <img src="${escapeForAttr(images[0])}" alt="Report image" loading="lazy"
+                             onerror="this.parentElement.style.display='none'">
+                        ${badge}</div>`;
+                }
+
+                const hasDoc = !!(r.documents && r.documents.length > 0) || !!(r.document && r.document.title);
+                const hasPdfLink = /https?:\\/\\/\\S+\\.pdf(\\b|\\?)/i.test(r.text || '');
+                const docIndicatorHtml = (hasDoc || hasPdfLink)
+                    ? '<span class="report-doc-indicator" title="Contains document/PDF">📄</span>' : '';
+
+                const channel = escapeHtml(r.channel);
+
+                html += `
+                    <div class="report-card" data-url="${escapeForAttr(reportUrl)}" data-title="${escapeForAttr((r.text || '').split('\\n')[0].substring(0, 100))}" data-channel="${escapeForAttr(r.channel || '')}">
+                        <div class="report-card-header">
+                            <div style="display:flex;align-items:center;gap:6px">
+                                <span class="report-channel">${channel}</span>
+                                ${docIndicatorHtml}
+                            </div>
+                            <button class="bookmark-btn${isBookmarkedReport ? ' bookmarked' : ''}" onclick="toggleReportBookmark(this)" aria-label="Bookmark report" title="Bookmark">
+                                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                            </button>
+                        </div>
+                        ${docHtml}
+                        ${imgHtml}
+                        <div class="report-text">${text}</div>
+                        <button class="report-expand-btn" style="display:none" onclick="toggleReportExpand(this)">Show more</button>
+                        <div class="report-meta">
+                            <span>${formatReportDate(r.date)}${r.views ? ' · ' + escapeHtml(r.views) + ' views' : ''}</span>
+                            <a href="${escapeHtml(reportUrl)}" target="_blank" rel="noopener">Open in Telegram →</a>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            container.querySelectorAll('.report-text').forEach(el => {
+                if (el.scrollHeight > el.clientHeight) {
+                    const btn = el.nextElementSibling;
+                    if (btn && btn.classList.contains('report-expand-btn')) {
+                        btn.style.display = 'block';
+                    }
+                }
+            });
+            renderReportsPagination(totalPages);
+        }
+
+        function renderReportsPagination(totalPages) {
+            const top = document.getElementById('reports-pagination-top');
+            const bottom = document.getElementById('reports-pagination-bottom');
+            top.innerHTML = '';
+            bottom.innerHTML = '';
+
+            if (totalPages <= 1) return;
+
+            const makeBtn = (label, page, isActive = false, isDisabled = false) => {
+                const btn = document.createElement('button');
+                btn.className = 'page-btn' + (isActive ? ' active' : '');
+                btn.textContent = label;
+                if (isDisabled) {
+                    btn.disabled = true;
+                } else {
+                    btn.addEventListener('click', () => {
+                        reportsPage = page;
+                        applyReportsPagination();
+                        window.scrollTo({top: 0, behavior: 'smooth'});
+                    });
+                }
+                return btn;
+            };
+            const makeEllipsis = () => {
+                const span = document.createElement('span');
+                span.className = 'page-ellipsis';
+                span.textContent = '…';
+                return span;
+            };
+            const windowSize = 7;
+            const half = Math.floor(windowSize / 2);
+            let startP = Math.max(1, reportsPage - half);
+            let endP = Math.min(totalPages, reportsPage + half);
+            if (endP - startP + 1 < windowSize) {
+                if (startP === 1) endP = Math.min(totalPages, startP + windowSize - 1);
+                else if (endP === totalPages) startP = Math.max(1, endP - windowSize + 1);
+            }
+
+            const build = (container) => {
+                const prevBtn = makeBtn('← Prev', Math.max(1, reportsPage - 1), false, reportsPage === 1);
+                prevBtn.classList.add('nav', 'prev');
+                container.appendChild(prevBtn);
+                if (startP > 1) {
+                    container.appendChild(makeBtn('1', 1, reportsPage === 1));
+                    if (startP > 2) container.appendChild(makeEllipsis());
+                }
+                for (let i = startP; i <= endP; i++) {
+                    container.appendChild(makeBtn(String(i), i, i === reportsPage));
+                }
+                if (endP < totalPages) {
+                    if (endP < totalPages - 1) container.appendChild(makeEllipsis());
+                    container.appendChild(makeBtn(String(totalPages), totalPages, reportsPage === totalPages));
+                }
+                const nextBtn = makeBtn('Next →', Math.min(totalPages, reportsPage + 1), false, reportsPage === totalPages);
+                nextBtn.classList.add('nav', 'next');
+                container.appendChild(nextBtn);
+            };
+
+            build(top);
+            build(bottom);
+        }
+
+        function toggleReportExpand(btn) {
+            const textEl = btn.previousElementSibling;
+            const isExpanded = textEl.classList.toggle('expanded');
+            btn.textContent = isExpanded ? 'Show less' : 'Show more';
+        }
+
+        function toggleReportBookmark(btn) {
+            const card = btn.closest('.report-card');
+            const url = card.dataset.url;
+            const title = card.dataset.title;
+            const source = card.dataset.channel;
+
+            let bookmarks = getBookmarks();
+            const idx = bookmarks.findIndex(b => b.url === url);
+
+            if (idx >= 0) {
+                bookmarks.splice(idx, 1);
+                btn.classList.remove('bookmarked');
+            } else {
+                bookmarks.unshift({ url, title, source: source + ' (Telegram)', addedAt: Date.now() });
+                btn.classList.add('bookmarked');
+            }
+
+            saveBookmarks(bookmarks);
+            updateBookmarkCount();
+            renderSidebarContent();
+        }
 
         // Update relative time
         function updateRelativeTime() {

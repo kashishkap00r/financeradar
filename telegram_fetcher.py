@@ -44,6 +44,7 @@ class TelegramHTMLParser(HTMLParser):
         self._in_owner = False
         self._in_doc_title = False
         self._in_doc_extra = False
+        self._current_doc = None
         self._in_views = False
         self._text_depth = 0
 
@@ -60,8 +61,9 @@ class TelegramHTMLParser(HTMLParser):
                 "date": "",
                 "url": f"https://t.me/{data_post}" if data_post else "",
                 "channel": "",
-                "document": None,
+                "documents": [],
                 "views": "",
+                "images": [],
             }
             self._in_message = True
 
@@ -70,6 +72,8 @@ class TelegramHTMLParser(HTMLParser):
 
         # Text content: <div class="tgme_widget_message_text ...">
         if tag == "div" and "tgme_widget_message_text" in cls and "reply" not in cls:
+            if self._msg["text"]:
+                self._msg["text"] += "\n\n"
             self._in_text = True
             self._text_depth = 1
 
@@ -96,18 +100,26 @@ class TelegramHTMLParser(HTMLParser):
         # Document title: <div class="tgme_widget_message_document_title" ...>
         elif tag == "div" and "tgme_widget_message_document_title" in cls:
             self._in_doc_title = True
-            if self._msg["document"] is None:
-                self._msg["document"] = {"title": "", "size": ""}
+            self._current_doc = {"title": "", "size": ""}
+            self._msg["documents"].append(self._current_doc)
 
         # Document size: <div class="tgme_widget_message_document_extra" ...>
         elif tag == "div" and "tgme_widget_message_document_extra" in cls:
             self._in_doc_extra = True
-            if self._msg["document"] is None:
-                self._msg["document"] = {"title": "", "size": ""}
+            if self._current_doc is None:
+                self._current_doc = {"title": "", "size": ""}
+                self._msg["documents"].append(self._current_doc)
 
         # Views: <span class="tgme_widget_message_views" ...>
         elif tag == "span" and "tgme_widget_message_views" in cls:
             self._in_views = True
+
+        # Photo: <a class="tgme_widget_message_photo_wrap" style="...background-image:url('...')">
+        elif tag == "a" and "tgme_widget_message_photo_wrap" in cls:
+            style = attrs_dict.get("style", "")
+            img_match = re.search(r"background-image:url\('(https://cdn[^']+)'\)", style)
+            if img_match:
+                self._msg["images"].append(img_match.group(1))
 
         # Handle <br/> inside text as newline
         if self._in_text and tag == "br":
@@ -140,10 +152,10 @@ class TelegramHTMLParser(HTMLParser):
             self._msg["text"] += data
         elif self._in_owner:
             self._msg["channel"] = data.strip()
-        elif self._in_doc_title and self._msg["document"] is not None:
-            self._msg["document"]["title"] += data.strip()
-        elif self._in_doc_extra and self._msg["document"] is not None:
-            self._msg["document"]["size"] += data.strip()
+        elif self._in_doc_title and self._current_doc is not None:
+            self._current_doc["title"] += data.strip()
+        elif self._in_doc_extra and self._current_doc is not None:
+            self._current_doc["size"] += data.strip()
         elif self._in_views:
             self._msg["views"] = data.strip()
 
@@ -161,7 +173,7 @@ class TelegramHTMLParser(HTMLParser):
 
 
 MAX_PAGES = 15  # Max pagination requests per channel (15 pages x 20 = ~300 msgs)
-MAX_AGE_DAYS = 3  # Only keep messages from the last N days
+MAX_AGE_DAYS = 5  # Only keep messages from the last N days
 
 
 def fetch_url(url):
@@ -259,8 +271,7 @@ def parse_messages(html, channel_label):
                 msg["channel"] = channel_label
 
             # Remove empty document entries
-            if msg["document"] and not msg["document"]["title"]:
-                msg["document"] = None
+            msg["documents"] = [d for d in msg["documents"] if d.get("title")]
 
             messages.append(msg)
 
@@ -316,8 +327,10 @@ def main():
                     "date": msg["date"],
                     "url": msg["url"],
                     "channel": msg["channel"],
-                    "document": msg["document"],
+                    "documents": msg["documents"],
+                    "document": msg["documents"][0] if msg["documents"] else None,
                     "views": msg["views"],
+                    "images": msg.get("images", []),
                 })
                 channel_count += 1
 

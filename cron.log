@@ -3564,3 +3564,119 @@ Exported 2371 articles to /home/kashish.kapoor/financeradar/static/articles.json
 
 Done!
 ==================================================
+==================================================
+RSS News Aggregator
+Started: 2026-02-10 23:00:01
+==================================================
+
+Fetching 96 feeds...
+
+  [OK] The Hindu — Agri Business: 100 articles
+  [OK] BusinessLine — Companies: 100 articles
+  [OK] Business Standard: 20 articles
+  [OK] ET BFSI — Articles: 20 articles
+  [OK] ET BFSI — Editor's View: 20 articles
+  [OK] ET Now — Companies: 50 articles
+  [OK] Data For India — Data: 15 articles
+  [OK] ECB — Blog: 15 articles
+  [OK] ADB — Publications: 10 articles
+  [OK] ECB — Statistical Press: 15 articles
+  [OK] BBC News — Business: 45 articles
+  [OK] ECB — Press: 15 articles
+  [OK] downtoearth: 20 articles
+  [OK] ADB — Features: 30 articles
+  [OK] Economic Times — Latest: 76 articles
+  [OK] ECB — Working Papers: 15 articles
+  [OK] ET BFSI — Recent Stories: 20 articles
+  [OK] Economic Times — Latest: 50 articles
+  [OK] Economic Times — Latest: 50 articles
+  [OK] The Hindu — Business: 100 articles
+  [OK] ET Now — Economy: 50 articles
+  [OK] BusinessLine — Economy: 100 articles
+  [OK] Economic Times — Latest: 50 articles
+  [OK] Economy — Economy: 30 articles
+  [OK] Finance & economics: 300 articles
+  [OK] BusinessLine: 100 articles
+  [OK] ECB — Research Bulletin: 15 articles
+  [OK] ET Now: 100 articles
+  [OK] Asia News: 30 articles
+  [OK] The Hindu — Business: 100 articles
+  [OK] ECB — Publications: 15 articles
+  [OK] BusinessLine — News: 100 articles
+  [OK] BusinessLine — Data Stories: 100 articles
+  [OK] India Dispatch: 20 articles
+  [OK] BusinessLine — Economy: 100 articles
+  [OK] The Guardian — Business: 20 articles
+  [OK] BusinessLine — Markets: 100 articles
+  [OK] BusinessLine — Economy: 100 articles
+  [OK] BusinessLine — Money & Banking: 100 articles
+  [OK] Mint — Budget: 35 articles
+  [OK] Mint — Industry: 35 articles
+  [OK] Mint — Opinion: 35 articles
+  [OK] Mint — Companies: 35 articles
+  [OK] Mint — Markets: 35 articles
+  [OK] ET Now: 50 articles
+  [OK] ADB — Blogs: 20 articles
+  [OK] ADB — Research Publications: 10 articles
+  [OK] ET Now: 50 articles
+  [OK] The Hindu — Markets: 100 articles
+  [OK] The Hindu — Business: 100 articles
+  [OK] BusinessLine — Opinion: 100 articles
+  [OK] ET Now: 50 articles
+  [OK] ET Now: 50 articles
+  [OK] Rest of World: 12 articles
+  [OK] A Wealth of Common Sense: 10 articles
+  [OK] BusinessLine — Opinion: 100 articles
+  [OK] Economic Times — Latest: 50 articles
+  [OK] Our World in Data: 10 articles
+  [OK] Mint — Insurance: 35 articles
+  [OK] Our World in Data — Data Insights: 20 articles
+  [OK] This Week In Data — Data: 20 articles
+  [OK] RBI — Press Releases: 10 articles
+  [OK] RBI — Notifications: 10 articles
+  [OK] FRED Blog: 10 articles
+  [OK] By the Numbers: 20 articles
+  [OK] Musings on Markets — Markets: 20 articles
+  [OK] RBI — Speeches: 10 articles
+  [OK] RBI — Publications: 10 articles
+  [OK] Carbon Brief: 10 articles
+  [OK] Financial Times — India: 25 articles
+  [OK] Business Standard — India: 100 articles
+  [OK] Reuters — Business: 100 articles
+  [OK] The Ken: 10 articles
+  [OK] Business Standard — Industry: 100 articles
+  [OK] Techmeme: 15 articles
+  [OK] Business Standard — Economy: 100 articles
+  [OK] Reuters — India: 100 articles
+  [OK] AlphaEcon: 20 articles
+  [OK] Business Standard — Companies: 100 articles
+  [OK] Financial Times — Indian Business & Finance: 25 articles
+  [OK] Capital Quill: 20 articles
+  [OK] The Morning Context: 100 articles
+  [OK] The LEAP Blog: 25 articles
+  [OK] SOIC: 20 articles
+  [OK] SOIC Wisdom Board: 14 articles
+  [OK] Filter Coffee: 20 articles
+  [OK] Bloomberg — India: 100 articles
+  [OK] Firstpost — Business: 200 articles
+  [OK] Indian Express — Business: 200 articles
+  [OK] The Core — Business: 0 articles
+  [OK] Bloomberg — Economics: 30 articles
+  [OK] The Core — Economy: 2 articles
+  [OK] Finshots: 15 articles
+  [OK] Market Bites: 20 articles
+  [FAIL] SEBI — Press Releases: <urlopen error [Errno -3] Temporary failure in nam
+  [OK] ThePrint — Economy: 20 articles
+
+Total articles collected: 4859
+After removing duplicates: 4509
+After content filtering: 4261 (248 filtered out)
+After removing old articles (>10 days): 1710 (2551 removed)
+After grouping similar headlines: 1621 groups (89 articles merged)
+
+Generated: /home/kashish.kapoor/financeradar/index.html
+Total articles: 1256
+Exported 1621 articles to /home/kashish.kapoor/financeradar/static/articles.json
+
+Done!
+==================================================
