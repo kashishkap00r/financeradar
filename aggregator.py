@@ -699,6 +699,7 @@ def generate_html(article_groups):
 <head>
     <meta charset="UTF-8">
     <script>try{{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light')}}catch(e){{}}</script>
+    <script>try{{if(localStorage.getItem('financeradar_filters_collapsed')!=='false')document.documentElement.classList.add('filters-collapsed')}}catch(e){{}}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinanceRadar</title>
     <link rel="icon" href="static/favicon.svg">
@@ -952,6 +953,25 @@ def generate_html(article_groups):
             padding: 6px 0;
             flex-wrap: wrap;
         }}
+        .filter-toggle {{
+            display: none;
+            background: none;
+            border: none;
+            padding: 2px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.15s;
+            margin-left: 8px;
+            flex-shrink: 0;
+        }}
+        .filter-toggle:hover {{ color: var(--text-secondary); }}
+        .filter-toggle svg {{
+            width: 14px;
+            height: 14px;
+            transition: transform 0.2s ease;
+            display: block;
+        }}
+        html.filters-collapsed .filter-toggle svg {{ transform: rotate(-90deg); }}
         .preset-btn {{
             font-family: inherit;
             font-size: 13px;
@@ -1847,33 +1867,25 @@ def generate_html(article_groups):
             display: block;
         }}
 
-        /* Reports stats & search */
-        .reports-stats-bar {{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 0 8px 0;
-            font-size: 13px;
-            color: var(--text-secondary);
-        }}
+        /* Reports filter — reuses preset-btn look */
         .reports-filter-btn {{
-            height: 36px;
-            padding: 0 12px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text-secondary);
-            font-size: 13px;
             font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
             cursor: pointer;
+            transition: all 0.15s;
             white-space: nowrap;
-            transition: all 0.2s;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 4px;
         }}
-        .reports-filter-btn:hover {{ border-color: var(--accent); color: var(--text-primary); }}
-        .reports-filter-btn.active {{ background: var(--accent); color: #fff; border-color: var(--accent); }}
+        .reports-filter-btn:hover {{ border-color: var(--accent); color: var(--accent); }}
+        .reports-filter-btn.active {{ background: var(--accent); border-color: var(--accent); color: #fff; }}
 
         /* Back to Top */
         .back-to-top {{
@@ -2000,6 +2012,13 @@ def generate_html(article_groups):
                 left: 0;
                 right: auto;
             }}
+            .filter-toggle {{
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }}
+            html.filters-collapsed .filter-row {{ display: none; }}
+            html.filters-collapsed .stats-bar {{ padding-bottom: 0; }}
 
             .article {{
                 padding: 14px 16px;
@@ -2175,15 +2194,20 @@ def generate_html(article_groups):
                     <span><strong>{len(sorted_articles)}</strong> articles</span>
                     <span><strong>{len(sources)}</strong> sources</span>
                 </div>
-                <span class="update-time" id="update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
-                <script>
-                (function(){{
-                    var el=document.getElementById('update-time'),t=el&&el.getAttribute('data-time');
-                    if(!t)return;
-                    var d=Math.floor((new Date()-new Date(t))/60000);
-                    el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
-                }})();
-                </script>
+                <div style="display:flex;align-items:center;">
+                    <span class="update-time" id="update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
+                    <script>
+                    (function(){{
+                        var el=document.getElementById('update-time'),t=el&&el.getAttribute('data-time');
+                        if(!t)return;
+                        var d=Math.floor((new Date()-new Date(t))/60000);
+                        el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
+                    }})();
+                    </script>
+                    <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                </div>
             </div>
 
             <div class="filter-row" id="filter-row">
@@ -2282,20 +2306,31 @@ def generate_html(article_groups):
         </div><!-- /tab-news -->
 
         <div id="tab-reports" class="tab-content">
-            <div class="reports-stats-bar">
-                <span><strong id="reports-visible-count">{report_count}</strong> messages from {channel_count} channels</span>
-                <button class="reports-filter-btn" id="reports-pdf-filter" onclick="togglePdfFilter()">📄 PDFs</button>
-                <span class="update-time" id="reports-update-time" data-time="{telegram_generated_at}">Updated: --</span>
+            <div class="filter-card">
+                <div class="stats-bar">
+                    <div class="stats">
+                        <span><strong id="reports-visible-count">{report_count}</strong> messages</span>
+                        <span><strong>{channel_count}</strong> channels</span>
+                    </div>
+                    <div style="display:flex;align-items:center;">
+                        <span class="update-time" id="reports-update-time" data-time="{telegram_generated_at}">Updated: --</span>
+                        <script>
+                        (function(){{
+                            var el=document.getElementById('reports-update-time'),t=el&&el.getAttribute('data-time');
+                            if(!t)return;
+                            var d=Math.floor((new Date()-new Date(t))/60000);
+                            el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
+                        }})();
+                        </script>
+                        <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
+                            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <button class="reports-filter-btn" id="reports-pdf-filter" onclick="togglePdfFilter()">📄 PDFs only</button>
+                </div>
             </div>
-            <script>
-            (function(){{
-                var el=document.getElementById('reports-update-time'),t=el&&el.getAttribute('data-time');
-                if(!t)return;
-                var d=Math.floor((new Date()-new Date(t))/60000);
-                el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
-            }})();
-            </script>
-            <div id="reports-pagination-top" class="pagination"></div>
             <div id="reports-container"></div>
             <div id="reports-pagination-bottom" class="pagination bottom"></div>
         </div><!-- /tab-reports -->
@@ -2349,6 +2384,14 @@ def generate_html(article_groups):
         };
         initTheme();
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+        // Filter collapse toggle (mobile)
+        function toggleFilterCollapse() {
+            var dd = document.getElementById('publisher-dropdown');
+            if (dd && dd.classList.contains('open')) closeDropdown();
+            var isCollapsed = document.documentElement.classList.toggle('filters-collapsed');
+            safeStorage.set('financeradar_filters_collapsed', isCollapsed ? 'true' : 'false');
+        }
 
         // Multi-select publisher filter
         let selectedPublishers = new Set();
@@ -3257,9 +3300,7 @@ def generate_html(article_groups):
         }
 
         function renderReportsPagination(totalPages) {
-            const top = document.getElementById('reports-pagination-top');
             const bottom = document.getElementById('reports-pagination-bottom');
-            top.innerHTML = '';
             bottom.innerHTML = '';
 
             if (totalPages <= 1) return;
@@ -3314,7 +3355,6 @@ def generate_html(article_groups):
                 container.appendChild(nextBtn);
             };
 
-            build(top);
             build(bottom);
         }
 
