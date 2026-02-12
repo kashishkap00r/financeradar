@@ -2085,7 +2085,7 @@ def generate_html(article_groups):
     <div class="top-bar">
         <div class="top-bar-inner">
             <div class="brand">
-                <div class="logo">FinanceRadar</div>
+                <a href="/" class="logo" style="text-decoration:none;color:inherit;cursor:pointer;">FinanceRadar</a>
             </div>
             <div class="search-box">
                 <span class="search-icon">&#128269;</span>
@@ -2603,12 +2603,6 @@ def generate_html(article_groups):
         // Initialize publisher dropdown
         initPublisherDropdown();
 
-        // Restore last active tab
-        (function() {
-            var saved = safeStorage.get('financeradar_active_tab');
-            if (saved && saved !== 'news') switchTab(saved, true);
-        })();
-
         // Pagination
         const PAGE_SIZE = 20;
         let currentPage = 1;
@@ -3120,6 +3114,12 @@ def generate_html(article_groups):
         let reportsPdfFilterActive = false;
         let reportsPage = 1;
         const REPORTS_PAGE_SIZE = 20;
+
+        // Restore last active tab
+        (function() {
+            var saved = safeStorage.get('financeradar_active_tab');
+            if (saved && saved !== 'news') switchTab(saved, true);
+        })();
 
         function switchTab(tab, skipScroll) {
             document.querySelectorAll('.content-tab').forEach(btn => {
