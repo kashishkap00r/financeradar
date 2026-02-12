@@ -1,5 +1,5 @@
 [
-  {"username": "Brokerage_report", "label": "Brokerage Reports", "method": "html"},
+  {"username": "Brokerage_report", "label": "Brokerage Reports", "method": "mtproto"},
   {"username": "BeatTheStreetnews", "label": "Beat The Street", "method": "html"},
   {"username": "stockupdate9", "label": "Stock Update", "method": "html"},
   {"username": "btsreports", "label": "BTS Reports", "method": "mtproto"},

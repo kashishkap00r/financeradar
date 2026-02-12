@@ -344,7 +344,7 @@ async def fetch_channel_mtproto(client, username, label, cutoff):
             date_str = msg.date.isoformat() if msg.date else ""
 
             # Views (channels have view counts)
-            views = str(msg.views) if msg.views else ""
+            views = str(msg.views) if msg.views is not None else ""
 
             # Images: not available as CDN URLs via MTProto
             images = []
@@ -387,7 +387,6 @@ async def fetch_all_mtproto(channels, cutoff):
 
         if not await client.is_user_authorized():
             print("ERROR: Telegram session is not authorized. Regenerate with generate_session.py")
-            await client.disconnect()
             return []
 
         for ch in channels:

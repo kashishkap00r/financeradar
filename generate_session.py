@@ -28,8 +28,13 @@ async def main():
     print("=" * 50)
     print(session_string)
     print("=" * 50)
-    print("\nStore this as a GitHub Actions secret named TELEGRAM_SESSION")
-    print("Also store TELEGRAM_API_ID and TELEGRAM_API_HASH as secrets.")
+    print("\nSTORE AS GITHUB SECRETS (never commit to code):")
+    print("  TELEGRAM_SESSION  = the string above")
+    print("  TELEGRAM_API_ID   = your API ID")
+    print("  TELEGRAM_API_HASH = your API hash")
+    print("\nSECURITY WARNING: This session string grants full access to")
+    print("your Telegram account. Treat it like a password. If compromised,")
+    print("revoke it at: Telegram Settings > Devices > Terminate session.")
 
     await client.disconnect()
 
