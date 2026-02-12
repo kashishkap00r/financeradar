@@ -2603,6 +2603,12 @@ def generate_html(article_groups):
         // Initialize publisher dropdown
         initPublisherDropdown();
 
+        // Restore last active tab
+        (function() {
+            var saved = safeStorage.get('financeradar_active_tab');
+            if (saved && saved !== 'news') switchTab(saved, true);
+        })();
+
         // Pagination
         const PAGE_SIZE = 20;
         let currentPage = 1;
@@ -3115,7 +3121,7 @@ def generate_html(article_groups):
         let reportsPage = 1;
         const REPORTS_PAGE_SIZE = 20;
 
-        function switchTab(tab) {
+        function switchTab(tab, skipScroll) {
             document.querySelectorAll('.content-tab').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.tab === tab);
             });
@@ -3133,7 +3139,8 @@ def generate_html(article_groups):
             } else {
                 filterArticles();
             }
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            if (!skipScroll) window.scrollTo({top: 0, behavior: 'smooth'});
+            safeStorage.set('financeradar_active_tab', tab);
         }
 
         function formatReportDate(isoStr) {
