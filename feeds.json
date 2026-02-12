@@ -766,5 +766,53 @@
     "feed": "https://www.thecore.in/category/business/google_feeds.xml",
     "category": "News",
     "publisher": "The Core"
+  },
+  {
+    "id": "yt-rachana-ranade",
+    "name": "CA Rachana Ranade",
+    "url": "https://www.youtube.com/@CARachanaRanade",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCe3qdG0A_gr-sEdat5y2twQ",
+    "category": "Videos",
+    "publisher": "CA Rachana Ranade"
+  },
+  {
+    "id": "yt-akshat-shrivastava",
+    "name": "Akshat Shrivastava",
+    "url": "https://www.youtube.com/@AkshatShrivastava",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqW8jxh4tH1Z1sWPbkGWL4g",
+    "category": "Videos",
+    "publisher": "Akshat Shrivastava"
+  },
+  {
+    "id": "yt-pranjal-kamra",
+    "name": "Pranjal Kamra",
+    "url": "https://www.youtube.com/@PranjalKamra",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwAdQUuPT6laN-AQR17fe1g",
+    "category": "Videos",
+    "publisher": "Finology"
+  },
+  {
+    "id": "yt-labour-law-advisor",
+    "name": "Labour Law Advisor",
+    "url": "https://www.youtube.com/@LabourLawAdvisor",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVOTBwF0vnSxMRIbfSE_K_g",
+    "category": "Videos",
+    "publisher": "Labour Law Advisor"
+  },
+  {
+    "id": "yt-zerodha-varsity",
+    "name": "Zerodha Varsity",
+    "url": "https://www.youtube.com/@varsitybyzerodha",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC59YUBhNLMkS2Q8NBWBGHAA",
+    "category": "Videos",
+    "publisher": "Zerodha Varsity"
+  },
+  {
+    "id": "yt-shankar-nath",
+    "name": "Shankar Nath",
+    "url": "https://www.youtube.com/@ShankarNath",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtnItzU7q_bA1eoEBjqcVrw",
+    "category": "Videos",
+    "publisher": "Shankar Nath"
   }
 ]

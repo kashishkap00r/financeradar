@@ -522,7 +522,7 @@ def fetch_feed(feed_config):
 
                 link_href = link.get("href") if link is not None else ""
 
-                articles.append({
+                article_data = {
                     "title": title.text if title is not None and title.text else "No title",
                     "link": link_href,
                     "date": parse_date(pub_date.text if pub_date is not None else "", feed_name),
@@ -531,7 +531,21 @@ def fetch_feed(feed_config):
                     "source_url": source_url,
                     "category": feed_config.get("category", "News"),
                     "publisher": feed_config.get("publisher", "")
-                })
+                }
+
+                # YouTube-specific: extract video ID and thumbnail
+                yt_vid = item.find("{http://www.youtube.com/xml/schemas/2015}videoId")
+                if yt_vid is not None and yt_vid.text:
+                    article_data["video_id"] = yt_vid.text
+                    media_group = item.find("{http://search.yahoo.com/mrss/}group")
+                    thumb = ""
+                    if media_group is not None:
+                        thumb_el = media_group.find("{http://search.yahoo.com/mrss/}thumbnail")
+                        if thumb_el is not None:
+                            thumb = thumb_el.get("url", "")
+                    article_data["thumbnail"] = thumb or f"https://i.ytimg.com/vi/{yt_vid.text}/mqdefault.jpg"
+
+                articles.append(article_data)
         else:
             # RSS 2.0 format
             for item in items:
@@ -618,7 +632,7 @@ def export_articles_json(article_groups):
     print(f"Exported {len(articles)} articles to {output_path}")
 
 
-def generate_html(article_groups):
+def generate_html(article_groups, video_articles=None):
     """Generate the static HTML website."""
 
     # Sort groups by date of primary article (newest first)
@@ -687,6 +701,32 @@ def generate_html(article_groups):
         telegram_reports_json = "[]"
         telegram_generated_at = ""
         telegram_warnings = []
+
+    # Load NSE deals if available
+    nse_deals_file = os.path.join(SCRIPT_DIR, "static", "nse_deals.json")
+    try:
+        with open(nse_deals_file, "r", encoding="utf-8") as f:
+            nse_data = json.load(f)
+        nse_deals_json = json.dumps(nse_data.get("deals", []))
+        nse_generated_at = nse_data.get("generated_at", "")
+    except (IOError, json.JSONDecodeError):
+        nse_deals_json = "[]"
+        nse_generated_at = ""
+
+    # Prepare video data
+    if video_articles is None:
+        video_articles = []
+    video_articles_json = json.dumps([{
+        "title": v["title"],
+        "link": v["link"],
+        "date": v["date"].isoformat() if v.get("date") else None,
+        "source": v.get("source", ""),
+        "publisher": v.get("publisher", ""),
+        "video_id": v.get("video_id", ""),
+        "thumbnail": v.get("thumbnail", ""),
+    } for v in video_articles])
+    video_count = len(video_articles)
+    video_channel_count = len(set(v.get("publisher", "") for v in video_articles if v.get("publisher")))
 
     # Count in-focus articles (covered by multiple sources)
     in_focus_count = sum(1 for g in sorted_groups if g["related_sources"])
@@ -1840,6 +1880,224 @@ def generate_html(article_groups):
             text-decoration: underline;
         }}
 
+        /* NSE Deals */
+        .deals-section {{
+            margin-bottom: 12px;
+        }}
+        .deals-toggle {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 12px 18px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: border-color 0.2s;
+        }}
+        .deals-toggle:hover {{
+            border-color: var(--border-light);
+        }}
+        .deals-toggle-left {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }}
+        .deals-toggle .deals-arrow {{
+            font-size: 10px;
+            transition: transform 0.2s;
+            color: var(--text-muted);
+        }}
+        .deals-section.open .deals-arrow {{
+            transform: rotate(180deg);
+        }}
+        .deals-section.open .deals-toggle {{
+            border-radius: 12px 12px 0 0;
+            border-bottom-color: transparent;
+        }}
+        .deals-body {{
+            display: none;
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            background: var(--bg-secondary);
+            max-height: 400px;
+            overflow-y: auto;
+        }}
+        .deals-section.open .deals-body {{
+            display: block;
+        }}
+        .deals-table {{
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }}
+        .deals-table th {{
+            padding: 8px 12px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--bg-secondary);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }}
+        .deals-table td {{
+            padding: 7px 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-primary);
+            white-space: nowrap;
+        }}
+        .deals-table tr:last-child td {{
+            border-bottom: none;
+        }}
+        .deals-table tr:hover td {{
+            background: var(--bg-hover);
+        }}
+        .deal-buy {{
+            color: #22c55e;
+            font-weight: 600;
+        }}
+        .deal-sell {{
+            color: var(--danger);
+            font-weight: 600;
+        }}
+        .deal-type-pill {{
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }}
+        .deal-type-pill.block {{
+            background: rgba(225, 75, 75, 0.1);
+            color: var(--accent);
+        }}
+        .deal-type-pill.bulk {{
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }}
+        .deal-type-pill.short {{
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }}
+        @media (max-width: 640px) {{
+            .deals-table {{ font-size: 12px; }}
+            .deals-table th, .deals-table td {{ padding: 6px 8px; }}
+            .deals-table .deal-client {{ display: none; }}
+        }}
+
+        /* Video Cards */
+        .video-card {{
+            display: flex;
+            gap: 14px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-secondary);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+        }}
+        .video-card:hover {{
+            box-shadow: var(--card-shadow);
+            border-color: var(--border-light);
+            transform: translateY(-1px);
+        }}
+        .video-thumb {{
+            flex-shrink: 0;
+            width: 180px;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-hover);
+        }}
+        .video-thumb img {{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }}
+        .video-thumb-play {{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }}
+        .video-card:hover .video-thumb-play {{
+            opacity: 1;
+        }}
+        .video-thumb-play svg {{
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+            margin-left: 2px;
+        }}
+        .video-info {{
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }}
+        .video-title {{
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }}
+        .video-title a {{
+            color: var(--text-primary);
+            text-decoration: none;
+        }}
+        .video-title a:hover {{
+            color: var(--accent);
+        }}
+        .video-channel {{
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }}
+        .video-meta {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: auto;
+        }}
+        .video-meta a {{
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }}
+        .video-meta a:hover {{
+            text-decoration: underline;
+        }}
+
         /* Tabs */
         .content-tabs {{
             display: flex;
@@ -2051,6 +2309,19 @@ def generate_html(article_groups):
                 border-color: var(--border);
             }}
 
+            .video-card {{
+                flex-direction: column;
+                gap: 10px;
+            }}
+            .video-thumb {{
+                width: 100%;
+            }}
+            .video-card:hover {{
+                transform: none;
+                box-shadow: none;
+                border-color: var(--border);
+            }}
+
             .content-tab {{
                 padding: 8px 14px;
                 font-size: 13px;
@@ -2198,6 +2469,9 @@ def generate_html(article_groups):
             <button class="content-tab" data-tab="reports" onclick="switchTab('reports')">
                 Telegram <span class="tab-count">{report_count}</span>
             </button>
+            <button class="content-tab" data-tab="videos" onclick="switchTab('videos')">
+                Videos <span class="tab-count">{video_count}</span>
+            </button>
         </div>
 
         <div id="tab-news" class="tab-content active">
@@ -2244,6 +2518,14 @@ def generate_html(article_groups):
                 </div>
             </div>
 
+        </div>
+
+        <div id="deals-section" class="deals-section" style="display:none">
+            <button class="deals-toggle" onclick="toggleDeals()">
+                <span class="deals-toggle-left">📊 Market Deals <span style="font-weight:400;color:var(--text-muted)" id="deals-count-label"></span></span>
+                <span class="deals-arrow">▼</span>
+            </button>
+            <div class="deals-body" id="deals-body"></div>
         </div>
 
         <div id="articles">
@@ -2348,6 +2630,30 @@ def generate_html(article_groups):
             <div id="reports-container"></div>
             <div id="reports-pagination-bottom" class="pagination bottom"></div>
         </div><!-- /tab-reports -->
+
+        <div id="tab-videos" class="tab-content">
+            <div class="filter-card">
+                <div class="stats-bar">
+                    <div class="stats">
+                        <span><strong id="videos-visible-count">{video_count}</strong> videos</span>
+                        <span><strong>{video_channel_count}</strong> channels</span>
+                    </div>
+                    <div style="display:flex;align-items:center;">
+                        <span class="update-time" id="videos-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
+                        <script>
+                        (function(){{
+                            var el=document.getElementById('videos-update-time'),t=el&&el.getAttribute('data-time');
+                            if(!t)return;
+                            var d=Math.floor((new Date()-new Date(t))/60000);
+                            el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
+                        }})();
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div id="videos-container"></div>
+            <div id="videos-pagination-bottom" class="pagination bottom"></div>
+        </div><!-- /tab-videos -->
 """
 
     html += """        <footer>
@@ -2358,7 +2664,7 @@ def generate_html(article_groups):
     <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
     <div class="keyboard-hint">
-        <kbd>1</kbd> <kbd>2</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
+        <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
     </div>
 
     <script>
@@ -2369,6 +2675,9 @@ def generate_html(article_groups):
         const TELEGRAM_REPORTS = {telegram_reports_json};
         const TELEGRAM_GENERATED_AT = "{telegram_generated_at}";
         const TELEGRAM_WARNINGS = {json.dumps(telegram_warnings)};
+        const YOUTUBE_VIDEOS = {video_articles_json};
+        const NSE_DEALS = {nse_deals_json};
+        const NSE_GENERATED_AT = "{nse_generated_at}";
 """
     html += """
         // Theme toggle (persisted)
@@ -2399,6 +2708,44 @@ def generate_html(article_groups):
         };
         initTheme();
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+        // ==================== NSE DEALS ====================
+        function renderDeals() {
+            if (!NSE_DEALS || NSE_DEALS.length === 0) return;
+            const section = document.getElementById('deals-section');
+            if (!section) return;
+            section.style.display = 'block';
+            document.getElementById('deals-count-label').textContent = NSE_DEALS.length + ' deals';
+            const body = document.getElementById('deals-body');
+            let html = '<table class="deals-table"><thead><tr>';
+            html += '<th>Type</th><th>Symbol</th><th>Client</th><th>B/S</th><th>Qty</th><th>Price</th><th>Value (Cr)</th>';
+            html += '</tr></thead><tbody>';
+            // Show top 50 deals by value
+            const sorted = [...NSE_DEALS].sort((a, b) => (b.value_cr || 0) - (a.value_cr || 0)).slice(0, 50);
+            sorted.forEach(d => {
+                const bsClass = (d.buy_sell || '').toUpperCase() === 'BUY' ? 'deal-buy' : 'deal-sell';
+                const typeStr = (d.deal_type || '').toLowerCase();
+                const typePill = typeStr.includes('block') ? 'block' : typeStr.includes('bulk') ? 'bulk' : 'short';
+                const qty = typeof d.quantity === 'number' ? d.quantity.toLocaleString('en-IN') : d.quantity;
+                const price = typeof d.price === 'number' ? '₹' + d.price.toLocaleString('en-IN', {maximumFractionDigits: 2}) : d.price;
+                const value = typeof d.value_cr === 'number' && d.value_cr > 0 ? '₹' + d.value_cr.toLocaleString('en-IN', {maximumFractionDigits: 2}) + ' Cr' : '-';
+                html += `<tr>`;
+                html += `<td><span class="deal-type-pill ${typePill}">${typePill}</span></td>`;
+                html += `<td style="font-weight:600">${escapeHtml(d.symbol || '')}</td>`;
+                html += `<td class="deal-client" style="max-width:200px;overflow:hidden;text-overflow:ellipsis">${escapeHtml(d.client || '')}</td>`;
+                html += `<td class="${bsClass}">${escapeHtml(d.buy_sell || '')}</td>`;
+                html += `<td style="text-align:right">${qty}</td>`;
+                html += `<td style="text-align:right">${price}</td>`;
+                html += `<td style="text-align:right;font-weight:600">${value}</td>`;
+                html += `</tr>`;
+            });
+            html += '</tbody></table>';
+            body.innerHTML = html;
+        }
+        function toggleDeals() {
+            document.getElementById('deals-section').classList.toggle('open');
+        }
+        renderDeals();
 
         // Filter collapse toggle (mobile)
         function toggleFilterCollapse() {
@@ -2549,8 +2896,11 @@ def generate_html(article_groups):
         }
 
         function onSearchInput() {
-            if (getActiveTab() === 'reports') {
+            const tab = getActiveTab();
+            if (tab === 'reports') {
                 filterReports();
+            } else if (tab === 'videos') {
+                filterVideos();
             } else {
                 filterArticles();
             }
@@ -2793,6 +3143,8 @@ def generate_html(article_groups):
                 switchTab('news');
             } else if (e.key === '2') {
                 switchTab('reports');
+            } else if (e.key === '3') {
+                switchTab('videos');
             }
         });
 
@@ -3130,6 +3482,12 @@ def generate_html(article_groups):
         let reportsPage = 1;
         const REPORTS_PAGE_SIZE = 20;
 
+        // ==================== VIDEOS TAB (vars) ====================
+        let videosRendered = false;
+        let filteredVideos = [];
+        let videosPage = 1;
+        const VIDEOS_PAGE_SIZE = 20;
+
         // Restore last active tab
         (function() {
             var saved = safeStorage.get('financeradar_active_tab');
@@ -3144,13 +3502,19 @@ def generate_html(article_groups):
                 el.classList.toggle('active', el.id === 'tab-' + tab);
             });
             const searchEl = document.getElementById('search');
-            searchEl.placeholder = tab === 'reports' ? 'Search Telegram...' : 'Search articles...';
+            searchEl.placeholder = tab === 'reports' ? 'Search Telegram...' : tab === 'videos' ? 'Search videos...' : 'Search articles...';
             if (tab === 'reports') {
                 if (!reportsRendered) {
                     renderMainReports();
                     reportsRendered = true;
                 }
                 filterReports();
+            } else if (tab === 'videos') {
+                if (!videosRendered) {
+                    renderMainVideos();
+                    videosRendered = true;
+                }
+                filterVideos();
             } else {
                 filterArticles();
             }
@@ -3414,6 +3778,156 @@ def generate_html(article_groups):
             renderSidebarContent();
         }
 
+        // ==================== VIDEOS TAB (functions) ====================
+        function renderMainVideos() {
+            filteredVideos = [...YOUTUBE_VIDEOS];
+            videosPage = 1;
+            applyVideosPagination();
+        }
+
+        function filterVideos() {
+            const query = document.getElementById('search').value.toLowerCase().trim();
+            if (!query) {
+                filteredVideos = [...YOUTUBE_VIDEOS];
+            } else {
+                filteredVideos = YOUTUBE_VIDEOS.filter(v => {
+                    const text = (v.title + ' ' + v.source + ' ' + v.publisher).toLowerCase();
+                    return text.includes(query);
+                });
+            }
+            videosPage = 1;
+            applyVideosPagination();
+        }
+
+        function formatVideoDate(isoStr) {
+            if (!isoStr) return '';
+            const date = new Date(isoStr);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMin = Math.floor(diffMs / 60000);
+            const diffHr = Math.floor(diffMs / 3600000);
+            const diffDay = Math.floor(diffMs / 86400000);
+            if (diffMin < 1) return 'Just now';
+            if (diffMin < 60) return diffMin + 'm ago';
+            if (diffHr < 24) return diffHr + 'h ago';
+            if (diffDay === 1) return 'Yesterday';
+            if (diffDay < 7) return diffDay + 'd ago';
+            return date.toLocaleDateString();
+        }
+
+        function formatVideoDateHeader(isoStr) {
+            if (!isoStr) return 'Unknown Date';
+            const date = new Date(isoStr);
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const videoDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+            const diffDays = Math.floor((today - videoDay) / 86400000);
+            if (diffDays === 0) return 'Today';
+            if (diffDays === 1) return 'Yesterday';
+            return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+        }
+
+        function applyVideosPagination() {
+            const totalPages = Math.max(1, Math.ceil(filteredVideos.length / VIDEOS_PAGE_SIZE));
+            if (videosPage > totalPages) videosPage = totalPages;
+
+            document.getElementById('videos-visible-count').textContent = filteredVideos.length;
+
+            const start = (videosPage - 1) * VIDEOS_PAGE_SIZE;
+            const end = start + VIDEOS_PAGE_SIZE;
+            const pageVideos = filteredVideos.slice(start, end);
+
+            const container = document.getElementById('videos-container');
+            if (pageVideos.length === 0) {
+                container.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">No videos found.</div>';
+                renderVideosPagination(totalPages);
+                return;
+            }
+
+            let html = '';
+            let currentDateHeader = '';
+
+            pageVideos.forEach(v => {
+                const dateHeader = formatVideoDateHeader(v.date);
+                if (dateHeader !== currentDateHeader) {
+                    currentDateHeader = dateHeader;
+                    html += `<h2 class="date-header">${dateHeader}</h2>`;
+                }
+
+                const title = escapeHtml(v.title);
+                const channel = escapeHtml(v.publisher || v.source);
+                const link = escapeHtml(v.link);
+                const thumbnail = v.thumbnail || (v.video_id ? `https://i.ytimg.com/vi/${v.video_id}/mqdefault.jpg` : '');
+
+                html += `
+                    <div class="video-card">
+                        <a href="${link}" target="_blank" rel="noopener" class="video-thumb">
+                            ${thumbnail ? `<img src="${escapeForAttr(thumbnail)}" alt="${title}" loading="lazy" onerror="this.style.display='none'">` : ''}
+                            <div class="video-thumb-play">
+                                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+                            </div>
+                        </a>
+                        <div class="video-info">
+                            <div class="video-channel">${channel}</div>
+                            <div class="video-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>
+                            <div class="video-meta">
+                                <span>${formatVideoDate(v.date)}</span>
+                                <a href="${link}" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            renderVideosPagination(totalPages);
+        }
+
+        function renderVideosPagination(totalPages) {
+            const bottom = document.getElementById('videos-pagination-bottom');
+            if (!bottom || totalPages <= 1) {
+                if (bottom) bottom.innerHTML = '';
+                return;
+            }
+
+            const build = (container) => {
+                container.innerHTML = '';
+                const makeBtn = (text, page, isActive, isDisabled) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'page-btn' + (isActive ? ' active' : '');
+                    btn.textContent = text;
+                    btn.disabled = isDisabled;
+                    if (!isDisabled && !isActive) btn.onclick = () => { videosPage = page; applyVideosPagination(); window.scrollTo({top: 0, behavior: 'smooth'}); };
+                    return btn;
+                };
+                const prevBtn = makeBtn('← Prev', Math.max(1, videosPage - 1), false, videosPage === 1);
+                prevBtn.classList.add('nav', 'prev');
+                container.appendChild(prevBtn);
+
+                const nums = document.createElement('div');
+                nums.className = 'page-numbers';
+                const addPage = (p) => nums.appendChild(makeBtn(String(p), p, p === videosPage, false));
+                const addEllipsis = () => { const el = document.createElement('span'); el.className = 'page-ellipsis'; el.textContent = '...'; nums.appendChild(el); };
+
+                if (totalPages <= 7) {
+                    for (let i = 1; i <= totalPages; i++) addPage(i);
+                } else {
+                    addPage(1);
+                    if (videosPage > 3) addEllipsis();
+                    for (let i = Math.max(2, videosPage - 1); i <= Math.min(totalPages - 1, videosPage + 1); i++) addPage(i);
+                    if (videosPage < totalPages - 2) addEllipsis();
+                    addPage(totalPages);
+                }
+                container.appendChild(nums);
+
+                const nextBtn = makeBtn('Next →', Math.min(totalPages, videosPage + 1), false, videosPage === totalPages);
+                nextBtn.classList.add('nav', 'next');
+                container.appendChild(nextBtn);
+            };
+
+            build(bottom);
+        }
+
         // Update relative time for all timestamped elements
         function formatTimeAgo(el) {
             if (!el || !el.dataset.time) return;
@@ -3428,6 +3942,7 @@ def generate_html(article_groups):
         function updateRelativeTime() {
             formatTimeAgo(document.getElementById('update-time'));
             formatTimeAgo(document.getElementById('reports-update-time'));
+            formatTimeAgo(document.getElementById('videos-update-time'));
             formatTimeAgo(document.getElementById('ai-updated'));
         }
         updateRelativeTime();
@@ -3480,11 +3995,19 @@ def main():
 
     print(f"\nTotal articles collected: {len(all_articles)}")
 
+    # Separate video articles from regular articles
+    video_articles = [a for a in all_articles if a.get("category") == "Videos"]
+    regular_articles = [a for a in all_articles if a.get("category") != "Videos"]
+    print(f"Videos: {len(video_articles)}, Regular: {len(regular_articles)}")
+
+    # Sort videos by date (newest first), no filtering/grouping needed
+    video_articles.sort(key=get_sort_timestamp, reverse=True)
+
     # Remove duplicates based on URL only (not title - to preserve source diversity)
     seen_urls = set()
     unique_articles = []
 
-    for article in all_articles:
+    for article in regular_articles:
         # Skip articles with no URL
         if not article["link"] or not article["link"].strip():
             continue
@@ -3542,7 +4065,7 @@ def main():
     grouped_count = len(filtered_articles) - len(article_groups)
     print(f"After grouping similar headlines: {len(article_groups)} groups ({grouped_count} articles merged)")
 
-    generate_html(article_groups)
+    generate_html(article_groups, video_articles)
     export_articles_json(article_groups)
 
     print("\nDone!")
