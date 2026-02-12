@@ -814,5 +814,37 @@
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtnItzU7q_bA1eoEBjqcVrw",
     "category": "Videos",
     "publisher": "Shankar Nath"
+  },
+  {
+    "id": "x-nithin-kamath",
+    "name": "Nithin Kamath (X)",
+    "url": "https://x.com/Nithin0dha",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:Nithin0dha&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Ideas",
+    "publisher": "X/Twitter"
+  },
+  {
+    "id": "x-deepak-shenoy",
+    "name": "Deepak Shenoy (X)",
+    "url": "https://x.com/deepakshenoy",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:deepakshenoy&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Ideas",
+    "publisher": "X/Twitter"
+  },
+  {
+    "id": "x-indian-markets",
+    "name": "X — Indian Markets",
+    "url": "https://x.com",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+%22nifty%22+OR+%22sensex%22+OR+%22indian+stock+market%22&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Ideas",
+    "publisher": "X/Twitter"
+  },
+  {
+    "id": "x-india-economy",
+    "name": "X — India Economy",
+    "url": "https://x.com",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+%22india%22+%22RBI%22+OR+%22SEBI%22+OR+%22economy%22+OR+%22GDP%22&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Ideas",
+    "publisher": "X/Twitter"
   }
 ]
