@@ -1,5 +1,9 @@
 [
-  {"username": "Brokerage_report", "label": "Brokerage Reports"},
-  {"username": "BeatTheStreetnews", "label": "Beat The Street"},
-  {"username": "stockupdate9", "label": "Stock Update"}
+  {"username": "Brokerage_report", "label": "Brokerage Reports", "method": "html"},
+  {"username": "BeatTheStreetnews", "label": "Beat The Street", "method": "html"},
+  {"username": "stockupdate9", "label": "Stock Update", "method": "html"},
+  {"username": "btsreports", "label": "BTS Reports", "method": "mtproto"},
+  {"username": "Equity_Insights", "label": "Equity Insights", "method": "mtproto"},
+  {"username": "stockmarketbooksresearchreport", "label": "Stock Market Research", "method": "mtproto"},
+  {"username": "researchreportss", "label": "Research Reports", "method": "mtproto"}
 ]

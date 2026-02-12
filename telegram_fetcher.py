@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Telegram Channel Fetcher
-Scrapes public Telegram channel previews (t.me/s/) and extracts messages.
-Zero dependencies — stdlib only.
+Scrapes public Telegram channel previews (t.me/s/) and fetches private
+channels via Telethon MTProto client.
 """
 
 import json
@@ -13,6 +13,16 @@ import urllib.error
 import ssl
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
+import asyncio
+
+# Telethon: optional dependency for private channel access
+try:
+    from telethon import TelegramClient
+    from telethon.sessions import StringSession
+    from telethon.tl.types import DocumentAttributeFilename
+    TELETHON_AVAILABLE = True
+except ImportError:
+    TELETHON_AVAILABLE = False
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CHANNELS_FILE = os.path.join(SCRIPT_DIR, "telegram_channels.json")
@@ -26,6 +36,11 @@ USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 )
+
+# Telegram API credentials (for MTProto channels)
+TELEGRAM_API_ID = os.environ.get("TELEGRAM_API_ID", "")
+TELEGRAM_API_HASH = os.environ.get("TELEGRAM_API_HASH", "")
+TELEGRAM_SESSION = os.environ.get("TELEGRAM_SESSION", "")
 
 
 class TelegramHTMLParser(HTMLParser):
@@ -278,6 +293,122 @@ def parse_messages(html, channel_label):
     return messages
 
 
+# ─── MTProto (Telethon) helpers ─────────────────────────────────────────
+
+
+def format_file_size(size_bytes):
+    """Convert bytes to human-readable file size."""
+    if not size_bytes:
+        return ""
+    size = float(size_bytes)
+    for unit in ("B", "KB", "MB", "GB"):
+        if abs(size) < 1024:
+            if unit == "B":
+                return f"{int(size)} {unit}"
+            return f"{size:.1f} {unit}"
+        size /= 1024
+    return f"{size:.1f} TB"
+
+
+async def fetch_channel_mtproto(client, username, label, cutoff):
+    """Fetch messages from a channel using Telethon MTProto client."""
+    messages = []
+    try:
+        async for msg in client.iter_messages(username, limit=300):
+            # Stop pagination at age cutoff
+            if msg.date and msg.date < cutoff:
+                break
+
+            # Build message URL
+            url = f"https://t.me/{username}/{msg.id}"
+
+            # Extract text
+            text = msg.text or ""
+            text = re.sub(r"\n{3,}", "\n\n", text.strip())
+
+            # Extract documents
+            documents = []
+            if msg.document:
+                filename = ""
+                for attr in (msg.document.attributes or []):
+                    if isinstance(attr, DocumentAttributeFilename):
+                        filename = attr.file_name
+                        break
+                if filename:
+                    documents.append({
+                        "title": filename,
+                        "size": format_file_size(msg.document.size),
+                    })
+
+            # Date as ISO 8601 string
+            date_str = msg.date.isoformat() if msg.date else ""
+
+            # Views (channels have view counts)
+            views = str(msg.views) if msg.views else ""
+
+            # Images: not available as CDN URLs via MTProto
+            images = []
+
+            messages.append({
+                "text": text,
+                "date": date_str,
+                "url": url,
+                "channel": label,
+                "documents": documents,
+                "document": documents[0] if documents else None,
+                "views": views,
+                "images": images,
+            })
+    except Exception as e:
+        print(f"  ERROR (MTProto) fetching {username}: {e}")
+
+    return messages
+
+
+async def fetch_all_mtproto(channels, cutoff):
+    """Fetch all MTProto channels using a single Telethon session."""
+    if not TELETHON_AVAILABLE:
+        print("WARNING: telethon not installed. Skipping private channels.")
+        print("  Install with: pip install telethon")
+        return []
+    if not TELEGRAM_API_ID or not TELEGRAM_API_HASH or not TELEGRAM_SESSION:
+        print("WARNING: Telegram API credentials not set. Skipping private channels.")
+        print("  Need env vars: TELEGRAM_API_ID, TELEGRAM_API_HASH, TELEGRAM_SESSION")
+        return []
+
+    all_messages = []
+    client = TelegramClient(
+        StringSession(TELEGRAM_SESSION),
+        int(TELEGRAM_API_ID),
+        TELEGRAM_API_HASH
+    )
+    try:
+        await client.connect()
+
+        if not await client.is_user_authorized():
+            print("ERROR: Telegram session is not authorized. Regenerate with generate_session.py")
+            await client.disconnect()
+            return []
+
+        for ch in channels:
+            username = ch["username"]
+            label = ch["label"]
+            print(f"\nFetching (MTProto): {username} ({label})...")
+            msgs = await fetch_channel_mtproto(client, username, label, cutoff)
+            print(f"  Total: {len(msgs)} messages")
+            all_messages.extend(msgs)
+
+    except Exception as e:
+        print(f"ERROR: Telethon client failed: {e}")
+    finally:
+        await client.disconnect()
+
+    return all_messages
+
+
+# ─── Main ───────────────────────────────────────────────────────────────
+
+
 def main():
     print("=" * 50)
     print("Telegram Channel Fetcher")
@@ -291,14 +422,20 @@ def main():
     with open(CHANNELS_FILE, "r") as f:
         channels = json.load(f)
 
-    print(f"Channels: {len(channels)}")
+    # Split channels by fetch method
+    html_channels = [ch for ch in channels if ch.get("method", "html") == "html"]
+    mtproto_channels = [ch for ch in channels if ch.get("method") == "mtproto"]
+
+    print(f"Channels: {len(channels)} ({len(html_channels)} HTML, {len(mtproto_channels)} MTProto)")
 
     all_messages = []
     seen_urls = set()
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=MAX_AGE_DAYS)
 
-    for ch in channels:
+    # ── Phase 1: HTML scraper (public channels) ──
+
+    for ch in html_channels:
         username = ch["username"]
         label = ch["label"]
         print(f"\nFetching: {username} ({label})...")
@@ -335,6 +472,17 @@ def main():
                 channel_count += 1
 
         print(f"  Total: {channel_count} messages (last {MAX_AGE_DAYS} days, {len(pages)} pages)")
+
+    # ── Phase 2: MTProto / Telethon (private channels) ──
+
+    if mtproto_channels:
+        cutoff_aware = cutoff if cutoff.tzinfo else cutoff.replace(tzinfo=timezone.utc)
+        mtproto_msgs = asyncio.run(fetch_all_mtproto(mtproto_channels, cutoff_aware))
+        for msg in mtproto_msgs:
+            if msg["url"] in seen_urls:
+                continue
+            seen_urls.add(msg["url"])
+            all_messages.append(msg)
 
     # Sort by date descending
     all_messages.sort(key=lambda m: m.get("date", ""), reverse=True)
