@@ -681,10 +681,12 @@ def generate_html(article_groups):
             telegram_data = json.load(f)
         telegram_reports_json = json.dumps(telegram_data.get("reports", []))
         telegram_generated_at = telegram_data.get("generated_at", "")
+        telegram_warnings = telegram_data.get("warnings", [])
     except (IOError, json.JSONDecodeError):
         telegram_data = {}
         telegram_reports_json = "[]"
         telegram_generated_at = ""
+        telegram_warnings = []
 
     # Count in-focus articles (covered by multiple sources)
     in_focus_count = sum(1 for g in sorted_groups if g["related_sources"])
@@ -1759,6 +1761,17 @@ def generate_html(article_groups):
             fill: var(--accent);
         }}
 
+        .reports-warning {{
+            background: var(--danger, #e14b4b);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+        }}
+        .reports-warning strong {{ font-weight: 700; }}
+
         /* Report Cards (main area) */
         .report-card {{
             padding: 16px 20px;
@@ -2331,6 +2344,7 @@ def generate_html(article_groups):
                     <button class="reports-filter-btn" id="reports-pdf-filter" onclick="togglePdfFilter()">📄 PDFs only</button>
                 </div>
             </div>
+            <div id="reports-warning" class="reports-warning" style="display:none"></div>
             <div id="reports-container"></div>
             <div id="reports-pagination-bottom" class="pagination bottom"></div>
         </div><!-- /tab-reports -->
@@ -2354,6 +2368,7 @@ def generate_html(article_groups):
         const PUBLISHER_PRESETS = {publisher_presets_json};
         const TELEGRAM_REPORTS = {telegram_reports_json};
         const TELEGRAM_GENERATED_AT = "{telegram_generated_at}";
+        const TELEGRAM_WARNINGS = {json.dumps(telegram_warnings)};
 """
     html += """
         // Theme toggle (persisted)
@@ -3175,6 +3190,12 @@ def generate_html(article_groups):
             filteredReports = [...TELEGRAM_REPORTS];
             reportsPage = 1;
             applyReportsPagination();
+            // Show warnings if any
+            var warnEl = document.getElementById('reports-warning');
+            if (warnEl && TELEGRAM_WARNINGS && TELEGRAM_WARNINGS.length > 0) {
+                warnEl.innerHTML = '<strong>⚠ Fetch issue:</strong> ' + TELEGRAM_WARNINGS.join(' · ') + ' — some reports may be missing.';
+                warnEl.style.display = 'block';
+            }
         }
 
         function togglePdfFilter() {

@@ -366,17 +366,17 @@ async def fetch_channel_mtproto(client, username, label, cutoff):
 
 
 async def fetch_all_mtproto(channels, cutoff):
-    """Fetch all MTProto channels using a single Telethon session."""
+    """Fetch all MTProto channels using a single Telethon session.
+    Returns (messages_list, warnings_list)."""
     if not TELETHON_AVAILABLE:
         print("WARNING: telethon not installed. Skipping private channels.")
-        print("  Install with: pip install telethon")
-        return []
+        return [], ["telethon not installed — private channels skipped"]
     if not TELEGRAM_API_ID or not TELEGRAM_API_HASH or not TELEGRAM_SESSION:
         print("WARNING: Telegram API credentials not set. Skipping private channels.")
-        print("  Need env vars: TELEGRAM_API_ID, TELEGRAM_API_HASH, TELEGRAM_SESSION")
-        return []
+        return [], ["Telegram API credentials not set — private channels skipped"]
 
     all_messages = []
+    warnings = []
     client = TelegramClient(
         StringSession(TELEGRAM_SESSION),
         int(TELEGRAM_API_ID),
@@ -387,7 +387,7 @@ async def fetch_all_mtproto(channels, cutoff):
 
         if not await client.is_user_authorized():
             print("ERROR: Telegram session is not authorized. Regenerate with generate_session.py")
-            return []
+            return [], ["Telegram session expired — private channels skipped. Re-run generate_session.py"]
 
         for ch in channels:
             username = ch["username"]
@@ -395,14 +395,17 @@ async def fetch_all_mtproto(channels, cutoff):
             print(f"\nFetching (MTProto): {username} ({label})...")
             msgs = await fetch_channel_mtproto(client, username, label, cutoff)
             print(f"  Total: {len(msgs)} messages")
+            if not msgs:
+                warnings.append(f"0 messages from {label} ({username})")
             all_messages.extend(msgs)
 
     except Exception as e:
         print(f"ERROR: Telethon client failed: {e}")
+        warnings.append(f"Telethon client error: {e}")
     finally:
         await client.disconnect()
 
-    return all_messages
+    return all_messages, warnings
 
 
 # ─── Main ───────────────────────────────────────────────────────────────
@@ -474,14 +477,19 @@ def main():
 
     # ── Phase 2: MTProto / Telethon (private channels) ──
 
+    warnings = []
     if mtproto_channels:
         cutoff_aware = cutoff if cutoff.tzinfo else cutoff.replace(tzinfo=timezone.utc)
-        mtproto_msgs = asyncio.run(fetch_all_mtproto(mtproto_channels, cutoff_aware))
+        mtproto_msgs, mtproto_warnings = asyncio.run(fetch_all_mtproto(mtproto_channels, cutoff_aware))
+        warnings.extend(mtproto_warnings)
         for msg in mtproto_msgs:
             if msg["url"] in seen_urls:
                 continue
             seen_urls.add(msg["url"])
             all_messages.append(msg)
+
+    if warnings:
+        print(f"\n⚠ WARNINGS: {'; '.join(warnings)}")
 
     # Sort by date descending
     all_messages.sort(key=lambda m: m.get("date", ""), reverse=True)
@@ -489,6 +497,7 @@ def main():
     output = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "reports": all_messages,
+        "warnings": warnings,
     }
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
