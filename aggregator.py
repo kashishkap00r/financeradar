@@ -698,6 +698,7 @@ def generate_html(article_groups):
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>try{{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light')}}catch(e){{}}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinanceRadar</title>
     <link rel="icon" href="static/favicon.svg">
@@ -705,6 +706,7 @@ def generate_html(article_groups):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        body {{ opacity: 0; }}
         :root {{
             --bg-primary: #ffffff;
             --bg-secondary: #f8f9fa;
@@ -914,42 +916,6 @@ def generate_html(article_groups):
             display: flex;
             align-items: center;
             gap: 6px;
-        }}
-
-        /* In Focus Row */
-        .in-focus-row {{
-            padding: 8px 0 0 0;
-            display: flex;
-            justify-content: center;
-        }}
-
-        /* In Focus Button with Pulsing Dot */
-        .in-focus-btn {{
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 20px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            color: var(--text-secondary);
-            font-size: 13px;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all 0.15s;
-        }}
-        .in-focus-btn:hover {{
-            border-color: var(--accent);
-            color: var(--text-primary);
-        }}
-        .in-focus-btn.active {{
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
-        }}
-        .in-focus-btn.active .pulse-dot {{
-            background: #fff;
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
         }}
 
         /* Pulsing Dot */
@@ -1418,6 +1384,79 @@ def generate_html(article_groups):
         .ai-toggle:hover {{
             border-color: var(--border-light);
             background: var(--bg-hover);
+        }}
+
+        /* In Focus toggle — matches ai-toggle / bookmarks-toggle pattern */
+        .in-focus-toggle {{
+            position: relative;
+            padding: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }}
+        .in-focus-toggle:hover {{
+            border-color: var(--border-light);
+            background: var(--bg-hover);
+        }}
+        .in-focus-toggle.active {{
+            background: var(--accent);
+            border-color: var(--accent);
+        }}
+        .in-focus-toggle.active .pulse-dot {{
+            background: #fff;
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+        }}
+
+        /* In Focus count badge — same pattern as .bookmark-count */
+        .in-focus-count {{
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            min-width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }}
+
+        /* Custom tooltips for top-bar action buttons */
+        [data-tooltip] {{
+            position: relative;
+        }}
+        [data-tooltip]::after {{
+            content: attr(data-tooltip);
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s;
+            z-index: 1000;
+        }}
+        [data-tooltip]:hover::after {{
+            opacity: 1;
         }}
 
         /* Bookmarks Sidebar */
@@ -2012,6 +2051,16 @@ def generate_html(article_groups):
             }}
         }}
     </style>
+    <script>
+    (function(){{
+      if (document.fonts && document.fonts.ready) {{
+        document.fonts.ready.then(function(){{ document.body.style.opacity='1'; }});
+      }} else {{
+        window.addEventListener('load', function(){{ document.body.style.opacity='1'; }});
+      }}
+      setTimeout(function(){{ document.body.style.opacity='1'; }}, 500);
+    }})();
+    </script>
 </head>
 <body>
     <div class="top-bar">
@@ -2023,16 +2072,20 @@ def generate_html(article_groups):
                 <span class="search-icon">&#128269;</span>
                 <input type="text" id="search" placeholder="Search articles..." oninput="onSearchInput()">
             </div>
-            <button id="ai-toggle" class="ai-toggle" type="button" aria-label="AI Picks" title="AI Picks" onclick="openAiSidebar()">
+            <button id="ai-toggle" class="ai-toggle" type="button" aria-label="Top AI stories" data-tooltip="Top AI stories" onclick="openAiSidebar()">
                 <span style="font-size: 16px;">🤖</span>
             </button>
-            <button id="bookmarks-toggle" class="bookmarks-toggle" type="button" aria-label="View bookmarks" title="View bookmarks">
+            <button id="bookmarks-toggle" class="bookmarks-toggle" type="button" aria-label="Your bookmarks" data-tooltip="Your bookmarks">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                 </svg>
                 <span id="bookmark-count" class="bookmark-count hidden">0</span>
             </button>
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+            <button id="in-focus-toggle" class="in-focus-toggle" type="button" aria-label="Stories in focus" data-tooltip="Stories in focus" onclick="toggleInFocus()">
+                <span class="pulse-dot"></span>
+                <span class="in-focus-count">{in_focus_count}</span>
+            </button>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" data-tooltip="Toggle theme">
                 <svg class="icon-moon feather feather-moon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
@@ -2123,6 +2176,14 @@ def generate_html(article_groups):
                     <span><strong>{len(sources)}</strong> sources</span>
                 </div>
                 <span class="update-time" id="update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
+                <script>
+                (function(){{
+                    var el=document.getElementById('update-time'),t=el&&el.getAttribute('data-time');
+                    if(!t)return;
+                    var d=Math.floor((new Date()-new Date(t))/60000);
+                    el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
+                }})();
+                </script>
             </div>
 
             <div class="filter-row" id="filter-row">
@@ -2146,15 +2207,7 @@ def generate_html(article_groups):
                 </div>
             </div>
 
-            <div class="in-focus-row">
-                <button class="in-focus-btn" id="in-focus-toggle" onclick="toggleInFocus()">
-                    <span class="pulse-dot"></span>
-                    In Focus: <strong>{in_focus_count}</strong> stories covered by multiple sources
-                </button>
-            </div>
         </div>
-
-        <div id="pagination-top" class="pagination" aria-label="Pagination"></div>
 
         <div id="articles">
 """
@@ -2232,8 +2285,16 @@ def generate_html(article_groups):
             <div class="reports-stats-bar">
                 <span><strong id="reports-visible-count">{report_count}</strong> messages from {channel_count} channels</span>
                 <button class="reports-filter-btn" id="reports-pdf-filter" onclick="togglePdfFilter()">📄 PDFs</button>
-                <span class="update-time" id="reports-update-time">Updated: --</span>
+                <span class="update-time" id="reports-update-time" data-time="{telegram_generated_at}">Updated: --</span>
             </div>
+            <script>
+            (function(){{
+                var el=document.getElementById('reports-update-time'),t=el&&el.getAttribute('data-time');
+                if(!t)return;
+                var d=Math.floor((new Date()-new Date(t))/60000);
+                el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
+            }})();
+            </script>
             <div id="reports-pagination-top" class="pagination"></div>
             <div id="reports-container"></div>
             <div id="reports-pagination-bottom" class="pagination bottom"></div>
@@ -2509,9 +2570,7 @@ def generate_html(article_groups):
         }
 
         function renderPagination(totalPages) {
-            const top = document.getElementById('pagination-top');
             const bottom = document.getElementById('pagination-bottom');
-            top.innerHTML = '';
             bottom.innerHTML = '';
 
             if (totalPages <= 1) {
@@ -2578,7 +2637,6 @@ def generate_html(article_groups):
                 container.appendChild(nextBtn);
             };
 
-            build(top);
             build(bottom);
         }
 
@@ -2616,6 +2674,7 @@ def generate_html(article_groups):
             });
 
             renderPagination(totalPages);
+            try { localStorage.setItem('financeradar_page', currentPage); } catch(e) {}
             if (shouldScroll) {
                 window.scrollTo(0, 0);
             }
@@ -2679,8 +2738,13 @@ def generate_html(article_groups):
             }
         });
 
-        // Initial pagination
-        setPageToToday();
+        // Initial pagination — restore saved page or default to today
+        const savedPage = parseInt(localStorage.getItem('financeradar_page'), 10);
+        if (savedPage && savedPage > 0) {
+            currentPage = savedPage;
+        } else {
+            setPageToToday();
+        }
         applyPagination();
 
         // ==================== BOOKMARKS ====================
@@ -2935,8 +2999,10 @@ def generate_html(article_groups):
                     </button>
                 </div>
             `).join('');
-            const date = new Date(aiRankings.generated_at);
-            document.getElementById('ai-updated').textContent = `Updated: ${date.toLocaleDateString()} ${date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+            const aiEl = document.getElementById('ai-updated');
+            aiEl.setAttribute('data-time', aiRankings.generated_at);
+            const aiD = Math.floor((new Date() - new Date(aiRankings.generated_at)) / 60000);
+            aiEl.textContent = 'Updated ' + (aiD < 1 ? 'just now' : aiD < 60 ? aiD + ' min ago' : aiD < 1440 ? Math.floor(aiD / 60) + ' hr ago' : Math.floor(aiD / 1440) + ' day ago');
         }
 
         function isBookmarked(url) {
@@ -3059,12 +3125,6 @@ def generate_html(article_groups):
             filteredReports = [...TELEGRAM_REPORTS];
             reportsPage = 1;
             applyReportsPagination();
-
-            if (TELEGRAM_GENERATED_AT) {
-                const d = new Date(TELEGRAM_GENERATED_AT);
-                document.getElementById('reports-update-time').textContent =
-                    'Updated: ' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-            }
         }
 
         function togglePdfFilter() {
@@ -3286,19 +3346,21 @@ def generate_html(article_groups):
             renderSidebarContent();
         }
 
-        // Update relative time
-        function updateRelativeTime() {
-            const el = document.getElementById('update-time');
-            if (!el) return;
-            const time = new Date(el.dataset.time);
-            const now = new Date();
-            const diff = Math.floor((now - time) / 1000);
+        // Update relative time for all timestamped elements
+        function formatTimeAgo(el) {
+            if (!el || !el.dataset.time) return;
+            const diff = Math.floor((new Date() - new Date(el.dataset.time)) / 1000);
             let text;
             if (diff < 60) text = 'Updated just now';
             else if (diff < 3600) text = `Updated ${Math.floor(diff / 60)} min ago`;
             else if (diff < 86400) text = `Updated ${Math.floor(diff / 3600)} hr ago`;
             else text = `Updated ${Math.floor(diff / 86400)} day ago`;
             el.textContent = text;
+        }
+        function updateRelativeTime() {
+            formatTimeAgo(document.getElementById('update-time'));
+            formatTimeAgo(document.getElementById('reports-update-time'));
+            formatTimeAgo(document.getElementById('ai-updated'));
         }
         updateRelativeTime();
         setInterval(updateRelativeTime, 60000);
