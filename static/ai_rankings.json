@@ -1,16 +1,260 @@
 {
-  "generated_at": "2026-02-15T07:54:23.307006+05:30",
+  "generated_at": "2026-02-16T07:43:18.886638+05:30",
   "article_count": 200,
   "providers": {
     "auto": {
       "name": "Auto (Best Free)",
-      "status": "error",
-      "error": "Expecting ',' delimiter: line 1 column 2548 (char 2547)"
+      "status": "ok",
+      "count": 20,
+      "rankings": [
+        {
+          "rank": 1,
+          "title": "PM Modi's rooftop solar push slowed by reluctant lenders, states ",
+          "url": "https://economictimes.indiatimes.com/industry/renewables/pm-modis-rooftop-solar-push-slowed-by-reluctant-lenders-states/articleshow/128401980.cms",
+          "source": "Economic Times \u2014 Latest"
+        },
+        {
+          "rank": 2,
+          "title": "India\u2019s Discoms Turn A Profit, But State-Level Leakage Need A Fix",
+          "url": "https://www.thecore.in/business/indias-discoms-turn-a-profit-in-fy25-but-state-level-leakage-need-a-fix-858540",
+          "source": "The Core \u2014 Business"
+        },
+        {
+          "rank": 3,
+          "title": "How climate change is reshaping India\u2019s agricultural water-use patterns",
+          "url": "",
+          "source": ""
+        },
+        {
+          "rank": 4,
+          "title": "Data Black Holes Leave Policymakers \u2018Flying Blind\u2019 in Hunt for Next Crash",
+          "url": "",
+          "source": ""
+        },
+        {
+          "rank": 5,
+          "title": "AI-powered Cloud service provider Neysa to raise $1.2 bn via equity, debt",
+          "url": "",
+          "source": ""
+        },
+        {
+          "rank": 6,
+          "title": "Twist in tale? Warner Bros weigh Paramount offer that covers $2.8bn Netflix break fee, says report",
+          "url": "https://www.livemint.com/companies/news/warner-bros-board-reconsiders-paramount-talks-raising-stakes-for-netflix-deal-report-11771201321339.html",
+          "source": "Mint \u2014 Companies"
+        },
+        {
+          "rank": 7,
+          "title": "Merger Involving $61 Billion of Debt to Help India Credit Market - Bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPbkpGVzNHbGctemZ5WnlsUDBWbVlBWndHUktzMzVKVldUN3VZNUMweXpDZW1pYTk1Rk5fRlByelU4UXhKZmNyc2xTUGduX081dkxKOGFKLS1GR3RuNzFDVGJsMkpaRXh4eXk5aHBfTE4yYjV4TFJUTV85dmo5UnA5NTFER0xRb3Q2TDZpcm1pTWFYcjRmbjZhc2xpMXB0UWlPV0l3d3NOTjBQV1FRWDhhUklHdmw?oc=5",
+          "source": "Bloomberg \u2014 India"
+        },
+        {
+          "rank": 8,
+          "title": "Dhruva Space looks to raise up to $50 million in new round of funding",
+          "url": "https://www.livemint.com/companies/start-ups/dhruva-space-looks-to-raise-up-to-50-million-new-round-funding-11771152512315.html",
+          "source": "Mint \u2014 Companies"
+        },
+        {
+          "rank": 9,
+          "title": "Oil demand to touch new high in FY27 on rising use of key fuels",
+          "url": "https://indianexpress.com/article/business/commodities/oil-demand-to-touch-new-high-in-fy27-on-rising-use-of-key-fuels-10534223/",
+          "source": "Indian Express \u2014 Business"
+        },
+        {
+          "rank": 10,
+          "title": "Cotton farmers oppose Goyal\u2019s U.S. import remarks, warn of price crash",
+          "url": "https://www.thehindu.com/business/agri-business/cotton-farmers-protest-piyush-goyals-remarks-on-us-imports-warn-of-price-crash/article70635962.ece",
+          "source": "The Hindu \u2014 Agri Business"
+        },
+        {
+          "rank": 11,
+          "title": "Are India\u2019s AI rules future-proof? Let\u2019s test them against 2030 scenarios of an evolving internet",
+          "url": "https://www.livemint.com/opinion/online-views/india-ai-rules-future-proof-test-against-2030-scenarios-evolving-internet-artificial-intelligence-11771091547311.html",
+          "source": "Mint \u2014 Opinion"
+        },
+        {
+          "rank": 12,
+          "title": "Manmohan Singh\u2019s calm amid din in Parliament",
+          "url": "https://www.livemint.com/opinion/columns/manmohansingh1991reformsindiaustradedeal-11771179631249.html",
+          "source": "Mint \u2014 Opinion"
+        },
+        {
+          "rank": 13,
+          "title": "Sam Altman says India has 100M weekly ChatGPT users, the app's second-largest userbase after the US",
+          "url": "",
+          "source": ""
+        },
+        {
+          "rank": 14,
+          "title": "Sam Altman says Peter Steinberger, founder of OpenClaw, is joining OpenAI 'to drive the next generation of personal agents'",
+          "url": "",
+          "source": ""
+        },
+        {
+          "rank": 15,
+          "title": "Private banks up the ante on campus hiring in hunt for niche, tech expertise",
+          "url": "https://www.livemint.com/industry/banking/private-lenders-banks-campus-hiring-engineering-tech-finance-11771140867850.html",
+          "source": "Mint \u2014 Industry"
+        },
+        {
+          "rank": 16,
+          "title": "PM Surya Ghar: Why India\u2019s solar push is faltering and what needs fixing",
+          "url": "",
+          "source": ""
+        },
+        {
+          "rank": 17,
+          "title": "RBI restores default loss guarantees for NBFCs after swearing by liquidity sufficiency",
+          "url": "",
+          "source": ""
+        },
+        {
+          "rank": 18,
+          "title": "India reviews Press Note 3, may ease small FDI entry with de minimis rule ",
+          "url": "https://economictimes.indiatimes.com/news/economy/policy/india-reviews-press-note-3-may-ease-small-fdi-entry-with-de-minimis-rule/articleshow/128393478.cms",
+          "source": "Economic Times \u2014 Latest"
+        },
+        {
+          "rank": 19,
+          "title": "India champions responsible AI as Delhi gears up for global summit",
+          "url": "https://www.thehindubusinessline.com/news/india-champions-responsible-ai-as-delhi-gears-up-for-global-summit/article70635969.ece",
+          "source": "BusinessLine \u2014 News"
+        },
+        {
+          "rank": 20,
+          "title": "Nasscom chief Rajesh Nambiar: AI can't copy deep enterprise context",
+          "url": "",
+          "source": ""
+        }
+      ]
     },
     "nemotron": {
       "name": "Nemotron 3 Nano",
-      "status": "error",
-      "error": "Expecting value: line 1 column 1 (char 0)"
+      "status": "ok",
+      "count": 20,
+      "rankings": [
+        {
+          "rank": 1,
+          "title": "PM Modi's rooftop solar push slowed by reluctant lenders, states ",
+          "url": "https://economictimes.indiatimes.com/industry/renewables/pm-modis-rooftop-solar-push-slowed-by-reluctant-lenders-states/articleshow/128401980.cms",
+          "source": "Economic Times \u2014 Latest"
+        },
+        {
+          "rank": 2,
+          "title": "Fresh legal snag may delay NSE\u2019s long-awaited public debut ",
+          "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/fresh-legal-snag-may-delay-nses-long-awaited-public-debut/articleshow/128401836.cms",
+          "source": "Economic Times \u2014 Latest"
+        },
+        {
+          "rank": 3,
+          "title": "Is budget push to develop animation, VFX, gaming talent in AI era pragmatic?",
+          "url": "https://www.livemint.com/industry/media/animation-visual-effects-gaming-union-budget-artificial-intelligence-11771141606446.html",
+          "source": "Mint \u2014 Industry"
+        },
+        {
+          "rank": 4,
+          "title": "When carmakers are racing ahead, can parts makers be far behind?",
+          "url": "https://www.livemint.com/companies/auto-part-makers-capacity-expansion-comes-into-focus-as-demand-surges-11771136210981.html",
+          "source": "Mint \u2014 Companies"
+        },
+        {
+          "rank": 5,
+          "title": "India cracks down on professional blood donor rackets with tougher new rules",
+          "url": "https://www.livemint.com/industry/government-cracks-down-on-professional-blood-donor-rackets-new-rules-11771133350558.html",
+          "source": "Mint \u2014 Industry"
+        },
+        {
+          "rank": 6,
+          "title": "India\u2019s Discoms Turn A Profit, But State-Level Leakage Need A Fix",
+          "url": "https://www.thecore.in/business/indias-discoms-turn-a-profit-in-fy25-but-state-level-leakage-need-a-fix-858540",
+          "source": "The Core \u2014 Business"
+        },
+        {
+          "rank": 7,
+          "title": "India reviews Press Note 3, may ease small FDI entry with de minimis rule ",
+          "url": "https://economictimes.indiatimes.com/news/economy/policy/india-reviews-press-note-3-may-ease-small-fdi-entry-with-de-minimis-rule/articleshow/128393478.cms",
+          "source": "Economic Times \u2014 Latest"
+        },
+        {
+          "rank": 8,
+          "title": "RBI nod for leveraged buyouts fails to evoke banker enthusiasm; mixed response to broker lending norms",
+          "url": "https://www.livemint.com/industry/banking/rbi-nod-for-leveraged-buyouts-fails-to-evoke-banker-enthusiasm-mixed-response-to-broker-lending-norms-11771145195074.html",
+          "source": "Mint \u2014 Industry"
+        },
+        {
+          "rank": 9,
+          "title": "India AI Summit: From Sam Altman to Sundar Pichai \u2014 tech CEOs likely to attend major expo in Delhi",
+          "url": "https://www.livemint.com/companies/people/india-ai-summit-from-jensen-huang-to-sundar-pichai-tech-ceos-likely-to-attend-major-expo-in-delhi-11771201216706.html",
+          "source": "Mint \u2014 Companies"
+        },
+        {
+          "rank": 10,
+          "title": "Cotton farmers oppose Goyal\u2019s U.S. import remarks, warn of price crash",
+          "url": "https://www.thehindu.com/business/agri-business/cotton-farmers-protest-piyush-goyals-remarks-on-us-imports-warn-of-price-crash/article70635962.ece",
+          "source": "The Hindu \u2014 Agri Business"
+        },
+        {
+          "rank": 11,
+          "title": "AI can't copy deep enterprise context: Nasscom chief Rajesh Nambiar - Business Standard",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPZlVROWVnN1U4R1g3cXFpQkR2LWN3MTFxUkZpYnF4bGluOGh3VlhsYXlEV1JIVWJyVmc5MTBNUWdjVTE2ZDIyY0hYNzctNW9ZSVdudEhrWDdEV0tiUHNJVW1qQjhoeDh1TVJhdUI3NF92OXo2TnlUamdHRWVXUUE2YVpBWmFya0M0OGNMSVpvaF9PRmlieEVJd2FlV2g2Qk54V19UWWFOcVFKSHhlR3RoQUVkNTZNckdNajRRU0hsT213Q1NfZms3X2kwRXJWY1R5b1M00gHYAUFVX3lxTFA4RmsxV2FtcGtzZi16dGR0cENHRzBJSm8wY2I5Qy15TkRQNTc0bTRYaUlGNm1LRFpDcGNYT3RSbl9yUFdZQXhQanlZY2NNS3pKLWEtMnRqaHNNdmhSLXZ4d2M4ODBXVXJaT3o3LUJHYTZzZ2ZpT1FwRHZUTU5iNGhmd2QzclF0MFBEZURES2g5VlRQX0tNd0pDS2Z1RWdYRGhlR1ZocWFyMXI4cXh4bE43aWh0TktqU0lWNS1FVHlRSjI5alJlWUpzckM1cmNaSWdpR2JqWDJERQ?oc=5",
+          "source": "Business Standard \u2014 Companies"
+        },
+        {
+          "rank": 12,
+          "title": " The 2026 Shopping Shift: Why people are quietly walking away from malls ",
+          "url": " https://www.etnownews.com/et-now-luxe/the-2026-shopping-shift-why-people-are-quietly-walking-away-from-malls-article-153618525 ",
+          "source": "ET Now"
+        },
+        {
+          "rank": 13,
+          "title": "Silver\u2019s price upshoot confirms a sustained solar panel boom even as the metal heads for oversupply",
+          "url": "https://www.livemint.com/opinion/online-views/silver-price-upshoot-sustained-solar-panel-boom-metal-oversupply-renewable-energy-11771090320817.html",
+          "source": "Mint \u2014 Opinion"
+        },
+        {
+          "rank": 14,
+          "title": "Are India\u2019s AI rules future-proof? Let\u2019s test them against 2030 scenarios of an evolving internet",
+          "url": "https://www.livemint.com/opinion/online-views/india-ai-rules-future-proof-test-against-2030-scenarios-evolving-internet-artificial-intelligence-11771091547311.html",
+          "source": "Mint \u2014 Opinion"
+        },
+        {
+          "rank": 15,
+          "title": "Renewables account for 75% of India's power capacity addition in FY26 - Business Standard",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPT0lXQW0wQWRXNjBNa3Y0LUp6Vy00RklXNEVoQ0FnZVlBUERWUFg4akI2bU13TWtITk9vbmxrX1NsRzZRMjFLSFVONEswYmFleHpMclRLMEVJTlhWMzRCUkpKQmF0N011OEVqbW1TcHRZdjFKeHRkMW9zVVhpcFhfVW1oMTRpbUpJVy15UG1EWDN5OWZya1NVcmdaYkRnd2hEcC0zRElBeVNIYl93R05RMzQyZnNCeDdpbGROTEFrTGRSbVVMWVo1UUF2dEZaZVJkanfSAdcBQVVfeXFMTlpGSnc5TGtJNHE1UFotMkxlOG1rS3VtNnJtcGtJYkYycEJKWlNEckRBUkYxS1hURFlNUUhLd3lKLXZVaTRFV3VLcVdkTDltcGxhYUxuZmxENXdudGlld3FfYnQ5TmZ1UWM4ZEZxZlZaOU5CcVpVdlFmOFBfTW16ZlJBX0hQd1hVY21iaXpVVEhjYzA0U3hEU29od19yZnExWURyYUdiSV9IcjBNaUdIX2RBZHUtYXFoV2lpRWFQYlFDOFlVbldiMjBIVzVPQjZkZVF0N0ZWcU0?oc=5",
+          "source": "Business Standard \u2014 Industry"
+        },
+        {
+          "rank": 16,
+          "title": "MPs panel to push central check on RERA bye-laws: Housing minister Manohar Lal Khattar ",
+          "url": "https://economictimes.indiatimes.com/industry/services/property-/-cstruction/mps-panel-to-push-central-check-on-rera-bye-laws-housing-minister-manohar-lal-khattar/articleshow/128394218.cms",
+          "source": "Economic Times \u2014 Latest"
+        },
+        {
+          "rank": 17,
+          "title": "Dhruva Space looks to raise up to $50 million in new round of funding",
+          "url": "https://www.livemint.com/companies/start-ups/dhruva-space-looks-to-raise-up-to-50-million-new-round-funding-11771152512315.html",
+          "source": "Mint \u2014 Companies"
+        },
+        {
+          "rank": 18,
+          "title": "How Suzlon\u2019s \u2018decoupling\u2019 gambit is paying dividends",
+          "url": "https://www.thehindubusinessline.com/specials/corporate-file/how-suzlons-decoupling-gambit-is-paying-dividends/article70636307.ece",
+          "source": "BusinessLine"
+        },
+        {
+          "rank": 19,
+          "title": "India adds record over 52 GW power capacity in FY26",
+          "url": "https://www.thehindubusinessline.com/companies/india-adds-record-over-52-gw-power-capacity-in-fy26/article70635637.ece",
+          "source": "BusinessLine \u2014 Companies"
+        },
+        {
+          "rank": 20,
+          "title": "India\u2019s AI Impact Summit 2026 set to put Global South at forefront - Business Standard",
+          "url": "",
+          "source": ""
+        }
+      ]
     }
   }
 }
