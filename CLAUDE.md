@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-FinanceRadar is a Python RSS aggregator that generates a single static HTML page with 102+ feeds (96 news/ideas/institutions + 6 YouTube channels). Deployed hourly via GitHub Actions to Cloudflare Pages. An AI ranker (OpenRouter) picks the top 20 stories daily. A Telegram fetcher pulls brokerage reports from 7 channels (2 public via HTML scraping, 5 private via Telethon MTProto). An NSE fetcher pulls bulk/block deals from NSE India.
+FinanceRadar is a Python RSS aggregator that generates a single static HTML page with 106 feeds (96 news + 6 YouTube + 4 Twitter/X). Deployed hourly via GitHub Actions to Cloudflare Pages. Four tabs: News, Telegram, YouTube, Twitter. An AI ranker (OpenRouter) picks the top 20 stories daily. A Telegram fetcher pulls brokerage reports from 7 channels. An NSE fetcher pulls bulk/block deals from NSE India.
 
 **Live:** financeradar.kashishkapoor.com
 
@@ -39,8 +39,8 @@ pip install telethon && python3 generate_session.py
 
 ### Data Flow
 ```
-feeds.json (102+ feeds: 96 news/ideas/institutions + 6 YouTube)
-  → aggregator.py (parallel fetch → split videos → dedup → filter → group → HTML)
+feeds.json (106 feeds: 96 news + 6 YouTube + 4 Twitter)
+  → aggregator.py (parallel fetch → split YouTube/Twitter → dedup → filter → group → HTML)
   → index.html + static/articles.json
 
 nseindia.com API
@@ -67,7 +67,7 @@ static/articles.json
 | `ai_ranker.py` | ~230 | Reads `articles.json`, sends headlines to OpenRouter, writes `ai_rankings.json` |
 | `generate_session.py` | ~35 | One-time interactive script to create Telethon StringSession |
 | `nse_fetcher.py` | ~170 | NSE bulk/block deals fetcher (cookie dance + API) |
-| `feeds.json` | 102+ entries | Feed configs: `{id, name, url, feed, category, publisher?}`. Categories: News, Ideas, Institutions, Videos |
+| `feeds.json` | 106 entries | Feed configs: `{id, name, url, feed, category, publisher?}`. Categories: News, Videos, Twitter (internal routing only) |
 | `telegram_channels.json` | 7 entries | Channel configs: `{username, label, method}` where method is `"html"` or `"mtproto"` |
 
 ### Generated Files (do NOT hand-edit)
@@ -94,7 +94,8 @@ The entire frontend lives inside `generate_html()` as a single f-string. All CSS
 | `<body>` + top bar | ~2084–2188 | Header, search, top-bar icon buttons (AI, Bookmarks, In Focus, Theme) |
 | News tab (`#tab-news`) | ~2190–2306 | NSE deals section (collapsible table), `.filter-card` → `.stats-bar` (+ filter-toggle chevron) + `.filter-row` (presets, publisher, category), article cards, pagination |
 | Telegram tab (`#tab-reports`) | ~2308–2336 | `.filter-card` → `.stats-bar` (+ filter-toggle chevron) + `.filter-row` (PDF filter), reports container, pagination |
-| Videos tab (`#tab-videos`) | after reports | `.filter-card` → `.stats-bar`, video cards (thumbnail + info), pagination |
+| YouTube tab (`#tab-youtube`) | after reports | `.filter-card` → `.stats-bar`, video cards (thumbnail + info), pagination |
+| Twitter tab (`#tab-twitter`) | after youtube | `.filter-card` → `.stats-bar`, tweet articles, pagination |
 | Footer + overlays | ~2339–2349 | Footer, back-to-top, keyboard hints |
 | `<script>` (all JS) | ~2350–3420 | State management, rendering, filtering, pagination, bookmarks, keyboard nav, sidebars, tab persistence |
 
@@ -127,7 +128,7 @@ All reads/writes go through `safeStorage` helper (try/catch wrapper). Keys:
 |-----|--------|---------|
 | `theme` | `light` / `dark` | Theme preference |
 | `financeradar_filters_collapsed` | `true` / `false` | Mobile filter row visibility (default: collapsed on `null`) |
-| `financeradar_active_tab` | `news` / `reports` / `videos` | Persisted active tab |
+| `financeradar_active_tab` | `news` / `reports` / `youtube` / `twitter` | Persisted active tab |
 | `financeradar_page` | number | Last viewed pagination page |
 | `financeradar_bookmarks` | JSON array | Saved article bookmarks |
 
@@ -176,7 +177,7 @@ Note: MTProto-fetched messages have empty `images: []` (no CDN URLs available vi
 
 ## Feed Categories
 
-Four categories: **News** (mainstream media), **Institutions** (RBI, SEBI, ECB, ADB, PIB), **Ideas** (substacks, blogs, data journalism), **Videos** (YouTube finance channels — separated from the news pipeline, rendered as video cards with thumbnails).
+No visible categorization in the frontend. The `category` field in feeds.json is used only for internal pipeline routing: `"News"` → News tab, `"Videos"` → YouTube tab, `"Twitter"` → Twitter tab. YouTube and Twitter articles are separated early and skip content filtering/headline grouping.
 
 Special feed URL patterns:
 - Google News RSS workaround: `news.google.com/rss/search?q=site:domain.com/section`

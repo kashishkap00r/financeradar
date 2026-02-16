@@ -632,7 +632,7 @@ def export_articles_json(article_groups):
     print(f"Exported {len(articles)} articles to {output_path}")
 
 
-def generate_html(article_groups, video_articles=None):
+def generate_html(article_groups, video_articles=None, twitter_articles=None):
     """Generate the static HTML website."""
 
     # Sort groups by date of primary article (newest first)
@@ -727,6 +727,18 @@ def generate_html(article_groups, video_articles=None):
     } for v in video_articles])
     video_count = len(video_articles)
     video_channel_count = len(set(v.get("publisher", "") for v in video_articles if v.get("publisher")))
+
+    # Prepare twitter data
+    if twitter_articles is None:
+        twitter_articles = []
+    twitter_articles_json = json.dumps([{
+        "title": t["title"],
+        "link": t["link"],
+        "date": t["date"].isoformat() if t.get("date") else None,
+        "source": t.get("source", ""),
+        "publisher": t.get("publisher", ""),
+    } for t in twitter_articles])
+    twitter_count = len(twitter_articles)
 
     # Count in-focus articles (covered by multiple sources)
     in_focus_count = sum(1 for g in sorted_groups if g["related_sources"])
@@ -2469,8 +2481,11 @@ def generate_html(article_groups, video_articles=None):
             <button class="content-tab" data-tab="reports" onclick="switchTab('reports')">
                 Telegram <span class="tab-count">{report_count}</span>
             </button>
-            <button class="content-tab" data-tab="videos" onclick="switchTab('videos')">
-                Videos <span class="tab-count">{video_count}</span>
+            <button class="content-tab" data-tab="youtube" onclick="switchTab('youtube')">
+                YouTube <span class="tab-count">{video_count}</span>
+            </button>
+            <button class="content-tab" data-tab="twitter" onclick="switchTab('twitter')">
+                Twitter <span class="tab-count">{twitter_count}</span>
             </button>
         </div>
 
@@ -2580,9 +2595,8 @@ def generate_html(article_groups, video_articles=None):
                 source_links.append(f'<a href="{rs_link}" target="_blank" rel="noopener" title="{rs_name}">{rs_display}</a>')
             also_covered_html = f'\n                <div class="also-covered">Also covered by: {", ".join(source_links)}</div>'
 
-        category = escape(article.get("category", "News").lower())
         publisher = escape(article.get("publisher", ""))
-        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}" data-url="{link}" data-title="{title}" data-category="{category}" data-in-focus="{is_in_focus}" data-publisher="{publisher}">
+        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}" data-url="{link}" data-title="{title}" data-in-focus="{is_in_focus}" data-publisher="{publisher}">
                 <h3 class="article-title"><a href="{link}" target="_blank" rel="noopener">{title}</a>{source_badge_html}</h3>
                 <div class="article-meta">
                     <a href="{source_url}" target="_blank" class="source-tag" title="{source}">{source_display}</a>
@@ -2631,18 +2645,18 @@ def generate_html(article_groups, video_articles=None):
             <div id="reports-pagination-bottom" class="pagination bottom"></div>
         </div><!-- /tab-reports -->
 
-        <div id="tab-videos" class="tab-content">
+        <div id="tab-youtube" class="tab-content">
             <div class="filter-card">
                 <div class="stats-bar">
                     <div class="stats">
-                        <span><strong id="videos-visible-count">{video_count}</strong> videos</span>
+                        <span><strong id="youtube-visible-count">{video_count}</strong> videos</span>
                         <span><strong>{video_channel_count}</strong> channels</span>
                     </div>
                     <div style="display:flex;align-items:center;">
-                        <span class="update-time" id="videos-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
+                        <span class="update-time" id="youtube-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
                         <script>
                         (function(){{
-                            var el=document.getElementById('videos-update-time'),t=el&&el.getAttribute('data-time');
+                            var el=document.getElementById('youtube-update-time'),t=el&&el.getAttribute('data-time');
                             if(!t)return;
                             var d=Math.floor((new Date()-new Date(t))/60000);
                             el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
@@ -2651,9 +2665,32 @@ def generate_html(article_groups, video_articles=None):
                     </div>
                 </div>
             </div>
-            <div id="videos-container"></div>
-            <div id="videos-pagination-bottom" class="pagination bottom"></div>
-        </div><!-- /tab-videos -->
+            <div id="youtube-container"></div>
+            <div id="youtube-pagination-bottom" class="pagination bottom"></div>
+        </div><!-- /tab-youtube -->
+
+        <div id="tab-twitter" class="tab-content">
+            <div class="filter-card">
+                <div class="stats-bar">
+                    <div class="stats">
+                        <span><strong id="twitter-visible-count">{twitter_count}</strong> tweets</span>
+                    </div>
+                    <div style="display:flex;align-items:center;">
+                        <span class="update-time" id="twitter-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
+                        <script>
+                        (function(){{
+                            var el=document.getElementById('twitter-update-time'),t=el&&el.getAttribute('data-time');
+                            if(!t)return;
+                            var d=Math.floor((new Date()-new Date(t))/60000);
+                            el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
+                        }})();
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div id="twitter-container"></div>
+            <div id="twitter-pagination-bottom" class="pagination bottom"></div>
+        </div><!-- /tab-twitter -->
 """
 
     html += """        <footer>
@@ -2664,7 +2701,7 @@ def generate_html(article_groups, video_articles=None):
     <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
     <div class="keyboard-hint">
-        <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
+        <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
     </div>
 
     <script>
@@ -2676,6 +2713,7 @@ def generate_html(article_groups, video_articles=None):
         const TELEGRAM_GENERATED_AT = "{telegram_generated_at}";
         const TELEGRAM_WARNINGS = {json.dumps(telegram_warnings)};
         const YOUTUBE_VIDEOS = {video_articles_json};
+        const TWITTER_ARTICLES = {twitter_articles_json};
         const NSE_DEALS = {nse_deals_json};
         const NSE_GENERATED_AT = "{nse_generated_at}";
 """
@@ -2899,8 +2937,10 @@ def generate_html(article_groups, video_articles=None):
             const tab = getActiveTab();
             if (tab === 'reports') {
                 filterReports();
-            } else if (tab === 'videos') {
-                filterVideos();
+            } else if (tab === 'youtube') {
+                filterYoutube();
+            } else if (tab === 'twitter') {
+                filterTwitter();
             } else {
                 filterArticles();
             }
@@ -3144,7 +3184,9 @@ def generate_html(article_groups, video_articles=None):
             } else if (e.key === '2') {
                 switchTab('reports');
             } else if (e.key === '3') {
-                switchTab('videos');
+                switchTab('youtube');
+            } else if (e.key === '4') {
+                switchTab('twitter');
             }
         });
 
@@ -3482,11 +3524,17 @@ def generate_html(article_groups, video_articles=None):
         let reportsPage = 1;
         const REPORTS_PAGE_SIZE = 20;
 
-        // ==================== VIDEOS TAB (vars) ====================
-        let videosRendered = false;
-        let filteredVideos = [];
-        let videosPage = 1;
-        const VIDEOS_PAGE_SIZE = 20;
+        // ==================== YOUTUBE TAB (vars) ====================
+        let youtubeRendered = false;
+        let filteredYoutube = [];
+        let youtubePage = 1;
+        const YOUTUBE_PAGE_SIZE = 20;
+
+        // ==================== TWITTER TAB (vars) ====================
+        let twitterRendered = false;
+        let filteredTwitter = [];
+        let twitterPage = 1;
+        const TWITTER_PAGE_SIZE = 30;
 
         // Restore last active tab
         (function() {
@@ -3502,19 +3550,25 @@ def generate_html(article_groups, video_articles=None):
                 el.classList.toggle('active', el.id === 'tab-' + tab);
             });
             const searchEl = document.getElementById('search');
-            searchEl.placeholder = tab === 'reports' ? 'Search Telegram...' : tab === 'videos' ? 'Search videos...' : 'Search articles...';
+            searchEl.placeholder = tab === 'reports' ? 'Search Telegram...' : tab === 'youtube' ? 'Search YouTube...' : tab === 'twitter' ? 'Search tweets...' : 'Search articles...';
             if (tab === 'reports') {
                 if (!reportsRendered) {
                     renderMainReports();
                     reportsRendered = true;
                 }
                 filterReports();
-            } else if (tab === 'videos') {
-                if (!videosRendered) {
-                    renderMainVideos();
-                    videosRendered = true;
+            } else if (tab === 'youtube') {
+                if (!youtubeRendered) {
+                    renderMainYoutube();
+                    youtubeRendered = true;
                 }
-                filterVideos();
+                filterYoutube();
+            } else if (tab === 'twitter') {
+                if (!twitterRendered) {
+                    renderMainTwitter();
+                    twitterRendered = true;
+                }
+                filterTwitter();
             } else {
                 filterArticles();
             }
@@ -3778,28 +3832,28 @@ def generate_html(article_groups, video_articles=None):
             renderSidebarContent();
         }
 
-        // ==================== VIDEOS TAB (functions) ====================
-        function renderMainVideos() {
-            filteredVideos = [...YOUTUBE_VIDEOS];
-            videosPage = 1;
-            applyVideosPagination();
+        // ==================== YOUTUBE TAB (functions) ====================
+        function renderMainYoutube() {
+            filteredYoutube = [...YOUTUBE_VIDEOS];
+            youtubePage = 1;
+            applyYoutubePagination();
         }
 
-        function filterVideos() {
+        function filterYoutube() {
             const query = document.getElementById('search').value.toLowerCase().trim();
             if (!query) {
-                filteredVideos = [...YOUTUBE_VIDEOS];
+                filteredYoutube = [...YOUTUBE_VIDEOS];
             } else {
-                filteredVideos = YOUTUBE_VIDEOS.filter(v => {
+                filteredYoutube = YOUTUBE_VIDEOS.filter(v => {
                     const text = (v.title + ' ' + v.source + ' ' + v.publisher).toLowerCase();
                     return text.includes(query);
                 });
             }
-            videosPage = 1;
-            applyVideosPagination();
+            youtubePage = 1;
+            applyYoutubePagination();
         }
 
-        function formatVideoDate(isoStr) {
+        function formatYoutubeDate(isoStr) {
             if (!isoStr) return '';
             const date = new Date(isoStr);
             const now = new Date();
@@ -3815,7 +3869,7 @@ def generate_html(article_groups, video_articles=None):
             return date.toLocaleDateString();
         }
 
-        function formatVideoDateHeader(isoStr) {
+        function formatYoutubeDateHeader(isoStr) {
             if (!isoStr) return 'Unknown Date';
             const date = new Date(isoStr);
             const now = new Date();
@@ -3827,20 +3881,20 @@ def generate_html(article_groups, video_articles=None):
             return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
         }
 
-        function applyVideosPagination() {
-            const totalPages = Math.max(1, Math.ceil(filteredVideos.length / VIDEOS_PAGE_SIZE));
-            if (videosPage > totalPages) videosPage = totalPages;
+        function applyYoutubePagination() {
+            const totalPages = Math.max(1, Math.ceil(filteredYoutube.length / YOUTUBE_PAGE_SIZE));
+            if (youtubePage > totalPages) youtubePage = totalPages;
 
-            document.getElementById('videos-visible-count').textContent = filteredVideos.length;
+            document.getElementById('youtube-visible-count').textContent = filteredYoutube.length;
 
-            const start = (videosPage - 1) * VIDEOS_PAGE_SIZE;
-            const end = start + VIDEOS_PAGE_SIZE;
-            const pageVideos = filteredVideos.slice(start, end);
+            const start = (youtubePage - 1) * YOUTUBE_PAGE_SIZE;
+            const end = start + YOUTUBE_PAGE_SIZE;
+            const pageVideos = filteredYoutube.slice(start, end);
 
-            const container = document.getElementById('videos-container');
+            const container = document.getElementById('youtube-container');
             if (pageVideos.length === 0) {
                 container.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">No videos found.</div>';
-                renderVideosPagination(totalPages);
+                renderYoutubePagination(totalPages);
                 return;
             }
 
@@ -3848,7 +3902,7 @@ def generate_html(article_groups, video_articles=None):
             let currentDateHeader = '';
 
             pageVideos.forEach(v => {
-                const dateHeader = formatVideoDateHeader(v.date);
+                const dateHeader = formatYoutubeDateHeader(v.date);
                 if (dateHeader !== currentDateHeader) {
                     currentDateHeader = dateHeader;
                     html += `<h2 class="date-header">${dateHeader}</h2>`;
@@ -3871,7 +3925,7 @@ def generate_html(article_groups, video_articles=None):
                             <div class="video-channel">${channel}</div>
                             <div class="video-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>
                             <div class="video-meta">
-                                <span>${formatVideoDate(v.date)}</span>
+                                <span>${formatYoutubeDate(v.date)}</span>
                                 <a href="${link}" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
                             </div>
                         </div>
@@ -3880,11 +3934,11 @@ def generate_html(article_groups, video_articles=None):
             });
 
             container.innerHTML = html;
-            renderVideosPagination(totalPages);
+            renderYoutubePagination(totalPages);
         }
 
-        function renderVideosPagination(totalPages) {
-            const bottom = document.getElementById('videos-pagination-bottom');
+        function renderYoutubePagination(totalPages) {
+            const bottom = document.getElementById('youtube-pagination-bottom');
             if (!bottom || totalPages <= 1) {
                 if (bottom) bottom.innerHTML = '';
                 return;
@@ -3897,30 +3951,172 @@ def generate_html(article_groups, video_articles=None):
                     btn.className = 'page-btn' + (isActive ? ' active' : '');
                     btn.textContent = text;
                     btn.disabled = isDisabled;
-                    if (!isDisabled && !isActive) btn.onclick = () => { videosPage = page; applyVideosPagination(); window.scrollTo({top: 0, behavior: 'smooth'}); };
+                    if (!isDisabled && !isActive) btn.onclick = () => { youtubePage = page; applyYoutubePagination(); window.scrollTo({top: 0, behavior: 'smooth'}); };
                     return btn;
                 };
-                const prevBtn = makeBtn('← Prev', Math.max(1, videosPage - 1), false, videosPage === 1);
+                const prevBtn = makeBtn('← Prev', Math.max(1, youtubePage - 1), false, youtubePage === 1);
                 prevBtn.classList.add('nav', 'prev');
                 container.appendChild(prevBtn);
 
                 const nums = document.createElement('div');
                 nums.className = 'page-numbers';
-                const addPage = (p) => nums.appendChild(makeBtn(String(p), p, p === videosPage, false));
+                const addPage = (p) => nums.appendChild(makeBtn(String(p), p, p === youtubePage, false));
                 const addEllipsis = () => { const el = document.createElement('span'); el.className = 'page-ellipsis'; el.textContent = '...'; nums.appendChild(el); };
 
                 if (totalPages <= 7) {
                     for (let i = 1; i <= totalPages; i++) addPage(i);
                 } else {
                     addPage(1);
-                    if (videosPage > 3) addEllipsis();
-                    for (let i = Math.max(2, videosPage - 1); i <= Math.min(totalPages - 1, videosPage + 1); i++) addPage(i);
-                    if (videosPage < totalPages - 2) addEllipsis();
+                    if (youtubePage > 3) addEllipsis();
+                    for (let i = Math.max(2, youtubePage - 1); i <= Math.min(totalPages - 1, youtubePage + 1); i++) addPage(i);
+                    if (youtubePage < totalPages - 2) addEllipsis();
                     addPage(totalPages);
                 }
                 container.appendChild(nums);
 
-                const nextBtn = makeBtn('Next →', Math.min(totalPages, videosPage + 1), false, videosPage === totalPages);
+                const nextBtn = makeBtn('Next →', Math.min(totalPages, youtubePage + 1), false, youtubePage === totalPages);
+                nextBtn.classList.add('nav', 'next');
+                container.appendChild(nextBtn);
+            };
+
+            build(bottom);
+        }
+
+        // ==================== TWITTER TAB (functions) ====================
+        function renderMainTwitter() {
+            filteredTwitter = [...TWITTER_ARTICLES];
+            twitterPage = 1;
+            applyTwitterPagination();
+        }
+
+        function filterTwitter() {
+            const query = document.getElementById('search').value.toLowerCase().trim();
+            if (!query) {
+                filteredTwitter = [...TWITTER_ARTICLES];
+            } else {
+                filteredTwitter = TWITTER_ARTICLES.filter(t => {
+                    const text = (t.title + ' ' + t.source).toLowerCase();
+                    return text.includes(query);
+                });
+            }
+            twitterPage = 1;
+            applyTwitterPagination();
+        }
+
+        function formatTwitterDate(isoStr) {
+            if (!isoStr) return '';
+            const date = new Date(isoStr);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMin = Math.floor(diffMs / 60000);
+            const diffHr = Math.floor(diffMs / 3600000);
+            const diffDay = Math.floor(diffMs / 86400000);
+            if (diffMin < 1) return 'Just now';
+            if (diffMin < 60) return diffMin + 'm ago';
+            if (diffHr < 24) return diffHr + 'h ago';
+            if (diffDay === 1) return 'Yesterday';
+            if (diffDay < 7) return diffDay + 'd ago';
+            return date.toLocaleDateString();
+        }
+
+        function formatTwitterDateHeader(isoStr) {
+            if (!isoStr) return 'Unknown Date';
+            const date = new Date(isoStr);
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const tweetDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+            const diffDays = Math.floor((today - tweetDay) / 86400000);
+            if (diffDays === 0) return 'Today';
+            if (diffDays === 1) return 'Yesterday';
+            return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+        }
+
+        function applyTwitterPagination() {
+            const totalPages = Math.max(1, Math.ceil(filteredTwitter.length / TWITTER_PAGE_SIZE));
+            if (twitterPage > totalPages) twitterPage = totalPages;
+
+            document.getElementById('twitter-visible-count').textContent = filteredTwitter.length;
+
+            const start = (twitterPage - 1) * TWITTER_PAGE_SIZE;
+            const end = start + TWITTER_PAGE_SIZE;
+            const pageTweets = filteredTwitter.slice(start, end);
+
+            const container = document.getElementById('twitter-container');
+            if (pageTweets.length === 0) {
+                container.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">No tweets found.</div>';
+                renderTwitterPagination(totalPages);
+                return;
+            }
+
+            let html = '';
+            let currentDateHeader = '';
+
+            pageTweets.forEach(t => {
+                const dateHeader = formatTwitterDateHeader(t.date);
+                if (dateHeader !== currentDateHeader) {
+                    currentDateHeader = dateHeader;
+                    html += `<h2 class="date-header">${dateHeader}</h2>`;
+                }
+
+                const title = escapeHtml(t.title);
+                const source = escapeHtml(t.source);
+                const link = escapeHtml(t.link);
+
+                html += `
+                    <article class="article">
+                        <h3 class="article-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">${source}</span>
+                            ${t.date ? `<span class="meta-dot">·</span><span class="article-time">${formatTwitterDate(t.date)}</span>` : ''}
+                            <span class="meta-dot">·</span>
+                            <a href="${link}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:12px;font-weight:500">Open on X &rarr;</a>
+                        </div>
+                    </article>
+                `;
+            });
+
+            container.innerHTML = html;
+            renderTwitterPagination(totalPages);
+        }
+
+        function renderTwitterPagination(totalPages) {
+            const bottom = document.getElementById('twitter-pagination-bottom');
+            if (!bottom || totalPages <= 1) {
+                if (bottom) bottom.innerHTML = '';
+                return;
+            }
+
+            const build = (container) => {
+                container.innerHTML = '';
+                const makeBtn = (text, page, isActive, isDisabled) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'page-btn' + (isActive ? ' active' : '');
+                    btn.textContent = text;
+                    btn.disabled = isDisabled;
+                    if (!isDisabled && !isActive) btn.onclick = () => { twitterPage = page; applyTwitterPagination(); window.scrollTo({top: 0, behavior: 'smooth'}); };
+                    return btn;
+                };
+                const prevBtn = makeBtn('← Prev', Math.max(1, twitterPage - 1), false, twitterPage === 1);
+                prevBtn.classList.add('nav', 'prev');
+                container.appendChild(prevBtn);
+
+                const nums = document.createElement('div');
+                nums.className = 'page-numbers';
+                const addPage = (p) => nums.appendChild(makeBtn(String(p), p, p === twitterPage, false));
+                const addEllipsis = () => { const el = document.createElement('span'); el.className = 'page-ellipsis'; el.textContent = '...'; nums.appendChild(el); };
+
+                if (totalPages <= 7) {
+                    for (let i = 1; i <= totalPages; i++) addPage(i);
+                } else {
+                    addPage(1);
+                    if (twitterPage > 3) addEllipsis();
+                    for (let i = Math.max(2, twitterPage - 1); i <= Math.min(totalPages - 1, twitterPage + 1); i++) addPage(i);
+                    if (twitterPage < totalPages - 2) addEllipsis();
+                    addPage(totalPages);
+                }
+                container.appendChild(nums);
+
+                const nextBtn = makeBtn('Next →', Math.min(totalPages, twitterPage + 1), false, twitterPage === totalPages);
                 nextBtn.classList.add('nav', 'next');
                 container.appendChild(nextBtn);
             };
@@ -3942,7 +4138,8 @@ def generate_html(article_groups, video_articles=None):
         function updateRelativeTime() {
             formatTimeAgo(document.getElementById('update-time'));
             formatTimeAgo(document.getElementById('reports-update-time'));
-            formatTimeAgo(document.getElementById('videos-update-time'));
+            formatTimeAgo(document.getElementById('youtube-update-time'));
+            formatTimeAgo(document.getElementById('twitter-update-time'));
             formatTimeAgo(document.getElementById('ai-updated'));
         }
         updateRelativeTime();
@@ -3995,13 +4192,15 @@ def main():
 
     print(f"\nTotal articles collected: {len(all_articles)}")
 
-    # Separate video articles from regular articles
+    # Separate video and twitter articles from regular articles
     video_articles = [a for a in all_articles if a.get("category") == "Videos"]
-    regular_articles = [a for a in all_articles if a.get("category") != "Videos"]
-    print(f"Videos: {len(video_articles)}, Regular: {len(regular_articles)}")
+    twitter_articles = [a for a in all_articles if a.get("category") == "Twitter"]
+    regular_articles = [a for a in all_articles if a.get("category") not in ("Videos", "Twitter")]
+    print(f"Videos: {len(video_articles)}, Twitter: {len(twitter_articles)}, Regular: {len(regular_articles)}")
 
-    # Sort videos by date (newest first), no filtering/grouping needed
+    # Sort videos and twitter by date (newest first), no filtering/grouping needed
     video_articles.sort(key=get_sort_timestamp, reverse=True)
+    twitter_articles.sort(key=get_sort_timestamp, reverse=True)
 
     # Remove duplicates based on URL only (not title - to preserve source diversity)
     seen_urls = set()
@@ -4065,7 +4264,7 @@ def main():
     grouped_count = len(filtered_articles) - len(article_groups)
     print(f"After grouping similar headlines: {len(article_groups)} groups ({grouped_count} articles merged)")
 
-    generate_html(article_groups, video_articles)
+    generate_html(article_groups, video_articles, twitter_articles)
     export_articles_json(article_groups)
 
     print("\nDone!")
