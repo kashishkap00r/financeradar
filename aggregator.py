@@ -684,6 +684,16 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         "Official Channels": ["RBI", "SEBI", "ECB", "ADB", "FRED", "PIB"]
     }
 
+    # Twitter publisher presets
+    twitter_presets = {
+        "Money Managers": ["Deepak Shenoy", "Samit Vartak", "ContrariianEPS", "Unseen Value", "Murali Srinivasan", "Dhirendra Kumar"],
+        "Stock Pickers": ["SOIC", "SOIC Research", "Finstor", "Yatin Mota", "TarH", "Aditya Kondawar", "Abhy Murarka", "Prashant Nair", "Shashank Udupa", "Ritu Singh", "Equity Value", "Beat The Street", "Equity Insights", "Mohit Ish", "Kobeissi Letter", "Pranay Kotas"],
+        "Newsroom": ["Menaka Doshi", "CNBC-TV18", "ET Markets", "Nigel D'Souza", "Andy Mukherjee", "Ira Dugal", "Javier Blas", "FT Energy"],
+        "Macro & Policy": ["Michael Pettis", "Sanjeev Sanyal", "Ila Patnaik", "Ideas For India", "Shruti Rajagopalan", "CareEdge"],
+        "Data & Climate": ["Down To Earth", "Carbon Brief", "Ember Energy", "Our World in Data", "Data For India", "IndiaSpend", "India Data Hub"],
+    }
+    twitter_presets_json = json.dumps(twitter_presets)
+
     # JSON for injection into script
     all_publishers_json = json.dumps(all_publishers)
     publisher_presets_json = json.dumps(publisher_presets)
@@ -2694,6 +2704,11 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                     </div>
                 </div>
                 <div class="filter-row" id="twitter-filter-row">
+                    <button class="preset-btn" data-twitter-preset="Money Managers" onclick="toggleTwitterPreset('Money Managers')">Money Managers</button>
+                    <button class="preset-btn" data-twitter-preset="Stock Pickers" onclick="toggleTwitterPreset('Stock Pickers')">Stock Pickers</button>
+                    <button class="preset-btn" data-twitter-preset="Newsroom" onclick="toggleTwitterPreset('Newsroom')">Newsroom</button>
+                    <button class="preset-btn" data-twitter-preset="Macro &amp; Policy" onclick="toggleTwitterPreset('Macro & Policy')">Macro &amp; Policy</button>
+                    <button class="preset-btn" data-twitter-preset="Data &amp; Climate" onclick="toggleTwitterPreset('Data & Climate')">Data &amp; Climate</button>
                     <div class="publisher-dropdown" id="twitter-publisher-dropdown">
                         <button class="publisher-dropdown-trigger" id="twitter-publisher-trigger" onclick="toggleTwitterDropdown()">
                             <span id="twitter-publisher-summary">All publishers</span>
@@ -2737,6 +2752,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         const YOUTUBE_VIDEOS = {video_articles_json};
         const TWITTER_ARTICLES = {twitter_articles_json};
         const TWITTER_PUBLISHERS = {twitter_publishers_json};
+        const TWITTER_PRESETS = {twitter_presets_json};
         const NSE_DEALS = {nse_deals_json};
         const NSE_GENERATED_AT = "{nse_generated_at}";
 """
@@ -4054,6 +4070,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         // ==================== TWITTER TAB (functions) ====================
         function renderMainTwitter() {
             initTwitterPublisherDropdown();
+            syncTwitterPresetButtons();
             filteredTwitter = [...TWITTER_ARTICLES];
             twitterPage = 1;
             applyTwitterPagination();
@@ -4119,6 +4136,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         function selectAllTwitterPublishers() {
             selectedTwitterPublishers.clear();
             syncTwitterCheckboxes();
+            syncTwitterPresetButtons();
             updateTwitterPublisherSummary();
             filterTwitter();
         }
@@ -4126,6 +4144,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         function clearAllTwitterPublishers() {
             selectedTwitterPublishers.clear();
             syncTwitterCheckboxes();
+            syncTwitterPresetButtons();
             updateTwitterPublisherSummary();
             filterTwitter();
         }
@@ -4136,6 +4155,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             } else {
                 selectedTwitterPublishers.delete(pub);
             }
+            syncTwitterPresetButtons();
             updateTwitterPublisherSummary();
             filterTwitter();
         }
@@ -4143,6 +4163,41 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         function syncTwitterCheckboxes() {
             document.querySelectorAll('#twitter-dropdown-list input[type="checkbox"]').forEach(cb => {
                 cb.checked = selectedTwitterPublishers.has(cb.dataset.publisher);
+            });
+        }
+
+        function toggleTwitterPreset(name) {
+            const pubs = TWITTER_PRESETS[name];
+            if (!pubs) return;
+            const allSelected = pubs.every(p => selectedTwitterPublishers.has(p));
+            if (allSelected) {
+                pubs.forEach(p => selectedTwitterPublishers.delete(p));
+            } else {
+                pubs.forEach(p => selectedTwitterPublishers.add(p));
+            }
+            syncTwitterCheckboxes();
+            syncTwitterPresetButtons();
+            updateTwitterPublisherSummary();
+            filterTwitter();
+        }
+
+        function syncTwitterPresetButtons() {
+            document.querySelectorAll('[data-twitter-preset]').forEach(btn => {
+                const name = btn.dataset.twitterPreset;
+                const pubs = TWITTER_PRESETS[name];
+                if (!pubs) return;
+                const selected = pubs.filter(p => selectedTwitterPublishers.has(p));
+                if (selectedTwitterPublishers.size === 0) {
+                    btn.classList.remove('active', 'partial');
+                } else if (selected.length === pubs.length) {
+                    btn.classList.add('active');
+                    btn.classList.remove('partial');
+                } else if (selected.length > 0) {
+                    btn.classList.remove('active');
+                    btn.classList.add('partial');
+                } else {
+                    btn.classList.remove('active', 'partial');
+                }
             });
         }
 
