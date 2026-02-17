@@ -112,12 +112,42 @@ FILTER_TITLE_PATTERNS = [
     r"results?\s*today\s*live",
     r"earnings?\s*today\s*live",
 
-    # Stocks to watch (routine daily lists)
-    r"stocks?\s*to\s*watch\s*today",
-    r"stocks?\s*to\s*watch\s*on",
-    r"shares?\s*to\s*watch\s*today",
-    r"stocks?\s*in\s*focus\s*today",
+    # Stock recommendations / stock picks (MarketSmith etc.)
+    r"stock\s+recommendations?",
+    r"stock\s+picks?\s+for",
+
+    # Stocks to watch (routine daily lists) — broad match
+    r"stocks?\s+to\s+watch\b",
+    r"shares?\s+to\s+watch\b",
+
+    # Stocks/shares in focus — broad match
+    r"stocks?\s+in\s+focus\b",
+    r"shares?\s+in\s+focus\b",
     r"stocks?\s*in\s*news\s*today",
+
+    # Daily routine listicles ("10 shares", "5 stocks for tomorrow", "full list here")
+    r"\d+\s+(shares?|stocks?)\s+(in\s+focus|to\s+(buy|watch|sell))",
+    r"\bfull\s+list\s+here\b",
+    r"here.?s\s+the\s+list\b",
+
+    # Political news (not economic policy analysis)
+    r"\b(rally|rallies)\s+(against|for|in)\b",
+    r"\b(congress|bjp|aap|tmc|shiv\s+sena|ncp)\s+(rally|protest|march|campaign)",
+    r"\b(rahul\s+gandhi|modi\s+rally|kejriwal|mamata|yogi)\b",
+    r"\belection\s+(result|poll|campaign|rally)",
+
+    # Weather / temperature / climate (non-finance)
+    r"\b(temperature|mercury|heat\s+wave|cold\s+wave|heatwave)\b.*\b(soar|rise|surge|drop|fall|record)",
+    r"\bimd\s+(weather|update|forecast)",
+    r"\bair\s+quality\b.*\b(poor|severe|moderate|good|aqi)\b",
+    r"\bweather\s+(update|forecast|alert)\b",
+
+    # Accidents / deaths / crime (non-finance)
+    r"\b(dead|killed|injured|dies)\b.*\b(accident|crash|collapse|fire|derail)\b",
+    r"\b(metro|bridge|building|wall)\s+(collapse|crash|accident)\b",
+
+    # Sports (cricket, IPL, etc.)
+    r"\b(cricket|cricketer|ipl|t20|test\s+match|odi)\b",
 
     # Market opening predictions
     r"(flat|flattish|positive|negative|cautious|muted|weak|strong|higher|lower)\s*opening\s*(seen|expected|likely)",
@@ -711,17 +741,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         telegram_reports_json = "[]"
         telegram_generated_at = ""
         telegram_warnings = []
-
-    # Load NSE deals if available
-    nse_deals_file = os.path.join(SCRIPT_DIR, "static", "nse_deals.json")
-    try:
-        with open(nse_deals_file, "r", encoding="utf-8") as f:
-            nse_data = json.load(f)
-        nse_deals_json = json.dumps(nse_data.get("deals", []))
-        nse_generated_at = nse_data.get("generated_at", "")
-    except (IOError, json.JSONDecodeError):
-        nse_deals_json = "[]"
-        nse_generated_at = ""
 
     # Prepare video data
     if video_articles is None:
@@ -1774,6 +1793,13 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         .rank-content a:hover {{
             color: var(--accent);
         }}
+        .rank-title-nolink {{
+            display: block;
+            font-family: 'Merriweather', Georgia, serif;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.4;
+        }}
         .rank-source {{
             display: block;
             font-size: 10px;
@@ -1902,121 +1928,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         }}
         .report-meta a:hover {{
             text-decoration: underline;
-        }}
-
-        /* NSE Deals */
-        .deals-section {{
-            margin-bottom: 12px;
-        }}
-        .deals-toggle {{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 12px 18px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-primary);
-            transition: border-color 0.2s;
-        }}
-        .deals-toggle:hover {{
-            border-color: var(--border-light);
-        }}
-        .deals-toggle-left {{
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }}
-        .deals-toggle .deals-arrow {{
-            font-size: 10px;
-            transition: transform 0.2s;
-            color: var(--text-muted);
-        }}
-        .deals-section.open .deals-arrow {{
-            transform: rotate(180deg);
-        }}
-        .deals-section.open .deals-toggle {{
-            border-radius: 12px 12px 0 0;
-            border-bottom-color: transparent;
-        }}
-        .deals-body {{
-            display: none;
-            border: 1px solid var(--border);
-            border-top: none;
-            border-radius: 0 0 12px 12px;
-            background: var(--bg-secondary);
-            max-height: 400px;
-            overflow-y: auto;
-        }}
-        .deals-section.open .deals-body {{
-            display: block;
-        }}
-        .deals-table {{
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }}
-        .deals-table th {{
-            padding: 8px 12px;
-            text-align: left;
-            font-weight: 600;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: var(--bg-secondary);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }}
-        .deals-table td {{
-            padding: 7px 12px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-primary);
-            white-space: nowrap;
-        }}
-        .deals-table tr:last-child td {{
-            border-bottom: none;
-        }}
-        .deals-table tr:hover td {{
-            background: var(--bg-hover);
-        }}
-        .deal-buy {{
-            color: #22c55e;
-            font-weight: 600;
-        }}
-        .deal-sell {{
-            color: var(--danger);
-            font-weight: 600;
-        }}
-        .deal-type-pill {{
-            font-size: 10px;
-            font-weight: 600;
-            padding: 2px 6px;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }}
-        .deal-type-pill.block {{
-            background: rgba(225, 75, 75, 0.1);
-            color: var(--accent);
-        }}
-        .deal-type-pill.bulk {{
-            background: rgba(34, 197, 94, 0.1);
-            color: #22c55e;
-        }}
-        .deal-type-pill.short {{
-            background: rgba(59, 130, 246, 0.1);
-            color: #3b82f6;
-        }}
-        @media (max-width: 640px) {{
-            .deals-table {{ font-size: 12px; }}
-            .deals-table th, .deals-table td {{ padding: 6px 8px; }}
-            .deals-table .deal-client {{ display: none; }}
         }}
 
         /* Video Cards */
@@ -2547,14 +2458,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         </div>
 
-        <div id="deals-section" class="deals-section" style="display:none">
-            <button class="deals-toggle" onclick="toggleDeals()">
-                <span class="deals-toggle-left">📊 Market Deals <span style="font-weight:400;color:var(--text-muted)" id="deals-count-label"></span></span>
-                <span class="deals-arrow">▼</span>
-            </button>
-            <div class="deals-body" id="deals-body"></div>
-        </div>
-
         <div id="articles">
 """
 
@@ -2753,8 +2656,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         const TWITTER_ARTICLES = {twitter_articles_json};
         const TWITTER_PUBLISHERS = {twitter_publishers_json};
         const TWITTER_PRESETS = {twitter_presets_json};
-        const NSE_DEALS = {nse_deals_json};
-        const NSE_GENERATED_AT = "{nse_generated_at}";
 """
     html += """
         // Theme toggle (persisted)
@@ -2785,44 +2686,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         };
         initTheme();
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-
-        // ==================== NSE DEALS ====================
-        function renderDeals() {
-            if (!NSE_DEALS || NSE_DEALS.length === 0) return;
-            const section = document.getElementById('deals-section');
-            if (!section) return;
-            section.style.display = 'block';
-            document.getElementById('deals-count-label').textContent = NSE_DEALS.length + ' deals';
-            const body = document.getElementById('deals-body');
-            let html = '<table class="deals-table"><thead><tr>';
-            html += '<th>Type</th><th>Symbol</th><th>Client</th><th>B/S</th><th>Qty</th><th>Price</th><th>Value (Cr)</th>';
-            html += '</tr></thead><tbody>';
-            // Show top 50 deals by value
-            const sorted = [...NSE_DEALS].sort((a, b) => (b.value_cr || 0) - (a.value_cr || 0)).slice(0, 50);
-            sorted.forEach(d => {
-                const bsClass = (d.buy_sell || '').toUpperCase() === 'BUY' ? 'deal-buy' : 'deal-sell';
-                const typeStr = (d.deal_type || '').toLowerCase();
-                const typePill = typeStr.includes('block') ? 'block' : typeStr.includes('bulk') ? 'bulk' : 'short';
-                const qty = typeof d.quantity === 'number' ? d.quantity.toLocaleString('en-IN') : d.quantity;
-                const price = typeof d.price === 'number' ? '₹' + d.price.toLocaleString('en-IN', {maximumFractionDigits: 2}) : d.price;
-                const value = typeof d.value_cr === 'number' && d.value_cr > 0 ? '₹' + d.value_cr.toLocaleString('en-IN', {maximumFractionDigits: 2}) + ' Cr' : '-';
-                html += `<tr>`;
-                html += `<td><span class="deal-type-pill ${typePill}">${typePill}</span></td>`;
-                html += `<td style="font-weight:600">${escapeHtml(d.symbol || '')}</td>`;
-                html += `<td class="deal-client" style="max-width:200px;overflow:hidden;text-overflow:ellipsis">${escapeHtml(d.client || '')}</td>`;
-                html += `<td class="${bsClass}">${escapeHtml(d.buy_sell || '')}</td>`;
-                html += `<td style="text-align:right">${qty}</td>`;
-                html += `<td style="text-align:right">${price}</td>`;
-                html += `<td style="text-align:right;font-weight:600">${value}</td>`;
-                html += `</tr>`;
-            });
-            html += '</tbody></table>';
-            body.innerHTML = html;
-        }
-        function toggleDeals() {
-            document.getElementById('deals-section').classList.toggle('open');
-        }
-        renderDeals();
 
         // Filter collapse toggle (mobile)
         function toggleFilterCollapse() {
@@ -3464,7 +3327,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         // ==================== AI RANKINGS SIDEBAR ====================
         let aiRankings = null;
-        let currentAiProvider = 'nemotron';
+        let currentAiProvider = 'auto';
 
         async function loadAiRankings() {
             try {
@@ -3522,7 +3385,10 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 <div class="ai-rank-item">
                     <span class="rank-num">${i + 1}</span>
                     <div class="rank-content">
-                        <a href="${escapeHtml(r.url || '#')}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>
+                        ${r.url
+                            ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>`
+                            : `<span class="rank-title-nolink">${escapeHtml(r.title)}</span>`
+                        }
                         <span class="rank-source">${escapeHtml(r.source)}</span>
                     </div>
                     <button class="ai-bookmark-btn ${isBookmarked(r.url) ? 'bookmarked' : ''}"
@@ -4429,6 +4295,12 @@ def main():
     # Sort videos and twitter by date (newest first), no filtering/grouping needed
     video_articles.sort(key=get_sort_timestamp, reverse=True)
     twitter_articles.sort(key=get_sort_timestamp, reverse=True)
+
+    # Filter out twitter articles older than 5 days
+    twitter_cutoff = datetime.now(IST_TZ) - timedelta(days=5)
+    twitter_articles = [t for t in twitter_articles
+                        if t.get("date") is None or
+                        (t["date"] if t["date"].tzinfo else t["date"].replace(tzinfo=IST_TZ)) >= twitter_cutoff]
 
     # Remove duplicates based on URL only (not title - to preserve source diversity)
     seen_urls = set()

@@ -10,6 +10,7 @@ import os
 import ssl
 import re
 import time
+from difflib import SequenceMatcher
 from datetime import datetime, timedelta, timezone
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -17,15 +18,14 @@ IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 
-# Free models on OpenRouter - using auto-router + one specific model
 MODELS = {
     "auto": {
         "id": "openrouter/free",
         "name": "Auto (Best Free)"
     },
-    "nemotron": {
-        "id": "nvidia/nemotron-3-nano-30b-a3b:free",
-        "name": "Nemotron 3 Nano"
+    "gemini-3-flash": {
+        "id": "google/gemini-3-flash-preview",
+        "name": "Gemini 3 Flash"
     }
 }
 
@@ -119,6 +119,19 @@ def sanitize_headline(title):
     return title.replace('"', "'").replace('\n', ' ').replace('\r', ' ').strip()
 
 
+def fuzzy_match_article(title, sanitized_to_article, threshold=0.85):
+    """Fuzzy match a title against known articles when exact match fails."""
+    best_match = None
+    best_ratio = 0
+    title_lower = title.lower()
+    for sanitized, article in sanitized_to_article.items():
+        ratio = SequenceMatcher(None, title_lower, sanitized.lower()).ratio()
+        if ratio > best_ratio:
+            best_ratio = ratio
+            best_match = article
+    return best_match if best_ratio >= threshold else None
+
+
 def parse_json_response(text):
     text = text.strip()
     # Remove markdown code blocks
@@ -200,8 +213,10 @@ def main():
                 title = item.get("title", "").strip()
                 # Strip echoed [Source] bracket suffix the AI may repeat
                 title = re.sub(r'\s*\[.*?\]\s*$', '', title)
-                # Look up using sanitized title
+                # Look up using sanitized title, with fuzzy fallback
                 article = sanitized_to_article.get(title)
+                if not article:
+                    article = fuzzy_match_article(title, sanitized_to_article)
                 enriched.append({
                     "rank": item.get("rank", len(enriched) + 1),
                     "title": article["title"] if article else title,  # Use original title

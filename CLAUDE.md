@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-FinanceRadar is a Python RSS aggregator that generates a single static HTML page with 106 feeds (96 news + 6 YouTube + 4 Twitter/X). Deployed hourly via GitHub Actions to Cloudflare Pages. Four tabs: News, Telegram, YouTube, Twitter. An AI ranker (OpenRouter) picks the top 20 stories daily. A Telegram fetcher pulls brokerage reports from 7 channels. An NSE fetcher pulls bulk/block deals from NSE India.
+FinanceRadar is a Python RSS aggregator that generates a single static HTML page with 106 feeds (96 news + 6 YouTube + 4 Twitter/X). Deployed hourly via GitHub Actions to Cloudflare Pages. Four tabs: News, Telegram, YouTube, Twitter. An AI ranker (OpenRouter) picks the top 20 stories daily. A Telegram fetcher pulls brokerage reports from 7 channels.
 
 **Live:** financeradar.kashishkapoor.com
 
@@ -13,9 +13,6 @@ FinanceRadar is a Python RSS aggregator that generates a single static HTML page
 ```bash
 # Generate the static site (~2 minutes, fetches 102+ feeds)
 python3 aggregator.py
-
-# Fetch NSE bulk/block deals
-python3 nse_fetcher.py
 
 # Fetch Telegram channel reports (HTML-only without creds, full with creds)
 python3 telegram_fetcher.py
@@ -43,10 +40,6 @@ feeds.json (106 feeds: 96 news + 6 YouTube + 4 Twitter)
   → aggregator.py (parallel fetch → split YouTube/Twitter → dedup → filter → group → HTML)
   → index.html + static/articles.json
 
-nseindia.com API
-  → nse_fetcher.py (cookie dance → fetch deals → parse)
-  → static/nse_deals.json
-
 telegram_channels.json (7 channels: 2 html + 5 mtproto)
   → telegram_fetcher.py
      ├─ HTML scraper (public channels via t.me/s/)
@@ -66,7 +59,6 @@ static/articles.json
 | `telegram_fetcher.py` | ~505 | Hybrid fetcher: HTML scraper for public channels + Telethon MTProto for private channels |
 | `ai_ranker.py` | ~230 | Reads `articles.json`, sends headlines to OpenRouter, writes `ai_rankings.json` |
 | `generate_session.py` | ~35 | One-time interactive script to create Telethon StringSession |
-| `nse_fetcher.py` | ~170 | NSE bulk/block deals fetcher (cookie dance + API) |
 | `feeds.json` | 106 entries | Feed configs: `{id, name, url, feed, category, publisher?}`. Categories: News, Videos, Twitter (internal routing only) |
 | `telegram_channels.json` | 7 entries | Channel configs: `{username, label, method}` where method is `"html"` or `"mtproto"` |
 
@@ -75,7 +67,6 @@ static/articles.json
 - `static/articles.json` — structured feed for AI ranker
 - `static/ai_rankings.json` — AI-ranked top 20
 - `static/telegram_reports.json` — scraped Telegram messages with documents
-- `static/nse_deals.json` — NSE bulk/block deals data
 - `cron.log` — execution logs
 
 These cause merge conflicts on rebase. **Always resolve with `git checkout --theirs`** for generated files, then regenerate.
@@ -92,7 +83,7 @@ The entire frontend lives inside `generate_html()` as a single f-string. All CSS
 | `<style>` (all CSS) | ~709–2072 | CSS variables, layout, cards, filters, filter-toggle, pagination, reports, dark mode, mobile media queries |
 | Font-loading `<script>` | ~2073–2083 | FontFace API loader |
 | `<body>` + top bar | ~2084–2188 | Header, search, top-bar icon buttons (AI, Bookmarks, In Focus, Theme) |
-| News tab (`#tab-news`) | ~2190–2306 | NSE deals section (collapsible table), `.filter-card` → `.stats-bar` (+ filter-toggle chevron) + `.filter-row` (presets, publisher, category), article cards, pagination |
+| News tab (`#tab-news`) | ~2190–2306 | `.filter-card` → `.stats-bar` (+ filter-toggle chevron) + `.filter-row` (presets, publisher, category), article cards, pagination |
 | Telegram tab (`#tab-reports`) | ~2308–2336 | `.filter-card` → `.stats-bar` (+ filter-toggle chevron) + `.filter-row` (PDF filter), reports container, pagination |
 | YouTube tab (`#tab-youtube`) | after reports | `.filter-card` → `.stats-bar`, video cards (thumbnail + info), pagination |
 | Twitter tab (`#tab-twitter`) | after youtube | `.filter-card` → `.stats-bar`, tweet articles, pagination |
@@ -188,7 +179,7 @@ Special feed URL patterns:
 
 | Workflow | File | Schedule | Runs |
 |----------|------|----------|------|
-| Update FinanceRadar | `hourly.yml` | `0 * * * *` (every hour) | `pip install telethon` → `nse_fetcher.py` → `telegram_fetcher.py` → `aggregator.py` |
+| Update FinanceRadar | `hourly.yml` | `0 * * * *` (every hour) | `pip install telethon` → `telegram_fetcher.py` → `aggregator.py` |
 | AI News Ranking | `ai-ranking.yml` | `0 0 * * *` (midnight UTC / 5:30 AM IST) | `ai_ranker.py` (needs `OPENROUTER_API_KEY` secret) |
 
 ### Required Secrets
@@ -206,8 +197,8 @@ Special feed URL patterns:
 
 Generated files conflict constantly because the cron job commits them hourly. When rebasing:
 ```bash
-git checkout --theirs index.html static/articles.json static/telegram_reports.json static/nse_deals.json
-git add index.html static/articles.json static/telegram_reports.json static/nse_deals.json
+git checkout --theirs index.html static/articles.json static/telegram_reports.json
+git add index.html static/articles.json static/telegram_reports.json
 git rebase --continue
 ```
 Then regenerate with `python3 aggregator.py` and commit the fresh output.
