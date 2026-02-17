@@ -768,52 +768,92 @@
     "publisher": "The Core"
   },
   {
-    "id": "yt-rachana-ranade",
-    "name": "CA Rachana Ranade",
-    "url": "https://www.youtube.com/@CARachanaRanade",
-    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCe3qdG0A_gr-sEdat5y2twQ",
-    "category": "Videos",
-    "publisher": "CA Rachana Ranade"
+    "id": "noahpinion",
+    "name": "Noahpinion",
+    "url": "https://www.noahpinion.blog",
+    "feed": "https://www.noahpinion.blog/feed",
+    "category": "News",
+    "publisher": "Noah Smith"
   },
   {
-    "id": "yt-akshat-shrivastava",
-    "name": "Akshat Shrivastava",
-    "url": "https://www.youtube.com/@AkshatShrivastava",
-    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqW8jxh4tH1Z1sWPbkGWL4g",
-    "category": "Videos",
-    "publisher": "Akshat Shrivastava"
+    "id": "bloomberg-menaka-doshi",
+    "name": "Bloomberg — Menaka Doshi",
+    "url": "https://www.bloomberg.com/authors/AWCSGjo_Gr8/menaka-doshi",
+    "feed": "https://www.bloomberg.com/authors/AWCSGjo_Gr8/menaka-doshi.rss",
+    "category": "News",
+    "publisher": "Bloomberg"
   },
   {
-    "id": "yt-pranjal-kamra",
-    "name": "Pranjal Kamra",
-    "url": "https://www.youtube.com/@PranjalKamra",
-    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwAdQUuPT6laN-AQR17fe1g",
-    "category": "Videos",
-    "publisher": "Finology"
+    "id": "bloomberg-andy-mukherjee",
+    "name": "Bloomberg — Andy Mukherjee",
+    "url": "https://www.bloomberg.com/authors/ASj7dG4ftKY/andy-mukherjee",
+    "feed": "https://www.bloomberg.com/authors/ASj7dG4ftKY/andy-mukherjee.rss",
+    "category": "News",
+    "publisher": "Bloomberg"
   },
   {
-    "id": "yt-labour-law-advisor",
-    "name": "Labour Law Advisor",
-    "url": "https://www.youtube.com/@LabourLawAdvisor",
-    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVOTBwF0vnSxMRIbfSE_K_g",
-    "category": "Videos",
-    "publisher": "Labour Law Advisor"
+    "id": "bloomberg-mihir-sharma",
+    "name": "Bloomberg — Mihir Sharma",
+    "url": "https://www.bloomberg.com/authors/AS4aIU7RcB4/mihir-sharma",
+    "feed": "https://www.bloomberg.com/authors/AS4aIU7RcB4/mihir-sharma.rss",
+    "category": "News",
+    "publisher": "Bloomberg"
   },
   {
-    "id": "yt-zerodha-varsity",
-    "name": "Zerodha Varsity",
-    "url": "https://www.youtube.com/@varsitybyzerodha",
-    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC59YUBhNLMkS2Q8NBWBGHAA",
-    "category": "Videos",
-    "publisher": "Zerodha Varsity"
+    "id": "bloomberg-ranjani-raghavan",
+    "name": "Bloomberg — Ranjani Raghavan",
+    "url": "https://www.bloomberg.com/authors/AXlHz_-2xcE/ranjani-raghavan",
+    "feed": "https://www.bloomberg.com/authors/AXlHz_-2xcE/ranjani-raghavan.rss",
+    "category": "News",
+    "publisher": "Bloomberg"
   },
   {
-    "id": "yt-shankar-nath",
-    "name": "Shankar Nath",
-    "url": "https://www.youtube.com/@ShankarNath",
-    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtnItzU7q_bA1eoEBjqcVrw",
+    "id": "yt-upstox-markets-today",
+    "name": "Upstox Markets Today",
+    "url": "https://www.youtube.com/playlist?list=PL5TgrYNOd5HKKHpQOhS3WclkhrusIAD8Y",
+    "feed": "https://www.youtube.com/feeds/videos.xml?playlist_id=PL5TgrYNOd5HKKHpQOhS3WclkhrusIAD8Y",
     "category": "Videos",
-    "publisher": "Shankar Nath"
+    "publisher": "Upstox"
+  },
+  {
+    "id": "yt-bloomberg-originals",
+    "name": "Bloomberg Originals",
+    "url": "https://www.youtube.com/@bloombergoriginals",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCUMZ7gohGI9HcU9VNsr2FJQ",
+    "category": "Videos",
+    "publisher": "Bloomberg"
+  },
+  {
+    "id": "yt-norges-bank",
+    "name": "In Good Company (Norges Bank)",
+    "url": "https://www.youtube.com/playlist?list=PLzYp5zh-CrBUX_4WnPCO1jj5v6jMuQjKe",
+    "feed": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLzYp5zh-CrBUX_4WnPCO1jj5v6jMuQjKe",
+    "category": "Videos",
+    "publisher": "Norges Bank"
+  },
+  {
+    "id": "yt-ndtv-profit",
+    "name": "NDTV Profit",
+    "url": "https://www.youtube.com/@NDTVProfitIndia",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC3uJIdRFTGgLWrUziaHbzrg",
+    "category": "Videos",
+    "publisher": "NDTV Profit"
+  },
+  {
+    "id": "yt-cnbc-tv18",
+    "name": "CNBC-TV18",
+    "url": "https://www.youtube.com/@ABORJP",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmRbHAgG2k2vDUvb3xsEunQ",
+    "category": "Videos",
+    "publisher": "CNBC-TV18"
+  },
+  {
+    "id": "yt-et-now",
+    "name": "ET Now",
+    "url": "https://www.youtube.com/@ETNowSwadesh",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCI_mwTKUhicNzFrhm33MzBQ",
+    "category": "Videos",
+    "publisher": "ET Now"
   },
   {
     "id": "x-nithin-kamath",
@@ -821,7 +861,7 @@
     "url": "https://x.com/Nithin0dha",
     "feed": "https://news.google.com/rss/search?q=site:x.com+from:Nithin0dha&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
-    "publisher": "X/Twitter"
+    "publisher": "Nithin Kamath"
   },
   {
     "id": "x-deepak-shenoy",
@@ -829,22 +869,110 @@
     "url": "https://x.com/deepakshenoy",
     "feed": "https://news.google.com/rss/search?q=site:x.com+from:deepakshenoy&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
-    "publisher": "X/Twitter"
+    "publisher": "Deepak Shenoy"
   },
   {
-    "id": "x-indian-markets",
-    "name": "X — Indian Markets",
-    "url": "https://x.com",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+%22nifty%22+OR+%22sensex%22+OR+%22indian+stock+market%22&hl=en-IN&gl=IN&ceid=IN:en",
+    "id": "x-zerodha-markets",
+    "name": "Zerodha Markets (X)",
+    "url": "https://x.com/zerodhamarkets",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:zerodhamarkets&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
-    "publisher": "X/Twitter"
+    "publisher": "Zerodha Markets"
   },
   {
-    "id": "x-india-economy",
-    "name": "X — India Economy",
-    "url": "https://x.com",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+%22india%22+%22RBI%22+OR+%22SEBI%22+OR+%22economy%22+OR+%22GDP%22&hl=en-IN&gl=IN&ceid=IN:en",
+    "id": "x-market-alerts",
+    "name": "Market Alerts (X)",
+    "url": "https://x.com/marketalertsz",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:marketalertsz&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
-    "publisher": "X/Twitter"
+    "publisher": "Market Alerts"
+  },
+  {
+    "id": "x-porinju",
+    "name": "Porinju Veliyath (X)",
+    "url": "https://x.com/porinju",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:porinju&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Porinju Veliyath"
+  },
+  {
+    "id": "x-samir-arora",
+    "name": "Samir Arora (X)",
+    "url": "https://x.com/Iamsamirarora",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:Iamsamirarora&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Samir Arora"
+  },
+  {
+    "id": "x-basant-maheshwari",
+    "name": "Basant Maheshwari (X)",
+    "url": "https://x.com/BMTheEquityDesk",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:BMTheEquityDesk&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Basant Maheshwari"
+  },
+  {
+    "id": "x-nse-india",
+    "name": "NSE India (X)",
+    "url": "https://x.com/NSEIndia",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:NSEIndia&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "NSE India"
+  },
+  {
+    "id": "x-ira-dugal",
+    "name": "Ira Dugal (X)",
+    "url": "https://x.com/dugalira",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:dugalira&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Ira Dugal"
+  },
+  {
+    "id": "x-andy-mukherjee",
+    "name": "Andy Mukherjee (X)",
+    "url": "https://x.com/andymukherjee70",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:andymukherjee70&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Andy Mukherjee"
+  },
+  {
+    "id": "x-karthik-rangappa",
+    "name": "Karthik Rangappa (X)",
+    "url": "https://x.com/kaboragappa",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:karthikrangappa&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Karthik Rangappa"
+  },
+  {
+    "id": "x-debashis-basu",
+    "name": "Debashis Basu (X)",
+    "url": "https://x.com/Moneylifers",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:Moneylifers&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Debashis Basu"
+  },
+  {
+    "id": "x-samit-vartak",
+    "name": "Samit Vartak (X)",
+    "url": "https://x.com/SamitVartak",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:SamitVartak&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Samit Vartak"
+  },
+  {
+    "id": "x-dhirendra-kumar",
+    "name": "Dhirendra Kumar (X)",
+    "url": "https://x.com/dhirendra_vr",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:dhirendra_vr&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Dhirendra Kumar"
+  },
+  {
+    "id": "x-nikhil-kamath",
+    "name": "Nikhil Kamath (X)",
+    "url": "https://x.com/nikhilkamathcio",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:nikhilkamathcio&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Nikhil Kamath"
   }
 ]

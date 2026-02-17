@@ -739,6 +739,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         "publisher": t.get("publisher", ""),
     } for t in twitter_articles])
     twitter_count = len(twitter_articles)
+    twitter_publishers = sorted(set(t.get("publisher", t.get("source", "")) for t in twitter_articles if t.get("publisher") or t.get("source")))
+    twitter_publishers_json = json.dumps(twitter_publishers)
 
     # Count in-focus articles (covered by multiple sources)
     in_focus_count = sum(1 for g in sorted_groups if g["related_sources"])
@@ -2674,6 +2676,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 <div class="stats-bar">
                     <div class="stats">
                         <span><strong id="twitter-visible-count">{twitter_count}</strong> tweets</span>
+                        <span id="twitter-publisher-count-label"></span>
                     </div>
                     <div style="display:flex;align-items:center;">
                         <span class="update-time" id="twitter-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
@@ -2685,6 +2688,25 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                             el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
                         }})();
                         </script>
+                        <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
+                            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-row" id="twitter-filter-row">
+                    <div class="publisher-dropdown" id="twitter-publisher-dropdown">
+                        <button class="publisher-dropdown-trigger" id="twitter-publisher-trigger" onclick="toggleTwitterDropdown()">
+                            <span id="twitter-publisher-summary">All publishers</span>
+                            <span class="dropdown-arrow">&#9660;</span>
+                        </button>
+                        <div class="publisher-dropdown-panel" id="twitter-publisher-panel">
+                            <input type="text" class="dropdown-search" id="twitter-dropdown-search" placeholder="Search publishers..." oninput="filterTwitterPublisherList()">
+                            <div class="dropdown-actions">
+                                <button class="dropdown-action" onclick="selectAllTwitterPublishers()">Select All</button>
+                                <button class="dropdown-action" onclick="clearAllTwitterPublishers()">Clear All</button>
+                            </div>
+                            <div class="dropdown-list" id="twitter-dropdown-list"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2714,6 +2736,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         const TELEGRAM_WARNINGS = {json.dumps(telegram_warnings)};
         const YOUTUBE_VIDEOS = {video_articles_json};
         const TWITTER_ARTICLES = {twitter_articles_json};
+        const TWITTER_PUBLISHERS = {twitter_publishers_json};
         const NSE_DEALS = {nse_deals_json};
         const NSE_GENERATED_AT = "{nse_generated_at}";
 """
@@ -2789,6 +2812,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         function toggleFilterCollapse() {
             var dd = document.getElementById('publisher-dropdown');
             if (dd && dd.classList.contains('open')) closeDropdown();
+            var tdd = document.getElementById('twitter-publisher-dropdown');
+            if (tdd && tdd.classList.contains('open')) closeTwitterDropdown();
             var isCollapsed = document.documentElement.classList.toggle('filters-collapsed');
             safeStorage.set('financeradar_filters_collapsed', isCollapsed ? 'true' : 'false');
         }
@@ -2991,6 +3016,10 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             if (dd.classList.contains('open') && !dd.contains(e.target)) {
                 closeDropdown();
             }
+            const tdd = document.getElementById('twitter-publisher-dropdown');
+            if (tdd && tdd.classList.contains('open') && !tdd.contains(e.target)) {
+                closeTwitterDropdown();
+            }
         });
 
         // Close dropdown on Escape
@@ -2999,6 +3028,12 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 const dd = document.getElementById('publisher-dropdown');
                 if (dd.classList.contains('open')) {
                     closeDropdown();
+                    e.stopImmediatePropagation();
+                    return;
+                }
+                const tdd = document.getElementById('twitter-publisher-dropdown');
+                if (tdd && tdd.classList.contains('open')) {
+                    closeTwitterDropdown();
                     e.stopImmediatePropagation();
                     return;
                 }
@@ -3262,6 +3297,35 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 }
             });
             updateBookmarkCount();
+        }
+
+        function toggleGenericBookmark(btn) {
+            const url = btn.dataset.url;
+            const title = btn.dataset.title;
+            const source = btn.dataset.source || '';
+
+            let bookmarks = getBookmarks();
+            const idx = bookmarks.findIndex(b => b.url === url);
+
+            if (idx >= 0) {
+                bookmarks.splice(idx, 1);
+                btn.classList.remove('bookmarked');
+            } else {
+                bookmarks.unshift({ url, title, source, addedAt: Date.now() });
+                btn.classList.add('bookmarked');
+            }
+
+            saveBookmarks(bookmarks);
+            updateBookmarkCount();
+            renderSidebarContent();
+        }
+
+        function syncBookmarkState() {
+            const bookmarks = getBookmarks();
+            const urls = new Set(bookmarks.map(b => b.url));
+            document.querySelectorAll('.bookmark-btn[data-url]').forEach(btn => {
+                btn.classList.toggle('bookmarked', urls.has(btn.dataset.url));
+            });
         }
 
         function openSidebar() {
@@ -3535,6 +3599,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         let filteredTwitter = [];
         let twitterPage = 1;
         const TWITTER_PAGE_SIZE = 30;
+        let selectedTwitterPublishers = new Set();
 
         // Restore last active tab
         (function() {
@@ -3927,6 +3992,9 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                             <div class="video-meta">
                                 <span>${formatYoutubeDate(v.date)}</span>
                                 <a href="${link}" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+                                <button class="bookmark-btn" data-url="${link}" data-title="${escapeForAttr(v.title)}" data-source="${channel}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark video" title="Bookmark">
+                                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -3934,6 +4002,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             });
 
             container.innerHTML = html;
+            syncBookmarkState();
             renderYoutubePagination(totalPages);
         }
 
@@ -3984,6 +4053,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         // ==================== TWITTER TAB (functions) ====================
         function renderMainTwitter() {
+            initTwitterPublisherDropdown();
             filteredTwitter = [...TWITTER_ARTICLES];
             twitterPage = 1;
             applyTwitterPagination();
@@ -3991,16 +4061,114 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         function filterTwitter() {
             const query = document.getElementById('search').value.toLowerCase().trim();
-            if (!query) {
-                filteredTwitter = [...TWITTER_ARTICLES];
-            } else {
-                filteredTwitter = TWITTER_ARTICLES.filter(t => {
-                    const text = (t.title + ' ' + t.source).toLowerCase();
-                    return text.includes(query);
-                });
-            }
+            filteredTwitter = TWITTER_ARTICLES.filter(t => {
+                const matchesSearch = !query || (t.title + ' ' + t.source + ' ' + (t.publisher || '')).toLowerCase().includes(query);
+                const pub = t.publisher || t.source;
+                const matchesPublisher = selectedTwitterPublishers.size === 0 || selectedTwitterPublishers.has(pub);
+                return matchesSearch && matchesPublisher;
+            });
             twitterPage = 1;
             applyTwitterPagination();
+            updateTwitterPublisherSummary();
+        }
+
+        function initTwitterPublisherDropdown() {
+            const list = document.getElementById('twitter-dropdown-list');
+            if (!list) return;
+            list.innerHTML = '';
+            TWITTER_PUBLISHERS.forEach(pub => {
+                const item = document.createElement('div');
+                item.className = 'dropdown-item';
+                item.dataset.publisher = pub;
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.id = 'twpub-' + pub.replace(/\\s+/g, '-');
+                cb.dataset.publisher = pub;
+                cb.addEventListener('change', () => onTwitterPublisherChange(pub, cb.checked));
+                const lbl = document.createElement('label');
+                lbl.htmlFor = cb.id;
+                lbl.textContent = pub;
+                item.appendChild(cb);
+                item.appendChild(lbl);
+                item.addEventListener('click', (e) => {
+                    if (e.target !== cb) {
+                        cb.checked = !cb.checked;
+                        onTwitterPublisherChange(pub, cb.checked);
+                    }
+                });
+                list.appendChild(item);
+            });
+        }
+
+        function toggleTwitterDropdown() {
+            const dd = document.getElementById('twitter-publisher-dropdown');
+            dd.classList.toggle('open');
+            if (dd.classList.contains('open')) {
+                document.getElementById('twitter-dropdown-search').focus();
+            }
+        }
+
+        function filterTwitterPublisherList() {
+            const query = document.getElementById('twitter-dropdown-search').value.toLowerCase();
+            document.querySelectorAll('#twitter-dropdown-list .dropdown-item').forEach(item => {
+                const pub = item.dataset.publisher.toLowerCase();
+                item.classList.toggle('hidden', query && !pub.includes(query));
+            });
+        }
+
+        function selectAllTwitterPublishers() {
+            selectedTwitterPublishers.clear();
+            syncTwitterCheckboxes();
+            updateTwitterPublisherSummary();
+            filterTwitter();
+        }
+
+        function clearAllTwitterPublishers() {
+            selectedTwitterPublishers.clear();
+            syncTwitterCheckboxes();
+            updateTwitterPublisherSummary();
+            filterTwitter();
+        }
+
+        function onTwitterPublisherChange(pub, checked) {
+            if (checked) {
+                selectedTwitterPublishers.add(pub);
+            } else {
+                selectedTwitterPublishers.delete(pub);
+            }
+            updateTwitterPublisherSummary();
+            filterTwitter();
+        }
+
+        function syncTwitterCheckboxes() {
+            document.querySelectorAll('#twitter-dropdown-list input[type="checkbox"]').forEach(cb => {
+                cb.checked = selectedTwitterPublishers.has(cb.dataset.publisher);
+            });
+        }
+
+        function updateTwitterPublisherSummary() {
+            const el = document.getElementById('twitter-publisher-summary');
+            const countLabel = document.getElementById('twitter-publisher-count-label');
+            if (!el) return;
+            const n = selectedTwitterPublishers.size;
+            const total = TWITTER_PUBLISHERS.length;
+            if (n === 0) {
+                el.textContent = 'All publishers';
+                if (countLabel) countLabel.textContent = '';
+            } else if (n === 1) {
+                el.textContent = [...selectedTwitterPublishers][0];
+                if (countLabel) countLabel.textContent = '· 1 of ' + total + ' publishers';
+            } else {
+                el.textContent = n + ' publishers';
+                if (countLabel) countLabel.textContent = '· ' + n + ' of ' + total + ' publishers';
+            }
+        }
+
+        function closeTwitterDropdown() {
+            const dd = document.getElementById('twitter-publisher-dropdown');
+            if (dd) dd.classList.remove('open');
+            const search = document.getElementById('twitter-dropdown-search');
+            if (search) { search.value = ''; filterTwitterPublisherList(); }
         }
 
         function formatTwitterDate(isoStr) {
@@ -4062,20 +4230,25 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 const source = escapeHtml(t.source);
                 const link = escapeHtml(t.link);
 
+                const publisher = escapeHtml(t.publisher || t.source);
                 html += `
-                    <article class="article">
+                    <article class="article" data-publisher="${publisher}">
                         <h3 class="article-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
                         <div class="article-meta">
                             <span class="source-tag">${source}</span>
                             ${t.date ? `<span class="meta-dot">·</span><span class="article-time">${formatTwitterDate(t.date)}</span>` : ''}
                             <span class="meta-dot">·</span>
                             <a href="${link}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:12px;font-weight:500">Open on X &rarr;</a>
+                            <button class="bookmark-btn" data-url="${link}" data-title="${escapeForAttr(t.title)}" data-source="${source}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark tweet" title="Bookmark">
+                                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                            </button>
                         </div>
                     </article>
                 `;
             });
 
             container.innerHTML = html;
+            syncBookmarkState();
             renderTwitterPagination(totalPages);
         }
 
