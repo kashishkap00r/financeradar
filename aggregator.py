@@ -532,9 +532,9 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
     # Publisher presets
     publisher_presets = {
-        "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core"],
+        "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express", "CareEdge"],
         "World Desk": ["BBC", "CNBC", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World", "Techmeme"],
-        "Indie Voices": ["Finshots", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data"],
+        "Indie Voices": ["Finshots", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data", "Noah Smith"],
         "Official Channels": ["RBI", "SEBI", "ECB", "ADB", "FRED", "PIB"]
     }
 
@@ -3579,7 +3579,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         }
 
         function reportHasStockTarget(r) {
-            const RE = /\bupside\b|\bdownside\b|\bTP\s+\d|\btarget\s+price\b/i;
+            const RE = /\\bupside\\b|\\bdownside\\b|\\bTP\\s+\\d|\\btarget\\s+price\\b/i;
             if (RE.test(r.text || '')) return true;
             const docs = (r.documents && r.documents.length > 0) ? r.documents
                 : (r.document && r.document.title) ? [r.document] : [];
