@@ -578,11 +578,26 @@ def fetch_feed(feed_config):
                 articles.append(article_data)
         else:
             # RSS 2.0 format
+            MEDIA_NS = "{http://search.yahoo.com/mrss/}"
             for item in items:
                 title = item.find("title")
                 link = item.find("link")
                 pub_date = item.find("pubDate")
                 description = item.find("description")
+
+                # Extract image from media:thumbnail, media:content, or enclosure
+                image_url = ""
+                thumb = item.find(f"{MEDIA_NS}thumbnail")
+                if thumb is not None:
+                    image_url = thumb.get("url", "")
+                if not image_url:
+                    content = item.find(f"{MEDIA_NS}content")
+                    if content is not None and content.get("medium", "") == "image":
+                        image_url = content.get("url", "")
+                if not image_url:
+                    enclosure = item.find("enclosure")
+                    if enclosure is not None and enclosure.get("type", "").startswith("image/"):
+                        image_url = enclosure.get("url", "")
 
                 articles.append({
                     "title": title.text if title is not None and title.text else "No title",
@@ -592,7 +607,8 @@ def fetch_feed(feed_config):
                     "source": feed_name,
                     "source_url": source_url,
                     "category": feed_config.get("category", "News"),
-                    "publisher": feed_config.get("publisher", "")
+                    "publisher": feed_config.get("publisher", ""),
+                    "image": image_url
                 })
 
         print(f"  [OK] {feed_name}: {len(articles)} articles")
@@ -1485,11 +1501,31 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             margin-left: auto;
         }}
         .tweet-text {{
+            font-family: 'Merriweather', Georgia, serif;
             font-size: 15px;
             font-weight: 400;
-            line-height: 1.5;
+            line-height: 1.55;
             color: var(--text-primary);
             margin-bottom: 6px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }}
+        .tweet-text.expanded {{
+            display: block;
+            overflow: visible;
+        }}
+        .tweet-expand-btn {{
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 4px;
+            display: none;
         }}
         .tweet-text a {{
             color: var(--text-primary);
@@ -1524,6 +1560,19 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         }}
         .tweet-open-link:hover {{
             color: var(--accent);
+        }}
+        .tweet-image {{
+            margin: 6px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            max-height: 280px;
+        }}
+        .tweet-image img {{
+            width: 100%;
+            height: auto;
+            max-height: 280px;
+            object-fit: cover;
+            display: block;
         }}
 
         /* Footer */
@@ -4251,6 +4300,19 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             if (title.includes('🧵')) badges.push('🧵 Thread');
             return badges;
         }
+        function toggleTweetExpand(btn) {
+            const textEl = btn.previousElementSibling;
+            const expanded = textEl.classList.toggle('expanded');
+            btn.textContent = expanded ? 'Show less' : 'Show more';
+        }
+        function checkTweetOverflow(container) {
+            container.querySelectorAll('.tweet-text').forEach(el => {
+                const btn = el.nextElementSibling;
+                if (btn && btn.classList.contains('tweet-expand-btn')) {
+                    btn.style.display = el.scrollHeight > el.clientHeight ? 'block' : 'none';
+                }
+            });
+        }
 
         // ==================== TWITTER TAB (functions) ====================
         function renderMainTwitter() {
@@ -4487,6 +4549,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                                 </button>
                             </div>
                             <div class="tweet-text"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>
+                            <button class="tweet-expand-btn" onclick="toggleTweetExpand(this)">Show more</button>
+                            ${t.image ? `<div class="tweet-image"><img src="${escapeForAttr(t.image)}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ''}
                             <div class="tweet-footer">
                                 ${badgeHtml}
                                 <a href="${link}" target="_blank" rel="noopener" class="tweet-open-link">Open on X &rarr;</a>
@@ -4497,6 +4561,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             });
 
             container.innerHTML = html;
+            checkTweetOverflow(container);
             syncBookmarkState();
             renderTwitterPagination(totalPages);
         }
