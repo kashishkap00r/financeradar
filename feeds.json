@@ -1286,5 +1286,85 @@
     "feed": "https://news.google.com/rss/search?q=site:x.com+from:dugalira&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Ira Dugal"
+  },
+  {
+    "id": "yt-soic-finance",
+    "name": "SOIC Finance",
+    "url": "https://www.youtube.com/@SOICfinance",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCB7GnQlJPIL6rBBqEoX87vA",
+    "category": "Videos",
+    "publisher": "SOIC Finance"
+  },
+  {
+    "id": "yt-soic-clips",
+    "name": "SOIC Clips",
+    "url": "https://www.youtube.com/@SOICClips",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC0AQrC3gYBVLqIGBOvKprKg",
+    "category": "Videos",
+    "publisher": "SOIC Clips"
+  },
+  {
+    "id": "yt-veritasium",
+    "name": "Veritasium",
+    "url": "https://www.youtube.com/@veritasium",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA",
+    "category": "Videos",
+    "publisher": "Veritasium"
+  },
+  {
+    "id": "yt-fd-finance",
+    "name": "FD Finance",
+    "url": "https://www.youtube.com/@FD_Finance",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCA1zVt6y6hidCOBUrn1si8Q",
+    "category": "Videos",
+    "publisher": "FD Finance"
+  },
+  {
+    "id": "yt-business-insider",
+    "name": "Business Insider",
+    "url": "https://www.youtube.com/channel/UCcyq283he07B7_KUX07mmtA",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcyq283he07B7_KUX07mmtA",
+    "category": "Videos",
+    "publisher": "Business Insider"
+  },
+  {
+    "id": "yt-business-explains-world",
+    "name": "Business Explains the World",
+    "url": "https://www.youtube.com/@BusinessExplainsTheWorld",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDEs0NoYs8QTTA6YLBrsqGg",
+    "category": "Videos",
+    "publisher": "Business Explains the World"
+  },
+  {
+    "id": "yt-the-print",
+    "name": "The Print India",
+    "url": "https://www.youtube.com/theprintindia",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCuyRsHZILrU7ZDIAbGASHdA",
+    "category": "Videos",
+    "publisher": "The Print India"
+  },
+  {
+    "id": "yt-wef",
+    "name": "World Economic Forum",
+    "url": "https://www.youtube.com/@wef",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCw-kH-Od73XDAt7qtH9uBYA",
+    "category": "Videos",
+    "publisher": "World Economic Forum"
+  },
+  {
+    "id": "financial-express-economy",
+    "name": "Financial Express — Economy",
+    "url": "https://www.financialexpress.com/policy/economy/",
+    "feed": "https://news.google.com/rss/search?q=site:financialexpress.com/policy/economy&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "Financial Express"
+  },
+  {
+    "id": "financial-express-industry",
+    "name": "Financial Express — Industry",
+    "url": "https://www.financialexpress.com/business/industry/",
+    "feed": "https://news.google.com/rss/search?q=site:financialexpress.com/business/industry&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "Financial Express"
   }
 ]
