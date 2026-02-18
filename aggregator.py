@@ -4238,11 +4238,11 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         }
 
         // ==================== TWITTER TAB (helpers) ====================
-        const TWEET_AVATAR_COLORS = ['#4a7fb5','#c96b6b','#5a9e6f','#c49a4b','#8b6baf','#4a9e9e','#d07a5a','#7aab5a'];
         function getTweetAvatarColor(name) {
+            const colors = ['#4a7fb5','#c96b6b','#5a9e6f','#c49a4b','#8b6baf','#4a9e9e','#d07a5a','#7aab5a'];
             let hash = 0;
             for (let i = 0; i < name.length; i++) hash = ((hash << 5) - hash) + name.charCodeAt(i);
-            return TWEET_AVATAR_COLORS[Math.abs(hash) % TWEET_AVATAR_COLORS.length];
+            return colors[Math.abs(hash) % colors.length];
         }
         function getTweetBadges(title) {
             const badges = [];
