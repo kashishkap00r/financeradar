@@ -1,138 +1,16 @@
 {
-  "generated_at": "2026-02-17T07:40:16.548017+05:30",
+  "generated_at": "2026-02-18T07:51:39.032697+05:30",
   "article_count": 200,
   "providers": {
     "auto": {
       "name": "Auto (Best Free)",
-      "status": "ok",
-      "count": 20,
-      "rankings": [
-        {
-          "rank": 1,
-          "title": "RBI draft norms on mis-selling may hit private banks harder ",
-          "url": "https://economictimes.indiatimes.com/markets/stocks/news/rbi-draft-norms-on-mis-selling-may-hit-private-banks-harder/articleshow/128443205.cms",
-          "source": "Economic Times \u2014 Latest"
-        },
-        {
-          "rank": 2,
-          "title": "Mint Explainer: How Sebi\u2019s ETF proposals aim to tackle pricing lags and protect investors",
-          "url": "https://www.livemint.com/market/sebi-etf-pricing-lag-investor-protection-market-volatility-changes-11771228280884.html",
-          "source": "Mint \u2014 Markets"
-        },
-        {
-          "rank": 3,
-          "title": "Navi Mumbai Hub: Early Testing Hints At Thaw In 5G Standoff",
-          "url": "https://www.thecore.in/business/navi-mumbai-airport-hub-early-testing-hints-at-thaw-in-5g-standoff-858599",
-          "source": "The Core \u2014 Business"
-        },
-        {
-          "rank": 4,
-          "title": "NPCI extends \u2018UPI One World\u2019 wallet service to visitors from 40 countries to AI Summit",
-          "url": "https://www.thehindu.com/business/Industry/npci-extends-upi-one-world-wallet-service-to-visitors-from-40-countries-to-ai-summit/article70639061.ece",
-          "source": "The Hindu \u2014 Business"
-        },
-        {
-          "rank": 5,
-          "title": "It's raining rewards points as e-retailers chase loyalty",
-          "url": "https://www.livemint.com/companies/news/eretailers-loyalty-programmes-everyday-spending-groceries-essentials-rewards-points-india-11771226239235.html",
-          "source": "Mint \u2014 Companies"
-        },
-        {
-          "rank": 6,
-          "title": "Nifty IT Index, which tracks Indian IT stocks, has slumped about 15% so far in February on worries about AI and is on track for its worst month since March 2020 (Bloomberg)",
-          "url": "http://www.techmeme.com/260216/p30#a260216p30",
-          "source": "Techmeme"
-        },
-        {
-          "rank": 7,
-          "title": "India's AI Ambitions Are Under Scrutiny with Impact Summit - Bloomberg",
-          "url": "",
-          "source": ""
-        },
-        {
-          "rank": 8,
-          "title": " RBI eases ECB rules: No more cost caps, expanded borrowers and lenders ",
-          "url": " https://www.etnownews.com/economy/rbi-eases-ecb-rules-no-more-cost-caps-expanded-borrowers-and-lenders-article-153623200 ",
-          "source": "ET Now \u2014 Economy"
-        },
-        {
-          "rank": 9,
-          "title": "Unemployment in India rises slightly to 5% in January: Government survey",
-          "url": "https://www.thehindu.com/business/Economy/unemployment-in-india-rises-slightly-to-5-in-january-government-survey/article70640562.ece",
-          "source": "The Hindu \u2014 Business"
-        },
-        {
-          "rank": 10,
-          "title": "India\u2019s January trade deficit widens before U.S. tariff relief kicks in",
-          "url": "",
-          "source": ""
-        },
-        {
-          "rank": 11,
-          "title": "Banks ramp up bad loan sales to ARCs in December quarter, retail NPAs at Rs 24,814 crore ",
-          "url": "https://economictimes.indiatimes.com/industry/banking/finance/banking/banks-ramp-up-bad-loan-sales-to-arcs-in-december-quarter-retail-npas-at-rs-24814-crore/articleshow/128434369.cms",
-          "source": "Economic Times \u2014 Latest"
-        },
-        {
-          "rank": 12,
-          "title": "IIFL Finance won't go all-out on gold loans next fiscal",
-          "url": "https://www.livemint.com/market/commodities/iifl-finance-nirmal-jain-gold-loan-expansion-bond-issue-outlook-11771242614049.html",
-          "source": "Mint \u2014 Markets"
-        },
-        {
-          "rank": 13,
-          "title": "RBI Governor Sanjay Malhotra says improving timely credit access to MSMEs remains key policy priority ",
-          "url": "https://economictimes.indiatimes.com/industry/banking/finance/rbi-governor-sanjay-malhotra-says-improving-timely-credit-access-to-msmes-remains-key-policy-priority/articleshow/128426619.cms",
-          "source": "Economic Times \u2014 Latest"
-        },
-        {
-          "rank": 14,
-          "title": "Tata Sons brings in former civil aviation secretary as Air India faces regulatory hurdles ",
-          "url": "https://economictimes.indiatimes.com/industry/transportation/airlines-/-aviation/tata-sons-air-india-bring-in-former-civil-aviation-secretary-as-airline-faces-regulatory-hurdles/articleshow/128435024.cms",
-          "source": "Economic Times \u2014 Latest"
-        },
-        {
-          "rank": 15,
-          "title": "India in demand by both developed countries and global south economies: Priyam Gandhi-Mody",
-          "url": "https://www.thehindu.com/business/Industry/india-in-demand-by-both-developed-countries-and-global-south-economies-priyam-gandhi-mody/article70639376.ece",
-          "source": "The Hindu \u2014 Business"
-        },
-        {
-          "rank": 16,
-          "title": "At India AI Impact Summit 2026, Akash Ambani showcases Jio's AI ecosystem to PM Modi ",
-          "url": "https://economictimes.indiatimes.com/news/company/corporate-trends/at-india-ai-impact-summit-2026-akash-ambani-showcases-jios-ai-ecosystem-to-pm-modi/articleshow/128432340.cms",
-          "source": "Economic Times \u2014 Latest"
-        },
-        {
-          "rank": 17,
-          "title": "Indian pharma may take AI pill to cut time and costs in drug R&D",
-          "url": "",
-          "source": ""
-        },
-        {
-          "rank": 18,
-          "title": "L&T decides to sell Nabha Power\u00a0to Torrent Power for \u20b93,661 crore",
-          "url": "https://www.thehindu.com/business/lt-decides-to-sell-nabha-powerto-torrent-power-for-3661-crore/article70639451.ece",
-          "source": "The Hindu \u2014 Business"
-        },
-        {
-          "rank": 19,
-          "title": "Motilal Oswal Alternates raises \u20b98,500 crore for fifth PE Fund",
-          "url": "https://www.thehindu.com/business/motilal-oswal-alternates-raises-8500-crore-for-fifth-pe-fund/article70639048.ece",
-          "source": "The Hindu \u2014 Business"
-        },
-        {
-          "rank": 20,
-          "title": "IIFL Finance to raise up to \u20b92,000 crore through NCDs",
-          "url": "https://www.thehindu.com/business/iifl-finance-to-raise-up-to-2000-crore-through-ncds/article70639093.ece",
-          "source": "The Hindu \u2014 Business"
-        }
-      ]
-    },
-    "nemotron": {
-      "name": "Nemotron 3 Nano",
       "status": "error",
-      "error": "Expecting value: line 839 column 1 (char 4609)"
+      "error": "Extra data: line 1 column 1420 (char 1419)"
+    },
+    "gemini-3-flash": {
+      "name": "Gemini 3 Flash",
+      "status": "error",
+      "error": "HTTP Error 402: Payment Required"
     }
   }
 }
