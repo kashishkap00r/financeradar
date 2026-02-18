@@ -756,6 +756,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
     } for v in video_articles])
     video_count = len(video_articles)
     video_channel_count = len(set(v.get("publisher", "") for v in video_articles if v.get("publisher")))
+    youtube_publishers = sorted(set(v.get("publisher", v.get("source", "")) for v in video_articles if v.get("publisher") or v.get("source")))
+    youtube_publishers_json = json.dumps(youtube_publishers)
 
     # Prepare twitter data
     if twitter_articles is None:
@@ -2565,7 +2567,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 <div class="stats-bar">
                     <div class="stats">
                         <span><strong id="youtube-visible-count">{video_count}</strong> videos</span>
-                        <span><strong>{video_channel_count}</strong> channels</span>
+                        <span id="youtube-publisher-count-label"><strong>{video_channel_count}</strong> channels</span>
                     </div>
                     <div style="display:flex;align-items:center;">
                         <span class="update-time" id="youtube-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
@@ -2577,6 +2579,25 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                             el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
                         }})();
                         </script>
+                        <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
+                            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-row" id="youtube-filter-row">
+                    <div class="publisher-dropdown" id="youtube-publisher-dropdown">
+                        <button class="publisher-dropdown-trigger" id="youtube-publisher-trigger" onclick="toggleYoutubeDropdown()">
+                            <span id="youtube-publisher-summary">All channels</span>
+                            <span class="dropdown-arrow">&#9660;</span>
+                        </button>
+                        <div class="publisher-dropdown-panel" id="youtube-publisher-panel">
+                            <input type="text" class="dropdown-search" id="youtube-dropdown-search" placeholder="Search channels..." oninput="filterYoutubePublisherList()">
+                            <div class="dropdown-actions">
+                                <button class="dropdown-action" onclick="selectAllYoutubePublishers()">Select All</button>
+                                <button class="dropdown-action" onclick="clearAllYoutubePublishers()">Clear All</button>
+                            </div>
+                            <div class="dropdown-list" id="youtube-dropdown-list"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2653,6 +2674,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         const TELEGRAM_GENERATED_AT = "{telegram_generated_at}";
         const TELEGRAM_WARNINGS = {json.dumps(telegram_warnings)};
         const YOUTUBE_VIDEOS = {video_articles_json};
+        const YOUTUBE_PUBLISHERS = {youtube_publishers_json};
         const TWITTER_ARTICLES = {twitter_articles_json};
         const TWITTER_PUBLISHERS = {twitter_publishers_json};
         const TWITTER_PRESETS = {twitter_presets_json};
@@ -2693,6 +2715,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             if (dd && dd.classList.contains('open')) closeDropdown();
             var tdd = document.getElementById('twitter-publisher-dropdown');
             if (tdd && tdd.classList.contains('open')) closeTwitterDropdown();
+            var ydd = document.getElementById('youtube-publisher-dropdown');
+            if (ydd && ydd.classList.contains('open')) closeYoutubeDropdown();
             var isCollapsed = document.documentElement.classList.toggle('filters-collapsed');
             safeStorage.set('financeradar_filters_collapsed', isCollapsed ? 'true' : 'false');
         }
@@ -2899,6 +2923,10 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             if (tdd && tdd.classList.contains('open') && !tdd.contains(e.target)) {
                 closeTwitterDropdown();
             }
+            const ydd = document.getElementById('youtube-publisher-dropdown');
+            if (ydd && ydd.classList.contains('open') && !ydd.contains(e.target)) {
+                closeYoutubeDropdown();
+            }
         });
 
         // Close dropdown on Escape
@@ -2913,6 +2941,12 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 const tdd = document.getElementById('twitter-publisher-dropdown');
                 if (tdd && tdd.classList.contains('open')) {
                     closeTwitterDropdown();
+                    e.stopImmediatePropagation();
+                    return;
+                }
+                const ydd = document.getElementById('youtube-publisher-dropdown');
+                if (ydd && ydd.classList.contains('open')) {
+                    closeYoutubeDropdown();
                     e.stopImmediatePropagation();
                     return;
                 }
@@ -3475,6 +3509,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         let filteredYoutube = [];
         let youtubePage = 1;
         const YOUTUBE_PAGE_SIZE = 20;
+        let selectedYoutubePublishers = new Set();
 
         // ==================== TWITTER TAB (vars) ====================
         let twitterRendered = false;
@@ -3781,6 +3816,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         // ==================== YOUTUBE TAB (functions) ====================
         function renderMainYoutube() {
+            initYoutubePublisherDropdown();
             filteredYoutube = [...YOUTUBE_VIDEOS];
             youtubePage = 1;
             applyYoutubePagination();
@@ -3788,16 +3824,114 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         function filterYoutube() {
             const query = document.getElementById('search').value.toLowerCase().trim();
-            if (!query) {
-                filteredYoutube = [...YOUTUBE_VIDEOS];
-            } else {
-                filteredYoutube = YOUTUBE_VIDEOS.filter(v => {
-                    const text = (v.title + ' ' + v.source + ' ' + v.publisher).toLowerCase();
-                    return text.includes(query);
-                });
-            }
+            filteredYoutube = YOUTUBE_VIDEOS.filter(v => {
+                const matchesSearch = !query || (v.title + ' ' + v.source + ' ' + v.publisher).toLowerCase().includes(query);
+                const pub = v.publisher || v.source;
+                const matchesPublisher = selectedYoutubePublishers.size === 0 || selectedYoutubePublishers.has(pub);
+                return matchesSearch && matchesPublisher;
+            });
             youtubePage = 1;
             applyYoutubePagination();
+            updateYoutubePublisherSummary();
+        }
+
+        function initYoutubePublisherDropdown() {
+            const list = document.getElementById('youtube-dropdown-list');
+            if (!list) return;
+            list.innerHTML = '';
+            YOUTUBE_PUBLISHERS.forEach(pub => {
+                const item = document.createElement('div');
+                item.className = 'dropdown-item';
+                item.dataset.publisher = pub;
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.id = 'ytpub-' + pub.replace(/\\s+/g, '-');
+                cb.dataset.publisher = pub;
+                cb.addEventListener('change', () => onYoutubePublisherChange(pub, cb.checked));
+                const lbl = document.createElement('label');
+                lbl.htmlFor = cb.id;
+                lbl.textContent = pub;
+                item.appendChild(cb);
+                item.appendChild(lbl);
+                item.addEventListener('click', (e) => {
+                    if (e.target !== cb) {
+                        cb.checked = !cb.checked;
+                        onYoutubePublisherChange(pub, cb.checked);
+                    }
+                });
+                list.appendChild(item);
+            });
+        }
+
+        function toggleYoutubeDropdown() {
+            const dd = document.getElementById('youtube-publisher-dropdown');
+            dd.classList.toggle('open');
+            if (dd.classList.contains('open')) {
+                document.getElementById('youtube-dropdown-search').focus();
+            }
+        }
+
+        function filterYoutubePublisherList() {
+            const query = document.getElementById('youtube-dropdown-search').value.toLowerCase();
+            document.querySelectorAll('#youtube-dropdown-list .dropdown-item').forEach(item => {
+                const pub = item.dataset.publisher.toLowerCase();
+                item.classList.toggle('hidden', query && !pub.includes(query));
+            });
+        }
+
+        function selectAllYoutubePublishers() {
+            selectedYoutubePublishers.clear();
+            syncYoutubeCheckboxes();
+            updateYoutubePublisherSummary();
+            filterYoutube();
+        }
+
+        function clearAllYoutubePublishers() {
+            selectedYoutubePublishers.clear();
+            syncYoutubeCheckboxes();
+            updateYoutubePublisherSummary();
+            filterYoutube();
+        }
+
+        function onYoutubePublisherChange(pub, checked) {
+            if (checked) {
+                selectedYoutubePublishers.add(pub);
+            } else {
+                selectedYoutubePublishers.delete(pub);
+            }
+            updateYoutubePublisherSummary();
+            filterYoutube();
+        }
+
+        function syncYoutubeCheckboxes() {
+            document.querySelectorAll('#youtube-dropdown-list input[type="checkbox"]').forEach(cb => {
+                cb.checked = selectedYoutubePublishers.has(cb.dataset.publisher);
+            });
+        }
+
+        function updateYoutubePublisherSummary() {
+            const el = document.getElementById('youtube-publisher-summary');
+            const countLabel = document.getElementById('youtube-publisher-count-label');
+            if (!el) return;
+            const n = selectedYoutubePublishers.size;
+            const total = YOUTUBE_PUBLISHERS.length;
+            if (n === 0) {
+                el.textContent = 'All channels';
+                if (countLabel) countLabel.innerHTML = '<strong>' + total + '</strong> channels';
+            } else if (n === 1) {
+                el.textContent = [...selectedYoutubePublishers][0];
+                if (countLabel) countLabel.textContent = '\u00b7 1 of ' + total + ' channels';
+            } else {
+                el.textContent = n + ' channels';
+                if (countLabel) countLabel.textContent = '\u00b7 ' + n + ' of ' + total + ' channels';
+            }
+        }
+
+        function closeYoutubeDropdown() {
+            const dd = document.getElementById('youtube-publisher-dropdown');
+            if (dd) dd.classList.remove('open');
+            const search = document.getElementById('youtube-dropdown-search');
+            if (search) { search.value = ''; filterYoutubePublisherList(); }
         }
 
         function formatYoutubeDate(isoStr) {
