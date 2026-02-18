@@ -720,6 +720,17 @@ def export_articles_json(article_groups):
     print(f"Exported {len(articles)} articles to {output_path}")
 
 
+def clean_twitter_title(title):
+    """Strip RSS cruft from Twitter/X titles."""
+    if not title:
+        return title
+    suffixes = [' - x.com', ' - Results on X | Live Posts & Updates']
+    for suffix in suffixes:
+        if title.endswith(suffix):
+            title = title[:-len(suffix)]
+    return title.strip()
+
+
 def generate_html(article_groups, video_articles=None, twitter_articles=None):
     """Generate the static HTML website."""
 
@@ -821,7 +832,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
     if twitter_articles is None:
         twitter_articles = []
     twitter_articles_json = json.dumps([{
-        "title": t["title"],
+        "title": clean_twitter_title(t["title"]),
         "link": t["link"],
         "date": t["date"].isoformat() if t.get("date") else None,
         "source": t.get("source", ""),
@@ -1425,6 +1436,98 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             font-size: 14.5px;
             color: var(--text-secondary);
             line-height: 1.55;
+        }}
+
+        /* Tweet feed layout */
+        .tweet-item {{
+            display: flex;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }}
+        .tweet-item:last-of-type {{
+            border-bottom: none;
+        }}
+        .tweet-avatar {{
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            font-family: 'Source Sans Pro', sans-serif;
+            margin-top: 2px;
+        }}
+        .tweet-content {{
+            flex: 1;
+            min-width: 0;
+        }}
+        .tweet-header {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+        }}
+        .tweet-publisher {{
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-primary);
+            font-family: 'Source Sans Pro', sans-serif;
+        }}
+        .tweet-time {{
+            font-size: 13px;
+            color: var(--text-muted);
+        }}
+        .tweet-header .bookmark-btn {{
+            margin-left: auto;
+        }}
+        .tweet-text {{
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }}
+        .tweet-text a {{
+            color: var(--text-primary);
+            text-decoration: none;
+        }}
+        .tweet-text a:hover {{
+            color: var(--accent);
+        }}
+        .tweet-footer {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }}
+        .tweet-badge {{
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            font-family: 'Source Sans Pro', sans-serif;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: var(--bg-hover);
+            color: var(--text-muted);
+        }}
+        .tweet-open-link {{
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: auto;
+        }}
+        .tweet-open-link:hover {{
+            color: var(--accent);
         }}
 
         /* Footer */
@@ -2315,6 +2418,19 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 transform: none;
                 box-shadow: none;
                 border-color: var(--border);
+            }}
+
+            .tweet-avatar {{
+                width: 32px;
+                height: 32px;
+                min-width: 32px;
+                font-size: 13px;
+            }}
+            .tweet-text {{
+                font-size: 14px;
+            }}
+            .tweet-header {{
+                gap: 6px;
             }}
 
             .content-tab {{
@@ -3348,7 +3464,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             saveBookmarks(bookmarks);
 
             // Update main list button
-            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"]`);
+            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"], .tweet-item[data-url="${CSS.escape(url)}"]`);
             if (article) {
                 const btn = article.querySelector('.bookmark-btn');
                 if (btn) btn.classList.remove('bookmarked');
@@ -3513,7 +3629,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             }
             saveBookmarks(bookmarks);
             updateBookmarkCount();
-            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"]`);
+            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"], .tweet-item[data-url="${CSS.escape(url)}"]`);
             if (article) {
                 const mainBtn = article.querySelector('.bookmark-btn');
                 if (mainBtn) mainBtn.classList.toggle('bookmarked', !exists);
@@ -4125,6 +4241,21 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             build(bottom);
         }
 
+        // ==================== TWITTER TAB (helpers) ====================
+        const TWEET_AVATAR_COLORS = ['#4a7fb5','#c96b6b','#5a9e6f','#c49a4b','#8b6baf','#4a9e9e','#d07a5a','#7aab5a'];
+        function getTweetAvatarColor(name) {
+            let hash = 0;
+            for (let i = 0; i < name.length; i++) hash = ((hash << 5) - hash) + name.charCodeAt(i);
+            return TWEET_AVATAR_COLORS[Math.abs(hash) % TWEET_AVATAR_COLORS.length];
+        }
+        function getTweetBadges(title) {
+            const badges = [];
+            if (title.startsWith('\u201c') || title.startsWith('"')) badges.push('💬 Quote');
+            else if (title.startsWith('RT @')) badges.push('🔄 Retweet');
+            if (title.includes('🧵')) badges.push('🧵 Thread');
+            return badges;
+        }
+
         // ==================== TWITTER TAB (functions) ====================
         function renderMainTwitter() {
             initTwitterPublisherDropdown();
@@ -4344,19 +4475,28 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 const link = escapeHtml(t.link);
 
                 const publisher = escapeHtml(t.publisher || t.source);
+                const avatarColor = getTweetAvatarColor(publisher);
+                const initial = publisher.charAt(0).toUpperCase();
+                const badges = getTweetBadges(t.title);
+                const badgeHtml = badges.map(b => `<span class="tweet-badge">${b}</span>`).join('');
                 html += `
-                    <article class="article" data-publisher="${publisher}">
-                        <h3 class="article-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
-                        <div class="article-meta">
-                            <span class="source-tag">${source}</span>
-                            ${t.date ? `<span class="meta-dot">·</span><span class="article-time">${formatTwitterDate(t.date)}</span>` : ''}
-                            <span class="meta-dot">·</span>
-                            <a href="${link}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:12px;font-weight:500">Open on X &rarr;</a>
-                            <button class="bookmark-btn" data-url="${link}" data-title="${escapeForAttr(t.title)}" data-source="${source}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark tweet" title="Bookmark">
-                                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                            </button>
+                    <div class="tweet-item" data-publisher="${publisher}" data-url="${link}">
+                        <div class="tweet-avatar" style="background:${avatarColor}">${initial}</div>
+                        <div class="tweet-content">
+                            <div class="tweet-header">
+                                <span class="tweet-publisher">${publisher}</span>
+                                ${t.date ? `<span class="tweet-time">${formatTwitterDate(t.date)}</span>` : ''}
+                                <button class="bookmark-btn" data-url="${link}" data-title="${escapeForAttr(t.title)}" data-source="${source}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark tweet" title="Bookmark">
+                                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                </button>
+                            </div>
+                            <div class="tweet-text"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>
+                            <div class="tweet-footer">
+                                ${badgeHtml}
+                                <a href="${link}" target="_blank" rel="noopener" class="tweet-open-link">Open on X &rarr;</a>
+                            </div>
                         </div>
-                    </article>
+                    </div>
                 `;
             });
 
