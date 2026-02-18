@@ -2039,6 +2039,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         }}
         .reports-filter-btn:hover {{ border-color: var(--accent); color: var(--accent); }}
         .reports-filter-btn.active {{ background: var(--accent); border-color: var(--accent); color: #fff; }}
+        .reports-filter-btn:disabled {{ opacity: 0.35; cursor: not-allowed; }}
 
         /* Back to Top */
         .back-to-top {{
@@ -2513,6 +2514,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 </div>
                 <div class="filter-row">
                     <button class="reports-filter-btn" id="reports-pdf-filter" onclick="togglePdfFilter()">📄 PDFs only</button>
+                    <button class="reports-filter-btn" id="reports-notarget-filter" onclick="toggleNoTargetFilter()" disabled>No stock targets</button>
                 </div>
             </div>
             <div id="reports-warning" class="reports-warning" style="display:none"></div>
@@ -3460,6 +3462,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         let reportsRendered = false;
         let filteredReports = [];
         let reportsPdfFilterActive = false;
+        let reportsNoTargetFilterActive = false;
         let reportsPage = 1;
         const REPORTS_PAGE_SIZE = 20;
 
@@ -3560,7 +3563,27 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         function togglePdfFilter() {
             reportsPdfFilterActive = !reportsPdfFilterActive;
             document.getElementById('reports-pdf-filter').classList.toggle('active', reportsPdfFilterActive);
+            const noTargetBtn = document.getElementById('reports-notarget-filter');
+            noTargetBtn.disabled = !reportsPdfFilterActive;
+            if (!reportsPdfFilterActive && reportsNoTargetFilterActive) {
+                reportsNoTargetFilterActive = false;
+                noTargetBtn.classList.remove('active');
+            }
             filterReports();
+        }
+
+        function toggleNoTargetFilter() {
+            reportsNoTargetFilterActive = !reportsNoTargetFilterActive;
+            document.getElementById('reports-notarget-filter').classList.toggle('active', reportsNoTargetFilterActive);
+            filterReports();
+        }
+
+        function reportHasStockTarget(r) {
+            const RE = /\bupside\b|\bdownside\b|\bTP\s+\d|\btarget\s+price\b/i;
+            if (RE.test(r.text || '')) return true;
+            const docs = (r.documents && r.documents.length > 0) ? r.documents
+                : (r.document && r.document.title) ? [r.document] : [];
+            return docs.some(d => RE.test(d.title || ''));
         }
 
         function reportHasPdf(r) {
@@ -3586,6 +3609,9 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             }
             if (reportsPdfFilterActive) {
                 filteredReports = filteredReports.filter(reportHasPdf);
+            }
+            if (reportsNoTargetFilterActive) {
+                filteredReports = filteredReports.filter(r => !reportHasStockTarget(r));
             }
             document.getElementById('reports-visible-count').textContent = filteredReports.length;
             reportsPage = 1;
