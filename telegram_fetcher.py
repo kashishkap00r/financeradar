@@ -8,6 +8,7 @@ channels via Telethon MTProto client.
 import json
 import os
 import re
+import tempfile
 import urllib.request
 import urllib.error
 import ssl
@@ -501,8 +502,14 @@ def main():
     }
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
+    tmp_fd, tmp_path = tempfile.mkstemp(dir=os.path.dirname(OUTPUT_FILE), suffix='.tmp')
+    try:
+        with os.fdopen(tmp_fd, 'w', encoding='utf-8') as f:
+            json.dump(output, f, ensure_ascii=False, indent=2)
+        os.replace(tmp_path, OUTPUT_FILE)
+    except Exception:
+        os.unlink(tmp_path)
+        raise
 
     print(f"\nTotal reports: {len(all_messages)}")
     print(f"Output: {OUTPUT_FILE}")

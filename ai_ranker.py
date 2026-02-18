@@ -9,6 +9,8 @@ import urllib.error
 import os
 import ssl
 import re
+import sys
+import tempfile
 import time
 from difflib import SequenceMatcher
 from datetime import datetime, timedelta, timezone
@@ -226,18 +228,30 @@ def main():
             results["providers"][key] = {"name": model_name, "status": "ok", "count": len(enriched), "rankings": enriched}
             print(f"  [OK] {model_name}: {len(enriched)} rankings")
         except Exception as e:
-            results["providers"][key] = {"name": model_name, "status": "error", "error": str(e)[:200]}
-            print(f"  [FAIL] {model_name}: {str(e)[:200]}")
+            safe_err = re.sub(r'Bearer\s+\S+', 'Bearer [REDACTED]', str(e))[:200]
+            results["providers"][key] = {"name": model_name, "status": "error", "error": safe_err}
+            print(f"  [FAIL] {model_name}: {safe_err}")
         # Rate limit: wait 2 seconds between calls
         time.sleep(2)
 
     output_path = os.path.join(SCRIPT_DIR, "static", "ai_rankings.json")
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2)
+    tmp_fd, tmp_path = tempfile.mkstemp(dir=os.path.dirname(output_path), suffix='.tmp')
+    try:
+        with os.fdopen(tmp_fd, 'w', encoding='utf-8') as f:
+            json.dump(results, f, indent=2)
+        os.replace(tmp_path, output_path)
+    except Exception:
+        os.unlink(tmp_path)
+        raise
     print(f"\nSaved to {output_path}")
     print(f"\nSuccess: {sum(1 for p in results['providers'].values() if p['status'] == 'ok')}/{len(MODELS)} models")
     print("=" * 50)
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)

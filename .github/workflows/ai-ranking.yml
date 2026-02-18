@@ -23,6 +23,12 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Validate secrets
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          [ -n "$OPENROUTER_API_KEY" ] || (echo "::error::OPENROUTER_API_KEY not set" && exit 1)
+
       - name: Run AI ranker
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
