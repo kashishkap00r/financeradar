@@ -1459,7 +1459,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             color: #fff;
             font-weight: 700;
             font-size: 15px;
-            font-family: 'Source Sans Pro', sans-serif;
             margin-top: 2px;
         }}
         .tweet-content {{
@@ -1477,7 +1476,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             font-weight: 700;
             font-size: 14px;
             color: var(--text-primary);
-            font-family: 'Source Sans Pro', sans-serif;
         }}
         .tweet-time {{
             font-size: 13px;
@@ -1487,7 +1485,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             margin-left: auto;
         }}
         .tweet-text {{
-            font-family: 'Source Sans Pro', sans-serif;
             font-size: 15px;
             font-weight: 400;
             line-height: 1.5;
@@ -1513,7 +1510,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             gap: 3px;
             font-size: 11px;
             font-weight: 600;
-            font-family: 'Source Sans Pro', sans-serif;
             padding: 2px 8px;
             border-radius: 10px;
             background: var(--bg-hover);
