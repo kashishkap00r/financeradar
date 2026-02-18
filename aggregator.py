@@ -603,6 +603,64 @@ def fetch_feed(feed_config):
     return articles
 
 
+def fetch_careratings(feed_config):
+    """Fetch articles from CareRatings industry research JSON API."""
+    feed_name = feed_config["name"]
+    source_url = feed_config["url"]
+    articles = []
+
+    try:
+        page_id = int(feed_config["feed"].split(":")[1])
+        section_id = 5037 if page_id == 23 else 5034
+        year = datetime.now().year
+        api_url = f"https://www.careratings.com/insightspagedata?PageId={page_id}&SectionId={section_id}&YearID={year}&MonthID=0"
+
+        req = urllib.request.Request(api_url, headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+            "Accept": "application/json"
+        })
+        with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT) as response:
+            data = json.loads(response.read())
+
+        for item in data.get("data", []):
+            title = item.get("Title", "").strip()
+            pdf = item.get("PDf", "")
+            if not title or not pdf:
+                continue
+            link = f"https://www.careratings.com/uploads/newsfiles/{pdf}"
+
+            pub_date = None
+            date_str = item.get("Date") or item.get("Aborad_Date") or ""
+            if date_str:
+                try:
+                    pub_date = datetime.strptime(date_str, "%d-%m-%Y").replace(tzinfo=IST_TZ)
+                except ValueError:
+                    pass
+
+            desc = item.get("Description") or ""
+            desc = re.sub(r'<[^>]+>', '', desc).strip()
+            if len(desc) > 300:
+                desc = desc[:300] + "..."
+
+            articles.append({
+                "title": title,
+                "link": link,
+                "date": pub_date,
+                "description": desc,
+                "source": feed_name,
+                "source_url": source_url,
+                "category": feed_config.get("category", "News"),
+                "publisher": feed_config.get("publisher", "")
+            })
+
+        print(f"  [OK] {feed_name}: {len(articles)} articles")
+
+    except Exception as e:
+        print(f"  [FAIL] {feed_name}: {str(e)[:50]}")
+
+    return articles
+
+
 def clean_html(text):
     """Remove HTML tags and clean up text."""
     if not text:
@@ -4412,7 +4470,12 @@ def main():
 
     # Fetch feeds in parallel (10 at a time)
     with ThreadPoolExecutor(max_workers=10) as executor:
-        futures = {executor.submit(fetch_feed, feed): feed for feed in feeds}
+        futures = {}
+        for feed in feeds:
+            if feed.get("feed", "").startswith("careratings:"):
+                futures[executor.submit(fetch_careratings, feed)] = feed
+            else:
+                futures[executor.submit(fetch_feed, feed)] = feed
 
         for future in as_completed(futures):
             articles = future.result()

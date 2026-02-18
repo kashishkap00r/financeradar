@@ -808,6 +808,94 @@
     "publisher": "Bloomberg"
   },
   {
+    "id": "careratings-auto",
+    "name": "CareEdge — Auto",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:9",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
+    "id": "careratings-agri",
+    "name": "CareEdge — Agri",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:10",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
+    "id": "careratings-bfsi",
+    "name": "CareEdge — BFSI",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:11",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
+    "id": "careratings-building",
+    "name": "CareEdge — Building",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:12",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
+    "id": "careratings-capital-goods",
+    "name": "CareEdge — Capital Goods",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:13",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
+    "id": "careratings-infrastructure",
+    "name": "CareEdge — Infrastructure",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:14",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
+    "id": "careratings-manufacturing",
+    "name": "CareEdge — Manufacturing",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:15",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
+    "id": "careratings-metals",
+    "name": "CareEdge — Metals",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:16",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
+    "id": "careratings-services",
+    "name": "CareEdge — Services",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:17",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
+    "id": "careratings-special-studies",
+    "name": "CareEdge — Special Studies",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:18",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
+    "id": "careratings-morning-brief",
+    "name": "CareEdge — Morning Brief",
+    "url": "https://www.careratings.com/industry-research",
+    "feed": "careratings:23",
+    "category": "News",
+    "publisher": "CareEdge"
+  },
+  {
     "id": "yt-upstox-markets-today",
     "name": "Upstox Markets Today",
     "url": "https://www.youtube.com/playlist?list=PL5TgrYNOd5HKKHpQOhS3WclkhrusIAD8Y",
