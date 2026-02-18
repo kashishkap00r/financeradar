@@ -4629,6 +4629,44 @@ def main():
     video_articles.sort(key=get_sort_timestamp, reverse=True)
     twitter_articles.sort(key=get_sort_timestamp, reverse=True)
 
+    # YouTube cache: persist last successful fetch so CI failures don't wipe the tab
+    YOUTUBE_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "youtube_cache.json")
+
+    def serialize_video(v):
+        return {**v, "date": v["date"].isoformat() if v.get("date") else None}
+
+    def deserialize_video(v):
+        if v.get("date"):
+            from datetime import timezone
+            try:
+                v["date"] = datetime.fromisoformat(v["date"])
+                if v["date"].tzinfo is None:
+                    v["date"] = v["date"].replace(tzinfo=IST_TZ)
+            except Exception:
+                v["date"] = None
+        return v
+
+    if video_articles:
+        # Successful fetch — update cache
+        try:
+            with open(YOUTUBE_CACHE_FILE, "w", encoding="utf-8") as f:
+                json.dump([serialize_video(v) for v in video_articles], f)
+            print(f"YouTube cache updated ({len(video_articles)} videos)")
+        except Exception as e:
+            print(f"Warning: could not write YouTube cache: {e}")
+    else:
+        # Zero videos — YouTube likely blocked; load from cache
+        print("WARNING: 0 YouTube videos fetched — loading from cache")
+        try:
+            with open(YOUTUBE_CACHE_FILE, "r", encoding="utf-8") as f:
+                cached = json.load(f)
+            video_articles = [deserialize_video(v) for v in cached]
+            print(f"Loaded {len(video_articles)} videos from cache")
+        except FileNotFoundError:
+            print("No YouTube cache found — YouTube tab will be empty this run")
+        except Exception as e:
+            print(f"Warning: could not read YouTube cache: {e}")
+
     # Filter out twitter articles older than 5 days
     twitter_cutoff = datetime.now(IST_TZ) - timedelta(days=5)
     twitter_articles = [t for t in twitter_articles
