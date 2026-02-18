@@ -3579,7 +3579,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         }
 
         function reportHasStockTarget(r) {
-            const RE = /\\bupside\\b|\\bdownside\\b|\\bTP\\s+\\d|\\btarget\\s+price\\b/i;
+            const RE = /upside|downside|TP\\s+\\d|target\\s+price/i;
             if (RE.test(r.text || '')) return true;
             const docs = (r.documents && r.documents.length > 0) ? r.documents
                 : (r.document && r.document.title) ? [r.document] : [];
