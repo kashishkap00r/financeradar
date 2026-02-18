@@ -2513,8 +2513,9 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                     </div>
                 </div>
                 <div class="filter-row">
-                    <button class="reports-filter-btn" id="reports-pdf-filter" onclick="togglePdfFilter()">📄 PDFs only</button>
-                    <button class="reports-filter-btn" id="reports-notarget-filter" onclick="toggleNoTargetFilter()" disabled>No stock targets</button>
+                    <button class="reports-filter-btn active" id="reports-pdf-btn" onclick="setReportsView('pdf')">📄 PDF</button>
+                    <button class="reports-filter-btn" id="reports-nopdf-btn" onclick="setReportsView('nopdf')">Without PDF</button>
+                    <button class="reports-filter-btn" id="reports-notarget-filter" onclick="toggleNoTargetFilter()">No stock targets</button>
                 </div>
             </div>
             <div id="reports-warning" class="reports-warning" style="display:none"></div>
@@ -3461,7 +3462,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         // ==================== REPORTS TAB ====================
         let reportsRendered = false;
         let filteredReports = [];
-        let reportsPdfFilterActive = false;
+        let reportsViewMode = 'pdf';
         let reportsNoTargetFilterActive = false;
         let reportsPage = 1;
         const REPORTS_PAGE_SIZE = 20;
@@ -3560,12 +3561,13 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             }
         }
 
-        function togglePdfFilter() {
-            reportsPdfFilterActive = !reportsPdfFilterActive;
-            document.getElementById('reports-pdf-filter').classList.toggle('active', reportsPdfFilterActive);
+        function setReportsView(mode) {
+            reportsViewMode = mode;
+            document.getElementById('reports-pdf-btn').classList.toggle('active', mode === 'pdf');
+            document.getElementById('reports-nopdf-btn').classList.toggle('active', mode === 'nopdf');
             const noTargetBtn = document.getElementById('reports-notarget-filter');
-            noTargetBtn.disabled = !reportsPdfFilterActive;
-            if (!reportsPdfFilterActive && reportsNoTargetFilterActive) {
+            noTargetBtn.disabled = (mode !== 'pdf');
+            if (mode !== 'pdf' && reportsNoTargetFilterActive) {
                 reportsNoTargetFilterActive = false;
                 noTargetBtn.classList.remove('active');
             }
@@ -3607,8 +3609,10 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                     return text.includes(query) || channel.includes(query) || docTitle.includes(query);
                 });
             }
-            if (reportsPdfFilterActive) {
+            if (reportsViewMode === 'pdf') {
                 filteredReports = filteredReports.filter(reportHasPdf);
+            } else if (reportsViewMode === 'nopdf') {
+                filteredReports = filteredReports.filter(r => !reportHasPdf(r));
             }
             if (reportsNoTargetFilterActive) {
                 filteredReports = filteredReports.filter(r => !reportHasStockTarget(r));
