@@ -1,11 +1,133 @@
 {
-  "generated_at": "2026-02-18T07:51:39.032697+05:30",
+  "generated_at": "2026-02-18T11:44:40.796579+05:30",
   "article_count": 200,
   "providers": {
     "auto": {
       "name": "Auto (Best Free)",
-      "status": "error",
-      "error": "Extra data: line 1 column 1420 (char 1419)"
+      "status": "ok",
+      "count": 20,
+      "rankings": [
+        {
+          "rank": 1,
+          "title": "India\u2019s data centre boom raises concerns over power supply and grid capacity",
+          "url": "https://www.thehindubusinessline.com/economy/indias-data-centre-boom-raises-concerns-over-power-supply-and-grid-capacity/article70642701.ece",
+          "source": "BusinessLine \u2014 Economy"
+        },
+        {
+          "rank": 2,
+          "title": "India needs to embrace new tech, AI can save \u20b920,000 cr in cargo handling: EAC-PM member",
+          "url": "https://www.thehindubusinessline.com/economy/logistics/india-needs-to-embrace-new-tech-ai-can-save-20000-cr-in-cargo-handling-eac-pm-member/article70642403.ece",
+          "source": "BusinessLine \u2014 Economy"
+        },
+        {
+          "rank": 3,
+          "title": "Shahpurkandi Dam set for commissioning, Ravi waters to boost irrigation in Jammu and Punjab",
+          "url": "https://www.thehindubusinessline.com/economy/agri-business/shahpurkandi-dam-set-for-commissioning-ravi-waters-to-boost-irrigation-in-jammu-and-punjab/article70643144.ece",
+          "source": "BusinessLine \u2014 Economy"
+        },
+        {
+          "rank": 4,
+          "title": "India-EU trade pact fuels Air India, Lufthansa partnership expansion",
+          "url": "https://www.thehindubusinessline.com/economy/logistics/india-eu-trade-pact-fuels-air-india-lufthansa-partnership-expansion/article70643766.ece",
+          "source": "BusinessLine \u2014 Economy"
+        },
+        {
+          "rank": 5,
+          "title": "Tradex Kerala 2026 to boost State\u2019s contribution to global trade: Minister Rajeeve",
+          "url": "https://www.thehindubusinessline.com/economy/tradex-kerala-2026-to-boost-states-contribution-to-global-trade-minister-rajeeve/article70643217.ece",
+          "source": "BusinessLine \u2014 Economy"
+        },
+        {
+          "rank": 6,
+          "title": "US tariff easing brightens outlook for Indian exporters: DFS secy Nagaraju - Business Standard",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQSUp3Z0d6SThrUVBLOVo3TUVBZDZpdmFQTkFvb1FyZlV6YWRyeDk0Q3pKSllYSHlWd0RjaDlmUXVpX3g5eUJRLWx3bHVFR0RyaVllb1FvRXV0YVZFSkpUQmVFNmJYb2R5NEdGVENod1FNemx2VjNsRVdrQlJRR2dPYm9oWlhXdFlLTFM1RlM2SDM1VTh5SVNER3hTR1hlZ1plWG9fMW5Ka2dqTVROQWQ0Q3JiLVFUbE15UERIX2dIc0tkTC1uTTVTSFRrQ1pBUndHNTVIXzBKd9IB3AFBVV95cUxQSXVvMHpTVWpBQjJrNk14ODlSTWprTkQzZG80X29kMU9sM2t1c0xxQ1M4bnlHSGZMYWVtV1B5ZUlMVVI3ak85Y3NxVXNhUGZOeEZIWlFVTkFmZ3daakRHdUFyVGZzWWY5NjR6NlViQUMtRDAzRUowaGZ2ZXBQdkEyTFJ3MUxOUUI5bXU2ZGQwUGFvRng1bHJSS2hDc1FLeFZHbVZsU0hUUFJGclBPc3JWbGZrSkJ2MHB5TFNFTVAyMnpvdDhGTkF4c3lfWlowLXM5dTFyM2JESVhkajFE?oc=5",
+          "source": "Business Standard \u2014 Economy"
+        },
+        {
+          "rank": 7,
+          "title": "India shifts from growth story to trusted global partner, says PM Modi - Business Standard",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQRk43T2pBZjZnVEd0T3ZhaUwtOE9IdWZJYVl2cEFjay0wbno0QzAwcnhSbC1lYmZ5bnNhMDRVWlV0UHVwaDg5TjNFb3g5RjRXX0YwNTI0UmVqTW9VQU03SUlUaFJFVlIwR0hsRjhzMFE4dWtYUm1jcERpcEtFb0pubGJNb2hxd1p4bVIzbjNxTTdLNFUyRFlLZ0dqZEIycWlZTHcyUGR5M2N3cnRhZEtydXpSMlFPZm53eTVuZzhqVWlibFdIN0Q0MVJxdVTSAdIBQVVfeXFMTnItSWtTRGxjdWpUX1Q0aklHY2xrLU8zNHRXZlNaRjAtQ0o3ZlFIMjhNNzRaQ0xJWXBwRHZVRXhUZ2NSRHZvZDZYbmxQX0F3Skw2alc4ck4yd3l3R2t6SnNtcFJ2SWM1cnkzNjMzSXYwM2g3MTkzZmt1ZDduVlI2c2V3THQwWFFQVWR6SjVQUjR5Qnd4d2pWY1NYR2xPVG9zWnF6clh0d0lUREltUklFNmlobnROZzUtQkQ5bS1odzRKRFBYTzlscFZpZEo1Vmgwd1FR?oc=5",
+          "source": "Business Standard \u2014 Economy"
+        },
+        {
+          "rank": 8,
+          "title": "Modi-Macron meet for bilateral talks as $15 billion annual trade and Rafale stakes script India-France reset",
+          "url": "https://bfsi.economictimes.indiatimes.com/news/industry/modi-macron-meet-for-bilateral-talks-as-15-billion-annual-trade-and-rafale-stakes-script-india-france-reset/128463369",
+          "source": "ET BFSI \u2014 Recent Stories"
+        },
+        {
+          "rank": 9,
+          "title": "India AI Summit is Turning Out to Be a Recruiter\u2019s Paradise",
+          "url": "https://www.bloomberg.com/news/newsletters/2026-02-17/companies-from-reliance-to-adani-are-looking-for-talent-at-india-ai-summit",
+          "source": "Bloomberg \u2014 Menaka Doshi"
+        },
+        {
+          "rank": 10,
+          "title": "From labels to live data: How QR codes are changing what India knows about its food ",
+          "url": "https://economictimes.indiatimes.com/industry/cons-products/food/from-labels-to-live-data-how-qr-codes-are-changing-what-india-knows-about-its-food/articleshow/128463223.cms",
+          "source": "Economic Times \u2014 Latest"
+        },
+        {
+          "rank": 11,
+          "title": "AI job market to hit \u2018hockey stick\u2019 growth phase after churn: Prosus India",
+          "url": "https://www.thehindubusinessline.com/info-tech/indias-job-market-will-see-a-hockey-stick-trend-in-3-years-in-the-ai-age-prosus-india/article70642010.ece",
+          "source": "BusinessLine \u2014 Economy"
+        },
+        {
+          "rank": 12,
+          "title": "India Deep Tech Alliance to mobilise $1 billion for AI start-ups",
+          "url": "https://www.thehindubusinessline.com/info-tech/indian-deep-tech-alliance-to-mobilise-1-billion-for-ai-start-ups/article70643254.ece",
+          "source": "BusinessLine"
+        },
+        {
+          "rank": 13,
+          "title": "Airtel Money gets RBI clearance to operate as Type II non-deposit NBFC - Business Standard",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQzM1VnBEeVFHdjdTTTF1eHE3aVFRNHlFc2lkTzByZTBkMkZQcW5JTE5BMkpick9iVWJxb3p1Nk5lRXR4a0JLcnp4a20wdTJzYVRYdjFKd2xhZVhMSUJKLXRmb1lneFgxWklIeWFvQ0VUcXphczhlQmZhdkg4cGhxQ1BKRW5sTHFGZWtscG44Mi1pQzVyaTdjZU1zdTlOTjhGYXRSSHg5QWM0NVpSdGRueV9HMWw2dUZWQWVkbi00VEFsUjhkN1BhVGg3M2xidUZKUHBTNl9n0gHbAUFVX3lxTE9Kdy05blhGZnAwZTFpT2ZSdE15VTBFMzBkWng0NUZBQmF4VXBuNXZxaFJBRXhKQjlTWGRrU0ExaDNjZTZuc3ZRclBsTS1OVGRjMksyTzF6NTVWRjgxN3dqNkJzTTN4ZmNLbVhBbE5LMUU0d09uVURyUnRXd25hSEl0V2VDSlljeVpZcnFBd29STHhscXcwNXBNT1E5Vk80Y05xUUxHbF9RUHVpMXF4WHRSYWxMSThRSmNBMUdramNscmJLR05iNzdXcnBiUkFpRk93Ukk3RmVVaGM4Zw?oc=5",
+          "source": "Business Standard \u2014 Companies"
+        },
+        {
+          "rank": 14,
+          "title": "India's bankruptcy process set for major revamp: IBBI wants commercial prudence, more transparency",
+          "url": "https://www.livemint.com/companies/news/ibbi-insolvency-bankruptcy-rules-india-corporate-debt-resolution-changes-11771319603757.html",
+          "source": "Mint \u2014 Companies"
+        },
+        {
+          "rank": 15,
+          "title": "National Consumer Helpline facilitated refunds worth \u20b952 crore in nine months",
+          "url": "https://www.thehindubusinessline.com/economy/national-consumer-helpline-facilitated-refunds-worth-52-crore-in-nine-months/article70643588.ece",
+          "source": "BusinessLine \u2014 Economy"
+        },
+        {
+          "rank": 16,
+          "title": "Supreme Court flags rising use of unverified AI inputs in court filings - Business Standard",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPV3FrTmhxV1BoNzNkeV9FMWZwU1JVNUduUFRVaWtoTVpGRXJNSVlndldrQ0J2dVdKRUpyejNYZWdQNHhhc0NTZ0c3UE50NGVKdU5laGFoZ0J0bC1rS1lfXzJxU2Z1bTFud1VzdXdVTFE5RVJ5QjZKQXhacExxdGlFWXdIb2prVHlMMFhkRWRNdTUzSGkxcTZLeE1VTVVBYWQ3THFyU3k3eC13ZG51V1h2RW9GOGrSAboBQVVfeXFMUEo2UFBVcE9SRHFsWjMySTN0ZFlKQkFVaGhHQVZYdHZnY0ZGVk9UcTFVOHBZX3huQUwtNWFpOW5LWndVaDJaZ0ozNFFualdDZkE0SXQ1X0NrN3RZUzQzYWZwYlluQy1UdEw1cmZibHhWOWtqZWRtT2NzTUxjSTFoWlhaLXNENGcxOHhUNU9uTzVmZ041MWZrUVlDeWNaMkJ4LUJRQ0puVXFnSXpqYTc3YnZQWmRJMkFmUFZ3?oc=5",
+          "source": "Business Standard \u2014 Industry"
+        },
+        {
+          "rank": 17,
+          "title": "Supreme Court ruling limits spectrum monetisation options for telcos",
+          "url": "https://www.thehindubusinessline.com/info-tech/supreme-court-ruling-limits-spectrum-monetisation-options-for-telcos/article70642694.ece",
+          "source": "BusinessLine"
+        },
+        {
+          "rank": 18,
+          "title": "India Risks Its Demographic Edge Without Skilling, Official Says - Bloomberg",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWGpsX0dCTkd1UTE2dlZWOE1ZbExITUpQSy1OMU5HaHhqdk53NGw3aUhBbnhta3Rva2VVUm5OTHZROEhWRndDT2RFdHZnc2JvOTVoOHEtd3RsbVB6N2hhQkhyVjQ1UHg2VW9DUFlOU1EwcUdZbUlYaWtWQ3NKTXQxaXpvQ2FTWElOYkdIN25HTDZzbDhXcURDSzZFUkdSWUxrRHJEaGtWZVFkZ2RxVWpIZ1F3cTg?oc=5",
+          "source": "Bloomberg \u2014 India"
+        },
+        {
+          "rank": 19,
+          "title": "Gold, silver prices crash up to 4%: What is driving this selloff? Should you buy?",
+          "url": "https://www.livemint.com/market/gold-silver-prices-crash-up-to-4-what-is-driving-this-selloff-should-you-buy-11771330239006.html",
+          "source": "Mint \u2014 Markets"
+        },
+        {
+          "rank": 20,
+          "title": "Digital sovereignty is a fundamental imperative for Indian enterprises",
+          "url": "https://www.thehindubusinessline.com/opinion/digital-sovereignty-is-a-fundamental-imperative-for-indian-enterprises/article70642992.ece",
+          "source": "BusinessLine"
+        }
+      ]
     },
     "gemini-3-flash": {
       "name": "Gemini 3 Flash",
