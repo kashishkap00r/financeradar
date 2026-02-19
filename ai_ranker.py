@@ -19,15 +19,18 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 MODELS = {
+    "gemini-2-5-flash": {
+        "id": "gemini-2.5-flash",
+        "name": "Gemini 2.5 Flash",
+        "provider": "gemini"
+    },
     "auto": {
         "id": "openrouter/free",
-        "name": "Auto (Best Free)"
-    },
-    "gemini-3-flash": {
-        "id": "google/gemini-3-flash-preview",
-        "name": "Gemini 3 Flash"
+        "name": "Auto (Best Free)",
+        "provider": "openrouter"
     }
 }
 
@@ -214,6 +217,29 @@ def call_openrouter(headlines, model_id):
     return parse_json_response(result["choices"][0]["message"]["content"])
 
 
+def call_gemini(headlines, model_id):
+    """Call Gemini API directly."""
+    if not GEMINI_API_KEY:
+        raise ValueError("GEMINI_API_KEY not set")
+    url = (
+        f"https://generativelanguage.googleapis.com/v1beta/models/"
+        f"{model_id}:generateContent?key={GEMINI_API_KEY}"
+    )
+    body = {
+        "contents": [{"parts": [{"text": RANKING_PROMPT.format(headlines=headlines)}]}],
+        "generationConfig": {"temperature": 0.4, "maxOutputTokens": 8192}
+    }
+    request = urllib.request.Request(
+        url,
+        data=json.dumps(body).encode("utf-8"),
+        headers={"Content-Type": "application/json"}
+    )
+    with urllib.request.urlopen(request, timeout=60, context=SSL_CONTEXT) as response:
+        result = json.loads(response.read().decode("utf-8"))
+    text = result["candidates"][0]["content"]["parts"][0]["text"]
+    return parse_json_response(text)
+
+
 def main():
     print("=" * 50)
     print("AI News Ranker")
@@ -244,7 +270,10 @@ def main():
         model_id = model_config["id"]
         model_name = model_config["name"]
         try:
-            rankings = call_openrouter(headlines, model_id)
+            if model_config.get("provider") == "gemini":
+                rankings = call_gemini(headlines, model_id)
+            else:
+                rankings = call_openrouter(headlines, model_id)
             if isinstance(rankings, dict):
                 rankings = rankings.get("rankings", rankings.get("items", []))
             enriched = []
@@ -273,7 +302,7 @@ def main():
             results["providers"][key] = {"name": model_name, "status": "ok", "count": len(enriched), "rankings": enriched}
             print(f"  [OK] {model_name}: {len(enriched)} rankings")
         except Exception as e:
-            safe_err = re.sub(r'Bearer\s+\S+', 'Bearer [REDACTED]', str(e))[:200]
+            safe_err = re.sub(r'Bearer\s+\S+|key=[^&\s]+', '[REDACTED]', str(e))[:200]
             results["providers"][key] = {"name": model_name, "status": "error", "error": safe_err}
             print(f"  [FAIL] {model_name}: {safe_err}")
         # Rate limit: wait 2 seconds between calls

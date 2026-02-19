@@ -18,9 +18,21 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_MODEL = "gemini-2.5-flash"
 
-PRIMARY_MODEL = "openrouter/free"
-FALLBACK_MODEL = "nvidia/nemotron-3-nano-30b-a3b:free"
+WSW_MODELS = {
+    "gemini-2-5-flash": {
+        "id": "gemini-2.5-flash",
+        "name": "Gemini 2.5 Flash",
+        "provider": "gemini"
+    },
+    "auto": {
+        "id": "openrouter/free",
+        "name": "Auto (Best Free)",
+        "provider": "openrouter"
+    }
+}
 
 WSW_PROMPT = """You are the editor of "Who Said What" — an Indian finance newsletter surfacing notable quotes from business/finance figures.
 
@@ -259,6 +271,28 @@ def call_openrouter(input_text, model_id):
     return parse_json_response(result["choices"][0]["message"]["content"])
 
 
+def call_gemini(input_text):
+    if not GEMINI_API_KEY:
+        raise ValueError("GEMINI_API_KEY not set")
+    url = (
+        f"https://generativelanguage.googleapis.com/v1beta/models/"
+        f"{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}"
+    )
+    body = {
+        "contents": [{"parts": [{"text": WSW_PROMPT.format(items=input_text)}]}],
+        "generationConfig": {"temperature": 0.4, "maxOutputTokens": 8192}
+    }
+    request = urllib.request.Request(
+        url,
+        data=json.dumps(body).encode("utf-8"),
+        headers={"Content-Type": "application/json"}
+    )
+    with urllib.request.urlopen(request, timeout=90, context=SSL_CONTEXT) as response:
+        result = json.loads(response.read().decode("utf-8"))
+    text = result["candidates"][0]["content"]["parts"][0]["text"]
+    return parse_json_response(text)
+
+
 def main():
     print("=" * 50)
     print("WSW (Who Said What) Ranker")
@@ -273,45 +307,62 @@ def main():
     input_text = build_input_text(items)
     print(f"Input: {len(input_text)} chars, {input_text.count(chr(10))+1} lines")
 
-    clusters = None
-    for model_id in [PRIMARY_MODEL, FALLBACK_MODEL]:
-        for attempt in range(2):  # retry once on empty response
+    results = {
+        "generated_at": datetime.now(IST_TZ).isoformat(),
+        "item_count": total,
+        "providers": {}
+    }
+
+    print(f"\nCalling {len(WSW_MODELS)} AI models...\n")
+    for key, model_config in WSW_MODELS.items():
+        model_name = model_config["name"]
+        model_id = model_config["id"]
+        clusters = None
+        for attempt in range(2):
             try:
-                print(f"\nCalling OpenRouter ({model_id}, attempt {attempt+1})...")
-                clusters = call_openrouter(input_text, model_id)
+                print(f"\nCalling {model_name} (attempt {attempt+1})...")
+                if model_config["provider"] == "gemini":
+                    clusters = call_gemini(input_text)
+                else:
+                    clusters = call_openrouter(input_text, model_id)
                 if isinstance(clusters, dict):
                     clusters = clusters.get("clusters", clusters.get("items", []))
                 if clusters:
                     print(f"  [OK] Got {len(clusters)} clusters")
                     break
-                print(f"  [EMPTY] No clusters returned, retrying...")
+                print("  [EMPTY] No clusters returned, retrying...")
                 time.sleep(3)
             except Exception as e:
-                safe_err = re.sub(r'Bearer\s+\S+', 'Bearer [REDACTED]', str(e))[:200]
-                print(f"  [FAIL] {model_id}: {safe_err}")
+                safe_err = re.sub(r'Bearer\s+\S+|key=[^&\s]+', '[REDACTED]', str(e))[:200]
+                print(f"  [FAIL] attempt {attempt+1}: {safe_err}")
                 time.sleep(3)
         if clusters:
-            break
-        print(f"  Moving to next model...")
+            for i, c in enumerate(clusters[:8], 1):
+                c["rank"] = i
+            n = len(clusters[:8])
+            if n < 8:
+                print(f"  WARNING: Only {n}/8 clusters (recovery may have truncated output)")
+            results["providers"][key] = {
+                "name": model_name, "status": "ok",
+                "count": n, "clusters": clusters[:8]
+            }
+        else:
+            results["providers"][key] = {
+                "name": model_name, "status": "error",
+                "error": "No clusters returned after retries"
+            }
+            print(f"  [FAIL] {model_name}: no clusters returned")
+        time.sleep(2)
 
-    if not clusters:
+    if not any(p["status"] == "ok" for p in results["providers"].values()):
         print("\nAll models failed. Exiting.")
         sys.exit(1)
-
-    for i, c in enumerate(clusters[:8], 1):
-        c["rank"] = i
-
-    result = {
-        "generated_at": datetime.now(IST_TZ).isoformat(),
-        "item_count": total,
-        "clusters": clusters[:8],
-    }
 
     output_path = os.path.join(SCRIPT_DIR, "static", "wsw_clusters.json")
     tmp_fd, tmp_path = tempfile.mkstemp(dir=os.path.dirname(output_path), suffix=".tmp")
     try:
         with os.fdopen(tmp_fd, "w", encoding="utf-8") as f:
-            json.dump(result, f, indent=2, ensure_ascii=False)
+            json.dump(results, f, indent=2, ensure_ascii=False)
         os.replace(tmp_path, output_path)
     except Exception:
         try:
@@ -320,10 +371,9 @@ def main():
             pass
         raise
 
-    n = len(clusters[:8])
-    if n < 8:
-        print(f"  WARNING: Only {n}/8 clusters returned (recovery may have truncated output)")
-    print(f"\nWSW clusters: {n} items written to {output_path}")
+    ok = sum(1 for p in results["providers"].values() if p["status"] == "ok")
+    print(f"\nSaved to {output_path}")
+    print(f"Success: {ok}/{len(WSW_MODELS)} models")
     print("=" * 50)
 
 

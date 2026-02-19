@@ -10,7 +10,7 @@ Full architecture documentation lives in `README.md`. This file covers rules, co
 python3 aggregator.py                          # Regenerate index.html + static/articles.json
 python3 telegram_fetcher.py                    # Fetch Telegram reports (HTML channels only without creds)
 TELEGRAM_API_ID="..." TELEGRAM_API_HASH="..." TELEGRAM_SESSION="..." python3 telegram_fetcher.py
-OPENROUTER_API_KEY="sk-or-..." python3 ai_ranker.py
+GEMINI_API_KEY="AIza..." python3 ai_ranker.py
 python3 -m http.server 8000                    # Preview locally
 python3 -c "from filters import should_filter_article; print(should_filter_article({'title': 'TEST', 'link': ''}))"
 ```

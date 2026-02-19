@@ -2572,6 +2572,12 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
+        <div class="ai-provider-select">
+          <label for="wsw-provider">Model:</label>
+          <select id="wsw-provider" onchange="switchWswProvider()">
+            <option value="">Loading...</option>
+          </select>
+        </div>
         <div id="wsw-content" class="sidebar-content">
           <div class="sidebar-empty">Loading WSW ideas...</div>
         </div>
@@ -3708,12 +3714,18 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         // ==================== WSW SIDEBAR ====================
         let wswData = null;
+        let currentWswProvider = 'gemini-2-5-flash';
 
         async function loadWswClusters() {
             try {
                 const res = await fetch('static/wsw_clusters.json');
                 if (!res.ok) throw new Error('not found');
                 wswData = await res.json();
+                // Backward compat: old format has wswData.clusters directly
+                if (wswData.clusters && !wswData.providers) {
+                    wswData = { ...wswData, providers: { 'gemini-2-5-flash': { name: 'Gemini 2.5 Flash', status: 'ok', count: wswData.clusters.length, clusters: wswData.clusters } } };
+                }
+                populateWswProviderDropdown();
                 renderWswClusters();
             } catch(e) {
                 document.getElementById('wsw-content').innerHTML =
@@ -3722,13 +3734,45 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             }
         }
 
+        function populateWswProviderDropdown() {
+            const select = document.getElementById('wsw-provider');
+            select.innerHTML = '';
+            if (!wswData || !wswData.providers) return;
+            const providers = Object.entries(wswData.providers);
+            providers.forEach(([key, p]) => {
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.textContent = p.name + (p.status !== 'ok' ? ' (unavailable)' : '');
+                if (key === currentWswProvider) opt.selected = true;
+                select.appendChild(opt);
+            });
+            if (!wswData.providers[currentWswProvider]) {
+                const firstOk = providers.find(([k, p]) => p.status === 'ok');
+                if (firstOk) { currentWswProvider = firstOk[0]; select.value = currentWswProvider; }
+            }
+        }
+
+        function switchWswProvider() {
+            currentWswProvider = document.getElementById('wsw-provider').value;
+            renderWswClusters();
+        }
+
         function renderWswClusters() {
             const container = document.getElementById('wsw-content');
-            if (!wswData || !wswData.clusters || !wswData.clusters.length) {
+            if (!wswData || !wswData.providers) {
                 container.innerHTML = '<div class="ai-error">No WSW clusters yet.</div>';
                 return;
             }
-            container.innerHTML = wswData.clusters.map(c => `
+            const provider = wswData.providers[currentWswProvider];
+            if (!provider) {
+                container.innerHTML = '<div class="ai-error">Provider not available.</div>';
+                return;
+            }
+            if (provider.status !== 'ok') {
+                container.innerHTML = '<div class="ai-error"><div class="ai-error-title">WSW Temporarily Unavailable</div><div style="margin-top:8px;font-size:12px;color:var(--text-muted)">Will refresh on next scheduled run.</div></div>';
+                return;
+            }
+            container.innerHTML = provider.clusters.map(c => `
                 <div class="ai-rank-item wsw-cluster-item">
                     <span class="rank-num">${c.rank}</span>
                     <div class="rank-content">
