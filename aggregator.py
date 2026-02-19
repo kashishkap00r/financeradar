@@ -2755,11 +2755,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                     </div>
                 </div>
                 <div class="filter-row" id="twitter-filter-row">
-                    <button class="preset-btn" data-twitter-preset="Money Managers" onclick="toggleTwitterPreset('Money Managers')">Money Managers</button>
-                    <button class="preset-btn" data-twitter-preset="Stock Pickers" onclick="toggleTwitterPreset('Stock Pickers')">Stock Pickers</button>
-                    <button class="preset-btn" data-twitter-preset="Newsroom" onclick="toggleTwitterPreset('Newsroom')">Newsroom</button>
-                    <button class="preset-btn" data-twitter-preset="Macro &amp; Policy" onclick="toggleTwitterPreset('Macro & Policy')">Macro &amp; Policy</button>
-                    <button class="preset-btn" data-twitter-preset="Data &amp; Climate" onclick="toggleTwitterPreset('Data & Climate')">Data &amp; Climate</button>
                     <div class="publisher-dropdown" id="twitter-publisher-dropdown">
                         <button class="publisher-dropdown-trigger" id="twitter-publisher-trigger" onclick="toggleTwitterDropdown()">
                             <span id="twitter-publisher-summary">All publishers</span>
