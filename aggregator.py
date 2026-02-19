@@ -1842,12 +1842,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             gap: 8px;
             flex-shrink: 0;
         }}
-        .report-channel-dot {{
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }}
         .report-channel {{
             font-size: 11px;
             font-weight: 700;
@@ -3735,13 +3729,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
         }
 
-        const TG_CHANNEL_COLORS = ['#e14b4b','#3b82f6','#10b981','#f59e0b','#8b5cf6','#ec4899','#06b6d4'];
-        function getChannelColor(name) {
-            let h = 0;
-            for (let i = 0; i < name.length; i++) h = name.charCodeAt(i) + ((h << 5) - h);
-            return TG_CHANNEL_COLORS[Math.abs(h) % TG_CHANNEL_COLORS.length];
-        }
-
         function renderMainReports() {
             if (!reportsRendered) {
                 initTgChannelDropdown();
@@ -3860,6 +3847,13 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             return false;
         }
 
+        function reportHasContent(r) {
+            // Exclude image-only posts: must have text or at least one document
+            const hasText = !!(r.text || '').trim();
+            const hasDocs = (r.documents && r.documents.length > 0) || !!(r.document && r.document.title);
+            return hasText || hasDocs;
+        }
+
         function filterReports() {
             const query = document.getElementById('search').value.toLowerCase().trim();
             filteredReports = query
@@ -3872,6 +3866,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                     return text.includes(query) || channel.includes(query) || docTitle.includes(query);
                 })
                 : [...TELEGRAM_REPORTS];
+            // Always exclude image-only posts
+            filteredReports = filteredReports.filter(reportHasContent);
             // View mode filter
             if (reportsViewMode === 'pdf') {
                 filteredReports = filteredReports.filter(reportHasPdf);
@@ -3953,15 +3949,12 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                     typeBadge = '<span class="report-type-badge report-type-photo">Photo</span>';
                 }
 
-                // Channel dot color
-                const channelColor = getChannelColor(r.channel || '');
                 const channel = escapeHtml(r.channel);
 
                 html += `
                     <div class="report-card" data-url="${escapeForAttr(reportUrl)}" data-title="${escapeForAttr((r.text || '').split('\\n')[0].substring(0, 100))}" data-channel="${escapeForAttr(r.channel || '')}">
                         <div class="report-card-header">
                             <div class="report-card-left">
-                                <span class="report-channel-dot" style="background:${channelColor}"></span>
                                 <span class="report-channel">${channel}</span>
                                 ${typeBadge}
                             </div>
