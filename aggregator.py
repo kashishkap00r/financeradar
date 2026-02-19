@@ -535,7 +535,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express", "CareEdge"],
         "World Desk": ["BBC", "CNBC", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World", "Techmeme"],
         "Indie Voices": ["Finshots", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data", "Noah Smith", "Ideas For India", "The India Forum", "Neel Chhabra"],
-        "Official Channels": ["RBI", "SEBI", "ECB", "ADB", "FRED", "PIB"]
+        "Official Channels": ["RBI", "SEBI", "ECB", "ADB", "FRED"]
     }
 
     # Twitter publisher presets
@@ -2378,7 +2378,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             <div class="stats-bar">
                 <div class="stats">
                     <span><strong>{len(sorted_articles)}</strong> articles</span>
-                    <span><strong>{len(sources)}</strong> sources</span>
+                    <span><strong>{len(all_publishers)}</strong> publishers</span>
                 </div>
                 <div style="display:flex;align-items:center;">
                     <span class="update-time" id="update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
@@ -2807,14 +2807,15 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         function updatePublisherSummary() {
             const el = document.getElementById('publisher-summary');
             const trigger = document.getElementById('publisher-trigger');
-            if (selectedPublishers.size === 0) {
+            const effectiveSelected = ALL_PUBLISHERS.filter(p => selectedPublishers.has(p)).length;
+            if (effectiveSelected === 0) {
                 el.textContent = 'All publishers';
                 trigger.classList.remove('has-selection');
-            } else if (selectedPublishers.size === 1) {
-                el.textContent = [...selectedPublishers][0];
+            } else if (effectiveSelected === 1) {
+                el.textContent = ALL_PUBLISHERS.find(p => selectedPublishers.has(p));
                 trigger.classList.add('has-selection');
             } else {
-                el.textContent = selectedPublishers.size + ' of ' + ALL_PUBLISHERS.length + ' publishers';
+                el.textContent = effectiveSelected + ' of ' + ALL_PUBLISHERS.length + ' publishers';
                 trigger.classList.add('has-selection');
             }
         }
