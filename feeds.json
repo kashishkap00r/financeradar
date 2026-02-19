@@ -81,11 +81,35 @@
   },
   {
     "id": "data-for-india",
-    "name": "Data For India — Data",
+    "name": "Data For India",
     "url": "https://www.dataforindia.com/",
     "feed": "https://www.dataforindia.com/rss/",
     "category": "News",
     "publisher": "Data For India"
+  },
+  {
+    "id": "ideas-for-india",
+    "name": "Ideas For India",
+    "url": "https://www.ideasforindia.in/",
+    "feed": "https://news.google.com/rss/search?q=site:ideasforindia.in&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "Ideas For India"
+  },
+  {
+    "id": "the-india-forum",
+    "name": "The India Forum",
+    "url": "https://www.theindiaforum.in/",
+    "feed": "https://news.google.com/rss/search?q=site:theindiaforum.in&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "The India Forum"
+  },
+  {
+    "id": "neel-chhabra-substack",
+    "name": "Neel Chhabra",
+    "url": "https://neelchhabra.substack.com/",
+    "feed": "https://neelchhabra.substack.com/feed",
+    "category": "News",
+    "publisher": "Neel Chhabra"
   },
   {
     "id": "downtoearth",
