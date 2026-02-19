@@ -28,6 +28,8 @@ SSL_CONTEXT = ssl.create_default_context()
 SSL_CONTEXT.check_hostname = False
 SSL_CONTEXT.verify_mode = ssl.CERT_NONE
 
+INVIDIOUS_INSTANCES = ["inv.nadeko.net", "yewtu.be", "iv.datura.network"]
+
 # IST timezone for consistent display
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
 
@@ -299,7 +301,8 @@ def fetch_feed(feed_config):
                     "source": feed_name,
                     "source_url": source_url,
                     "category": feed_config.get("category", "News"),
-                    "publisher": feed_config.get("publisher", "")
+                    "publisher": feed_config.get("publisher", ""),
+                    "feed_id": feed_config["id"],
                 }
 
                 # YouTube-specific: extract video ID and thumbnail
@@ -347,7 +350,8 @@ def fetch_feed(feed_config):
                     "source_url": source_url,
                     "category": feed_config.get("category", "News"),
                     "publisher": feed_config.get("publisher", ""),
-                    "image": image_url
+                    "image": image_url,
+                    "feed_id": feed_config["id"],
                 })
 
         print(f"  [OK] {feed_name}: {len(articles)} articles")
@@ -1438,6 +1442,48 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             background: var(--bg-hover);
         }}
 
+        /* WSW Toggle Button — mirrors .ai-toggle */
+        .wsw-toggle {{
+            position: relative;
+            padding: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }}
+        .wsw-toggle:hover {{
+            border-color: var(--border-light);
+            background: var(--bg-hover);
+        }}
+
+        /* WSW cluster card styles */
+        .wsw-quote {{
+            font-style: italic;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin: 4px 0 2px;
+            line-height: 1.4;
+            border-left: 2px solid var(--accent);
+            padding-left: 6px;
+        }}
+        .wsw-speaker {{ font-style: normal; font-weight: 600; }}
+        .wsw-india {{ font-size: 11px; color: var(--text-muted); margin: 2px 0; }}
+        .wsw-confidence {{
+            display: inline-block; font-size: 10px;
+            padding: 1px 5px; border-radius: 3px;
+            font-weight: 600; text-transform: uppercase;
+        }}
+        .wsw-conf-high   {{ background: #1a4d2a; color: #4caf82; }}
+        .wsw-conf-medium {{ background: #4d3a1a; color: #e09f3e; }}
+        .wsw-conf-low    {{ background: #2a2a2a; color: var(--text-muted); }}
+
         /* In Focus toggle — matches ai-toggle / bookmarks-toggle pattern */
         .in-focus-toggle {{
             position: relative;
@@ -2428,6 +2474,12 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             <button id="ai-toggle" class="ai-toggle" type="button" aria-label="Top AI stories" data-tooltip="Top AI stories" onclick="openAiSidebar()">
                 <span style="font-size: 16px;">🤖</span>
             </button>
+            <button id="wsw-toggle" class="wsw-toggle" type="button"
+                    aria-label="Who Said What story ideas"
+                    data-tooltip="Who Said What"
+                    onclick="openWswSidebar()">
+                <span style="font-size: 16px;">🗣</span>
+            </button>
             <button id="bookmarks-toggle" class="bookmarks-toggle" type="button" aria-label="Your bookmarks" data-tooltip="Your bookmarks">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -2509,6 +2561,24 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 <span id="ai-updated" class="ai-updated-time">Updated: --</span>
             </div>
         </div>
+    </div>
+
+    <!-- WSW Sidebar -->
+    <div id="wsw-sidebar-overlay" class="sidebar-overlay">
+      <div class="ai-sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-title"><span style="font-size:18px;">🗣</span> Who Said What</div>
+          <button class="sidebar-close" onclick="closeWswSidebar()" aria-label="Close">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <div id="wsw-content" class="sidebar-content">
+          <div class="sidebar-empty">Loading WSW ideas...</div>
+        </div>
+        <div class="sidebar-footer">
+          <span id="wsw-updated" class="ai-updated-time">Updated: --</span>
+        </div>
+      </div>
     </div>
 
     <div class="container">
@@ -3629,9 +3699,72 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             if (e.key === 'Escape' && document.getElementById('ai-sidebar-overlay').classList.contains('open')) {
                 closeAiSidebar();
             }
+            if (e.key === 'Escape' && document.getElementById('wsw-sidebar-overlay').classList.contains('open')) {
+                closeWswSidebar();
+            }
         });
 
         loadAiRankings();
+
+        // ==================== WSW SIDEBAR ====================
+        let wswData = null;
+
+        async function loadWswClusters() {
+            try {
+                const res = await fetch('static/wsw_clusters.json');
+                if (!res.ok) throw new Error('not found');
+                wswData = await res.json();
+                renderWswClusters();
+            } catch(e) {
+                document.getElementById('wsw-content').innerHTML =
+                    '<div class="ai-error"><div class="ai-error-title">WSW Unavailable</div>' +
+                    '<div>Run wsw_ranker.py to generate story ideas.</div></div>';
+            }
+        }
+
+        function renderWswClusters() {
+            const container = document.getElementById('wsw-content');
+            if (!wswData || !wswData.clusters || !wswData.clusters.length) {
+                container.innerHTML = '<div class="ai-error">No WSW clusters yet.</div>';
+                return;
+            }
+            container.innerHTML = wswData.clusters.map(c => `
+                <div class="ai-rank-item wsw-cluster-item">
+                    <span class="rank-num">${c.rank}</span>
+                    <div class="rank-content">
+                        ${c.source_url_primary
+                            ? `<a href="${escapeHtml(c.source_url_primary)}" target="_blank" rel="noopener">${escapeHtml(c.cluster_title)}</a>`
+                            : `<span class="rank-title-nolink">${escapeHtml(c.cluster_title)}</span>`}
+                        <div class="wsw-quote">"${escapeHtml(c.quote_snippet)}"
+                            <span class="wsw-speaker">— ${escapeHtml(c.quote_speaker)}</span>
+                        </div>
+                        <div class="wsw-india">${escapeHtml(c.india_relevance)}</div>
+                        <span class="wsw-confidence wsw-conf-${escapeHtml(c.confidence)}">${escapeHtml(c.confidence)}</span>
+                    </div>
+                </div>
+            `).join('');
+            const el = document.getElementById('wsw-updated');
+            if (wswData.generated_at) {
+                const d = Math.floor((new Date() - new Date(wswData.generated_at)) / 60000);
+                el.textContent = 'Updated ' + (d < 1 ? 'just now' : d < 60 ? d + ' min ago' : d < 1440 ? Math.floor(d/60) + ' hr ago' : Math.floor(d/1440) + ' day ago');
+            }
+        }
+
+        function openWswSidebar() {
+            document.getElementById('wsw-sidebar-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWswSidebar() {
+            document.getElementById('wsw-sidebar-overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('wsw-sidebar-overlay').addEventListener('click', e => {
+            if (e.target.id === 'wsw-sidebar-overlay') closeWswSidebar();
+        });
+
+        loadWswClusters();
 
         // ==================== REPORTS TAB ====================
         let reportsRendered = false;
@@ -4726,6 +4859,30 @@ def main():
 
     print(f"\nTotal articles collected: {len(all_articles)}")
 
+    # Invidious fallback: retry failed YouTube channel_id feeds
+    video_feed_ids_fetched = set(
+        a.get("feed_id") for a in all_articles if a.get("category") == "Videos"
+    )
+    for feed in feeds:
+        if feed.get("category") != "Videos":
+            continue
+        if feed["id"] in video_feed_ids_fetched:
+            continue  # already fetched successfully
+        feed_url = feed.get("feed", "")
+        if "channel_id=" not in feed_url:
+            continue  # playlist_id feeds — Invidious format differs, skip
+        channel_id = feed_url.split("channel_id=")[-1].strip()
+        for instance in INVIDIOUS_INSTANCES:
+            fallback_url = f"https://{instance}/feed/channel/{channel_id}"
+            try:
+                articles = fetch_feed({**feed, "feed": fallback_url})
+                if articles:
+                    all_articles.extend(articles)
+                    print(f"  [Invidious:{instance}] {feed['name']}: {len(articles)} videos")
+                    break
+            except Exception:
+                continue
+
     # Separate video and twitter articles from regular articles
     video_articles = [a for a in all_articles if a.get("category") == "Videos"]
     twitter_articles = [a for a in all_articles if a.get("category") == "Twitter"]
@@ -4753,26 +4910,45 @@ def main():
                 v["date"] = None
         return v
 
-    if video_articles:
-        # Successful fetch — update cache
-        try:
-            with open(YOUTUBE_CACHE_FILE, "w", encoding="utf-8") as f:
-                json.dump([serialize_video(v) for v in video_articles], f)
-            print(f"YouTube cache updated ({len(video_articles)} videos)")
-        except Exception as e:
-            print(f"Warning: could not write YouTube cache: {e}")
-    else:
-        # Zero videos — YouTube likely blocked; load from cache
-        print("WARNING: 0 YouTube videos fetched — loading from cache")
-        try:
-            with open(YOUTUBE_CACHE_FILE, "r", encoding="utf-8") as f:
-                cached = json.load(f)
-            video_articles = [deserialize_video(v) for v in cached]
-            print(f"Loaded {len(video_articles)} videos from cache")
-        except FileNotFoundError:
-            print("No YouTube cache found — YouTube tab will be empty this run")
-        except Exception as e:
-            print(f"Warning: could not read YouTube cache: {e}")
+    # Load existing cache (handle old flat-list format by discarding it)
+    try:
+        with open(YOUTUBE_CACHE_FILE, "r", encoding="utf-8") as f:
+            channel_cache = json.load(f)
+        if isinstance(channel_cache, list):
+            channel_cache = {}  # old format — discard, rebuild
+    except (FileNotFoundError, json.JSONDecodeError):
+        channel_cache = {}
+
+    # Group freshly fetched videos by feed_id
+    fresh_by_id = {}
+    for v in video_articles:
+        fid = v.get("feed_id", "unknown")
+        fresh_by_id.setdefault(fid, []).append(v)
+
+    # Update cache for channels that succeeded
+    for fid, videos in fresh_by_id.items():
+        channel_cache[fid] = [serialize_video(v) for v in videos]
+
+    # Fill missing channels from cache
+    video_feed_ids = {feed["id"] for feed in feeds if feed.get("category") == "Videos"}
+    for fid in video_feed_ids:
+        if fid not in fresh_by_id and fid in channel_cache:
+            cached = [deserialize_video(v) for v in channel_cache[fid]]
+            video_articles.extend(cached)
+            feed_name = next((f["name"] for f in feeds if f["id"] == fid), fid)
+            print(f"  [cache] {feed_name}: {len(cached)} videos")
+
+    # Write updated cache
+    try:
+        with open(YOUTUBE_CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(channel_cache, f)
+        total = sum(len(v) for v in channel_cache.values())
+        print(f"YouTube cache: {total} videos across {len(channel_cache)} channels")
+    except Exception as e:
+        print(f"Warning: could not write YouTube cache: {e}")
+
+    # Re-sort after extending with cached videos
+    video_articles.sort(key=get_sort_timestamp, reverse=True)
 
     # Filter out twitter articles older than 5 days
     twitter_cutoff = datetime.now(IST_TZ) - timedelta(days=5)
