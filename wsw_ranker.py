@@ -19,16 +19,16 @@ IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = "gemini-2.0-flash"
 
 WSW_MODELS = {
     "gemini-2-5-flash": {
-        "id": "gemini-2.5-flash",
-        "name": "Gemini 2.5 Flash",
+        "id": "gemini-2.0-flash",
+        "name": "Gemini 2.0 Flash",
         "provider": "gemini"
     },
     "auto": {
-        "id": "openrouter/free",
+        "id": "deepseek/deepseek-chat:free",
         "name": "Auto (Best Free)",
         "provider": "openrouter"
     }

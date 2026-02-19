@@ -23,12 +23,12 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 MODELS = {
     "gemini-2-5-flash": {
-        "id": "gemini-2.5-flash",
-        "name": "Gemini 2.5 Flash",
+        "id": "gemini-2.0-flash",
+        "name": "Gemini 2.0 Flash",
         "provider": "gemini"
     },
     "auto": {
-        "id": "openrouter/free",
+        "id": "deepseek/deepseek-chat:free",
         "name": "Auto (Best Free)",
         "provider": "openrouter"
     }
@@ -227,16 +227,26 @@ def call_gemini(headlines, model_id):
     )
     body = {
         "contents": [{"parts": [{"text": RANKING_PROMPT.format(headlines=headlines)}]}],
-        "generationConfig": {"temperature": 0.4, "maxOutputTokens": 8192}
+        "generationConfig": {
+            "temperature": 0.4,
+            "maxOutputTokens": 8192,
+            "response_mime_type": "application/json"
+        }
     }
     request = urllib.request.Request(
         url,
         data=json.dumps(body).encode("utf-8"),
         headers={"Content-Type": "application/json"}
     )
-    with urllib.request.urlopen(request, timeout=60, context=SSL_CONTEXT) as response:
+    with urllib.request.urlopen(request, timeout=120, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
-    text = result["candidates"][0]["content"]["parts"][0]["text"]
+    candidate = result["candidates"][0]
+    finish_reason = candidate.get("finishReason", "UNKNOWN")
+    if finish_reason not in ("STOP", "MAX_TOKENS"):
+        print(f"    [WARN] Gemini finishReason={finish_reason}")
+    if finish_reason == "MAX_TOKENS":
+        print(f"    [WARN] Gemini hit token limit — response may be truncated")
+    text = candidate["content"]["parts"][0]["text"]
     return parse_json_response(text)
 
 
@@ -299,6 +309,9 @@ def main():
                     "why_it_matters": item.get("why_it_matters", ""),
                     "confidence": item.get("confidence", ""),
                 })
+            empty_count = sum(1 for item in enriched if not item.get("title"))
+            if empty_count > len(enriched) * 0.5:
+                raise ValueError(f"AI returned {empty_count}/{len(enriched)} empty titles — response malformed, skipping")
             results["providers"][key] = {"name": model_name, "status": "ok", "count": len(enriched), "rankings": enriched}
             print(f"  [OK] {model_name}: {len(enriched)} rankings")
         except Exception as e:
