@@ -2162,42 +2162,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             gap: 8px;
             flex-wrap: wrap;
         }}
-        .tg-channel-pills {{
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            flex: 1;
-            min-width: 0;
-        }}
-        .tg-channel-pill {{
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-family: inherit;
-            font-size: 12px;
-            font-weight: 500;
-            padding: 4px 10px;
-            border-radius: 20px;
-            border: 1.5px solid var(--border);
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.15s;
-            white-space: nowrap;
-        }}
-        .tg-channel-pill:hover {{ border-color: var(--accent); color: var(--text-primary); }}
-        .tg-channel-pill.active {{
-            border-color: transparent;
-            background: var(--accent);
-            color: #fff;
-        }}
-        .tg-channel-pill.active .tg-ch-dot {{ background: rgba(255,255,255,0.7); }}
-        .tg-ch-dot {{
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }}
         .tg-chip {{
             font-family: inherit;
             font-size: 12px;
@@ -2709,8 +2673,19 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                     </div>
                 </div>
                 <div class="tg-filter-bottom">
-                    <div class="tg-channel-pills" id="tg-channel-pills">
-                        <!-- populated by initChannelPills() -->
+                    <div class="publisher-dropdown" id="tg-channel-dropdown">
+                        <button class="publisher-dropdown-trigger" id="tg-channel-trigger" onclick="toggleTgDropdown()">
+                            <span id="tg-channel-summary">All channels</span>
+                            <span class="dropdown-arrow">&#9660;</span>
+                        </button>
+                        <div class="publisher-dropdown-panel" id="tg-channel-panel">
+                            <input type="text" class="dropdown-search" id="tg-dropdown-search" placeholder="Search channels..." oninput="filterTgChannelList()">
+                            <div class="dropdown-actions">
+                                <button class="dropdown-action" onclick="selectAllTgChannels()">Select All</button>
+                                <button class="dropdown-action" onclick="clearAllTgChannels()">Clear All</button>
+                            </div>
+                            <div class="dropdown-list" id="tg-dropdown-list"></div>
+                        </div>
                     </div>
                     <button class="tg-chip" id="reports-notarget-filter" onclick="toggleNoTargetFilter()">No price targets</button>
                 </div>
@@ -2875,6 +2850,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             if (tdd && tdd.classList.contains('open')) closeTwitterDropdown();
             var ydd = document.getElementById('youtube-publisher-dropdown');
             if (ydd && ydd.classList.contains('open')) closeYoutubeDropdown();
+            var rgdd = document.getElementById('tg-channel-dropdown');
+            if (rgdd && rgdd.classList.contains('open')) closeTgDropdown();
             var isCollapsed = document.documentElement.classList.toggle('filters-collapsed');
             safeStorage.set('financeradar_filters_collapsed', isCollapsed ? 'true' : 'false');
         }
@@ -3087,6 +3064,10 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             if (ydd && ydd.classList.contains('open') && !ydd.contains(e.target)) {
                 closeYoutubeDropdown();
             }
+            const rgdd = document.getElementById('tg-channel-dropdown');
+            if (rgdd && rgdd.classList.contains('open') && !rgdd.contains(e.target)) {
+                closeTgDropdown();
+            }
         });
 
         // Close dropdown on Escape
@@ -3107,6 +3088,12 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 const ydd = document.getElementById('youtube-publisher-dropdown');
                 if (ydd && ydd.classList.contains('open')) {
                     closeYoutubeDropdown();
+                    e.stopImmediatePropagation();
+                    return;
+                }
+                const rgdd = document.getElementById('tg-channel-dropdown');
+                if (rgdd && rgdd.classList.contains('open')) {
+                    closeTgDropdown();
                     e.stopImmediatePropagation();
                     return;
                 }
@@ -3662,7 +3649,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         let filteredReports = [];
         let reportsViewMode = 'all';
         let reportsNoTargetFilterActive = false;
-        let reportsChannelFilter = null;  // null = all channels, string = specific channel label
+        let selectedTgChannels = new Set();
         let reportsPage = 1;
         const REPORTS_PAGE_SIZE = 20;
 
@@ -3750,7 +3737,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         function renderMainReports() {
             if (!reportsRendered) {
-                initChannelPills();
+                initTgChannelDropdown();
                 reportsRendered = true;
             }
             filteredReports = [...TELEGRAM_REPORTS];
@@ -3769,28 +3756,79 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             for (let i = 0; i < name.length; i++) h = name.charCodeAt(i) + ((h << 5) - h);
             return TG_CHANNEL_COLORS[Math.abs(h) % TG_CHANNEL_COLORS.length];
         }
-        function initChannelPills() {
+        function initTgChannelDropdown() {
             const channels = [...new Set(TELEGRAM_REPORTS.map(r => r.channel || '').filter(Boolean))].sort();
-            const container = document.getElementById('tg-channel-pills');
-            if (!container || channels.length === 0) return;
-            let html = `<button class="tg-channel-pill active" data-channel="" onclick="setChannelFilter(this,'')">
-                <span class="tg-ch-dot" style="background:var(--text-muted)"></span>All
-            </button>`;
+            const list = document.getElementById('tg-dropdown-list');
+            if (!list || channels.length === 0) return;
+            list.innerHTML = '';
             channels.forEach(ch => {
-                const color = getChannelColor(ch);
-                const label = escapeHtml(ch);
-                const shortLabel = label.length > 18 ? label.substring(0, 16) + '…' : label;
-                html += `<button class="tg-channel-pill" data-channel="${label}" onclick="setChannelFilter(this,'${label.replace(/'/g,"\\'")}')">
-                    <span class="tg-ch-dot" style="background:${color}"></span>${shortLabel}
-                </button>`;
+                const item = document.createElement('div');
+                item.className = 'dropdown-item';
+                item.dataset.publisher = ch;
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.id = 'tgch-' + ch.replace(/\s+/g, '-');
+                cb.dataset.publisher = ch;
+                cb.addEventListener('change', () => onTgChannelChange(ch, cb.checked));
+                const lbl = document.createElement('label');
+                lbl.htmlFor = cb.id;
+                lbl.textContent = ch;
+                item.appendChild(cb);
+                item.appendChild(lbl);
+                item.addEventListener('click', (e) => {
+                    if (e.target !== cb) { cb.checked = !cb.checked; onTgChannelChange(ch, cb.checked); }
+                });
+                list.appendChild(item);
             });
-            container.innerHTML = html;
         }
-        function setChannelFilter(btn, channel) {
-            reportsChannelFilter = channel || null;
-            document.querySelectorAll('.tg-channel-pill').forEach(p => p.classList.remove('active'));
-            btn.classList.add('active');
+        function toggleTgDropdown() {
+            const dd = document.getElementById('tg-channel-dropdown');
+            dd.classList.toggle('open');
+            if (dd.classList.contains('open')) {
+                document.getElementById('tg-dropdown-search').focus();
+            }
+        }
+        function filterTgChannelList() {
+            const query = document.getElementById('tg-dropdown-search').value.toLowerCase();
+            document.querySelectorAll('#tg-dropdown-list .dropdown-item').forEach(item => {
+                item.classList.toggle('hidden', query && !item.dataset.publisher.toLowerCase().includes(query));
+            });
+        }
+        function selectAllTgChannels() {
+            selectedTgChannels.clear();
+            syncTgCheckboxes();
+            updateTgChannelSummary();
             filterReports();
+        }
+        function clearAllTgChannels() {
+            selectedTgChannels.clear();
+            syncTgCheckboxes();
+            updateTgChannelSummary();
+            filterReports();
+        }
+        function onTgChannelChange(ch, checked) {
+            if (checked) { selectedTgChannels.add(ch); } else { selectedTgChannels.delete(ch); }
+            updateTgChannelSummary();
+            filterReports();
+        }
+        function syncTgCheckboxes() {
+            document.querySelectorAll('#tg-dropdown-list input[type="checkbox"]').forEach(cb => {
+                cb.checked = selectedTgChannels.has(cb.dataset.publisher);
+            });
+        }
+        function updateTgChannelSummary() {
+            const el = document.getElementById('tg-channel-summary');
+            if (!el) return;
+            const n = selectedTgChannels.size;
+            if (n === 0) { el.textContent = 'All channels'; }
+            else if (n === 1) { el.textContent = [...selectedTgChannels][0]; }
+            else { el.textContent = n + ' channels'; }
+        }
+        function closeTgDropdown() {
+            const dd = document.getElementById('tg-channel-dropdown');
+            if (dd) dd.classList.remove('open');
+            const search = document.getElementById('tg-dropdown-search');
+            if (search) { search.value = ''; filterTgChannelList(); }
         }
 
         function setReportsView(mode) {
@@ -3841,8 +3879,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 filteredReports = filteredReports.filter(r => !reportHasPdf(r));
             }
             // Channel filter
-            if (reportsChannelFilter) {
-                filteredReports = filteredReports.filter(r => r.channel === reportsChannelFilter);
+            if (selectedTgChannels.size > 0) {
+                filteredReports = filteredReports.filter(r => selectedTgChannels.has(r.channel || ''));
             }
             // No price targets
             if (reportsNoTargetFilterActive) {
