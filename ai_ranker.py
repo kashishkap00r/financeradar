@@ -137,17 +137,36 @@ def sanitize_headline(title):
     return title.replace('"', "'").replace('\n', ' ').replace('\r', ' ').strip()
 
 
-def fuzzy_match_article(title, sanitized_to_article, threshold=0.85):
+def normalize_title(title):
+    """Normalize a title for robust matching regardless of punctuation variations.
+    Handles: em/en-dash → hyphen, smart quotes → straight, extra whitespace, case."""
+    t = sanitize_headline(title)
+    # Dashes: em-dash, en-dash, figure dash, minus → hyphen
+    t = t.replace('\u2014', '-').replace('\u2013', '-').replace('\u2012', '-').replace('\u2212', '-')
+    # Smart single quotes → apostrophe
+    t = t.replace('\u2018', "'").replace('\u2019', "'").replace('\u02bc', "'")
+    # Smart double quotes → straight double quote (already done by sanitize, but be safe)
+    t = t.replace('\u201c', '"').replace('\u201d', '"')
+    # Ellipsis → three dots
+    t = t.replace('\u2026', '...')
+    # Collapse multiple spaces
+    t = re.sub(r'\s+', ' ', t).strip()
+    return t.lower()
+
+
+def fuzzy_match_article(title, normalized_to_article, threshold=0.72):
     """Fuzzy match a title against known articles when exact match fails."""
     best_match = None
     best_ratio = 0
-    title_lower = title.lower()
-    for sanitized, article in sanitized_to_article.items():
-        ratio = SequenceMatcher(None, title_lower, sanitized.lower()).ratio()
+    title_norm = normalize_title(title)
+    for norm_key, article in normalized_to_article.items():
+        ratio = SequenceMatcher(None, title_norm, norm_key).ratio()
         if ratio > best_ratio:
             best_ratio = ratio
             best_match = article
-    return best_match if best_ratio >= threshold else None
+    if best_ratio >= threshold:
+        return best_match
+    return None
 
 
 def parse_json_response(text):
@@ -208,11 +227,13 @@ def main():
 
     print(f"\nLoaded {len(articles)} articles from last 48 hours")
 
-    # Sanitize headlines to avoid JSON parsing issues when AI echoes them back
+    # Build lookup dicts: exact-sanitized and normalized (for robust matching)
     sanitized_to_article = {}
+    normalized_to_article = {}
     for a in articles:
         sanitized = sanitize_headline(a['title'])
         sanitized_to_article[sanitized] = a
+        normalized_to_article[normalize_title(a['title'])] = a
 
     headlines = "\n".join(f"- {sanitize_headline(a['title'])} [{a.get('source', '')}]" for a in articles)
 
@@ -231,10 +252,14 @@ def main():
                 title = item.get("title", "").strip()
                 # Strip echoed [Source] bracket suffix the AI may repeat
                 title = re.sub(r'\s*\[.*?\]\s*$', '', title)
-                # Look up using sanitized title, with fuzzy fallback
-                article = sanitized_to_article.get(title)
+                # 1) Exact match on sanitized title
+                article = sanitized_to_article.get(sanitize_headline(title))
+                # 2) Exact match on normalized title (handles dash/quote variants)
                 if not article:
-                    article = fuzzy_match_article(title, sanitized_to_article)
+                    article = normalized_to_article.get(normalize_title(title))
+                # 3) Fuzzy fallback (threshold 0.72) against normalized keys
+                if not article:
+                    article = fuzzy_match_article(title, normalized_to_article)
                 enriched.append({
                     "rank": item.get("rank", len(enriched) + 1),
                     "title": article["title"] if article else title,  # Use original title
