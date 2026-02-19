@@ -28,7 +28,7 @@ WSW_MODELS = {
         "provider": "gemini"
     },
     "auto": {
-        "id": "meta-llama/llama-3.3-70b-instruct:free",
+        "id": "openrouter/free",
         "name": "Auto (Best Free)",
         "provider": "openrouter"
     }
