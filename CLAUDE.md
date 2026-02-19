@@ -10,33 +10,85 @@ Full architecture documentation lives in `README.md`. This file covers rules, co
 python3 aggregator.py                          # Regenerate index.html + static/articles.json
 python3 telegram_fetcher.py                    # Fetch Telegram reports (HTML channels only without creds)
 TELEGRAM_API_ID="..." TELEGRAM_API_HASH="..." TELEGRAM_SESSION="..." python3 telegram_fetcher.py
-GEMINI_API_KEY="AIza..." python3 ai_ranker.py
+GEMINI_API_KEY="AIza..." OPENROUTER_API_KEY="sk-or-..." python3 ai_ranker.py
+GEMINI_API_KEY="AIza..." OPENROUTER_API_KEY="sk-or-..." python3 wsw_ranker.py
 python3 -m http.server 8000                    # Preview locally
 python3 -c "from filters import should_filter_article; print(should_filter_article({'title': 'TEST', 'link': ''}))"
 ```
 
 ## Critical Rules
 
-- **Never hand-edit** `index.html`, `static/articles.json`, `static/telegram_reports.json`, `static/youtube_cache.json`, `static/ai_rankings.json` — all are generated.
+- **Never hand-edit** `index.html`, `static/articles.json`, `static/telegram_reports.json`, `static/youtube_cache.json`, `static/ai_rankings.json`, `static/wsw_clusters.json` — all are generated.
 - The entire frontend (HTML/CSS/JS) lives inside `generate_html()` in `aggregator.py` as one f-string (~4,500 lines). Edit there, then `python3 aggregator.py` to regenerate.
 - Content filters live in `filters.py` — add patterns there, no other changes needed.
 - All JS `const` declarations inside `generate_html()` are subject to the temporal dead zone. Place `const`/`let` declarations **before** any code path that calls functions referencing them. `function` declarations are safe anywhere (hoisted).
+- JS inside `html += """` (no `f` prefix) uses literal `{` and `}`. JS inside f-strings uses `{{` and `}}` for literal braces.
 
 ## Git: Handling Remote-Ahead Conflicts
 
-GitHub Actions commits generated files every hour, so pushes are frequently rejected. Use merge (not rebase) to avoid corrupt generated files:
+GitHub Actions commits generated files every hour, so pushes are frequently rejected. Use merge (not rebase):
 
 ```bash
 git fetch origin
-git merge origin/main -X ours --no-edit   # our source wins, their generated files win via -X ours on non-generated
-python3 aggregator.py                      # regenerate cleanly
-git add index.html static/articles.json static/telegram_reports.json static/youtube_cache.json
+git merge origin/main -X ours --no-edit
 git push
 ```
 
 **Never use `git rebase` with generated files** — partial conflict resolution leaves merge markers embedded in `index.html` which then renders to the browser literally.
 
 ## Architecture: What README Has Wrong / Outdated
+
+### AI Ranker — Two Providers (README shows outdated single-provider schema)
+
+`ai_ranker.py` calls two models in sequence and saves results under separate provider keys:
+
+1. **`gemini-2-5-flash`** → hits the Gemini API directly at `generativelanguage.googleapis.com` using `GEMINI_API_KEY`. Current model ID: `gemini-2.0-flash` (not 2.5 — 2.5-flash burns its token budget on silent thinking, truncating JSON output). Uses `response_mime_type: "application/json"` in generationConfig to force valid JSON output.
+2. **`auto`** → hits OpenRouter at `openrouter.ai/api/v1` using `OPENROUTER_API_KEY`. Current model ID: `openrouter/free` (routes randomly to any available free model).
+
+Empty-title guard: after enrichment, if >50% of returned titles are blank the run raises `ValueError` and saves `"status": "error"` instead of garbage data.
+
+Correct `static/ai_rankings.json` schema (README schema is outdated):
+```json
+{
+  "generated_at": "...",
+  "providers": {
+    "gemini-2-5-flash": {
+      "name": "Gemini 2.0 Flash",
+      "status": "ok",
+      "count": 20,
+      "rankings": [
+        {
+          "rank": 1,
+          "title": "...",
+          "url": "...",
+          "source": "...",
+          "india_relevance": "One sentence.",
+          "signal_type": "mechanism | structural-shift | supply-chain | policy-implication | credible-opinion | labour-trend",
+          "why_it_matters": "Up to 2 lines.",
+          "confidence": "high | medium | low"
+        }
+      ]
+    },
+    "auto": { "name": "Auto (Best Free)", "status": "ok | error", ... }
+  }
+}
+```
+
+Title matching uses 3-stage lookup in `main()`: exact sanitized → exact `normalize_title()` (handles en/em-dash↔hyphen, smart quotes, whitespace) → fuzzy SequenceMatcher at 0.72 threshold.
+
+### WSW Ranker (not in README)
+
+`wsw_ranker.py` — "Who Said What" sidebar. Ingests 7-day rolling data from `articles.json` + `telegram_reports.json` + `youtube_cache.json`, calls the same two AI providers, and writes 8 debate clusters to `static/wsw_clusters.json`. Uses the same `MODELS` dict pattern as `ai_ranker.py`. Runs daily in `ai-ranking.yml` after `ai_ranker.py`.
+
+### Required GitHub Secrets (README missing GEMINI_API_KEY)
+
+| Secret | Used by |
+|--------|---------|
+| `TELEGRAM_API_ID` | `hourly.yml` |
+| `TELEGRAM_API_HASH` | `hourly.yml` |
+| `TELEGRAM_SESSION` | `hourly.yml` |
+| `OPENROUTER_API_KEY` | `ai-ranking.yml` |
+| `GEMINI_API_KEY` | `ai-ranking.yml` |
 
 ### Telegram Tab (current UI, not README)
 
@@ -50,27 +102,9 @@ Filter logic in `filterReports()` applies in order: search query → `reportHasC
 
 `TG_CHANNEL_COLORS` and `getChannelColor` have been **removed**. Channel cards no longer show colored dots.
 
-### AI Ranker Output (current schema)
-
-Each ranked item in `ai_rankings.json` now includes four additional fields the LLM returns:
-```json
-{
-  "rank": 1,
-  "title": "...",
-  "url": "...",
-  "source": "...",
-  "india_relevance": "One sentence.",
-  "signal_type": "mechanism | structural-shift | supply-chain | policy-implication | credible-opinion | labour-trend",
-  "why_it_matters": "Up to 2 lines.",
-  "confidence": "high | medium | low"
-}
-```
-
-Title matching uses a 3-stage lookup in `main()`: exact sanitized → exact `normalize_title()` (handles en/em-dash↔hyphen, smart quotes, whitespace) → fuzzy SequenceMatcher at threshold 0.72 against normalized keys. The `normalize_title()` function is in `ai_ranker.py`.
-
 ### Telegram Reports: Image-only Posts
 
-Posts with no `text` and no `documents` (image-only messages) are filtered out by `reportHasContent()` in `filterReports()`. They were previously appearing as empty cards.
+Posts with no `text` and no `documents` (image-only messages) are filtered out by `reportHasContent()` in `filterReports()`.
 
 ## Key Patterns
 
