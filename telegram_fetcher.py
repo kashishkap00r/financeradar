@@ -289,6 +289,10 @@ def parse_messages(html, channel_label):
             # Remove empty document entries
             msg["documents"] = [d for d in msg["documents"] if d.get("title")]
 
+            # Skip posts with no displayable content (album children, unsupported media)
+            if not text and not msg["images"] and not msg["documents"]:
+                continue
+
             messages.append(msg)
 
     return messages
@@ -347,8 +351,17 @@ async def fetch_channel_mtproto(client, username, label, cutoff):
             # Views (channels have view counts)
             views = str(msg.views) if msg.views is not None else ""
 
-            # Images: not available as CDN URLs via MTProto
+            # Images: fetch CDN URL from public post web page for photo messages
             images = []
+            if msg.photo:
+                img_url = _fetch_og_image(username, msg.id)
+                if img_url:
+                    images = [img_url]
+
+            # Skip posts with no displayable content (photo-only in private groups,
+            # or album child messages — nothing to show)
+            if not text and not images and not documents:
+                continue
 
             messages.append({
                 "text": text,
@@ -364,6 +377,22 @@ async def fetch_channel_mtproto(client, username, label, cutoff):
         print(f"  ERROR (MTProto) fetching {username}: {e}")
 
     return messages
+
+
+def _fetch_og_image(username: str, msg_id: int) -> str:
+    """Fetch og:image CDN URL from an individual Telegram post's public web page.
+    Works for public channels. Returns empty string if not accessible."""
+    try:
+        url = f"https://t.me/{username}/{msg_id}"
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, context=SSL_CONTEXT, timeout=8) as resp:
+            html = resp.read().decode("utf-8", errors="replace")
+        m = re.search(r'<meta\s+property="og:image"\s+content="([^"]+)"', html)
+        if m:
+            return m.group(1)
+    except Exception:
+        pass
+    return ""
 
 
 async def fetch_all_mtproto(channels, cutoff):
