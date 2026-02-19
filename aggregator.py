@@ -3735,6 +3735,13 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
         }
 
+        const TG_CHANNEL_COLORS = ['#e14b4b','#3b82f6','#10b981','#f59e0b','#8b5cf6','#ec4899','#06b6d4'];
+        function getChannelColor(name) {
+            let h = 0;
+            for (let i = 0; i < name.length; i++) h = name.charCodeAt(i) + ((h << 5) - h);
+            return TG_CHANNEL_COLORS[Math.abs(h) % TG_CHANNEL_COLORS.length];
+        }
+
         function renderMainReports() {
             if (!reportsRendered) {
                 initTgChannelDropdown();
@@ -3748,13 +3755,6 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                 warnEl.innerHTML = '<strong>⚠ Fetch issue:</strong> ' + TELEGRAM_WARNINGS.map(w => escapeHtml(w)).join(' · ') + ' — some reports may be missing.';
                 warnEl.style.display = 'block';
             }
-        }
-
-        const TG_CHANNEL_COLORS = ['#e14b4b','#3b82f6','#10b981','#f59e0b','#8b5cf6','#ec4899','#06b6d4'];
-        function getChannelColor(name) {
-            let h = 0;
-            for (let i = 0; i < name.length; i++) h = name.charCodeAt(i) + ((h << 5) - h);
-            return TG_CHANNEL_COLORS[Math.abs(h) % TG_CHANNEL_COLORS.length];
         }
         function initTgChannelDropdown() {
             const channels = [...new Set(TELEGRAM_REPORTS.map(r => r.channel || '').filter(Boolean))].sort();
