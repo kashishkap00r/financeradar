@@ -31,59 +31,75 @@ MODELS = {
     }
 }
 
-RANKING_PROMPT = """You are the editor of a daily finance newsletter modelled on Zerodha's Daily Brief. Your readers are curious, informed Indians — long-term investors, founders, policy nerds — who open the newsletter for the "aha" stories they missed, not the headlines they already saw on Twitter.
+RANKING_PROMPT = """You are the editor of an Indian finance newsletter modeled on Zerodha's Daily Brief.
+Audience: curious, informed Indians (long-term investors, founders, policy nerds).
 
-Your job: pick the 20 best stories from the list below (last 48 hours).
+INPUT
+You will receive a list of news headlines from the last 48 hours.
+Each headline is formatted as: - Headline text [Source Name]
 
-## WHAT TO PICK — ranked by priority
+TASK
+Pick exactly 20 stories most relevant to Daily Brief.
+Prioritize high-signal, India-relevant stories.
 
-### Priority 1 — Explanatory / "why-how" journalism (HIGHEST)
-Stories that unpack the mechanism behind a headline. Think pieces titled "Why India's solar tariff flip matters for your power bill" or "How UPI's market-share cap could reshape fintech". If a headline promises to explain *why* something happened or *how* a system works, it almost certainly belongs.
+RANKING PRIORITY (highest to lowest)
+1. Explanatory "why/how" journalism (mechanism over headline)
+2. Structural company/sector narratives (business model shifts, M&A, governance failures; not earnings beats)
+3. Commodity/supply-chain/trade stories with clear India impact (cause-effect chain, not pure price ticks)
+4. Major policy analysis (implications, second-order effects; not announcement rewrites)
+5. High-quality opinion/insider analysis with an original thesis from credible voices
+6. Labour/employment/social-economy trends (gig economy, rural consumption, jobs transitions)
 
-### Priority 2 — Structural company / sector narratives
-Deep dives into business-model shifts, industry restructurings, M&A that redraws boundaries, or governance blow-ups. Not "Company X beats estimates" but "Company X is quietly pivoting from Y to Z — here's what it means."
+HARD SKIPS (never include)
+- Earnings/quarterly results coverage
+- Wire-style breaking updates with no analysis
+- Routine regulatory filings
+- Market noise (intraday moves, FII/DII flows, broker upgrades, stock tips)
+- Crypto price movement stories
+- Celebrity CEO personality fluff
 
-### Priority 3 — Commodity, supply-chain, and trade narratives with India impact
-Oil, metals, agri-commodities, logistics bottlenecks, tariff wars — but only when the story explains the chain of cause-and-effect for Indian producers or consumers. Skip pure price tickers.
+INDIA LENS RULE
+Global stories qualify only if they explicitly connect to Indian industry, policy, trade, consumers, jobs, or capital flows.
+If India linkage is weak or implied, reject.
 
-### Priority 4 — Major policy analysis (not announcements)
-RBI, SEBI, government policy — but only when the piece analyses *implications*, not when it merely announces the gazette notification. Prefer "What RBI's new LCR norms mean for bank lending" over "RBI issues circular on LCR."
+DIVERSITY RULE
+No more than 3 selected stories from the same sector.
 
-### Priority 5 — High-quality opinion / insider analysis
-Columns, guest essays, or interviews that surface an original thesis — e.g., a former regulator explaining an under-reported risk, or a sector veteran connecting dots others miss.
+SOURCE QUALITY FILTER
+Prefer primary reporting and strong analytical outlets.
+De-prioritize republished wires, low-information rewrites, and unsourced hot takes.
 
-### Priority 6 — Labour, employment, and social-economy trends
-Stories on hiring/firing cycles, gig-economy regulation, skilling initiatives, rural consumption shifts — the human side of the economy that most market-focused feeds ignore.
-
-## HARD SKIP — always exclude
-- **All earnings / quarterly results** — even "record profit" or "revenue miss" headlines. No exceptions.
-- **Wire-style breaking news** — one-line headlines that state a fact with no analysis ("Sensex rises 300 pts", "RBI keeps repo rate unchanged", "Company X appoints new CFO").
-- **Routine regulatory filings** — board meeting notices, insider-trading disclosures, SEBI show-cause unless it's a major crackdown.
-- **Market noise** — intraday moves, FII/DII daily flow tables, broker upgrades/downgrades, "top 5 stocks to buy" listicles.
-- **Repetitive / duplicate coverage** — if five outlets report the same event, pick at most the one with the best explanatory angle.
-- **Crypto price movements** and celebrity CEO fluff.
-
-## DIVERSITY RULE — strictly enforced
-No more than 2–3 stories from the same topic or sector. If you have four banking stories, keep only the two most insightful. Spread picks across sectors, themes, and story types.
-
-## SCOPE
-India lens only. A global story qualifies only if the piece explicitly connects it to Indian industry, policy, or consumers.
+SELECTION LOGIC
+- Rank by editorial value, not recency alone.
+- Prefer one strong explanatory piece over multiple repetitive updates.
+- Remove duplicates/near-duplicates across sources.
+- If fewer than 20 high-confidence stories exist, still return 20 by using medium-confidence picks that obey all hard-skip rules.
 
 ## Headlines
 {headlines}
 
-Return ONLY a valid JSON array with exactly 20 items (no markdown, no explanation, no code blocks):
-[
-  {{"rank": 1, "title": "exact headline text from above"}},
-  {{"rank": 2, "title": "exact headline text from above"}},
-  ...continue to rank 20...
-]
+OUTPUT FORMAT (STRICT)
+Return ONLY a JSON array of exactly 20 objects. No markdown, no commentary, no code blocks.
 
-IMPORTANT:
-- Use the EXACT headline text from the list above — do not paraphrase or add anything.
-- The headline may include a [Source Name] tag at the end. Include it exactly as shown so the match works.
-- When in doubt, pick the story that makes the reader say "I didn't know that" over the one that makes them say "I already saw that."
-- Quality over quantity: 20 genuinely interesting picks beat 30 padded ones."""
+Each object must contain:
+- rank: integer (1-20)
+- title: string (exact headline text as given, including the [Source Name] tag)
+- india_relevance: string (1 concise sentence)
+- signal_type: one of ["mechanism", "structural-shift", "supply-chain", "policy-implication", "credible-opinion", "labour-trend"]
+- why_it_matters: string (max 2 concise lines)
+- confidence: one of ["high", "medium", "low"]
+
+CRITICAL:
+- Use the EXACT headline text from the input — do not paraphrase or modify it.
+- Include the [Source Name] tag exactly as shown. This is required for the article match to work.
+- When in doubt, pick the story that makes the reader say "I didn't know that" over "I already saw that."
+
+VALIDATION BEFORE FINALIZING
+- Exactly 20 items
+- Ranks are unique and sequential 1..20
+- No duplicate titles
+- Every item has explicit India relevance
+- Hard skips are excluded"""
 
 
 def load_articles_48h(max_articles=200):
@@ -223,7 +239,11 @@ def main():
                     "rank": item.get("rank", len(enriched) + 1),
                     "title": article["title"] if article else title,  # Use original title
                     "url": article["url"] if article else "",
-                    "source": article["source"] if article else ""
+                    "source": article["source"] if article else "",
+                    "india_relevance": item.get("india_relevance", ""),
+                    "signal_type": item.get("signal_type", ""),
+                    "why_it_matters": item.get("why_it_matters", ""),
+                    "confidence": item.get("confidence", ""),
                 })
             results["providers"][key] = {"name": model_name, "status": "ok", "count": len(enriched), "rankings": enriched}
             print(f"  [OK] {model_name}: {len(enriched)} rankings")
