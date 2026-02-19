@@ -1811,67 +1811,158 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         /* Report Cards (main area) */
         .report-card {{
-            padding: 16px 20px;
-            margin-bottom: 12px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 12px;
             background: var(--bg-secondary);
-            transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
         }}
         .report-card:hover {{
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             border-color: var(--border-light);
-            transform: translateY(-1px);
         }}
         .report-card-header {{
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+            gap: 8px;
+        }}
+        .report-card-left {{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 0;
+            flex: 1;
+        }}
+        .report-card-right {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }}
+        .report-channel-dot {{
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
         }}
         .report-channel {{
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }}
+        .report-card-date {{
+            font-size: 11px;
+            color: var(--text-muted);
+            white-space: nowrap;
         }}
         .report-text {{
-            font-family: 'Merriweather', Georgia, serif;
+            font-family: 'Source Sans Pro', system-ui, sans-serif;
             font-size: 14px;
-            font-weight: 500;
-            line-height: 1.5;
+            font-weight: 400;
+            line-height: 1.55;
             color: var(--text-primary);
             margin-bottom: 8px;
             display: -webkit-box;
-            -webkit-line-clamp: 8;
+            -webkit-line-clamp: 5;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }}
-        .report-doc-list {{ display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }}
-        .report-doc-item {{ display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); background: var(--bg-hover); padding: 6px 10px; border-radius: 8px; }}
-        .report-doc-item:hover {{ background: var(--border); }}
-        .report-doc-icon {{ flex-shrink: 0; font-size: 14px; }}
-        .report-doc-name {{ flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-primary); font-weight: 500; }}
-        .report-doc-size {{ flex-shrink: 0; font-size: 11px; color: var(--text-muted); white-space: nowrap; }}
-        .report-images {{ margin-bottom: 10px; position: relative; border-radius: 8px; overflow: hidden; }}
-        .report-images img {{ width: 100%; max-height: 200px; object-fit: cover; border-radius: 8px; display: block; }}
-        .report-images-badge {{ position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: #fff; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 12px; }}
-        .report-doc-indicator {{ display: inline-flex; align-items: center; font-size: 11px; color: var(--text-secondary); background: var(--bg-hover); padding: 2px 6px; border-radius: 10px; white-space: nowrap; }}
-        .report-text.expanded {{ -webkit-line-clamp: unset; overflow: visible; }}
-        .report-expand-btn {{ background: none; border: none; color: var(--accent); font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px 0; margin-bottom: 8px; font-family: 'Source Sans Pro', sans-serif; }}
+        .report-text.expanded {{
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }}
+        .report-expand-btn {{
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 2px 0;
+            margin-bottom: 8px;
+            font-family: inherit;
+        }}
         .report-expand-btn:hover {{ text-decoration: underline; }}
+        .report-doc-list {{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 10px;
+        }}
+        .report-doc-item {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            background: var(--bg-hover);
+            padding: 7px 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }}
+        .report-doc-item:hover {{ background: var(--border); }}
+        .report-doc-icon {{ flex-shrink: 0; font-size: 13px; }}
+        .report-doc-name {{
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--text-primary);
+            font-weight: 500;
+        }}
+        .report-doc-size {{
+            flex-shrink: 0;
+            font-size: 11px;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }}
+        .report-images {{
+            margin-bottom: 10px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--bg-hover);
+        }}
+        .report-images img {{
+            width: 100%;
+            max-height: 260px;
+            object-fit: cover;
+            display: block;
+        }}
+        .report-images-badge {{
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.65);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }}
         .report-meta {{
             display: flex;
             align-items: center;
             justify-content: space-between;
             font-size: 12px;
             color: var(--text-muted);
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+            margin-top: 4px;
         }}
         .report-meta a {{
             color: var(--accent);
             text-decoration: none;
             font-weight: 500;
+            font-size: 12px;
         }}
         .report-meta a:hover {{
             text-decoration: underline;
@@ -2020,12 +2111,72 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             display: block;
         }}
 
-        /* Reports filter — reuses preset-btn look */
-        .reports-filter-btn {{
+        /* ── Telegram filter bar ────────────────────────────── */
+        .tg-filter-top {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }}
+        .tg-view-toggle {{
+            display: inline-flex;
+            background: var(--bg-hover);
+            border-radius: 8px;
+            padding: 3px;
+            gap: 1px;
+        }}
+        .tg-view-btn {{
             font-family: inherit;
             font-size: 13px;
             font-weight: 500;
             padding: 5px 14px;
+            border-radius: 6px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }}
+        .tg-view-btn:hover {{ color: var(--text-primary); }}
+        .tg-view-btn.active {{
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15), 0 0 0 1px var(--border);
+        }}
+        .tg-filter-meta {{
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }}
+        .tg-filter-meta strong {{
+            color: var(--text-secondary);
+            font-weight: 600;
+        }}
+        .tg-filter-bottom {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }}
+        .tg-channel-pills {{
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            flex: 1;
+            min-width: 0;
+        }}
+        .tg-channel-pill {{
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 10px;
             border-radius: 20px;
             border: 1.5px solid var(--border);
             background: transparent;
@@ -2033,13 +2184,58 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             cursor: pointer;
             transition: all 0.15s;
             white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
         }}
-        .reports-filter-btn:hover {{ border-color: var(--accent); color: var(--accent); }}
-        .reports-filter-btn.active {{ background: var(--accent); border-color: var(--accent); color: #fff; }}
-        .reports-filter-btn:disabled {{ opacity: 0.35; cursor: not-allowed; }}
+        .tg-channel-pill:hover {{ border-color: var(--accent); color: var(--text-primary); }}
+        .tg-channel-pill.active {{
+            border-color: transparent;
+            background: var(--accent);
+            color: #fff;
+        }}
+        .tg-channel-pill.active .tg-ch-dot {{ background: rgba(255,255,255,0.7); }}
+        .tg-ch-dot {{
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }}
+        .tg-chip {{
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }}
+        .tg-chip:hover {{ border-color: var(--accent); color: var(--accent); }}
+        .tg-chip.active {{
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }}
+        /* content-type badge */
+        .report-type-badge {{
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }}
+        .report-type-doc {{
+            background: rgba(225,75,75,0.12);
+            color: var(--accent);
+        }}
+        .report-type-photo {{
+            background: rgba(59,130,246,0.12);
+            color: #3b82f6;
+        }}
 
         /* Back to Top */
         .back-to-top {{
@@ -2492,13 +2688,16 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         <div id="tab-reports" class="tab-content">
             <div class="filter-card">
-                <div class="stats-bar">
-                    <div class="stats">
-                        <span><strong id="reports-visible-count">{report_count}</strong> messages</span>
-                        <span><strong>{channel_count}</strong> channels</span>
+                <div class="tg-filter-top">
+                    <div class="tg-view-toggle">
+                        <button class="tg-view-btn active" id="reports-view-all" onclick="setReportsView('all')">All</button>
+                        <button class="tg-view-btn" id="reports-view-pdf" onclick="setReportsView('pdf')">Reports</button>
+                        <button class="tg-view-btn" id="reports-view-nopdf" onclick="setReportsView('nopdf')">Posts</button>
                     </div>
-                    <div style="display:flex;align-items:center;">
-                        <span class="update-time" id="reports-update-time" data-time="{telegram_generated_at}">Updated: --</span>
+                    <div class="tg-filter-meta">
+                        <strong id="reports-visible-count">{report_count}</strong>
+                        <span>·</span>
+                        <span id="reports-update-time" data-time="{telegram_generated_at}">--</span>
                         <script>
                         (function(){{
                             var el=document.getElementById('reports-update-time'),t=el&&el.getAttribute('data-time');
@@ -2507,15 +2706,13 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                             el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
                         }})();
                         </script>
-                        <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
-                            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                        </button>
                     </div>
                 </div>
-                <div class="filter-row">
-                    <button class="reports-filter-btn active" id="reports-pdf-btn" onclick="setReportsView('pdf')">📄 PDF</button>
-                    <button class="reports-filter-btn" id="reports-nopdf-btn" onclick="setReportsView('nopdf')">Without PDF</button>
-                    <button class="reports-filter-btn" id="reports-notarget-filter" onclick="toggleNoTargetFilter()">No stock targets</button>
+                <div class="tg-filter-bottom">
+                    <div class="tg-channel-pills" id="tg-channel-pills">
+                        <!-- populated by initChannelPills() -->
+                    </div>
+                    <button class="tg-chip" id="reports-notarget-filter" onclick="toggleNoTargetFilter()">No price targets</button>
                 </div>
             </div>
             <div id="reports-warning" class="reports-warning" style="display:none"></div>
@@ -3463,8 +3660,9 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         // ==================== REPORTS TAB ====================
         let reportsRendered = false;
         let filteredReports = [];
-        let reportsViewMode = 'pdf';
+        let reportsViewMode = 'all';
         let reportsNoTargetFilterActive = false;
+        let reportsChannelFilter = null;  // null = all channels, string = specific channel label
         let reportsPage = 1;
         const REPORTS_PAGE_SIZE = 20;
 
@@ -3551,10 +3749,13 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         }
 
         function renderMainReports() {
+            if (!reportsRendered) {
+                initChannelPills();
+                reportsRendered = true;
+            }
             filteredReports = [...TELEGRAM_REPORTS];
             reportsPage = 1;
             applyReportsPagination();
-            // Show warnings if any
             var warnEl = document.getElementById('reports-warning');
             if (warnEl && TELEGRAM_WARNINGS && TELEGRAM_WARNINGS.length > 0) {
                 warnEl.innerHTML = '<strong>⚠ Fetch issue:</strong> ' + TELEGRAM_WARNINGS.map(w => escapeHtml(w)).join(' · ') + ' — some reports may be missing.';
@@ -3562,16 +3763,41 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             }
         }
 
+        const TG_CHANNEL_COLORS = ['#e14b4b','#3b82f6','#10b981','#f59e0b','#8b5cf6','#ec4899','#06b6d4'];
+        function getChannelColor(name) {
+            let h = 0;
+            for (let i = 0; i < name.length; i++) h = name.charCodeAt(i) + ((h << 5) - h);
+            return TG_CHANNEL_COLORS[Math.abs(h) % TG_CHANNEL_COLORS.length];
+        }
+        function initChannelPills() {
+            const channels = [...new Set(TELEGRAM_REPORTS.map(r => r.channel || '').filter(Boolean))].sort();
+            const container = document.getElementById('tg-channel-pills');
+            if (!container || channels.length === 0) return;
+            let html = `<button class="tg-channel-pill active" data-channel="" onclick="setChannelFilter(this,'')">
+                <span class="tg-ch-dot" style="background:var(--text-muted)"></span>All
+            </button>`;
+            channels.forEach(ch => {
+                const color = getChannelColor(ch);
+                const label = escapeHtml(ch);
+                const shortLabel = label.length > 18 ? label.substring(0, 16) + '…' : label;
+                html += `<button class="tg-channel-pill" data-channel="${label}" onclick="setChannelFilter(this,'${label.replace(/'/g,"\\'")}')">
+                    <span class="tg-ch-dot" style="background:${color}"></span>${shortLabel}
+                </button>`;
+            });
+            container.innerHTML = html;
+        }
+        function setChannelFilter(btn, channel) {
+            reportsChannelFilter = channel || null;
+            document.querySelectorAll('.tg-channel-pill').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            filterReports();
+        }
+
         function setReportsView(mode) {
             reportsViewMode = mode;
-            document.getElementById('reports-pdf-btn').classList.toggle('active', mode === 'pdf');
-            document.getElementById('reports-nopdf-btn').classList.toggle('active', mode === 'nopdf');
-            const noTargetBtn = document.getElementById('reports-notarget-filter');
-            noTargetBtn.disabled = (mode !== 'pdf');
-            if (mode !== 'pdf' && reportsNoTargetFilterActive) {
-                reportsNoTargetFilterActive = false;
-                noTargetBtn.classList.remove('active');
-            }
+            document.getElementById('reports-view-all').classList.toggle('active', mode === 'all');
+            document.getElementById('reports-view-pdf').classList.toggle('active', mode === 'pdf');
+            document.getElementById('reports-view-nopdf').classList.toggle('active', mode === 'nopdf');
             filterReports();
         }
 
@@ -3598,23 +3824,27 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
         function filterReports() {
             const query = document.getElementById('search').value.toLowerCase().trim();
-            if (!query) {
-                filteredReports = [...TELEGRAM_REPORTS];
-            } else {
-                filteredReports = TELEGRAM_REPORTS.filter(r => {
+            filteredReports = query
+                ? TELEGRAM_REPORTS.filter(r => {
                     const text = (r.text || '').toLowerCase();
                     const channel = (r.channel || '').toLowerCase();
                     const docTitle = (r.documents && r.documents.length > 0
                         ? r.documents.map(d => d.title || '').join(' ')
                         : (r.document && r.document.title || '')).toLowerCase();
                     return text.includes(query) || channel.includes(query) || docTitle.includes(query);
-                });
-            }
+                })
+                : [...TELEGRAM_REPORTS];
+            // View mode filter
             if (reportsViewMode === 'pdf') {
                 filteredReports = filteredReports.filter(reportHasPdf);
             } else if (reportsViewMode === 'nopdf') {
                 filteredReports = filteredReports.filter(r => !reportHasPdf(r));
             }
+            // Channel filter
+            if (reportsChannelFilter) {
+                filteredReports = filteredReports.filter(r => r.channel === reportsChannelFilter);
+            }
+            // No price targets
             if (reportsNoTargetFilterActive) {
                 filteredReports = filteredReports.filter(r => !reportHasStockTarget(r));
             }
@@ -3675,30 +3905,41 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
                         ${badge}</div>`;
                 }
 
-                const hasDoc = !!(r.documents && r.documents.length > 0) || !!(r.document && r.document.title);
                 const hasPdfLink = /https?:\\/\\/\\S+\\.pdf(\\b|\\?)/i.test(r.text || '');
-                const docIndicatorHtml = (hasDoc || hasPdfLink)
-                    ? '<span class="report-doc-indicator" title="Contains document/PDF">📄</span>' : '';
 
+                // Content-type badge
+                let typeBadge = '';
+                if (docs.length > 0 || hasPdfLink) {
+                    typeBadge = '<span class="report-type-badge report-type-doc">Report</span>';
+                } else if (images.length > 0) {
+                    typeBadge = '<span class="report-type-badge report-type-photo">Photo</span>';
+                }
+
+                // Channel dot color
+                const channelColor = getChannelColor(r.channel || '');
                 const channel = escapeHtml(r.channel);
 
                 html += `
                     <div class="report-card" data-url="${escapeForAttr(reportUrl)}" data-title="${escapeForAttr((r.text || '').split('\\n')[0].substring(0, 100))}" data-channel="${escapeForAttr(r.channel || '')}">
                         <div class="report-card-header">
-                            <div style="display:flex;align-items:center;gap:6px">
+                            <div class="report-card-left">
+                                <span class="report-channel-dot" style="background:${channelColor}"></span>
                                 <span class="report-channel">${channel}</span>
-                                ${docIndicatorHtml}
+                                ${typeBadge}
                             </div>
-                            <button class="bookmark-btn${isBookmarkedReport ? ' bookmarked' : ''}" onclick="toggleReportBookmark(this)" aria-label="Bookmark report" title="Bookmark">
-                                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                            </button>
+                            <div class="report-card-right">
+                                <span class="report-card-date">${formatReportDate(r.date)}</span>
+                                <button class="bookmark-btn${isBookmarkedReport ? ' bookmarked' : ''}" onclick="toggleReportBookmark(this)" aria-label="Bookmark">
+                                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                </button>
+                            </div>
                         </div>
-                        ${docHtml}
                         ${imgHtml}
+                        ${docHtml}
                         <div class="report-text">${text}</div>
                         <button class="report-expand-btn" style="display:none" onclick="toggleReportExpand(this)">Show more</button>
                         <div class="report-meta">
-                            <span>${formatReportDate(r.date)}${r.views ? ' · ' + escapeHtml(r.views) + ' views' : ''}</span>
+                            <span>${r.views ? escapeHtml(r.views) + ' views' : ''}</span>
                             <a href="${escapeHtml(reportUrl)}" target="_blank" rel="noopener">Open in Telegram →</a>
                         </div>
                     </div>
