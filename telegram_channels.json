@@ -3,7 +3,7 @@
   {"username": "BeatTheStreetnews", "label": "Beat The Street", "method": "html"},
   {"username": "stockupdate9", "label": "Stock Update", "method": "html"},
   {"username": "btsreports", "label": "BTS Reports", "method": "mtproto"},
-  {"username": "Equity_Insights", "label": "Equity Insights", "method": "mtproto"},
+  {"username": "Equity_Insights", "label": "Equity Insights", "method": "mtproto", "max_age_days": 30},
   {"username": "stockmarketbooksresearchreport", "label": "Stock Market Research", "method": "mtproto"},
   {"username": "researchreportss", "label": "Research Reports", "method": "mtproto"}
 ]

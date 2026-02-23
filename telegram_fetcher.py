@@ -189,7 +189,7 @@ class TelegramHTMLParser(HTMLParser):
 
 
 MAX_PAGES = 15  # Max pagination requests per channel (15 pages x 20 = ~300 msgs)
-MAX_AGE_DAYS = 5  # Only keep messages from the last N days
+MAX_AGE_DAYS = 5  # Only keep messages from the last N days (default, overridable per channel)
 
 
 def fetch_url(url):
@@ -395,7 +395,7 @@ def _fetch_og_image(username: str, msg_id: int) -> str:
     return ""
 
 
-async def fetch_all_mtproto(channels, cutoff):
+async def fetch_all_mtproto(channels):
     """Fetch all MTProto channels using a single Telethon session.
     Returns (messages_list, warnings_list)."""
     if not TELETHON_AVAILABLE:
@@ -422,7 +422,9 @@ async def fetch_all_mtproto(channels, cutoff):
         for ch in channels:
             username = ch["username"]
             label = ch["label"]
-            print(f"\nFetching (MTProto): {username} ({label})...")
+            ch_age = ch.get("max_age_days", MAX_AGE_DAYS)
+            cutoff = datetime.now(timezone.utc) - timedelta(days=ch_age)
+            print(f"\nFetching (MTProto): {username} ({label}, last {ch_age}d)...")
             msgs = await fetch_channel_mtproto(client, username, label, cutoff)
             print(f"  Total: {len(msgs)} messages")
             if not msgs:
@@ -463,13 +465,13 @@ def main():
     all_messages = []
     seen_urls = set()
 
-    cutoff = datetime.now(timezone.utc) - timedelta(days=MAX_AGE_DAYS)
-
     # ── Phase 1: HTML scraper (public channels) ──
 
     for ch in html_channels:
         username = ch["username"]
         label = ch["label"]
+        ch_age = ch.get("max_age_days", MAX_AGE_DAYS)
+        ch_cutoff = datetime.now(timezone.utc) - timedelta(days=ch_age)
         print(f"\nFetching: {username} ({label})...")
 
         pages = fetch_channel_pages(username)
@@ -482,11 +484,11 @@ def main():
             for msg in msgs:
                 if msg["url"] in seen_urls:
                     continue
-                # Filter out messages older than MAX_AGE_DAYS
+                # Filter out messages older than max_age_days
                 if msg["date"]:
                     try:
                         msg_dt = datetime.fromisoformat(msg["date"])
-                        if msg_dt < cutoff:
+                        if msg_dt < ch_cutoff:
                             continue
                     except ValueError:
                         pass
@@ -503,14 +505,13 @@ def main():
                 })
                 channel_count += 1
 
-        print(f"  Total: {channel_count} messages (last {MAX_AGE_DAYS} days, {len(pages)} pages)")
+        print(f"  Total: {channel_count} messages (last {ch_age} days, {len(pages)} pages)")
 
     # ── Phase 2: MTProto / Telethon (private channels) ──
 
     warnings = []
     if mtproto_channels:
-        cutoff_aware = cutoff if cutoff.tzinfo else cutoff.replace(tzinfo=timezone.utc)
-        mtproto_msgs, mtproto_warnings = asyncio.run(fetch_all_mtproto(mtproto_channels, cutoff_aware))
+        mtproto_msgs, mtproto_warnings = asyncio.run(fetch_all_mtproto(mtproto_channels))
         warnings.extend(mtproto_warnings)
         for msg in mtproto_msgs:
             if msg["url"] in seen_urls:

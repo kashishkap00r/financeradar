@@ -19,10 +19,12 @@ python3 -c "from filters import should_filter_article; print(should_filter_artic
 ## Critical Rules
 
 - **Never hand-edit** `index.html`, `static/articles.json`, `static/telegram_reports.json`, `static/youtube_cache.json`, `static/ai_rankings.json`, `static/wsw_clusters.json` — all are generated.
-- The entire frontend (HTML/CSS/JS) lives inside `generate_html()` in `aggregator.py` as one f-string (~4,500 lines). Edit there, then `python3 aggregator.py` to regenerate.
+- The frontend is split across multiple files: CSS in `templates/style.css` (normal braces), JS in `templates/app.js` (normal braces), HTML structure in `generate_html()` in `aggregator.py` (f-string with `{{`/`}}` for literal braces). Run `python3 aggregator.py` to regenerate.
+- `templates/style.css` and `templates/app.js` are source files (not generated). Edits should be tested via `python3 aggregator.py`.
+- Backend is modular: `articles.py` (similarity, grouping, text utils, export), `feeds.py` (feed loading, fetching, date parsing), `filters.py` (content filters).
 - Content filters live in `filters.py` — add patterns there, no other changes needed.
-- All JS `const` declarations inside `generate_html()` are subject to the temporal dead zone. Place `const`/`let` declarations **before** any code path that calls functions referencing them. `function` declarations are safe anywhere (hoisted).
-- JS inside `html += """` (no `f` prefix) uses literal `{` and `}`. JS inside f-strings uses `{{` and `}}` for literal braces.
+- All JS `const` declarations in `templates/app.js` are subject to the temporal dead zone. Place `const`/`let` declarations **before** any code path that calls functions referencing them. `function` declarations are safe anywhere (hoisted).
+- JS data constants (ALL_PUBLISHERS, TELEGRAM_REPORTS, etc.) are injected via f-string in `aggregator.py` before `templates/app.js` content is appended.
 
 ## Git: Handling Remote-Ahead Conflicts
 
@@ -42,8 +44,8 @@ git push
 
 `ai_ranker.py` calls two models in sequence and saves results under separate provider keys:
 
-1. **`gemini-2-5-flash`** → hits the Gemini API directly at `generativelanguage.googleapis.com` using `GEMINI_API_KEY`. Current model ID: `gemini-2.0-flash` (not 2.5 — 2.5-flash burns its token budget on silent thinking, truncating JSON output). Uses `response_mime_type: "application/json"` in generationConfig to force valid JSON output.
-2. **`auto`** → hits OpenRouter at `openrouter.ai/api/v1` using `OPENROUTER_API_KEY`. Current model ID: `openrouter/free` (routes randomly to any available free model).
+1. **`gemini-3-flash`** → hits the Gemini API directly at `generativelanguage.googleapis.com` using `GEMINI_API_KEY`. Current model ID: `gemini-3.0-flash`. Uses `response_mime_type: "application/json"` in generationConfig to force valid JSON output.
+2. **`deepseek-v3`** → hits OpenRouter at `openrouter.ai/api/v1` using `OPENROUTER_API_KEY`. Current model ID: `deepseek/deepseek-v3.2` (DeepSeek V3.2 with strong JSON instruction following).
 
 Empty-title guard: after enrichment, if >50% of returned titles are blank the run raises `ValueError` and saves `"status": "error"` instead of garbage data.
 
@@ -52,8 +54,8 @@ Correct `static/ai_rankings.json` schema (README schema is outdated):
 {
   "generated_at": "...",
   "providers": {
-    "gemini-2-5-flash": {
-      "name": "Gemini 2.0 Flash",
+    "gemini-3-flash": {
+      "name": "Gemini 3.0 Flash",
       "status": "ok",
       "count": 20,
       "rankings": [
@@ -69,7 +71,7 @@ Correct `static/ai_rankings.json` schema (README schema is outdated):
         }
       ]
     },
-    "auto": { "name": "Auto (Best Free)", "status": "ok | error", ... }
+    "deepseek-v3": { "name": "DeepSeek V3.2", "status": "ok | error", ... }
   }
 }
 ```
