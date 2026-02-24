@@ -237,29 +237,57 @@ def fetch_baroda_etrade(feed_config):
 # ── SBI Research ──────────────────────────────────────────────────────
 
 def fetch_sbi_research(feed_config):
-    """Fetch publications from SBI Research Desk."""
+    """Fetch Ecowrap economic research papers from SBI Research Desk."""
     articles = []
     try:
         content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
 
-        # SBI lists PDFs — look for /documents/ paths and other PDF links
-        pattern = r'<a[^>]+href="([^"]*\.pdf[^"]*)"[^>]*>(.*?)</a>'
-        matches = re.findall(pattern, content, re.DOTALL | re.IGNORECASE)
+        # Extract only the Ecowrap section (after the Ecowrap </h3> until next <h3)
+        eco_match = re.search(
+            r'>Ecowrap</h3>\s*(.*?)(?=<h3\b|$)',
+            content, re.DOTALL | re.IGNORECASE
+        )
+        if not eco_match:
+            print(f"  [WARN] {feed_config['name']}: Ecowrap section not found")
+            return articles
+
+        ecowrap_html = eco_match.group(1)
+
+        # Find all links within the Ecowrap section pointing to /documents/ PDFs
+        link_pattern = r'<a[^>]+href="(/documents/[^"]+)"[^>]*>(.*?)</a>'
+        matches = re.findall(link_pattern, ecowrap_html, re.DOTALL)
+
+        # Pattern: DD.MM.YYYY:"Title" or DD.MM.YYYY: "Title"
+        date_title_re = re.compile(r'(\d{2}\.\d{2}\.\d{4})\s*:\s*(.+)$')
 
         seen = set()
         for href, title_html in matches:
             if len(articles) >= _MAX_PER_SCRAPER:
                 break
-            title = _strip_html(title_html).strip()
-            if not title or len(title) < 5 or href in seen:
+            if href in seen:
                 continue
             seen.add(href)
-            # Use sbi.bank.in for relative links (the new correct domain)
-            if href.startswith("http"):
-                link = href
-            else:
-                link = "https://sbi.bank.in" + href
-            articles.append(_make_article(title, link, None, "", feed_config))
+
+            text = _strip_html(title_html).strip()
+            m = date_title_re.search(text)
+            if not m:
+                continue  # Every Ecowrap entry has DD.MM.YYYY: format
+            date_str = m.group(1)
+            title = m.group(2).strip().strip('"\u201c\u201d').strip()
+            try:
+                dt = datetime.strptime(date_str, "%d.%m.%Y").replace(
+                    tzinfo=timezone.utc
+                )
+            except ValueError:
+                continue  # Unparseable date — skip
+
+            if not title or len(title) < 5:
+                continue
+            if not _is_fresh(dt):
+                continue
+
+            link = "https://sbi.bank.in" + href
+            articles.append(_make_article(title, link, dt, "", feed_config))
 
         print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
     except Exception as e:
@@ -270,24 +298,26 @@ def fetch_sbi_research(feed_config):
 # ── FICCI ─────────────────────────────────────────────────────────────
 
 def fetch_ficci(feed_config):
-    """Fetch FICCI Economic Wrap reports (may return 403)."""
+    """Fetch FICCI Daily Economic News Wrap PDF reports."""
     articles = []
     try:
         content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
 
-        pattern = r'<a[^>]+href="([^"]*(?:\.pdf|\.asp|economy|economic|daily)[^"]*)"[^>]*>(.*?)</a>'
-        matches = re.findall(pattern, content, re.DOTALL | re.IGNORECASE)
+        dates = [_strip_html(m).strip() for m in re.findall(r'<time[^>]*>(.*?)</time>', content, re.DOTALL)]
+        pdfs = re.findall(r'href="(https://ficci\.in/public/storage/sector/Report/[^"]+\.pdf)"', content)
 
-        seen = set()
-        for href, title_html in matches:
+        for date_str, pdf_url in zip(dates, pdfs):
             if len(articles) >= _MAX_PER_SCRAPER:
                 break
-            title = _strip_html(title_html).strip()
-            if not title or len(title) < 8 or href in seen:
+            try:
+                pub_date = datetime.strptime(date_str.strip(), "%b %d, %Y")
+            except ValueError:
+                pub_date = None
+            if not _is_fresh(pub_date):
                 continue
-            seen.add(href)
-            link = href if href.startswith("http") else "https://ficci.in/" + href.lstrip("/")
-            articles.append(_make_article(title, link, None, "", feed_config))
+            articles.append(_make_article(
+                "Economy \u2014 Daily News Wrap", pdf_url, pub_date, "", feed_config
+            ))
 
         print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
     except Exception as e:
