@@ -19,11 +19,11 @@ IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_MODEL = "gemini-3.0-flash"
+GEMINI_MODEL = "gemini-3-flash-preview"
 
 WSW_MODELS = {
     "gemini-3-flash": {
-        "id": "gemini-3.0-flash",
+        "id": "gemini-3-flash-preview",
         "name": "Gemini 3.0 Flash",
         "provider": "gemini"
     },

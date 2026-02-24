@@ -5,8 +5,10 @@ Each function accepts a feed_config dict and returns a list of article dicts
 compatible with the standard article format used by fetch_feed() / fetch_careratings().
 """
 
+import html
 import json
 import re
+import urllib.parse
 import urllib.request
 import urllib.error
 import subprocess
@@ -328,51 +330,43 @@ def fetch_ficci(feed_config):
 # ── ICICI Bank Research ───────────────────────────────────────────────
 
 def fetch_icici_research(feed_config):
-    """Fetch PDFs from ICICI Bank research reports page.
+    """Fetch reports from ICICI Bank research page via embedded JSON.
 
-    The page at icici.bank.in has ~2000 PDF links with /content/dam/icicibank/ paths.
-    We match those and limit to 30 most recent (page is sorted by recency).
+    The page embeds ~2000 reports as HTML-entity-encoded JSON inside a hidden
+    div with id="ergFilter". Each item has title, description, datetime, and
+    pdfLink fields. We decode the JSON and extract fresh reports.
     """
     articles = []
     try:
         content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
 
-        # Match PDF links under /content/dam/icicibank/
-        pattern = r'<a[^>]+href="([^"]*content/dam/icicibank[^"]*\.pdf[^"]*)"[^>]*>(.*?)</a>'
-        matches = re.findall(pattern, content, re.DOTALL | re.IGNORECASE)
+        # Extract JSON from hidden div: <div class="hide" id="ergFilter">[...]</div>
+        m = re.search(r'id="ergFilter"[^>]*>\s*(\[.*?\])\s*</div>', content, re.DOTALL)
+        if not m:
+            print(f"  [FAIL] {feed_config['name']}: ergFilter div not found")
+            return articles
 
-        # Also try generic PDF links as fallback
-        if not matches:
-            pattern = r'<a[^>]+href="([^"]*\.pdf[^"]*)"[^>]*>(.*?)</a>'
-            matches = re.findall(pattern, content, re.DOTALL | re.IGNORECASE)
+        raw_json = html.unescape(m.group(1))
+        items = json.loads(raw_json)
 
-        seen = set()
-        for href, title_html in matches:
-            if len(articles) >= 30:
+        for item in items:
+            if len(articles) >= _MAX_PER_SCRAPER:
                 break
-            title = _strip_html(title_html).strip()
-            if not title:
-                # Extract title from filename
-                fname = href.split("/")[-1].replace(".pdf", "")
-                title = fname.replace("-", " ").replace("_", " ").title()
-            if len(title) < 5 or href in seen:
+
+            pdf_link = (item.get("pdfLink") or "").strip()
+            if not pdf_link:
                 continue
-            seen.add(href)
 
-            if href.startswith("http"):
-                link = href
-            elif href.startswith("/"):
-                link = "https://www.icici.bank.in" + href
-            else:
-                link = "https://www.icici.bank.in/" + href
+            title = (item.get("title") or "").strip()
+            if not title or len(title) < 5:
+                continue
 
-            # Try to extract date from filename pattern like mms-24-feb-2026.pdf
+            # Parse datetime: "24 Feb 26 06:30 PM"
             dt = None
-            fname = href.split("/")[-1].lower()
-            date_match = re.search(r'(\d{1,2})-?(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-?(\d{4})', fname)
-            if date_match:
+            dt_str = (item.get("datetime") or "").strip()
+            if dt_str:
                 try:
-                    dt = datetime.strptime(f"{date_match.group(1)} {date_match.group(2)} {date_match.group(3)}", "%d %b %Y")
+                    dt = datetime.strptime(dt_str, "%d %b %y %I:%M %p")
                     dt = dt.replace(tzinfo=IST_TZ)
                 except ValueError:
                     pass
@@ -380,7 +374,10 @@ def fetch_icici_research(feed_config):
             if not _is_fresh(dt):
                 continue
 
-            articles.append(_make_article(title, link, dt, "", feed_config))
+            link = "https://www.icici.bank.in" + pdf_link if pdf_link.startswith("/") else pdf_link
+            desc = (item.get("description") or "").strip()[:300]
+
+            articles.append(_make_article(title, link, dt, desc, feed_config))
 
         print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
     except Exception as e:
@@ -391,47 +388,81 @@ def fetch_icici_research(feed_config):
 # ── HDFC Securities ───────────────────────────────────────────────────
 
 def fetch_hdfc_sec(feed_config):
-    """Fetch from HDFC Securities server-rendered research page.
+    """Fetch from HDFC Securities research via CMS JSON API.
 
-    The page has report cards with:
-    - Date text like "24 Feb 2026"
-    - PDF links at hdfcsec.com/hsl.docs/...pdf
-    - Title in link text
+    The reports page loads data client-side from GetNonCallResearch API.
+    We fetch two buckets: Periodic Reports (1912) and Institutional Reports (1913).
     """
     articles = []
+    base = "https://www.hdfcsec.com"
+    buckets = [1912, 1913]  # Periodic, Institutional
+
     try:
-        content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
+        for bucket_id in buckets:
+            url = (f"{base}/api/cmsapi/GetNonCallResearch?"
+                   f"schemeId=&compCode=&bucketId={bucket_id}"
+                   f"&pageNo=1&pageSize={_MAX_PER_SCRAPER}&fromDate=&toDate=")
+            raw = _fetch_url(url, accept="application/json").decode("utf-8", errors="replace")
 
-        # Look for PDF links at hsl.docs path
-        pattern = r'<a[^>]+href="((?:https?://(?:www\.)?hdfcsec\.com)?/hsl\.docs/[^"]*\.pdf[^"]*)"[^>]*>(.*?)</a>'
-        matches = re.findall(pattern, content, re.DOTALL | re.IGNORECASE)
+            # API returns double-encoded JSON (string within string) — decode twice
+            cleaned = raw.replace('\r\n', ' ').replace('\n', ' ').replace('\r', ' ')
+            data = json.loads(json.loads(cleaned))
 
-        # Fallback: any PDF or research links
-        if not matches:
-            pattern = r'<a[^>]+href="([^"]*(?:\.pdf|/research/|/report)[^"]*)"[^>]*>(.*?)</a>'
-            matches = re.findall(pattern, content, re.DOTALL | re.IGNORECASE)
+            # data[0].data = articles, data[2].data = predicates (Title, Summary, UploadPdf)
+            items = data[0].get("data", [])
+            predicates = data[2].get("data", []) if len(data) > 2 else []
 
-        # Extract dates near each card
-        date_pattern = r'(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4})'
-        dates = re.findall(date_pattern, content, re.IGNORECASE)
+            # Build predicate lookup: {article_id: {predicate: value}}
+            pred_map = {}
+            for p in predicates:
+                aid = p.get("ARTICLE_ID", "")
+                pred = p.get("PREDICATE", "")
+                val = p.get("OBJECT1", "")
+                if aid and pred:
+                    pred_map.setdefault(aid, {})[pred] = val
 
-        seen = set()
-        for i, (href, title_html) in enumerate(matches):
-            title = _strip_html(title_html).strip()
-            if not title or len(title) < 8 or href in seen:
-                continue
-            seen.add(href)
+            for item in items:
+                if len(articles) >= _MAX_PER_SCRAPER:
+                    break
+                if not item:
+                    continue
 
-            if href.startswith("http"):
-                link = href
-            else:
-                link = "https://www.hdfcsec.com" + href
+                aid = item.get("ARTICLE_ID", "")
+                preds = pred_map.get(aid, {})
 
-            dt = _parse_date_flexible(dates[i]) if i < len(dates) else None
-            if not _is_fresh(dt):
-                continue
+                title = (item.get("TITLE") or preds.get("Title") or "").strip()
+                if not title or len(title) < 5:
+                    continue
 
-            articles.append(_make_article(title, link, dt, "", feed_config))
+                # PDF filename is in predicate UploadPdf
+                pdf = (preds.get("UploadPdf") or "").strip()
+                if not pdf:
+                    continue
+
+                # Unescape HTML entities in filename (e.g. &amp; → &)
+                link = f"{base}/hsl.docs/{html.unescape(pdf)}"
+
+                # Parse date: "24-02-2026 17:24:29"
+                dt = None
+                dt_str = (item.get("PUBLISHED_ON") or "").strip()
+                if dt_str:
+                    try:
+                        dt = datetime.strptime(dt_str, "%d-%m-%Y %H:%M:%S")
+                        dt = dt.replace(tzinfo=IST_TZ)
+                    except ValueError:
+                        pass
+
+                if not _is_fresh(dt):
+                    continue
+
+                # Description from predicate Summary (URL-encoded)
+                raw_summary = preds.get("Summary", "")
+                try:
+                    desc = _strip_html(urllib.parse.unquote(raw_summary)).strip()
+                except Exception:
+                    desc = raw_summary.strip()
+
+                articles.append(_make_article(title, link, dt, desc, feed_config))
 
         print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
     except Exception as e:
@@ -442,22 +473,64 @@ def fetch_hdfc_sec(feed_config):
 # ── Axis Direct ───────────────────────────────────────────────────────
 
 def fetch_axis_direct(feed_config):
-    """Fetch research reports from Axis Direct."""
+    """Fetch research reports from Axis Direct fundamental reports page.
+
+    The page renders report cards as <li> elements containing:
+      - <h5> with the report title
+      - <p>  with the date (e.g. "24 Feb 2026")
+      - description text
+      - <a href="/app/index.php/insights/reports/downloadReport/file/...">
+    We parse each card by anchoring on the downloadReport links, then
+    extracting the preceding <h5> title and date <p>.
+    """
+    BASE = "https://simplehai.axisdirect.in"
     articles = []
     try:
         content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
 
-        pattern = r'<a[^>]+href="([^"]*(?:research|report|pdf|analysis)[^"]*)"[^>]*>(.*?)</a>'
-        matches = re.findall(pattern, content, re.DOTALL | re.IGNORECASE)
+        # Split on each <li to isolate report cards.
+        # The report list lives inside a <ul> with each card in its own <li>.
+        cards = re.split(r'<li\b', content)
 
-        seen = set()
-        for href, title_html in matches:
-            title = _strip_html(title_html).strip()
-            if not title or len(title) < 8 or href in seen:
+        for card in cards:
+            if len(articles) >= _MAX_PER_SCRAPER:
+                break
+
+            # Must have a downloadReport link to be a real report card
+            dl_match = re.search(
+                r'href="(/app/index\.php/insights/reports/downloadReport/file/[^"]+)"',
+                card
+            )
+            if not dl_match:
                 continue
-            seen.add(href)
-            link = href if href.startswith("http") else "https://simplehai.axisdirect.in" + href
-            articles.append(_make_article(title, link, None, "", feed_config))
+
+            link = BASE + dl_match.group(1)
+
+            # Title from <h5> tag
+            h5 = re.search(r'<h5[^>]*>(.*?)</h5>', card, re.DOTALL)
+            title = _strip_html(html.unescape(h5.group(1))).strip() if h5 else ""
+            if not title or len(title) < 5:
+                continue
+
+            # Date from the first <p> after the title header div (format: "24 Feb 2026")
+            date_match = re.search(r'<p[^>]*>\s*(\d{1,2}\s+\w+\s+\d{4})\s*</p>', card)
+            dt = _parse_date_flexible(date_match.group(1)) if date_match else None
+            if not _is_fresh(dt):
+                continue
+
+            # Description lives in <div class="reports-video"> inside panel-body
+            desc = ""
+            desc_block = re.search(
+                r'<div\s+class="reports-video">\s*(.*?)\s*</div>',
+                card, re.DOTALL
+            )
+            if desc_block:
+                raw = _strip_html(html.unescape(desc_block.group(1))).strip()
+                # Remove "Stocks covered (N)" prefix noise
+                raw = re.sub(r'^Stocks covered\s*\(\d+\)\s*', '', raw).strip()
+                desc = raw
+
+            articles.append(_make_article(title, link, dt, desc, feed_config))
 
         print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
     except Exception as e:

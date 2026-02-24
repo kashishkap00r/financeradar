@@ -23,7 +23,7 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 MODELS = {
     "gemini-3-flash": {
-        "id": "gemini-3.0-flash",
+        "id": "gemini-3-flash-preview",
         "name": "Gemini 3.0 Flash",
         "provider": "gemini"
     },
