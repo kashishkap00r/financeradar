@@ -1431,6 +1431,38 @@
     "publisher": "Ira Dugal"
   },
   {
+    "id": "x-tijori-finance",
+    "name": "Tijori Finance (X)",
+    "url": "https://x.com/Tijori1",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:Tijori1&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Tijori Finance"
+  },
+  {
+    "id": "x-redbox-india",
+    "name": "Redbox India (X)",
+    "url": "https://x.com/REDBOXINDIA",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:REDBOXINDIA&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Redbox India"
+  },
+  {
+    "id": "x-exencial-rp",
+    "name": "Exencial RP (X)",
+    "url": "https://x.com/exencial_RP",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:exencial_RP&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Exencial RP"
+  },
+  {
+    "id": "x-tamal-bandyopadhyay",
+    "name": "Tamal Bandyopadhyay (X)",
+    "url": "https://x.com/TamalBandyo",
+    "feed": "https://news.google.com/rss/search?q=site:x.com+from:TamalBandyo&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Tamal Bandyopadhyay"
+  },
+  {
     "id": "yt-soic-finance",
     "name": "SOIC Finance",
     "url": "https://www.youtube.com/@SOICfinance",

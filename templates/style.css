@@ -616,6 +616,13 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1px;
+            transition: color 0.15s;
+            cursor: default;
+        }
+        .tweet-card-publisher:hover {
+            color: var(--accent);
         }
         .tweet-card-date {
             font-size: 11px;

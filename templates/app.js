@@ -1934,7 +1934,13 @@
             container.querySelectorAll('.tweet-card-body').forEach(el => {
                 const btn = el.nextElementSibling;
                 if (btn && btn.classList.contains('tweet-expand-btn')) {
-                    btn.style.display = el.scrollHeight > el.clientHeight ? 'block' : 'none';
+                    // Temporarily remove line-clamp to measure true content height
+                    el.style.webkitLineClamp = 'unset';
+                    el.style.display = 'block';
+                    const fullHeight = el.scrollHeight;
+                    el.style.webkitLineClamp = '';
+                    el.style.display = '';
+                    btn.style.display = fullHeight > el.clientHeight ? 'block' : 'none';
                 }
             });
         }
