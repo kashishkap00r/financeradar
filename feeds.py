@@ -229,8 +229,9 @@ def fetch_careratings(feed_config):
     articles = []
 
     try:
-        page_id = int(feed_config["feed"].split(":")[1])
-        section_id = 5037 if page_id == 23 else 5034
+        parts = feed_config["feed"].split(":")
+        page_id = int(parts[1])
+        section_id = int(parts[2]) if len(parts) > 2 else 5034
         year = datetime.now().year
         api_url = f"https://www.careratings.com/insightspagedata?PageId={page_id}&SectionId={section_id}&YearID={year}&MonthID=0"
 

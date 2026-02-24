@@ -922,10 +922,10 @@
     "publisher": "CareEdge"
   },
   {
-    "id": "careratings-morning-brief",
-    "name": "CareEdge — Morning Brief",
-    "url": "https://www.careratings.com/industry-research",
-    "feed": "careratings:23",
+    "id": "careratings-economy-updates",
+    "name": "CareEdge — Economy Updates",
+    "url": "https://www.careratings.com/economy-updates",
+    "feed": "careratings:1:23",
     "category": "Reports",
     "region": "Indian",
     "publisher": "CareEdge"
