@@ -186,43 +186,47 @@ def fetch_baroda_etrade(feed_config):
     try:
         content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
 
-        # Look for PDF links in report tables
-        pattern = r'<a[^>]+href="([^"]*\.pdf[^"]*)"[^>]*>(.*?)</a>'
-        matches = re.findall(pattern, content, re.DOTALL | re.IGNORECASE)
+        # Extract parallel lists from the consistent HTML structure
+        dates_raw = re.findall(r'<div\s+class="dateNtime1">\s*(.*?)\s*</div>', content, re.IGNORECASE)
+        titles_raw = re.findall(r'<h4\s+class="newsheading">\s*([\s\S]*?)\s*<p[\s>]', content, re.IGNORECASE)
+        descriptions_raw = re.findall(
+            r'<span\s+id="ctl00_ContentPlaceHolder1_repeatdata_ctrl\d+_lblcaption">\s*(.*?)\s*</span>',
+            content, re.DOTALL | re.IGNORECASE,
+        )
+        links_raw = re.findall(r'<a[^>]+href="(/Reports/[^"]+\.pdf[^"]*)"', content, re.IGNORECASE)
+
+        # Zip parallel lists (use shortest length for safety)
+        count = min(len(dates_raw), len(titles_raw), len(links_raw))
 
         seen = set()
-        for href, title_html in matches:
+        for i in range(count):
             if len(articles) >= _MAX_PER_SCRAPER:
                 break
-            title = _strip_html(title_html).strip()
-            if not title:
-                # Use filename as title
-                title = href.split("/")[-1].replace(".pdf", "").replace("-", " ").replace("_", " ")
+
+            # Parse date (DD-Mon-YY format, e.g. "20-Feb-26")
+            try:
+                dt = datetime.strptime(dates_raw[i].strip(), "%d-%b-%y")
+                dt = dt.replace(tzinfo=IST_TZ)
+            except ValueError:
+                dt = None
+
+            if dt and not _is_fresh(dt):
+                continue
+
+            href = links_raw[i]
             if href in seen:
                 continue
             seen.add(href)
 
-            # Resolve relative links against correct domain
-            if href.startswith("http"):
-                link = href
-            elif href.startswith("/"):
-                link = "https://www.barodaetrade.com" + href
-            else:
-                link = feed_config["url"].rstrip("/") + "/" + href.lstrip("/")
+            title = _strip_html(titles_raw[i]).strip()
+            if not title:
+                title = href.split("/")[-1].replace(".pdf", "").replace("-", " ").replace("_", " ")
 
-            articles.append(_make_article(title, link, None, "", feed_config))
+            link = "https://www.barodaetrade.com" + href
+            description = _strip_html(descriptions_raw[i]).strip() if i < len(descriptions_raw) else ""
 
-        # Try date extraction
-        date_pattern = r'(\d{2}[/-]\d{2}[/-]\d{4})'
-        dates = re.findall(date_pattern, content)
-        for i, article in enumerate(articles):
-            if i < len(dates):
-                dt = _parse_date_flexible(dates[i])
-                if dt and _is_fresh(dt):
-                    article["date"] = dt
-                elif dt and not _is_fresh(dt):
-                    articles[i] = None  # mark for removal
-        articles = [a for a in articles if a is not None]
+            article = _make_article(title, link, dt, description, feed_config)
+            articles.append(article)
 
         print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
     except Exception as e:
