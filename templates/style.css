@@ -573,53 +573,56 @@
             line-height: 1.55;
         }
 
-        /* Tweet feed layout */
-        .tweet-item {
-            display: flex;
-            gap: 12px;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border);
+        /* Tweet Card Layout (matches report-card pattern) */
+        .tweet-card {
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
         }
-        .tweet-item:last-of-type {
-            border-bottom: none;
+        .tweet-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border-color: var(--border-light);
+            transform: translateY(-1px);
         }
-        .tweet-avatar {
-            width: 38px;
-            height: 38px;
-            min-width: 38px;
-            border-radius: 50%;
+        .tweet-card-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 700;
-            font-size: 15px;
-            margin-top: 2px;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            gap: 8px;
         }
-        .tweet-content {
-            flex: 1;
+        .tweet-card-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             min-width: 0;
+            flex: 1;
         }
-        .tweet-header {
+        .tweet-card-right {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 4px;
-            flex-wrap: wrap;
+            flex-shrink: 0;
         }
-        .tweet-publisher {
+        .tweet-card-publisher {
+            font-size: 11px;
             font-weight: 700;
-            font-size: 14px;
-            color: var(--text-primary);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .tweet-time {
-            font-size: 13px;
+        .tweet-card-date {
+            font-size: 11px;
             color: var(--text-muted);
+            white-space: nowrap;
         }
-        .tweet-header .bookmark-btn {
-            margin-left: auto;
-        }
-        .tweet-text {
+        .tweet-card-body {
             font-family: 'Merriweather', Georgia, serif;
             font-size: 15px;
             font-weight: 400;
@@ -631,67 +634,81 @@
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
         }
-        .tweet-text.expanded {
+        .tweet-card-body.expanded {
             display: block;
             overflow: visible;
+        }
+        .tweet-card-body a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .tweet-card-body a:hover {
+            color: var(--accent);
         }
         .tweet-expand-btn {
             background: none;
             border: none;
             color: var(--accent);
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
-            padding: 0;
-            margin-bottom: 4px;
+            padding: 2px 0;
+            margin-bottom: 6px;
+            font-family: inherit;
             display: none;
         }
-        .tweet-text a {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-        .tweet-text a:hover {
-            color: var(--accent);
-        }
-        .tweet-footer {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .tweet-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 10px;
-            background: var(--bg-hover);
-            color: var(--text-muted);
-        }
-        .tweet-open-link {
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: auto;
-        }
-        .tweet-open-link:hover {
-            color: var(--accent);
-        }
-        .tweet-image {
-            margin: 6px 0;
+        .tweet-expand-btn:hover { text-decoration: underline; }
+        .tweet-card-image {
+            margin-bottom: 10px;
             border-radius: 8px;
             overflow: hidden;
-            max-height: 280px;
+            background: var(--bg-hover);
         }
-        .tweet-image img {
+        .tweet-card-image img {
             width: 100%;
-            height: auto;
             max-height: 280px;
             object-fit: cover;
             display: block;
+        }
+        .tweet-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 12px;
+            color: var(--text-muted);
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+            margin-top: 4px;
+        }
+        .tweet-card-footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 12px;
+        }
+        .tweet-card-footer a:hover {
+            text-decoration: underline;
+        }
+        .tweet-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        .tweet-badge-retweet {
+            background: rgba(59,130,246,0.12);
+            color: #3b82f6;
+        }
+        .tweet-badge-quote {
+            background: rgba(225,75,75,0.12);
+            color: var(--accent);
+        }
+        .tweet-badge-thread {
+            background: rgba(34,197,94,0.12);
+            color: #22c55e;
         }
 
         /* Footer */
@@ -1781,17 +1798,13 @@
                 border-color: var(--border);
             }
 
-            .tweet-avatar {
-                width: 32px;
-                height: 32px;
-                min-width: 32px;
-                font-size: 13px;
+            .tweet-card:hover {
+                transform: none;
+                box-shadow: none;
+                border-color: var(--border);
             }
-            .tweet-text {
+            .tweet-card-body {
                 font-size: 14px;
-            }
-            .tweet-header {
-                gap: 6px;
             }
 
             .content-tab {

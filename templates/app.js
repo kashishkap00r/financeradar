@@ -622,7 +622,7 @@
             saveBookmarks(bookmarks);
 
             // Update main list button
-            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"], .tweet-item[data-url="${CSS.escape(url)}"]`);
+            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"], .tweet-card[data-url="${CSS.escape(url)}"]`);
             if (article) {
                 const btn = article.querySelector('.bookmark-btn');
                 if (btn) btn.classList.remove('bookmarked');
@@ -787,7 +787,7 @@
             }
             saveBookmarks(bookmarks);
             updateBookmarkCount();
-            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"], .tweet-item[data-url="${CSS.escape(url)}"]`);
+            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"], .tweet-card[data-url="${CSS.escape(url)}"]`);
             if (article) {
                 const mainBtn = article.querySelector('.bookmark-btn');
                 if (mainBtn) mainBtn.classList.toggle('bookmarked', !exists);
@@ -1622,17 +1622,11 @@
         }
 
         // ==================== TWITTER TAB (helpers) ====================
-        function getTweetAvatarColor(name) {
-            const colors = ['#4a7fb5','#c96b6b','#5a9e6f','#c49a4b','#8b6baf','#4a9e9e','#d07a5a','#7aab5a'];
-            let hash = 0;
-            for (let i = 0; i < name.length; i++) hash = ((hash << 5) - hash) + name.charCodeAt(i);
-            return colors[Math.abs(hash) % colors.length];
-        }
         function getTweetBadges(title) {
             const badges = [];
-            if (title.startsWith('“') || title.startsWith('"')) badges.push('💬 Quote');
-            else if (title.startsWith('RT @')) badges.push('🔄 Retweet');
-            if (title.includes('🧵')) badges.push('🧵 Thread');
+            if (title.startsWith('”') || title.startsWith('\u201c')) badges.push({label: 'Quote', cls: 'tweet-badge-quote'});
+            else if (title.startsWith('RT @')) badges.push({label: 'Retweet', cls: 'tweet-badge-retweet'});
+            if (title.includes('\ud83e\uddf5')) badges.push({label: 'Thread', cls: 'tweet-badge-thread'});
             return badges;
         }
         function toggleTweetExpand(btn) {
@@ -1641,7 +1635,7 @@
             btn.textContent = expanded ? 'Show less' : 'Show more';
         }
         function checkTweetOverflow(container) {
-            container.querySelectorAll('.tweet-text').forEach(el => {
+            container.querySelectorAll('.tweet-card-body').forEach(el => {
                 const btn = el.nextElementSibling;
                 if (btn && btn.classList.contains('tweet-expand-btn')) {
                     btn.style.display = el.scrollHeight > el.clientHeight ? 'block' : 'none';
@@ -1868,28 +1862,27 @@
                 const link = escapeHtml(t.link);
 
                 const publisher = escapeHtml(t.publisher || t.source);
-                const avatarColor = getTweetAvatarColor(publisher);
-                const initial = publisher.charAt(0).toUpperCase();
                 const badges = getTweetBadges(t.title);
-                const badgeHtml = badges.map(b => `<span class="tweet-badge">${b}</span>`).join('');
+                const badgeHtml = badges.map(b => `<span class="tweet-badge ${b.cls}">${b.label}</span>`).join('');
                 html += `
-                    <div class="tweet-item" data-publisher="${publisher}" data-url="${link}">
-                        <div class="tweet-avatar" style="background:${avatarColor}">${initial}</div>
-                        <div class="tweet-content">
-                            <div class="tweet-header">
-                                <span class="tweet-publisher">${publisher}</span>
-                                ${t.date ? `<span class="tweet-time">${formatTwitterDate(t.date)}</span>` : ''}
+                    <div class="tweet-card" data-publisher="${publisher}" data-url="${link}">
+                        <div class="tweet-card-header">
+                            <div class="tweet-card-left">
+                                <span class="tweet-card-publisher">${publisher}</span>
+                                ${badgeHtml}
+                            </div>
+                            <div class="tweet-card-right">
+                                ${t.date ? `<span class="tweet-card-date">${formatTwitterDate(t.date)}</span>` : ''}
                                 <button class="bookmark-btn" data-url="${link}" data-title="${escapeForAttr(t.title)}" data-source="${source}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark tweet" title="Bookmark">
                                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                                 </button>
                             </div>
-                            <div class="tweet-text"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>
-                            <button class="tweet-expand-btn" onclick="toggleTweetExpand(this)">Show more</button>
-                            ${t.image ? `<div class="tweet-image"><img src="${escapeForAttr(t.image)}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ''}
-                            <div class="tweet-footer">
-                                ${badgeHtml}
-                                <a href="${link}" target="_blank" rel="noopener" class="tweet-open-link">Open on X &rarr;</a>
-                            </div>
+                        </div>
+                        <div class="tweet-card-body"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>
+                        <button class="tweet-expand-btn" onclick="toggleTweetExpand(this)">Show more</button>
+                        ${t.image ? `<div class="tweet-card-image"><img src="${escapeForAttr(t.image)}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ''}
+                        <div class="tweet-card-footer">
+                            <a href="${link}" target="_blank" rel="noopener">Open on X &rarr;</a>
                         </div>
                     </div>
                 `;

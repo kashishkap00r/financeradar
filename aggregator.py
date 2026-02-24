@@ -133,6 +133,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         "date": t["date"].isoformat() if t.get("date") else None,
         "source": t.get("source", ""),
         "publisher": t.get("publisher", ""),
+        "image": t.get("image", ""),
     } for t in twitter_articles])
     twitter_count = len(twitter_articles)
     twitter_publishers = sorted(set(t.get("publisher", t.get("source", "")) for t in twitter_articles if t.get("publisher") or t.get("source")))
