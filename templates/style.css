@@ -1634,6 +1634,45 @@
             color: #3b82f6;
         }
 
+        /* Research region badges */
+        .research-region-badge {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.4px;
+            flex-shrink: 0;
+        }
+        .research-region-badge.indian {
+            background: rgba(46,125,50,0.12);
+            color: #2e7d32;
+        }
+        [data-theme="dark"] .research-region-badge.indian {
+            background: rgba(76,175,130,0.15);
+            color: #4caf82;
+        }
+        .research-region-badge.international {
+            background: rgba(21,101,192,0.12);
+            color: #1565c0;
+        }
+        [data-theme="dark"] .research-region-badge.international {
+            background: rgba(59,130,246,0.15);
+            color: #5b9cf6;
+        }
+
+        /* Research card description */
+        .research-card-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
         /* Back to Top */
         .back-to-top {
             position: fixed;

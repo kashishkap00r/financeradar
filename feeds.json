@@ -836,7 +836,8 @@
     "name": "CareEdge — Auto",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:9",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
   },
   {
@@ -844,7 +845,8 @@
     "name": "CareEdge — Agri",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:10",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
   },
   {
@@ -852,7 +854,8 @@
     "name": "CareEdge — BFSI",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:11",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
   },
   {
@@ -860,7 +863,8 @@
     "name": "CareEdge — Building",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:12",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
   },
   {
@@ -868,7 +872,8 @@
     "name": "CareEdge — Capital Goods",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:13",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
   },
   {
@@ -876,7 +881,8 @@
     "name": "CareEdge — Infrastructure",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:14",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
   },
   {
@@ -884,7 +890,8 @@
     "name": "CareEdge — Manufacturing",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:15",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
   },
   {
@@ -892,7 +899,8 @@
     "name": "CareEdge — Metals",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:16",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
   },
   {
@@ -900,7 +908,8 @@
     "name": "CareEdge — Services",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:17",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
   },
   {
@@ -908,7 +917,8 @@
     "name": "CareEdge — Special Studies",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:18",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
   },
   {
@@ -916,8 +926,117 @@
     "name": "CareEdge — Morning Brief",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:23",
-    "category": "News",
+    "category": "Reports",
+    "region": "Indian",
     "publisher": "CareEdge"
+  },
+  {
+    "id": "crisil-research",
+    "name": "CRISIL — Research",
+    "url": "https://www.crisil.com/content/crisilcom/en/home/what-we-think/all-our-thinking.html",
+    "feed": "crisil:views",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "CRISIL"
+  },
+  {
+    "id": "baroda-etrade-str",
+    "name": "Baroda eTrade — STR",
+    "url": "https://www.barodaetrade.com/research-Details/STR",
+    "feed": "baroda:str",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Baroda eTrade"
+  },
+  {
+    "id": "baroda-etrade-sor",
+    "name": "Baroda eTrade — SOR",
+    "url": "https://www.barodaetrade.com/research-Details/SOR",
+    "feed": "baroda:sor",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Baroda eTrade"
+  },
+  {
+    "id": "sbi-research",
+    "name": "SBI — Research Desk",
+    "url": "https://sbi.bank.in/web/sbi-in-the-news/research-desk",
+    "feed": "sbi:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "SBI"
+  },
+  {
+    "id": "ficci-economic-wrap",
+    "name": "FICCI — Economic Wrap",
+    "url": "https://ficci.in/daily-economic-news-wrap",
+    "feed": "ficci:wrap",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "FICCI"
+  },
+  {
+    "id": "icici-bank-research",
+    "name": "ICICI Bank — Research",
+    "url": "https://www.icici.bank.in/corporate/globaltradeservice/research-reports",
+    "feed": "icici:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "ICICI Bank"
+  },
+  {
+    "id": "hdfc-securities-research",
+    "name": "HDFC Securities — Research",
+    "url": "https://www.hdfcsec.com/research/equity/stock-research-institutional-reports",
+    "feed": "hdfcsec:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "HDFC Securities"
+  },
+  {
+    "id": "axis-direct-research",
+    "name": "Axis Direct — Research",
+    "url": "https://simplehai.axisdirect.in/research/reports/fundamental",
+    "feed": "axis:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Axis Direct"
+  },
+  {
+    "id": "ing-think-rss",
+    "name": "ING THINK",
+    "url": "https://think.ing.com/",
+    "feed": "https://think.ing.com/rss/",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "ING"
+  },
+  {
+    "id": "goldman-sachs-reports",
+    "name": "Goldman Sachs — Insights",
+    "url": "https://www.goldmansachs.com/insights",
+    "feed": "gs:insights",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "Goldman Sachs"
+  },
+  {
+    "id": "creditsights-research",
+    "name": "CreditSights — Research",
+    "url": "https://know.creditsights.com/blog-research/",
+    "feed": "creditsights:blog",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "CreditSights"
+  },
+  {
+    "id": "jpmorgan-research",
+    "name": "JPMorgan — Research",
+    "url": "https://www.jpmorgan.com/insights/research/reports",
+    "feed": "jpmorgan:research",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "JPMorgan"
   },
   {
     "id": "yt-upstox-markets-today",

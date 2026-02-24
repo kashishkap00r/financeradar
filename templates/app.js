@@ -37,6 +37,8 @@
             if (ydd && ydd.classList.contains('open')) closeYoutubeDropdown();
             var rgdd = document.getElementById('tg-channel-dropdown');
             if (rgdd && rgdd.classList.contains('open')) closeTgDropdown();
+            var rsdd = document.getElementById('research-publisher-dropdown');
+            if (rsdd && rsdd.classList.contains('open')) closeResearchDropdown();
             var isCollapsed = document.documentElement.classList.toggle('filters-collapsed');
             safeStorage.set('financeradar_filters_collapsed', isCollapsed ? 'true' : 'false');
         }
@@ -187,6 +189,8 @@
             const tab = getActiveTab();
             if (tab === 'reports') {
                 filterReports();
+            } else if (tab === 'research') {
+                filterResearch();
             } else if (tab === 'youtube') {
                 filterYoutube();
             } else if (tab === 'twitter') {
@@ -253,6 +257,10 @@
             if (rgdd && rgdd.classList.contains('open') && !rgdd.contains(e.target)) {
                 closeTgDropdown();
             }
+            const rsdd = document.getElementById('research-publisher-dropdown');
+            if (rsdd && rsdd.classList.contains('open') && !rsdd.contains(e.target)) {
+                closeResearchDropdown();
+            }
         });
 
         // Close dropdown on Escape
@@ -279,6 +287,12 @@
                 const rgdd = document.getElementById('tg-channel-dropdown');
                 if (rgdd && rgdd.classList.contains('open')) {
                     closeTgDropdown();
+                    e.stopImmediatePropagation();
+                    return;
+                }
+                const rsdd = document.getElementById('research-publisher-dropdown');
+                if (rsdd && rsdd.classList.contains('open')) {
+                    closeResearchDropdown();
                     e.stopImmediatePropagation();
                     return;
                 }
@@ -464,8 +478,10 @@
             } else if (e.key === '2') {
                 switchTab('reports');
             } else if (e.key === '3') {
-                switchTab('youtube');
+                switchTab('research');
             } else if (e.key === '4') {
+                switchTab('youtube');
+            } else if (e.key === '5') {
                 switchTab('twitter');
             }
         });
@@ -939,6 +955,14 @@
         let reportsPage = 1;
         const REPORTS_PAGE_SIZE = 20;
 
+        // ==================== RESEARCH TAB (vars) ====================
+        let researchRendered = false;
+        let filteredResearch = [];
+        let researchPage = 1;
+        const RESEARCH_PAGE_SIZE = 20;
+        let selectedResearchPublishers = new Set();
+        let researchRegionFilter = 'all'; // 'all' | 'indian' | 'international'
+
         // ==================== YOUTUBE TAB (vars) ====================
         let youtubeRendered = false;
         let filteredYoutube = [];
@@ -967,13 +991,19 @@
                 el.classList.toggle('active', el.id === 'tab-' + tab);
             });
             const searchEl = document.getElementById('search');
-            searchEl.placeholder = tab === 'reports' ? 'Search Telegram...' : tab === 'youtube' ? 'Search YouTube...' : tab === 'twitter' ? 'Search tweets...' : 'Search articles...';
+            searchEl.placeholder = tab === 'reports' ? 'Search Telegram...' : tab === 'research' ? 'Search reports...' : tab === 'youtube' ? 'Search YouTube...' : tab === 'twitter' ? 'Search tweets...' : 'Search articles...';
             if (tab === 'reports') {
                 if (!reportsRendered) {
                     renderMainReports();
                     reportsRendered = true;
                 }
                 filterReports();
+            } else if (tab === 'research') {
+                if (!researchRendered) {
+                    renderMainResearch();
+                    researchRendered = true;
+                }
+                filterResearch();
             } else if (tab === 'youtube') {
                 if (!youtubeRendered) {
                     renderMainYoutube();
@@ -1366,6 +1396,272 @@
             saveBookmarks(bookmarks);
             updateBookmarkCount();
             renderSidebarContent();
+        }
+
+        // ==================== RESEARCH TAB (functions) ====================
+        function renderMainResearch() {
+            initResearchPublisherDropdown();
+            filteredResearch = [...RESEARCH_REPORTS];
+            researchPage = 1;
+            applyResearchPagination();
+        }
+
+        function filterResearch() {
+            const query = document.getElementById('search').value.toLowerCase().trim();
+            filteredResearch = RESEARCH_REPORTS.filter(r => {
+                const matchesSearch = !query || (r.title + ' ' + r.source + ' ' + (r.publisher || '') + ' ' + (r.description || '')).toLowerCase().includes(query);
+                const pub = r.publisher || r.source;
+                const matchesPublisher = selectedResearchPublishers.size === 0 || selectedResearchPublishers.has(pub);
+                const region = (r.region || 'Indian').toLowerCase();
+                const matchesRegion = researchRegionFilter === 'all' || region === researchRegionFilter;
+                return matchesSearch && matchesPublisher && matchesRegion;
+            });
+            researchPage = 1;
+            applyResearchPagination();
+        }
+
+        function setResearchRegion(mode) {
+            researchRegionFilter = mode;
+            document.getElementById('research-region-all').classList.toggle('active', mode === 'all');
+            document.getElementById('research-region-indian').classList.toggle('active', mode === 'indian');
+            document.getElementById('research-region-international').classList.toggle('active', mode === 'international');
+            filterResearch();
+        }
+
+        function formatResearchDate(isoStr) {
+            if (!isoStr) return '';
+            const date = new Date(isoStr);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMin = Math.floor(diffMs / 60000);
+            const diffHr = Math.floor(diffMs / 3600000);
+            const diffDay = Math.floor(diffMs / 86400000);
+            if (diffMin < 1) return 'Just now';
+            if (diffMin < 60) return diffMin + 'm ago';
+            if (diffHr < 24) return diffHr + 'h ago';
+            if (diffDay === 1) return 'Yesterday';
+            if (diffDay < 7) return diffDay + 'd ago';
+            return date.toLocaleDateString();
+        }
+
+        function formatResearchDateHeader(isoStr) {
+            if (!isoStr) return 'Unknown Date';
+            const date = new Date(isoStr);
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const rDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+            const diffDays = Math.floor((today - rDay) / 86400000);
+            if (diffDays === 0) return 'Today';
+            if (diffDays === 1) return 'Yesterday';
+            return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+        }
+
+        function applyResearchPagination() {
+            const totalPages = Math.max(1, Math.ceil(filteredResearch.length / RESEARCH_PAGE_SIZE));
+            if (researchPage > totalPages) researchPage = totalPages;
+
+            document.getElementById('research-visible-count').textContent = filteredResearch.length;
+
+            const start = (researchPage - 1) * RESEARCH_PAGE_SIZE;
+            const end = start + RESEARCH_PAGE_SIZE;
+            const pageReports = filteredResearch.slice(start, end);
+
+            const container = document.getElementById('research-container');
+            if (pageReports.length === 0) {
+                container.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">No reports found.</div>';
+                renderResearchPagination(totalPages);
+                return;
+            }
+
+            let html = '';
+            let currentDateHeader = '';
+
+            pageReports.forEach(r => {
+                const dateHeader = formatResearchDateHeader(r.date);
+                if (dateHeader !== currentDateHeader) {
+                    currentDateHeader = dateHeader;
+                    html += `<h2 class="date-header">${dateHeader}</h2>`;
+                }
+
+                const title = escapeHtml(r.title);
+                const publisher = escapeHtml(r.publisher || r.source);
+                const link = escapeHtml(r.link);
+                const description = escapeHtml(r.description || '');
+                const region = (r.region || 'Indian').toLowerCase();
+                const regionLabel = region === 'international' ? 'Intl' : 'Indian';
+                const regionCls = region === 'international' ? 'international' : 'indian';
+
+                html += `
+                    <div class="report-card" data-publisher="${publisher}" data-url="${link}" data-region="${region}">
+                        <div class="report-card-header">
+                            <div class="report-card-left">
+                                <span class="report-channel">${publisher}</span>
+                                <span class="research-region-badge ${regionCls}">${regionLabel}</span>
+                            </div>
+                            <div class="report-card-right">
+                                ${r.date ? `<span class="report-card-date">${formatResearchDate(r.date)}</span>` : ''}
+                                <button class="bookmark-btn" data-url="${link}" data-title="${escapeForAttr(r.title)}" data-source="${publisher}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark report" title="Bookmark">
+                                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="report-text"><a href="${link}" target="_blank" rel="noopener" style="color:var(--text-primary);text-decoration:none;">${title}</a></div>
+                        ${description ? `<div class="research-card-description">${description}</div>` : ''}
+                        <div class="report-meta">
+                            <span></span>
+                            <a href="${link}" target="_blank" rel="noopener">Open report &rarr;</a>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            syncBookmarkState();
+            renderResearchPagination(totalPages);
+        }
+
+        function renderResearchPagination(totalPages) {
+            const bottom = document.getElementById('research-pagination-bottom');
+            if (!bottom || totalPages <= 1) {
+                if (bottom) bottom.innerHTML = '';
+                return;
+            }
+
+            const build = (container) => {
+                container.innerHTML = '';
+                const makeBtn = (text, page, isActive, isDisabled) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'page-btn' + (isActive ? ' active' : '');
+                    btn.textContent = text;
+                    btn.disabled = isDisabled;
+                    if (!isDisabled && !isActive) btn.onclick = () => { researchPage = page; applyResearchPagination(); window.scrollTo({top: 0, behavior: 'smooth'}); };
+                    return btn;
+                };
+
+                const prevBtn = makeBtn('← Prev', researchPage - 1, false, researchPage === 1);
+                prevBtn.classList.add('nav', 'prev');
+                container.appendChild(prevBtn);
+
+                const nums = document.createElement('span');
+                nums.className = 'page-numbers';
+                const addPage = (p) => nums.appendChild(makeBtn(String(p), p, p === researchPage, false));
+                const addEllipsis = () => { const s = document.createElement('span'); s.className = 'page-ellipsis'; s.textContent = '…'; nums.appendChild(s); };
+
+                if (totalPages <= 7) {
+                    for (let i = 1; i <= totalPages; i++) addPage(i);
+                } else {
+                    addPage(1);
+                    if (researchPage > 3) addEllipsis();
+                    for (let i = Math.max(2, researchPage - 1); i <= Math.min(totalPages - 1, researchPage + 1); i++) addPage(i);
+                    if (researchPage < totalPages - 2) addEllipsis();
+                    addPage(totalPages);
+                }
+                container.appendChild(nums);
+
+                const nextBtn = makeBtn('Next →', researchPage + 1, false, researchPage === totalPages);
+                nextBtn.classList.add('nav', 'next');
+                container.appendChild(nextBtn);
+            };
+
+            build(bottom);
+        }
+
+        // Research publisher dropdown
+        function initResearchPublisherDropdown() {
+            const list = document.getElementById('research-dropdown-list');
+            if (!list) return;
+            list.innerHTML = '';
+            RESEARCH_PUBLISHERS.forEach(pub => {
+                const item = document.createElement('div');
+                item.className = 'dropdown-item';
+                item.dataset.publisher = pub;
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.id = 'research-pub-' + pub.replace(/\s+/g, '-');
+                cb.dataset.publisher = pub;
+                cb.addEventListener('change', () => onResearchPublisherChange(pub, cb.checked));
+                const lbl = document.createElement('label');
+                lbl.htmlFor = cb.id;
+                lbl.textContent = pub;
+                item.appendChild(cb);
+                item.appendChild(lbl);
+                item.addEventListener('click', (e) => {
+                    if (e.target !== cb) {
+                        cb.checked = !cb.checked;
+                        onResearchPublisherChange(pub, cb.checked);
+                    }
+                });
+                list.appendChild(item);
+            });
+        }
+
+        function onResearchPublisherChange(pub, checked) {
+            if (checked) {
+                selectedResearchPublishers.add(pub);
+            } else {
+                selectedResearchPublishers.delete(pub);
+            }
+            syncResearchPublisherSummary();
+            filterResearch();
+        }
+
+        function syncResearchPublisherSummary() {
+            const trigger = document.getElementById('research-publisher-trigger');
+            const summary = document.getElementById('research-publisher-summary');
+            if (!trigger || !summary) return;
+            if (selectedResearchPublishers.size === 0) {
+                summary.textContent = 'All publishers';
+                trigger.classList.remove('has-selection');
+            } else if (selectedResearchPublishers.size === 1) {
+                summary.textContent = [...selectedResearchPublishers][0];
+                trigger.classList.add('has-selection');
+            } else {
+                summary.textContent = selectedResearchPublishers.size + ' of ' + RESEARCH_PUBLISHERS.length + ' publishers';
+                trigger.classList.add('has-selection');
+            }
+        }
+
+        function toggleResearchDropdown() {
+            const dd = document.getElementById('research-publisher-dropdown');
+            dd.classList.toggle('open');
+            if (dd.classList.contains('open')) {
+                document.getElementById('research-dropdown-search').focus();
+            }
+        }
+
+        function closeResearchDropdown() {
+            const dd = document.getElementById('research-publisher-dropdown');
+            if (dd) dd.classList.remove('open');
+            const search = document.getElementById('research-dropdown-search');
+            if (search) { search.value = ''; filterResearchPublisherList(); }
+        }
+
+        function filterResearchPublisherList() {
+            const query = document.getElementById('research-dropdown-search').value.toLowerCase();
+            document.querySelectorAll('#research-dropdown-list .dropdown-item').forEach(item => {
+                const pub = item.dataset.publisher.toLowerCase();
+                item.classList.toggle('hidden', query && !pub.includes(query));
+            });
+        }
+
+        function syncResearchCheckboxes() {
+            document.querySelectorAll('#research-dropdown-list input[type="checkbox"]').forEach(cb => {
+                cb.checked = selectedResearchPublishers.has(cb.dataset.publisher);
+            });
+        }
+
+        function selectAllResearchPublishers() {
+            selectedResearchPublishers.clear();
+            syncResearchCheckboxes();
+            syncResearchPublisherSummary();
+            filterResearch();
+        }
+
+        function clearAllResearchPublishers() {
+            RESEARCH_PUBLISHERS.forEach(pub => selectedResearchPublishers.add(pub));
+            syncResearchCheckboxes();
+            syncResearchPublisherSummary();
+            filterResearch();
         }
 
         // ==================== YOUTUBE TAB (functions) ====================

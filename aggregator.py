@@ -26,8 +26,11 @@ from articles import (group_similar_articles, clean_html, get_sort_timestamp,
 # Feed loading and fetching
 from feeds import load_feeds, fetch_feed, fetch_careratings, INVIDIOUS_INSTANCES
 
+# Report scrapers
+from reports_fetcher import get_report_fetcher
 
-def generate_html(article_groups, video_articles=None, twitter_articles=None):
+
+def generate_html(article_groups, video_articles=None, twitter_articles=None, report_articles=None):
     """Generate the static HTML website."""
 
     # Sort groups by date of primary article (newest first)
@@ -73,7 +76,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
 
     # Publisher presets
     publisher_presets = {
-        "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express", "CareEdge"],
+        "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express"],
         "World Desk": ["BBC", "CNBC", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World", "Techmeme"],
         "Indie Voices": ["Finshots", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data", "Noah Smith", "Ideas For India", "The India Forum", "Neel Chhabra"],
         "Official Channels": ["RBI", "SEBI", "ECB", "ADB", "FRED"]
@@ -138,6 +141,22 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
     twitter_count = len(twitter_articles)
     twitter_publishers = sorted(set(t.get("publisher", t.get("source", "")) for t in twitter_articles if t.get("publisher") or t.get("source")))
     twitter_publishers_json = json.dumps(twitter_publishers)
+
+    # Prepare research reports data
+    if report_articles is None:
+        report_articles = []
+    research_reports_json = json.dumps([{
+        "title": r["title"],
+        "link": r["link"],
+        "date": r["date"].isoformat() if r.get("date") else None,
+        "source": r.get("source", ""),
+        "publisher": r.get("publisher", ""),
+        "description": r.get("description", ""),
+        "region": r.get("region", "Indian"),
+    } for r in report_articles])
+    research_count = len(report_articles)
+    research_publishers = sorted(set(r.get("publisher", "") for r in report_articles if r.get("publisher")))
+    research_publishers_json = json.dumps(research_publishers)
 
     # Count in-focus articles (covered by multiple sources)
     in_focus_count = sum(1 for g in sorted_groups if g["related_sources"])
@@ -312,6 +331,9 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             <button class="content-tab" data-tab="reports" onclick="switchTab('reports')">
                 Telegram <span class="tab-count">{report_count}</span>
             </button>
+            <button class="content-tab" data-tab="research" onclick="switchTab('research')">
+                Reports <span class="tab-count">{research_count}</span>
+            </button>
             <button class="content-tab" data-tab="youtube" onclick="switchTab('youtube')">
                 YouTube <span class="tab-count">{video_count}</span>
             </button>
@@ -482,6 +504,49 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
             <div id="reports-pagination-bottom" class="pagination bottom"></div>
         </div><!-- /tab-reports -->
 
+        <div id="tab-research" class="tab-content">
+            <div class="filter-card">
+                <div class="tg-filter-top">
+                    <div class="tg-view-toggle">
+                        <button class="tg-view-btn active" id="research-region-all" onclick="setResearchRegion('all')">All</button>
+                        <button class="tg-view-btn" id="research-region-indian" onclick="setResearchRegion('indian')">Indian</button>
+                        <button class="tg-view-btn" id="research-region-international" onclick="setResearchRegion('international')">International</button>
+                    </div>
+                    <div class="tg-filter-meta">
+                        <strong id="research-visible-count">{research_count}</strong>
+                        <span>&middot;</span>
+                        <span class="update-time" id="research-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
+                        <script>
+                        (function(){{
+                            var el=document.getElementById('research-update-time'),t=el&&el.getAttribute('data-time');
+                            if(!t)return;
+                            var d=Math.floor((new Date()-new Date(t))/60000);
+                            el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
+                        }})();
+                        </script>
+                    </div>
+                </div>
+                <div class="tg-filter-bottom">
+                    <div class="publisher-dropdown" id="research-publisher-dropdown">
+                        <button class="publisher-dropdown-trigger" id="research-publisher-trigger" onclick="toggleResearchDropdown()">
+                            <span id="research-publisher-summary">All publishers</span>
+                            <span class="dropdown-arrow">&#9660;</span>
+                        </button>
+                        <div class="publisher-dropdown-panel" id="research-publisher-panel">
+                            <input type="text" class="dropdown-search" id="research-dropdown-search" placeholder="Search publishers..." oninput="filterResearchPublisherList()">
+                            <div class="dropdown-actions">
+                                <button class="dropdown-action" onclick="selectAllResearchPublishers()">Select All</button>
+                                <button class="dropdown-action" onclick="clearAllResearchPublishers()">Clear All</button>
+                            </div>
+                            <div class="dropdown-list" id="research-dropdown-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="research-container"></div>
+            <div id="research-pagination-bottom" class="pagination bottom"></div>
+        </div><!-- /tab-research -->
+
         <div id="tab-youtube" class="tab-content">
             <div class="filter-card">
                 <div class="stats-bar">
@@ -577,7 +642,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
     <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
     <div class="keyboard-hint">
-        <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
+        <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
     </div>
 
     <script>
@@ -593,6 +658,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None):
         const TWITTER_ARTICLES = {twitter_articles_json};
         const TWITTER_PUBLISHERS = {twitter_publishers_json};
         const TWITTER_PRESETS = {twitter_presets_json};
+        const RESEARCH_REPORTS = {research_reports_json};
+        const RESEARCH_PUBLISHERS = {research_publishers_json};
 """
     # Read JS from external file
     js_path = os.path.join(SCRIPT_DIR, "templates", "app.js")
@@ -636,10 +703,15 @@ def main():
     with ThreadPoolExecutor(max_workers=10) as executor:
         futures = {}
         for feed in feeds:
-            if feed.get("feed", "").startswith("careratings:"):
+            feed_field = feed.get("feed", "")
+            if feed_field.startswith("careratings:"):
                 futures[executor.submit(fetch_careratings, feed)] = feed
             else:
-                futures[executor.submit(fetch_feed, feed)] = feed
+                report_fetcher = get_report_fetcher(feed_field)
+                if report_fetcher:
+                    futures[executor.submit(report_fetcher, feed)] = feed
+                else:
+                    futures[executor.submit(fetch_feed, feed)] = feed
 
         for future in as_completed(futures):
             try:
@@ -675,15 +747,47 @@ def main():
             except Exception:
                 continue
 
-    # Separate video and twitter articles from regular articles
+    # Separate video, twitter, and report articles from regular articles
     video_articles = [a for a in all_articles if a.get("category") == "Videos"]
     twitter_articles = [a for a in all_articles if a.get("category") == "Twitter"]
-    regular_articles = [a for a in all_articles if a.get("category") not in ("Videos", "Twitter")]
-    print(f"Videos: {len(video_articles)}, Twitter: {len(twitter_articles)}, Regular: {len(regular_articles)}")
+    report_articles = [a for a in all_articles if a.get("category") == "Reports"]
+    regular_articles = [a for a in all_articles if a.get("category") not in ("Videos", "Twitter", "Reports")]
+    print(f"Videos: {len(video_articles)}, Twitter: {len(twitter_articles)}, Reports: {len(report_articles)}, Regular: {len(regular_articles)}")
 
-    # Sort videos and twitter by date (newest first), no filtering/grouping needed
+    # Sort videos, twitter, and reports by date (newest first), no filtering/grouping needed
     video_articles.sort(key=get_sort_timestamp, reverse=True)
     twitter_articles.sort(key=get_sort_timestamp, reverse=True)
+
+    # Deduplicate report articles by URL
+    seen_report_urls = set()
+    unique_reports = []
+    for r in report_articles:
+        url = (r.get("link") or "").lower().strip().rstrip("/")
+        if url and url not in seen_report_urls:
+            seen_report_urls.add(url)
+            unique_reports.append(r)
+    report_articles = unique_reports
+
+    # Filter out reports older than 30 days (keep undated ones)
+    report_cutoff = datetime.now(timezone.utc) - timedelta(days=30)
+    fresh_reports = []
+    stale_count = 0
+    for r in report_articles:
+        rd = r.get("date")
+        if rd is None:
+            fresh_reports.append(r)
+        else:
+            if rd.tzinfo is None:
+                rd = rd.replace(tzinfo=timezone.utc)
+            if rd >= report_cutoff:
+                fresh_reports.append(r)
+            else:
+                stale_count += 1
+    report_articles = fresh_reports
+    if stale_count:
+        print(f"Reports: removed {stale_count} stale (>30 days)")
+
+    report_articles.sort(key=get_sort_timestamp, reverse=True)
 
     # YouTube cache: persist last successful fetch so CI failures don't wipe the tab
     YOUTUBE_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "youtube_cache.json")
@@ -810,7 +914,7 @@ def main():
     grouped_count = len(filtered_articles) - len(article_groups)
     print(f"After grouping similar headlines: {len(article_groups)} groups ({grouped_count} articles merged)")
 
-    generate_html(article_groups, video_articles, twitter_articles)
+    generate_html(article_groups, video_articles, twitter_articles, report_articles)
     export_articles_json(article_groups)
 
     print("\nDone!")

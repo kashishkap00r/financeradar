@@ -21,7 +21,7 @@ python3 -c "from filters import should_filter_article; print(should_filter_artic
 - **Never hand-edit** `index.html`, `static/articles.json`, `static/telegram_reports.json`, `static/youtube_cache.json`, `static/ai_rankings.json`, `static/wsw_clusters.json` — all are generated.
 - The frontend is split across multiple files: CSS in `templates/style.css` (normal braces), JS in `templates/app.js` (normal braces), HTML structure in `generate_html()` in `aggregator.py` (f-string with `{{`/`}}` for literal braces). Run `python3 aggregator.py` to regenerate.
 - `templates/style.css` and `templates/app.js` are source files (not generated). Edits should be tested via `python3 aggregator.py`.
-- Backend is modular: `articles.py` (similarity, grouping, text utils, export), `feeds.py` (feed loading, fetching, date parsing), `filters.py` (content filters).
+- Backend is modular: `articles.py` (similarity, grouping, text utils, export), `feeds.py` (feed loading, fetching, date parsing), `filters.py` (content filters), `reports_fetcher.py` (custom scrapers for report sources).
 - Content filters live in `filters.py` — add patterns there, no other changes needed.
 - All JS `const` declarations in `templates/app.js` are subject to the temporal dead zone. Place `const`/`let` declarations **before** any code path that calls functions referencing them. `function` declarations are safe anywhere (hoisted).
 - JS data constants (ALL_PUBLISHERS, TELEGRAM_REPORTS, etc.) are injected via f-string in `aggregator.py` before `templates/app.js` content is appended.
@@ -108,9 +108,26 @@ Filter logic in `filterReports()` applies in order: search query → `reportHasC
 
 Posts with no `text` and no `documents` (image-only messages) are filtered out by `reportHasContent()` in `filterReports()`.
 
+### Reports Tab (Institutional Research)
+
+Five tabs: News, Telegram, **Reports**, YouTube, Twitter. Keyboard shortcuts: `1`–`5`.
+
+The Reports tab aggregates institutional research from Indian and international sources. `feeds.json` entries use `"category": "Reports"` and `"region": "Indian"|"International"`.
+
+**Sources:**
+- CareEdge (11 feeds via `careratings:` prefix, existing `fetch_careratings()` in `feeds.py`)
+- Custom scrapers in `reports_fetcher.py` (CRISIL, Baroda eTrade, SBI, FICCI, ICICI, HDFC Sec, Axis Direct, ING Research, Goldman Sachs, UBS, CreditSights, JPMorgan) via `prefix:` feed patterns
+- ING THINK via standard RSS
+
+**Filter bar:** Region toggle `[All] [Indian] [International]` + publisher dropdown.
+
+JS state: `researchRegionFilter` (`'all'`/`'indian'`/`'international'`), `selectedResearchPublishers` (Set), `filteredResearch` (array), `researchPage` (int).
+
+Data injected as `RESEARCH_REPORTS` and `RESEARCH_PUBLISHERS` constants in the HTML.
+
 ## Key Patterns
 
-- **Dropdown component:** All four tabs (News, Telegram, YouTube, Twitter) use the same `publisher-dropdown` / `publisher-dropdown-trigger` / `publisher-dropdown-panel` HTML pattern with shared CSS. Adding a new tab's publisher filter should reuse this component. Close logic must be added to three places: click-outside handler, Escape keydown handler, and `toggleFilterCollapse()`.
+- **Dropdown component:** All five tabs (News, Telegram, Reports, YouTube, Twitter) use the same `publisher-dropdown` / `publisher-dropdown-trigger` / `publisher-dropdown-panel` HTML pattern with shared CSS. Adding a new tab's publisher filter should reuse this component. Close logic must be added to three places: click-outside handler, Escape keydown handler, and `toggleFilterCollapse()`.
 - **Tab filter card structure:** Every tab wraps its filters in `.filter-card` → `.stats-bar` (count + timestamp) → `.filter-row` (controls).
 - **`safeStorage`:** All `localStorage` reads/writes use this try/catch wrapper. Don't call `localStorage` directly.
 - **`escapeHtml` / `escapeForAttr`:** Always use these when inserting user-sourced data into innerHTML templates.
