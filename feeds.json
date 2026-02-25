@@ -948,6 +948,15 @@
     "publisher": "CRISIL"
   },
   {
+    "id": "crisil-research",
+    "name": "CRISIL — Research",
+    "url": "https://www.crisil.com/content/crisilcom/en/home/what-we-think/all-our-thinking.html",
+    "feed": "crisil:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "CRISIL"
+  },
+  {
     "id": "baroda-etrade-str",
     "name": "Baroda eTrade — STR",
     "url": "https://www.barodaetrade.com/research-Details/STR",

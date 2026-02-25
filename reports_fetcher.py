@@ -170,6 +170,55 @@ def fetch_crisil_ratings(feed_config):
     return articles
 
 
+# ── CRISIL Research (All Our Thinking) ────────────────────────────────
+
+def fetch_crisil_research(feed_config):
+    """Fetch research articles from CRISIL 'All Our Thinking' page.
+
+    crisil.com (AEM CMS) — different site from crisilratings.com press releases.
+    Cards use crisil-card-data containers with date, title, description, and link.
+    """
+    articles = []
+    try:
+        content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
+
+        # Split on card-data containers to isolate individual cards
+        cards = re.split(r'class="crisil-card-data"', content)
+
+        for card in cards[1:]:  # skip preamble before first card
+            if len(articles) >= _MAX_PER_SCRAPER:
+                break
+
+            # Date: <span class="card-publish-date">Feb 24, 2026</span>
+            date_m = re.search(r'card-publish-date">\s*(.*?)\s*</span>', card, re.DOTALL)
+            dt = _parse_date_flexible(date_m.group(1)) if date_m else None
+            if not _is_fresh(dt):
+                continue
+
+            # Title: <h2 class="card-title">...</h2>
+            title_m = re.search(r'card-title">\s*(.*?)\s*</h2>', card, re.DOTALL)
+            title = _strip_html(title_m.group(1)).strip() if title_m else ""
+            if not title or len(title) < 10:
+                continue
+
+            # Link: <a href="/content/..." class="card-redirection-link ...">
+            link_m = re.search(r'<a[^>]+href="([^"]+)"[^>]*class="[^"]*card-redirection-link', card)
+            if not link_m:
+                continue
+            link = "https://www.crisil.com" + link_m.group(1)
+
+            # Description: <p class="card-description">...</p>
+            desc_m = re.search(r'card-description">\s*(.*?)\s*</p>', card, re.DOTALL)
+            desc = _strip_html(desc_m.group(1)).strip() if desc_m else ""
+
+            articles.append(_make_article(title, link, dt, desc, feed_config))
+
+        print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
+    except Exception as e:
+        print(f"  [FAIL] {feed_config['name']}: {str(e)[:50]}")
+    return articles
+
+
 # ── Baroda eTrade ─────────────────────────────────────────────────────
 
 def fetch_baroda_etrade(feed_config):
@@ -709,6 +758,7 @@ def fetch_jpmorgan(feed_config):
 # Maps feed prefix → fetcher function
 REPORT_FETCHERS = {
     "crisilratings:": fetch_crisil_ratings,
+    "crisil:": fetch_crisil_research,
     "baroda:": fetch_baroda_etrade,
     "sbi:": fetch_sbi_research,
     "ficci:": fetch_ficci,
