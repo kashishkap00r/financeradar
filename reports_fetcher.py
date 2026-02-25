@@ -632,7 +632,9 @@ def fetch_goldman_sachs(feed_config):
                 continue
 
             desc = item.get("description", "")
-            topic = cms.get("primaryTopic", "")
+            # primaryTopic is a list of objects like contentType
+            topic_list = cms.get("primaryTopic") or []
+            topic = topic_list[0].get("title", "") if isinstance(topic_list, list) and topic_list else ""
             if topic and desc:
                 desc = f"[{topic}] {desc}"
 
