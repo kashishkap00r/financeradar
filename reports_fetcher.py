@@ -742,78 +742,217 @@ def fetch_ubs(feed_config):
     Uses curl because Akamai WAF requires sec-fetch-* browser headers
     that urllib doesn't send, resulting in 403.
     """
-    _UBS_API = "https://www.ubs.com/bin/ubs/caas/v2/searchContentAbstracts"
-    _UBS_API_KEY = "lNrNbJjmsIZtVSia4DRZubdYTzGwJKVmDy5bOBNE8uLDCSBPXDlaSGa1Qq9Bbn7bza0OgXfHwDGSyQQ1AVGnJNxSSvwX5ikSnPneGUMt0DoOkvYtx0wwD4wkChn1VcIF9AIegkooTlCrvmHpEXuWgYRnvSgYkRBiQwlUWsE0cdOJ5gQXbtc6gduaN3S8TmzAM5GIiDeCG6TqN6aKPpEf18vBf8VVvfgtMA98UlWnRJVmJx1eGrqEPZkYIpO79WJN"
-    # Two API calls: IB insights + AM insights
-    queries = [
-        {
-            "pageSize": 30, "pageNumber": 1, "language": "en",
-            "siteContext": "/content/sites/global/investment-bank",
-            "currentPagePath": "/content/sites/global/en/investment-bank/insights-and-data/latest-insights",
-            "contentTypes": ["ARTICLE", "CONTENT"], "mediaTypes": ["none"],
-            "sortingRule": "DATE",
+    _UBS_IB_API_KEY = "lNrNbJjmsIZtVSia4DRZubdYTzGwJKVmDy5bOBNE8uLDCSBPXDlaSGa1Qq9Bbn7bza0OgXfHwDGSyQQ1AVGnJNxSSvwX5ikSnPneGUMt0DoOkvYtx0wwD4wkChn1VcIF9AIegkooTlCrvmHpEXuWgYRnvSgYkRBiQwlUWsE0cdOJ5gQXbtc6gduaN3S8TmzAM5GIiDeCG6TqN6aKPpEf18vBf8VVvfgtMA98UlWnRJVmJx1eGrqEPZkYIpO79WJN"
+    _UBS_AM_PAGE = "https://www.ubs.com/global/en/assetmanagement/insights.html"
+    _UBS_DEFAULT_API = "https://www.ubs.com/bin/ubs/caas/v2/searchContentAbstracts"
+    _UBS_DEFAULT_HEADERS = [
+        "-H", "Content-Type: application/json",
+        "-H", "Accept: application/json, text/plain, */*",
+        "-H", "Origin: https://www.ubs.com",
+        "-H", "sec-fetch-dest: empty",
+        "-H", "sec-fetch-mode: cors",
+        "-H", "sec-fetch-site: same-origin",
+        "-H", f"User-Agent: {UA}",
+    ]
+
+    def _curl_ubs(endpoint, api_key, referer, payload):
+        cmd = [
+            "curl", "-sL", "--compressed",
+            "-X", "POST", endpoint,
+            *_UBS_DEFAULT_HEADERS,
+            "-H", "x-app-id: ActivityStream",
+            "-H", f"x-api-key: {api_key}",
+            "-H", f"Referer: {referer}",
+            "-d", json.dumps(payload),
+        ]
+        result = subprocess.run(cmd, capture_output=True, timeout=25)
+        if result.returncode != 0 or not result.stdout:
+            return {}
+        try:
+            return json.loads(result.stdout.decode("utf-8", errors="replace"))
+        except json.JSONDecodeError:
+            return {}
+
+    def _load_am_role_visibilities():
+        """Fetch AM role visibility values used by UBS context disclaimer."""
+        try:
+            investor_type_url = _UBS_AM_PAGE.replace(".html", ".investortype.xjson")
+            investor_raw = _fetch_url(investor_type_url, accept="application/json").decode("utf-8", errors="replace")
+            investor_data = json.loads(investor_raw)
+            return [
+                role for role in investor_data.get("rolevisibility", [])
+                if isinstance(role, str) and role.strip()
+            ]
+        except Exception:
+            return []
+
+    def _load_am_query_from_page():
+        """Extract the same ActivityStream query options used by the AM page."""
+        try:
+            content = _fetch_url(_UBS_AM_PAGE).decode("utf-8", errors="replace")
+        except Exception:
+            return None
+        match = re.search(r"data-nc-params-Sdas='(\{.*?\})'", content, re.DOTALL)
+        if not match:
+            return None
+        try:
+            raw = html.unescape(match.group(1))
+            options = json.loads(raw).get("options", {})
+        except Exception:
+            return None
+        if not options:
+            return None
+
+        return {
+            "api_key": options.get("apiKey", _UBS_IB_API_KEY),
+            "api_endpoint": options.get("apiEndpoint", _UBS_DEFAULT_API),
+            "referer": _UBS_AM_PAGE,
+            "role_visibilities": _load_am_role_visibilities(),
+            # UBS v2 expects maxResult/offset (not pageSize/pageNumber)
+            "payload": {
+                "contentTypes": options.get("contentTypes", ["ARTICLE", "CONTENT"]),
+                "mediaTypes": options.get("mediaTypes", ["video", "audio", "webinar", "pdf", "none"]),
+                "language": options.get("language", "en"),
+                "isoLanguage": options.get("isoLanguage", "en"),
+                "tagSelectionLogic": options.get("tagSelectionLogic", ""),
+                "maxResult": 100,
+                "offset": 0,
+                "useLanguageFallback": options.get("useLanguageFallback", True),
+                "includePaths": options.get("includePaths", ["/content/sites/global/en/assetmanagement"]),
+                "excludePaths": options.get("excludePaths", []),
+                "siteContext": options.get("siteContext", "/content/sites/global/assetmanagement"),
+                "currentPagePath": options.get("currentPagePath", "/content/sites/global/en/assetmanagement/insights"),
+                "sortingRule": options.get("sortingRule", "DATE"),
+            },
+        }
+
+    # IB fallback query (kept for broader UBS coverage)
+    ib_query = {
+        "api_key": _UBS_IB_API_KEY,
+        "api_endpoint": _UBS_DEFAULT_API,
+        "referer": "https://www.ubs.com/global/en/investment-bank/insights-and-data/latest-insights.html",
+        "payload": {
+            "contentTypes": ["ARTICLE", "CONTENT"],
+            "mediaTypes": ["none"],
+            "language": "en",
+            "isoLanguage": "en",
+            "maxResult": 100,
+            "offset": 0,
+            "useLanguageFallback": True,
             "includePaths": [
                 "/content/sites/global/en/investment-bank/insights-and-data/2025",
                 "/content/sites/global/en/investment-bank/insights-and-data/articles",
             ],
+            "excludePaths": [],
+            "siteContext": "/content/sites/global/investment-bank",
+            "currentPagePath": "/content/sites/global/en/investment-bank/insights-and-data/latest-insights",
+            "sortingRule": "DATE",
         },
-        {
-            "pageSize": 30, "pageNumber": 1, "language": "en",
-            "siteContext": "/content/sites/global/assetmanagement",
-            "currentPagePath": "/content/sites/global/en/assetmanagement/insights",
+    }
+
+    am_query = _load_am_query_from_page()
+    queries = [ib_query]
+    if am_query:
+        am_roles = am_query.get("role_visibilities", [])
+        am_base_query = {
+            "api_key": am_query["api_key"],
+            "api_endpoint": am_query["api_endpoint"],
+            "referer": am_query["referer"],
+            "payload": dict(am_query["payload"]),
+        }
+        if am_roles:
+            for role in am_roles:
+                role_query = {
+                    "api_key": am_base_query["api_key"],
+                    "api_endpoint": am_base_query["api_endpoint"],
+                    "referer": am_base_query["referer"],
+                    "payload": dict(am_base_query["payload"]),
+                }
+                role_query["payload"]["roleVisibility"] = role
+                queries.append(role_query)
+        else:
+            queries.append(am_base_query)
+    else:
+        # Fallback if page config parsing fails.
+        fallback_payload = {
             "contentTypes": ["ARTICLE", "CONTENT"],
             "mediaTypes": ["video", "audio", "webinar", "pdf", "none"],
-            "sortingRule": "DATE",
+            "language": "en",
+            "isoLanguage": "en",
+            "maxResult": 100,
+            "offset": 0,
+            "useLanguageFallback": True,
             "includePaths": ["/content/sites/global/en/assetmanagement"],
-        },
-    ]
+            "excludePaths": [],
+            "siteContext": "/content/sites/global/assetmanagement",
+            "currentPagePath": "/content/sites/global/en/assetmanagement/insights",
+            "sortingRule": "DATE",
+        }
+        fallback_query = {
+            "api_key": _UBS_IB_API_KEY,
+            "api_endpoint": _UBS_DEFAULT_API,
+            "referer": _UBS_AM_PAGE,
+            "payload": fallback_payload,
+        }
+        fallback_roles = _load_am_role_visibilities()
+
+        if fallback_roles:
+            for role in fallback_roles:
+                role_query = {
+                    "api_key": fallback_query["api_key"],
+                    "api_endpoint": fallback_query["api_endpoint"],
+                    "referer": fallback_query["referer"],
+                    "payload": dict(fallback_query["payload"]),
+                }
+                role_query["payload"]["roleVisibility"] = role
+                queries.append(role_query)
+        else:
+            queries.append(fallback_query)
 
     articles = []
     seen_urls = set()
-    for query in queries:
-        result = subprocess.run(
-            [
-                "curl", "-sL", "--compressed",
-                "-X", "POST", _UBS_API,
-                "-H", "Content-Type: application/json",
-                "-H", f"x-app-id: ActivityStream",
-                "-H", f"x-api-key: {_UBS_API_KEY}",
-                "-H", f"User-Agent: {UA}",
-                "-H", "Accept: application/json, text/plain, */*",
-                "-H", "Origin: https://www.ubs.com",
-                "-H", "Referer: https://www.ubs.com/global/en/investment-bank/insights-and-data/latest-insights.html",
-                "-H", "sec-fetch-dest: empty",
-                "-H", "sec-fetch-mode: cors",
-                "-H", "sec-fetch-site: same-origin",
-                "-d", json.dumps(query),
-            ],
-            capture_output=True, timeout=25,
-        )
-        if result.returncode != 0 or not result.stdout:
-            print(f"  [WARN] UBS curl failed (code {result.returncode})")
-            continue
-        data = json.loads(result.stdout.decode("utf-8", errors="replace"))
 
-        for doc in data.get("documents", []):
-            f = doc.get("fields", {})
-            title = (f.get("title") or [""])[0].strip()
-            url = (f.get("targetUrl") or [""])[0]
+    for query_cfg in queries:
+        data = _curl_ubs(
+            query_cfg["api_endpoint"],
+            query_cfg["api_key"],
+            query_cfg["referer"],
+            query_cfg["payload"],
+        )
+        docs = data.get("documents", []) if isinstance(data, dict) else []
+        if not docs:
+            continue
+
+        is_am = "/assetmanagement/" in query_cfg["referer"]
+        for doc in docs:
+            fields = doc.get("fields", {})
+            title = (fields.get("title") or [""])[0].strip()
+            url = (fields.get("targetUrl") or [""])[0]
             if not title or not url or url in seen_urls:
                 continue
-            seen_urls.add(url)
 
-            # Parse date
-            dt = None
-            date_str = (f.get("as_displayDate") or [""])[0]
-            if date_str:
-                dt = _parse_date_flexible(date_str)
-
-            if not _is_fresh(dt):
+            # For AM query, keep actual insights pages and skip generic utility pages.
+            if is_am and "/global/en/assetmanagement/insights/" not in url:
                 continue
 
-            desc = (f.get("as_teaserText") or [""])[0]
+            seen_urls.add(url)
+            dt = None
+            date_str = (fields.get("as_displayDate") or [""])[0]
+            if date_str:
+                dt = _parse_date_flexible(date_str)
+            desc = (fields.get("as_teaserText") or [""])[0]
             articles.append(_make_article(title, url, dt, desc, feed_config))
 
+    # Keep freshest items first so cap is applied to most relevant entries.
+    def _sort_ts(article):
+        dt = article.get("date")
+        if not dt:
+            return 0
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.timestamp()
+
+    articles.sort(key=_sort_ts, reverse=True)
     return articles
 
 
