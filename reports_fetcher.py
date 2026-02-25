@@ -750,6 +750,94 @@ def fetch_jpmorgan(feed_config):
     return articles
 
 
+# ── UBS ──────────────────────────────────────────────────────────────
+
+def fetch_ubs(feed_config):
+    """Fetch articles from UBS insights JSON API (IB + Asset Management).
+
+    Uses curl because Akamai WAF requires sec-fetch-* browser headers
+    that urllib doesn't send, resulting in 403.
+    """
+    _UBS_API = "https://www.ubs.com/bin/ubs/caas/v2/searchContentAbstracts"
+    _UBS_API_KEY = "lNrNbJjmsIZtVSia4DRZubdYTzGwJKVmDy5bOBNE8uLDCSBPXDlaSGa1Qq9Bbn7bza0OgXfHwDGSyQQ1AVGnJNxSSvwX5ikSnPneGUMt0DoOkvYtx0wwD4wkChn1VcIF9AIegkooTlCrvmHpEXuWgYRnvSgYkRBiQwlUWsE0cdOJ5gQXbtc6gduaN3S8TmzAM5GIiDeCG6TqN6aKPpEf18vBf8VVvfgtMA98UlWnRJVmJx1eGrqEPZkYIpO79WJN"
+    # Two API calls: IB insights + AM insights
+    queries = [
+        {
+            "pageSize": 30, "pageNumber": 1, "language": "en",
+            "siteContext": "/content/sites/global/investment-bank",
+            "currentPagePath": "/content/sites/global/en/investment-bank/insights-and-data/latest-insights",
+            "contentTypes": ["ARTICLE", "CONTENT"], "mediaTypes": ["none"],
+            "sortingRule": "DATE",
+            "includePaths": [
+                "/content/sites/global/en/investment-bank/insights-and-data/2025",
+                "/content/sites/global/en/investment-bank/insights-and-data/articles",
+            ],
+        },
+        {
+            "pageSize": 30, "pageNumber": 1, "language": "en",
+            "siteContext": "/content/sites/global/assetmanagement",
+            "currentPagePath": "/content/sites/global/en/assetmanagement/insights",
+            "contentTypes": ["ARTICLE", "CONTENT"],
+            "mediaTypes": ["video", "audio", "webinar", "pdf", "none"],
+            "sortingRule": "DATE",
+            "includePaths": ["/content/sites/global/en/assetmanagement"],
+        },
+    ]
+
+    articles = []
+    seen_urls = set()
+    try:
+        for query in queries:
+            result = subprocess.run(
+                [
+                    "curl", "-sL", "--compressed",
+                    "-X", "POST", _UBS_API,
+                    "-H", "Content-Type: application/json",
+                    "-H", f"x-app-id: ActivityStream",
+                    "-H", f"x-api-key: {_UBS_API_KEY}",
+                    "-H", f"User-Agent: {UA}",
+                    "-H", "Accept: application/json, text/plain, */*",
+                    "-H", "Origin: https://www.ubs.com",
+                    "-H", "Referer: https://www.ubs.com/global/en/investment-bank/insights-and-data/latest-insights.html",
+                    "-H", "sec-fetch-dest: empty",
+                    "-H", "sec-fetch-mode: cors",
+                    "-H", "sec-fetch-site: same-origin",
+                    "-d", json.dumps(query),
+                ],
+                capture_output=True, timeout=25,
+            )
+            if result.returncode != 0 or not result.stdout:
+                continue
+            data = json.loads(result.stdout.decode("utf-8", errors="replace"))
+
+            for doc in data.get("documents", []):
+                if len(articles) >= _MAX_PER_SCRAPER:
+                    break
+                f = doc.get("fields", {})
+                title = (f.get("title") or [""])[0].strip()
+                url = (f.get("targetUrl") or [""])[0]
+                if not title or not url or url in seen_urls:
+                    continue
+                seen_urls.add(url)
+
+                # Parse date
+                dt = None
+                date_str = (f.get("as_displayDate") or [""])[0]
+                if date_str:
+                    dt = _parse_date_flexible(date_str)
+
+                if not _is_fresh(dt):
+                    continue
+
+                desc = (f.get("as_teaserText") or [""])[0]
+                articles.append(_make_article(title, url, dt, desc, feed_config))
+
+        print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
+    except Exception as e:
+        print(f"  [FAIL] {feed_config['name']}: {str(e)[:50]}")
+    return articles
+
+
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
@@ -765,6 +853,7 @@ REPORT_FETCHERS = {
     "gs:": fetch_goldman_sachs,
     "creditsights:": fetch_creditsights,
     "jpmorgan:": fetch_jpmorgan,
+    "ubs:": fetch_ubs,
 }
 
 
