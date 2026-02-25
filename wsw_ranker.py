@@ -14,6 +14,8 @@ import tempfile
 import time
 from datetime import datetime, timedelta, timezone
 
+from config import WSW_LOOKBACK_DAYS, WSW_API_TIMEOUT
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
@@ -90,7 +92,7 @@ def parse_dt(item):
 def load_sources_7d():
     """Load items from all source files, filtered to last 7 days."""
     now = datetime.now(IST_TZ)
-    cutoff = now - timedelta(days=7)
+    cutoff = now - timedelta(days=WSW_LOOKBACK_DAYS)
     items = []
     counts = {"news": 0, "twitter": 0, "telegram": 0, "youtube": 0}
 
@@ -235,18 +237,24 @@ def parse_json_response(text):
     try:
         return json.loads(text)
     except json.JSONDecodeError:
-        # Attempt recovery from truncated JSON: close any open string/object/array
-        recovered = text
-        # Count open vs closed braces
-        opens = recovered.count('{') - recovered.count('}')
-        arr_opens = recovered.count('[') - recovered.count(']')
-        # If mid-string, close it
-        if recovered.count('"') % 2 == 1:
-            recovered += '"'
-        recovered += '}' * max(0, opens) + ']' * max(0, arr_opens)
-        recovered = re.sub(r',\s*}', '}', recovered)
-        recovered = re.sub(r',\s*]', ']', recovered)
-        return json.loads(recovered)
+        # Progressive truncation: find the last complete object boundary and close array
+        # This avoids the brace-counting bug where braces inside string literals are miscounted
+        last_good = None
+        for i in range(len(text) - 1, 0, -1):
+            if text[i] == '}':
+                candidate = text[:i + 1] + ']'
+                candidate = re.sub(r',\s*]', ']', candidate)
+                try:
+                    result = json.loads(candidate)
+                    if isinstance(result, list) and result:
+                        last_good = result
+                        break
+                except json.JSONDecodeError:
+                    continue
+        if last_good:
+            print(f"  [WARN] Recovered {len(last_good)} items from truncated JSON")
+            return last_good
+        raise ValueError("Could not recover truncated JSON")
 
 
 def call_openrouter(input_text, model_id):
@@ -266,7 +274,7 @@ def call_openrouter(input_text, model_id):
             "X-Title": "FinanceRadar"
         }
     )
-    with urllib.request.urlopen(request, timeout=90, context=SSL_CONTEXT) as response:
+    with urllib.request.urlopen(request, timeout=WSW_API_TIMEOUT, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
     return parse_json_response(result["choices"][0]["message"]["content"])
 
@@ -287,7 +295,7 @@ def call_gemini(input_text):
         data=json.dumps(body).encode("utf-8"),
         headers={"Content-Type": "application/json"}
     )
-    with urllib.request.urlopen(request, timeout=90, context=SSL_CONTEXT) as response:
+    with urllib.request.urlopen(request, timeout=WSW_API_TIMEOUT, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
     text = result["candidates"][0]["content"]["parts"][0]["text"]
     return parse_json_response(text)
@@ -327,18 +335,44 @@ def main():
                     clusters = call_openrouter(input_text, model_id)
                 if isinstance(clusters, dict):
                     clusters = clusters.get("clusters", clusters.get("items", []))
+                if not isinstance(clusters, list):
+                    print(f"  [WARN] AI returned {type(clusters).__name__} instead of list")
+                    clusters = None
+                    continue
                 if clusters:
                     print(f"  [OK] Got {len(clusters)} clusters")
                     break
                 print("  [EMPTY] No clusters returned, retrying...")
                 time.sleep(3)
             except Exception as e:
-                safe_err = re.sub(r'Bearer\s+\S+|key=[^&\s]+', '[REDACTED]', str(e))[:200]
+                safe_err = re.sub(r'AIza\S{20,}|sk-or-\S{20,}|Bearer\s+\S+|key[=:]\s*["\']?\S{10,}', '[REDACTED]', str(e))[:200]
                 print(f"  [FAIL] attempt {attempt+1}: {safe_err}")
                 time.sleep(3)
         if clusters:
+            # Validate and fill missing fields with defaults
+            WSW_REQUIRED_FIELDS = {
+                "cluster_title": "", "theme": "", "india_relevance": "",
+                "core_claim": "", "quote_snippet": "", "quote_speaker": "Unknown",
+                "quote_source_type": "other", "source_url_primary": "",
+                "source_url_secondary": "", "counter_view": "",
+                "why_it_matters": "", "confidence": "medium",
+            }
+            for c in clusters[:8]:
+                for field, default in WSW_REQUIRED_FIELDS.items():
+                    if field not in c or not c[field]:
+                        c[field] = default
             for i, c in enumerate(clusters[:8], 1):
                 c["rank"] = i
+            # Empty-title guard (mirrors ai_ranker)
+            empty_count = sum(1 for c in clusters[:8] if not c.get("cluster_title"))
+            if empty_count > len(clusters[:8]) * 0.5:
+                results["providers"][key] = {
+                    "name": model_name, "status": "error",
+                    "error": f"{empty_count}/{len(clusters[:8])} empty titles — response malformed"
+                }
+                print(f"  [FAIL] {model_name}: {empty_count}/{len(clusters[:8])} empty titles")
+                time.sleep(2)
+                continue
             n = len(clusters[:8])
             if n < 8:
                 print(f"  WARNING: Only {n}/8 clusters (recovery may have truncated output)")

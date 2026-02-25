@@ -513,30 +513,12 @@
             } catch (e) { /* no-op */ }
         }
 
-        function isBookmarked(url) {
-            return getBookmarks().some(b => b.url === url);
-        }
-
         function toggleBookmark(btn) {
             const article = btn.closest('.article');
-            const url = article.dataset.url;
-            const title = article.dataset.title;
-            const source = article.querySelector('.source-tag')?.textContent || '';
-
-            let bookmarks = getBookmarks();
-            const idx = bookmarks.findIndex(b => b.url === url);
-
-            if (idx >= 0) {
-                bookmarks.splice(idx, 1);
-                btn.classList.remove('bookmarked');
-            } else {
-                bookmarks.unshift({ url, title, source, addedAt: Date.now() });
-                btn.classList.add('bookmarked');
-            }
-
-            saveBookmarks(bookmarks);
-            updateBookmarkCount();
-            renderSidebarContent();
+            btn.dataset.url = article.dataset.url;
+            btn.dataset.title = article.dataset.title;
+            btn.dataset.source = article.querySelector('.source-tag')?.textContent || '';
+            toggleGenericBookmark(btn);
         }
 
         function updateBookmarkCount() {
@@ -630,6 +612,13 @@
 
         function escapeForAttr(text) {
             return escapeHtml(text).replace(/'/g, '&#39;');
+        }
+
+        function sanitizeUrl(url) {
+            if (!url) return '';
+            const trimmed = url.trim().toLowerCase();
+            if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) return url;
+            return '';
         }
 
         function removeBookmark(url) {
@@ -767,8 +756,8 @@
                 <div class="ai-rank-item">
                     <span class="rank-num">${i + 1}</span>
                     <div class="rank-content">
-                        ${r.url
-                            ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>`
+                        ${sanitizeUrl(r.url)
+                            ? `<a href="${escapeHtml(sanitizeUrl(r.url))}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>`
                             : `<span class="rank-title-nolink">${escapeHtml(r.title)}</span>`
                         }
                         <span class="rank-source">${escapeHtml(r.source)}</span>
@@ -912,8 +901,8 @@
                 <div class="ai-rank-item wsw-cluster-item">
                     <span class="rank-num">${c.rank}</span>
                     <div class="rank-content">
-                        ${c.source_url_primary
-                            ? `<a href="${escapeHtml(c.source_url_primary)}" target="_blank" rel="noopener">${escapeHtml(c.cluster_title)}</a>`
+                        ${sanitizeUrl(c.source_url_primary)
+                            ? `<a href="${escapeHtml(sanitizeUrl(c.source_url_primary))}" target="_blank" rel="noopener">${escapeHtml(c.cluster_title)}</a>`
                             : `<span class="rank-title-nolink">${escapeHtml(c.cluster_title)}</span>`}
                         <div class="wsw-quote">"${escapeHtml(c.quote_snippet)}"
                             <span class="wsw-speaker">— ${escapeHtml(c.quote_speaker)}</span>
@@ -1847,7 +1836,7 @@
                 html += `
                     <div class="video-card">
                         <a href="${link}" target="_blank" rel="noopener" class="video-thumb">
-                            ${thumbnail ? `<img src="${escapeForAttr(thumbnail)}" alt="${title}" loading="lazy" onerror="this.style.display='none'">` : ''}
+                            ${thumbnail ? `<img src="${escapeForAttr(thumbnail)}" alt="${escapeForAttr(v.title)}" loading="lazy" onerror="this.style.display='none'">` : ''}
                             <div class="video-thumb-play">
                                 <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
                             </div>

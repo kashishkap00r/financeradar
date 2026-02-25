@@ -12,9 +12,10 @@ GEMINI_API_KEY="AIza..." OPENROUTER_API_KEY="sk-or-..." python3 ai_ranker.py
 GEMINI_API_KEY="AIza..." OPENROUTER_API_KEY="sk-or-..." python3 wsw_ranker.py
 python3 -m http.server 8000                    # Preview locally
 python3 -c "from filters import should_filter_article; print(should_filter_article({'title': 'TEST', 'link': ''}))"
+python3 -m unittest discover -s tests             # Run test suite (62 tests)
 ```
 
-No test suite exists. There are no linting or type-checking configurations.
+**Tests:** 62 unit tests in `tests/` covering date parsing, filters, articles, AI ranker JSON parsing, and Telegram HTML parsing. Run with `python3 -m unittest discover -s tests`. No linting or type-checking configurations.
 
 **Dependencies:** Python 3.8+ stdlib only, except `telethon>=1.36` (in `requirements.txt`) for Telegram MTProto. `curl` required for 403 fallback.
 
@@ -70,7 +71,9 @@ wsw_ranker.py        →  static/wsw_clusters.json     (reads articles.json + te
 | `feeds.py` | ~280 | Feed config loading, RSS/Atom/YouTube parsing, CareEdge JSON API, curl fallback on 403 |
 | `articles.py` | ~220 | Headline similarity (SequenceMatcher ≥0.75, same-day), article grouping, text utils, articles.json export |
 | `filters.py` | ~280 | Content filtering: title regex + URL substring patterns |
-| `reports_fetcher.py` | ~660 | Custom HTML/JSON scrapers for institutional research (10 sources) |
+| `config.py` | ~50 | Centralized constants (timeouts, limits, thresholds) imported by all modules |
+| `log_utils.py` | ~50 | Structured logging wrapper (`FeedLogger`) with IST timestamps and summary |
+| `reports_fetcher.py` | ~660 | Custom HTML/JSON scrapers for institutional research (10 sources), `@scraper` decorator |
 | `ai_ranker.py` | — | Two-provider AI ranking (Gemini 3.0 Flash + DeepSeek V3.2), top-20 picks |
 | `wsw_ranker.py` | — | "Who Said What" — 7-day rolling data, 8 debate clusters, same two AI providers |
 | `telegram_fetcher.py` | — | HTML scraping (public channels) + Telethon MTProto (private groups) |

@@ -8,6 +8,16 @@ import json
 from datetime import datetime, timedelta, timezone
 from html import escape
 import os
+
+
+def sanitize_url(url):
+    """Return url only if it uses http(s) scheme; empty string otherwise."""
+    if not url:
+        return ""
+    trimmed = url.strip().lower()
+    if trimmed.startswith("http://") or trimmed.startswith("https://"):
+        return url
+    return ""
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -28,6 +38,10 @@ from feeds import load_feeds, fetch_feed, fetch_careratings, INVIDIOUS_INSTANCES
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher
+from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
+                    NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
+                    REPORTS_FRESHNESS_DAYS, FEED_FAILURE_ALERT_THRESHOLD)
+from log_utils import FeedLogger
 
 
 def generate_html(article_groups, video_articles=None, twitter_articles=None, report_articles=None):
@@ -44,7 +58,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
     all_sorted_groups = groups_with_date + groups_without_date
 
     # Apply per-feed cap (max 50 articles per feed)
-    MAX_PER_FEED = 50
+    MAX_PER_FEED = MAX_ARTICLES_PER_FEED
     source_counts = {}
     capped_groups = []
 
@@ -414,9 +428,9 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
                 html += f'            <h2 class="date-header">{date_label}</h2>\n'
 
         title = escape(clean_html(article["title"]))
-        link = escape(article["link"])
+        link = escape(sanitize_url(article["link"]))
         source = escape(article["source"])
-        source_url = escape(article["source_url"])
+        source_url = escape(sanitize_url(article["source_url"]))
         description = escape(clean_html(article["description"]))
         time_str = local_dt.strftime("%I:%M %p").lstrip("0") if local_dt else ""
         article_date_iso = local_dt.date().isoformat() if local_dt else ""
@@ -434,7 +448,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
             source_links = []
             for rs in related_sources[:5]:  # Limit to 5 additional sources
                 rs_name = escape(rs["name"])
-                rs_link = escape(rs["link"])
+                rs_link = escape(sanitize_url(rs["link"]))
                 # Truncate source name for display
                 rs_display = rs_name[:25] + "..." if len(rs_name) > 25 else rs_name
                 source_links.append(f'<a href="{rs_link}" target="_blank" rel="noopener" title="{rs_name}">{rs_display}</a>')
@@ -685,22 +699,23 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
 
 
 def main():
-    print("=" * 50)
-    print("RSS News Aggregator")
-    print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("=" * 50)
+    logger = FeedLogger()
+
+    logger.info("=" * 50)
+    logger.info("RSS News Aggregator")
+    logger.info("=" * 50)
 
     feeds = load_feeds()
     if not feeds:
-        print("\nNo feeds to fetch. Check your feeds.json file.")
+        logger.warn("feeds", "No feeds to fetch. Check your feeds.json file.")
         return
 
-    print(f"\nFetching {len(feeds)} feeds...\n")
+    logger.info(f"Fetching {len(feeds)} feeds...")
 
     all_articles = []
 
     # Fetch feeds in parallel (10 at a time)
-    with ThreadPoolExecutor(max_workers=10) as executor:
+    with ThreadPoolExecutor(max_workers=FEED_THREAD_WORKERS) as executor:
         futures = {}
         for feed in feeds:
             feed_field = feed.get("feed", "")
@@ -714,14 +729,24 @@ def main():
                     futures[executor.submit(fetch_feed, feed)] = feed
 
         for future in as_completed(futures):
+            feed_cfg = futures[future]
+            feed_name = feed_cfg.get("name", "?")
             try:
                 articles = future.result()
                 all_articles.extend(articles)
+                if articles:
+                    logger.ok(feed_name, f"{len(articles)} articles")
+                    logger.add_articles(len(articles))
+                else:
+                    logger.fail(feed_name, "0 articles returned")
             except Exception as e:
-                feed_cfg = futures[future]
-                print(f"  [EXCEPTION] {feed_cfg.get('name', '?')}: {e}")
+                logger.fail(feed_name, str(e))
 
-    print(f"\nTotal articles collected: {len(all_articles)}")
+    total_feeds = logger._ok + logger._fail
+    logger.info(f"Total articles collected: {len(all_articles)}")
+    logger.info(f"Feed results: {logger._ok}/{total_feeds} succeeded, {logger._fail} failed")
+    if total_feeds > 0 and logger._fail / total_feeds > FEED_FAILURE_ALERT_THRESHOLD:
+        logger.warn("aggregator", f"High failure rate: {logger._fail}/{total_feeds} feeds failed ({logger._fail*100//total_feeds}%)")
 
     # Invidious fallback: retry failed YouTube channel_id feeds
     video_feed_ids_fetched = set(
@@ -742,7 +767,7 @@ def main():
                 articles = fetch_feed({**feed, "feed": fallback_url})
                 if articles:
                     all_articles.extend(articles)
-                    print(f"  [Invidious:{instance}] {feed['name']}: {len(articles)} videos")
+                    logger.ok(f"Invidious:{instance} {feed['name']}", f"{len(articles)} videos")
                     break
             except Exception:
                 continue
@@ -752,14 +777,14 @@ def main():
     twitter_articles = [a for a in all_articles if a.get("category") == "Twitter"]
     report_articles = [a for a in all_articles if a.get("category") == "Reports"]
     regular_articles = [a for a in all_articles if a.get("category") not in ("Videos", "Twitter", "Reports")]
-    print(f"Videos: {len(video_articles)}, Twitter: {len(twitter_articles)}, Reports: {len(report_articles)}, Regular: {len(regular_articles)}")
+    logger.info(f"Videos: {len(video_articles)}, Twitter: {len(twitter_articles)}, Reports: {len(report_articles)}, Regular: {len(regular_articles)}")
 
     # Filter noisy videos (LIVE streams, market tickers, etc.)
     pre_filter_count = len(video_articles)
     video_articles = [v for v in video_articles if not should_filter_video(v)]
     filtered_video_count = pre_filter_count - len(video_articles)
     if filtered_video_count:
-        print(f"Videos: filtered {filtered_video_count} noisy titles")
+        logger.info(f"Videos: filtered {filtered_video_count} noisy titles")
 
     # Sort videos, twitter, and reports by date (newest first), no filtering/grouping needed
     video_articles.sort(key=get_sort_timestamp, reverse=True)
@@ -776,7 +801,7 @@ def main():
     report_articles = unique_reports
 
     # Filter out reports older than 30 days (keep undated ones)
-    report_cutoff = datetime.now(timezone.utc) - timedelta(days=30)
+    report_cutoff = datetime.now(timezone.utc) - timedelta(days=REPORTS_FRESHNESS_DAYS)
     fresh_reports = []
     stale_count = 0
     for r in report_articles:
@@ -792,7 +817,7 @@ def main():
                 stale_count += 1
     report_articles = fresh_reports
     if stale_count:
-        print(f"Reports: removed {stale_count} stale (>30 days)")
+        logger.info(f"Reports: removed {stale_count} stale (>30 days)")
 
     report_articles.sort(key=get_sort_timestamp, reverse=True)
 
@@ -839,22 +864,22 @@ def main():
             cached = [deserialize_video(v) for v in channel_cache[fid]]
             video_articles.extend(cached)
             feed_name = next((f["name"] for f in feeds if f["id"] == fid), fid)
-            print(f"  [cache] {feed_name}: {len(cached)} videos")
+            logger.info(f"[cache] {feed_name}: {len(cached)} videos")
 
     # Write updated cache
     try:
         with open(YOUTUBE_CACHE_FILE, "w", encoding="utf-8") as f:
             json.dump(channel_cache, f)
         total = sum(len(v) for v in channel_cache.values())
-        print(f"YouTube cache: {total} videos across {len(channel_cache)} channels")
+        logger.info(f"YouTube cache: {total} videos across {len(channel_cache)} channels")
     except Exception as e:
-        print(f"Warning: could not write YouTube cache: {e}")
+        logger.warn("YouTube cache", f"could not write: {e}")
 
     # Re-sort after extending with cached videos
     video_articles.sort(key=get_sort_timestamp, reverse=True)
 
-    # Filter out twitter articles older than 5 days
-    twitter_cutoff = datetime.now(IST_TZ) - timedelta(days=5)
+    # Filter out twitter articles older than configured days
+    twitter_cutoff = datetime.now(IST_TZ) - timedelta(days=TWITTER_FRESHNESS_DAYS)
     twitter_articles = [t for t in twitter_articles
                         if t.get("date") is None or
                         (t["date"] if t["date"].tzinfo else t["date"].replace(tzinfo=IST_TZ)) >= twitter_cutoff]
@@ -879,7 +904,7 @@ def main():
         seen_urls.add(url)
         unique_articles.append(article)
 
-    print(f"After removing duplicates: {len(unique_articles)}")
+    logger.info(f"After removing duplicates: {len(unique_articles)}")
 
     # Apply content filters to remove irrelevant/routine articles
     filtered_articles = []
@@ -891,11 +916,11 @@ def main():
         else:
             filtered_articles.append(article)
 
-    print(f"After content filtering: {len(filtered_articles)} ({filtered_count} filtered out)")
+    logger.info(f"After content filtering: {len(filtered_articles)} ({filtered_count} filtered out)")
 
-    # Filter out articles older than 5 days
+    # Filter out articles older than configured days
     now = datetime.now(IST_TZ)
-    cutoff_date = now - timedelta(days=5)
+    cutoff_date = now - timedelta(days=NEWS_FRESHNESS_DAYS)
     recent_articles = []
     old_count = 0
 
@@ -914,18 +939,17 @@ def main():
                 old_count += 1
 
     filtered_articles = recent_articles
-    print(f"After removing old articles (>10 days): {len(filtered_articles)} ({old_count} removed)")
+    logger.info(f"After removing old articles (>{NEWS_FRESHNESS_DAYS} days): {len(filtered_articles)} ({old_count} removed)")
 
     # Group similar articles by headline
     article_groups = group_similar_articles(filtered_articles)
     grouped_count = len(filtered_articles) - len(article_groups)
-    print(f"After grouping similar headlines: {len(article_groups)} groups ({grouped_count} articles merged)")
+    logger.info(f"After grouping similar headlines: {len(article_groups)} groups ({grouped_count} articles merged)")
 
     generate_html(article_groups, video_articles, twitter_articles, report_articles)
     export_articles_json(article_groups)
 
-    print("\nDone!")
-    print("=" * 50)
+    logger.summary()
 
 
 if __name__ == "__main__":

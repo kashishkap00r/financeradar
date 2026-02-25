@@ -15,6 +15,9 @@ import time
 from difflib import SequenceMatcher
 from datetime import datetime, timedelta, timezone
 
+from config import (AI_RANKER_ARTICLE_WINDOW_HOURS, AI_RANKER_MAX_ARTICLES,
+                    AI_RANKER_OPENROUTER_TIMEOUT, AI_RANKER_GEMINI_TIMEOUT)
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
 SSL_CONTEXT = ssl.create_default_context()
@@ -105,7 +108,7 @@ VALIDATION BEFORE FINALIZING
 - Hard skips are excluded"""
 
 
-def load_articles_48h(max_articles=200):
+def load_articles_48h(max_articles=AI_RANKER_MAX_ARTICLES):
     articles_path = os.path.join(SCRIPT_DIR, "static", "articles.json")
     try:
         with open(articles_path, "r", encoding="utf-8") as f:
@@ -114,7 +117,7 @@ def load_articles_48h(max_articles=200):
         print(f"ERROR: {articles_path} not found. Run aggregator.py first.")
         return []
 
-    cutoff = datetime.now(IST_TZ) - timedelta(hours=48)
+    cutoff = datetime.now(IST_TZ) - timedelta(hours=AI_RANKER_ARTICLE_WINDOW_HOURS)
     articles = []
     for a in data["articles"]:
         if a["date"]:
@@ -212,7 +215,7 @@ def call_openrouter(headlines, model_id):
             "X-Title": "FinanceRadar"
         }
     )
-    with urllib.request.urlopen(request, timeout=60, context=SSL_CONTEXT) as response:
+    with urllib.request.urlopen(request, timeout=AI_RANKER_OPENROUTER_TIMEOUT, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
     return parse_json_response(result["choices"][0]["message"]["content"])
 
@@ -238,7 +241,7 @@ def call_gemini(headlines, model_id):
         data=json.dumps(body).encode("utf-8"),
         headers={"Content-Type": "application/json"}
     )
-    with urllib.request.urlopen(request, timeout=120, context=SSL_CONTEXT) as response:
+    with urllib.request.urlopen(request, timeout=AI_RANKER_GEMINI_TIMEOUT, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
     candidate = result["candidates"][0]
     finish_reason = candidate.get("finishReason", "UNKNOWN")
@@ -286,6 +289,8 @@ def main():
                 rankings = call_openrouter(headlines, model_id)
             if isinstance(rankings, dict):
                 rankings = rankings.get("rankings", rankings.get("items", []))
+            if not isinstance(rankings, list):
+                raise ValueError(f"AI returned {type(rankings).__name__} instead of list")
             enriched = []
             for item in rankings[:20]:
                 title = item.get("title", "").strip()
@@ -315,7 +320,7 @@ def main():
             results["providers"][key] = {"name": model_name, "status": "ok", "count": len(enriched), "rankings": enriched}
             print(f"  [OK] {model_name}: {len(enriched)} rankings")
         except Exception as e:
-            safe_err = re.sub(r'Bearer\s+\S+|key=[^&\s]+', '[REDACTED]', str(e))[:200]
+            safe_err = re.sub(r'AIza\S{20,}|sk-or-\S{20,}|Bearer\s+\S+|key[=:]\s*["\']?\S{10,}', '[REDACTED]', str(e))[:200]
             results["providers"][key] = {"name": model_name, "status": "error", "error": safe_err}
             print(f"  [FAIL] {model_name}: {safe_err}")
         # Rate limit: wait 2 seconds between calls

@@ -25,23 +25,38 @@ try:
 except ImportError:
     TELETHON_AVAILABLE = False
 
+from config import TELEGRAM_MAX_PAGES, TELEGRAM_MAX_AGE_DAYS, TELEGRAM_FETCH_TIMEOUT
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CHANNELS_FILE = os.path.join(SCRIPT_DIR, "telegram_channels.json")
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "static", "telegram_reports.json")
 
-SSL_CONTEXT = ssl.create_default_context()
-SSL_CONTEXT.check_hostname = False
-SSL_CONTEXT.verify_mode = ssl.CERT_NONE
+SSL_CONTEXT = ssl.create_default_context()  # Verified
+SSL_CONTEXT_NOVERIFY = ssl.create_default_context()
+SSL_CONTEXT_NOVERIFY.check_hostname = False
+SSL_CONTEXT_NOVERIFY.verify_mode = ssl.CERT_NONE
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 )
 
-# Telegram API credentials (for MTProto channels)
-TELEGRAM_API_ID = os.environ.get("TELEGRAM_API_ID", "")
-TELEGRAM_API_HASH = os.environ.get("TELEGRAM_API_HASH", "")
-TELEGRAM_SESSION = os.environ.get("TELEGRAM_SESSION", "")
+def _get_telegram_credentials():
+    """Read Telegram API credentials from environment at call time (not module load)."""
+    return (
+        os.environ.get("TELEGRAM_API_ID", ""),
+        os.environ.get("TELEGRAM_API_HASH", ""),
+        os.environ.get("TELEGRAM_SESSION", ""),
+    )
+
+
+def _redact_credentials(text):
+    """Remove any credential-like strings from error messages."""
+    import re
+    text = str(text)
+    text = re.sub(r'\b[a-f0-9]{32,}\b', '[REDACTED]', text)  # hex hashes
+    text = re.sub(r'\b1[A-Za-z0-9_-]{50,}\b', '[REDACTED]', text)  # session strings
+    return text[:300]
 
 
 class TelegramHTMLParser(HTMLParser):
@@ -188,16 +203,22 @@ class TelegramHTMLParser(HTMLParser):
             self._msg = None
 
 
-MAX_PAGES = 15  # Max pagination requests per channel (15 pages x 20 = ~300 msgs)
-MAX_AGE_DAYS = 5  # Only keep messages from the last N days (default, overridable per channel)
+MAX_PAGES = TELEGRAM_MAX_PAGES
+MAX_AGE_DAYS = TELEGRAM_MAX_AGE_DAYS
 
 
 def fetch_url(url):
     """Fetch a URL and return decoded HTML."""
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     try:
-        with urllib.request.urlopen(req, context=SSL_CONTEXT, timeout=30) as resp:
-            return resp.read().decode("utf-8", errors="replace")
+        try:
+            with urllib.request.urlopen(req, context=SSL_CONTEXT, timeout=30) as resp:
+                return resp.read().decode("utf-8", errors="replace")
+        except ssl.SSLCertVerificationError:
+            print(f"  [WARN] TLS verification failed for {url}, falling back to unverified")
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, context=SSL_CONTEXT_NOVERIFY, timeout=30) as resp:
+                return resp.read().decode("utf-8", errors="replace")
     except (urllib.error.URLError, urllib.error.HTTPError, OSError) as e:
         print(f"  ERROR fetching {url}: {e}")
         return ""
@@ -385,9 +406,15 @@ def _fetch_og_image(username: str, msg_id: int) -> str:
     try:
         url = f"https://t.me/{username}/{msg_id}"
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-        with urllib.request.urlopen(req, context=SSL_CONTEXT, timeout=8) as resp:
-            html = resp.read().decode("utf-8", errors="replace")
-        m = re.search(r'<meta\s+property="og:image"\s+content="([^"]+)"', html)
+        try:
+            with urllib.request.urlopen(req, context=SSL_CONTEXT, timeout=8) as resp:
+                html_content = resp.read().decode("utf-8", errors="replace")
+        except ssl.SSLCertVerificationError:
+            print(f"  [WARN] TLS verification failed for {url}, falling back to unverified")
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, context=SSL_CONTEXT_NOVERIFY, timeout=8) as resp:
+                html_content = resp.read().decode("utf-8", errors="replace")
+        m = re.search(r'<meta\s+property="og:image"\s+content="([^"]+)"', html_content)
         if m:
             return m.group(1)
     except Exception:
@@ -401,16 +428,17 @@ async def fetch_all_mtproto(channels):
     if not TELETHON_AVAILABLE:
         print("WARNING: telethon not installed. Skipping private channels.")
         return [], ["telethon not installed — private channels skipped"]
-    if not TELEGRAM_API_ID or not TELEGRAM_API_HASH or not TELEGRAM_SESSION:
+    api_id, api_hash, session = _get_telegram_credentials()
+    if not api_id or not api_hash or not session:
         print("WARNING: Telegram API credentials not set. Skipping private channels.")
         return [], ["Telegram API credentials not set — private channels skipped"]
 
     all_messages = []
     warnings = []
     client = TelegramClient(
-        StringSession(TELEGRAM_SESSION),
-        int(TELEGRAM_API_ID),
-        TELEGRAM_API_HASH
+        StringSession(session),
+        int(api_id),
+        api_hash
     )
     try:
         await client.connect()
@@ -432,8 +460,9 @@ async def fetch_all_mtproto(channels):
             all_messages.extend(msgs)
 
     except Exception as e:
-        print(f"ERROR: Telethon client failed: {e}")
-        warnings.append(f"Telethon client error: {e}")
+        safe_err = _redact_credentials(e)
+        print(f"ERROR: Telethon client failed: {safe_err}")
+        warnings.append(f"Telethon client error: {safe_err}")
     finally:
         await client.disconnect()
 

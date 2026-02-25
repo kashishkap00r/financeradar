@@ -21,10 +21,11 @@ from articles import IST_TZ
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 FEEDS_FILE = os.path.join(SCRIPT_DIR, "feeds.json")
 
-# Create SSL context that doesn't verify certificates (some feeds have issues)
-SSL_CONTEXT = ssl.create_default_context()
-SSL_CONTEXT.check_hostname = False
-SSL_CONTEXT.verify_mode = ssl.CERT_NONE
+# TLS verification: use verified context by default, fallback for broken certs
+SSL_CONTEXT = ssl.create_default_context()  # Verified (default)
+SSL_CONTEXT_NOVERIFY = ssl.create_default_context()
+SSL_CONTEXT_NOVERIFY.check_hostname = False
+SSL_CONTEXT_NOVERIFY.verify_mode = ssl.CERT_NONE
 
 INVIDIOUS_INSTANCES = ["inv.nadeko.net", "yewtu.be", "iv.datura.network"]
 
@@ -104,8 +105,21 @@ def fetch_feed(feed_config):
                     "Accept-Language": "en-US,en;q=0.9"
                 }
             )
-            with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT) as response:
-                content = response.read()
+            try:
+                with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT) as response:
+                    content = response.read()
+            except ssl.SSLCertVerificationError:
+                print(f"  [WARN] TLS verification failed for {feed_url}, falling back to unverified")
+                req = urllib.request.Request(
+                    feed_url,
+                    headers={
+                        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                        "Accept-Language": "en-US,en;q=0.9"
+                    }
+                )
+                with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT_NOVERIFY) as response:
+                    content = response.read()
         except urllib.error.HTTPError as e:
             if e.code == 403:
                 # Fallback to curl with different User-Agents
@@ -239,8 +253,17 @@ def fetch_careratings(feed_config):
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
             "Accept": "application/json"
         })
-        with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT) as response:
-            data = json.loads(response.read())
+        try:
+            with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT) as response:
+                data = json.loads(response.read())
+        except ssl.SSLCertVerificationError:
+            print(f"  [WARN] TLS verification failed for {api_url}, falling back to unverified")
+            req = urllib.request.Request(api_url, headers={
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+                "Accept": "application/json"
+            })
+            with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT_NOVERIFY) as response:
+                data = json.loads(response.read())
 
         for item in data.get("data", []):
             title = item.get("Title", "").strip()
