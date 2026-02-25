@@ -1651,14 +1651,14 @@
         }
 
         function selectAllResearchPublishers() {
-            selectedResearchPublishers.clear();
+            RESEARCH_PUBLISHERS.forEach(pub => selectedResearchPublishers.add(pub));
             syncResearchCheckboxes();
             syncResearchPublisherSummary();
             filterResearch();
         }
 
         function clearAllResearchPublishers() {
-            RESEARCH_PUBLISHERS.forEach(pub => selectedResearchPublishers.add(pub));
+            selectedResearchPublishers.clear();
             syncResearchCheckboxes();
             syncResearchPublisherSummary();
             filterResearch();

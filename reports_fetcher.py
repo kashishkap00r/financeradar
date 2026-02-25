@@ -580,10 +580,13 @@ def fetch_axis_direct(feed_config):
 # ── Goldman Sachs ─────────────────────────────────────────────────────
 
 def fetch_goldman_sachs(feed_config):
-    """Fetch from Goldman Sachs insights JSON API.
+    """Fetch articles and reports from Goldman Sachs insights JSON API.
 
-    GS has a JSON feed at /feeds/insights.json with full article data:
-    title, path, cmsPageProps.publishDate, description, cmsPageProps.pageType.
+    GS exposes /feeds/insights.json with ~1,957 items. Each item has
+    cmsPageProps.contentType — a list of objects like
+    [{"id": "gscom:content-type/article", "title": "Article"}].
+    We filter to contentType title in ("Article", "Report"), skipping
+    videos and podcasts.
     """
     articles = []
     try:
@@ -596,13 +599,15 @@ def fetch_goldman_sachs(feed_config):
             items = []
 
         for item in items:
-            if len(articles) >= 30:
+            if len(articles) >= _MAX_PER_SCRAPER:
                 break
 
-            # Filter to articles and reports only
             cms = item.get("cmsPageProps", {})
-            page_type = (cms.get("pageType") or "").lower()
-            if page_type and page_type not in ("article", "report", ""):
+
+            # Filter by contentType — only articles and reports
+            ct_list = cms.get("contentType") or []
+            ct_title = ct_list[0].get("title", "") if ct_list else ""
+            if ct_title not in ("Article", "Report"):
                 continue
 
             title = item.get("title", "").strip()
@@ -612,12 +617,11 @@ def fetch_goldman_sachs(feed_config):
 
             link = path if path.startswith("http") else "https://www.goldmansachs.com" + path
 
-            # Parse date
+            # Parse date from publishDate (ISO format YYYY-MM-DDTHH:MM:SS)
             dt = None
-            date_str = cms.get("publishDate") or item.get("publishDate") or item.get("date") or ""
+            date_str = cms.get("publishDate") or ""
             if date_str:
                 dt = _parse_date_flexible(date_str)
-                # Also try ISO with timezone
                 if not dt:
                     try:
                         dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
@@ -633,15 +637,6 @@ def fetch_goldman_sachs(feed_config):
                 desc = f"[{topic}] {desc}"
 
             articles.append(_make_article(title, link, dt, desc, feed_config))
-
-        # Fallback to HTML scraping if JSON API fails/returns empty
-        if not articles:
-            content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
-            pattern = r'<a[^>]+href="(https://www\.goldmansachs\.com/insights/[^"]+)"[^>]*>(.*?)</a>'
-            for href, title_html in re.findall(pattern, content, re.DOTALL):
-                title = _strip_html(title_html).strip()
-                if title and len(title) >= 10:
-                    articles.append(_make_article(title, href, None, "", feed_config))
 
         print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
     except Exception as e:
