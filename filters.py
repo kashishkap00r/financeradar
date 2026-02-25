@@ -230,6 +230,24 @@ FILTER_TITLE_PATTERNS = [
     r"(gold|silver)\s+at\s+(rs|Rs|\u20b9)",
 ]
 
+# Video-specific title patterns (LIVE streams, assembly sessions, etc.)
+# These supplement the news title patterns for video filtering.
+FILTER_VIDEO_TITLE_PATTERNS = [
+    # LIVE streams
+    r"\bLIVE\s*:",
+    r"\bLIVE\s*\|",
+    r"\bLIVE\s*$",
+    r"\bbazaar\s+live\b",
+    r"\blive\s+streaming\b",
+
+    # Parliament / assembly sessions
+    r"\b(assembly)\s+(session|budget)\b",
+    r"\b(parliament|lok\s+sabha|rajya\s+sabha)\s+(live|session)\b",
+
+    # Generic market headline trackers
+    r"tracking\s+latest\s+stock\s+market\s+headlines",
+]
+
 # URL patterns to filter (case-insensitive, substring match)
 FILTER_URL_PATTERNS = [
     "/pr-release/",
@@ -260,6 +278,7 @@ FILTER_URL_PATTERNS = [
 
 # Compile regex patterns for performance
 COMPILED_TITLE_PATTERNS = [re.compile(p, re.IGNORECASE) for p in FILTER_TITLE_PATTERNS]
+COMPILED_VIDEO_TITLE_PATTERNS = [re.compile(p, re.IGNORECASE) for p in FILTER_VIDEO_TITLE_PATTERNS]
 
 
 def should_filter_article(article):
@@ -274,6 +293,27 @@ def should_filter_article(article):
 
     # Check title patterns
     for pattern in COMPILED_TITLE_PATTERNS:
+        if pattern.search(title):
+            return True
+
+    return False
+
+
+def should_filter_video(article):
+    """Check if a video should be filtered out.
+
+    Runs news title patterns (not URL patterns, since all videos are youtube.com)
+    plus video-specific patterns for LIVE streams, assembly sessions, etc.
+    """
+    title = article.get("title", "")
+
+    # Check news title patterns
+    for pattern in COMPILED_TITLE_PATTERNS:
+        if pattern.search(title):
+            return True
+
+    # Check video-specific patterns
+    for pattern in COMPILED_VIDEO_TITLE_PATTERNS:
         if pattern.search(title):
             return True
 

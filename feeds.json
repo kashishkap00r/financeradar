@@ -32,6 +32,14 @@
     "publisher": "BBC"
   },
   {
+    "id": "ember-energy-insights",
+    "name": "Ember Energy",
+    "url": "https://ember-energy.org/",
+    "feed": "https://news.google.com/rss/search?q=site:ember-energy.org&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "Ember"
+  },
+  {
     "id": "et-bfsi-editors-view",
     "name": "ET BFSI — Editor's View",
     "url": "https://bfsi.economictimes.indiatimes.com/news/editors-view",
@@ -1461,6 +1469,14 @@
     "feed": "https://news.google.com/rss/search?q=site:x.com+from:TamalBandyo&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Tamal Bandyopadhyay"
+  },
+  {
+    "id": "yt-cleaning-up-pod",
+    "name": "Cleaning Up Podcast",
+    "url": "https://www.youtube.com/@CleaningUpPod",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC5acEOF6mIIj1Ae3B2oeRrw",
+    "category": "Videos",
+    "publisher": "Cleaning Up Podcast"
   },
   {
     "id": "yt-soic-finance",

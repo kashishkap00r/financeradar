@@ -16,7 +16,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
 
 # Filters extracted to filters.py for independent editing and testing
-from filters import should_filter_article
+from filters import should_filter_article, should_filter_video
 
 # Article processing utilities
 from articles import (group_similar_articles, clean_html, get_sort_timestamp,
@@ -753,6 +753,13 @@ def main():
     report_articles = [a for a in all_articles if a.get("category") == "Reports"]
     regular_articles = [a for a in all_articles if a.get("category") not in ("Videos", "Twitter", "Reports")]
     print(f"Videos: {len(video_articles)}, Twitter: {len(twitter_articles)}, Reports: {len(report_articles)}, Regular: {len(regular_articles)}")
+
+    # Filter noisy videos (LIVE streams, market tickers, etc.)
+    pre_filter_count = len(video_articles)
+    video_articles = [v for v in video_articles if not should_filter_video(v)]
+    filtered_video_count = pre_filter_count - len(video_articles)
+    if filtered_video_count:
+        print(f"Videos: filtered {filtered_video_count} noisy titles")
 
     # Sort videos, twitter, and reports by date (newest first), no filtering/grouping needed
     video_articles.sort(key=get_sort_timestamp, reverse=True)

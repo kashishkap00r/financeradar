@@ -2183,9 +2183,6 @@
                         <div class="tweet-card-body"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>
                         <button class="tweet-expand-btn" onclick="toggleTweetExpand(this)">Show more</button>
                         ${t.image ? `<div class="tweet-card-image"><img src="${escapeForAttr(t.image)}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ''}
-                        <div class="tweet-card-footer">
-                            <a href="${link}" target="_blank" rel="noopener">Open on X &rarr;</a>
-                        </div>
                     </div>
                 `;
             });

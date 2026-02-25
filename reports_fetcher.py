@@ -70,7 +70,7 @@ def _make_article(title, link, date, description, feed_config):
         "description": (description or "")[:300].strip(),
         "source": feed_config["name"],
         "source_url": feed_config["url"],
-        "category": "Reports",
+        "category": feed_config.get("category", "Reports"),
         "publisher": feed_config.get("publisher", ""),
         "region": feed_config.get("region", "Indian"),
     }
