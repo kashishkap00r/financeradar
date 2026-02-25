@@ -121,57 +121,47 @@ def _parse_date_flexible(date_str):
     return None
 
 
-# ── CRISIL ────────────────────────────────────────────────────────────
+# ── CRISIL Ratings (Press Releases) ───────────────────────────────────
 
-def fetch_crisil(feed_config):
-    """Fetch research articles from CRISIL all-our-thinking page.
+def fetch_crisil_ratings(feed_config):
+    """Fetch press releases from CRISIL Ratings newsroom.
 
-    CRISIL uses Adobe AEM CMS. Links contain /content/crisilcom/,
-    /content/intelligence/, or /content/coalition-greenwich/ paths.
-    Each card has: h2 title, date div, p description, 'Read More' link.
+    crisilratings.com (AEM CMS) — different site from crisil.com research.
+    Each card has: date span, linked title, description paragraph.
     """
     articles = []
     try:
         content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
 
-        # Match AEM content links — the actual paths on CRISIL's site
-        # Pattern: <a href="/content/..."> (Read More links)
-        link_pattern = r'<a[^>]+href="(/content/(?:crisilcom|intelligence|coalition-greenwich)/[^"]+)"[^>]*>'
-        links = re.findall(link_pattern, content, re.DOTALL)
+        # Split on content-wrap to isolate individual press release cards
+        cards = re.split(r'class="content-wrap"', content)
 
-        # Also try relative links under /en/home/what-we-think/ or /en/home/our-analysis/
-        alt_pattern = r'<a[^>]+href="(/en/home/(?:what-we-think|our-analysis)/[^"]+)"[^>]*>'
-        links.extend(re.findall(alt_pattern, content, re.DOTALL))
-
-        # Extract titles from h2 elements
-        titles = [_strip_html(m) for m in re.findall(r'<h2[^>]*>(.*?)</h2>', content, re.DOTALL)]
-
-        # Extract dates — format like "Feb 23, 2026" or "February 23, 2026"
-        date_pattern = r'(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2},?\s+\d{4}'
-        dates = re.findall(date_pattern, content)
-
-        # Extract descriptions from <p> elements near cards
-        descriptions = [_strip_html(m) for m in re.findall(r'<p[^>]*>(.*?)</p>', content, re.DOTALL)
-                        if len(_strip_html(m)) > 30]
-
-        seen = set()
-        for i, href in enumerate(links):
+        for card in cards[1:]:  # skip preamble before first card
             if len(articles) >= _MAX_PER_SCRAPER:
                 break
-            if href in seen:
-                continue
-            seen.add(href)
-            link = "https://www.crisil.com" + href
 
-            title = titles[i] if i < len(titles) else ""
-            if not title or len(title) < 10:
-                continue
-
-            dt = _parse_date_flexible(dates[i]) if i < len(dates) else None
+            # Date: <span class="pressreleases-analytics-cta-title">February 24, 2026</span>
+            date_m = re.search(r'pressreleases-analytics-cta-title">\s*(.*?)\s*</span>', card, re.DOTALL)
+            dt = _parse_date_flexible(date_m.group(1)) if date_m else None
             if not _is_fresh(dt):
                 continue
 
-            desc = descriptions[i] if i < len(descriptions) else ""
+            # Link: <a class="pressreleases-analytics-cta" href="/content/crisilratings/...">
+            link_m = re.search(r'pressreleases-analytics-cta"\s+href="([^"]+)"', card)
+            if not link_m:
+                continue
+            link = "https://www.crisilratings.com" + link_m.group(1)
+
+            # Title: <p class="pdf-file-link">...</p>
+            title_m = re.search(r'pdf-file-link"[^>]*>(.*?)</p>', card, re.DOTALL)
+            title = _strip_html(title_m.group(1)).strip() if title_m else ""
+            if not title or len(title) < 10:
+                continue
+
+            # Description: <div class="description"><p>...</p></div>
+            desc_m = re.search(r'class="description">\s*<p>(.*?)</p>', card, re.DOTALL)
+            desc = _strip_html(desc_m.group(1)).strip() if desc_m else ""
+
             articles.append(_make_article(title, link, dt, desc, feed_config))
 
         print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
@@ -718,7 +708,7 @@ def fetch_jpmorgan(feed_config):
 
 # Maps feed prefix → fetcher function
 REPORT_FETCHERS = {
-    "crisil:": fetch_crisil,
+    "crisilratings:": fetch_crisil_ratings,
     "baroda:": fetch_baroda_etrade,
     "sbi:": fetch_sbi_research,
     "ficci:": fetch_ficci,

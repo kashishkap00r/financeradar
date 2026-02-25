@@ -939,10 +939,10 @@
     "publisher": "CareEdge"
   },
   {
-    "id": "crisil-research",
-    "name": "CRISIL — Research",
-    "url": "https://www.crisil.com/content/crisilcom/en/home/what-we-think/all-our-thinking.html",
-    "feed": "crisil:views",
+    "id": "crisil-ratings-press-releases",
+    "name": "CRISIL Ratings — Press Releases",
+    "url": "https://www.crisilratings.com/en/home/newsroom/press-releases.html",
+    "feed": "crisilratings:press-releases",
     "category": "Reports",
     "region": "Indian",
     "publisher": "CRISIL"
