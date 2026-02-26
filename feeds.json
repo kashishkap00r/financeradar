@@ -1038,15 +1038,6 @@
     "publisher": "Goldman Sachs"
   },
   {
-    "id": "creditsights-research",
-    "name": "CreditSights — Research",
-    "url": "https://know.creditsights.com/blog-research/",
-    "feed": "creditsights:blog",
-    "category": "Reports",
-    "region": "International",
-    "publisher": "CreditSights"
-  },
-  {
     "id": "jpmorgan-research",
     "name": "JPMorgan — Research",
     "url": "https://www.jpmorgan.com/insights/research/reports",

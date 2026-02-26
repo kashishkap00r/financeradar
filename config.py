@@ -25,6 +25,14 @@ SCRAPER_FRESHNESS_CUTOFF = timedelta(days=30)
 SCRAPER_FETCH_TIMEOUT = 15       # seconds, per-scraper HTTP timeout
 SCRAPER_RETRY_ATTEMPTS = 2       # number of retries for transient failures
 SCRAPER_RETRY_BACKOFF = 1.5      # seconds between retries
+SCRAPER_TIMEOUT_OVERRIDES = {    # source-specific timeout overrides by feed id
+    "baroda-etrade-str": 8,
+    "baroda-etrade-sor": 8,
+}
+SCRAPER_RETRY_OVERRIDES = {      # source-specific retry overrides by feed id
+    "baroda-etrade-str": 0,
+    "baroda-etrade-sor": 0,
+}
 
 # ── Telegram fetcher ──────────────────────────────────────────────────
 TELEGRAM_MAX_PAGES = 15          # max pagination requests per channel

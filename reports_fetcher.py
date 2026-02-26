@@ -16,21 +16,31 @@ import urllib.parse
 import urllib.request
 import urllib.error
 import subprocess
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from html.parser import HTMLParser
 
 from feeds import SSL_CONTEXT, SSL_CONTEXT_NOVERIFY
 from articles import IST_TZ
+from config import (
+    FEED_CURL_TIMEOUT,
+    SCRAPER_MAX_ARTICLES,
+    SCRAPER_FRESHNESS_CUTOFF,
+    SCRAPER_FETCH_TIMEOUT,
+    SCRAPER_RETRY_ATTEMPTS,
+    SCRAPER_RETRY_BACKOFF,
+    SCRAPER_TIMEOUT_OVERRIDES,
+    SCRAPER_RETRY_OVERRIDES,
+)
 
 
 # Shared User-Agent header
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # 30-day freshness guard — applied per-scraper to avoid fetching stale items
-_FRESHNESS_CUTOFF = timedelta(days=30)
+_FRESHNESS_CUTOFF = SCRAPER_FRESHNESS_CUTOFF
 
 # Max articles per scraper invocation (prevents grabbing 1000+ historical PDFs)
-_MAX_PER_SCRAPER = 30
+_MAX_PER_SCRAPER = SCRAPER_MAX_ARTICLES
 
 
 def _is_fresh(dt):
@@ -61,10 +71,16 @@ def scraper(func):
     return wrapper
 
 
-def _fetch_url(url, accept="text/html", timeout=15):
+def _fetch_url(url, accept="text/html", timeout=None, feed_config=None):
     """Shared URL fetcher with urllib + curl fallback and retry logic."""
-    _MAX_RETRIES = 2
-    for attempt in range(_MAX_RETRIES + 1):
+    feed_id = (feed_config or {}).get("id", "")
+    effective_timeout = timeout if timeout is not None else SCRAPER_FETCH_TIMEOUT
+    if feed_id in SCRAPER_TIMEOUT_OVERRIDES:
+        effective_timeout = SCRAPER_TIMEOUT_OVERRIDES[feed_id]
+
+    max_retries = SCRAPER_RETRY_OVERRIDES.get(feed_id, SCRAPER_RETRY_ATTEMPTS)
+
+    for attempt in range(max_retries + 1):
         try:
             try:
                 req = urllib.request.Request(url, headers={
@@ -73,7 +89,7 @@ def _fetch_url(url, accept="text/html", timeout=15):
                     "Accept-Language": "en-US,en;q=0.9",
                 })
                 try:
-                    with urllib.request.urlopen(req, timeout=timeout, context=SSL_CONTEXT) as resp:
+                    with urllib.request.urlopen(req, timeout=effective_timeout, context=SSL_CONTEXT) as resp:
                         return resp.read()
                 except ssl.SSLCertVerificationError:
                     print(f"  [WARN] TLS verification failed for {url}, falling back to unverified")
@@ -82,14 +98,14 @@ def _fetch_url(url, accept="text/html", timeout=15):
                         "Accept": accept,
                         "Accept-Language": "en-US,en;q=0.9",
                     })
-                    with urllib.request.urlopen(req, timeout=timeout, context=SSL_CONTEXT_NOVERIFY) as resp:
+                    with urllib.request.urlopen(req, timeout=effective_timeout, context=SSL_CONTEXT_NOVERIFY) as resp:
                         return resp.read()
             except urllib.error.HTTPError as e:
                 if e.code == 403:
                     for ua in ["FeedFetcher/1.0", "Mozilla/5.0 (compatible; RSS Reader)"]:
                         result = subprocess.run(
                             ["curl", "-sL", "-A", ua, url],
-                            capture_output=True, timeout=20
+                            capture_output=True, timeout=FEED_CURL_TIMEOUT
                         )
                         if result.returncode == 0 and result.stdout:
                             return result.stdout
@@ -98,9 +114,9 @@ def _fetch_url(url, accept="text/html", timeout=15):
             # Don't retry HTTPError (subclass of URLError) — only transient network errors
             if isinstance(e, urllib.error.HTTPError):
                 raise
-            if attempt < _MAX_RETRIES:
-                print(f"  [WARN] Retry {attempt + 1}/{_MAX_RETRIES} for {url}: {str(e)[:80]}")
-                time.sleep(1.5)
+            if attempt < max_retries:
+                print(f"  [WARN] Retry {attempt + 1}/{max_retries} for {url}: {str(e)[:80]}")
+                time.sleep(SCRAPER_RETRY_BACKOFF)
             else:
                 raise
 
@@ -117,6 +133,7 @@ def _make_article(title, link, date, description, feed_config):
         "category": feed_config.get("category", "Reports"),
         "publisher": feed_config.get("publisher", ""),
         "region": feed_config.get("region", "Indian"),
+        "feed_id": feed_config.get("id", ""),
     }
 
 
@@ -257,7 +274,7 @@ def fetch_crisil_research(feed_config):
 def fetch_baroda_etrade(feed_config):
     """Fetch research reports from Baroda eTrade (STR/SOR pages)."""
     articles = []
-    content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
+    content = _fetch_url(feed_config["url"], feed_config=feed_config).decode("utf-8", errors="replace")
 
     # Extract parallel lists from the consistent HTML structure
     dates_raw = re.findall(r'<div\s+class="dateNtime1">\s*(.*?)\s*</div>', content, re.IGNORECASE)
@@ -691,44 +708,55 @@ def fetch_creditsights(feed_config):
 
 @scraper
 def fetch_jpmorgan(feed_config):
-    """Fetch from JPMorgan insights/research page.
-
-    Server-rendered cards with jpmorgan.com/insights/ links.
-    """
+    """Fetch Global Research Reports cards from JPMorgan's research-tiles JS."""
     articles = []
     content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
 
-    # Try JSON-LD first
-    json_match = re.search(r'<script[^>]+type="application/ld\+json"[^>]*>(.*?)</script>', content, re.DOTALL)
-    if json_match:
-        try:
-            data = json.loads(json_match.group(1))
-            items = data if isinstance(data, list) else [data]
-            for item in items:
-                if item.get("@type") in ("Article", "NewsArticle", "Report", "WebPage"):
-                    title = item.get("headline") or item.get("name", "")
-                    link = item.get("url", "")
-                    if title and link:
-                        dt = None
-                        date_str = item.get("datePublished") or item.get("dateModified") or ""
-                        if date_str:
-                            try:
-                                dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-                            except (ValueError, TypeError):
-                                dt = _parse_date_flexible(date_str)
-                        articles.append(_make_article(title, link, dt, item.get("description", ""), feed_config))
-        except json.JSONDecodeError:
-            pass
+    script_match = re.search(r'<script[^>]+src="([^"]*research-tiles\.js)"', content, re.IGNORECASE)
+    if not script_match:
+        return articles
 
-    # Fallback: scrape insight links
-    if not articles:
-        pattern = r'<a[^>]+href="(https://www\.jpmorgan\.com/(?:insights|research)/[^"]+)"[^>]*>(.*?)</a>'
-        seen = set()
-        for href, title_html in re.findall(pattern, content, re.DOTALL):
-            title = _strip_html(title_html).strip()
-            if title and len(title) >= 10 and href not in seen:
-                seen.add(href)
-                articles.append(_make_article(title, href, None, "", feed_config))
+    script_url = script_match.group(1)
+    if script_url.startswith("/"):
+        script_url = "https://www.jpmorgan.com" + script_url
+
+    js_content = _fetch_url(script_url, accept="application/javascript").decode("utf-8", errors="replace")
+
+    def _extract_js_string_field(block, key):
+        field_match = re.search(rf'"{re.escape(key)}"\s*:\s*"((?:\\.|[^"\\])*)"', block, re.DOTALL)
+        if not field_match:
+            return ""
+        raw = field_match.group(1).strip()
+        try:
+            return json.loads(f'"{raw}"')
+        except Exception:
+            return raw.replace('\\"', '"').replace("\\n", " ").strip()
+
+    seen_urls = set()
+    object_pattern = re.compile(r'const\s+[A-Za-z0-9_]+\s*=\s*\{(.*?)\}\s*;?', re.DOTALL)
+    for obj_match in object_pattern.finditer(js_content):
+        block = obj_match.group(1)
+
+        title = _extract_js_string_field(block, "title")
+        link = _extract_js_string_field(block, "url")
+        date_str = _extract_js_string_field(block, "date")
+        description = _extract_js_string_field(block, "subtitle")
+
+        if not title or not link or not date_str:
+            continue
+        if link.startswith("/"):
+            link = "https://www.jpmorgan.com" + link
+        if not link.startswith("http"):
+            continue
+        if link in seen_urls:
+            continue
+
+        dt = _parse_date_flexible(date_str)
+        if dt is None:
+            continue
+
+        seen_urls.add(link)
+        articles.append(_make_article(title, link, dt, description, feed_config))
 
     return articles
 

@@ -24,6 +24,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # Get script directory
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
+REPORTS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "reports_cache.json")
 
 # Filters extracted to filters.py for independent editing and testing
 from filters import should_filter_article, should_filter_video
@@ -34,7 +35,7 @@ from articles import (group_similar_articles, clean_html, get_sort_timestamp,
                       IST_TZ)
 
 # Feed loading and fetching
-from feeds import load_feeds, fetch_feed, fetch_careratings, INVIDIOUS_INSTANCES
+from feeds import load_feeds, fetch_feed, fetch_careratings, fetch_the_ken, INVIDIOUS_INSTANCES
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher
@@ -719,7 +720,9 @@ def main():
         futures = {}
         for feed in feeds:
             feed_field = feed.get("feed", "")
-            if feed_field.startswith("careratings:"):
+            if feed.get("id") == "the-ken":
+                futures[executor.submit(fetch_the_ken, feed)] = feed
+            elif feed_field.startswith("careratings:"):
                 futures[executor.submit(fetch_careratings, feed)] = feed
             else:
                 report_fetcher = get_report_fetcher(feed_field)
@@ -738,9 +741,17 @@ def main():
                     logger.ok(feed_name, f"{len(articles)} articles")
                     logger.add_articles(len(articles))
                 else:
-                    logger.fail(feed_name, "0 articles returned")
+                    if feed_cfg.get("id") == "the-ken":
+                        logger.warn(feed_name, "No articles returned after RSS/HTML/Google fallback (auto-skipped this run)")
+                    elif feed_cfg.get("category") == "Reports":
+                        logger.warn(feed_name, "No live reports returned; checking cache fallback")
+                    else:
+                        logger.fail(feed_name, "0 articles returned")
             except Exception as e:
-                logger.fail(feed_name, str(e))
+                if feed_cfg.get("category") == "Reports":
+                    logger.warn(feed_name, f"Live fetch error ({str(e)[:80]}); checking cache fallback")
+                else:
+                    logger.fail(feed_name, str(e))
 
     total_feeds = logger._ok + logger._fail
     logger.info(f"Total articles collected: {len(all_articles)}")
@@ -789,6 +800,65 @@ def main():
     # Sort videos, twitter, and reports by date (newest first), no filtering/grouping needed
     video_articles.sort(key=get_sort_timestamp, reverse=True)
     twitter_articles.sort(key=get_sort_timestamp, reverse=True)
+
+    # Reports cache: persist last successful per-feed report payloads
+    def serialize_report_item(item):
+        return {**item, "date": item["date"].isoformat() if item.get("date") else None}
+
+    def deserialize_report_item(item):
+        out = dict(item)
+        if out.get("date"):
+            try:
+                out["date"] = datetime.fromisoformat(out["date"])
+                if out["date"].tzinfo is None:
+                    out["date"] = out["date"].replace(tzinfo=IST_TZ)
+            except Exception:
+                out["date"] = None
+        else:
+            out["date"] = None
+        return out
+
+    try:
+        with open(REPORTS_CACHE_FILE, "r", encoding="utf-8") as f:
+            report_cache = json.load(f)
+        if isinstance(report_cache, list):
+            report_cache = {}  # old format — discard, rebuild
+    except (FileNotFoundError, json.JSONDecodeError):
+        report_cache = {}
+
+    report_feeds = {feed["id"]: feed for feed in feeds if feed.get("category") == "Reports"}
+    live_reports_by_id = {}
+    for report in report_articles:
+        feed_id = report.get("feed_id", "")
+        if feed_id:
+            live_reports_by_id.setdefault(feed_id, []).append(report)
+
+    # Refresh cache for report feeds that succeeded live
+    for feed_id, items in live_reports_by_id.items():
+        report_cache[feed_id] = [serialize_report_item(item) for item in items]
+
+    # Fill missing report feeds from cache (especially useful for transient timeouts)
+    for feed_id, feed_cfg in report_feeds.items():
+        if live_reports_by_id.get(feed_id):
+            continue
+        cached_items = [deserialize_report_item(item) for item in report_cache.get(feed_id, []) if isinstance(item, dict)]
+        if cached_items:
+            report_articles.extend(cached_items)
+            if feed_id.startswith("baroda-etrade"):
+                logger.warn(feed_cfg["name"], f"Live fetch timed out; loaded {len(cached_items)} cached reports")
+            else:
+                logger.info(f"[cache] {feed_cfg['name']}: {len(cached_items)} reports")
+            logger.add_articles(len(cached_items))
+        elif feed_id.startswith("baroda-etrade"):
+            logger.warn(feed_cfg["name"], "Live fetch timed out and no cache exists yet; skipped this run")
+
+    try:
+        with open(REPORTS_CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(report_cache, f)
+        total_cached_reports = sum(len(v) for v in report_cache.values() if isinstance(v, list))
+        logger.info(f"Reports cache: {total_cached_reports} items across {len(report_cache)} feeds")
+    except Exception as e:
+        logger.warn("Reports cache", f"could not write: {e}")
 
     # Deduplicate report articles by URL
     seen_report_urls = set()
