@@ -10,6 +10,7 @@ import urllib.request
 import urllib.error
 import urllib.parse
 import xml.etree.ElementTree as ET
+import base64
 from datetime import datetime, timedelta, timezone
 import re
 import ssl
@@ -31,6 +32,9 @@ SSL_CONTEXT_NOVERIFY.verify_mode = ssl.CERT_NONE
 
 INVIDIOUS_INSTANCES = ["inv.nadeko.net", "yewtu.be", "iv.datura.network"]
 DC_NS = "http://purl.org/dc/elements/1.1/"
+GOOGLE_RSS_PREFIX = "https://news.google.com/rss/"
+GOOGLE_ARTICLE_PATH_RE = re.compile(r"/rss/articles/([^/?#]+)")
+HTTP_URL_RE = re.compile(r"https?://[^\s\"'<>\\)]+", re.IGNORECASE)
 
 
 def load_feeds():
@@ -156,6 +160,7 @@ def _parse_feed_content(content, feed_config):
             summary = item.find("atom:summary", ns)
             if summary is None:
                 summary = item.find("atom:content", ns)
+            guid = item.find("atom:id", ns)
 
             link_href = link.get("href") if link is not None else ""
             if not _ing_link_allowed(link_href):
@@ -171,6 +176,7 @@ def _parse_feed_content(content, feed_config):
                 "category": feed_config.get("category", "News"),
                 "publisher": feed_config.get("publisher", ""),
                 "feed_id": feed_config["id"],
+                "guid": guid.text.strip() if guid is not None and guid.text else "",
             }
 
             # YouTube-specific: extract video ID and thumbnail
@@ -199,6 +205,7 @@ def _parse_feed_content(content, feed_config):
                 pub_date = item.find("updated")
             if pub_date is None:
                 pub_date = item.find("published")
+            guid = item.find("guid")
             description = item.find("description")
             link_text = link.text if link is not None and link.text else ""
             if not _ing_link_allowed(link_text):
@@ -229,6 +236,7 @@ def _parse_feed_content(content, feed_config):
                 "publisher": feed_config.get("publisher", ""),
                 "image": image_url,
                 "feed_id": feed_config["id"],
+                "guid": guid.text.strip() if guid is not None and guid.text else "",
             })
 
     return articles
@@ -241,6 +249,118 @@ def _clean_html_text(raw):
     text = re.sub(r"<[^>]+>", " ", raw)
     text = html.unescape(text)
     return re.sub(r"\s+", " ", text).strip()
+
+
+def _is_google_rss_feed(feed_url):
+    return (feed_url or "").startswith(GOOGLE_RSS_PREFIX)
+
+
+def _extract_first_non_google_url(raw_text):
+    """Find first URL in text that is not a Google News link."""
+    text = html.unescape(raw_text or "")
+    for match in HTTP_URL_RE.findall(text):
+        cleaned = match.rstrip(".,;:!?)\"'")
+        lower = cleaned.lower()
+        if "news.google.com/" in lower:
+            continue
+        return cleaned
+    return ""
+
+
+def _extract_google_article_token(link):
+    """Get Google RSS article token from /rss/articles/<token> URL."""
+    if not link:
+        return ""
+    parsed = urllib.parse.urlparse(link)
+    match = GOOGLE_ARTICLE_PATH_RE.search(parsed.path)
+    if not match:
+        return ""
+    return match.group(1).strip()
+
+
+def _decode_google_article_token(token):
+    """Best-effort decode of Google article token to original URL."""
+    if not token:
+        return ""
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", token):
+        return ""
+    padded = token + ("=" * (-len(token) % 4))
+    try:
+        decoded = base64.urlsafe_b64decode(padded.encode("ascii"))
+    except Exception:
+        return ""
+    decoded_text = decoded.decode("utf-8", errors="ignore")
+    return _extract_first_non_google_url(decoded_text)
+
+
+def _normalize_google_source_suffix(title, publisher):
+    """Strip trailing source suffix in Google RSS titles (e.g., ' - WSJ')."""
+    cleaned = (title or "").strip()
+    if not cleaned:
+        return ""
+
+    aliases = []
+    normalized_publisher = (publisher or "").strip()
+    if normalized_publisher:
+        aliases.append(normalized_publisher)
+    if normalized_publisher.upper() == "WSJ":
+        aliases.extend(["The Wall Street Journal", "Wall Street Journal"])
+    if normalized_publisher.lower() == "the economist":
+        aliases.append("Economist")
+
+    for alias in aliases:
+        cleaned = re.sub(rf"\s*-\s*{re.escape(alias)}\s*$", "", cleaned, flags=re.IGNORECASE).strip()
+    return cleaned
+
+
+def _best_effort_resolve_google_link(link, guid="", description=""):
+    """Try to resolve Google RSS redirect link to original publisher URL."""
+    if not link:
+        return ""
+    if "news.google.com/rss/articles/" not in link:
+        return link
+
+    # Some feeds include direct links inside description HTML.
+    direct_from_description = _extract_first_non_google_url(description)
+    if direct_from_description:
+        return direct_from_description
+
+    # Rarely, original URL is present in query parameters.
+    parsed = urllib.parse.urlparse(link)
+    query_params = urllib.parse.parse_qs(parsed.query)
+    for key in ("url", "u", "q"):
+        candidate = (query_params.get(key) or [""])[0]
+        if candidate.startswith("http://") or candidate.startswith("https://"):
+            return candidate
+
+    # Token decode fallback from article path and GUID.
+    for token in (_extract_google_article_token(link), (guid or "").strip()):
+        resolved = _decode_google_article_token(token)
+        if resolved:
+            return resolved
+
+    return link
+
+
+def _post_process_google_rss_articles(articles, feed_config):
+    """Normalize Google RSS titles and resolve links when possible."""
+    publisher = feed_config.get("publisher", "")
+    resolved_count = 0
+    attempted_count = 0
+    for article in articles:
+        article["title"] = _normalize_google_source_suffix(article.get("title", ""), publisher)
+        original_link = article.get("link", "")
+        if "news.google.com/rss/articles/" in original_link:
+            attempted_count += 1
+            resolved_link = _best_effort_resolve_google_link(
+                original_link,
+                guid=article.get("guid", ""),
+                description=article.get("description", ""),
+            )
+            if resolved_link and resolved_link != original_link:
+                article["link"] = resolved_link
+                resolved_count += 1
+    return {"attempted": attempted_count, "resolved": resolved_count}
 
 
 def _normalize_the_ken_title(title):
@@ -420,6 +540,7 @@ def fetch_feed(feed_config):
     feed_url = feed_config["feed"]
     feed_name = feed_config["name"]
     articles = []
+    google_stats = None
 
     try:
         content = _fetch_url_bytes(feed_url, timeout=15)
@@ -427,8 +548,12 @@ def fetch_feed(feed_config):
             raise Exception("No content received")
 
         articles = _parse_feed_content(content, feed_config)
+        if _is_google_rss_feed(feed_url):
+            google_stats = _post_process_google_rss_articles(articles, feed_config)
 
         print(f"  [OK] {feed_name}: {len(articles)} articles")
+        if google_stats and google_stats["attempted"] > 0:
+            print(f"    [INFO] Google link decode: {google_stats['resolved']}/{google_stats['attempted']} resolved")
 
     except Exception as e:
         print(f"  [FAIL] {feed_name}: {str(e)[:50]}")

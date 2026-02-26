@@ -232,9 +232,41 @@
     "publisher": "ET"
   },
   {
+    "id": "wsj-business-rss",
+    "name": "WSJ — Business",
+    "url": "https://www.wsj.com/business",
+    "feed": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
+    "category": "News",
+    "publisher": "WSJ"
+  },
+  {
+    "id": "wsj-economy-google-rss",
+    "name": "WSJ — Economy",
+    "url": "https://www.wsj.com/economy",
+    "feed": "https://news.google.com/rss/search?q=site:wsj.com/economy&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "WSJ"
+  },
+  {
+    "id": "wsj-india-google-rss",
+    "name": "WSJ — India",
+    "url": "https://www.wsj.com/world/india",
+    "feed": "https://news.google.com/rss/search?q=site:wsj.com/world/india&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "WSJ"
+  },
+  {
+    "id": "economist-business",
+    "name": "The Economist — Business",
+    "url": "https://www.economist.com/topics/business",
+    "feed": "https://www.economist.com/business/rss.xml",
+    "category": "News",
+    "publisher": "The Economist"
+  },
+  {
     "id": "economist-finance-and-economics",
     "name": "Finance & economics",
-    "url": "https://www.economist.com/finance-and-economics",
+    "url": "https://www.economist.com/topics/finance-and-economics",
     "feed": "https://www.economist.com/finance-and-economics/rss.xml",
     "category": "News",
     "publisher": "The Economist"
