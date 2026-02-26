@@ -743,6 +743,8 @@ def main():
                 else:
                     if feed_cfg.get("id") == "the-ken":
                         logger.warn(feed_name, "No articles returned after RSS/HTML/Google fallback (auto-skipped this run)")
+                    elif feed_cfg.get("id") == "ing-think-rss":
+                        logger.warn(feed_name, "Feed fetched but no valid /articles/ or /snaps/ entries were parsed")
                     elif feed_cfg.get("category") == "Reports":
                         logger.warn(feed_name, "No live reports returned; checking cache fallback")
                     else:

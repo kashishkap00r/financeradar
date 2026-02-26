@@ -30,6 +30,7 @@ SSL_CONTEXT_NOVERIFY.check_hostname = False
 SSL_CONTEXT_NOVERIFY.verify_mode = ssl.CERT_NONE
 
 INVIDIOUS_INSTANCES = ["inv.nadeko.net", "yewtu.be", "iv.datura.network"]
+DC_NS = "http://purl.org/dc/elements/1.1/"
 
 
 def load_feeds():
@@ -128,6 +129,13 @@ def _parse_feed_content(content, feed_config):
 
     # Parse XML
     root = ET.fromstring(content)
+    feed_id = feed_config.get("id", "")
+
+    def _ing_link_allowed(link):
+        if feed_id != "ing-think-rss":
+            return True
+        link_l = (link or "").lower()
+        return "/articles/" in link_l or "/snaps/" in link_l
 
     # Handle RSS 2.0 format
     items = root.findall(".//item")
@@ -150,6 +158,8 @@ def _parse_feed_content(content, feed_config):
                 summary = item.find("atom:content", ns)
 
             link_href = link.get("href") if link is not None else ""
+            if not _ing_link_allowed(link_href):
+                continue
 
             article_data = {
                 "title": title.text if title is not None and title.text else "No title",
@@ -183,7 +193,16 @@ def _parse_feed_content(content, feed_config):
             title = item.find("title")
             link = item.find("link")
             pub_date = item.find("pubDate")
+            if pub_date is None:
+                pub_date = item.find(f"{{{DC_NS}}}date")
+            if pub_date is None:
+                pub_date = item.find("updated")
+            if pub_date is None:
+                pub_date = item.find("published")
             description = item.find("description")
+            link_text = link.text if link is not None and link.text else ""
+            if not _ing_link_allowed(link_text):
+                continue
 
             # Extract image from media:thumbnail, media:content, or enclosure
             image_url = ""
@@ -201,7 +220,7 @@ def _parse_feed_content(content, feed_config):
 
             articles.append({
                 "title": title.text if title is not None and title.text else "No title",
-                "link": link.text if link is not None and link.text else "",
+                "link": link_text,
                 "date": parse_date(pub_date.text if pub_date is not None else "", feed_name),
                 "description": description.text[:300] if description is not None and description.text else "",
                 "source": feed_name,
