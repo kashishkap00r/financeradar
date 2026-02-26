@@ -134,6 +134,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
         "date": v["date"].isoformat() if v.get("date") else None,
         "source": v.get("source", ""),
         "publisher": v.get("publisher", ""),
+        "source_url": v.get("source_url", ""),
         "video_id": v.get("video_id", ""),
         "thumbnail": v.get("thumbnail", ""),
     } for v in video_articles])
@@ -151,6 +152,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
         "date": t["date"].isoformat() if t.get("date") else None,
         "source": t.get("source", ""),
         "publisher": t.get("publisher", ""),
+        "source_url": t.get("source_url", ""),
         "image": t.get("image", ""),
     } for t in twitter_articles])
     twitter_count = len(twitter_articles)
@@ -166,6 +168,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
         "date": r["date"].isoformat() if r.get("date") else None,
         "source": r.get("source", ""),
         "publisher": r.get("publisher", ""),
+        "source_url": r.get("source_url", ""),
         "description": r.get("description", ""),
         "region": r.get("region", "Indian"),
     } for r in report_articles])

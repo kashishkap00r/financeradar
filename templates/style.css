@@ -558,6 +558,18 @@
             color: var(--accent);
         }
 
+        .card-source-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1px;
+        }
+
+        .card-source-link:hover {
+            color: var(--accent);
+        }
+
         .meta-dot {
             color: var(--text-muted);
         }
@@ -616,13 +628,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 1px;
-            transition: color 0.15s;
-            cursor: default;
-        }
-        .tweet-card-publisher:hover {
-            color: var(--accent);
+            text-decoration: none;
         }
         .tweet-card-date {
             font-size: 11px;
@@ -1278,11 +1284,28 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            display: inline-block;
+            text-decoration: none;
         }
         .report-card-date {
             font-size: 11px;
             color: var(--text-muted);
             white-space: nowrap;
+        }
+        .report-title {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+        .report-title-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+        .report-title-link:hover {
+            color: var(--accent);
         }
         .report-text {
             font-family: 'Source Sans Pro', system-ui, sans-serif;
@@ -1372,11 +1395,9 @@
         .report-meta {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 8px;
             font-size: 12px;
             color: var(--text-muted);
-            padding-top: 8px;
-            border-top: 1px solid var(--border);
             margin-top: 4px;
         }
         .report-meta a {
@@ -1472,8 +1493,9 @@
         .video-channel {
             font-size: 13px;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--text-secondary);
             margin-bottom: 4px;
+            display: inline-block;
         }
         .video-meta {
             display: flex;

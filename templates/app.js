@@ -1224,9 +1224,21 @@
                     html += `<h2 class="date-header">${dateHeader}</h2>`;
                 }
 
-                const text = escapeHtml(r.text || '').replace(/\n/g, '<br>');
-                const reportUrl = r.url || '';
+                const rawText = r.text || '';
+                const lines = rawText.split('\n').map(line => line.trim()).filter(Boolean);
+                const reportTitleRaw = lines[0] || rawText.trim() || 'Untitled';
+                const reportBodyRaw = lines.length > 1 ? lines.slice(1).join('\n') : '';
+                const reportTitle = escapeHtml(reportTitleRaw);
+                const text = escapeHtml(reportBodyRaw).replace(/\n/g, '<br>');
+                const reportUrl = sanitizeUrl(r.url || '');
                 const isBookmarkedReport = bookmarks.some(b => b.url === reportUrl);
+                const titleHtml = reportUrl
+                    ? `<a href="${escapeForAttr(reportUrl)}" target="_blank" rel="noopener" class="report-title-link">${reportTitle}</a>`
+                    : `<span class="report-title-link">${reportTitle}</span>`;
+                const channel = escapeHtml(r.channel || 'Telegram');
+                const sourceHtml = reportUrl
+                    ? `<a href="${escapeForAttr(reportUrl)}" target="_blank" rel="noopener" class="report-channel card-source-link">${channel}</a>`
+                    : `<span class="report-channel">${channel}</span>`;
                 let docHtml = '';
                 const docs = (r.documents && r.documents.length > 0) ? r.documents
                     : (r.document && r.document.title) ? [r.document] : [];
@@ -1260,13 +1272,11 @@
                     typeBadge = '<span class="report-type-badge report-type-photo">Photo</span>';
                 }
 
-                const channel = escapeHtml(r.channel);
-
                 html += `
-                    <div class="report-card" data-url="${escapeForAttr(reportUrl)}" data-title="${escapeForAttr((r.text || '').split('\n')[0].substring(0, 100))}" data-channel="${escapeForAttr(r.channel || '')}">
+                    <div class="report-card" data-url="${escapeForAttr(reportUrl)}" data-title="${escapeForAttr(reportTitleRaw.substring(0, 100))}" data-channel="${escapeForAttr(r.channel || '')}">
                         <div class="report-card-header">
                             <div class="report-card-left">
-                                <span class="report-channel">${channel}</span>
+                                ${sourceHtml}
                                 ${typeBadge}
                             </div>
                             <div class="report-card-right">
@@ -1278,12 +1288,9 @@
                         </div>
                         ${imgHtml}
                         ${docHtml}
-                        <div class="report-text">${text}</div>
-                        <button class="report-expand-btn" style="display:none" onclick="toggleReportExpand(this)">Show more</button>
-                        <div class="report-meta">
-                            <span>${r.views ? escapeHtml(r.views) + ' views' : ''}</span>
-                            <a href="${escapeHtml(reportUrl)}" target="_blank" rel="noopener">Open in Telegram →</a>
-                        </div>
+                        <div class="report-title">${titleHtml}</div>
+                        ${reportBodyRaw ? `<div class="report-text">${text}</div><button class="report-expand-btn" style="display:none" onclick="toggleReportExpand(this)">Show more</button>` : ''}
+                        ${r.views ? `<div class="report-meta"><span>${escapeHtml(r.views)} views</span></div>` : ''}
                     </div>
                 `;
             });
@@ -1474,32 +1481,36 @@
 
                 const title = escapeHtml(r.title);
                 const publisher = escapeHtml(r.publisher || r.source);
-                const link = escapeHtml(r.link);
+                const reportUrl = sanitizeUrl(r.link || '');
+                const sourceUrl = sanitizeUrl(r.source_url || '') || reportUrl;
+                const cardUrl = reportUrl || sourceUrl;
                 const description = escapeHtml(r.description || '');
                 const region = (r.region || 'Indian').toLowerCase();
                 const regionLabel = region === 'international' ? 'Intl' : 'Indian';
                 const regionCls = region === 'international' ? 'international' : 'indian';
+                const sourceHtml = sourceUrl
+                    ? `<a href="${escapeForAttr(sourceUrl)}" target="_blank" rel="noopener" class="report-channel card-source-link">${publisher}</a>`
+                    : `<span class="report-channel">${publisher}</span>`;
+                const titleHtml = cardUrl
+                    ? `<a href="${escapeForAttr(cardUrl)}" target="_blank" rel="noopener" class="report-title-link">${title}</a>`
+                    : `<span class="report-title-link">${title}</span>`;
 
                 html += `
-                    <div class="report-card" data-publisher="${publisher}" data-url="${link}" data-region="${region}">
+                    <div class="report-card" data-publisher="${publisher}" data-url="${escapeForAttr(cardUrl)}" data-region="${region}">
                         <div class="report-card-header">
                             <div class="report-card-left">
-                                <span class="report-channel">${publisher}</span>
+                                ${sourceHtml}
                                 <span class="research-region-badge ${regionCls}">${regionLabel}</span>
                             </div>
                             <div class="report-card-right">
                                 ${r.date ? `<span class="report-card-date">${formatResearchDate(r.date)}</span>` : ''}
-                                <button class="bookmark-btn" data-url="${link}" data-title="${escapeForAttr(r.title)}" data-source="${publisher}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark report" title="Bookmark">
+                                <button class="bookmark-btn" data-url="${escapeForAttr(cardUrl)}" data-title="${escapeForAttr(r.title)}" data-source="${publisher}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark report" title="Bookmark">
                                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                                 </button>
                             </div>
                         </div>
-                        <div class="report-text"><a href="${link}" target="_blank" rel="noopener" style="color:var(--text-primary);text-decoration:none;">${title}</a></div>
+                        <div class="report-title">${titleHtml}</div>
                         ${description ? `<div class="research-card-description">${description}</div>` : ''}
-                        <div class="report-meta">
-                            <span></span>
-                            <a href="${link}" target="_blank" rel="noopener">Open report &rarr;</a>
-                        </div>
                     </div>
                 `;
             });
@@ -1830,24 +1841,34 @@
 
                 const title = escapeHtml(v.title);
                 const channel = escapeHtml(v.publisher || v.source);
-                const link = escapeHtml(v.link);
+                const videoUrl = sanitizeUrl(v.link || '');
+                const sourceUrl = sanitizeUrl(v.source_url || '') || videoUrl;
+                const bookmarkUrl = videoUrl || sourceUrl;
                 const thumbnail = v.thumbnail || (v.video_id ? `https://i.ytimg.com/vi/${v.video_id}/mqdefault.jpg` : '');
-
-                html += `
-                    <div class="video-card">
-                        <a href="${link}" target="_blank" rel="noopener" class="video-thumb">
+                const sourceHtml = sourceUrl
+                    ? `<a href="${escapeForAttr(sourceUrl)}" target="_blank" rel="noopener" class="video-channel card-source-link">${channel}</a>`
+                    : `<span class="video-channel">${channel}</span>`;
+                const titleHtml = videoUrl
+                    ? `<a href="${escapeForAttr(videoUrl)}" target="_blank" rel="noopener">${title}</a>`
+                    : `<span>${title}</span>`;
+                const thumbInner = `
                             ${thumbnail ? `<img src="${escapeForAttr(thumbnail)}" alt="${escapeForAttr(v.title)}" loading="lazy" onerror="this.style.display='none'">` : ''}
                             <div class="video-thumb-play">
                                 <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-                            </div>
-                        </a>
+                            </div>`;
+                const thumbHtml = videoUrl
+                    ? `<a href="${escapeForAttr(videoUrl)}" target="_blank" rel="noopener" class="video-thumb">${thumbInner}</a>`
+                    : `<div class="video-thumb">${thumbInner}</div>`;
+
+                html += `
+                    <div class="video-card">
+                        ${thumbHtml}
                         <div class="video-info">
-                            <div class="video-channel">${channel}</div>
-                            <div class="video-title"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>
+                            ${sourceHtml}
+                            <div class="video-title">${titleHtml}</div>
                             <div class="video-meta">
                                 <span>${formatYoutubeDate(v.date)}</span>
-                                <a href="${link}" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
-                                <button class="bookmark-btn" data-url="${link}" data-title="${escapeForAttr(v.title)}" data-source="${channel}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark video" title="Bookmark">
+                                <button class="bookmark-btn" data-url="${escapeForAttr(bookmarkUrl)}" data-title="${escapeForAttr(v.title)}" data-source="${channel}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark video" title="Bookmark">
                                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                                 </button>
                             </div>
@@ -2150,26 +2171,33 @@
 
                 const title = escapeHtml(t.title);
                 const source = escapeHtml(t.source);
-                const link = escapeHtml(t.link);
-
+                const tweetUrl = sanitizeUrl(t.link || '');
+                const sourceUrl = sanitizeUrl(t.source_url || '') || tweetUrl;
+                const bookmarkUrl = tweetUrl || sourceUrl;
+                const titleHtml = tweetUrl
+                    ? `<a href="${escapeForAttr(tweetUrl)}" target="_blank" rel="noopener">${title}</a>`
+                    : `<span>${title}</span>`;
                 const publisher = escapeHtml(t.publisher || t.source);
+                const publisherHtml = sourceUrl
+                    ? `<a href="${escapeForAttr(sourceUrl)}" target="_blank" rel="noopener" class="tweet-card-publisher card-source-link">${publisher}</a>`
+                    : `<span class="tweet-card-publisher">${publisher}</span>`;
                 const badges = getTweetBadges(t.title);
                 const badgeHtml = badges.map(b => `<span class="tweet-badge ${b.cls}">${b.label}</span>`).join('');
                 html += `
-                    <div class="tweet-card" data-publisher="${publisher}" data-url="${link}">
+                    <div class="tweet-card" data-publisher="${publisher}" data-url="${escapeForAttr(bookmarkUrl)}">
                         <div class="tweet-card-header">
                             <div class="tweet-card-left">
-                                <span class="tweet-card-publisher">${publisher}</span>
+                                ${publisherHtml}
                                 ${badgeHtml}
                             </div>
                             <div class="tweet-card-right">
                                 ${t.date ? `<span class="tweet-card-date">${formatTwitterDate(t.date)}</span>` : ''}
-                                <button class="bookmark-btn" data-url="${link}" data-title="${escapeForAttr(t.title)}" data-source="${source}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark tweet" title="Bookmark">
+                                <button class="bookmark-btn" data-url="${escapeForAttr(bookmarkUrl)}" data-title="${escapeForAttr(t.title)}" data-source="${source}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark tweet" title="Bookmark">
                                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                                 </button>
                             </div>
                         </div>
-                        <div class="tweet-card-body"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>
+                        <div class="tweet-card-body">${titleHtml}</div>
                         <button class="tweet-expand-btn" onclick="toggleTweetExpand(this)">Show more</button>
                         ${t.image ? `<div class="tweet-card-image"><img src="${escapeForAttr(t.image)}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ''}
                     </div>
