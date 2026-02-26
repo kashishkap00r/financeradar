@@ -1,0 +1,44 @@
+name: Missing Story Audit
+
+"on":
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Ensure published snapshot exists
+        run: |
+          if [ ! -f static/published_snapshot.json ]; then
+            python3 aggregator.py
+          fi
+
+      - name: Run missing story audit
+        run: python3 missing_story_auditor.py --days 7 --sla-hours 6 --tabs all
+
+      - name: Upload audit artifacts
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4
+        with:
+          name: missing-story-audit
+          path: |
+            audit/results/**
+            audit/raw/**
+          if-no-files-found: warn

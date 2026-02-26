@@ -760,7 +760,13 @@
                             ? `<a href="${escapeHtml(sanitizeUrl(r.url))}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>`
                             : `<span class="rank-title-nolink">${escapeHtml(r.title)}</span>`
                         }
-                        <span class="rank-source">${escapeHtml(r.source)}</span>
+                        <div class="rank-meta">
+                            <span class="rank-source">${escapeHtml(r.source)}</span>
+                            ${r.source_type
+                                ? `<span class="rank-source-type">${escapeHtml(String(r.source_type).toUpperCase())}</span>`
+                                : ''
+                            }
+                        </div>
                     </div>
                     <button class="ai-bookmark-btn ${isBookmarked(r.url) ? 'bookmarked' : ''}"
                             data-url="${escapeForAttr(r.url)}" data-title="${escapeForAttr(r.title)}" data-source="${escapeForAttr(r.source)}" title="Bookmark">

@@ -15,8 +15,14 @@ import time
 from difflib import SequenceMatcher
 from datetime import datetime, timedelta, timezone
 
-from config import (AI_RANKER_ARTICLE_WINDOW_HOURS, AI_RANKER_MAX_ARTICLES,
-                    AI_RANKER_OPENROUTER_TIMEOUT, AI_RANKER_GEMINI_TIMEOUT)
+from config import (
+    AI_RANKER_ARTICLE_WINDOW_HOURS,
+    AI_RANKER_EXTENDED_WINDOW_DAYS,
+    AI_RANKER_MAX_ARTICLES,
+    AI_RANKER_TARGET_COUNT,
+    AI_RANKER_OPENROUTER_TIMEOUT,
+    AI_RANKER_GEMINI_TIMEOUT,
+)
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
@@ -37,15 +43,29 @@ MODELS = {
     }
 }
 
-RANKING_PROMPT = """You are the editor of an Indian finance newsletter modeled on Zerodha's Daily Brief.
+SOURCE_TYPE_ORDER = ["news", "twitter", "telegram", "reports", "youtube"]
+SOURCE_WINDOWS = {
+    "news": timedelta(hours=AI_RANKER_ARTICLE_WINDOW_HOURS),
+    "twitter": timedelta(hours=AI_RANKER_ARTICLE_WINDOW_HOURS),
+    "telegram": timedelta(days=AI_RANKER_EXTENDED_WINDOW_DAYS),
+    "reports": timedelta(days=AI_RANKER_EXTENDED_WINDOW_DAYS),
+    "youtube": timedelta(days=AI_RANKER_EXTENDED_WINDOW_DAYS),
+}
+
+
+def build_ranking_prompt(headlines, available_source_types):
+    source_list = ", ".join(st.upper() for st in available_source_types) or "NEWS"
+    return f"""You are the editor of an Indian finance newsletter modeled on Zerodha's Daily Brief.
 Audience: curious, informed Indians (long-term investors, founders, policy nerds).
 
 INPUT
-You will receive a list of news headlines from the last 48 hours.
-Each headline is formatted as: - Headline text [Source Name]
+You will receive a list of FinanceRadar headlines.
+- NEWS and TWITTER items are from the last {AI_RANKER_ARTICLE_WINDOW_HOURS} hours.
+- TELEGRAM, REPORTS, and YOUTUBE items are from the last {AI_RANKER_EXTENDED_WINDOW_DAYS} days.
+Each headline is formatted as: - Headline text [Source Name | SOURCE_TYPE]
 
 TASK
-Pick exactly 20 stories most relevant to Daily Brief.
+Pick exactly {AI_RANKER_TARGET_COUNT} stories most relevant to Daily Brief.
 Prioritize high-signal, India-relevant stories.
 
 RANKING PRIORITY (highest to lowest)
@@ -69,7 +89,8 @@ Global stories qualify only if they explicitly connect to Indian industry, polic
 If India linkage is weak or implied, reject.
 
 DIVERSITY RULE
-No more than 3 selected stories from the same sector.
+No more than 4 selected stories from the same sector.
+Ensure at least one story from each source type available in the input: {source_list}.
 
 SOURCE QUALITY FILTER
 Prefer primary reporting and strong analytical outlets.
@@ -79,17 +100,17 @@ SELECTION LOGIC
 - Rank by editorial value, not recency alone.
 - Prefer one strong explanatory piece over multiple repetitive updates.
 - Remove duplicates/near-duplicates across sources.
-- If fewer than 20 high-confidence stories exist, still return 20 by using medium-confidence picks that obey all hard-skip rules.
+- If fewer than {AI_RANKER_TARGET_COUNT} high-confidence stories exist, still return {AI_RANKER_TARGET_COUNT} by using medium-confidence picks that obey all hard-skip rules.
 
 ## Headlines
 {headlines}
 
 OUTPUT FORMAT (STRICT)
-Return ONLY a JSON array of exactly 20 objects. No markdown, no commentary, no code blocks.
+Return ONLY a JSON array of exactly {AI_RANKER_TARGET_COUNT} objects. No markdown, no commentary, no code blocks.
 
 Each object must contain:
-- rank: integer (1-20)
-- title: string (exact headline text as given, including the [Source Name] tag)
+- rank: integer (1-{AI_RANKER_TARGET_COUNT})
+- title: string (exact headline text as given, including the [Source Name | SOURCE_TYPE] tag)
 - india_relevance: string (1 concise sentence)
 - signal_type: one of ["mechanism", "structural-shift", "supply-chain", "policy-implication", "credible-opinion", "labour-trend"]
 - why_it_matters: string (max 2 concise lines)
@@ -97,18 +118,90 @@ Each object must contain:
 
 CRITICAL:
 - Use the EXACT headline text from the input — do not paraphrase or modify it.
-- Include the [Source Name] tag exactly as shown. This is required for the article match to work.
+- Include the full [Source Name | SOURCE_TYPE] tag exactly as shown. This is required for story matching.
 - When in doubt, pick the story that makes the reader say "I didn't know that" over "I already saw that."
 
 VALIDATION BEFORE FINALIZING
-- Exactly 20 items
-- Ranks are unique and sequential 1..20
+- Exactly {AI_RANKER_TARGET_COUNT} items
+- Ranks are unique and sequential 1..{AI_RANKER_TARGET_COUNT}
 - No duplicate titles
 - Every item has explicit India relevance
 - Hard skips are excluded"""
 
 
-def load_articles_48h(max_articles=AI_RANKER_MAX_ARTICLES):
+def parse_item_date(date_str):
+    """Parse an ISO date and normalize timezone; return None if parsing fails."""
+    if not date_str:
+        return None
+    try:
+        normalized = date_str.strip().replace("Z", "+00:00")
+        dt = datetime.fromisoformat(normalized)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=IST_TZ)
+        return dt.astimezone(IST_TZ)
+    except (ValueError, TypeError, AttributeError):
+        return None
+
+
+def normalize_source_type(value):
+    st = (value or "").strip().lower()
+    return st if st in SOURCE_WINDOWS else ""
+
+
+def item_identity(title, url="", source_type="", source=""):
+    if url:
+        return f"url::{url.strip().lower()}"
+    return f"title::{normalize_title(title)}|{normalize_source_type(source_type)}|{(source or '').strip().lower()}"
+
+
+def build_candidates_from_snapshot(snapshot_data, now=None, max_articles=AI_RANKER_MAX_ARTICLES):
+    """Build AI ranking candidates from static/published_snapshot.json."""
+    now = now or datetime.now(IST_TZ)
+    candidates = []
+    for source_type in SOURCE_TYPE_ORDER:
+        entries = snapshot_data.get(source_type, [])
+        if not isinstance(entries, list):
+            continue
+        cutoff = now - SOURCE_WINDOWS[source_type]
+        for item in entries:
+            title = (item.get("title") or "").strip()
+            if not title:
+                continue
+            source = (item.get("publisher") or item.get("source_name") or source_type.title()).strip()
+            url = (item.get("url") or "").strip()
+            date_str = item.get("published_at") or item.get("date") or ""
+            parsed_date = parse_item_date(date_str)
+            if parsed_date and parsed_date < cutoff:
+                continue
+            candidates.append({
+                "title": title,
+                "url": url,
+                "source": source,
+                "date": date_str,
+                "source_type": source_type,
+                "_parsed_date": parsed_date or datetime.min.replace(tzinfo=IST_TZ),
+            })
+
+    candidates.sort(key=lambda x: x.get("_parsed_date", datetime.min.replace(tzinfo=IST_TZ)), reverse=True)
+
+    deduped = []
+    seen = set()
+    for item in candidates:
+        key = item_identity(item.get("title", ""), item.get("url", ""), item.get("source_type", ""), item.get("source", ""))
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(item)
+        if len(deduped) >= max_articles:
+            break
+
+    for item in deduped:
+        item.pop("_parsed_date", None)
+    return deduped
+
+
+def load_legacy_articles_48h(max_articles=AI_RANKER_MAX_ARTICLES):
+    """Fallback loader using static/articles.json (news + twitter only)."""
     articles_path = os.path.join(SCRIPT_DIR, "static", "articles.json")
     try:
         with open(articles_path, "r", encoding="utf-8") as f:
@@ -119,23 +212,44 @@ def load_articles_48h(max_articles=AI_RANKER_MAX_ARTICLES):
 
     cutoff = datetime.now(IST_TZ) - timedelta(hours=AI_RANKER_ARTICLE_WINDOW_HOURS)
     articles = []
-    for a in data["articles"]:
-        if a["date"]:
-            try:
-                dt = datetime.fromisoformat(a["date"])
-                if dt.tzinfo is None:
-                    dt = dt.replace(tzinfo=IST_TZ)
-                if dt >= cutoff:
-                    a["_parsed_date"] = dt
-                    articles.append(a)
-            except (ValueError, TypeError):
-                articles.append(a)
-        else:
-            articles.append(a)
+    for a in data.get("articles", []):
+        date_str = a.get("date")
+        parsed_date = parse_item_date(date_str)
+        if parsed_date and parsed_date < cutoff:
+            continue
+        category = (a.get("category") or "").strip().lower()
+        source_type = "twitter" if category == "twitter" else "news"
+        articles.append({
+            "title": a.get("title", ""),
+            "url": a.get("url", ""),
+            "source": a.get("source", ""),
+            "date": date_str or "",
+            "source_type": source_type,
+            "_parsed_date": parsed_date or datetime.min.replace(tzinfo=IST_TZ),
+        })
+
     articles.sort(key=lambda x: x.get("_parsed_date", datetime.min.replace(tzinfo=IST_TZ)), reverse=True)
-    for a in articles:
-        a.pop("_parsed_date", None)
-    return articles[:max_articles]
+    trimmed = articles[:max_articles]
+    for item in trimmed:
+        item.pop("_parsed_date", None)
+    return trimmed
+
+
+def load_rank_candidates(max_articles=AI_RANKER_MAX_ARTICLES):
+    """Load ranking candidates from snapshot; fallback to legacy articles file."""
+    snapshot_path = os.path.join(SCRIPT_DIR, "static", "published_snapshot.json")
+    try:
+        with open(snapshot_path, "r", encoding="utf-8") as f:
+            snapshot_data = json.load(f)
+        candidates = build_candidates_from_snapshot(snapshot_data, max_articles=max_articles)
+        if candidates:
+            return candidates
+        print(f"WARNING: {snapshot_path} has no candidates in window, falling back to articles.json")
+    except FileNotFoundError:
+        print(f"WARNING: {snapshot_path} not found, falling back to articles.json")
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"WARNING: Could not read {snapshot_path}: {e}. Falling back to articles.json")
+    return load_legacy_articles_48h(max_articles=max_articles)
 
 
 def sanitize_headline(title):
@@ -175,6 +289,86 @@ def fuzzy_match_article(title, normalized_to_article, threshold=0.72):
     return None
 
 
+def extract_source_type_from_tag(tagged_title):
+    match = re.search(r'\[([^\]]+)\]\s*$', tagged_title or "")
+    if not match:
+        return ""
+    payload = match.group(1)
+    if "|" not in payload:
+        return ""
+    source_type = payload.split("|")[-1].strip().lower()
+    return normalize_source_type(source_type)
+
+
+def candidate_to_ranking_item(candidate):
+    return {
+        "rank": 0,
+        "title": candidate.get("title", ""),
+        "url": candidate.get("url", ""),
+        "source": candidate.get("source", ""),
+        "source_type": normalize_source_type(candidate.get("source_type", "")),
+        "india_relevance": "",
+        "signal_type": "",
+        "why_it_matters": "",
+        "confidence": "low",
+    }
+
+
+def enforce_source_coverage_and_size(rankings, candidates, target_count=AI_RANKER_TARGET_COUNT):
+    """Ensure minimum 1 per available source_type and fill to target count."""
+    required_types = [
+        source_type
+        for source_type in SOURCE_TYPE_ORDER
+        if any(normalize_source_type(c.get("source_type")) == source_type for c in candidates)
+    ]
+
+    selected = []
+    seen = set()
+
+    def add_item(item):
+        key = item_identity(
+            item.get("title", ""),
+            item.get("url", ""),
+            item.get("source_type", ""),
+            item.get("source", ""),
+        )
+        if key in seen:
+            return False
+        seen.add(key)
+        selected.append(item)
+        return True
+
+    for source_type in required_types:
+        match = next((item for item in rankings if normalize_source_type(item.get("source_type")) == source_type), None)
+        if match and add_item(match):
+            continue
+        fallback = next(
+            (
+                candidate_to_ranking_item(candidate)
+                for candidate in candidates
+                if normalize_source_type(candidate.get("source_type")) == source_type
+            ),
+            None,
+        )
+        if fallback:
+            add_item(fallback)
+
+    for item in rankings:
+        if len(selected) >= target_count:
+            break
+        add_item(item)
+
+    for candidate in candidates:
+        if len(selected) >= target_count:
+            break
+        add_item(candidate_to_ranking_item(candidate))
+
+    selected = selected[:target_count]
+    for idx, item in enumerate(selected, start=1):
+        item["rank"] = idx
+    return selected
+
+
 def parse_json_response(text):
     text = text.strip()
     # Remove markdown code blocks
@@ -198,7 +392,7 @@ def parse_json_response(text):
     return json.loads(text)
 
 
-def call_openrouter(headlines, model_id):
+def call_openrouter(prompt, model_id):
     """Call OpenRouter API with specified model."""
     if not OPENROUTER_API_KEY:
         raise ValueError("OPENROUTER_API_KEY not set")
@@ -206,7 +400,7 @@ def call_openrouter(headlines, model_id):
         "https://openrouter.ai/api/v1/chat/completions",
         data=json.dumps({
             "model": model_id,
-            "messages": [{"role": "user", "content": RANKING_PROMPT.format(headlines=headlines)}]
+            "messages": [{"role": "user", "content": prompt}]
         }).encode("utf-8"),
         headers={
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
@@ -220,7 +414,7 @@ def call_openrouter(headlines, model_id):
     return parse_json_response(result["choices"][0]["message"]["content"])
 
 
-def call_gemini(headlines, model_id):
+def call_gemini(prompt, model_id):
     """Call Gemini API directly."""
     if not GEMINI_API_KEY:
         raise ValueError("GEMINI_API_KEY not set")
@@ -229,7 +423,7 @@ def call_gemini(headlines, model_id):
         f"{model_id}:generateContent?key={GEMINI_API_KEY}"
     )
     body = {
-        "contents": [{"parts": [{"text": RANKING_PROMPT.format(headlines=headlines)}]}],
+        "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
             "temperature": 0.4,
             "maxOutputTokens": 8192,
@@ -259,22 +453,36 @@ def main():
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
 
-    articles = load_articles_48h()
+    articles = load_rank_candidates()
     if not articles:
-        print("No articles found. Exiting.")
+        print("No ranking candidates found. Exiting.")
         return
 
-    print(f"\nLoaded {len(articles)} articles from last 48 hours")
+    source_counts = {source_type: 0 for source_type in SOURCE_TYPE_ORDER}
+    for article in articles:
+        source_type = normalize_source_type(article.get("source_type"))
+        if source_type in source_counts:
+            source_counts[source_type] += 1
+    source_summary = ", ".join(f"{k}={v}" for k, v in source_counts.items() if v > 0)
+    print(f"\nLoaded {len(articles)} ranking candidates ({source_summary or 'none'})")
 
     # Build lookup dicts: exact-sanitized and normalized (for robust matching)
     sanitized_to_article = {}
     normalized_to_article = {}
     for a in articles:
         sanitized = sanitize_headline(a['title'])
-        sanitized_to_article[sanitized] = a
-        normalized_to_article[normalize_title(a['title'])] = a
+        sanitized_to_article.setdefault(sanitized, a)
+        normalized_to_article.setdefault(normalize_title(a['title']), a)
 
-    headlines = "\n".join(f"- {sanitize_headline(a['title'])} [{a.get('source', '')}]" for a in articles)
+    headlines = "\n".join(
+        f"- {sanitize_headline(a['title'])} [{a.get('source', '')} | {normalize_source_type(a.get('source_type', 'news')).upper()}]"
+        for a in articles
+    )
+    available_source_types = [
+        source_type for source_type in SOURCE_TYPE_ORDER
+        if any(normalize_source_type(item.get("source_type")) == source_type for item in articles)
+    ]
+    prompt = build_ranking_prompt(headlines, available_source_types)
 
     results = {"generated_at": datetime.now(IST_TZ).isoformat(), "article_count": len(articles), "providers": {}}
 
@@ -284,18 +492,19 @@ def main():
         model_name = model_config["name"]
         try:
             if model_config.get("provider") == "gemini":
-                rankings = call_gemini(headlines, model_id)
+                rankings = call_gemini(prompt, model_id)
             else:
-                rankings = call_openrouter(headlines, model_id)
+                rankings = call_openrouter(prompt, model_id)
             if isinstance(rankings, dict):
                 rankings = rankings.get("rankings", rankings.get("items", []))
             if not isinstance(rankings, list):
                 raise ValueError(f"AI returned {type(rankings).__name__} instead of list")
             enriched = []
-            for item in rankings[:20]:
-                title = item.get("title", "").strip()
-                # Strip echoed [Source] bracket suffix the AI may repeat
-                title = re.sub(r'\s*\[.*?\]\s*$', '', title)
+            for item in rankings[:AI_RANKER_TARGET_COUNT]:
+                original_title = item.get("title", "").strip()
+                tagged_source_type = extract_source_type_from_tag(original_title)
+                # Strip echoed [Source | SourceType] suffix the AI may repeat
+                title = re.sub(r'\s*\[.*?\]\s*$', '', original_title)
                 # 1) Exact match on sanitized title
                 article = sanitized_to_article.get(sanitize_headline(title))
                 # 2) Exact match on normalized title (handles dash/quote variants)
@@ -309,11 +518,13 @@ def main():
                     "title": article["title"] if article else title,  # Use original title
                     "url": article["url"] if article else "",
                     "source": article["source"] if article else "",
+                    "source_type": normalize_source_type(article.get("source_type", "")) if article else tagged_source_type,
                     "india_relevance": item.get("india_relevance", ""),
                     "signal_type": item.get("signal_type", ""),
                     "why_it_matters": item.get("why_it_matters", ""),
                     "confidence": item.get("confidence", ""),
                 })
+            enriched = enforce_source_coverage_and_size(enriched, articles, target_count=AI_RANKER_TARGET_COUNT)
             empty_count = sum(1 for item in enriched if not item.get("title"))
             if empty_count > len(enriched) * 0.5:
                 raise ValueError(f"AI returned {empty_count}/{len(enriched)} empty titles — response malformed, skipping")

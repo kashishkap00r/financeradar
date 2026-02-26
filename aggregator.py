@@ -8,6 +8,7 @@ import json
 from datetime import datetime, timedelta, timezone
 from html import escape
 import os
+import re
 
 
 def sanitize_url(url):
@@ -25,6 +26,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
 REPORTS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "reports_cache.json")
+PUBLISHED_SNAPSHOT_FILE = os.path.join(SCRIPT_DIR, "static", "published_snapshot.json")
 
 # Filters extracted to filters.py for independent editing and testing
 from filters import should_filter_article, should_filter_video, should_filter_political
@@ -43,6 +45,131 @@ from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
                     REPORTS_FRESHNESS_DAYS, FEED_FAILURE_ALERT_THRESHOLD)
 from log_utils import FeedLogger
+
+
+def _to_iso_datetime(dt):
+    """Serialize a datetime to ISO8601, preserving timezone when present."""
+    if not dt:
+        return None
+    try:
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.isoformat()
+    except Exception:
+        return None
+
+
+def _telegram_title_from_text(text):
+    """Extract a compact title from Telegram message text."""
+    if not text:
+        return "Untitled Telegram post"
+    for line in text.splitlines():
+        line = line.strip()
+        if line:
+            return line[:220]
+    cleaned = text.strip()
+    return cleaned[:220] if cleaned else "Untitled Telegram post"
+
+
+def _telegram_source_id(channel):
+    """Build a stable source identifier for Telegram channels."""
+    slug = re.sub(r"[^a-z0-9]+", "-", (channel or "").lower()).strip("-")
+    return f"telegram:{slug or 'unknown'}"
+
+
+def export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles):
+    """Export all published tab items to a unified JSON snapshot for auditing."""
+    news_items = []
+    for group in article_groups:
+        article = group["primary"]
+        news_items.append({
+            "tab": "news",
+            "source_id": article.get("feed_id", ""),
+            "source_name": article.get("source", ""),
+            "publisher": article.get("publisher", ""),
+            "title": article.get("title", ""),
+            "url": article.get("link", ""),
+            "source_url": article.get("source_url", ""),
+            "published_at": _to_iso_datetime(article.get("date")),
+        })
+
+    report_items = []
+    for item in (report_articles or []):
+        report_items.append({
+            "tab": "reports",
+            "source_id": item.get("feed_id", ""),
+            "source_name": item.get("source", ""),
+            "publisher": item.get("publisher", ""),
+            "title": item.get("title", ""),
+            "url": item.get("link", ""),
+            "source_url": item.get("source_url", ""),
+            "published_at": _to_iso_datetime(item.get("date")),
+        })
+
+    youtube_items = []
+    for item in (video_articles or []):
+        youtube_items.append({
+            "tab": "youtube",
+            "source_id": item.get("feed_id", ""),
+            "source_name": item.get("source", ""),
+            "publisher": item.get("publisher", ""),
+            "title": item.get("title", ""),
+            "url": item.get("link", ""),
+            "source_url": item.get("source_url", ""),
+            "published_at": _to_iso_datetime(item.get("date")),
+        })
+
+    twitter_items = []
+    for item in (twitter_articles or []):
+        twitter_items.append({
+            "tab": "twitter",
+            "source_id": item.get("feed_id", ""),
+            "source_name": item.get("source", ""),
+            "publisher": item.get("publisher", ""),
+            "title": item.get("title", ""),
+            "url": item.get("link", ""),
+            "source_url": item.get("source_url", ""),
+            "published_at": _to_iso_datetime(item.get("date")),
+        })
+
+    telegram_items = []
+    telegram_file = os.path.join(SCRIPT_DIR, "static", "telegram_reports.json")
+    try:
+        with open(telegram_file, "r", encoding="utf-8") as f:
+            telegram_data = json.load(f)
+        for item in telegram_data.get("reports", []):
+            channel = item.get("channel", "")
+            telegram_items.append({
+                "tab": "telegram",
+                "source_id": _telegram_source_id(channel),
+                "source_name": channel,
+                "publisher": channel,
+                "title": _telegram_title_from_text(item.get("text", "")),
+                "url": item.get("url", ""),
+                "source_url": "",
+                "published_at": item.get("date"),
+            })
+    except (IOError, json.JSONDecodeError):
+        telegram_items = []
+
+    payload = {
+        "generated_at": datetime.now(IST_TZ).isoformat(),
+        "news": news_items,
+        "reports": report_items,
+        "youtube": youtube_items,
+        "twitter": twitter_items,
+        "telegram": telegram_items,
+    }
+
+    with open(PUBLISHED_SNAPSHOT_FILE, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2)
+
+    print(
+        "Exported published snapshot to "
+        f"{PUBLISHED_SNAPSHOT_FILE} "
+        f"(news={len(news_items)}, reports={len(report_items)}, "
+        f"youtube={len(youtube_items)}, twitter={len(twitter_items)}, telegram={len(telegram_items)})"
+    )
 
 
 def generate_html(article_groups, video_articles=None, twitter_articles=None, report_articles=None):
@@ -1044,6 +1171,7 @@ def main():
 
     generate_html(article_groups, video_articles, twitter_articles, report_articles)
     export_articles_json(article_groups)
+    export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles)
 
     logger.summary()
 

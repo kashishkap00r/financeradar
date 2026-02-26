@@ -4,3 +4,4 @@ cron.log
 *.session
 .env
 .env.*
+audit/

@@ -1,21 +1,5 @@
 [
   {
-    "id": "adb-org-features-rss",
-    "name": "ADB — Features",
-    "url": "https://www.adb.org/",
-    "feed": "https://feeds.feedburner.com/adb_features",
-    "category": "News",
-    "publisher": "ADB"
-  },
-  {
-    "id": "adb-org-publications-rss",
-    "name": "ADB — Publications",
-    "url": "https://www.adb.org/",
-    "feed": "https://feeds.feedburner.com/adb_publications",
-    "category": "News",
-    "publisher": "ADB"
-  },
-  {
     "id": "asia-news-cnbc",
     "name": "Asia News",
     "url": "https://www.cnbc.com/asia-news/",
@@ -278,22 +262,6 @@
     "feed": "https://www.thehindubusinessline.com/?service=rss",
     "category": "News",
     "publisher": "BusinessLine"
-  },
-  {
-    "id": "adb-org-blogs",
-    "name": "ADB — Blogs",
-    "url": "https://www.adb.org/",
-    "feed": "https://feeds.feedburner.com/adb_blogs",
-    "category": "News",
-    "publisher": "ADB"
-  },
-  {
-    "id": "adb-org-research-publications",
-    "name": "ADB — Research Publications",
-    "url": "https://www.adb.org/",
-    "feed": "https://feeds.feedburner.com/research-publications",
-    "category": "News",
-    "publisher": "ADB"
   },
   {
     "id": "india-dispatch",

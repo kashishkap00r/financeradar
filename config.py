@@ -41,7 +41,9 @@ TELEGRAM_FETCH_TIMEOUT = 30      # seconds
 
 # ── AI rankers ────────────────────────────────────────────────────────
 AI_RANKER_ARTICLE_WINDOW_HOURS = 48   # look-back window for articles
+AI_RANKER_EXTENDED_WINDOW_DAYS = 7    # look-back window for slower sources (reports/youtube/telegram)
 AI_RANKER_MAX_ARTICLES = 200          # max articles sent to AI
+AI_RANKER_TARGET_COUNT = 25           # ranked stories shown in AI sidebar
 AI_RANKER_OPENROUTER_TIMEOUT = 60     # seconds
 AI_RANKER_GEMINI_TIMEOUT = 120        # seconds
 WSW_LOOKBACK_DAYS = 7                 # WSW 7-day rolling window
@@ -49,3 +51,8 @@ WSW_API_TIMEOUT = 90                  # seconds
 
 # ── Failure thresholds ────────────────────────────────────────────────
 FEED_FAILURE_ALERT_THRESHOLD = 0.3    # alert if >30% of feeds fail
+
+# ── Missing story auditor ─────────────────────────────────────────────
+AUDIT_LOOKBACK_DAYS = 7               # deep-audit lookback window
+AUDIT_SLA_HOURS = 6                   # source story should appear within this SLA
+AUDIT_MAX_ITEMS_PER_SOURCE = 30       # cap per source during audit comparisons
