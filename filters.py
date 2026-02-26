@@ -82,6 +82,11 @@ FILTER_TITLE_PATTERNS = [
     r"\bbuy or sell\b",
     r"multibagger",
     r"stocks to buy",
+    r"stocks?\s+to\s+buy\b",
+    # "top stock picks today" + order variations
+    r"stocks?\s+picks?\s+(for\s+)?today\b",
+    r"today'?s?\s+(top\s+)?stocks?\s+picks?\b",
+    r"(?=.*\bstocks?\b)(?=.*\bpicks?\b)(?=.*\btoday\b)",
 
     # Quarterly results roundups (routine lists)
     r"q[1-4]\s*results?\s*today",

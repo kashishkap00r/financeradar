@@ -28,6 +28,14 @@ class TestShouldFilterArticle(unittest.TestCase):
         article = {"title": "Buy or sell: best intraday tips for today", "link": ""}
         self.assertTrue(should_filter_article(article))
 
+    def test_filters_stock_to_buy_phrase(self):
+        article = {"title": "Stock to buy today: analysts pick one winner", "link": ""}
+        self.assertTrue(should_filter_article(article))
+
+    def test_filters_top_stock_picks_today_permutations(self):
+        article = {"title": "Today top stock picks for short term momentum", "link": ""}
+        self.assertTrue(should_filter_article(article))
+
     def test_passes_legitimate_policy_article(self):
         article = {
             "title": "RBI announces new monetary policy framework",
@@ -110,6 +118,14 @@ class TestPoliticalKeywordFiltering(unittest.TestCase):
         ]
         for title in allowed_titles:
             self.assertFalse(should_filter_political({"title": title}))
+
+
+class TestVideoFilterPatterns(unittest.TestCase):
+    """Tests for title-only video filtering patterns."""
+
+    def test_filters_top_stock_picks_today_video(self):
+        video = {"title": "Top stock picks today | market opening strategy"}
+        self.assertTrue(should_filter_video(video))
 
 
 if __name__ == "__main__":
