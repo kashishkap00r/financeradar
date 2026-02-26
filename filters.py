@@ -248,6 +248,21 @@ FILTER_VIDEO_TITLE_PATTERNS = [
     r"tracking\s+latest\s+stock\s+market\s+headlines",
 ]
 
+# User-curated political terms to suppress across tabs (title-only matching).
+FILTER_POLITICAL_KEYWORD_PATTERNS = [
+    r"\bpm\s+modi\b",
+    r"\bnarendra\s+modi\b",
+    r"\bprime\s+minister\s+modi\b",
+    r"\bnarendra\s+damodardas\s+modi\b",
+    r"\bmodi\s+government\b",
+    r"\bmodi\s+govt\b",
+    r"\bmodi\s+administration\b",
+    r"\bamit\s+shah\b",
+    r"\brahul\s+gandhi\b",
+    r"\barvind\s+kejriwal\b",
+    r"\byogi\s+adityanath\b",
+]
+
 # URL patterns to filter (case-insensitive, substring match)
 FILTER_URL_PATTERNS = [
     "/pr-release/",
@@ -279,12 +294,25 @@ FILTER_URL_PATTERNS = [
 # Compile regex patterns for performance
 COMPILED_TITLE_PATTERNS = [re.compile(p, re.IGNORECASE) for p in FILTER_TITLE_PATTERNS]
 COMPILED_VIDEO_TITLE_PATTERNS = [re.compile(p, re.IGNORECASE) for p in FILTER_VIDEO_TITLE_PATTERNS]
+COMPILED_POLITICAL_PATTERNS = [re.compile(p, re.IGNORECASE) for p in FILTER_POLITICAL_KEYWORD_PATTERNS]
+
+
+def should_filter_political(article):
+    """Check if an article/video title matches blocked political keywords."""
+    title = article.get("title", "")
+    for pattern in COMPILED_POLITICAL_PATTERNS:
+        if pattern.search(title):
+            return True
+    return False
 
 
 def should_filter_article(article):
     """Check if an article should be filtered out."""
     title = article.get("title", "").lower()
     link = article.get("link", "").lower()
+
+    if should_filter_political(article):
+        return True
 
     # Check URL patterns
     for pattern in FILTER_URL_PATTERNS:
@@ -306,6 +334,9 @@ def should_filter_video(article):
     plus video-specific patterns for LIVE streams, assembly sessions, etc.
     """
     title = article.get("title", "")
+
+    if should_filter_political(article):
+        return True
 
     # Check news title patterns
     for pattern in COMPILED_TITLE_PATTERNS:

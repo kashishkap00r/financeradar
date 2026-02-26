@@ -27,7 +27,7 @@ OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
 REPORTS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "reports_cache.json")
 
 # Filters extracted to filters.py for independent editing and testing
-from filters import should_filter_article, should_filter_video
+from filters import should_filter_article, should_filter_video, should_filter_political
 
 # Article processing utilities
 from articles import (group_similar_articles, clean_html, get_sort_timestamp,
@@ -803,6 +803,13 @@ def main():
     video_articles.sort(key=get_sort_timestamp, reverse=True)
     twitter_articles.sort(key=get_sort_timestamp, reverse=True)
 
+    # Filter political keyword matches from Twitter tab.
+    pre_twitter_political_count = len(twitter_articles)
+    twitter_articles = [t for t in twitter_articles if not should_filter_political(t)]
+    filtered_twitter_political_count = pre_twitter_political_count - len(twitter_articles)
+    if filtered_twitter_political_count:
+        logger.info(f"Twitter: filtered {filtered_twitter_political_count} political titles")
+
     # Reports cache: persist last successful per-feed report payloads
     def serialize_report_item(item):
         return {**item, "date": item["date"].isoformat() if item.get("date") else None}
@@ -861,6 +868,13 @@ def main():
         logger.info(f"Reports cache: {total_cached_reports} items across {len(report_cache)} feeds")
     except Exception as e:
         logger.warn("Reports cache", f"could not write: {e}")
+
+    # Filter political keyword matches from reports tab.
+    pre_report_political_count = len(report_articles)
+    report_articles = [r for r in report_articles if not should_filter_political(r)]
+    filtered_report_political_count = pre_report_political_count - len(report_articles)
+    if filtered_report_political_count:
+        logger.info(f"Reports: filtered {filtered_report_political_count} political titles")
 
     # Deduplicate report articles by URL
     seen_report_urls = set()
@@ -946,6 +960,13 @@ def main():
         logger.info(f"YouTube cache: {total} videos across {len(channel_cache)} channels")
     except Exception as e:
         logger.warn("YouTube cache", f"could not write: {e}")
+
+    # Re-filter after extending with cached videos (cache may contain old blocked titles).
+    pre_video_political_count = len(video_articles)
+    video_articles = [v for v in video_articles if not should_filter_political(v)]
+    filtered_video_political_count = pre_video_political_count - len(video_articles)
+    if filtered_video_political_count:
+        logger.info(f"Videos: filtered {filtered_video_political_count} political titles")
 
     # Re-sort after extending with cached videos
     video_articles.sort(key=get_sort_timestamp, reverse=True)

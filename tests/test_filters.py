@@ -6,7 +6,7 @@ import unittest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from filters import should_filter_article
+from filters import should_filter_article, should_filter_video, should_filter_political
 
 
 class TestShouldFilterArticle(unittest.TestCase):
@@ -71,6 +71,45 @@ class TestShouldFilterArticle(unittest.TestCase):
         article = {"title": "Some title"}
         result = should_filter_article(article)
         self.assertIsInstance(result, bool)
+
+
+class TestPoliticalKeywordFiltering(unittest.TestCase):
+    """Tests for explicit political keyword blocking."""
+
+    def test_filters_modi_name_variants(self):
+        blocked_titles = [
+            "PM Modi speaks at business summit",
+            "Narendra Modi to visit state",
+            "Prime Minister Modi gives address",
+            "Narendra Damodardas Modi in parliament",
+            "Modi government announces scheme",
+            "Modi govt response to opposition",
+            "Modi administration faces questions",
+        ]
+        for title in blocked_titles:
+            self.assertTrue(should_filter_political({"title": title}))
+            self.assertTrue(should_filter_article({"title": title, "link": "https://example.com"}))
+
+    def test_filters_other_confirmed_political_names(self):
+        blocked_titles = [
+            "Amit Shah on policy rollout",
+            "Rahul Gandhi comments on budget",
+            "Arvind Kejriwal press conference",
+            "Yogi Adityanath campaign update",
+        ]
+        for title in blocked_titles:
+            self.assertTrue(should_filter_political({"title": title}))
+            self.assertTrue(should_filter_article({"title": title, "link": "https://example.com"}))
+            self.assertTrue(should_filter_video({"title": title}))
+
+    def test_political_filter_does_not_overmatch_unrelated_titles(self):
+        allowed_titles = [
+            "RBI monetary policy committee update",
+            "Corporate governance trends in Indian banks",
+            "Commodity outlook for Q2",
+        ]
+        for title in allowed_titles:
+            self.assertFalse(should_filter_political({"title": title}))
 
 
 if __name__ == "__main__":
