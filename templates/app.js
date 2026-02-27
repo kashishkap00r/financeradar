@@ -191,6 +191,8 @@
                 filterReports();
             } else if (tab === 'research') {
                 filterResearch();
+            } else if (tab === 'papers') {
+                filterPapers();
             } else if (tab === 'youtube') {
                 filterYoutube();
             } else if (tab === 'twitter') {
@@ -480,8 +482,10 @@
             } else if (e.key === '3') {
                 switchTab('research');
             } else if (e.key === '4') {
-                switchTab('youtube');
+                switchTab('papers');
             } else if (e.key === '5') {
+                switchTab('youtube');
+            } else if (e.key === '6') {
                 switchTab('twitter');
             }
         });
@@ -958,6 +962,13 @@
         let selectedResearchPublishers = new Set();
         let researchRegionFilter = 'all'; // 'all' | 'indian' | 'international'
 
+        // ==================== PAPERS TAB (vars) ====================
+        let papersRendered = false;
+        let paperSessionPool = [];
+        let filteredPapers = [];
+        let papersPage = 1;
+        const PAPERS_PAGE_SIZE = 10;
+
         // ==================== YOUTUBE TAB (vars) ====================
         let youtubeRendered = false;
         let filteredYoutube = [];
@@ -971,6 +982,7 @@
         let twitterPage = 1;
         const TWITTER_PAGE_SIZE = 30;
         let selectedTwitterPublishers = new Set();
+        let activeTab = 'news';
 
         // Restore last active tab
         (function() {
@@ -979,6 +991,7 @@
         })();
 
         function switchTab(tab, skipScroll) {
+            const previousTab = activeTab;
             document.querySelectorAll('.content-tab').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.tab === tab);
             });
@@ -986,7 +999,7 @@
                 el.classList.toggle('active', el.id === 'tab-' + tab);
             });
             const searchEl = document.getElementById('search');
-            searchEl.placeholder = tab === 'reports' ? 'Search Telegram...' : tab === 'research' ? 'Search reports...' : tab === 'youtube' ? 'Search YouTube...' : tab === 'twitter' ? 'Search tweets...' : 'Search articles...';
+            searchEl.placeholder = tab === 'reports' ? 'Search Telegram...' : tab === 'research' ? 'Search reports...' : tab === 'papers' ? 'Search papers...' : tab === 'youtube' ? 'Search YouTube...' : tab === 'twitter' ? 'Search tweets...' : 'Search articles...';
             if (tab === 'reports') {
                 if (!reportsRendered) {
                     renderMainReports();
@@ -999,6 +1012,15 @@
                     researchRendered = true;
                 }
                 filterResearch();
+            } else if (tab === 'papers') {
+                if (!papersRendered) {
+                    renderMainPapers();
+                    papersRendered = true;
+                }
+                if (previousTab !== 'papers') {
+                    reshufflePaperSession();
+                }
+                filterPapers();
             } else if (tab === 'youtube') {
                 if (!youtubeRendered) {
                     renderMainYoutube();
@@ -1014,6 +1036,7 @@
             } else {
                 filterArticles();
             }
+            activeTab = tab;
             if (!skipScroll) window.scrollTo({top: 0, behavior: 'smooth'});
             safeStorage.set('financeradar_active_tab', tab);
         }
@@ -1670,6 +1693,180 @@
             filterResearch();
         }
 
+        // ==================== PAPERS TAB (functions) ====================
+        function reshufflePaperSession() {
+            paperSessionPool = [...PAPER_ARTICLES];
+            for (let i = paperSessionPool.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [paperSessionPool[i], paperSessionPool[j]] = [paperSessionPool[j], paperSessionPool[i]];
+            }
+        }
+
+        function renderMainPapers() {
+            // Reserved for future Paper-tab initialization hooks.
+        }
+
+        function filterPapers() {
+            const query = document.getElementById('search').value.toLowerCase().trim();
+            const sourcePool = paperSessionPool.length > 0 ? paperSessionPool : PAPER_ARTICLES;
+            filteredPapers = sourcePool.filter(p => {
+                const haystack = (
+                    (p.title || '') + ' ' +
+                    (p.source || '') + ' ' +
+                    (p.publisher || '') + ' ' +
+                    (p.description || '') + ' ' +
+                    (p.authors || '')
+                ).toLowerCase();
+                return !query || haystack.includes(query);
+            });
+            papersPage = 1;
+            applyPapersPagination();
+        }
+
+        function formatPaperDate(isoStr) {
+            if (!isoStr) return '';
+            const date = new Date(isoStr);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMin = Math.floor(diffMs / 60000);
+            const diffHr = Math.floor(diffMs / 3600000);
+            const diffDay = Math.floor(diffMs / 86400000);
+            if (diffMin < 1) return 'Just now';
+            if (diffMin < 60) return diffMin + 'm ago';
+            if (diffHr < 24) return diffHr + 'h ago';
+            if (diffDay === 1) return 'Yesterday';
+            if (diffDay < 7) return diffDay + 'd ago';
+            return date.toLocaleDateString();
+        }
+
+        function formatPaperDateHeader(isoStr) {
+            if (!isoStr) return 'Unknown Date';
+            const date = new Date(isoStr);
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const paperDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+            const diffDays = Math.floor((today - paperDay) / 86400000);
+            if (diffDays === 0) return 'Today';
+            if (diffDays === 1) return 'Yesterday';
+            return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+        }
+
+        function applyPapersPagination() {
+            const totalPages = Math.max(1, Math.ceil(filteredPapers.length / PAPERS_PAGE_SIZE));
+            if (papersPage > totalPages) papersPage = totalPages;
+
+            const countEl = document.getElementById('papers-visible-count');
+            if (countEl) countEl.textContent = filteredPapers.length;
+
+            const start = (papersPage - 1) * PAPERS_PAGE_SIZE;
+            const end = start + PAPERS_PAGE_SIZE;
+            const pagePapers = filteredPapers.slice(start, end);
+
+            const container = document.getElementById('papers-container');
+            if (pagePapers.length === 0) {
+                container.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">No papers found.</div>';
+                renderPapersPagination(totalPages);
+                return;
+            }
+
+            let html = '';
+            let currentDateHeader = '';
+
+            pagePapers.forEach(p => {
+                const dateHeader = p.date_is_fallback ? 'Undated' : formatPaperDateHeader(p.date);
+                if (dateHeader !== currentDateHeader) {
+                    currentDateHeader = dateHeader;
+                    html += `<h2 class="date-header">${dateHeader}</h2>`;
+                }
+
+                const title = escapeHtml(p.title || 'Untitled paper');
+                const publisher = escapeHtml(p.publisher || p.source || 'Unknown source');
+                const paperUrl = sanitizeUrl(p.link || '');
+                const sourceUrl = sanitizeUrl(p.source_url || '');
+                const cardUrl = paperUrl || sourceUrl;
+                const titleHtml = paperUrl
+                    ? `<a href="${escapeForAttr(paperUrl)}" target="_blank" rel="noopener" class="report-title-link">${title}</a>`
+                    : `<span class="report-title-link">${title}</span>`;
+                const sourceHtml = sourceUrl
+                    ? `<a href="${escapeForAttr(sourceUrl)}" target="_blank" rel="noopener" class="report-channel card-source-link">${publisher}</a>`
+                    : `<span class="report-channel">${publisher}</span>`;
+                const authors = escapeHtml(p.authors || '');
+                const summary = escapeHtml(p.description || '');
+                const bookmarkHtml = cardUrl
+                    ? `<button class="bookmark-btn" data-url="${escapeForAttr(cardUrl)}" data-title="${escapeForAttr(p.title || '')}" data-source="${publisher}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark paper" title="Bookmark">
+                            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                       </button>`
+                    : '';
+
+                html += `
+                    <div class="report-card paper-card" data-publisher="${publisher}" data-url="${escapeForAttr(cardUrl)}">
+                        <div class="report-card-header">
+                            <div class="report-card-left">
+                                ${sourceHtml}
+                            </div>
+                            <div class="report-card-right">
+                                ${(p.date && !p.date_is_fallback) ? `<span class="report-card-date">${formatPaperDate(p.date)}</span>` : '<span class="report-card-date">Date unavailable</span>'}
+                                ${bookmarkHtml}
+                            </div>
+                        </div>
+                        <div class="report-title">${titleHtml}</div>
+                        ${authors ? `<div class="paper-card-authors">${authors}</div>` : ''}
+                        ${summary ? `<div class="paper-card-summary">${summary}</div>` : ''}
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            syncBookmarkState();
+            renderPapersPagination(totalPages);
+        }
+
+        function renderPapersPagination(totalPages) {
+            const bottom = document.getElementById('papers-pagination-bottom');
+            if (!bottom || totalPages <= 1) {
+                if (bottom) bottom.innerHTML = '';
+                return;
+            }
+
+            const build = (container) => {
+                container.innerHTML = '';
+                const makeBtn = (text, page, isActive, isDisabled) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'page-btn' + (isActive ? ' active' : '');
+                    btn.textContent = text;
+                    btn.disabled = isDisabled;
+                    if (!isDisabled && !isActive) btn.onclick = () => { papersPage = page; applyPapersPagination(); window.scrollTo({top: 0, behavior: 'smooth'}); };
+                    return btn;
+                };
+
+                const prevBtn = makeBtn('← Prev', papersPage - 1, false, papersPage === 1);
+                prevBtn.classList.add('nav', 'prev');
+                container.appendChild(prevBtn);
+
+                const nums = document.createElement('span');
+                nums.className = 'page-numbers';
+                const addPage = (p) => nums.appendChild(makeBtn(String(p), p, p === papersPage, false));
+                const addEllipsis = () => { const s = document.createElement('span'); s.className = 'page-ellipsis'; s.textContent = '…'; nums.appendChild(s); };
+
+                if (totalPages <= 7) {
+                    for (let i = 1; i <= totalPages; i++) addPage(i);
+                } else {
+                    addPage(1);
+                    if (papersPage > 3) addEllipsis();
+                    for (let i = Math.max(2, papersPage - 1); i <= Math.min(totalPages - 1, papersPage + 1); i++) addPage(i);
+                    if (papersPage < totalPages - 2) addEllipsis();
+                    addPage(totalPages);
+                }
+                container.appendChild(nums);
+
+                const nextBtn = makeBtn('Next →', papersPage + 1, false, papersPage === totalPages);
+                nextBtn.classList.add('nav', 'next');
+                container.appendChild(nextBtn);
+            };
+
+            build(bottom);
+        }
+
         // ==================== YOUTUBE TAB (functions) ====================
         function renderMainYoutube() {
             initYoutubePublisherDropdown();
@@ -2275,6 +2472,7 @@
         function updateRelativeTime() {
             formatTimeAgo(document.getElementById('update-time'));
             formatTimeAgo(document.getElementById('reports-update-time'));
+            formatTimeAgo(document.getElementById('papers-update-time'));
             formatTimeAgo(document.getElementById('youtube-update-time'));
             formatTimeAgo(document.getElementById('twitter-update-time'));
             formatTimeAgo(document.getElementById('ai-updated'));

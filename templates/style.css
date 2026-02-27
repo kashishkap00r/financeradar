@@ -1702,6 +1702,24 @@
             overflow: hidden;
         }
 
+        /* Paper card metadata */
+        .paper-card-authors {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            line-height: 1.45;
+            margin-bottom: 6px;
+        }
+        .paper-card-summary {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
         /* Back to Top */
         .back-to-top {
             position: fixed;
