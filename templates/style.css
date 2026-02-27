@@ -658,6 +658,11 @@
         .tweet-card-body a:hover {
             color: var(--accent);
         }
+        .tweet-card-thread-note {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
         .tweet-expand-btn {
             background: none;
             border: none;

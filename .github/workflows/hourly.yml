@@ -43,6 +43,9 @@ jobs:
         run: python3 telegram_fetcher.py
 
       - name: Run aggregator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python3 aggregator.py
 
       - name: Commit and push if changed
@@ -50,7 +53,7 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html static/articles.json static/telegram_reports.json static/youtube_cache.json static/reports_cache.json static/published_snapshot.json
+            git add index.html static/articles.json static/telegram_reports.json static/youtube_cache.json static/reports_cache.json static/published_snapshot.json static/papers_cache.json static/twitter_url_cache.json
             git commit -m "Update news feeds"
             git pull --no-rebase origin main
             git push

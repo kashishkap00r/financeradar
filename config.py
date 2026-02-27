@@ -16,8 +16,11 @@ MAX_ARTICLES_PER_FEED = 50       # cap per feed in final output
 # ── Article freshness ─────────────────────────────────────────────────
 NEWS_FRESHNESS_DAYS = 5          # News tab: discard articles older than this
 TWITTER_FRESHNESS_DAYS = 5       # Twitter tab: discard tweets older than this
+TWITTER_HIGH_SIGNAL_WINDOW_HOURS = 24  # Twitter high-signal window
+TWITTER_HIGH_SIGNAL_TARGET = 25        # Twitter high-signal lane size
 REPORTS_FRESHNESS_DAYS = 30      # Reports tab: discard reports older than this
 VIDEO_FRESHNESS_DAYS = 10        # YouTube tab (used by CLAUDE.md, not code)
+TWITTER_RESOLVE_WORKERS = 8      # concurrent Google->X resolve workers
 
 # ── Report scrapers ───────────────────────────────────────────────────
 SCRAPER_MAX_ARTICLES = 30        # max articles per scraper invocation

@@ -28,6 +28,7 @@ OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
 REPORTS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "reports_cache.json")
 PAPERS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "papers_cache.json")
 PUBLISHED_SNAPSHOT_FILE = os.path.join(SCRIPT_DIR, "static", "published_snapshot.json")
+TWITTER_URL_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "twitter_url_cache.json")
 
 # Filters extracted to filters.py for independent editing and testing
 from filters import should_filter_article, should_filter_video, should_filter_political
@@ -46,8 +47,11 @@ from reports_fetcher import get_report_fetcher
 from paper_fetcher import fetch_papers, load_papers_cache, save_papers_cache
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
-                    REPORTS_FRESHNESS_DAYS, FEED_FAILURE_ALERT_THRESHOLD)
+                    TWITTER_HIGH_SIGNAL_WINDOW_HOURS, TWITTER_HIGH_SIGNAL_TARGET,
+                    TWITTER_RESOLVE_WORKERS, REPORTS_FRESHNESS_DAYS,
+                    FEED_FAILURE_ALERT_THRESHOLD)
 from log_utils import FeedLogger
+from twitter_signal import resolve_google_twitter_urls, build_twitter_lanes
 
 
 def _to_iso_datetime(dt):
@@ -80,7 +84,7 @@ def _telegram_source_id(channel):
     return f"telegram:{slug or 'unknown'}"
 
 
-def export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles, paper_articles=None):
+def export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles, paper_articles=None, twitter_high_signal=None):
     """Export all published tab items to a unified JSON snapshot for auditing."""
     news_items = []
     for group in article_groups:
@@ -134,6 +138,18 @@ def export_published_snapshot(article_groups, video_articles, twitter_articles, 
             "source_url": item.get("source_url", ""),
             "published_at": _to_iso_datetime(item.get("date")),
         })
+    twitter_high_items = []
+    for item in (twitter_high_signal or []):
+        twitter_high_items.append({
+            "tab": "twitter_high_signal",
+            "source_id": item.get("feed_id", ""),
+            "source_name": item.get("source", ""),
+            "publisher": item.get("publisher", ""),
+            "title": item.get("title", ""),
+            "url": item.get("link", ""),
+            "source_url": item.get("source_url", ""),
+            "published_at": _to_iso_datetime(item.get("date")),
+        })
 
     telegram_items = []
     telegram_file = os.path.join(SCRIPT_DIR, "static", "telegram_reports.json")
@@ -176,6 +192,7 @@ def export_published_snapshot(article_groups, video_articles, twitter_articles, 
         "reports": report_items,
         "youtube": youtube_items,
         "twitter": twitter_items,
+        "twitter_high_signal": twitter_high_items,
         "telegram": telegram_items,
         "papers": paper_items,
     }
@@ -188,11 +205,20 @@ def export_published_snapshot(article_groups, video_articles, twitter_articles, 
         f"{PUBLISHED_SNAPSHOT_FILE} "
         f"(news={len(news_items)}, reports={len(report_items)}, "
         f"youtube={len(youtube_items)}, twitter={len(twitter_items)}, "
+        f"twitter_high_signal={len(twitter_high_items)}, "
         f"telegram={len(telegram_items)}, papers={len(paper_items)})"
     )
 
 
-def generate_html(article_groups, video_articles=None, twitter_articles=None, report_articles=None, paper_articles=None):
+def generate_html(
+    article_groups,
+    video_articles=None,
+    twitter_articles=None,
+    report_articles=None,
+    paper_articles=None,
+    twitter_high_signal=None,
+    twitter_lane_meta=None,
+):
     """Generate the static HTML website."""
 
     # Sort groups by date of primary article (newest first)
@@ -295,16 +321,32 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
     # Prepare twitter data
     if twitter_articles is None:
         twitter_articles = []
-    twitter_articles_json = json.dumps([{
-        "title": clean_twitter_title(t["title"]),
-        "link": t["link"],
-        "date": t["date"].isoformat() if t.get("date") else None,
-        "source": t.get("source", ""),
-        "publisher": t.get("publisher", ""),
-        "source_url": t.get("source_url", ""),
-        "image": t.get("image", ""),
-    } for t in twitter_articles])
+    if twitter_high_signal is None:
+        twitter_high_signal = []
+    if twitter_lane_meta is None:
+        twitter_lane_meta = {}
+
+    def _serialize_tweet_item(item):
+        return {
+            "title": clean_twitter_title(item.get("title", "")),
+            "link": item.get("link", ""),
+            "date": item["date"].isoformat() if item.get("date") else None,
+            "source": item.get("source", ""),
+            "publisher": item.get("publisher", ""),
+            "source_url": item.get("source_url", ""),
+            "image": item.get("image", ""),
+            "is_retweet": bool(item.get("is_retweet", False)),
+            "is_quote": bool(item.get("is_quote", False)),
+            "is_reply_like": bool(item.get("is_reply_like", False)),
+            "thread_collapsed_count": int(item.get("thread_collapsed_count", 0) or 0),
+            "rank_confidence": item.get("rank_confidence", ""),
+        }
+
+    twitter_articles_json = json.dumps([_serialize_tweet_item(t) for t in twitter_articles])
+    twitter_high_signal_json = json.dumps([_serialize_tweet_item(t) for t in twitter_high_signal])
+    twitter_lane_meta_json = json.dumps(twitter_lane_meta)
     twitter_count = len(twitter_articles)
+    twitter_high_signal_count = len(twitter_high_signal)
     twitter_publishers = sorted(set(t.get("publisher", t.get("source", "")) for t in twitter_articles if t.get("publisher") or t.get("source")))
     twitter_publishers_json = json.dumps(twitter_publishers)
 
@@ -815,7 +857,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
             <div class="filter-card">
                 <div class="stats-bar">
                     <div class="stats">
-                        <span><strong id="twitter-visible-count">{twitter_count}</strong> tweets</span>
+                        <span><strong id="twitter-visible-count">{twitter_high_signal_count}</strong> tweets</span>
+                        <span id="twitter-lane-summary">High Signal · {twitter_high_signal_count} of {twitter_count}</span>
                         <span id="twitter-publisher-count-label"></span>
                     </div>
                     <div style="display:flex;align-items:center;">
@@ -834,6 +877,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
                     </div>
                 </div>
                 <div class="filter-row" id="twitter-filter-row">
+                    <button class="preset-btn active" type="button" data-twitter-lane="high-signal" onclick="setTwitterLane('high-signal')">High Signal</button>
+                    <button class="preset-btn" type="button" data-twitter-lane="full-stream" onclick="setTwitterLane('full-stream')">Full Stream</button>
                     <div class="publisher-dropdown" id="twitter-publisher-dropdown">
                         <button class="publisher-dropdown-trigger" id="twitter-publisher-trigger" onclick="toggleTwitterDropdown()">
                             <span id="twitter-publisher-summary">All publishers</span>
@@ -878,6 +923,8 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
         const YOUTUBE_PUBLISHERS = {youtube_publishers_json};
         const YOUTUBE_BUCKETS = {youtube_buckets_json};
         const TWITTER_ARTICLES = {twitter_articles_json};
+        const TWITTER_HIGH_SIGNAL = {twitter_high_signal_json};
+        const TWITTER_LANE_META = {twitter_lane_meta_json};
         const TWITTER_PUBLISHERS = {twitter_publishers_json};
         const TWITTER_PRESETS = {twitter_presets_json};
         const RESEARCH_REPORTS = {research_reports_json};
@@ -1229,6 +1276,35 @@ def main():
     twitter_articles = [t for t in twitter_articles
                         if t.get("date") is None or
                         (t["date"] if t["date"].tzinfo else t["date"].replace(tzinfo=IST_TZ)) >= twitter_cutoff]
+    twitter_articles.sort(key=get_sort_timestamp, reverse=True)
+
+    # Resolve Google RSS wrapper links in Twitter feed to direct x.com links.
+    twitter_articles, twitter_resolve_stats = resolve_google_twitter_urls(
+        twitter_articles,
+        TWITTER_URL_CACHE_FILE,
+        logger=logger,
+        max_workers=TWITTER_RESOLVE_WORKERS,
+    )
+    if twitter_resolve_stats.get("attempted"):
+        logger.info(
+            "Twitter URL resolve: "
+            f"{twitter_resolve_stats.get('resolved', 0)}/{twitter_resolve_stats.get('attempted', 0)} "
+            f"(cache hits: {twitter_resolve_stats.get('cache_hits', 0)})"
+        )
+
+    # Build Twitter lanes (High Signal + Full Stream) with AI/fallback ranking.
+    twitter_full_stream, twitter_high_signal, twitter_lane_stats = build_twitter_lanes(
+        twitter_articles,
+        now=datetime.now(IST_TZ),
+        target_count=TWITTER_HIGH_SIGNAL_TARGET,
+        high_window_hours=TWITTER_HIGH_SIGNAL_WINDOW_HOURS,
+    )
+    logger.info(
+        "Twitter lanes: "
+        f"full={len(twitter_full_stream)}, high={len(twitter_high_signal)}, "
+        f"mode={twitter_lane_stats.get('ranking_mode', 'fallback')}"
+    )
+    twitter_articles = twitter_full_stream
 
     # Remove duplicates based on URL only (not title - to preserve source diversity)
     seen_urls = set()
@@ -1292,9 +1368,24 @@ def main():
     grouped_count = len(filtered_articles) - len(article_groups)
     logger.info(f"After grouping similar headlines: {len(article_groups)} groups ({grouped_count} articles merged)")
 
-    generate_html(article_groups, video_articles, twitter_articles, report_articles, paper_articles)
+    generate_html(
+        article_groups,
+        video_articles,
+        twitter_articles,
+        report_articles,
+        paper_articles,
+        twitter_high_signal=twitter_high_signal,
+        twitter_lane_meta=twitter_lane_stats,
+    )
     export_articles_json(article_groups)
-    export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles, paper_articles)
+    export_published_snapshot(
+        article_groups,
+        video_articles,
+        twitter_articles,
+        report_articles,
+        paper_articles,
+        twitter_high_signal=twitter_high_signal,
+    )
 
     logger.summary()
 

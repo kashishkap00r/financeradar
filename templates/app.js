@@ -983,6 +983,7 @@
         let twitterPage = 1;
         const TWITTER_PAGE_SIZE = 30;
         let selectedTwitterPublishers = new Set();
+        let twitterLane = safeStorage.get('financeradar_twitter_lane') || 'high-signal';
         let activeTab = 'news';
 
         // Restore last active tab
@@ -2178,17 +2179,55 @@
         }
 
         // ==================== TWITTER TAB (functions) ====================
+        function getActiveTwitterPool() {
+            return twitterLane === 'full-stream' ? TWITTER_ARTICLES : TWITTER_HIGH_SIGNAL;
+        }
+
         function renderMainTwitter() {
+            if (twitterLane !== 'high-signal' && twitterLane !== 'full-stream') {
+                twitterLane = 'high-signal';
+            }
             initTwitterPublisherDropdown();
+            syncTwitterLaneButtons();
             syncTwitterPresetButtons();
-            filteredTwitter = [...TWITTER_ARTICLES];
+            filteredTwitter = [...getActiveTwitterPool()];
             twitterPage = 1;
             applyTwitterPagination();
+            updateTwitterLaneSummary();
+        }
+
+        function setTwitterLane(lane) {
+            if (lane !== 'high-signal' && lane !== 'full-stream') return;
+            twitterLane = lane;
+            safeStorage.set('financeradar_twitter_lane', lane);
+            syncTwitterLaneButtons();
+            filterTwitter();
+        }
+
+        function syncTwitterLaneButtons() {
+            document.querySelectorAll('[data-twitter-lane]').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.twitterLane === twitterLane);
+            });
+        }
+
+        function updateTwitterLaneSummary() {
+            const laneEl = document.getElementById('twitter-lane-summary');
+            if (!laneEl) return;
+            const fullCount = TWITTER_ARTICLES.length;
+            const highCount = TWITTER_HIGH_SIGNAL.length;
+            if (twitterLane === 'high-signal') {
+                const mode = (TWITTER_LANE_META && TWITTER_LANE_META.ranking_mode) || 'fallback';
+                const modeLabel = mode === 'ai' ? 'AI ranked' : 'Rule fallback';
+                laneEl.textContent = 'High Signal · ' + highCount + ' of ' + fullCount + ' · ' + modeLabel;
+            } else {
+                laneEl.textContent = 'Full Stream · ' + fullCount;
+            }
         }
 
         function filterTwitter() {
             const query = document.getElementById('search').value.toLowerCase().trim();
-            filteredTwitter = TWITTER_ARTICLES.filter(t => {
+            const pool = getActiveTwitterPool();
+            filteredTwitter = pool.filter(t => {
                 const matchesSearch = !query || (t.title + ' ' + t.source + ' ' + (t.publisher || '')).toLowerCase().includes(query);
                 const pub = t.publisher || t.source;
                 const matchesPublisher = selectedTwitterPublishers.size === 0 || selectedTwitterPublishers.has(pub);
@@ -2197,6 +2236,7 @@
             twitterPage = 1;
             applyTwitterPagination();
             updateTwitterPublisherSummary();
+            updateTwitterLaneSummary();
         }
 
         function initTwitterPublisherDropdown() {
@@ -2315,13 +2355,16 @@
             const el = document.getElementById('twitter-publisher-summary');
             const countLabel = document.getElementById('twitter-publisher-count-label');
             if (!el) return;
-            const n = selectedTwitterPublishers.size;
-            const total = TWITTER_PUBLISHERS.length;
+            const pubsInLane = [...new Set(getActiveTwitterPool().map(t => t.publisher || t.source).filter(Boolean))];
+            const pubSet = new Set(pubsInLane);
+            const selectedVisible = [...selectedTwitterPublishers].filter(p => pubSet.has(p));
+            const n = selectedVisible.length;
+            const total = pubsInLane.length;
             if (n === 0) {
                 el.textContent = 'All publishers';
                 if (countLabel) countLabel.textContent = '';
             } else if (n === 1) {
-                el.textContent = [...selectedTwitterPublishers][0];
+                el.textContent = selectedVisible[0];
                 if (countLabel) countLabel.textContent = '· 1 of ' + total + ' publishers';
             } else {
                 el.textContent = n + ' publishers';
@@ -2404,7 +2447,20 @@
                     ? `<a href="${escapeForAttr(sourceUrl)}" target="_blank" rel="noopener" class="tweet-card-publisher card-source-link">${publisher}</a>`
                     : `<span class="tweet-card-publisher">${publisher}</span>`;
                 const badges = getTweetBadges(t.title);
+                const threadCollapsed = Number(t.thread_collapsed_count || 0);
+                if (twitterLane === 'high-signal') {
+                    badges.push({
+                        label: (TWITTER_LANE_META && TWITTER_LANE_META.ranking_mode) === 'ai' ? 'AI Signal' : 'Signal',
+                        cls: 'tweet-badge-thread'
+                    });
+                }
+                if (threadCollapsed > 0) {
+                    badges.push({ label: '+' + threadCollapsed + ' merged', cls: 'tweet-badge-thread' });
+                }
                 const badgeHtml = badges.map(b => `<span class="tweet-badge ${b.cls}">${b.label}</span>`).join('');
+                const threadHtml = threadCollapsed > 0
+                    ? `<div class="tweet-card-thread-note">${threadCollapsed} similar thread posts collapsed</div>`
+                    : '';
                 html += `
                     <div class="tweet-card" data-publisher="${publisher}" data-url="${escapeForAttr(bookmarkUrl)}">
                         <div class="tweet-card-header">
@@ -2420,6 +2476,7 @@
                             </div>
                         </div>
                         <div class="tweet-card-body">${titleHtml}</div>
+                        ${threadHtml}
                         <button class="tweet-expand-btn" onclick="toggleTweetExpand(this)">Show more</button>
                         ${t.image ? `<div class="tweet-card-image"><img src="${escapeForAttr(t.image)}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ''}
                     </div>
