@@ -1770,15 +1770,8 @@
             }
 
             let html = '';
-            let currentDateHeader = '';
 
             pagePapers.forEach(p => {
-                const dateHeader = p.date_is_fallback ? 'Undated' : formatPaperDateHeader(p.date);
-                if (dateHeader !== currentDateHeader) {
-                    currentDateHeader = dateHeader;
-                    html += `<h2 class="date-header">${dateHeader}</h2>`;
-                }
-
                 const title = escapeHtml(p.title || 'Untitled paper');
                 const publisher = escapeHtml(p.publisher || p.source || 'Unknown source');
                 const paperUrl = sanitizeUrl(p.link || '');
