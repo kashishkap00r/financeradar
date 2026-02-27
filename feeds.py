@@ -35,13 +35,50 @@ DC_NS = "http://purl.org/dc/elements/1.1/"
 GOOGLE_RSS_PREFIX = "https://news.google.com/rss/"
 GOOGLE_ARTICLE_PATH_RE = re.compile(r"/rss/articles/([^/?#]+)")
 HTTP_URL_RE = re.compile(r"https?://[^\s\"'<>\\)]+", re.IGNORECASE)
+YOUTUBE_BUCKETS = (
+    "Traditional Media",
+    "Indie Voices",
+    "Educational/Explainers",
+)
+DEFAULT_YOUTUBE_BUCKET = "Educational/Explainers"
+
+
+def _normalize_video_feed_buckets(feeds):
+    """Ensure each YouTube feed has a supported bucket for UI filtering."""
+    missing = []
+    invalid = []
+    for feed in feeds:
+        if feed.get("category") != "Videos":
+            continue
+        raw_bucket = (feed.get("youtube_bucket") or "").strip()
+        if raw_bucket in YOUTUBE_BUCKETS:
+            continue
+        feed["youtube_bucket"] = DEFAULT_YOUTUBE_BUCKET
+        if raw_bucket:
+            invalid.append(f"{feed.get('id', '?')} ({raw_bucket})")
+        else:
+            missing.append(feed.get("id", "?"))
+    if missing:
+        print(
+            "  [WARN] Video feeds missing youtube_bucket; "
+            f"defaulted to '{DEFAULT_YOUTUBE_BUCKET}': {', '.join(missing)}"
+        )
+    if invalid:
+        print(
+            "  [WARN] Video feeds had invalid youtube_bucket; "
+            f"defaulted to '{DEFAULT_YOUTUBE_BUCKET}': {', '.join(invalid)}"
+        )
+    return feeds
 
 
 def load_feeds():
     """Load feed configurations from JSON file."""
     try:
         with open(FEEDS_FILE, "r") as f:
-            return json.load(f)
+            feeds = json.load(f)
+            if isinstance(feeds, list):
+                return _normalize_video_feed_buckets(feeds)
+            return feeds
     except FileNotFoundError:
         print(f"ERROR: {FEEDS_FILE} not found!")
         return []
@@ -175,6 +212,7 @@ def _parse_feed_content(content, feed_config):
                 "source_url": source_url,
                 "category": feed_config.get("category", "News"),
                 "publisher": feed_config.get("publisher", ""),
+                "youtube_bucket": feed_config.get("youtube_bucket", ""),
                 "feed_id": feed_config["id"],
                 "guid": guid.text.strip() if guid is not None and guid.text else "",
             }
@@ -234,6 +272,7 @@ def _parse_feed_content(content, feed_config):
                 "source_url": source_url,
                 "category": feed_config.get("category", "News"),
                 "publisher": feed_config.get("publisher", ""),
+                "youtube_bucket": feed_config.get("youtube_bucket", ""),
                 "image": image_url,
                 "feed_id": feed_config["id"],
                 "guid": guid.text.strip() if guid is not None and guid.text else "",

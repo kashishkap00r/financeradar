@@ -975,6 +975,7 @@
         let youtubePage = 1;
         const YOUTUBE_PAGE_SIZE = 20;
         let selectedYoutubePublishers = new Set();
+        let youtubeBucketFilter = 'all';
 
         // ==================== TWITTER TAB (vars) ====================
         let twitterRendered = false;
@@ -1863,6 +1864,7 @@
         // ==================== YOUTUBE TAB (functions) ====================
         function renderMainYoutube() {
             initYoutubePublisherDropdown();
+            syncYoutubeBucketButtons();
             filteredYoutube = [...YOUTUBE_VIDEOS];
             youtubePage = 1;
             applyYoutubePagination();
@@ -1874,11 +1876,29 @@
                 const matchesSearch = !query || (v.title + ' ' + v.source + ' ' + v.publisher).toLowerCase().includes(query);
                 const pub = v.publisher || v.source;
                 const matchesPublisher = selectedYoutubePublishers.size === 0 || selectedYoutubePublishers.has(pub);
-                return matchesSearch && matchesPublisher;
+                const bucket = v.youtube_bucket || 'Educational/Explainers';
+                const matchesBucket = youtubeBucketFilter === 'all' || bucket === youtubeBucketFilter;
+                return matchesSearch && matchesPublisher && matchesBucket;
             });
             youtubePage = 1;
             applyYoutubePagination();
             updateYoutubePublisherSummary();
+        }
+
+        function setYoutubeBucketFilter(bucket) {
+            if (bucket !== 'all' && !YOUTUBE_BUCKETS.includes(bucket)) {
+                youtubeBucketFilter = 'all';
+            } else {
+                youtubeBucketFilter = bucket;
+            }
+            syncYoutubeBucketButtons();
+            filterYoutube();
+        }
+
+        function syncYoutubeBucketButtons() {
+            document.querySelectorAll('[data-youtube-bucket]').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.youtubeBucket === youtubeBucketFilter);
+            });
         }
 
         function initYoutubePublisherDropdown() {
@@ -1959,13 +1979,19 @@
             const el = document.getElementById('youtube-publisher-summary');
             const countLabel = document.getElementById('youtube-publisher-count-label');
             if (!el) return;
-            const n = selectedYoutubePublishers.size;
-            const total = YOUTUBE_PUBLISHERS.length;
-            if (n === 0) {
+            const inBucket = YOUTUBE_VIDEOS
+                .filter(v => youtubeBucketFilter === 'all' || (v.youtube_bucket || 'Educational/Explainers') === youtubeBucketFilter)
+                .map(v => v.publisher || v.source)
+                .filter(Boolean);
+            const inBucketSet = new Set(inBucket);
+            const total = inBucketSet.size;
+            const selectedVisible = [...selectedYoutubePublishers].filter(pub => inBucketSet.has(pub));
+            const n = selectedVisible.length;
+            if (selectedYoutubePublishers.size === 0) {
                 el.textContent = 'All channels';
                 if (countLabel) countLabel.innerHTML = '<strong>' + total + '</strong> channels';
             } else if (n === 1) {
-                el.textContent = [...selectedYoutubePublishers][0];
+                el.textContent = selectedVisible[0];
                 if (countLabel) countLabel.textContent = '· 1 of ' + total + ' channels';
             } else {
                 el.textContent = n + ' channels';

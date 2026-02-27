@@ -1061,7 +1061,8 @@
     "url": "https://www.youtube.com/playlist?list=PL5TgrYNOd5HKKHpQOhS3WclkhrusIAD8Y",
     "feed": "https://www.youtube.com/feeds/videos.xml?playlist_id=PL5TgrYNOd5HKKHpQOhS3WclkhrusIAD8Y",
     "category": "Videos",
-    "publisher": "Upstox"
+    "publisher": "Upstox",
+    "youtube_bucket": "Educational/Explainers"
   },
   {
     "id": "yt-bloomberg-originals",
@@ -1069,7 +1070,8 @@
     "url": "https://www.youtube.com/@bloombergoriginals",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCUMZ7gohGI9HcU9VNsr2FJQ",
     "category": "Videos",
-    "publisher": "Bloomberg"
+    "publisher": "Bloomberg",
+    "youtube_bucket": "Traditional Media"
   },
   {
     "id": "yt-norges-bank",
@@ -1077,7 +1079,8 @@
     "url": "https://www.youtube.com/playlist?list=PLzYp5zh-CrBUX_4WnPCO1jj5v6jMuQjKe",
     "feed": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLzYp5zh-CrBUX_4WnPCO1jj5v6jMuQjKe",
     "category": "Videos",
-    "publisher": "Norges Bank"
+    "publisher": "Norges Bank",
+    "youtube_bucket": "Educational/Explainers"
   },
   {
     "id": "yt-ndtv-profit",
@@ -1085,7 +1088,8 @@
     "url": "https://www.youtube.com/@NDTVProfitIndia",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC3uJIdRFTGgLWrUziaHbzrg",
     "category": "Videos",
-    "publisher": "NDTV Profit"
+    "publisher": "NDTV Profit",
+    "youtube_bucket": "Traditional Media"
   },
   {
     "id": "yt-cnbc-tv18",
@@ -1093,7 +1097,8 @@
     "url": "https://www.youtube.com/@ABORJP",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmRbHAgG2k2vDUvb3xsEunQ",
     "category": "Videos",
-    "publisher": "CNBC-TV18"
+    "publisher": "CNBC-TV18",
+    "youtube_bucket": "Traditional Media"
   },
   {
     "id": "yt-et-now",
@@ -1101,7 +1106,143 @@
     "url": "https://www.youtube.com/@ETNowSwadesh",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCI_mwTKUhicNzFrhm33MzBQ",
     "category": "Videos",
-    "publisher": "ET Now"
+    "publisher": "ET Now",
+    "youtube_bucket": "Traditional Media"
+  },
+  {
+    "id": "yt-aswath-damodaran",
+    "name": "Aswath Damodaran",
+    "url": "https://www.youtube.com/@AswathDamodaranonValuation",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLvnJL8htRR1T9cbSccaoVw",
+    "category": "Videos",
+    "publisher": "Aswath Damodaran",
+    "youtube_bucket": "Educational/Explainers"
+  },
+  {
+    "id": "yt-business-standard",
+    "name": "Business Standard",
+    "url": "https://www.youtube.com/@businessstandard",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQsob4fGjHWhYHW0OLb6rew",
+    "category": "Videos",
+    "publisher": "Business Standard",
+    "youtube_bucket": "Traditional Media"
+  },
+  {
+    "id": "yt-novara-media",
+    "name": "Novara Media",
+    "url": "https://www.youtube.com/@NovaraMedia",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOzMAa6IhV6uwYQATYG_2kg",
+    "category": "Videos",
+    "publisher": "Novara Media",
+    "youtube_bucket": "Indie Voices"
+  },
+  {
+    "id": "yt-marcellus-invest",
+    "name": "Marcellus Investment Managers",
+    "url": "https://www.youtube.com/@InvestwithMarcellus",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjK6_t5lCGl_cX7x7ToBfDQ",
+    "category": "Videos",
+    "publisher": "Marcellus Investment Managers",
+    "youtube_bucket": "Indie Voices"
+  },
+  {
+    "id": "yt-motley-fool",
+    "name": "The Motley Fool",
+    "url": "https://www.youtube.com/@MotleyFool/videos",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpRQuynBX9Qy9tPrcswpPag",
+    "category": "Videos",
+    "publisher": "The Motley Fool",
+    "youtube_bucket": "Traditional Media"
+  },
+  {
+    "id": "yt-vox",
+    "name": "Vox",
+    "url": "https://www.youtube.com/@Vox/videos",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLXo7UDZvByw2ixzpQCufnA",
+    "category": "Videos",
+    "publisher": "Vox",
+    "youtube_bucket": "Traditional Media"
+  },
+  {
+    "id": "yt-wsj",
+    "name": "The Wall Street Journal",
+    "url": "https://www.youtube.com/@wsj",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCK7tptUDHh-RYDsdxO1-5QQ",
+    "category": "Videos",
+    "publisher": "WSJ",
+    "youtube_bucket": "Traditional Media"
+  },
+  {
+    "id": "yt-wocomo-docs",
+    "name": "wocomoDOCS",
+    "url": "https://www.youtube.com/@wocomodocs",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCeo9P_uFXJOi4v0XvHczGRQ",
+    "category": "Videos",
+    "publisher": "wocomoDOCS",
+    "youtube_bucket": "Educational/Explainers"
+  },
+  {
+    "id": "yt-cleo-abram",
+    "name": "Cleo Abram",
+    "url": "https://www.youtube.com/@CleoAbram/videos",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC415bOPUcGSamy543abLmRA",
+    "category": "Videos",
+    "publisher": "Cleo Abram",
+    "youtube_bucket": "Educational/Explainers"
+  },
+  {
+    "id": "yt-think-school",
+    "name": "Think School",
+    "url": "https://www.youtube.com/@ThinkSchool",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKZozRVHRYsYHGEyNKuhhdA",
+    "category": "Videos",
+    "publisher": "Think School",
+    "youtube_bucket": "Educational/Explainers"
+  },
+  {
+    "id": "yt-cfa-society-india",
+    "name": "CFA Society India",
+    "url": "https://www.youtube.com/@cfasocietyindia/videos",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCRhiduIwnx9XhEaIvBr8V5g",
+    "category": "Videos",
+    "publisher": "CFA Society India",
+    "youtube_bucket": "Educational/Explainers"
+  },
+  {
+    "id": "yt-backstage-millionaires",
+    "name": "Backstage with Millionaires",
+    "url": "https://www.youtube.com/@backstagewithmillionaires",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnpekFV93kB1O0rVqEKSumg",
+    "category": "Videos",
+    "publisher": "Backstage with Millionaires",
+    "youtube_bucket": "Indie Voices"
+  },
+  {
+    "id": "yt-norges-bank-im",
+    "name": "Norges Bank Investment Management",
+    "url": "https://www.youtube.com/@norgesbankinvestmentmanagement",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCRhQsN8AVIfZuBNeRV1A37w",
+    "category": "Videos",
+    "publisher": "Norges Bank Investment Management",
+    "youtube_bucket": "Educational/Explainers"
+  },
+  {
+    "id": "yt-bond-economist",
+    "name": "The Bond Economist",
+    "url": "https://www.youtube.com/@thebondeconomist/videos",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UClgrnAYAufykoyIIq_q76Gg",
+    "category": "Videos",
+    "publisher": "The Bond Economist",
+    "youtube_bucket": "Educational/Explainers"
+  },
+  {
+    "id": "yt-economics-explained",
+    "name": "Economics Explained",
+    "url": "https://www.youtube.com/@EconomicsExplained/videos",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZ4AMrDcNrfy3X6nsU8-rPg",
+    "category": "Videos",
+    "publisher": "Economics Explained",
+    "youtube_bucket": "Educational/Explainers"
   },
   {
     "id": "x-michael-pettis",
@@ -1485,7 +1626,8 @@
     "url": "https://www.youtube.com/@CleaningUpPod",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC5acEOF6mIIj1Ae3B2oeRrw",
     "category": "Videos",
-    "publisher": "Cleaning Up Podcast"
+    "publisher": "Cleaning Up Podcast",
+    "youtube_bucket": "Indie Voices"
   },
   {
     "id": "yt-soic-finance",
@@ -1493,7 +1635,8 @@
     "url": "https://www.youtube.com/@SOICfinance",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCB7GnQlJPIL6rBBqEoX87vA",
     "category": "Videos",
-    "publisher": "SOIC Finance"
+    "publisher": "SOIC Finance",
+    "youtube_bucket": "Indie Voices"
   },
   {
     "id": "yt-soic-clips",
@@ -1501,7 +1644,8 @@
     "url": "https://www.youtube.com/@SOICClips",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC0AQrC3gYBVLqIGBOvKprKg",
     "category": "Videos",
-    "publisher": "SOIC Clips"
+    "publisher": "SOIC Clips",
+    "youtube_bucket": "Indie Voices"
   },
   {
     "id": "yt-veritasium",
@@ -1509,7 +1653,8 @@
     "url": "https://www.youtube.com/@veritasium",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA",
     "category": "Videos",
-    "publisher": "Veritasium"
+    "publisher": "Veritasium",
+    "youtube_bucket": "Educational/Explainers"
   },
   {
     "id": "yt-fd-finance",
@@ -1517,7 +1662,8 @@
     "url": "https://www.youtube.com/@FD_Finance",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCA1zVt6y6hidCOBUrn1si8Q",
     "category": "Videos",
-    "publisher": "FD Finance"
+    "publisher": "FD Finance",
+    "youtube_bucket": "Indie Voices"
   },
   {
     "id": "yt-business-insider",
@@ -1525,7 +1671,8 @@
     "url": "https://www.youtube.com/channel/UCcyq283he07B7_KUX07mmtA",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcyq283he07B7_KUX07mmtA",
     "category": "Videos",
-    "publisher": "Business Insider"
+    "publisher": "Business Insider",
+    "youtube_bucket": "Traditional Media"
   },
   {
     "id": "yt-business-explains-world",
@@ -1533,7 +1680,8 @@
     "url": "https://www.youtube.com/@BusinessExplainsTheWorld",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDEs0NoYs8QTTA6YLBrsqGg",
     "category": "Videos",
-    "publisher": "Business Explains the World"
+    "publisher": "Business Explains the World",
+    "youtube_bucket": "Educational/Explainers"
   },
   {
     "id": "yt-the-print",
@@ -1541,7 +1689,8 @@
     "url": "https://www.youtube.com/theprintindia",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCuyRsHZILrU7ZDIAbGASHdA",
     "category": "Videos",
-    "publisher": "The Print India"
+    "publisher": "The Print India",
+    "youtube_bucket": "Traditional Media"
   },
   {
     "id": "yt-wef",
@@ -1549,7 +1698,8 @@
     "url": "https://www.youtube.com/@wef",
     "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCw-kH-Od73XDAt7qtH9uBYA",
     "category": "Videos",
-    "publisher": "World Economic Forum"
+    "publisher": "World Economic Forum",
+    "youtube_bucket": "Educational/Explainers"
   },
   {
     "id": "financial-express-economy",

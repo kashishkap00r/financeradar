@@ -38,7 +38,8 @@ from articles import (group_similar_articles, clean_html, get_sort_timestamp,
                       IST_TZ)
 
 # Feed loading and fetching
-from feeds import load_feeds, fetch_feed, fetch_careratings, fetch_the_ken, INVIDIOUS_INSTANCES
+from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
+                   INVIDIOUS_INSTANCES, YOUTUBE_BUCKETS)
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher
@@ -280,6 +281,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
         "date": v["date"].isoformat() if v.get("date") else None,
         "source": v.get("source", ""),
         "publisher": v.get("publisher", ""),
+        "youtube_bucket": v.get("youtube_bucket", ""),
         "source_url": v.get("source_url", ""),
         "video_id": v.get("video_id", ""),
         "thumbnail": v.get("thumbnail", ""),
@@ -288,6 +290,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
     video_channel_count = len(set(v.get("publisher", "") for v in video_articles if v.get("publisher")))
     youtube_publishers = sorted(set(v.get("publisher", v.get("source", "")) for v in video_articles if v.get("publisher") or v.get("source")))
     youtube_publishers_json = json.dumps(youtube_publishers)
+    youtube_buckets_json = json.dumps(list(YOUTUBE_BUCKETS))
 
     # Prepare twitter data
     if twitter_articles is None:
@@ -784,6 +787,10 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
                     </div>
                 </div>
                 <div class="filter-row" id="youtube-filter-row">
+                    <button class="preset-btn active" type="button" data-youtube-bucket="all" onclick="setYoutubeBucketFilter('all')">All</button>
+                    <button class="preset-btn" type="button" data-youtube-bucket="Traditional Media" onclick="setYoutubeBucketFilter('Traditional Media')">Traditional Media</button>
+                    <button class="preset-btn" type="button" data-youtube-bucket="Indie Voices" onclick="setYoutubeBucketFilter('Indie Voices')">Indie Voices</button>
+                    <button class="preset-btn" type="button" data-youtube-bucket="Educational/Explainers" onclick="setYoutubeBucketFilter('Educational/Explainers')">Educational/Explainers</button>
                     <div class="publisher-dropdown" id="youtube-publisher-dropdown">
                         <button class="publisher-dropdown-trigger" id="youtube-publisher-trigger" onclick="toggleYoutubeDropdown()">
                             <span id="youtube-publisher-summary">All channels</span>
@@ -869,6 +876,7 @@ def generate_html(article_groups, video_articles=None, twitter_articles=None, re
         const TELEGRAM_WARNINGS = {json.dumps(telegram_warnings)};
         const YOUTUBE_VIDEOS = {video_articles_json};
         const YOUTUBE_PUBLISHERS = {youtube_publishers_json};
+        const YOUTUBE_BUCKETS = {youtube_buckets_json};
         const TWITTER_ARTICLES = {twitter_articles_json};
         const TWITTER_PUBLISHERS = {twitter_publishers_json};
         const TWITTER_PRESETS = {twitter_presets_json};
