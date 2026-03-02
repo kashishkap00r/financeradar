@@ -18,9 +18,18 @@ NEWS_FRESHNESS_DAYS = 5          # News tab: discard articles older than this
 TWITTER_FRESHNESS_DAYS = 5       # Twitter tab: discard tweets older than this
 TWITTER_HIGH_SIGNAL_WINDOW_HOURS = 24  # Twitter high-signal window
 TWITTER_HIGH_SIGNAL_TARGET = 25        # Twitter high-signal lane size
+TWITTER_STALE_HOURS_FOR_NITTER_FALLBACK = 6  # fallback trigger when Google RSS is stale
 REPORTS_FRESHNESS_DAYS = 30      # Reports tab: discard reports older than this
 VIDEO_FRESHNESS_DAYS = 10        # YouTube tab (used by CLAUDE.md, not code)
 TWITTER_RESOLVE_WORKERS = 8      # concurrent Google->X resolve workers
+NITTER_TIMEOUT_SECONDS = 8       # timeout for each fallback Nitter instance
+NITTER_INSTANCES = [             # curated fallback list (rotated in order)
+    "https://nitter.net",
+    "https://nitter.tiekoetter.com",
+    "https://nitter.pufe.org",
+    "https://nitter.weiler.rocks",
+    "https://nitter.it",
+]
 
 # ── Report scrapers ───────────────────────────────────────────────────
 SCRAPER_MAX_ARTICLES = 30        # max articles per scraper invocation

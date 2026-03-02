@@ -984,6 +984,63 @@ def fetch_ubs(feed_config):
     return articles
 
 
+# ── State Street (SSGA) ───────────────────────────────────────────────
+
+@scraper
+def fetch_ssga_insights(feed_config):
+    """Fetch SSGA intermediary insights from the public search API.
+
+    The insights page renders results client-side by calling:
+    /public-api/aem/v2/search?geoloc=us:en&roleproduct=intermediary&site=ssmp&n=Insights
+
+    Relevant fields in each result:
+      - k: title
+      - l: canonical URL
+      - d: subheading/description
+      - t: date string (e.g., "March 2, 2026")
+    """
+    params = {
+        "geoloc": "us:en",
+        "roleproduct": "intermediary",
+        "site": "ssmp",
+        "n": "Insights",
+    }
+    api_url = "https://www.ssga.com/public-api/aem/v2/search?" + urllib.parse.urlencode(params)
+    raw = _fetch_url(api_url, accept="application/json", feed_config=feed_config)
+    data = json.loads(raw.decode("utf-8", errors="replace"))
+    results = data.get("results", []) if isinstance(data, dict) else []
+    if not isinstance(results, list):
+        return []
+
+    articles = []
+    seen_urls = set()
+    for item in results:
+        if not isinstance(item, dict):
+            continue
+
+        title = (item.get("k") or "").strip()
+        url = (item.get("l") or "").strip()
+        if not title or not url:
+            continue
+
+        if url.startswith("/"):
+            url = urllib.parse.urljoin("https://www.ssga.com", url)
+        if not url.startswith("http"):
+            continue
+
+        dedupe_key = url.lower().strip().rstrip("/")
+        if dedupe_key in seen_urls:
+            continue
+        seen_urls.add(dedupe_key)
+
+        date_str = (item.get("t") or "").strip()
+        dt = _parse_date_flexible(date_str) if date_str else None
+        desc = (item.get("d") or "").strip()
+        articles.append(_make_article(title, url, dt, desc, feed_config))
+
+    return articles
+
+
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
@@ -1000,6 +1057,7 @@ REPORT_FETCHERS = {
     "creditsights:": fetch_creditsights,
     "jpmorgan:": fetch_jpmorgan,
     "ubs:": fetch_ubs,
+    "ssga:": fetch_ssga_insights,
 }
 
 

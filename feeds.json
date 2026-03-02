@@ -1056,6 +1056,15 @@
     "publisher": "UBS"
   },
   {
+    "id": "ssga-insights",
+    "name": "State Street — Insights",
+    "url": "https://www.ssga.com/us/en/intermediary/insights",
+    "feed": "ssga:insights",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "State Street"
+  },
+  {
     "id": "yt-upstox-markets-today",
     "name": "Upstox Markets Today",
     "url": "https://www.youtube.com/playlist?list=PL5TgrYNOd5HKKHpQOhS3WclkhrusIAD8Y",
@@ -1248,7 +1257,7 @@
     "id": "x-michael-pettis",
     "name": "Michael Pettis (X)",
     "url": "https://x.com/michaelxpettis",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:michaelxpettis&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/michaelxpettis/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Michael Pettis"
   },
@@ -1256,7 +1265,7 @@
     "id": "x-menaka-doshi",
     "name": "Menaka Doshi (X)",
     "url": "https://x.com/menakadoshi",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:menakadoshi&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/menakadoshi/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Menaka Doshi"
   },
@@ -1264,7 +1273,7 @@
     "id": "x-mohit-ish",
     "name": "Mohit Ish (X)",
     "url": "https://x.com/ishmohit1",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:ishmohit1&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/ishmohit1/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Mohit Ish"
   },
@@ -1272,7 +1281,7 @@
     "id": "x-contrarian-eps",
     "name": "ContrariianEPS (X)",
     "url": "https://x.com/contrarianEPS",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:contrarianEPS&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/contrarianEPS/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "ContrariianEPS"
   },
@@ -1280,7 +1289,7 @@
     "id": "x-down-to-earth",
     "name": "Down To Earth (X)",
     "url": "https://x.com/down2earthindia",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:down2earthindia&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/down2earthindia/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Down To Earth"
   },
@@ -1288,7 +1297,7 @@
     "id": "x-soic",
     "name": "SOIC (X)",
     "url": "https://x.com/soicfinance",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:soicfinance&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/soicfinance/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "SOIC"
   },
@@ -1296,7 +1305,7 @@
     "id": "x-finstor",
     "name": "Finstor (X)",
     "url": "https://x.com/Finstor85",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:Finstor85&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Finstor85/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Finstor"
   },
@@ -1304,7 +1313,7 @@
     "id": "x-unseen-value",
     "name": "Unseen Value (X)",
     "url": "https://x.com/unseenvalue",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:unseenvalue&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/unseenvalue/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Unseen Value"
   },
@@ -1312,7 +1321,7 @@
     "id": "x-murali-srinivasan",
     "name": "Murali Srinivasan (X)",
     "url": "https://x.com/MuraliSrinivasa",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:MuraliSrinivasa&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/MuraliSrinivasa/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Murali Srinivasan"
   },
@@ -1320,7 +1329,7 @@
     "id": "x-cnbc-tv18",
     "name": "CNBC-TV18 (X)",
     "url": "https://x.com/CNBCTV18Live",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:CNBCTV18Live&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/CNBCTV18Live/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "CNBC-TV18"
   },
@@ -1328,7 +1337,7 @@
     "id": "x-et-markets",
     "name": "ET Markets (X)",
     "url": "https://x.com/ETMarkets",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:ETMarkets&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/ETMarkets/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "ET Markets"
   },
@@ -1336,7 +1345,7 @@
     "id": "x-yatin-mota",
     "name": "Yatin Mota (X)",
     "url": "https://x.com/yatinmota",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:yatinmota&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/yatinmota/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Yatin Mota"
   },
@@ -1344,7 +1353,7 @@
     "id": "x-samit-vartak",
     "name": "Samit Vartak (X)",
     "url": "https://x.com/SamitVartak",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:SamitVartak&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/SamitVartak/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Samit Vartak"
   },
@@ -1352,7 +1361,7 @@
     "id": "x-tarh",
     "name": "TarH (X)",
     "url": "https://x.com/itsTarH",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:itsTarH&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/itsTarH/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "TarH"
   },
@@ -1360,7 +1369,7 @@
     "id": "x-aditya-kondawar",
     "name": "Aditya Kondawar (X)",
     "url": "https://x.com/aditya_kondawar",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:aditya_kondawar&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/aditya_kondawar/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Aditya Kondawar"
   },
@@ -1368,7 +1377,7 @@
     "id": "x-data-for-india",
     "name": "Data For India (X)",
     "url": "https://x.com/dataforin",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:dataforin&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/dataforin/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Data For India"
   },
@@ -1376,7 +1385,7 @@
     "id": "x-abhy-murarka",
     "name": "Abhy Murarka (X)",
     "url": "https://x.com/abhymurarka",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:abhymurarka&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/abhymurarka/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Abhy Murarka"
   },
@@ -1384,7 +1393,7 @@
     "id": "x-sanjeev-sanyal",
     "name": "Sanjeev Sanyal (X)",
     "url": "https://x.com/sanjeevsanyal",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:sanjeevsanyal&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/sanjeevsanyal/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Sanjeev Sanyal"
   },
@@ -1392,7 +1401,7 @@
     "id": "x-soic-research",
     "name": "SOIC Research (X)",
     "url": "https://x.com/ResearchSOIC",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:ResearchSOIC&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/ResearchSOIC/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "SOIC Research"
   },
@@ -1400,7 +1409,7 @@
     "id": "x-carbon-brief",
     "name": "Carbon Brief (X)",
     "url": "https://x.com/CarbonBrief",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:CarbonBrief&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/CarbonBrief/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Carbon Brief"
   },
@@ -1408,7 +1417,7 @@
     "id": "x-ember-energy",
     "name": "Ember Energy (X)",
     "url": "https://x.com/ember_energy",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:ember_energy&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/ember_energy/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Ember Energy"
   },
@@ -1416,7 +1425,7 @@
     "id": "x-our-world-in-data",
     "name": "Our World in Data (X)",
     "url": "https://x.com/OurWorldInData",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:OurWorldInData&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/OurWorldInData/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Our World in Data"
   },
@@ -1424,7 +1433,7 @@
     "id": "x-pranay-kotas",
     "name": "Pranay Kotas (X)",
     "url": "https://x.com/pranaykotas",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:pranaykotas&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/pranaykotas/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Pranay Kotas"
   },
@@ -1432,7 +1441,7 @@
     "id": "x-indiaspend",
     "name": "IndiaSpend (X)",
     "url": "https://x.com/IndiaSpend",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:IndiaSpend&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/IndiaSpend/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "IndiaSpend"
   },
@@ -1440,7 +1449,7 @@
     "id": "x-ila-patnaik",
     "name": "Ila Patnaik (X)",
     "url": "https://x.com/IlaPatnaik",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:IlaPatnaik&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/IlaPatnaik/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Ila Patnaik"
   },
@@ -1448,7 +1457,7 @@
     "id": "x-ideas-for-india",
     "name": "Ideas For India (X)",
     "url": "https://x.com/Ideas4India",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:Ideas4India&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Ideas4India/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Ideas For India"
   },
@@ -1456,7 +1465,7 @@
     "id": "x-shruti-rajagopalan",
     "name": "Shruti Rajagopalan (X)",
     "url": "https://x.com/srajagopalan",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:srajagopalan&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/srajagopalan/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Shruti Rajagopalan"
   },
@@ -1464,7 +1473,7 @@
     "id": "x-nigel-dsouza",
     "name": "Nigel D'Souza (X)",
     "url": "https://x.com/Nigel__DSouza",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:Nigel__DSouza&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Nigel__DSouza/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Nigel D'Souza"
   },
@@ -1472,7 +1481,7 @@
     "id": "x-deepak-shenoy",
     "name": "Deepak Shenoy (X)",
     "url": "https://x.com/deepakshenoy",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:deepakshenoy&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/deepakshenoy/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Deepak Shenoy"
   },
@@ -1480,7 +1489,7 @@
     "id": "x-careedge",
     "name": "CareEdge (X)",
     "url": "https://x.com/CareEdge_Group",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:CareEdge_Group&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/CareEdge_Group/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "CareEdge"
   },
@@ -1488,7 +1497,7 @@
     "id": "x-javier-blas",
     "name": "Javier Blas (X)",
     "url": "https://x.com/JavierBlas",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:JavierBlas&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/JavierBlas/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Javier Blas"
   },
@@ -1496,7 +1505,7 @@
     "id": "x-ft-energy",
     "name": "FT Energy (X)",
     "url": "https://x.com/ftenergy",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:ftenergy&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/ftenergy/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "FT Energy"
   },
@@ -1504,7 +1513,7 @@
     "id": "x-india-data-hub",
     "name": "India Data Hub (X)",
     "url": "https://x.com/IndiaDataHub",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:IndiaDataHub&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/IndiaDataHub/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "India Data Hub"
   },
@@ -1512,7 +1521,7 @@
     "id": "x-kobeissi-letter",
     "name": "Kobeissi Letter (X)",
     "url": "https://x.com/KobeissiLetter",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:KobeissiLetter&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/KobeissiLetter/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Kobeissi Letter"
   },
@@ -1520,7 +1529,7 @@
     "id": "x-prashant-nair",
     "name": "Prashant Nair (X)",
     "url": "https://x.com/_prashantnair",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:_prashantnair&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/_prashantnair/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Prashant Nair"
   },
@@ -1528,7 +1537,7 @@
     "id": "x-shashank-udupa",
     "name": "Shashank Udupa (X)",
     "url": "https://x.com/ShashankUdupa1",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:ShashankUdupa1&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/ShashankUdupa1/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Shashank Udupa"
   },
@@ -1536,7 +1545,7 @@
     "id": "x-ritu-singh",
     "name": "Ritu Singh (X)",
     "url": "https://x.com/_RituSingh",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:_RituSingh&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/_RituSingh/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Ritu Singh"
   },
@@ -1544,7 +1553,7 @@
     "id": "x-equity-value",
     "name": "Equity Value (X)",
     "url": "https://x.com/EquityValueIn",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:EquityValueIn&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/EquityValueIn/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Equity Value"
   },
@@ -1552,7 +1561,7 @@
     "id": "x-beat-the-street",
     "name": "Beat The Street (X)",
     "url": "https://x.com/BeatTheStreet10",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:BeatTheStreet10&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/BeatTheStreet10/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Beat The Street"
   },
@@ -1560,7 +1569,7 @@
     "id": "x-equity-insights",
     "name": "Equity Insights (X)",
     "url": "https://x.com/EquityInsightss",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:EquityInsightss&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/EquityInsightss/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Equity Insights"
   },
@@ -1568,7 +1577,7 @@
     "id": "x-dhirendra-kumar",
     "name": "Dhirendra Kumar (X)",
     "url": "https://x.com/dhirendra_vr",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:dhirendra_vr&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/dhirendra_vr/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Dhirendra Kumar"
   },
@@ -1576,7 +1585,7 @@
     "id": "x-andy-mukherjee",
     "name": "Andy Mukherjee (X)",
     "url": "https://x.com/andymukherjee70",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:andymukherjee70&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/andymukherjee70/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Andy Mukherjee"
   },
@@ -1584,7 +1593,7 @@
     "id": "x-ira-dugal",
     "name": "Ira Dugal (X)",
     "url": "https://x.com/dugalira",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:dugalira&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/dugalira/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Ira Dugal"
   },
@@ -1592,7 +1601,7 @@
     "id": "x-tijori-finance",
     "name": "Tijori Finance (X)",
     "url": "https://x.com/Tijori1",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:Tijori1&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Tijori1/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Tijori Finance"
   },
@@ -1600,7 +1609,7 @@
     "id": "x-redbox-india",
     "name": "Redbox India (X)",
     "url": "https://x.com/REDBOXINDIA",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:REDBOXINDIA&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/REDBOXINDIA/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Redbox India"
   },
@@ -1608,7 +1617,7 @@
     "id": "x-exencial-rp",
     "name": "Exencial RP (X)",
     "url": "https://x.com/exencial_RP",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:exencial_RP&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/exencial_RP/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Exencial RP"
   },
@@ -1616,7 +1625,7 @@
     "id": "x-tamal-bandyopadhyay",
     "name": "Tamal Bandyopadhyay (X)",
     "url": "https://x.com/TamalBandyo",
-    "feed": "https://news.google.com/rss/search?q=site:x.com+from:TamalBandyo&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/TamalBandyo/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Tamal Bandyopadhyay"
   },
