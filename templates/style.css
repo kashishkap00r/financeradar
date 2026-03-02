@@ -90,6 +90,8 @@
             align-items: center;
             gap: 10px;
             white-space: nowrap;
+            flex-shrink: 0;
+            min-width: 0;
         }
         .logo {
             font-family: 'Merriweather', Georgia, serif;
@@ -99,6 +101,12 @@
             color: var(--text-primary);
             padding-bottom: 2px;
             border-bottom: 3px solid var(--accent);
+            text-decoration: none;
+            line-height: 1.1;
+            display: inline-block;
+        }
+        .logo:hover {
+            color: var(--accent);
         }
 
         .search-box {
@@ -217,25 +225,42 @@
             box-shadow: var(--card-shadow);
         }
 
-        /* Stats Bar */
-        .stats-bar {
+        /* Unified Filter Header */
+        .filter-head {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            gap: 12px;
             padding: 0 0 8px 0;
         }
 
         .stats {
             display: flex;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 6px 14px;
             font-size: 13px;
             color: var(--text-secondary);
+            min-width: 0;
         }
 
         .stats span {
             display: flex;
             align-items: center;
             gap: 6px;
+            min-width: 0;
+        }
+        .stat-truncate {
+            max-width: 320px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .filter-head-actions {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            min-width: 0;
         }
 
         /* Pulsing Dot */
@@ -262,25 +287,34 @@
         .update-time {
             font-size: 13px;
             color: var(--text-muted);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
-        /* Filter Row (presets + dropdown on one line) */
-        .filter-row {
+        /* Unified Filter Controls Row */
+        .filter-controls {
             display: flex;
             align-items: center;
             gap: 8px;
             padding: 6px 0;
             flex-wrap: wrap;
+            min-width: 0;
+        }
+        .filter-controls-static {
+            padding-top: 4px;
+        }
+        .filter-note {
+            font-size: 12px;
+            color: var(--text-muted);
         }
         .filter-toggle {
             display: none;
             background: none;
             border: none;
-            padding: 2px;
+            padding: 2px 4px;
             cursor: pointer;
             color: var(--text-muted);
             transition: color 0.15s;
-            margin-left: 8px;
             flex-shrink: 0;
         }
         .filter-toggle:hover { color: var(--text-secondary); }
@@ -323,6 +357,8 @@
         .publisher-dropdown {
             position: relative;
             margin-left: auto;
+            min-width: 0;
+            max-width: 100%;
         }
         .publisher-dropdown-trigger {
             font-family: inherit;
@@ -338,6 +374,16 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            min-height: 32px;
+            min-width: 0;
+            max-width: 100%;
+        }
+        .filter-summary {
+            display: inline-block;
+            max-width: min(34vw, 220px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
         .publisher-dropdown-trigger:hover {
             border-color: var(--accent);
@@ -1804,26 +1850,22 @@
             display: block;
         }
 
-        /* ── Telegram filter bar ────────────────────────────── */
-        .tg-filter-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
+        /* Segmented controls used across Telegram/Reports tabs */
         .tg-view-toggle {
             display: inline-flex;
             background: var(--bg-hover);
-            border-radius: 8px;
+            border-radius: 20px;
             padding: 3px;
-            gap: 1px;
+            gap: 2px;
+            flex-wrap: wrap;
+            max-width: 100%;
         }
         .tg-view-btn {
             font-family: inherit;
             font-size: 13px;
             font-weight: 500;
-            padding: 5px 14px;
-            border-radius: 6px;
+            padding: 5px 12px;
+            border-radius: 16px;
             border: none;
             background: transparent;
             color: var(--text-secondary);
@@ -1833,33 +1875,15 @@
         }
         .tg-view-btn:hover { color: var(--text-primary); }
         .tg-view-btn.active {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.15), 0 0 0 1px var(--border);
-        }
-        .tg-filter-meta {
-            font-size: 12px;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .tg-filter-meta strong {
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
-        .tg-filter-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            flex-wrap: wrap;
+            background: var(--accent);
+            color: #fff;
+            box-shadow: none;
         }
         .tg-chip {
             font-family: inherit;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
-            padding: 4px 12px;
+            padding: 5px 12px;
             border-radius: 20px;
             border: 1.5px solid var(--border);
             background: transparent;
@@ -2048,15 +2072,26 @@
         @media (max-width: 640px) {
             .top-bar-inner {
                 flex-wrap: nowrap;
-                gap: 8px;
+                gap: 6px;
             }
 
             .brand {
-                display: none;
+                display: flex;
+                max-width: 120px;
+                min-width: 72px;
+            }
+            .logo {
+                font-size: 0.9rem;
+                border-bottom-width: 2px;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
             .search-box {
                 flex: 1;
+                min-width: 0;
             }
 
             .mobile-menu-toggle {
@@ -2071,16 +2106,54 @@
                 display: none;
             }
 
-            .filter-row {
+            .filter-head {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .stats {
+                width: 100%;
+                gap: 6px 10px;
+            }
+            .stats span {
+                max-width: 100%;
+            }
+            .stat-truncate {
+                max-width: 100%;
+            }
+            .filter-head-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .filter-controls {
                 gap: 6px;
             }
             .preset-btn {
                 font-size: 12px;
                 padding: 4px 10px;
             }
+            .tg-view-btn,
+            .tg-chip,
+            .publisher-dropdown-trigger {
+                font-size: 12px;
+                padding: 4px 10px;
+            }
+            .tg-view-toggle {
+                width: 100%;
+            }
+            .tg-view-btn {
+                flex: 1 1 auto;
+                text-align: center;
+            }
             .publisher-dropdown {
                 margin-left: 0;
                 width: 100%;
+            }
+            .publisher-dropdown-trigger {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .filter-summary {
+                max-width: calc(100vw - 120px);
             }
             .publisher-dropdown-panel {
                 min-width: 240px;
@@ -2093,8 +2166,8 @@
                 align-items: center;
                 justify-content: center;
             }
-            html.filters-collapsed .filter-row { display: none; }
-            html.filters-collapsed .stats-bar { padding-bottom: 0; }
+            html.filters-collapsed .filter-controls { display: none; }
+            html.filters-collapsed .filter-head { padding-bottom: 0; }
 
             .article {
                 padding: 14px 16px;

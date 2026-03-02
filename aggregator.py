@@ -403,7 +403,7 @@ def generate_html(
 <head>
     <meta charset="UTF-8">
     <script>try{{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light')}}catch(e){{}}</script>
-    <script>try{{if(localStorage.getItem('financeradar_filters_collapsed')!=='false')document.documentElement.classList.add('filters-collapsed')}}catch(e){{}}</script>
+    <script>try{{var t=localStorage.getItem('financeradar_active_tab')||'news';if(localStorage.getItem('financeradar_filters_collapsed_'+t)!=='false')document.documentElement.classList.add('filters-collapsed')}}catch(e){{}}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinanceRadar</title>
     <link rel="icon" href="static/favicon.svg">
@@ -433,7 +433,7 @@ def generate_html(
     <div class="top-bar">
         <div class="top-bar-inner">
             <div class="brand">
-                <a href="/" class="logo" style="text-decoration:none;color:inherit;cursor:pointer;">FinanceRadar</a>
+                <a href="/" class="logo">FinanceRadar</a>
             </div>
             <div class="search-box">
                 <span class="search-icon">&#128269;</span>
@@ -640,12 +640,12 @@ def generate_html(
 
         <div id="tab-news" class="tab-content active">
         <div class="filter-card">
-            <div class="stats-bar">
+            <div class="filter-head">
                 <div class="stats">
                     <span><strong>{len(sorted_articles)}</strong> articles</span>
                     <span><strong>{len(all_publishers)}</strong> publishers</span>
                 </div>
-                <div style="display:flex;align-items:center;">
+                <div class="filter-head-actions">
                     <span class="update-time" id="update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
                     <script>
                     (function(){{
@@ -661,14 +661,14 @@ def generate_html(
                 </div>
             </div>
 
-            <div class="filter-row" id="filter-row">
+            <div class="filter-controls" id="news-filter-controls">
                 <button class="preset-btn" data-preset="India Desk" onclick="togglePreset('India Desk')">India Desk</button>
                 <button class="preset-btn" data-preset="World Desk" onclick="togglePreset('World Desk')">World Desk</button>
                 <button class="preset-btn" data-preset="Indie Voices" onclick="togglePreset('Indie Voices')">Indie Voices</button>
                 <button class="preset-btn" data-preset="Official Channels" onclick="togglePreset('Official Channels')">Official Channels</button>
                 <div class="publisher-dropdown" id="publisher-dropdown">
                     <button class="publisher-dropdown-trigger" id="publisher-trigger" onclick="toggleDropdown()">
-                        <span id="publisher-summary">All publishers</span>
+                        <span class="filter-summary" id="publisher-summary">All publishers</span>
                         <span class="dropdown-arrow">▼</span>
                     </button>
                     <div class="publisher-dropdown-panel" id="publisher-panel">
@@ -757,16 +757,13 @@ def generate_html(
 
         <div id="tab-reports" class="tab-content">
             <div class="filter-card">
-                <div class="tg-filter-top">
-                    <div class="tg-view-toggle">
-                        <button class="tg-view-btn active" id="reports-view-all" onclick="setReportsView('all')">All</button>
-                        <button class="tg-view-btn" id="reports-view-pdf" onclick="setReportsView('pdf')">Reports</button>
-                        <button class="tg-view-btn" id="reports-view-nopdf" onclick="setReportsView('nopdf')">Posts</button>
+                <div class="filter-head">
+                    <div class="stats">
+                        <span><strong id="reports-visible-count">{report_count}</strong> reports</span>
+                        <span><strong>{channel_count}</strong> channels</span>
                     </div>
-                    <div class="tg-filter-meta">
-                        <strong id="reports-visible-count">{report_count}</strong>
-                        <span>·</span>
-                        <span id="reports-update-time" data-time="{telegram_generated_at}">--</span>
+                    <div class="filter-head-actions">
+                        <span class="update-time" id="reports-update-time" data-time="{telegram_generated_at}">--</span>
                         <script>
                         (function(){{
                             var el=document.getElementById('reports-update-time'),t=el&&el.getAttribute('data-time');
@@ -775,12 +772,20 @@ def generate_html(
                             el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
                         }})();
                         </script>
+                        <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
+                            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
                     </div>
                 </div>
-                <div class="tg-filter-bottom">
+                <div class="filter-controls" id="reports-filter-controls">
+                    <div class="tg-view-toggle">
+                        <button class="tg-view-btn active" id="reports-view-all" onclick="setReportsView('all')">All</button>
+                        <button class="tg-view-btn" id="reports-view-pdf" onclick="setReportsView('pdf')">Reports</button>
+                        <button class="tg-view-btn" id="reports-view-nopdf" onclick="setReportsView('nopdf')">Posts</button>
+                    </div>
                     <div class="publisher-dropdown" id="tg-channel-dropdown">
                         <button class="publisher-dropdown-trigger" id="tg-channel-trigger" onclick="toggleTgDropdown()">
-                            <span id="tg-channel-summary">All channels</span>
+                            <span class="filter-summary" id="tg-channel-summary">All channels</span>
                             <span class="dropdown-arrow">&#9660;</span>
                         </button>
                         <div class="publisher-dropdown-panel" id="tg-channel-panel">
@@ -802,15 +807,12 @@ def generate_html(
 
         <div id="tab-research" class="tab-content">
             <div class="filter-card">
-                <div class="tg-filter-top">
-                    <div class="tg-view-toggle">
-                        <button class="tg-view-btn active" id="research-region-all" onclick="setResearchRegion('all')">All</button>
-                        <button class="tg-view-btn" id="research-region-indian" onclick="setResearchRegion('indian')">Indian</button>
-                        <button class="tg-view-btn" id="research-region-international" onclick="setResearchRegion('international')">International</button>
+                <div class="filter-head">
+                    <div class="stats">
+                        <span><strong id="research-visible-count">{research_count}</strong> reports</span>
+                        <span><strong>{len(research_publishers)}</strong> publishers</span>
                     </div>
-                    <div class="tg-filter-meta">
-                        <strong id="research-visible-count">{research_count}</strong>
-                        <span>&middot;</span>
+                    <div class="filter-head-actions">
                         <span class="update-time" id="research-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
                         <script>
                         (function(){{
@@ -820,12 +822,20 @@ def generate_html(
                             el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
                         }})();
                         </script>
+                        <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
+                            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
                     </div>
                 </div>
-                <div class="tg-filter-bottom">
+                <div class="filter-controls" id="research-filter-controls">
+                    <div class="tg-view-toggle">
+                        <button class="tg-view-btn active" id="research-region-all" onclick="setResearchRegion('all')">All</button>
+                        <button class="tg-view-btn" id="research-region-indian" onclick="setResearchRegion('indian')">Indian</button>
+                        <button class="tg-view-btn" id="research-region-international" onclick="setResearchRegion('international')">International</button>
+                    </div>
                     <div class="publisher-dropdown" id="research-publisher-dropdown">
                         <button class="publisher-dropdown-trigger" id="research-publisher-trigger" onclick="toggleResearchDropdown()">
-                            <span id="research-publisher-summary">All publishers</span>
+                            <span class="filter-summary" id="research-publisher-summary">All publishers</span>
                             <span class="dropdown-arrow">&#9660;</span>
                         </button>
                         <div class="publisher-dropdown-panel" id="research-publisher-panel">
@@ -845,12 +855,12 @@ def generate_html(
 
         <div id="tab-papers" class="tab-content">
             <div class="filter-card">
-                <div class="stats-bar">
+                <div class="filter-head">
                     <div class="stats">
                         <span><strong id="papers-visible-count">{paper_count}</strong> papers</span>
                         <span><strong>{paper_source_count}</strong> sources</span>
                     </div>
-                    <div style="display:flex;align-items:center;">
+                    <div class="filter-head-actions">
                         <span class="update-time" id="papers-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
                         <script>
                         (function(){{
@@ -860,7 +870,13 @@ def generate_html(
                             el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
                         }})();
                         </script>
+                        <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
+                            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
                     </div>
+                </div>
+                <div class="filter-controls filter-controls-static" id="papers-filter-controls">
+                    <span class="filter-note">Use search to narrow papers.</span>
                 </div>
             </div>
             <div id="papers-container"></div>
@@ -869,12 +885,12 @@ def generate_html(
 
         <div id="tab-youtube" class="tab-content">
             <div class="filter-card">
-                <div class="stats-bar">
+                <div class="filter-head">
                     <div class="stats">
                         <span><strong id="youtube-visible-count">{video_count}</strong> videos</span>
-                        <span id="youtube-publisher-count-label"><strong>{video_channel_count}</strong> channels</span>
+                        <span class="stat-truncate" id="youtube-publisher-count-label"><strong>{video_channel_count}</strong> channels</span>
                     </div>
-                    <div style="display:flex;align-items:center;">
+                    <div class="filter-head-actions">
                         <span class="update-time" id="youtube-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
                         <script>
                         (function(){{
@@ -889,14 +905,14 @@ def generate_html(
                         </button>
                     </div>
                 </div>
-                <div class="filter-row" id="youtube-filter-row">
+                <div class="filter-controls" id="youtube-filter-controls">
                     <button class="preset-btn active" type="button" data-youtube-bucket="all" onclick="setYoutubeBucketFilter('all')">All</button>
                     <button class="preset-btn" type="button" data-youtube-bucket="Traditional Media" onclick="setYoutubeBucketFilter('Traditional Media')">Traditional Media</button>
                     <button class="preset-btn" type="button" data-youtube-bucket="Indie Voices" onclick="setYoutubeBucketFilter('Indie Voices')">Indie Voices</button>
                     <button class="preset-btn" type="button" data-youtube-bucket="Educational/Explainers" onclick="setYoutubeBucketFilter('Educational/Explainers')">Educational/Explainers</button>
                     <div class="publisher-dropdown" id="youtube-publisher-dropdown">
                         <button class="publisher-dropdown-trigger" id="youtube-publisher-trigger" onclick="toggleYoutubeDropdown()">
-                            <span id="youtube-publisher-summary">All channels</span>
+                            <span class="filter-summary" id="youtube-publisher-summary">All channels</span>
                             <span class="dropdown-arrow">&#9660;</span>
                         </button>
                         <div class="publisher-dropdown-panel" id="youtube-publisher-panel">
@@ -916,13 +932,13 @@ def generate_html(
 
         <div id="tab-twitter" class="tab-content">
             <div class="filter-card">
-                <div class="stats-bar">
+                <div class="filter-head">
                     <div class="stats">
                         <span><strong id="twitter-visible-count">{twitter_high_signal_count}</strong> tweets</span>
-                        <span id="twitter-lane-summary">High Signal · {twitter_high_signal_count} of {twitter_count}</span>
-                        <span id="twitter-publisher-count-label"></span>
+                        <span class="stat-truncate" id="twitter-lane-summary">High Signal · {twitter_high_signal_count} of {twitter_count}</span>
+                        <span class="stat-truncate" id="twitter-publisher-count-label"></span>
                     </div>
-                    <div style="display:flex;align-items:center;">
+                    <div class="filter-head-actions">
                         <span class="update-time" id="twitter-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
                         <script>
                         (function(){{
@@ -937,12 +953,12 @@ def generate_html(
                         </button>
                     </div>
                 </div>
-                <div class="filter-row" id="twitter-filter-row">
+                <div class="filter-controls" id="twitter-filter-controls">
                     <button class="preset-btn active" type="button" data-twitter-lane="high-signal" onclick="setTwitterLane('high-signal')">High Signal</button>
                     <button class="preset-btn" type="button" data-twitter-lane="full-stream" onclick="setTwitterLane('full-stream')">Full Stream</button>
                     <div class="publisher-dropdown" id="twitter-publisher-dropdown">
                         <button class="publisher-dropdown-trigger" id="twitter-publisher-trigger" onclick="toggleTwitterDropdown()">
-                            <span id="twitter-publisher-summary">All publishers</span>
+                            <span class="filter-summary" id="twitter-publisher-summary">All publishers</span>
                             <span class="dropdown-arrow">&#9660;</span>
                         </button>
                         <div class="publisher-dropdown-panel" id="twitter-publisher-panel">

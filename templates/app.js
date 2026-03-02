@@ -93,7 +93,22 @@
             }
         });
 
-        // Filter collapse toggle (mobile)
+        const FILTER_COLLAPSE_KEY_PREFIX = 'financeradar_filters_collapsed_';
+
+        function getFilterCollapseStorageKey(tabName) {
+            const tab = tabName || getActiveTab() || 'news';
+            return FILTER_COLLAPSE_KEY_PREFIX + tab;
+        }
+
+        function isFilterCollapsedForTab(tabName) {
+            return safeStorage.get(getFilterCollapseStorageKey(tabName)) !== 'false';
+        }
+
+        function applyFilterCollapseForTab(tabName) {
+            document.documentElement.classList.toggle('filters-collapsed', isFilterCollapsedForTab(tabName));
+        }
+
+        // Filter collapse toggle (per-tab memory)
         function toggleFilterCollapse() {
             var dd = document.getElementById('publisher-dropdown');
             if (dd && dd.classList.contains('open')) closeDropdown();
@@ -105,8 +120,10 @@
             if (rgdd && rgdd.classList.contains('open')) closeTgDropdown();
             var rsdd = document.getElementById('research-publisher-dropdown');
             if (rsdd && rsdd.classList.contains('open')) closeResearchDropdown();
-            var isCollapsed = document.documentElement.classList.toggle('filters-collapsed');
-            safeStorage.set('financeradar_filters_collapsed', isCollapsed ? 'true' : 'false');
+            var active = getActiveTab();
+            var nextCollapsed = !document.documentElement.classList.contains('filters-collapsed');
+            document.documentElement.classList.toggle('filters-collapsed', nextCollapsed);
+            safeStorage.set(getFilterCollapseStorageKey(active), nextCollapsed ? 'true' : 'false');
         }
 
         // Multi-select publisher filter
@@ -1520,7 +1537,11 @@
         // Restore last active tab
         (function() {
             var saved = safeStorage.get('financeradar_active_tab');
-            if (saved && saved !== 'news') switchTab(saved, true);
+            if (saved && saved !== 'news') {
+                switchTab(saved, true);
+            } else {
+                applyFilterCollapseForTab('news');
+            }
         })();
 
         function switchTab(tab, skipScroll) {
@@ -1578,6 +1599,7 @@
                 filterArticles();
             }
             activeTab = tab;
+            applyFilterCollapseForTab(tab);
             const activeTabButton = document.querySelector('.content-tab.active');
             if (isMobileViewport() && activeTabButton) {
                 const tabStrip = activeTabButton.closest('.content-tabs');
