@@ -854,6 +854,10 @@
             border-color: var(--border-light);
             background: var(--bg-hover);
         }
+        .wsw-toggle.has-bookmarks {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
 
         /* WSW cluster card styles */
         .wsw-quote {
@@ -875,6 +879,23 @@
         .wsw-conf-high   { background: #1a4d2a; color: #4caf82; }
         .wsw-conf-medium { background: #4d3a1a; color: #e09f3e; }
         .wsw-conf-low    { background: #2a2a2a; color: var(--text-muted); }
+        .wsw-bookmark-item {
+            display: block;
+        }
+        .wsw-bookmark-quote {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin: 4px 0;
+            line-height: 1.45;
+            border-left: 2px solid var(--accent);
+            padding-left: 6px;
+            font-style: italic;
+        }
+        .wsw-bookmark-india {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
 
         /* In Focus toggle — matches ai-toggle / bookmarks-toggle pattern */
         .in-focus-toggle {
@@ -1098,6 +1119,15 @@
             border-color: var(--border-light);
             color: var(--text-primary);
         }
+        .sidebar-btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+        .sidebar-btn:disabled:hover {
+            background: var(--bg-secondary);
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
         .sidebar-btn.danger:hover {
             border-color: var(--danger);
             color: var(--danger);
@@ -1132,6 +1162,44 @@
             display: flex;
             gap: 6px;
             flex-wrap: wrap;
+        }
+        .wsw-view-switch {
+            padding: 10px 20px 8px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .wsw-view-pill {
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1;
+            padding: 7px 10px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .wsw-view-pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .wsw-view-pill.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+        .wsw-footer {
+            display: block;
+        }
+        .wsw-footer-top {
+            padding-bottom: 8px;
+        }
+        .wsw-footer-actions {
+            display: flex;
+            gap: 8px;
         }
         .ai-source-pill {
             border: 1px solid var(--border);

@@ -501,6 +501,7 @@
 
         // ==================== BOOKMARKS ====================
         const BOOKMARKS_KEY = 'financeradar_bookmarks';
+        const WSW_BOOKMARKS_KEY = 'financeradar_wsw_bookmarks';
 
         function getBookmarks() {
             try {
@@ -625,6 +626,44 @@
             return '';
         }
 
+        function copyTextWithFallback(text, onSuccess) {
+            if (!text) return;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    if (typeof onSuccess === 'function') onSuccess();
+                }).catch(() => {
+                    fallbackCopyText(text);
+                    if (typeof onSuccess === 'function') onSuccess();
+                });
+                return;
+            }
+            fallbackCopyText(text);
+            if (typeof onSuccess === 'function') onSuccess();
+        }
+
+        function fallbackCopyText(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+
+        function flashCopiedButton(button) {
+            if (!button) return;
+            const span = button.querySelector('span');
+            const originalText = span ? span.textContent : '';
+            button.classList.add('copied');
+            if (span) span.textContent = 'Copied!';
+            setTimeout(() => {
+                button.classList.remove('copied');
+                if (span) span.textContent = originalText;
+            }, 2000);
+        }
+
         function removeBookmark(url) {
             let bookmarks = getBookmarks();
             bookmarks = bookmarks.filter(b => b.url !== url);
@@ -648,30 +687,7 @@
             }
 
             const text = bookmarks.map(b => b.title + '\n' + b.url).join('\n\n');
-
-            navigator.clipboard.writeText(text).then(() => {
-                const btn = document.querySelector('.copy-btn');
-                const span = btn.querySelector('span');
-                const originalText = span.textContent;
-
-                btn.classList.add('copied');
-                span.textContent = 'Copied!';
-
-                setTimeout(() => {
-                    btn.classList.remove('copied');
-                    span.textContent = originalText;
-                }, 2000);
-            }).catch(() => {
-                // Fallback for older browsers
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                textarea.style.position = 'fixed';
-                textarea.style.opacity = '0';
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-            });
+            copyTextWithFallback(text, () => flashCopiedButton(document.querySelector('#sidebar-overlay .copy-btn')));
         }
 
         function clearAllBookmarks() {
@@ -942,6 +958,100 @@
         // ==================== WSW SIDEBAR ====================
         let wswData = null;
         let currentWswProvider = 'gemini-3-flash';
+        let currentWswView = safeStorage.get('financeradar_wsw_view') || 'ideas';
+        if (currentWswView !== 'ideas' && currentWswView !== 'bookmarks') {
+            currentWswView = 'ideas';
+        }
+
+        function getWswBookmarks() {
+            try {
+                const data = localStorage.getItem(WSW_BOOKMARKS_KEY);
+                const parsed = data ? JSON.parse(data) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveWswBookmarks(bookmarks) {
+            try {
+                localStorage.setItem(WSW_BOOKMARKS_KEY, JSON.stringify(bookmarks));
+            } catch (e) { /* no-op */ }
+        }
+
+        function hashWswKey(text) {
+            const input = String(text || '');
+            let hash = 0;
+            for (let i = 0; i < input.length; i++) {
+                hash = ((hash << 5) - hash) + input.charCodeAt(i);
+                hash |= 0;
+            }
+            return Math.abs(hash).toString(36);
+        }
+
+        function getWswBookmarkId(cluster, providerKey) {
+            const primaryUrl = sanitizeUrl(cluster.source_url_primary);
+            if (primaryUrl) return primaryUrl;
+            const seed = [
+                providerKey || '',
+                cluster.rank || '',
+                cluster.cluster_title || '',
+                cluster.quote_snippet || '',
+                cluster.quote_speaker || ''
+            ].join('|');
+            return 'wsw:' + hashWswKey(seed);
+        }
+
+        function buildWswBookmark(cluster, providerKey, providerName) {
+            return {
+                id: getWswBookmarkId(cluster, providerKey),
+                url: sanitizeUrl(cluster.source_url_primary),
+                title: cluster.cluster_title || 'Untitled WSW idea',
+                quoteSnippet: cluster.quote_snippet || '',
+                quoteSpeaker: cluster.quote_speaker || '',
+                indiaRelevance: cluster.india_relevance || '',
+                confidence: cluster.confidence || '',
+                providerKey: providerKey || '',
+                providerName: providerName || '',
+                addedAt: Date.now()
+            };
+        }
+
+        function isWswBookmarked(id) {
+            if (!id) return false;
+            return getWswBookmarks().some(b => b.id === id);
+        }
+
+        function updateWswBookmarkCount() {
+            const count = getWswBookmarks().length;
+            const badge = document.getElementById('wsw-bookmark-count');
+            const toggle = document.getElementById('wsw-toggle');
+            if (!badge || !toggle) return;
+            badge.textContent = count;
+            badge.classList.toggle('hidden', count === 0);
+            toggle.classList.toggle('has-bookmarks', count > 0);
+        }
+
+        function updateWswViewPills() {
+            document.querySelectorAll('.wsw-view-pill').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.wswView === currentWswView);
+            });
+        }
+
+        function updateWswBookmarkActions() {
+            const hasBookmarks = getWswBookmarks().length > 0;
+            const copyBtn = document.getElementById('wsw-copy-btn');
+            const clearBtn = document.getElementById('wsw-clear-btn');
+            if (copyBtn) copyBtn.disabled = !hasBookmarks;
+            if (clearBtn) clearBtn.disabled = !hasBookmarks;
+        }
+
+        function switchWswView(view) {
+            if (view !== 'ideas' && view !== 'bookmarks') return;
+            currentWswView = view;
+            safeStorage.set('financeradar_wsw_view', view);
+            renderWswContent();
+        }
 
         async function loadWswClusters() {
             try {
@@ -953,7 +1063,7 @@
                     wswData = { ...wswData, providers: { 'gemini-3-flash': { name: 'Gemini 3.0 Flash', status: 'ok', count: wswData.clusters.length, clusters: wswData.clusters } } };
                 }
                 populateWswProviderDropdown();
-                renderWswClusters();
+                renderWswContent();
             } catch(e) {
                 document.getElementById('wsw-content').innerHTML =
                     '<div class="ai-error"><div class="ai-error-title">WSW Unavailable</div>' +
@@ -981,7 +1091,85 @@
 
         function switchWswProvider() {
             currentWswProvider = document.getElementById('wsw-provider').value;
-            renderWswClusters();
+            renderWswContent();
+        }
+
+        function syncWswClusterBookmarkButtons() {
+            const ids = new Set(getWswBookmarks().map(b => b.id));
+            document.querySelectorAll('#wsw-content .wsw-bookmark-btn[data-wsw-id]').forEach(btn => {
+                btn.classList.toggle('bookmarked', ids.has(btn.dataset.wswId));
+            });
+        }
+
+        function toggleWswBookmark(payload, btn) {
+            if (!payload || !payload.id) return;
+            let bookmarks = getWswBookmarks();
+            const idx = bookmarks.findIndex(b => b.id === payload.id);
+
+            if (idx >= 0) {
+                bookmarks.splice(idx, 1);
+                if (btn) btn.classList.remove('bookmarked');
+            } else {
+                bookmarks.unshift({
+                    ...payload,
+                    addedAt: payload.addedAt || Date.now()
+                });
+                if (btn) btn.classList.add('bookmarked');
+            }
+
+            saveWswBookmarks(bookmarks);
+            updateWswBookmarkCount();
+            updateWswBookmarkActions();
+
+            if (currentWswView === 'bookmarks') {
+                renderWswBookmarks();
+            } else {
+                syncWswClusterBookmarkButtons();
+            }
+        }
+
+        function removeWswBookmark(id) {
+            let bookmarks = getWswBookmarks();
+            bookmarks = bookmarks.filter(b => b.id !== id);
+            saveWswBookmarks(bookmarks);
+            updateWswBookmarkCount();
+            updateWswBookmarkActions();
+            if (currentWswView === 'bookmarks') {
+                renderWswBookmarks();
+            } else {
+                syncWswClusterBookmarkButtons();
+            }
+        }
+
+        function renderWswBookmarks() {
+            const container = document.getElementById('wsw-content');
+            const bookmarks = getWswBookmarks();
+            if (bookmarks.length === 0) {
+                container.innerHTML = '<div class="sidebar-empty">No Who Said What bookmarks yet.<br>Save ideas using the bookmark icon.</div>';
+                return;
+            }
+
+            container.innerHTML = bookmarks.map(b => {
+                const url = sanitizeUrl(b.url);
+                const titleHtml = url
+                    ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(b.title || 'Untitled WSW idea')}</a>`
+                    : `<span class="rank-title-nolink">${escapeHtml(b.title || 'Untitled WSW idea')}</span>`;
+                const sourceParts = [];
+                if (b.quoteSpeaker) sourceParts.push(escapeHtml(b.quoteSpeaker));
+                if (b.providerName) sourceParts.push(escapeHtml(b.providerName));
+                if (b.confidence) sourceParts.push(('CONF: ' + escapeHtml(String(b.confidence).toUpperCase())));
+                return `
+                    <div class="sidebar-article wsw-bookmark-item" data-wsw-id="${escapeHtml(b.id)}">
+                        <div class="sidebar-article-title">${titleHtml}</div>
+                        ${b.quoteSnippet ? `<div class="wsw-bookmark-quote">"${escapeHtml(b.quoteSnippet)}"</div>` : ''}
+                        ${b.indiaRelevance ? `<div class="wsw-bookmark-india">${escapeHtml(b.indiaRelevance)}</div>` : ''}
+                        <div class="sidebar-article-meta">
+                            <span class="sidebar-article-source">${sourceParts.join(' · ')}</span>
+                            <button class="sidebar-remove" onclick="removeWswBookmark('${escapeForAttr(b.id)}')" title="Remove bookmark">✕</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
         }
 
         function renderWswClusters() {
@@ -999,31 +1187,92 @@
                 container.innerHTML = '<div class="ai-error"><div class="ai-error-title">WSW Temporarily Unavailable</div><div style="margin-top:8px;font-size:12px;color:var(--text-muted)">Will refresh on next scheduled run.</div></div>';
                 return;
             }
-            container.innerHTML = provider.clusters.map(c => `
-                <div class="ai-rank-item wsw-cluster-item">
-                    <span class="rank-num">${c.rank}</span>
-                    <div class="rank-content">
-                        ${sanitizeUrl(c.source_url_primary)
-                            ? `<a href="${escapeHtml(sanitizeUrl(c.source_url_primary))}" target="_blank" rel="noopener">${escapeHtml(c.cluster_title)}</a>`
-                            : `<span class="rank-title-nolink">${escapeHtml(c.cluster_title)}</span>`}
-                        <div class="wsw-quote">"${escapeHtml(c.quote_snippet)}"
-                            <span class="wsw-speaker">— ${escapeHtml(c.quote_speaker)}</span>
+            container.innerHTML = provider.clusters.map(c => {
+                const bookmark = buildWswBookmark(c, currentWswProvider, provider.name || currentWswProvider);
+                const confidenceClass = String(c.confidence || '').toLowerCase();
+                return `
+                    <div class="ai-rank-item wsw-cluster-item">
+                        <span class="rank-num">${c.rank}</span>
+                        <div class="rank-content">
+                            ${bookmark.url
+                                ? `<a href="${escapeHtml(bookmark.url)}" target="_blank" rel="noopener">${escapeHtml(c.cluster_title)}</a>`
+                                : `<span class="rank-title-nolink">${escapeHtml(c.cluster_title)}</span>`}
+                            <div class="wsw-quote">"${escapeHtml(c.quote_snippet)}"
+                                <span class="wsw-speaker">— ${escapeHtml(c.quote_speaker)}</span>
+                            </div>
+                            <div class="wsw-india">${escapeHtml(c.india_relevance)}</div>
+                            <span class="wsw-confidence wsw-conf-${escapeHtml(confidenceClass)}">${escapeHtml(c.confidence)}</span>
                         </div>
-                        <div class="wsw-india">${escapeHtml(c.india_relevance)}</div>
-                        <span class="wsw-confidence wsw-conf-${escapeHtml(c.confidence)}">${escapeHtml(c.confidence)}</span>
+                        <button class="ai-bookmark-btn wsw-bookmark-btn ${isWswBookmarked(bookmark.id) ? 'bookmarked' : ''}"
+                                data-wsw-id="${escapeForAttr(bookmark.id)}"
+                                data-url="${escapeForAttr(bookmark.url)}"
+                                data-title="${escapeForAttr(bookmark.title)}"
+                                data-quote-snippet="${escapeForAttr(bookmark.quoteSnippet)}"
+                                data-quote-speaker="${escapeForAttr(bookmark.quoteSpeaker)}"
+                                data-india-relevance="${escapeForAttr(bookmark.indiaRelevance)}"
+                                data-confidence="${escapeForAttr(bookmark.confidence)}"
+                                data-provider-key="${escapeForAttr(bookmark.providerKey)}"
+                                data-provider-name="${escapeForAttr(bookmark.providerName)}"
+                                title="Bookmark WSW idea"
+                                aria-label="Bookmark WSW idea">
+                            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        </button>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
             const el = document.getElementById('wsw-updated');
             if (wswData.generated_at) {
                 const d = Math.floor((new Date() - new Date(wswData.generated_at)) / 60000);
                 el.textContent = 'Updated ' + (d < 1 ? 'just now' : d < 60 ? d + ' min ago' : d < 1440 ? Math.floor(d/60) + ' hr ago' : Math.floor(d/1440) + ' day ago');
+            } else {
+                el.textContent = 'Updated: --';
+            }
+        }
+
+        function renderWswContent() {
+            if (currentWswView === 'bookmarks') {
+                renderWswBookmarks();
+            } else {
+                renderWswClusters();
+            }
+            updateWswViewPills();
+            updateWswBookmarkActions();
+        }
+
+        function copyWswBookmarks() {
+            const bookmarks = getWswBookmarks();
+            if (bookmarks.length === 0) return;
+
+            const text = bookmarks.map(b => {
+                const lines = [];
+                lines.push(b.title || 'Untitled WSW idea');
+                if (b.quoteSnippet) lines.push('Quote: "' + b.quoteSnippet + '"');
+                if (b.quoteSpeaker) lines.push('Speaker: ' + b.quoteSpeaker);
+                if (b.indiaRelevance) lines.push('India relevance: ' + b.indiaRelevance);
+                if (b.confidence) lines.push('Confidence: ' + String(b.confidence).toUpperCase());
+                if (b.url) lines.push('URL: ' + b.url);
+                return lines.join('\n');
+            }).join('\n\n');
+
+            copyTextWithFallback(text, () => flashCopiedButton(document.getElementById('wsw-copy-btn')));
+        }
+
+        function clearAllWswBookmarks() {
+            if (!confirm('Are you sure you want to clear all Who Said What bookmarks?')) return;
+            saveWswBookmarks([]);
+            updateWswBookmarkCount();
+            updateWswBookmarkActions();
+            if (currentWswView === 'bookmarks') {
+                renderWswBookmarks();
+            } else {
+                syncWswClusterBookmarkButtons();
             }
         }
 
         function openWswSidebar() {
             document.getElementById('wsw-sidebar-overlay').classList.add('open');
             document.body.style.overflow = 'hidden';
+            renderWswContent();
         }
 
         function closeWswSidebar() {
@@ -1035,7 +1284,32 @@
             if (e.target.id === 'wsw-sidebar-overlay') closeWswSidebar();
         });
 
+        document.getElementById('wsw-content').addEventListener('click', (e) => {
+            const btn = e.target.closest('.wsw-bookmark-btn');
+            if (!btn) return;
+            e.preventDefault();
+            e.stopPropagation();
+
+            const payload = {
+                id: btn.getAttribute('data-wsw-id') || '',
+                url: btn.getAttribute('data-url') || '',
+                title: btn.getAttribute('data-title') || '',
+                quoteSnippet: btn.getAttribute('data-quote-snippet') || '',
+                quoteSpeaker: btn.getAttribute('data-quote-speaker') || '',
+                indiaRelevance: btn.getAttribute('data-india-relevance') || '',
+                confidence: btn.getAttribute('data-confidence') || '',
+                providerKey: btn.getAttribute('data-provider-key') || '',
+                providerName: btn.getAttribute('data-provider-name') || '',
+                addedAt: Date.now()
+            };
+            if (!payload.id) return;
+            toggleWswBookmark(payload, btn);
+        });
+
         loadWswClusters();
+        updateWswBookmarkCount();
+        updateWswViewPills();
+        updateWswBookmarkActions();
 
         // ==================== REPORTS TAB ====================
         let reportsRendered = false;

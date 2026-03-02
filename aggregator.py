@@ -447,6 +447,7 @@ def generate_html(
                     data-tooltip="Who Said What"
                     onclick="openWswSidebar()">
                 <span style="font-size: 16px;">🗣</span>
+                <span id="wsw-bookmark-count" class="bookmark-count hidden">0</span>
             </button>
             <button id="bookmarks-toggle" class="bookmarks-toggle" type="button" aria-label="Your bookmarks" data-tooltip="Your bookmarks">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -553,11 +554,27 @@ def generate_html(
             <option value="">Loading...</option>
           </select>
         </div>
+        <div class="wsw-view-switch">
+          <button type="button" class="wsw-view-pill active" data-wsw-view="ideas" onclick="switchWswView('ideas')">Ideas</button>
+          <button type="button" class="wsw-view-pill" data-wsw-view="bookmarks" onclick="switchWswView('bookmarks')">Bookmarks</button>
+        </div>
         <div id="wsw-content" class="sidebar-content">
           <div class="sidebar-empty">Loading WSW ideas...</div>
         </div>
-        <div class="sidebar-footer">
-          <span id="wsw-updated" class="ai-updated-time">Updated: --</span>
+        <div class="sidebar-footer wsw-footer">
+          <div class="wsw-footer-top">
+            <span id="wsw-updated" class="ai-updated-time">Updated: --</span>
+          </div>
+          <div class="wsw-footer-actions">
+            <button id="wsw-copy-btn" class="sidebar-btn" onclick="copyWswBookmarks()">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy All</span>
+            </button>
+            <button id="wsw-clear-btn" class="sidebar-btn danger" onclick="clearAllWswBookmarks()">Clear All</button>
+          </div>
         </div>
       </div>
     </div>
