@@ -475,6 +475,43 @@ def generate_html(
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                 </svg>
             </button>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Quick actions" onclick="toggleMobileMenu()">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <line x1="4" y1="7" x2="20" y2="7"></line>
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="17" x2="20" y2="17"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <div class="mobile-menu-panel">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-title">Quick Actions</div>
+                <button class="mobile-menu-close" type="button" aria-label="Close quick actions" onclick="closeMobileMenu()">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="mobile-menu-actions">
+                <button class="mobile-menu-action" type="button" onclick="openMobileAiSidebar()">
+                    <span>AI Picks</span>
+                </button>
+                <button class="mobile-menu-action" type="button" onclick="openMobileWswSidebar()">
+                    <span>Who Said What</span>
+                </button>
+                <button class="mobile-menu-action" type="button" onclick="openMobileBookmarksSidebar()">
+                    <span>Bookmarks</span>
+                </button>
+                <button class="mobile-menu-action" data-mobile-action="in-focus" type="button" onclick="toggleMobileInFocus()">
+                    <span>In Focus Stories</span>
+                    <span id="mobile-in-focus-state" class="mobile-menu-action-meta">Off</span>
+                </button>
+                <button class="mobile-menu-action" data-mobile-action="theme" type="button" onclick="toggleMobileTheme()">
+                    <span>Theme</span>
+                    <span id="mobile-theme-state" class="mobile-menu-action-meta">Light</span>
+                </button>
+            </div>
         </div>
     </div>
 
