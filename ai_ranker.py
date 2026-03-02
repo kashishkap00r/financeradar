@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """
-AI News Ranker - Calls AI providers to rank top stories.
-Runs daily after aggregator.py to generate cached AI rankings.
+AI News Ranker.
+
+Builds source-separated AI rankings for the sidebar:
+- News (25)
+- Telegram (20)
+- Reports (5)
+- Twitter (5)
+- YouTube (5)
 """
 import json
 import urllib.request
-import urllib.error
 import os
 import ssl
 import re
@@ -34,16 +39,26 @@ MODELS = {
     "gemini-3-flash": {
         "id": "gemini-3-flash-preview",
         "name": "Gemini 3.0 Flash",
-        "provider": "gemini"
+        "provider": "gemini",
     },
     "deepseek-v3": {
         "id": "deepseek/deepseek-v3.2",
         "name": "DeepSeek V3.2",
-        "provider": "openrouter"
-    }
+        "provider": "openrouter",
+    },
 }
 
+# Backward-compatible ordering for helper functions/tests.
 SOURCE_TYPE_ORDER = ["news", "twitter", "telegram", "reports", "youtube"]
+# New sidebar bucket order.
+BUCKET_ORDER = ["news", "telegram", "reports", "twitter", "youtube"]
+BUCKET_TARGETS = {
+    "news": AI_RANKER_TARGET_COUNT,
+    "telegram": 20,
+    "reports": 5,
+    "twitter": 5,
+    "youtube": 5,
+}
 SOURCE_WINDOWS = {
     "news": timedelta(hours=AI_RANKER_ARTICLE_WINDOW_HOURS),
     "twitter": timedelta(hours=AI_RANKER_ARTICLE_WINDOW_HOURS),
@@ -53,19 +68,22 @@ SOURCE_WINDOWS = {
 }
 
 
-def build_ranking_prompt(headlines, available_source_types):
-    source_list = ", ".join(st.upper() for st in available_source_types) or "NEWS"
+def build_ranking_prompt(headlines, source_type, target_count):
+    window = SOURCE_WINDOWS[source_type]
+    source_label = source_type.upper()
+    if window < timedelta(days=2):
+        window_label = f"last {int(window.total_seconds() // 3600)} hours"
+    else:
+        window_label = f"last {window.days} days"
     return f"""You are the editor of an Indian finance newsletter modeled on Zerodha's Daily Brief.
 Audience: curious, informed Indians (long-term investors, founders, policy nerds).
 
 INPUT
-You will receive a list of FinanceRadar headlines.
-- NEWS and TWITTER items are from the last {AI_RANKER_ARTICLE_WINDOW_HOURS} hours.
-- TELEGRAM, REPORTS, and YOUTUBE items are from the last {AI_RANKER_EXTENDED_WINDOW_DAYS} days.
+You will receive FinanceRadar {source_label} headlines from the {window_label}.
 Each headline is formatted as: - Headline text [Source Name | SOURCE_TYPE]
 
 TASK
-Pick exactly {AI_RANKER_TARGET_COUNT} stories most relevant to Daily Brief.
+Pick exactly {target_count} stories most relevant to Daily Brief.
 Prioritize high-signal, India-relevant stories.
 
 RANKING PRIORITY (highest to lowest)
@@ -88,28 +106,20 @@ INDIA LENS RULE
 Global stories qualify only if they explicitly connect to Indian industry, policy, trade, consumers, jobs, or capital flows.
 If India linkage is weak or implied, reject.
 
-DIVERSITY RULE
-No more than 4 selected stories from the same sector.
-Ensure at least one story from each source type available in the input: {source_list}.
-
-SOURCE QUALITY FILTER
-Prefer primary reporting and strong analytical outlets.
-De-prioritize republished wires, low-information rewrites, and unsourced hot takes.
-
 SELECTION LOGIC
 - Rank by editorial value, not recency alone.
 - Prefer one strong explanatory piece over multiple repetitive updates.
-- Remove duplicates/near-duplicates across sources.
-- If fewer than {AI_RANKER_TARGET_COUNT} high-confidence stories exist, still return {AI_RANKER_TARGET_COUNT} by using medium-confidence picks that obey all hard-skip rules.
+- Remove duplicates/near-duplicates.
+- If fewer than {target_count} high-confidence stories exist, still return {target_count} by using medium-confidence picks that obey all hard-skip rules.
 
 ## Headlines
 {headlines}
 
 OUTPUT FORMAT (STRICT)
-Return ONLY a JSON array of exactly {AI_RANKER_TARGET_COUNT} objects. No markdown, no commentary, no code blocks.
+Return ONLY a JSON array of exactly {target_count} objects. No markdown, no commentary, no code blocks.
 
 Each object must contain:
-- rank: integer (1-{AI_RANKER_TARGET_COUNT})
+- rank: integer (1-{target_count})
 - title: string (exact headline text as given, including the [Source Name | SOURCE_TYPE] tag)
 - india_relevance: string (1 concise sentence)
 - signal_type: one of ["mechanism", "structural-shift", "supply-chain", "policy-implication", "credible-opinion", "labour-trend"]
@@ -119,14 +129,7 @@ Each object must contain:
 CRITICAL:
 - Use the EXACT headline text from the input — do not paraphrase or modify it.
 - Include the full [Source Name | SOURCE_TYPE] tag exactly as shown. This is required for story matching.
-- When in doubt, pick the story that makes the reader say "I didn't know that" over "I already saw that."
-
-VALIDATION BEFORE FINALIZING
-- Exactly {AI_RANKER_TARGET_COUNT} items
-- Ranks are unique and sequential 1..{AI_RANKER_TARGET_COUNT}
-- No duplicate titles
-- Every item has explicit India relevance
-- Hard skips are excluded"""
+- Do not return duplicate titles."""
 
 
 def parse_item_date(date_str):
@@ -154,40 +157,48 @@ def item_identity(title, url="", source_type="", source=""):
     return f"title::{normalize_title(title)}|{normalize_source_type(source_type)}|{(source or '').strip().lower()}"
 
 
-def build_candidates_from_snapshot(snapshot_data, now=None, max_articles=AI_RANKER_MAX_ARTICLES):
-    """Build AI ranking candidates from static/published_snapshot.json."""
+def build_candidates_for_source(snapshot_data, source_type, now=None, max_articles=AI_RANKER_MAX_ARTICLES):
+    """Build ranking candidates for a single source type from published snapshot."""
     now = now or datetime.now(IST_TZ)
-    candidates = []
-    for source_type in SOURCE_TYPE_ORDER:
-        entries = snapshot_data.get(source_type, [])
-        if not isinstance(entries, list):
-            continue
-        cutoff = now - SOURCE_WINDOWS[source_type]
-        for item in entries:
-            title = (item.get("title") or "").strip()
-            if not title:
-                continue
-            source = (item.get("publisher") or item.get("source_name") or source_type.title()).strip()
-            url = (item.get("url") or "").strip()
-            date_str = item.get("published_at") or item.get("date") or ""
-            parsed_date = parse_item_date(date_str)
-            if parsed_date and parsed_date < cutoff:
-                continue
-            candidates.append({
-                "title": title,
-                "url": url,
-                "source": source,
-                "date": date_str,
-                "source_type": source_type,
-                "_parsed_date": parsed_date or datetime.min.replace(tzinfo=IST_TZ),
-            })
+    entries = snapshot_data.get(source_type, [])
+    if not isinstance(entries, list):
+        return []
 
-    candidates.sort(key=lambda x: x.get("_parsed_date", datetime.min.replace(tzinfo=IST_TZ)), reverse=True)
+    cutoff = now - SOURCE_WINDOWS[source_type]
+    candidates = []
+    for item in entries:
+        title = (item.get("title") or "").strip()
+        if not title:
+            continue
+        source = (item.get("publisher") or item.get("source_name") or source_type.title()).strip()
+        url = (item.get("url") or "").strip()
+        date_str = item.get("published_at") or item.get("date") or ""
+        parsed_date = parse_item_date(date_str)
+        if parsed_date and parsed_date < cutoff:
+            continue
+        candidates.append({
+            "title": title,
+            "url": url,
+            "source": source,
+            "date": date_str,
+            "source_type": source_type,
+            "_parsed_date": parsed_date or datetime.min.replace(tzinfo=IST_TZ),
+        })
+
+    candidates.sort(
+        key=lambda x: x.get("_parsed_date", datetime.min.replace(tzinfo=IST_TZ)),
+        reverse=True,
+    )
 
     deduped = []
     seen = set()
     for item in candidates:
-        key = item_identity(item.get("title", ""), item.get("url", ""), item.get("source_type", ""), item.get("source", ""))
+        key = item_identity(
+            item.get("title", ""),
+            item.get("url", ""),
+            item.get("source_type", ""),
+            item.get("source", ""),
+        )
         if key in seen:
             continue
         seen.add(key)
@@ -197,6 +208,41 @@ def build_candidates_from_snapshot(snapshot_data, now=None, max_articles=AI_RANK
 
     for item in deduped:
         item.pop("_parsed_date", None)
+    return deduped
+
+
+def build_candidates_from_snapshot(snapshot_data, now=None, max_articles=AI_RANKER_MAX_ARTICLES):
+    """Backward-compatible helper: build a mixed candidate list across all source types."""
+    all_candidates = []
+    for source_type in SOURCE_TYPE_ORDER:
+        all_candidates.extend(
+            build_candidates_for_source(
+                snapshot_data,
+                source_type=source_type,
+                now=now,
+                max_articles=max_articles,
+            )
+        )
+
+    all_candidates.sort(
+        key=lambda x: parse_item_date(x.get("date", "")) or datetime.min.replace(tzinfo=IST_TZ),
+        reverse=True,
+    )
+    deduped = []
+    seen = set()
+    for item in all_candidates:
+        key = item_identity(
+            item.get("title", ""),
+            item.get("url", ""),
+            item.get("source_type", ""),
+            item.get("source", ""),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(item)
+        if len(deduped) >= max_articles:
+            break
     return deduped
 
 
@@ -228,7 +274,10 @@ def load_legacy_articles_48h(max_articles=AI_RANKER_MAX_ARTICLES):
             "_parsed_date": parsed_date or datetime.min.replace(tzinfo=IST_TZ),
         })
 
-    articles.sort(key=lambda x: x.get("_parsed_date", datetime.min.replace(tzinfo=IST_TZ)), reverse=True)
+    articles.sort(
+        key=lambda x: x.get("_parsed_date", datetime.min.replace(tzinfo=IST_TZ)),
+        reverse=True,
+    )
     trimmed = articles[:max_articles]
     for item in trimmed:
         item.pop("_parsed_date", None)
@@ -236,7 +285,7 @@ def load_legacy_articles_48h(max_articles=AI_RANKER_MAX_ARTICLES):
 
 
 def load_rank_candidates(max_articles=AI_RANKER_MAX_ARTICLES):
-    """Load ranking candidates from snapshot; fallback to legacy articles file."""
+    """Backward-compatible helper: load mixed candidate list."""
     snapshot_path = os.path.join(SCRIPT_DIR, "static", "published_snapshot.json")
     try:
         with open(snapshot_path, "r", encoding="utf-8") as f:
@@ -252,24 +301,48 @@ def load_rank_candidates(max_articles=AI_RANKER_MAX_ARTICLES):
     return load_legacy_articles_48h(max_articles=max_articles)
 
 
+def load_rank_candidates_by_bucket(max_articles=AI_RANKER_MAX_ARTICLES):
+    """Load bucketed ranking candidates from snapshot; fallback to legacy for news/twitter."""
+    buckets = {source_type: [] for source_type in BUCKET_ORDER}
+    snapshot_path = os.path.join(SCRIPT_DIR, "static", "published_snapshot.json")
+
+    try:
+        with open(snapshot_path, "r", encoding="utf-8") as f:
+            snapshot_data = json.load(f)
+        for source_type in BUCKET_ORDER:
+            buckets[source_type] = build_candidates_for_source(
+                snapshot_data,
+                source_type=source_type,
+                max_articles=max_articles,
+            )
+        if any(buckets.values()):
+            return buckets
+        print(f"WARNING: {snapshot_path} has no candidates in any source bucket, falling back to articles.json")
+    except FileNotFoundError:
+        print(f"WARNING: {snapshot_path} not found, falling back to articles.json")
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"WARNING: Could not read {snapshot_path}: {e}. Falling back to articles.json")
+
+    legacy = load_legacy_articles_48h(max_articles=max_articles)
+    for item in legacy:
+        source_type = normalize_source_type(item.get("source_type"))
+        if source_type in buckets:
+            buckets[source_type].append(item)
+    return buckets
+
+
 def sanitize_headline(title):
     """Remove quotes and special chars that break JSON when AI echoes them back."""
     return title.replace('"', "'").replace('\n', ' ').replace('\r', ' ').strip()
 
 
 def normalize_title(title):
-    """Normalize a title for robust matching regardless of punctuation variations.
-    Handles: em/en-dash → hyphen, smart quotes → straight, extra whitespace, case."""
+    """Normalize title text for robust matching across quote/dash variants."""
     t = sanitize_headline(title)
-    # Dashes: em-dash, en-dash, figure dash, minus → hyphen
     t = t.replace('\u2014', '-').replace('\u2013', '-').replace('\u2012', '-').replace('\u2212', '-')
-    # Smart single quotes → apostrophe
     t = t.replace('\u2018', "'").replace('\u2019', "'").replace('\u02bc', "'")
-    # Smart double quotes → straight double quote (already done by sanitize, but be safe)
     t = t.replace('\u201c', '"').replace('\u201d', '"')
-    # Ellipsis → three dots
     t = t.replace('\u2026', '...')
-    # Collapse multiple spaces
     t = re.sub(r'\s+', ' ', t).strip()
     return t.lower()
 
@@ -315,7 +388,7 @@ def candidate_to_ranking_item(candidate):
 
 
 def enforce_source_coverage_and_size(rankings, candidates, target_count=AI_RANKER_TARGET_COUNT):
-    """Ensure minimum 1 per available source_type and fill to target count."""
+    """Backward-compatible helper used by tests."""
     required_types = [
         source_type
         for source_type in SOURCE_TYPE_ORDER
@@ -339,7 +412,10 @@ def enforce_source_coverage_and_size(rankings, candidates, target_count=AI_RANKE
         return True
 
     for source_type in required_types:
-        match = next((item for item in rankings if normalize_source_type(item.get("source_type")) == source_type), None)
+        match = next(
+            (item for item in rankings if normalize_source_type(item.get("source_type")) == source_type),
+            None,
+        )
         if match and add_item(match):
             continue
         fallback = next(
@@ -369,23 +445,57 @@ def enforce_source_coverage_and_size(rankings, candidates, target_count=AI_RANKE
     return selected
 
 
+def enforce_bucket_size(rankings, candidates, source_type, target_count):
+    """Keep ranking list source-pure, deduped, and filled up to target count."""
+    selected = []
+    seen = set()
+
+    def add_item(item):
+        st = normalize_source_type(item.get("source_type")) or source_type
+        if st != source_type:
+            return False
+        key = item_identity(item.get("title", ""), item.get("url", ""), st, item.get("source", ""))
+        if key in seen:
+            return False
+        title = (item.get("title") or "").strip()
+        if not title:
+            return False
+        payload = dict(item)
+        payload["source_type"] = source_type
+        seen.add(key)
+        selected.append(payload)
+        return True
+
+    for item in rankings:
+        if len(selected) >= target_count:
+            break
+        add_item(item)
+
+    for candidate in candidates:
+        if len(selected) >= target_count:
+            break
+        add_item(candidate_to_ranking_item(candidate))
+
+    selected = selected[:target_count]
+    for idx, item in enumerate(selected, start=1):
+        item["rank"] = idx
+    return selected
+
+
 def parse_json_response(text):
     text = text.strip()
-    # Remove markdown code blocks
     if "```" in text:
         match = re.search(r'```(?:json)?\s*([\s\S]*?)```', text)
         if match:
             text = match.group(1).strip()
         else:
             text = text.replace("```json", "").replace("```", "").strip()
-    # Extract JSON array
     if not text.startswith("["):
         start = text.find("[")
         if start != -1:
             end = text.rfind("]")
             if end > start:
-                text = text[start:end+1]
-    # Clean up common issues
+                text = text[start:end + 1]
     text = text.replace("\n", " ").replace("\r", " ")
     text = re.sub(r',\s*]', ']', text)
     text = re.sub(r',\s*}', '}', text)
@@ -400,14 +510,14 @@ def call_openrouter(prompt, model_id):
         "https://openrouter.ai/api/v1/chat/completions",
         data=json.dumps({
             "model": model_id,
-            "messages": [{"role": "user", "content": prompt}]
+            "messages": [{"role": "user", "content": prompt}],
         }).encode("utf-8"),
         headers={
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
             "Content-Type": "application/json",
             "HTTP-Referer": "https://financeradar.kashishkapoor.com",
-            "X-Title": "FinanceRadar"
-        }
+            "X-Title": "FinanceRadar",
+        },
     )
     with urllib.request.urlopen(request, timeout=AI_RANKER_OPENROUTER_TIMEOUT, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
@@ -415,7 +525,7 @@ def call_openrouter(prompt, model_id):
 
 
 def call_gemini(prompt, model_id):
-    """Call Gemini API directly."""
+    """Call Gemini API directly with guardrails for empty/blocked responses."""
     if not GEMINI_API_KEY:
         raise ValueError("GEMINI_API_KEY not set")
     url = (
@@ -427,24 +537,108 @@ def call_gemini(prompt, model_id):
         "generationConfig": {
             "temperature": 0.4,
             "maxOutputTokens": 8192,
-            "response_mime_type": "application/json"
-        }
+            "response_mime_type": "application/json",
+        },
     }
     request = urllib.request.Request(
         url,
         data=json.dumps(body).encode("utf-8"),
-        headers={"Content-Type": "application/json"}
+        headers={"Content-Type": "application/json"},
     )
     with urllib.request.urlopen(request, timeout=AI_RANKER_GEMINI_TIMEOUT, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
-    candidate = result["candidates"][0]
+
+    candidates = result.get("candidates") or []
+    if not candidates:
+        prompt_feedback = result.get("promptFeedback") or {}
+        block_reason = prompt_feedback.get("blockReason", "no-candidates")
+        raise ValueError(f"Gemini returned no candidates ({block_reason})")
+
+    candidate = candidates[0]
     finish_reason = candidate.get("finishReason", "UNKNOWN")
     if finish_reason not in ("STOP", "MAX_TOKENS"):
         print(f"    [WARN] Gemini finishReason={finish_reason}")
     if finish_reason == "MAX_TOKENS":
-        print(f"    [WARN] Gemini hit token limit — response may be truncated")
-    text = candidate["content"]["parts"][0]["text"]
+        print("    [WARN] Gemini hit token limit — response may be truncated")
+
+    parts = (candidate.get("content") or {}).get("parts") or []
+    text = " ".join(part.get("text", "") for part in parts if isinstance(part, dict) and part.get("text"))
+    if not text.strip():
+        raise ValueError(f"Gemini returned empty text (finishReason={finish_reason})")
     return parse_json_response(text)
+
+
+def normalize_ai_response(rankings):
+    if isinstance(rankings, dict):
+        rankings = rankings.get("rankings", rankings.get("items", []))
+    if not isinstance(rankings, list):
+        raise ValueError(f"AI returned {type(rankings).__name__} instead of list")
+    return rankings
+
+
+def build_headlines_payload(candidates):
+    return "\n".join(
+        f"- {sanitize_headline(item.get('title', ''))} "
+        f"[{item.get('source', '')} | {normalize_source_type(item.get('source_type', 'news')).upper()}]"
+        for item in candidates
+    )
+
+
+def enrich_bucket_rankings(rankings, candidates, source_type, target_count):
+    sanitized_to_article = {}
+    normalized_to_article = {}
+    for item in candidates:
+        sanitized = sanitize_headline(item.get("title", ""))
+        sanitized_to_article.setdefault(sanitized, item)
+        normalized_to_article.setdefault(normalize_title(item.get("title", "")), item)
+
+    enriched = []
+    for item in rankings[: max(target_count * 2, target_count)]:
+        if not isinstance(item, dict):
+            continue
+        original_title = str(item.get("title", "")).strip()
+        tagged_source_type = extract_source_type_from_tag(original_title)
+        title = re.sub(r'\s*\[.*?\]\s*$', '', original_title).strip()
+        if not title:
+            continue
+
+        article = sanitized_to_article.get(sanitize_headline(title))
+        if not article:
+            article = normalized_to_article.get(normalize_title(title))
+        if not article:
+            article = fuzzy_match_article(title, normalized_to_article)
+
+        enriched.append({
+            "rank": item.get("rank", len(enriched) + 1),
+            "title": article["title"] if article else title,
+            "url": article["url"] if article else "",
+            "source": article["source"] if article else "",
+            "source_type": normalize_source_type(article.get("source_type", "")) if article else (tagged_source_type or source_type),
+            "india_relevance": item.get("india_relevance", ""),
+            "signal_type": item.get("signal_type", ""),
+            "why_it_matters": item.get("why_it_matters", ""),
+            "confidence": item.get("confidence", ""),
+        })
+
+    final = enforce_bucket_size(enriched, candidates, source_type=source_type, target_count=target_count)
+    empty_count = sum(1 for entry in final if not entry.get("title"))
+    if final and empty_count > len(final) * 0.5:
+        raise ValueError(f"AI returned {empty_count}/{len(final)} empty titles")
+    return final
+
+
+def sanitize_error(err):
+    return re.sub(
+        r'AIza\S{20,}|sk-or-\S{20,}|Bearer\s+\S+|key[=:]\s*["\']?\S{10,}',
+        '[REDACTED]',
+        err,
+    )[:200]
+
+
+def call_provider(model_config, prompt):
+    if model_config.get("provider") == "gemini":
+        return call_gemini(prompt, model_config["id"])
+    return call_openrouter(prompt, model_config["id"])
 
 
 def main():
@@ -453,101 +647,106 @@ def main():
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
 
-    articles = load_rank_candidates()
-    if not articles:
+    candidates_by_bucket = load_rank_candidates_by_bucket()
+    available_buckets = [bucket for bucket in BUCKET_ORDER if candidates_by_bucket.get(bucket)]
+    total_candidates = sum(len(items) for items in candidates_by_bucket.values())
+
+    if not total_candidates:
         print("No ranking candidates found. Exiting.")
         return
 
-    source_counts = {source_type: 0 for source_type in SOURCE_TYPE_ORDER}
-    for article in articles:
-        source_type = normalize_source_type(article.get("source_type"))
-        if source_type in source_counts:
-            source_counts[source_type] += 1
-    source_summary = ", ".join(f"{k}={v}" for k, v in source_counts.items() if v > 0)
-    print(f"\nLoaded {len(articles)} ranking candidates ({source_summary or 'none'})")
+    source_summary = ", ".join(f"{bucket}={len(candidates_by_bucket[bucket])}" for bucket in BUCKET_ORDER)
+    print(f"\nLoaded {total_candidates} ranking candidates ({source_summary})")
 
-    # Build lookup dicts: exact-sanitized and normalized (for robust matching)
-    sanitized_to_article = {}
-    normalized_to_article = {}
-    for a in articles:
-        sanitized = sanitize_headline(a['title'])
-        sanitized_to_article.setdefault(sanitized, a)
-        normalized_to_article.setdefault(normalize_title(a['title']), a)
-
-    headlines = "\n".join(
-        f"- {sanitize_headline(a['title'])} [{a.get('source', '')} | {normalize_source_type(a.get('source_type', 'news')).upper()}]"
-        for a in articles
-    )
-    available_source_types = [
-        source_type for source_type in SOURCE_TYPE_ORDER
-        if any(normalize_source_type(item.get("source_type")) == source_type for item in articles)
-    ]
-    prompt = build_ranking_prompt(headlines, available_source_types)
-
-    results = {"generated_at": datetime.now(IST_TZ).isoformat(), "article_count": len(articles), "providers": {}}
+    results = {
+        "generated_at": datetime.now(IST_TZ).isoformat(),
+        "article_count": total_candidates,
+        "bucket_counts": BUCKET_TARGETS,
+        "providers": {},
+    }
 
     print(f"\nCalling {len(MODELS)} AI models...\n")
     for key, model_config in MODELS.items():
-        model_id = model_config["id"]
         model_name = model_config["name"]
-        try:
-            if model_config.get("provider") == "gemini":
-                rankings = call_gemini(prompt, model_id)
-            else:
-                rankings = call_openrouter(prompt, model_id)
-            if isinstance(rankings, dict):
-                rankings = rankings.get("rankings", rankings.get("items", []))
-            if not isinstance(rankings, list):
-                raise ValueError(f"AI returned {type(rankings).__name__} instead of list")
-            enriched = []
-            for item in rankings[:AI_RANKER_TARGET_COUNT]:
-                original_title = item.get("title", "").strip()
-                tagged_source_type = extract_source_type_from_tag(original_title)
-                # Strip echoed [Source | SourceType] suffix the AI may repeat
-                title = re.sub(r'\s*\[.*?\]\s*$', '', original_title)
-                # 1) Exact match on sanitized title
-                article = sanitized_to_article.get(sanitize_headline(title))
-                # 2) Exact match on normalized title (handles dash/quote variants)
-                if not article:
-                    article = normalized_to_article.get(normalize_title(title))
-                # 3) Fuzzy fallback (threshold 0.72) against normalized keys
-                if not article:
-                    article = fuzzy_match_article(title, normalized_to_article)
-                enriched.append({
-                    "rank": item.get("rank", len(enriched) + 1),
-                    "title": article["title"] if article else title,  # Use original title
-                    "url": article["url"] if article else "",
-                    "source": article["source"] if article else "",
-                    "source_type": normalize_source_type(article.get("source_type", "")) if article else tagged_source_type,
-                    "india_relevance": item.get("india_relevance", ""),
-                    "signal_type": item.get("signal_type", ""),
-                    "why_it_matters": item.get("why_it_matters", ""),
-                    "confidence": item.get("confidence", ""),
-                })
-            enriched = enforce_source_coverage_and_size(enriched, articles, target_count=AI_RANKER_TARGET_COUNT)
-            empty_count = sum(1 for item in enriched if not item.get("title"))
-            if empty_count > len(enriched) * 0.5:
-                raise ValueError(f"AI returned {empty_count}/{len(enriched)} empty titles — response malformed, skipping")
-            results["providers"][key] = {"name": model_name, "status": "ok", "count": len(enriched), "rankings": enriched}
-            print(f"  [OK] {model_name}: {len(enriched)} rankings")
-        except Exception as e:
-            safe_err = re.sub(r'AIza\S{20,}|sk-or-\S{20,}|Bearer\s+\S+|key[=:]\s*["\']?\S{10,}', '[REDACTED]', str(e))[:200]
-            results["providers"][key] = {"name": model_name, "status": "error", "error": safe_err}
-            print(f"  [FAIL] {model_name}: {safe_err}")
-        # Rate limit: wait 2 seconds between calls
-        time.sleep(2)
+        provider_buckets = {}
+        provider_errors = {}
+        provider_count = 0
+        print(f"[{model_name}]")
+
+        for source_type in BUCKET_ORDER:
+            candidates = candidates_by_bucket.get(source_type, [])
+            target = min(BUCKET_TARGETS[source_type], len(candidates))
+
+            if target <= 0:
+                provider_errors[source_type] = "No candidates available"
+                print(f"  [SKIP] {source_type}: no candidates")
+                continue
+
+            headlines = build_headlines_payload(candidates)
+            prompt = build_ranking_prompt(headlines, source_type=source_type, target_count=target)
+
+            try:
+                rankings = call_provider(model_config, prompt)
+                rankings = normalize_ai_response(rankings)
+                enriched = enrich_bucket_rankings(
+                    rankings,
+                    candidates=candidates,
+                    source_type=source_type,
+                    target_count=target,
+                )
+                if not enriched:
+                    raise ValueError("No rankings after enrichment")
+
+                provider_buckets[source_type] = enriched
+                provider_count += len(enriched)
+                print(f"  [OK] {source_type}: {len(enriched)}")
+            except Exception as err:
+                safe_err = sanitize_error(str(err))
+                provider_errors[source_type] = safe_err
+                print(f"  [FAIL] {source_type}: {safe_err}")
+
+            # Small delay between API calls to avoid provider bursts.
+            time.sleep(1)
+
+        if provider_buckets:
+            status = "ok" if len(provider_buckets) == len(available_buckets) else "partial"
+            payload = {
+                "name": model_name,
+                "status": status,
+                "count": provider_count,
+                "available_buckets": [b for b in BUCKET_ORDER if b in provider_buckets],
+                "bucket_counts": {b: len(provider_buckets.get(b, [])) for b in BUCKET_ORDER},
+                "buckets": provider_buckets,
+            }
+            # Backward compatibility for older frontend versions.
+            if provider_buckets.get("news"):
+                payload["rankings"] = provider_buckets["news"]
+            if provider_errors:
+                payload["errors"] = provider_errors
+            results["providers"][key] = payload
+        else:
+            results["providers"][key] = {
+                "name": model_name,
+                "status": "error",
+                "error": "No bucket rankings available",
+                "errors": provider_errors,
+            }
 
     output_path = os.path.join(SCRIPT_DIR, "static", "ai_rankings.json")
     tmp_fd, tmp_path = tempfile.mkstemp(dir=os.path.dirname(output_path), suffix='.tmp')
     try:
-        with os.fdopen(tmp_fd, 'w', encoding='utf-8') as f:
+        with os.fdopen(tmp_fd, "w", encoding="utf-8") as f:
             json.dump(results, f, indent=2)
         os.replace(tmp_path, output_path)
     except Exception:
         os.unlink(tmp_path)
         raise
+
+    success_count = sum(
+        1 for p in results["providers"].values() if p.get("status") in ("ok", "partial")
+    )
     print(f"\nSaved to {output_path}")
-    print(f"\nSuccess: {sum(1 for p in results['providers'].values() if p['status'] == 'ok')}/{len(MODELS)} models")
+    print(f"\nSuccess: {success_count}/{len(MODELS)} models")
     print("=" * 50)
 
 

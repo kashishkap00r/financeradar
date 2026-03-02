@@ -5,6 +5,7 @@ import os
 import json
 import unittest
 from datetime import datetime, timedelta, timezone
+from unittest.mock import patch
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
@@ -12,7 +13,10 @@ from ai_ranker import (
     parse_json_response,
     sanitize_headline,
     build_candidates_from_snapshot,
+    build_candidates_for_source,
     enforce_source_coverage_and_size,
+    enforce_bucket_size,
+    call_gemini,
 )
 
 
@@ -116,6 +120,21 @@ class TestCandidateLoading(unittest.TestCase):
         self.assertNotIn("Tweet stale", titles)
         self.assertNotIn("Report stale", titles)
 
+    def test_build_candidates_for_source_only_returns_requested_source(self):
+        now = datetime(2026, 2, 26, 18, 0, tzinfo=timezone.utc)
+        snapshot = {
+            "news": [
+                {"title": "News recent", "url": "https://a/1", "publisher": "A", "published_at": (now - timedelta(hours=2)).isoformat()},
+                {"title": "News stale", "url": "https://a/2", "publisher": "A", "published_at": (now - timedelta(days=3)).isoformat()},
+            ],
+            "twitter": [
+                {"title": "Tweet recent", "url": "https://x/1", "publisher": "X", "published_at": (now - timedelta(hours=1)).isoformat()},
+            ],
+        }
+        news = build_candidates_for_source(snapshot, source_type="news", now=now, max_articles=20)
+        self.assertEqual([item["title"] for item in news], ["News recent"])
+        self.assertTrue(all(item["source_type"] == "news" for item in news))
+
 
 class TestCoverageEnforcement(unittest.TestCase):
     """Tests source-coverage and fill logic."""
@@ -153,6 +172,47 @@ class TestCoverageEnforcement(unittest.TestCase):
         self.assertEqual(len(final), 3)
         self.assertEqual([item["rank"] for item in final], [1, 2, 3])
         self.assertEqual({item["title"] for item in final}, {"N1", "N2", "T1"})
+
+    def test_enforce_bucket_size_keeps_single_source_and_fills(self):
+        candidates = [
+            {"title": "News A", "url": "https://n/1", "source": "N", "source_type": "news"},
+            {"title": "News B", "url": "https://n/2", "source": "N", "source_type": "news"},
+            {"title": "News C", "url": "https://n/3", "source": "N", "source_type": "news"},
+        ]
+        rankings = [
+            {"rank": 1, "title": "News A", "url": "https://n/1", "source": "N", "source_type": "news"},
+            {"rank": 2, "title": "Tweet Z", "url": "https://x/1", "source": "X", "source_type": "twitter"},
+        ]
+        final = enforce_bucket_size(rankings, candidates, source_type="news", target_count=3)
+        self.assertEqual(len(final), 3)
+        self.assertTrue(all(item["source_type"] == "news" for item in final))
+        self.assertEqual([item["rank"] for item in final], [1, 2, 3])
+        self.assertEqual({item["title"] for item in final}, {"News A", "News B", "News C"})
+
+
+class _FakeHttpResponse:
+    def __init__(self, payload):
+        self._payload = payload
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        return False
+
+    def read(self):
+        return self._payload.encode("utf-8")
+
+
+class TestGeminiGuards(unittest.TestCase):
+    def test_call_gemini_raises_when_no_candidates(self):
+        payload = json.dumps({"promptFeedback": {"blockReason": "SAFETY"}})
+        with patch("ai_ranker.GEMINI_API_KEY", "test-key"), patch(
+            "ai_ranker.urllib.request.urlopen",
+            return_value=_FakeHttpResponse(payload),
+        ):
+            with self.assertRaises(ValueError):
+                call_gemini("test prompt", "gemini-3-flash-preview")
 
 
 if __name__ == "__main__":

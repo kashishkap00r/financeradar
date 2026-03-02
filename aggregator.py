@@ -516,6 +516,13 @@ def generate_html(
                     <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
+            <div class="ai-source-switch" id="ai-source-switch">
+                <button type="button" class="ai-source-pill active" data-ai-bucket="news" onclick="switchAiBucket('news')">News</button>
+                <button type="button" class="ai-source-pill" data-ai-bucket="telegram" onclick="switchAiBucket('telegram')">Telegram</button>
+                <button type="button" class="ai-source-pill" data-ai-bucket="reports" onclick="switchAiBucket('reports')">Reports</button>
+                <button type="button" class="ai-source-pill" data-ai-bucket="twitter" onclick="switchAiBucket('twitter')">Twitter</button>
+                <button type="button" class="ai-source-pill" data-ai-bucket="youtube" onclick="switchAiBucket('youtube')">YouTube</button>
+            </div>
             <div class="ai-provider-select">
                 <label for="ai-provider">Model:</label>
                 <select id="ai-provider" onchange="switchAiProvider()">

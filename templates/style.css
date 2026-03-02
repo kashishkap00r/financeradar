@@ -1126,6 +1126,38 @@
         .sidebar-overlay.open .ai-sidebar {
             transform: translateX(0);
         }
+        .ai-source-switch {
+            padding: 10px 20px 8px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .ai-source-pill {
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1;
+            padding: 7px 10px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .ai-source-pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .ai-source-pill.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+        .ai-source-pill.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
         .ai-provider-select {
             padding: 12px 20px;
             border-bottom: 1px solid var(--border);

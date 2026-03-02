@@ -703,12 +703,74 @@
         // ==================== AI RANKINGS SIDEBAR ====================
         let aiRankings = null;
         let currentAiProvider = 'deepseek-v3';
+        let currentAiBucket = safeStorage.get('financeradar_ai_bucket') || 'news';
+        const AI_BUCKET_ORDER = ['news', 'telegram', 'reports', 'twitter', 'youtube'];
+        const AI_BUCKET_LABELS = {
+            news: 'News',
+            telegram: 'Telegram',
+            reports: 'Reports',
+            twitter: 'Twitter',
+            youtube: 'YouTube'
+        };
+
+        function normalizeAiRankingsPayload(payload) {
+            if (!payload || typeof payload !== 'object') return { providers: {} };
+            if (!payload.providers || typeof payload.providers !== 'object') payload.providers = {};
+            Object.values(payload.providers).forEach(provider => {
+                if (!provider || typeof provider !== 'object') return;
+                if (!provider.buckets || typeof provider.buckets !== 'object') {
+                    provider.buckets = {};
+                    // Backward compatibility with legacy ai_rankings.json.
+                    if (Array.isArray(provider.rankings)) {
+                        provider.buckets.news = provider.rankings;
+                    }
+                }
+                provider.available_buckets = AI_BUCKET_ORDER.filter(bucket => {
+                    const bucketItems = provider.buckets && Array.isArray(provider.buckets[bucket]) ? provider.buckets[bucket] : [];
+                    return bucketItems.length > 0;
+                });
+            });
+            return payload;
+        }
+
+        function getProviderBucketRankings(provider, bucket) {
+            if (!provider || typeof provider !== 'object') return [];
+            if (provider.buckets && Array.isArray(provider.buckets[bucket])) {
+                return provider.buckets[bucket];
+            }
+            if (bucket === 'news' && Array.isArray(provider.rankings)) {
+                return provider.rankings;
+            }
+            return [];
+        }
+
+        function getAvailableProvidersForBucket(bucket) {
+            if (!aiRankings || !aiRankings.providers) return [];
+            return Object.entries(aiRankings.providers).filter(([, provider]) => {
+                if (!provider || typeof provider !== 'object') return false;
+                const status = provider.status || 'ok';
+                if (status !== 'ok' && status !== 'partial') return false;
+                return getProviderBucketRankings(provider, bucket).length > 0;
+            });
+        }
+
+        function updateAiBucketPillState() {
+            document.querySelectorAll('.ai-source-pill').forEach(btn => {
+                const bucket = btn.dataset.aiBucket;
+                const hasProviders = getAvailableProvidersForBucket(bucket).length > 0;
+                btn.classList.toggle('active', bucket === currentAiBucket);
+                btn.classList.toggle('disabled', !hasProviders);
+            });
+        }
 
         async function loadAiRankings() {
             try {
                 const res = await fetch('static/ai_rankings.json');
                 if (!res.ok) throw new Error('Rankings not found');
-                aiRankings = await res.json();
+                aiRankings = normalizeAiRankingsPayload(await res.json());
+                if (!AI_BUCKET_ORDER.includes(currentAiBucket)) {
+                    currentAiBucket = 'news';
+                }
                 populateProviderDropdown();
                 renderAiRankings();
             } catch (e) {
@@ -720,23 +782,37 @@
         function populateProviderDropdown() {
             const select = document.getElementById('ai-provider');
             select.innerHTML = '';
-            if (!aiRankings || !aiRankings.providers) return;
-            const providers = Object.entries(aiRankings.providers);
+            if (!aiRankings || !aiRankings.providers) {
+                updateAiBucketPillState();
+                return;
+            }
+
+            const providers = getAvailableProvidersForBucket(currentAiBucket);
+            if (!providers.length) {
+                const opt = document.createElement('option');
+                opt.value = '';
+                opt.textContent = 'No model available';
+                select.appendChild(opt);
+                currentAiProvider = '';
+                updateAiBucketPillState();
+                return;
+            }
+
+            const providerKeys = providers.map(([key]) => key);
+            if (!providerKeys.includes(currentAiProvider)) {
+                currentAiProvider = providers[0][0];
+            }
+
             providers.forEach(([key, p]) => {
                 const opt = document.createElement('option');
                 opt.value = key;
-                opt.textContent = p.name + (p.status !== 'ok' ? ' (unavailable)' : '');
+                const rankingsCount = getProviderBucketRankings(p, currentAiBucket).length;
+                opt.textContent = `${p.name} (${rankingsCount})`;
                 if (key === currentAiProvider) opt.selected = true;
                 select.appendChild(opt);
             });
-            // If current provider not in list, select first available
-            if (!aiRankings.providers[currentAiProvider]) {
-                const firstOk = providers.find(([k, p]) => p.status === 'ok');
-                if (firstOk) {
-                    currentAiProvider = firstOk[0];
-                    select.value = currentAiProvider;
-                }
-            }
+            select.value = currentAiProvider;
+            updateAiBucketPillState();
         }
 
         function switchAiProvider() {
@@ -744,21 +820,36 @@
             renderAiRankings();
         }
 
+        function switchAiBucket(bucket) {
+            if (!AI_BUCKET_ORDER.includes(bucket)) return;
+            currentAiBucket = bucket;
+            safeStorage.set('financeradar_ai_bucket', bucket);
+            populateProviderDropdown();
+            renderAiRankings();
+        }
+
         function renderAiRankings() {
             if (!aiRankings || !aiRankings.providers) return;
-            const provider = aiRankings.providers[currentAiProvider];
             const container = document.getElementById('ai-rankings-content');
-            if (!provider) {
-                container.innerHTML = '<div class="ai-error">Provider not available</div>';
+            const available = getAvailableProvidersForBucket(currentAiBucket);
+
+            if (!available.length) {
+                container.innerHTML = `<div class="ai-error"><div class="ai-error-title">${AI_BUCKET_LABELS[currentAiBucket]} Rankings Unavailable</div><div style="margin-top:8px;font-size:12px;color:var(--text-muted)">No provider returned valid ${AI_BUCKET_LABELS[currentAiBucket].toLowerCase()} picks yet.</div></div>`;
                 return;
             }
-            if (provider.status !== 'ok') {
-                container.innerHTML = `<div class="ai-error"><div class="ai-error-title">AI Rankings Temporarily Unavailable</div><div style="margin-top:8px;font-size:12px;color:var(--text-muted)">Rankings will refresh on next scheduled run.</div></div>`;
-                return;
+
+            if (!currentAiProvider || !available.some(([key]) => key === currentAiProvider)) {
+                currentAiProvider = available[0][0];
+                const select = document.getElementById('ai-provider');
+                if (select) select.value = currentAiProvider;
             }
-            container.innerHTML = provider.rankings.map((r, i) => `
+
+            const provider = aiRankings.providers[currentAiProvider];
+            const rankings = getProviderBucketRankings(provider, currentAiBucket);
+
+            container.innerHTML = rankings.map((r, i) => `
                 <div class="ai-rank-item">
-                    <span class="rank-num">${i + 1}</span>
+                    <span class="rank-num">${r.rank || i + 1}</span>
                     <div class="rank-content">
                         ${sanitizeUrl(r.url)
                             ? `<a href="${escapeHtml(sanitizeUrl(r.url))}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>`
@@ -766,8 +857,8 @@
                         }
                         <div class="rank-meta">
                             <span class="rank-source">${escapeHtml(r.source)}</span>
-                            ${r.source_type
-                                ? `<span class="rank-source-type">${escapeHtml(String(r.source_type).toUpperCase())}</span>`
+                            ${(r.source_type || currentAiBucket)
+                                ? `<span class="rank-source-type">${escapeHtml(String(r.source_type || currentAiBucket).toUpperCase())}</span>`
                                 : ''
                             }
                         </div>
@@ -812,6 +903,7 @@
         function openAiSidebar() {
             document.getElementById('ai-sidebar-overlay').classList.add('open');
             document.body.style.overflow = 'hidden';
+            updateAiBucketPillState();
         }
 
         function closeAiSidebar() {
