@@ -1484,6 +1484,15 @@
         let selectedTgChannels = new Set();
         let reportsPage = 1;
         const REPORTS_PAGE_SIZE = 20;
+        let reportImageLightboxEl = null;
+        let reportImageLightboxImgEl = null;
+        let reportImageLightboxErrorEl = null;
+        let reportImageLightboxCounterEl = null;
+        let reportImageLightboxPrevEl = null;
+        let reportImageLightboxNextEl = null;
+        let reportImageItems = [];
+        let reportImageIndex = 0;
+        let reportImageLastTrigger = null;
 
         // ==================== RESEARCH TAB (vars) ====================
         let researchRendered = false;
@@ -1742,6 +1751,177 @@
             if (search) { search.value = ''; filterTgChannelList(); }
         }
 
+        function parseReportImageList(raw) {
+            if (!raw) return [];
+            try {
+                const parsed = JSON.parse(raw);
+                if (!Array.isArray(parsed)) return [];
+                return parsed
+                    .map(url => sanitizeUrl(String(url || '')))
+                    .filter(Boolean);
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function isReportImageLightboxOpen() {
+            return !!(reportImageLightboxEl && reportImageLightboxEl.classList.contains('open'));
+        }
+
+        function ensureReportImageLightbox() {
+            if (reportImageLightboxEl) return;
+
+            const root = document.createElement('div');
+            root.id = 'report-image-lightbox';
+            root.className = 'report-image-lightbox';
+            root.setAttribute('aria-hidden', 'true');
+            root.innerHTML = `
+                <div class="report-image-lightbox-backdrop"></div>
+                <div class="report-image-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Telegram image viewer">
+                    <button type="button" class="report-image-lightbox-close" aria-label="Close image viewer">×</button>
+                    <button type="button" class="report-image-lightbox-nav report-image-lightbox-prev" aria-label="Previous image">‹</button>
+                    <img class="report-image-lightbox-img" alt="Report image" loading="eager">
+                    <div class="report-image-lightbox-error">Image unavailable</div>
+                    <button type="button" class="report-image-lightbox-nav report-image-lightbox-next" aria-label="Next image">›</button>
+                    <div class="report-image-lightbox-counter">1 / 1</div>
+                </div>
+            `;
+
+            document.body.appendChild(root);
+            reportImageLightboxEl = root;
+            reportImageLightboxImgEl = root.querySelector('.report-image-lightbox-img');
+            reportImageLightboxErrorEl = root.querySelector('.report-image-lightbox-error');
+            reportImageLightboxCounterEl = root.querySelector('.report-image-lightbox-counter');
+            reportImageLightboxPrevEl = root.querySelector('.report-image-lightbox-prev');
+            reportImageLightboxNextEl = root.querySelector('.report-image-lightbox-next');
+
+            const closeBtn = root.querySelector('.report-image-lightbox-close');
+            closeBtn.addEventListener('click', closeReportImageLightbox);
+            reportImageLightboxPrevEl.addEventListener('click', showPrevReportImage);
+            reportImageLightboxNextEl.addEventListener('click', showNextReportImage);
+
+            root.addEventListener('click', (e) => {
+                if (
+                    e.target === root ||
+                    e.target.classList.contains('report-image-lightbox-backdrop')
+                ) {
+                    closeReportImageLightbox();
+                }
+            });
+
+            reportImageLightboxImgEl.addEventListener('load', () => {
+                reportImageLightboxImgEl.style.display = 'block';
+                if (reportImageLightboxErrorEl) reportImageLightboxErrorEl.style.display = 'none';
+            });
+            reportImageLightboxImgEl.addEventListener('error', () => {
+                reportImageLightboxImgEl.style.display = 'none';
+                if (reportImageLightboxErrorEl) reportImageLightboxErrorEl.style.display = 'flex';
+            });
+        }
+
+        function renderReportImageLightboxFrame() {
+            if (!reportImageLightboxImgEl) return;
+            if (!Array.isArray(reportImageItems) || reportImageItems.length === 0) {
+                closeReportImageLightbox();
+                return;
+            }
+
+            reportImageIndex = Math.max(0, Math.min(reportImageIndex, reportImageItems.length - 1));
+            const current = reportImageItems[reportImageIndex] || '';
+
+            if (reportImageLightboxCounterEl) {
+                reportImageLightboxCounterEl.textContent = (reportImageIndex + 1) + ' / ' + reportImageItems.length;
+            }
+            if (reportImageLightboxPrevEl) {
+                reportImageLightboxPrevEl.disabled = reportImageIndex === 0;
+            }
+            if (reportImageLightboxNextEl) {
+                reportImageLightboxNextEl.disabled = reportImageIndex >= reportImageItems.length - 1;
+            }
+            if (reportImageLightboxErrorEl) reportImageLightboxErrorEl.style.display = 'none';
+            reportImageLightboxImgEl.style.display = 'block';
+            reportImageLightboxImgEl.src = current;
+            reportImageLightboxImgEl.alt = 'Report image ' + (reportImageIndex + 1) + ' of ' + reportImageItems.length;
+        }
+
+        function openReportImageLightbox(images, startIndex, triggerEl) {
+            const list = Array.isArray(images)
+                ? images.map(url => sanitizeUrl(String(url || ''))).filter(Boolean)
+                : [];
+            if (list.length === 0) return;
+
+            ensureReportImageLightbox();
+            reportImageItems = list;
+            reportImageIndex = Number.isInteger(startIndex) ? startIndex : 0;
+            reportImageLastTrigger = triggerEl || document.activeElement;
+
+            reportImageLightboxEl.classList.add('open');
+            reportImageLightboxEl.setAttribute('aria-hidden', 'false');
+            lockBodyScroll();
+            renderReportImageLightboxFrame();
+        }
+
+        function closeReportImageLightbox() {
+            if (!isReportImageLightboxOpen()) return;
+            reportImageLightboxEl.classList.remove('open');
+            reportImageLightboxEl.setAttribute('aria-hidden', 'true');
+            if (reportImageLightboxImgEl) {
+                reportImageLightboxImgEl.removeAttribute('src');
+            }
+            reportImageItems = [];
+            reportImageIndex = 0;
+            unlockBodyScroll();
+            if (reportImageLastTrigger && typeof reportImageLastTrigger.focus === 'function') {
+                reportImageLastTrigger.focus();
+            }
+            reportImageLastTrigger = null;
+        }
+
+        function openReportImageLightboxFromButton(buttonEl) {
+            if (!buttonEl) return;
+            const imagesRaw = buttonEl.getAttribute('data-report-images') || '[]';
+            const images = parseReportImageList(imagesRaw);
+            const startRaw = parseInt(buttonEl.getAttribute('data-start-index') || '0', 10);
+            const startIndex = Number.isFinite(startRaw) ? startRaw : 0;
+            openReportImageLightbox(images, startIndex, buttonEl);
+        }
+
+        function showPrevReportImage() {
+            if (!isReportImageLightboxOpen()) return;
+            if (reportImageIndex <= 0) return;
+            reportImageIndex -= 1;
+            renderReportImageLightboxFrame();
+        }
+
+        function showNextReportImage() {
+            if (!isReportImageLightboxOpen()) return;
+            if (reportImageIndex >= reportImageItems.length - 1) return;
+            reportImageIndex += 1;
+            renderReportImageLightboxFrame();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!isReportImageLightboxOpen()) return;
+
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                closeReportImageLightbox();
+                return;
+            }
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                showPrevReportImage();
+                return;
+            }
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                showNextReportImage();
+            }
+        }, true);
+
         function setReportsView(mode) {
             reportsViewMode = mode;
             document.getElementById('reports-view-all').classList.toggle('active', mode === 'all');
@@ -1840,15 +2020,18 @@
 
                 const rawText = r.text || '';
                 const lines = rawText.split('\n').map(line => line.trim()).filter(Boolean);
-                const reportTitleRaw = lines[0] || rawText.trim() || 'Untitled';
+                const reportTitleRaw = lines[0] || '';
                 const reportBodyRaw = lines.length > 1 ? lines.slice(1).join('\n') : '';
+                const hasReportTitle = !!reportTitleRaw.trim();
                 const reportTitle = escapeHtml(reportTitleRaw);
                 const text = escapeHtml(reportBodyRaw).replace(/\n/g, '<br>');
                 const reportUrl = sanitizeUrl(r.url || '');
                 const isBookmarkedReport = bookmarks.some(b => b.url === reportUrl);
-                const titleHtml = reportUrl
-                    ? `<a href="${escapeForAttr(reportUrl)}" target="_blank" rel="noopener" class="report-title-link">${reportTitle}</a>`
-                    : `<span class="report-title-link">${reportTitle}</span>`;
+                const titleHtml = hasReportTitle
+                    ? (reportUrl
+                        ? `<a href="${escapeForAttr(reportUrl)}" target="_blank" rel="noopener" class="report-title-link">${reportTitle}</a>`
+                        : `<span class="report-title-link">${reportTitle}</span>`)
+                    : '';
                 const channel = escapeHtml(r.channel || 'Telegram');
                 const sourceHtml = reportUrl
                     ? `<a href="${escapeForAttr(reportUrl)}" target="_blank" rel="noopener" class="report-channel card-source-link">${channel}</a>`
@@ -1866,17 +2049,24 @@
                 }
 
                 let imgHtml = '';
-                const images = r.images || [];
+                const images = Array.isArray(r.images)
+                    ? r.images.map(url => sanitizeUrl(String(url || ''))).filter(Boolean)
+                    : [];
                 if (images.length > 0) {
                     const badge = images.length > 1
                         ? `<span class="report-images-badge">+${images.length - 1} more</span>` : '';
-                    imgHtml = `<div class="report-images">
+                    const encodedImages = escapeForAttr(JSON.stringify(images));
+                    imgHtml = `<button type="button" class="report-images" onclick="openReportImageLightboxFromButton(this)"
+                        data-report-images='${encodedImages}' data-start-index="0" aria-label="Open report image in fullscreen">
                         <img src="${escapeForAttr(images[0])}" alt="Report image" loading="lazy"
-                             onerror="this.parentElement.style.display='none'">
-                        ${badge}</div>`;
+                             onerror="this.closest('.report-images').style.display='none'">
+                        ${badge}</button>`;
                 }
 
                 const hasPdfLink = /https?:\/\/\S+\.pdf(\b|\?)/i.test(r.text || '');
+                const bookmarkTitleRaw = hasReportTitle
+                    ? reportTitleRaw
+                    : (docs[0] && docs[0].title ? docs[0].title : '');
 
                 // Content-type badge
                 let typeBadge = '';
@@ -1887,7 +2077,7 @@
                 }
 
                 html += `
-                    <div class="report-card" data-url="${escapeForAttr(reportUrl)}" data-title="${escapeForAttr(reportTitleRaw.substring(0, 100))}" data-channel="${escapeForAttr(r.channel || '')}">
+                    <div class="report-card" data-url="${escapeForAttr(reportUrl)}" data-title="${escapeForAttr((bookmarkTitleRaw || '').substring(0, 100))}" data-channel="${escapeForAttr(r.channel || '')}">
                         <div class="report-card-header">
                             <div class="report-card-left">
                                 ${sourceHtml}
@@ -1902,7 +2092,7 @@
                         </div>
                         ${imgHtml}
                         ${docHtml}
-                        <div class="report-title">${titleHtml}</div>
+                        ${hasReportTitle ? `<div class="report-title">${titleHtml}</div>` : ''}
                         ${reportBodyRaw ? `<div class="report-text">${text}</div><button class="report-expand-btn" style="display:none" onclick="toggleReportExpand(this)">Show more</button>` : ''}
                         ${r.views ? `<div class="report-meta"><span>${escapeHtml(r.views)} views</span></div>` : ''}
                     </div>

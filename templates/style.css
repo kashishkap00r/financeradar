@@ -1670,12 +1670,24 @@
             border-radius: 8px;
             overflow: hidden;
             background: var(--bg-hover);
+            border: 0;
+            padding: 0;
+            width: 100%;
+            text-align: left;
+            display: block;
+            appearance: none;
+            cursor: zoom-in;
+        }
+        .report-images:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
         }
         .report-images img {
             width: 100%;
             max-height: 260px;
             object-fit: cover;
             display: block;
+            cursor: zoom-in;
         }
         .report-images-badge {
             position: absolute;
@@ -1704,6 +1716,115 @@
         }
         .report-meta a:hover {
             text-decoration: underline;
+        }
+        .report-image-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 260;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(5, 10, 18, 0.86);
+        }
+        .report-image-lightbox.open {
+            display: flex;
+        }
+        .report-image-lightbox-backdrop {
+            position: absolute;
+            inset: 0;
+        }
+        .report-image-lightbox-dialog {
+            position: relative;
+            z-index: 1;
+            width: min(96vw, 1200px);
+            height: min(90vh, 900px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 56px;
+        }
+        .report-image-lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+            background: #111827;
+        }
+        .report-image-lightbox-error {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            min-width: 280px;
+            min-height: 220px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #e5e7eb;
+            font-size: 14px;
+            font-weight: 600;
+            background: rgba(17, 24, 39, 0.92);
+        }
+        .report-image-lightbox-close,
+        .report-image-lightbox-nav {
+            position: absolute;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(17, 24, 39, 0.9);
+            color: #f8fafc;
+            cursor: pointer;
+            border-radius: 999px;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            line-height: 1;
+            transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+        }
+        .report-image-lightbox-close:hover,
+        .report-image-lightbox-nav:hover {
+            background: rgba(31, 41, 55, 0.96);
+            border-color: rgba(255,255,255,0.5);
+        }
+        .report-image-lightbox-close:focus-visible,
+        .report-image-lightbox-nav:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+        .report-image-lightbox-close {
+            top: 8px;
+            right: 8px;
+            font-size: 30px;
+        }
+        .report-image-lightbox-prev {
+            left: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .report-image-lightbox-next {
+            right: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .report-image-lightbox-nav[disabled] {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+        .report-image-lightbox-counter {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #f8fafc;
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(17, 24, 39, 0.88);
+            border: 1px solid rgba(255,255,255,0.22);
+            border-radius: 999px;
+            padding: 4px 10px;
+            letter-spacing: 0.2px;
         }
 
         /* Video Cards */
@@ -2268,5 +2389,28 @@
                 background: var(--bg-primary);
                 position: sticky;
                 bottom: 0;
+            }
+            .report-image-lightbox {
+                padding: 10px;
+            }
+            .report-image-lightbox-dialog {
+                width: 100%;
+                height: 100%;
+                padding: 48px 10px 58px;
+            }
+            .report-image-lightbox-close,
+            .report-image-lightbox-nav {
+                width: 38px;
+                height: 38px;
+            }
+            .report-image-lightbox-close {
+                top: 4px;
+                right: 4px;
+            }
+            .report-image-lightbox-prev {
+                left: 2px;
+            }
+            .report-image-lightbox-next {
+                right: 2px;
             }
         }
