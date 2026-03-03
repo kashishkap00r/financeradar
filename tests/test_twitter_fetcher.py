@@ -128,6 +128,44 @@ class TwitterFetcherTests(unittest.TestCase):
         self.assertEqual(items[0]["tweet_id"], "1010")
         self.assertIn("auth_and_emergency_empty_using_snapshot", meta["warning"])
 
+    @patch.object(twitter_fetcher, "save_twitter_snapshot")
+    @patch.object(twitter_fetcher, "fetch_twitter_google_emergency")
+    @patch.object(twitter_fetcher, "fetch_twitter_auth")
+    @patch.object(twitter_fetcher, "_load_accounts_from_env")
+    @patch.object(twitter_fetcher, "load_twitter_snapshot")
+    def test_orchestrator_forces_emergency_on_auth_system_error(
+        self,
+        snapshot_mock,
+        accounts_mock,
+        auth_mock,
+        emergency_mock,
+        save_snapshot_mock,
+    ):
+        now = datetime.now(timezone.utc)
+        snapshot_mock.return_value = {"meta": {"consecutive_auth_failures": 0}, "items": []}
+        accounts_mock.return_value = [{"username": "u1", "password": "x", "email": "u1@example.com", "email_password": "x"}]
+        auth_mock.return_value = ([], {"error": "auth_system_error"})
+        emergency_mock.return_value = (
+            [
+                {
+                    "title": "Emergency fallback tweet",
+                    "link": "https://x.com/JavierBlas/status/3030",
+                    "date": now,
+                    "tweet_id": "3030",
+                    "is_retweet": False,
+                    "is_reply": False,
+                    "category": "Twitter",
+                }
+            ],
+            {"feeds_ok": 1},
+        )
+
+        items, meta = twitter_fetcher.fetch_twitter_articles([self._feed()])
+        self.assertEqual(meta["source_mode"], "google_emergency")
+        self.assertEqual(len(items), 1)
+        emergency_mock.assert_called_once()
+        save_snapshot_mock.assert_called_once()
+
 
 if __name__ == "__main__":
     unittest.main()

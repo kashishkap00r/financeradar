@@ -5,11 +5,16 @@ name: Update FinanceRadar
     - cron: "0 * * * *"
   workflow_dispatch:
 
+concurrency:
+  group: financeradar-hourly-main
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
 jobs:
   build:
+    timeout-minutes: 25
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

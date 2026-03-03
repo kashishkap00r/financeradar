@@ -19,8 +19,11 @@ from articles import IST_TZ, clean_twitter_title
 from config import (
     FEED_THREAD_WORKERS,
     TWITTER_ACCOUNTS_ENV_VAR,
+    TWITTER_AUTH_FAILFAST_CONSECUTIVE_FAILURES,
     TWITTER_AUTH_LOOKBACK_HOURS,
     TWITTER_AUTH_MAX_TWEETS_PER_HANDLE,
+    TWITTER_AUTH_TWEETS_TIMEOUT_SECONDS,
+    TWITTER_AUTH_USER_LOOKUP_TIMEOUT_SECONDS,
     TWITTER_CACHE_FILE,
     TWITTER_EMERGENCY_MAX_ITEMS_PER_HANDLE,
     TWITTER_FAILS_BEFORE_EMERGENCY,
@@ -37,6 +40,21 @@ TWITTER_USER_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "twitter_user_cache
 X_PROFILE_HANDLE_RE = re.compile(r"^https?://(?:www\.)?x\.com/([^/?#]+)", re.IGNORECASE)
 X_QUERY_HANDLE_RE = re.compile(r"(?:from:|site:x\.com/)([A-Za-z0-9_]+)", re.IGNORECASE)
 RETWEET_PREFIX_RE = re.compile(r"^RT\s+@", re.IGNORECASE)
+
+
+def _is_twscrape_system_error(message):
+    text = (message or "").strip().lower()
+    if not text:
+        return False
+    patterns = (
+        "failed to parse scripts",
+        "no account available for queue",
+        "account timedout",
+        "unknown error",
+        "queue_client",
+        "usersbyscreenname",
+    )
+    return any(p in text for p in patterns)
 
 
 def _abs_path(path):
@@ -287,6 +305,7 @@ async def _fetch_twitter_auth_async(handles, since_dt, accounts_cfg, feed_by_han
         "error": "",
     }
     items = []
+    consecutive_failures = 0
 
     try:
         api = API(db_path)
@@ -320,38 +339,70 @@ async def _fetch_twitter_auth_async(handles, since_dt, accounts_cfg, feed_by_han
 
             if not user_id:
                 try:
-                    user = await api.user_by_login(handle)
-                except Exception:
+                    user = await asyncio.wait_for(
+                        api.user_by_login(handle),
+                        timeout=TWITTER_AUTH_USER_LOOKUP_TIMEOUT_SECONDS,
+                    )
+                except Exception as exc:
+                    err_msg = str(exc)
+                    if _is_twscrape_system_error(err_msg):
+                        stats["error"] = "auth_system_error"
+                        stats["system_error"] = err_msg[:200]
+                        return [], stats
                     user = None
                 if not user or not _tweet_attr(user, "id"):
                     stats["handles_failed"] += 1
+                    consecutive_failures += 1
+                    if consecutive_failures >= TWITTER_AUTH_FAILFAST_CONSECUTIVE_FAILURES:
+                        stats["error"] = "auth_many_failures"
+                        return [], stats
                     continue
                 user_id = int(_tweet_attr(user, "id"))
                 user_cache[key] = user_id
 
             tweets = None
             try:
-                tweets = await gather(
-                    api.user_tweets_and_replies(user_id, limit=TWITTER_AUTH_MAX_TWEETS_PER_HANDLE)
+                tweets = await asyncio.wait_for(
+                    gather(api.user_tweets_and_replies(user_id, limit=TWITTER_AUTH_MAX_TWEETS_PER_HANDLE)),
+                    timeout=TWITTER_AUTH_TWEETS_TIMEOUT_SECONDS,
                 )
-            except Exception:
+            except Exception as exc:
+                err_msg = str(exc)
+                if _is_twscrape_system_error(err_msg):
+                    stats["error"] = "auth_system_error"
+                    stats["system_error"] = err_msg[:200]
+                    return [], stats
                 # Retry once with refreshed user id.
                 try:
-                    user = await api.user_by_login(handle)
+                    user = await asyncio.wait_for(
+                        api.user_by_login(handle),
+                        timeout=TWITTER_AUTH_USER_LOOKUP_TIMEOUT_SECONDS,
+                    )
                     if user and _tweet_attr(user, "id"):
                         user_id = int(_tweet_attr(user, "id"))
                         user_cache[key] = user_id
-                        tweets = await gather(
-                            api.user_tweets_and_replies(user_id, limit=TWITTER_AUTH_MAX_TWEETS_PER_HANDLE)
+                        tweets = await asyncio.wait_for(
+                            gather(api.user_tweets_and_replies(user_id, limit=TWITTER_AUTH_MAX_TWEETS_PER_HANDLE)),
+                            timeout=TWITTER_AUTH_TWEETS_TIMEOUT_SECONDS,
                         )
-                except Exception:
+                except Exception as retry_exc:
+                    retry_msg = str(retry_exc)
+                    if _is_twscrape_system_error(retry_msg):
+                        stats["error"] = "auth_system_error"
+                        stats["system_error"] = retry_msg[:200]
+                        return [], stats
                     tweets = None
 
             if tweets is None:
                 stats["handles_failed"] += 1
+                consecutive_failures += 1
+                if consecutive_failures >= TWITTER_AUTH_FAILFAST_CONSECUTIVE_FAILURES:
+                    stats["error"] = "auth_many_failures"
+                    return [], stats
                 continue
 
             stats["handles_ok"] += 1
+            consecutive_failures = 0
             stats["tweets_raw"] += len(tweets)
             for tw in tweets:
                 article = _tweet_to_article(tw, feed_cfg, source_mode="auth")
@@ -522,7 +573,15 @@ def fetch_twitter_articles(twitter_feeds, logger=None):
         return cleaned_auth, meta
 
     failures_now = previous_failures + 1
-    if failures_now >= TWITTER_FAILS_BEFORE_EMERGENCY:
+    auth_error = str(auth_stats.get("error") or "").strip().lower()
+    force_emergency_now = auth_error in {
+        "auth_system_error",
+        "auth_many_failures",
+        "missing_accounts",
+        "twscrape_not_installed",
+        "no_active_accounts",
+    } or auth_error.startswith("auth_fetch_failed")
+    if force_emergency_now or failures_now >= TWITTER_FAILS_BEFORE_EMERGENCY:
         emergency_items, emergency_stats = fetch_twitter_google_emergency(feeds, logger=logger)
         cleaned_emergency = normalize_and_filter_tweets(
             emergency_items,
