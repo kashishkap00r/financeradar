@@ -1772,10 +1772,11 @@
         }
 
         function reportHasContent(r) {
-            // Exclude image-only posts: must have text or at least one document
+            // Keep posts that have text, documents, or at least one image
             const hasText = !!(r.text || '').trim();
             const hasDocs = (r.documents && r.documents.length > 0) || !!(r.document && r.document.title);
-            return hasText || hasDocs;
+            const hasImages = Array.isArray(r.images) && r.images.length > 0;
+            return hasText || hasDocs || hasImages;
         }
 
         function filterReports() {
@@ -1790,7 +1791,7 @@
                     return text.includes(query) || channel.includes(query) || docTitle.includes(query);
                 })
                 : [...TELEGRAM_REPORTS];
-            // Always exclude image-only posts
+            // Exclude fully empty posts only (no text, docs, or images)
             filteredReports = filteredReports.filter(reportHasContent);
             // View mode filter
             if (reportsViewMode === 'pdf') {
