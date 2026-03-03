@@ -84,6 +84,21 @@ def _telegram_source_id(channel):
     return f"telegram:{slug or 'unknown'}"
 
 
+YOUTUBE_PUBLISHER_ALIASES = {
+    # "In Good Company (Norges Bank)" playlist items often come through as "Norges Bank".
+    # Normalize to the canonical channel label to avoid duplicate dropdown entries.
+    "norges bank": "Norges Bank Investment Management",
+}
+
+
+def _normalize_youtube_publisher(name):
+    """Return a canonical YouTube publisher label for known aliases."""
+    cleaned = re.sub(r"\s+", " ", (name or "").strip())
+    if not cleaned:
+        return ""
+    return YOUTUBE_PUBLISHER_ALIASES.get(cleaned.lower(), cleaned)
+
+
 def export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles, paper_articles=None, twitter_high_signal=None):
     """Export all published tab items to a unified JSON snapshot for auditing."""
     news_items = []
@@ -1333,6 +1348,31 @@ def main():
     filtered_video_political_count = pre_video_political_count - len(video_articles)
     if filtered_video_political_count:
         logger.info(f"Videos: filtered {filtered_video_political_count} political titles")
+
+    # Normalize YouTube publisher aliases (keeps dropdown clean and consistent).
+    for v in video_articles:
+        raw_publisher = v.get("publisher") or v.get("source") or ""
+        canonical_publisher = _normalize_youtube_publisher(raw_publisher)
+        if canonical_publisher:
+            v["publisher"] = canonical_publisher
+
+    # Deduplicate YouTube entries by URL (same video can appear in playlist + channel feeds).
+    seen_video_urls = set()
+    unique_videos = []
+    duplicate_video_count = 0
+    for v in video_articles:
+        link_key = (v.get("link") or "").strip().lower().rstrip("/")
+        if not link_key:
+            unique_videos.append(v)
+            continue
+        if link_key in seen_video_urls:
+            duplicate_video_count += 1
+            continue
+        seen_video_urls.add(link_key)
+        unique_videos.append(v)
+    video_articles = unique_videos
+    if duplicate_video_count:
+        logger.info(f"Videos: removed {duplicate_video_count} duplicate URLs")
 
     # Re-sort after extending with cached videos
     video_articles.sort(key=get_sort_timestamp, reverse=True)
