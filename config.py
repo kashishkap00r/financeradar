@@ -23,17 +23,8 @@ VIDEO_FRESHNESS_DAYS = 10        # YouTube tab (used by CLAUDE.md, not code)
 TWITTER_RESOLVE_WORKERS = 8      # concurrent Google->X resolve workers
 
 # ── Twitter/X ingestion ───────────────────────────────────────────────
-TWITTER_PRIMARY_MODE = "auth_pool"     # auth_pool | google_only
-TWITTER_POLL_INTERVAL_MIN = 15         # target cadence for pipeline freshness
-TWITTER_FAILS_BEFORE_EMERGENCY = 2     # auth failures before Google emergency mode
-TWITTER_AUTH_LOOKBACK_HOURS = 48       # lookback window for auth fetch mode
-TWITTER_AUTH_MAX_TWEETS_PER_HANDLE = 30  # max fetched per handle in auth mode
-TWITTER_AUTH_USER_LOOKUP_TIMEOUT_SECONDS = 25   # timeout per handle lookup call
-TWITTER_AUTH_TWEETS_TIMEOUT_SECONDS = 45        # timeout per handle tweets call
-TWITTER_AUTH_FAILFAST_CONSECUTIVE_FAILURES = 4  # break auth loop on repeated failures
-TWITTER_EMERGENCY_MAX_ITEMS_PER_HANDLE = 30  # max fetched per handle in emergency mode
-TWITTER_ACCOUNTS_ENV_VAR = "TWITTER_ACCOUNTS_JSON"
-TWITTER_CACHE_FILE = "static/twitter_clean_cache.json"
+TWITTER_GOOGLE_MAX_ITEMS_PER_HANDLE = 30  # max fetched per handle in Google mode
+TWITTER_CACHE_FILE = "static/twitter_clean_cache.json"  # clean fallback snapshot
 
 # ── Report scrapers ───────────────────────────────────────────────────
 SCRAPER_MAX_ARTICLES = 30        # max articles per scraper invocation

@@ -1,4 +1,4 @@
-"""Tests for Twitter ingestion orchestration and cleaners."""
+"""Tests for Google-only Twitter ingestion orchestration and cleaners."""
 
 import unittest
 from datetime import datetime, timezone
@@ -55,26 +55,20 @@ class TwitterFetcherTests(unittest.TestCase):
         self.assertTrue(cleaned[0]["is_retweet"])
 
     @patch.object(twitter_fetcher, "save_twitter_snapshot")
-    @patch.object(twitter_fetcher, "fetch_twitter_google_emergency")
-    @patch.object(twitter_fetcher, "fetch_twitter_auth")
-    @patch.object(twitter_fetcher, "_load_accounts_from_env")
+    @patch.object(twitter_fetcher, "fetch_twitter_google")
     @patch.object(twitter_fetcher, "load_twitter_snapshot")
-    def test_orchestrator_uses_emergency_after_two_failures(
+    def test_orchestrator_uses_google_when_available(
         self,
         snapshot_mock,
-        accounts_mock,
-        auth_mock,
-        emergency_mock,
+        google_mock,
         save_snapshot_mock,
     ):
         now = datetime.now(timezone.utc)
-        snapshot_mock.return_value = {"meta": {"consecutive_auth_failures": 1}, "items": []}
-        accounts_mock.return_value = [{"username": "u1", "password": "x", "email": "u1@example.com", "email_password": "x"}]
-        auth_mock.return_value = ([], {"error": "missing_accounts"})
-        emergency_mock.return_value = (
+        snapshot_mock.return_value = {"meta": {}, "items": []}
+        google_mock.return_value = (
             [
                 {
-                    "title": "Emergency tweet",
+                    "title": "Fresh tweet",
                     "link": "https://x.com/JavierBlas/status/2020",
                     "date": now,
                     "tweet_id": "2020",
@@ -87,25 +81,22 @@ class TwitterFetcherTests(unittest.TestCase):
         )
 
         items, meta = twitter_fetcher.fetch_twitter_articles([self._feed()])
-        self.assertEqual(meta["source_mode"], "google_emergency")
+        self.assertEqual(meta["source_mode"], "google")
         self.assertEqual(len(items), 1)
-        emergency_mock.assert_called_once()
+        self.assertEqual(items[0]["tweet_id"], "2020")
+        google_mock.assert_called_once()
         save_snapshot_mock.assert_called_once()
 
-    @patch.object(twitter_fetcher, "fetch_twitter_google_emergency")
-    @patch.object(twitter_fetcher, "fetch_twitter_auth")
-    @patch.object(twitter_fetcher, "_load_accounts_from_env")
+    @patch.object(twitter_fetcher, "fetch_twitter_google")
     @patch.object(twitter_fetcher, "load_twitter_snapshot")
-    def test_orchestrator_uses_snapshot_when_auth_and_emergency_empty(
+    def test_orchestrator_uses_snapshot_when_google_empty(
         self,
         snapshot_mock,
-        accounts_mock,
-        auth_mock,
-        emergency_mock,
+        google_mock,
     ):
         now = datetime.now(timezone.utc)
         snapshot_mock.return_value = {
-            "meta": {"consecutive_auth_failures": 1},
+            "meta": {},
             "items": [
                 {
                     "title": "Cached tweet",
@@ -118,53 +109,36 @@ class TwitterFetcherTests(unittest.TestCase):
                 }
             ],
         }
-        accounts_mock.return_value = [{"username": "u1", "password": "x", "email": "u1@example.com", "email_password": "x"}]
-        auth_mock.return_value = ([], {"error": "auth_down"})
-        emergency_mock.return_value = ([], {"feeds_ok": 0})
+        google_mock.return_value = ([], {"feeds_ok": 0})
 
         items, meta = twitter_fetcher.fetch_twitter_articles([self._feed()])
         self.assertEqual(meta["source_mode"], "snapshot")
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]["tweet_id"], "1010")
-        self.assertIn("auth_and_emergency_empty_using_snapshot", meta["warning"])
+        self.assertIn("google_empty_using_snapshot", meta["warning"])
 
-    @patch.object(twitter_fetcher, "save_twitter_snapshot")
-    @patch.object(twitter_fetcher, "fetch_twitter_google_emergency")
-    @patch.object(twitter_fetcher, "fetch_twitter_auth")
-    @patch.object(twitter_fetcher, "_load_accounts_from_env")
     @patch.object(twitter_fetcher, "load_twitter_snapshot")
-    def test_orchestrator_forces_emergency_on_auth_system_error(
-        self,
-        snapshot_mock,
-        accounts_mock,
-        auth_mock,
-        emergency_mock,
-        save_snapshot_mock,
-    ):
+    def test_orchestrator_uses_snapshot_when_no_handles(self, snapshot_mock):
         now = datetime.now(timezone.utc)
-        snapshot_mock.return_value = {"meta": {"consecutive_auth_failures": 0}, "items": []}
-        accounts_mock.return_value = [{"username": "u1", "password": "x", "email": "u1@example.com", "email_password": "x"}]
-        auth_mock.return_value = ([], {"error": "auth_system_error"})
-        emergency_mock.return_value = (
-            [
+        snapshot_mock.return_value = {
+            "meta": {},
+            "items": [
                 {
-                    "title": "Emergency fallback tweet",
-                    "link": "https://x.com/JavierBlas/status/3030",
-                    "date": now,
-                    "tweet_id": "3030",
+                    "title": "Cached tweet",
+                    "link": "https://x.com/JavierBlas/status/1111",
+                    "date": now.isoformat(),
+                    "tweet_id": "1111",
                     "is_retweet": False,
                     "is_reply": False,
                     "category": "Twitter",
                 }
             ],
-            {"feeds_ok": 1},
-        )
+        }
 
-        items, meta = twitter_fetcher.fetch_twitter_articles([self._feed()])
-        self.assertEqual(meta["source_mode"], "google_emergency")
-        self.assertEqual(len(items), 1)
-        emergency_mock.assert_called_once()
-        save_snapshot_mock.assert_called_once()
+        items, meta = twitter_fetcher.fetch_twitter_articles([])
+        self.assertEqual(meta["source_mode"], "snapshot")
+        self.assertEqual(items[0]["tweet_id"], "1111")
+        self.assertIn("no_twitter_handles_configured", meta["warning"])
 
 
 if __name__ == "__main__":

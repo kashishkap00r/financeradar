@@ -1098,22 +1098,20 @@ def main():
     except Exception as exc:
         twitter_articles, twitter_fetch_meta = [], {
             "source_mode": "snapshot",
-            "consecutive_auth_failures": 0,
             "warning": f"twitter_ingest_crashed:{type(exc).__name__}",
         }
     all_articles.extend(twitter_articles)
     twitter_mode = twitter_fetch_meta.get("source_mode", "snapshot")
-    twitter_failures = twitter_fetch_meta.get("consecutive_auth_failures", 0)
     if twitter_articles:
         if twitter_mode == "snapshot":
             logger.warn(
                 "Twitter",
-                f"Using cached clean snapshot ({len(twitter_articles)} tweets, auth failures={twitter_failures})",
+                f"Using cached clean snapshot ({len(twitter_articles)} tweets)",
             )
         else:
             logger.ok(
                 "Twitter",
-                f"{len(twitter_articles)} tweets via {twitter_mode} (auth failures={twitter_failures})",
+                f"{len(twitter_articles)} tweets via {twitter_mode}",
             )
         logger.add_articles(len(twitter_articles))
     else:
@@ -1404,7 +1402,7 @@ def main():
     )
     twitter_lane_stats["source_mode"] = twitter_mode
     twitter_lane_stats["ingest_generated_at"] = twitter_fetch_meta.get("generated_at")
-    twitter_lane_stats["ingest_auth_failures"] = twitter_failures
+    twitter_lane_stats["ingest_auth_failures"] = 0
     twitter_articles = twitter_full_stream
 
     # Remove duplicates based on URL only (not title - to preserve source diversity)

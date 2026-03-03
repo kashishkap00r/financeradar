@@ -505,7 +505,7 @@ Find the channel ID from the YouTube channel page source (search for `channel_id
 
 ### Add a Twitter/X Feed
 
-Twitter handles are declared in `feeds.json` (used by auth mode and emergency mode):
+Twitter handles are declared in `feeds.json` (used by Google ingestion mode):
 ```json
 {
   "id": "twitter-username",
@@ -516,34 +516,10 @@ Twitter handles are declared in `feeds.json` (used by auth mode and emergency mo
 }
 ```
 
-### Configure Twitter Auth Pool (No API Keys)
-
-Set `TWITTER_ACCOUNTS_JSON` (local env and GitHub secret) with 1-2 burner accounts.
-Cookie-backed accounts are most reliable:
-
-```json
-[
-  {
-    "username": "burner_a",
-    "password": "placeholder",
-    "email": "burner_a@example.com",
-    "email_password": "placeholder",
-    "cookies": "auth_token=...; ct0=..."
-  },
-  {
-    "username": "burner_b",
-    "password": "placeholder",
-    "email": "burner_b@example.com",
-    "email_password": "placeholder",
-    "cookies": "auth_token=...; ct0=..."
-  }
-]
-```
-
 Runtime behavior:
-- Primary mode: authenticated scrape (`twscrape`) of configured handles.
-- Emergency mode: Google RSS fallback after 2 consecutive auth-fail cycles.
-- Last-resort mode: serve `static/twitter_clean_cache.json` snapshot when both fail.
+- Primary mode: Google RSS fetch for all configured handles on every run.
+- URL normalization: Google wrapper links are resolved to canonical `https://x.com/.../status/...` URLs.
+- Last-resort mode: serve `static/twitter_clean_cache.json` snapshot when live Google fetch returns no usable tweets.
 
 ### Add a Telegram Channel
 
@@ -594,7 +570,6 @@ These are written automatically — **do not hand-edit**.
 | `static/telegram_reports.json` | `telegram_fetcher.py` | All scraped Telegram messages with document metadata |
 | `static/youtube_cache.json` | `aggregator.py` | YouTube feed cache to avoid re-fetching thumbnails |
 | `static/twitter_clean_cache.json` | `twitter_fetcher.py` | Last known-good clean Twitter payload for outage fallback |
-| `static/twitter_user_cache.json` | `twitter_fetcher.py` | Cached X user IDs for faster authenticated fetch cycles |
 | `static/twitter_url_cache.json` | `twitter_signal.py`/`twitter_fetcher.py` | Google wrapper → x.com resolution cache |
 | `cron.log` | shell/cron | Execution output (gitignored) |
 
@@ -639,7 +614,6 @@ git commit -m "Regenerate after rebase"
 
 - Python 3.8+
 - `telethon>=1.36` (`pip install -r requirements.txt`) — only needed for MTProto Telegram channels
-- `twscrape>=0.17.0` (`pip install -r requirements.txt`) — Twitter auth-pool ingestion without official API keys
 - `curl` — for 403 fallback on Cloudflare-protected feeds
 - Internet access
 
@@ -651,7 +625,7 @@ The generated HTML output has no runtime dependencies.
 
 | Layer | Technology |
 |-------|-----------|
-| Backend | Python 3 + Telethon + twscrape |
+| Backend | Python 3 + Telethon |
 | Frontend | Vanilla HTML/CSS/JS (fully embedded in `index.html`) |
 | Fonts | Merriweather (headings) + Source Sans Pro (body) via Google Fonts |
 | Telegram API | Telethon (MTProto) + HTML scraping |
