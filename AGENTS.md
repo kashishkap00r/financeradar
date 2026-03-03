@@ -1,23 +1,40 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-FinanceRadar is a Python-first static site generator. Core pipeline logic lives in `aggregator.py`, with focused modules such as `feeds.py`, `filters.py`, `articles.py`, `reports_fetcher.py`, `telegram_fetcher.py`, `ai_ranker.py`, and `wsw_ranker.py`. Frontend source files are `templates/app.js` and `templates/style.css`; they are injected into generated `index.html`. Tests live in `tests/` (`test_*.py`). Automation is under `.github/workflows/`. Planning notes go in `docs/plans/`.
+FinanceRadar is a Python-based static aggregator. Core orchestration is in `aggregator.py`. Data collection and transformation are split across focused modules such as `feeds.py`, `telegram_fetcher.py`, `twitter_fetcher.py`, `reports_fetcher.py`, `paper_fetcher.py`, `filters.py`, and `articles.py`.  
+UI source lives in `templates/app.js` and `templates/style.css`; these are injected into generated `index.html`.  
+Runtime outputs and caches are in `static/` (for example `articles.json`, `published_snapshot.json`, `youtube_cache.json`).  
+Tests are under `tests/` with `test_*.py` naming. CI/CD lives in `.github/workflows/`. Cloudflare RSS proxy code is in `infra/rss-proxy/`.
 
 ## Build, Test, and Development Commands
-- `python3 aggregator.py`: run the main pipeline and regenerate site/data artifacts.
-- `python3 telegram_fetcher.py`: refresh Telegram report data (public channels without MTProto creds).
-- `GEMINI_API_KEY=... OPENROUTER_API_KEY=... python3 ai_ranker.py`: regenerate AI rankings.
-- `python3 -m unittest discover -s tests`: run the unit test suite.
-- `python3 -m http.server 8000`: serve locally and preview at `http://localhost:8000`.
+- `pip install -r requirements.txt` — install Python dependencies.
+- `python3 aggregator.py` — run full aggregation and regenerate site artifacts.
+- `python3 telegram_fetcher.py` — refresh Telegram reports data.
+- `python3 ai_ranker.py && python3 wsw_ranker.py` — rebuild AI ranking outputs.
+- `python3 -m unittest discover -s tests` — run all unit tests.
+- `python3 -m http.server 8000` — preview locally at `http://localhost:8000`.
+- `cd infra/rss-proxy && npx wrangler deploy` — deploy RSS proxy worker.
 
 ## Coding Style & Naming Conventions
-Use Python 3.8+ style with 4-space indentation, `snake_case` for functions/variables, and `UPPER_CASE` for constants. Keep feed/source identifiers lowercase and hyphenated in JSON configs (for example, `et-bfsi-articles`). Prefer editing `templates/*` for UI changes; do not hand-edit generated artifacts. If frontend logic must be changed in `aggregator.py` f-strings, remember literal braces require `{{` and `}}`.
+Use Python 3.8+ with 4-space indentation and `snake_case` for functions/variables; keep constants in `UPPER_CASE`.  
+Prefer small, single-purpose functions and explicit logging for fallbacks/retries.  
+For feed IDs and source keys, use lowercase, hyphenated names (example: `yt-norges-bank-im`).  
+Frontend changes should be made in `templates/*`, not by manually editing generated `index.html`.
 
 ## Testing Guidelines
-The project uses `unittest`. Add or update tests in `tests/test_*.py` with descriptive names (for example, `test_filters_political_names`). Any parser, filter, ranking, or routing change should include a regression test. Run targeted tests during iteration (for example, `python3 -m unittest tests.test_filters`) and full discovery before pushing.
+Testing uses `unittest`. Add regression tests for parser, filtering, dedupe, ranking, and fallback behavior changes.  
+Name tests descriptively (example: `test_youtube_dedupes_duplicate_urls`).  
+Run targeted tests during development, then run full discovery before opening a PR.
 
 ## Commit & Pull Request Guidelines
-Follow existing history: short, imperative commit subjects (`Improve mobile navigation`, `Update news feeds`). Keep behavior changes and generated-data refreshes logically separated when possible. PRs should include: scope summary, files/modules affected, test commands run, and screenshots for UI/mobile changes. Mention regenerated artifacts explicitly.
+Follow existing commit style: concise, imperative, and scoped when useful (examples: `Telegram: ...`, `YouTube: ...`, `Update news feeds`).  
+PRs should include:
+- Summary of behavior changes
+- Files/modules touched
+- Commands run (tests/scripts)
+- Screenshots for UI changes
+- Any required secret/config updates
 
-## LLM Handoff Guidelines
-Use this file as the canonical handoff reference. In every handoff, include: what changed, why, exact commands run, test results, generated files touched, unresolved risks, and required env vars/secrets (`TELEGRAM_*`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`). For major work, add a dated design/decision note in `docs/plans/`.
+## Security & Configuration Tips
+Never commit secrets. Use GitHub Actions secrets for `TELEGRAM_*`, `OPENROUTER_API_KEY`, `GEMINI_API_KEY`, and optional Cloudflare keys.  
+When changing feed/network logic, preserve safe URL handling and existing proxy fallback behavior.
