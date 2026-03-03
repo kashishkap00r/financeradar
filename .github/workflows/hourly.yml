@@ -51,6 +51,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          RSS_PROXY_URL: ${{ secrets.RSS_PROXY_URL }}
         run: python3 aggregator.py
 
       - name: Commit and push if changed

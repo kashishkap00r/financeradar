@@ -17,8 +17,17 @@ import ssl
 import os
 import subprocess
 import html
+import socket
 
 from articles import IST_TZ
+from config import (
+    FEED_CURL_TIMEOUT,
+    FEED_FETCH_TIMEOUT,
+    RSS_PROXY_ALLOWED_CATEGORIES,
+    RSS_PROXY_ENV_VAR,
+    RSS_PROXY_RETRY_HTTP_CODES,
+    RSS_PROXY_TIMEOUT,
+)
 
 # Get script directory
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -176,11 +185,78 @@ def _fetch_url_bytes(url, timeout=15):
             result = subprocess.run(
                 ["curl", "-sL", "-A", ua, url],
                 capture_output=True,
-                timeout=20,
+                timeout=FEED_CURL_TIMEOUT,
             )
             if result.returncode == 0 and result.stdout:
                 return result.stdout
         raise
+
+
+def _get_rss_proxy_url():
+    return (os.getenv(RSS_PROXY_ENV_VAR) or "").strip()
+
+
+def _build_proxy_feed_url(proxy_base, feed_url):
+    parsed = urllib.parse.urlsplit(proxy_base)
+    query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
+    query.append(("url", feed_url))
+    return urllib.parse.urlunsplit(
+        (
+            parsed.scheme,
+            parsed.netloc,
+            parsed.path,
+            urllib.parse.urlencode(query),
+            parsed.fragment,
+        )
+    )
+
+
+def _is_retryable_for_proxy(exc):
+    if isinstance(exc, ET.ParseError):
+        return True
+    if isinstance(exc, socket.timeout):
+        return True
+    if isinstance(exc, TimeoutError):
+        return True
+    if isinstance(exc, urllib.error.HTTPError):
+        if exc.code == 404:
+            return False
+        return exc.code in set(RSS_PROXY_RETRY_HTTP_CODES)
+    if isinstance(exc, urllib.error.URLError):
+        reason = str(getattr(exc, "reason", "")).strip().lower()
+        if "unknown url type" in reason:
+            return False
+        return True
+    return "no content received" in str(exc).strip().lower()
+
+
+def _should_try_proxy(feed_config, exc):
+    category = feed_config.get("category", "News")
+    if category not in set(RSS_PROXY_ALLOWED_CATEGORIES):
+        return False
+    feed_url = (feed_config.get("feed") or "").strip().lower()
+    if not (feed_url.startswith("http://") or feed_url.startswith("https://")):
+        return False
+    proxy_base = _get_rss_proxy_url()
+    if not proxy_base:
+        return False
+    if not _is_retryable_for_proxy(exc):
+        return False
+    return True
+
+
+def _fetch_feed_via_proxy(feed_config):
+    feed_url = feed_config["feed"]
+    proxy_base = _get_rss_proxy_url()
+    proxy_feed_url = _build_proxy_feed_url(proxy_base, feed_url)
+    content = _fetch_url_bytes(proxy_feed_url, timeout=RSS_PROXY_TIMEOUT)
+    if not content:
+        raise Exception("No content received from proxy")
+    articles = _parse_feed_content(content, feed_config)
+    google_stats = None
+    if _is_google_rss_feed(feed_url):
+        google_stats = _post_process_google_rss_articles(articles, feed_config)
+    return articles, google_stats
 
 
 def _parse_feed_content(content, feed_config):
@@ -605,7 +681,7 @@ def fetch_feed(feed_config):
     google_stats = None
 
     try:
-        content = _fetch_url_bytes(feed_url, timeout=15)
+        content = _fetch_url_bytes(feed_url, timeout=FEED_FETCH_TIMEOUT)
         if not content:
             raise Exception("No content received")
 
@@ -618,6 +694,18 @@ def fetch_feed(feed_config):
             print(f"    [INFO] Google link decode: {google_stats['resolved']}/{google_stats['attempted']} resolved")
 
     except Exception as e:
+        if _should_try_proxy(feed_config, e):
+            try:
+                articles, google_stats = _fetch_feed_via_proxy(feed_config)
+                print(f"  [OK] {feed_name}: {len(articles)} articles (via proxy fallback)")
+                if google_stats and google_stats["attempted"] > 0:
+                    print(
+                        f"    [INFO] Google link decode: "
+                        f"{google_stats['resolved']}/{google_stats['attempted']} resolved"
+                    )
+                return articles
+            except Exception as proxy_exc:
+                print(f"  [WARN] {feed_name}: proxy fallback failed ({str(proxy_exc)[:60]})")
         print(f"  [FAIL] {feed_name}: {str(e)[:50]}")
 
     return articles
