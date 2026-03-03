@@ -463,6 +463,8 @@ Both workflows validate that required secrets are set before running, fail fast 
 | `TELEGRAM_SESSION` | `hourly.yml` | Run `python3 generate_session.py` once interactively |
 | `OPENROUTER_API_KEY` | `ai-ranking.yml` | [openrouter.ai](https://openrouter.ai) → Keys |
 | `RSS_PROXY_URL` *(optional)* | `hourly.yml` | Cloudflare RSS proxy endpoint (for fallback retries on feed errors) |
+| `CLOUDFLARE_API_TOKEN` *(optional)* | `deploy-rss-proxy.yml` | Cloudflare token with Workers edit permissions |
+| `CLOUDFLARE_ACCOUNT_ID` *(optional)* | `deploy-rss-proxy.yml` | Cloudflare account ID |
 
 ### Cloudflare Pages Setup
 
@@ -531,6 +533,24 @@ Behavior:
 - Proxy fallback is attempted once only for retryable failures (`403`, `429`, timeout/network, malformed XML, empty body).
 - Proxy fallback is skipped for `404` responses and for `Videos` category feeds.
 - If `RSS_PROXY_URL` is unset, behavior remains unchanged (no proxy fallback).
+
+### Deploy Your Own RSS Proxy (Cloudflare Worker)
+
+This repo includes a worker at `infra/rss-proxy`.
+
+Local deploy:
+```bash
+cd infra/rss-proxy
+npx wrangler deploy
+```
+
+GitHub deploy:
+1. Set `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets.
+2. Run workflow: `Deploy RSS Proxy`.
+3. Copy the resulting worker URL and set it as `RSS_PROXY_URL` secret.
+
+Security hardening after deploy:
+- Set `ALLOWED_HOSTS` in `infra/rss-proxy/wrangler.toml` to a comma-separated allowlist (for example: `substack.com,news.google.com,feeds.feedburner.com,www.youtube.com`).
 
 ### Add a Telegram Channel
 

@@ -5,3 +5,4 @@ cron.log
 .env
 .env.*
 audit/
+.wrangler/

@@ -1,0 +1,10 @@
+name = "financeradar-rss-proxy"
+main = "src/index.js"
+compatibility_date = "2026-03-03"
+workers_dev = true
+
+[vars]
+# Comma-separated host allowlist. Keep empty only for initial testing.
+ALLOWED_HOSTS = ""
+FETCH_TIMEOUT_MS = "20000"
+
