@@ -633,9 +633,6 @@ def generate_html(
 
     <div class="container">
         <div class="content-tabs">
-            <button class="content-tab" data-tab="home" onclick="switchTab('home')">
-                Home <span class="tab-count">6</span>
-            </button>
             <button class="content-tab active" data-tab="news" onclick="switchTab('news')">
                 News <span class="tab-count">{len(sorted_articles)}</span>
             </button>
@@ -655,74 +652,6 @@ def generate_html(
                 Twitter <span class="tab-count">{twitter_count}</span>
             </button>
         </div>
-
-        <div id="tab-home" class="tab-content">
-            <div class="home-hub" id="home-hub">
-                <div class="home-hero-card" id="home-hero-card">
-                    <div class="home-hero-head">
-                        <div>
-                            <div class="home-eyebrow">Homepage</div>
-                            <h2 class="home-hero-title" id="home-hero-title">AI Picks</h2>
-                        </div>
-                        <button class="home-refresh-btn" type="button" onclick="renderHomeTab()">Refresh</button>
-                    </div>
-                    <div class="home-hero-subtitle" id="home-hero-subtitle">Loading curated highlights...</div>
-                    <div class="home-hero-list" id="home-hero-list"></div>
-                </div>
-
-                <div class="home-bento-grid" id="home-bento-grid">
-                    <section class="home-card home-card-news" data-home-card="news">
-                        <div class="home-card-head">
-                            <h3 class="home-card-title">News Pulse</h3>
-                        </div>
-                        <div class="home-card-list" id="home-news-list"></div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('news')">View More</button>
-                    </section>
-
-                    <section class="home-card home-card-telegram" data-home-card="telegram">
-                        <div class="home-card-head">
-                            <h3 class="home-card-title">Telegram Desk</h3>
-                        </div>
-                        <div class="home-card-list" id="home-telegram-list"></div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('reports')">View More</button>
-                    </section>
-
-                    <section class="home-card home-card-reports" data-home-card="reports">
-                        <div class="home-card-head">
-                            <h3 class="home-card-title">Reports</h3>
-                        </div>
-                        <div class="home-card-list" id="home-research-list"></div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('research')">View More</button>
-                    </section>
-
-                    <section class="home-card home-card-papers" data-home-card="papers">
-                        <div class="home-card-head">
-                            <h3 class="home-card-title">Paper Spotlight</h3>
-                        </div>
-                        <div class="home-card-list" id="home-papers-list"></div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('papers')">View More</button>
-                    </section>
-
-                    <section class="home-card home-card-youtube" data-home-card="youtube">
-                        <div class="home-card-head">
-                            <h3 class="home-card-title">YouTube Watchlist</h3>
-                        </div>
-                        <div class="home-card-list" id="home-youtube-list"></div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('youtube')">View More</button>
-                    </section>
-
-                    <section class="home-card home-card-twitter" data-home-card="twitter">
-                        <div class="home-card-head">
-                            <h3 class="home-card-title">Signal Tweets</h3>
-                        </div>
-                        <div class="home-card-list" id="home-twitter-list"></div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('twitter')">View More</button>
-                    </section>
-                </div>
-
-                <div class="home-no-results hidden" id="home-no-results">No Home sections match your search.</div>
-            </div>
-        </div><!-- /tab-home -->
 
         <div id="tab-news" class="tab-content active">
         <div class="filter-card">
@@ -1071,7 +1000,7 @@ def generate_html(
     <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
     <div class="keyboard-hint">
-        <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> <kbd>6</kbd> <kbd>7</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
+        <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> <kbd>6</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
     </div>
 
     <script>
