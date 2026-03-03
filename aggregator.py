@@ -634,7 +634,7 @@ def generate_html(
     <div class="container">
         <div class="content-tabs">
             <button class="content-tab" data-tab="home" onclick="switchTab('home')">
-                Home <span class="tab-count">5</span>
+                Home <span class="tab-count">6</span>
             </button>
             <button class="content-tab active" data-tab="news" onclick="switchTab('news')">
                 News <span class="tab-count">{len(sorted_articles)}</span>
@@ -662,10 +662,11 @@ def generate_html(
                     <div class="home-hero-head">
                         <div>
                             <div class="home-eyebrow">Homepage</div>
-                            <h2 class="home-hero-title" id="home-hero-title">Spotlight</h2>
+                            <h2 class="home-hero-title" id="home-hero-title">AI Picks</h2>
                         </div>
+                        <button class="home-refresh-btn" type="button" onclick="renderHomeTab()">Refresh</button>
                     </div>
-                    <div class="home-hero-subtitle" id="home-hero-subtitle">Highlights for the day.</div>
+                    <div class="home-hero-subtitle" id="home-hero-subtitle">Loading curated highlights...</div>
                     <div class="home-hero-list" id="home-hero-list"></div>
                 </div>
 
@@ -692,6 +693,14 @@ def generate_html(
                         </div>
                         <div class="home-card-list" id="home-research-list"></div>
                         <button class="home-view-more-btn" type="button" onclick="openTabFromHome('research')">View More</button>
+                    </section>
+
+                    <section class="home-card home-card-papers" data-home-card="papers">
+                        <div class="home-card-head">
+                            <h3 class="home-card-title">Paper Spotlight</h3>
+                        </div>
+                        <div class="home-card-list" id="home-papers-list"></div>
+                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('papers')">View More</button>
                     </section>
 
                     <section class="home-card home-card-youtube" data-home-card="youtube">

@@ -1488,12 +1488,13 @@
         const HOME_SEEN_KEY = 'financeradar_home_seen';
         let homeRendered = false;
         const HOME_LIMITS = {
-            hero: 5,
-            news: 8,
-            telegram: 6,
-            research: 6,
-            youtube: 4,
-            twitter: 5
+            hero: 4,
+            news: 4,
+            telegram: 3,
+            research: 3,
+            papers: 3,
+            youtube: 3,
+            twitter: 3
         };
 
         // ==================== REPORTS TAB ====================
@@ -1681,43 +1682,18 @@
             return date.toLocaleDateString();
         }
 
-        function cleanHomeTitle(rawTitle) {
-            return String(rawTitle || '')
-                .replace(/[*_`~#>\[\]\(\)]/g, ' ')
-                .replace(/\s+/g, ' ')
-                .trim() || 'Untitled';
-        }
-
-        function getTelegramReportDocuments(report) {
-            if (Array.isArray(report.documents) && report.documents.length > 0) return report.documents;
-            if (report.document && report.document.title) return [report.document];
-            return [];
-        }
-
-        function isPdfDocument(doc) {
-            const title = String(doc && doc.title ? doc.title : '').toLowerCase();
-            const url = String(doc && doc.url ? doc.url : '').toLowerCase();
-            return /\.pdf(\b|\?)/i.test(title) || /\.pdf(\b|\?)/i.test(url);
-        }
-
         function buildHomeItemHtml(item) {
-            const cleanTitle = cleanHomeTitle(item.title || '');
-            const title = escapeHtml(cleanTitle);
+            const title = escapeHtml(item.title || 'Untitled');
             const url = sanitizeUrl(item.url || '');
+            const subtitle = item.subtitle ? `<div class="home-item-subtitle">${escapeHtml(item.subtitle)}</div>` : '';
             const meta = item.meta ? `<div class="home-item-meta">${escapeHtml(item.meta)}</div>` : '';
-            const thumbnail = sanitizeUrl(item.thumbnail || '');
             const titleHtml = url
                 ? `<a href="${escapeForAttr(url)}" target="_blank" rel="noopener">${title}</a>`
                 : `<span class="home-item-title-nolink">${title}</span>`;
-            const media = thumbnail
-                ? `<div class="home-item-thumb"><img src="${escapeForAttr(thumbnail)}" alt="${escapeForAttr(cleanTitle)}" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`
-                : '';
-            return `<article class="home-item${thumbnail ? ' home-item-with-thumb' : ''}">
-                ${media}
-                <div class="home-item-body">
-                    <div class="home-item-title">${titleHtml}</div>
-                    ${meta}
-                </div>
+            return `<article class="home-item">
+                <div class="home-item-title">${titleHtml}</div>
+                ${subtitle}
+                ${meta}
             </article>`;
         }
 
@@ -1741,27 +1717,31 @@
                 if (!title || (url && seen.has(url))) return;
                 if (url) seen.add(url);
                 const source = article.querySelector('.source-tag')?.textContent?.trim() || 'News';
-                items.push({ title: cleanHomeTitle(title), url, meta: source });
+                const time = article.querySelector('.article-time')?.textContent?.trim() || '';
+                const meta = time ? `${source} · ${time}` : source;
+                items.push({ title, url, meta });
             });
             return items;
         }
 
         function getHomeTelegramItems(limit) {
             const items = [];
-            TELEGRAM_REPORTS.forEach(report => {
-                if (items.length >= limit) return;
+            TELEGRAM_REPORTS.filter(reportHasContent).slice(0, limit).forEach(report => {
                 const lines = String(report.text || '').split('\n').map(line => line.trim()).filter(Boolean);
-                const docs = getTelegramReportDocuments(report);
-                const pdfDocs = docs.filter(isPdfDocument);
-                const hasText = lines.length > 0;
-                if (!hasText && pdfDocs.length === 0) return;
-
-                const title = cleanHomeTitle(lines[0] || (pdfDocs[0] && pdfDocs[0].title) || 'Telegram update');
+                const docs = (report.documents && report.documents.length > 0)
+                    ? report.documents
+                    : (report.document && report.document.title ? [report.document] : []);
+                const hasImages = Array.isArray(report.images) && report.images.length > 0;
+                const title = lines[0] || (docs[0] && docs[0].title) || 'Telegram update';
+                const subtitle = docs.length > 0 ? 'Report/PDF update' : (hasImages ? 'Image-led post' : 'Text post');
                 const channel = report.channel || 'Telegram';
+                const when = formatRelativeTimeShort(report.date);
+                const meta = when ? `${channel} · ${when}` : channel;
                 items.push({
                     title,
-                    url: sanitizeUrl(report.url || (pdfDocs[0] && pdfDocs[0].url) || ''),
-                    meta: channel
+                    url: sanitizeUrl(report.url || ''),
+                    subtitle,
+                    meta
                 });
             });
             return items;
@@ -1770,10 +1750,30 @@
         function getHomeResearchItems(limit) {
             return RESEARCH_REPORTS.slice(0, limit).map(report => {
                 const source = report.publisher || report.source || 'Research';
+                const region = report.region ? String(report.region) : '';
+                const when = formatRelativeTimeShort(report.date);
+                const metaParts = [source];
+                if (region) metaParts.push(region);
+                if (when) metaParts.push(when);
                 return {
-                    title: cleanHomeTitle(report.title || 'Research report'),
+                    title: report.title || 'Research report',
                     url: sanitizeUrl(report.link || report.source_url || ''),
-                    meta: source
+                    subtitle: report.description || '',
+                    meta: metaParts.join(' · ')
+                };
+            });
+        }
+
+        function getHomePaperItems(limit) {
+            return PAPER_ARTICLES.slice(0, limit).map(paper => {
+                const source = paper.publisher || paper.source || 'Paper';
+                const when = formatRelativeTimeShort(paper.date);
+                const meta = when ? `${source} · ${when}` : source;
+                return {
+                    title: paper.title || 'Untitled paper',
+                    url: sanitizeUrl(paper.link || paper.source_url || ''),
+                    subtitle: paper.authors || (paper.description || ''),
+                    meta
                 };
             });
         }
@@ -1781,11 +1781,15 @@
         function getHomeYoutubeItems(limit) {
             return YOUTUBE_VIDEOS.slice(0, limit).map(video => {
                 const channel = video.publisher || video.source || 'YouTube';
+                const bucket = video.youtube_bucket || '';
+                const when = formatRelativeTimeShort(video.date);
+                const metaParts = [channel];
+                if (bucket) metaParts.push(bucket);
+                if (when) metaParts.push(when);
                 return {
-                    title: cleanHomeTitle(video.title || 'Untitled video'),
+                    title: video.title || 'Untitled video',
                     url: sanitizeUrl(video.link || video.source_url || ''),
-                    thumbnail: sanitizeUrl(video.thumbnail || '') || (video.video_id ? `https://i.ytimg.com/vi/${video.video_id}/mqdefault.jpg` : ''),
-                    meta: channel
+                    meta: metaParts.join(' · ')
                 };
             });
         }
@@ -1793,40 +1797,44 @@
         function getHomeTwitterItems(limit) {
             return TWITTER_HIGH_SIGNAL.slice(0, limit).map(tweet => {
                 const publisher = tweet.publisher || tweet.source || 'Twitter';
+                const when = formatRelativeTimeShort(tweet.date);
+                const meta = when ? `${publisher} · ${when}` : publisher;
                 return {
-                    title: cleanHomeTitle(tweet.title || 'Tweet'),
+                    title: tweet.title || 'Tweet',
                     url: sanitizeUrl(tweet.link || tweet.source_url || ''),
-                    meta: publisher
+                    meta
                 };
             });
         }
 
-        function getHomeSpotlightItems(limit) {
-            if (!aiRankings || !aiRankings.providers) return getHomeNewsItems(limit);
+        function getHomeAiHeroPayload() {
+            const fallback = {
+                title: 'Top News Pulse',
+                subtitle: 'AI picks unavailable right now. Showing the latest news highlights.',
+                items: getHomeNewsItems(HOME_LIMITS.hero)
+            };
+
+            if (!aiRankings || !aiRankings.providers) return fallback;
 
             const bucket = AI_BUCKET_ORDER.includes(currentAiBucket) ? currentAiBucket : 'news';
             const providers = getAvailableProvidersForBucket(bucket);
-            if (!providers.length) return getHomeNewsItems(limit);
+            if (!providers.length) return fallback;
 
             const preferred = providers.some(([key]) => key === currentAiProvider)
                 ? currentAiProvider
                 : providers[0][0];
             const provider = aiRankings.providers[preferred];
-            const rankings = getProviderBucketRankings(provider, bucket).slice(0, limit);
-            if (!rankings.length) return getHomeNewsItems(limit);
+            const rankings = getProviderBucketRankings(provider, bucket).slice(0, HOME_LIMITS.hero);
+            if (!rankings.length) return fallback;
 
-            return rankings.map(item => ({
-                title: cleanHomeTitle(item.title || 'Untitled'),
-                url: sanitizeUrl(item.url || ''),
-                meta: item.source || AI_BUCKET_LABELS[bucket]
-            }));
-        }
-
-        function getHomeHeroPayload() {
             return {
-                title: 'Spotlight',
-                subtitle: 'Highlights for the day.',
-                items: getHomeSpotlightItems(HOME_LIMITS.hero)
+                title: `AI Picks · ${AI_BUCKET_LABELS[bucket]}`,
+                subtitle: `${provider.name || preferred} ranked highlights`,
+                items: rankings.map(item => ({
+                    title: item.title || 'Untitled',
+                    url: sanitizeUrl(item.url || ''),
+                    meta: item.source || AI_BUCKET_LABELS[bucket]
+                }))
             };
         }
 
@@ -1836,11 +1844,11 @@
             const listEl = document.getElementById('home-hero-list');
             if (!titleEl || !subtitleEl || !listEl) return;
 
-            const payload = getHomeHeroPayload();
+            const payload = getHomeAiHeroPayload();
             titleEl.textContent = payload.title;
             subtitleEl.textContent = payload.subtitle;
             if (!payload.items.length) {
-                listEl.innerHTML = '<div class="home-item-empty">No highlights available yet.</div>';
+                listEl.innerHTML = '<div class="home-item-empty">No AI highlights available yet.</div>';
                 return;
             }
             listEl.innerHTML = payload.items.map(buildHomeItemHtml).join('');
@@ -1851,6 +1859,7 @@
             renderHomeList('home-news-list', getHomeNewsItems(HOME_LIMITS.news), 'No news highlights available.');
             renderHomeList('home-telegram-list', getHomeTelegramItems(HOME_LIMITS.telegram), 'No Telegram highlights available.');
             renderHomeList('home-research-list', getHomeResearchItems(HOME_LIMITS.research), 'No report highlights available.');
+            renderHomeList('home-papers-list', getHomePaperItems(HOME_LIMITS.papers), 'No paper highlights available.');
             renderHomeList('home-youtube-list', getHomeYoutubeItems(HOME_LIMITS.youtube), 'No YouTube highlights available.');
             renderHomeList('home-twitter-list', getHomeTwitterItems(HOME_LIMITS.twitter), 'No Twitter highlights available.');
             filterHomeCards();
