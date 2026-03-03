@@ -28,7 +28,6 @@ OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
 REPORTS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "reports_cache.json")
 PAPERS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "papers_cache.json")
 PUBLISHED_SNAPSHOT_FILE = os.path.join(SCRIPT_DIR, "static", "published_snapshot.json")
-TWITTER_URL_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "twitter_url_cache.json")
 
 # Filters extracted to filters.py for independent editing and testing
 from filters import should_filter_article, should_filter_video, should_filter_political
@@ -48,10 +47,11 @@ from paper_fetcher import fetch_papers, load_papers_cache, save_papers_cache
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
                     TWITTER_HIGH_SIGNAL_WINDOW_HOURS, TWITTER_HIGH_SIGNAL_TARGET,
-                    TWITTER_RESOLVE_WORKERS, REPORTS_FRESHNESS_DAYS,
+                    REPORTS_FRESHNESS_DAYS,
                     FEED_FAILURE_ALERT_THRESHOLD)
 from log_utils import FeedLogger
-from twitter_signal import resolve_google_twitter_urls, build_twitter_lanes
+from twitter_signal import build_twitter_lanes
+from twitter_fetcher import fetch_twitter_articles
 
 
 def _to_iso_datetime(dt):
@@ -1043,14 +1043,20 @@ def main():
         logger.warn("feeds", "No feeds to fetch. Check your feeds.json file.")
         return
 
-    logger.info(f"Fetching {len(feeds)} feeds...")
+    twitter_feeds = [f for f in feeds if f.get("category") == "Twitter"]
+    non_twitter_feeds = [f for f in feeds if f.get("category") != "Twitter"]
+
+    logger.info(
+        f"Fetching {len(non_twitter_feeds)} non-Twitter feeds "
+        f"+ {len(twitter_feeds)} Twitter handles..."
+    )
 
     all_articles = []
 
     # Fetch feeds in parallel (10 at a time)
     with ThreadPoolExecutor(max_workers=FEED_THREAD_WORKERS) as executor:
         futures = {}
-        for feed in feeds:
+        for feed in non_twitter_feeds:
             feed_field = feed.get("feed", "")
             if feed.get("id") == "the-ken":
                 futures[executor.submit(fetch_the_ken, feed)] = feed
@@ -1086,6 +1092,35 @@ def main():
                     logger.warn(feed_name, f"Live fetch error ({str(e)[:80]}); checking cache fallback")
                 else:
                     logger.fail(feed_name, str(e))
+
+    try:
+        twitter_articles, twitter_fetch_meta = fetch_twitter_articles(twitter_feeds, logger=logger)
+    except Exception as exc:
+        twitter_articles, twitter_fetch_meta = [], {
+            "source_mode": "snapshot",
+            "consecutive_auth_failures": 0,
+            "warning": f"twitter_ingest_crashed:{type(exc).__name__}",
+        }
+    all_articles.extend(twitter_articles)
+    twitter_mode = twitter_fetch_meta.get("source_mode", "snapshot")
+    twitter_failures = twitter_fetch_meta.get("consecutive_auth_failures", 0)
+    if twitter_articles:
+        if twitter_mode == "snapshot":
+            logger.warn(
+                "Twitter",
+                f"Using cached clean snapshot ({len(twitter_articles)} tweets, auth failures={twitter_failures})",
+            )
+        else:
+            logger.ok(
+                "Twitter",
+                f"{len(twitter_articles)} tweets via {twitter_mode} (auth failures={twitter_failures})",
+            )
+        logger.add_articles(len(twitter_articles))
+    else:
+        logger.fail("Twitter", "0 tweets (auth + emergency + snapshot unavailable)")
+
+    if twitter_fetch_meta.get("warning"):
+        logger.warn("Twitter ingest", twitter_fetch_meta["warning"])
 
     total_feeds = logger._ok + logger._fail
     logger.info(f"Total articles collected: {len(all_articles)}")
@@ -1355,20 +1390,6 @@ def main():
                         (t["date"] if t["date"].tzinfo else t["date"].replace(tzinfo=IST_TZ)) >= twitter_cutoff]
     twitter_articles.sort(key=get_sort_timestamp, reverse=True)
 
-    # Resolve Google RSS wrapper links in Twitter feed to direct x.com links.
-    twitter_articles, twitter_resolve_stats = resolve_google_twitter_urls(
-        twitter_articles,
-        TWITTER_URL_CACHE_FILE,
-        logger=logger,
-        max_workers=TWITTER_RESOLVE_WORKERS,
-    )
-    if twitter_resolve_stats.get("attempted"):
-        logger.info(
-            "Twitter URL resolve: "
-            f"{twitter_resolve_stats.get('resolved', 0)}/{twitter_resolve_stats.get('attempted', 0)} "
-            f"(cache hits: {twitter_resolve_stats.get('cache_hits', 0)})"
-        )
-
     # Build Twitter lanes (High Signal + Full Stream) with AI/fallback ranking.
     twitter_full_stream, twitter_high_signal, twitter_lane_stats = build_twitter_lanes(
         twitter_articles,
@@ -1381,6 +1402,9 @@ def main():
         f"full={len(twitter_full_stream)}, high={len(twitter_high_signal)}, "
         f"mode={twitter_lane_stats.get('ranking_mode', 'fallback')}"
     )
+    twitter_lane_stats["source_mode"] = twitter_mode
+    twitter_lane_stats["ingest_generated_at"] = twitter_fetch_meta.get("generated_at")
+    twitter_lane_stats["ingest_auth_failures"] = twitter_failures
     twitter_articles = twitter_full_stream
 
     # Remove duplicates based on URL only (not title - to preserve source diversity)

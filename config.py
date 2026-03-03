@@ -18,18 +18,19 @@ NEWS_FRESHNESS_DAYS = 5          # News tab: discard articles older than this
 TWITTER_FRESHNESS_DAYS = 5       # Twitter tab: discard tweets older than this
 TWITTER_HIGH_SIGNAL_WINDOW_HOURS = 24  # Twitter high-signal window
 TWITTER_HIGH_SIGNAL_TARGET = 25        # Twitter high-signal lane size
-TWITTER_STALE_HOURS_FOR_NITTER_FALLBACK = 6  # fallback trigger when Google RSS is stale
 REPORTS_FRESHNESS_DAYS = 30      # Reports tab: discard reports older than this
 VIDEO_FRESHNESS_DAYS = 10        # YouTube tab (used by CLAUDE.md, not code)
 TWITTER_RESOLVE_WORKERS = 8      # concurrent Google->X resolve workers
-NITTER_TIMEOUT_SECONDS = 8       # timeout for each fallback Nitter instance
-NITTER_INSTANCES = [             # curated fallback list (rotated in order)
-    "https://nitter.net",
-    "https://nitter.tiekoetter.com",
-    "https://nitter.pufe.org",
-    "https://nitter.weiler.rocks",
-    "https://nitter.it",
-]
+
+# ── Twitter/X ingestion ───────────────────────────────────────────────
+TWITTER_PRIMARY_MODE = "auth_pool"     # auth_pool | google_only
+TWITTER_POLL_INTERVAL_MIN = 15         # target cadence for pipeline freshness
+TWITTER_FAILS_BEFORE_EMERGENCY = 2     # auth failures before Google emergency mode
+TWITTER_AUTH_LOOKBACK_HOURS = 48       # lookback window for auth fetch mode
+TWITTER_AUTH_MAX_TWEETS_PER_HANDLE = 30  # max fetched per handle in auth mode
+TWITTER_EMERGENCY_MAX_ITEMS_PER_HANDLE = 30  # max fetched per handle in emergency mode
+TWITTER_ACCOUNTS_ENV_VAR = "TWITTER_ACCOUNTS_JSON"
+TWITTER_CACHE_FILE = "static/twitter_clean_cache.json"
 
 # ── Report scrapers ───────────────────────────────────────────────────
 SCRAPER_MAX_ARTICLES = 30        # max articles per scraper invocation

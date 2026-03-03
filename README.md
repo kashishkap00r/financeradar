@@ -505,7 +505,7 @@ Find the channel ID from the YouTube channel page source (search for `channel_id
 
 ### Add a Twitter/X Feed
 
-Uses Google News RSS to search for `site:x.com` content:
+Twitter handles are declared in `feeds.json` (used by auth mode and emergency mode):
 ```json
 {
   "id": "twitter-username",
@@ -515,6 +515,35 @@ Uses Google News RSS to search for `site:x.com` content:
   "category": "Twitter"
 }
 ```
+
+### Configure Twitter Auth Pool (No API Keys)
+
+Set `TWITTER_ACCOUNTS_JSON` (local env and GitHub secret) with 1-2 burner accounts.
+Cookie-backed accounts are most reliable:
+
+```json
+[
+  {
+    "username": "burner_a",
+    "password": "placeholder",
+    "email": "burner_a@example.com",
+    "email_password": "placeholder",
+    "cookies": "auth_token=...; ct0=..."
+  },
+  {
+    "username": "burner_b",
+    "password": "placeholder",
+    "email": "burner_b@example.com",
+    "email_password": "placeholder",
+    "cookies": "auth_token=...; ct0=..."
+  }
+]
+```
+
+Runtime behavior:
+- Primary mode: authenticated scrape (`twscrape`) of configured handles.
+- Emergency mode: Google RSS fallback after 2 consecutive auth-fail cycles.
+- Last-resort mode: serve `static/twitter_clean_cache.json` snapshot when both fail.
 
 ### Add a Telegram Channel
 
@@ -564,6 +593,9 @@ These are written automatically — **do not hand-edit**.
 | `static/ai_rankings.json` | `ai_ranker.py` | AI-ranked top 20 stories |
 | `static/telegram_reports.json` | `telegram_fetcher.py` | All scraped Telegram messages with document metadata |
 | `static/youtube_cache.json` | `aggregator.py` | YouTube feed cache to avoid re-fetching thumbnails |
+| `static/twitter_clean_cache.json` | `twitter_fetcher.py` | Last known-good clean Twitter payload for outage fallback |
+| `static/twitter_user_cache.json` | `twitter_fetcher.py` | Cached X user IDs for faster authenticated fetch cycles |
+| `static/twitter_url_cache.json` | `twitter_signal.py`/`twitter_fetcher.py` | Google wrapper → x.com resolution cache |
 | `cron.log` | shell/cron | Execution output (gitignored) |
 
 ---
@@ -607,10 +639,11 @@ git commit -m "Regenerate after rebase"
 
 - Python 3.8+
 - `telethon>=1.36` (`pip install -r requirements.txt`) — only needed for MTProto Telegram channels
+- `twscrape>=0.17.0` (`pip install -r requirements.txt`) — Twitter auth-pool ingestion without official API keys
 - `curl` — for 403 fallback on Cloudflare-protected feeds
 - Internet access
 
-No other `pip install` required. The HTML output has no runtime dependencies.
+The generated HTML output has no runtime dependencies.
 
 ---
 
@@ -618,7 +651,7 @@ No other `pip install` required. The HTML output has no runtime dependencies.
 
 | Layer | Technology |
 |-------|-----------|
-| Backend | Python 3 (stdlib only, except Telethon) |
+| Backend | Python 3 + Telethon + twscrape |
 | Frontend | Vanilla HTML/CSS/JS (fully embedded in `index.html`) |
 | Fonts | Merriweather (headings) + Source Sans Pro (body) via Google Fonts |
 | Telegram API | Telethon (MTProto) + HTML scraping |

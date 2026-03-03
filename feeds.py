@@ -18,12 +18,7 @@ import os
 import subprocess
 import html
 
-from articles import IST_TZ, clean_twitter_title
-from config import (
-    NITTER_INSTANCES,
-    NITTER_TIMEOUT_SECONDS,
-    TWITTER_STALE_HOURS_FOR_NITTER_FALLBACK,
-)
+from articles import IST_TZ
 
 # Get script directory
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -43,10 +38,6 @@ HTTP_URL_RE = re.compile(r"https?://[^\s\"'<>\\)]+", re.IGNORECASE)
 X_PROFILE_HANDLE_RE = re.compile(r"^https?://(?:www\.)?x\.com/([^/?#]+)", re.IGNORECASE)
 TWEET_STATUS_RE = re.compile(
     r"^https?://(?:www\.|m\.|mobile\.)?(?:x|twitter)\.com/([^/]+)/status/(\d+)",
-    re.IGNORECASE,
-)
-NITTER_STATUS_RE = re.compile(
-    r"^https?://[^/]*nitter[^/]*/([^/]+)/status/(\d+)",
     re.IGNORECASE,
 )
 YOUTUBE_BUCKETS = (
@@ -156,89 +147,6 @@ def _extract_x_handle(feed_config):
     if query_match:
         return query_match.group(1).strip()
     return ""
-
-
-def _canonicalize_nitter_tweet_url(url):
-    """Convert Nitter tweet links to canonical x.com status URLs."""
-    link = (url or "").strip()
-    if not link:
-        return ""
-    match = NITTER_STATUS_RE.match(link)
-    if not match:
-        return link
-    handle, tweet_id = match.group(1), match.group(2)
-    return f"https://x.com/{handle}/status/{tweet_id}"
-
-
-def _tweet_identity(article):
-    """Build a stable identity for tweet dedupe across Google/Nitter sources."""
-    link = (article.get("link") or "").strip()
-    for regex in (TWEET_STATUS_RE, NITTER_STATUS_RE):
-        match = regex.match(link)
-        if match:
-            return f"tweet:{match.group(2)}"
-    title = clean_twitter_title(article.get("title", "")).strip().lower()
-    if title:
-        return f"title:{title}"
-    return ""
-
-
-def _merge_twitter_articles(primary_articles, fallback_articles):
-    """Merge primary + fallback tweet lists with stable dedupe."""
-    merged = []
-    seen = set()
-    for article in list(primary_articles) + list(fallback_articles):
-        key = _tweet_identity(article)
-        if key and key in seen:
-            continue
-        if key:
-            seen.add(key)
-        merged.append(article)
-    return merged
-
-
-def _newest_article_date(articles):
-    """Return newest datetime from an article list in UTC."""
-    newest = None
-    for article in articles:
-        dt = article.get("date")
-        if not dt:
-            continue
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
-        dt = dt.astimezone(timezone.utc)
-        if newest is None or dt > newest:
-            newest = dt
-    return newest
-
-
-def _fetch_nitter_twitter_feed(feed_config, handle):
-    """Fetch Twitter/X items from rotating Nitter RSS instances."""
-    quoted_handle = urllib.parse.quote((handle or "").strip(), safe="")
-    if not quoted_handle:
-        return [], ""
-
-    for instance in NITTER_INSTANCES:
-        base = (instance or "").strip().rstrip("/")
-        if not base:
-            continue
-        if not base.startswith(("http://", "https://")):
-            base = f"https://{base}"
-        feed_url = f"{base}/{quoted_handle}/rss"
-        nitter_cfg = {**feed_config, "feed": feed_url}
-        try:
-            content = _fetch_url_bytes(feed_url, timeout=NITTER_TIMEOUT_SECONDS)
-            if not content:
-                continue
-            articles = _parse_feed_content(content, nitter_cfg)
-            if not articles:
-                continue
-            for article in articles:
-                article["link"] = _canonicalize_nitter_tweet_url(article.get("link", ""))
-            return articles, base
-        except Exception:
-            continue
-    return [], ""
 
 
 THE_KEN_ALL_STORIES_URL = "https://the-ken.com/all-stories/"
@@ -693,10 +601,8 @@ def fetch_feed(feed_config):
     """Fetch and parse a single RSS feed."""
     feed_url = feed_config["feed"]
     feed_name = feed_config["name"]
-    feed_category = feed_config.get("category", "")
     articles = []
     google_stats = None
-    nitter_note = ""
 
     try:
         content = _fetch_url_bytes(feed_url, timeout=15)
@@ -707,37 +613,9 @@ def fetch_feed(feed_config):
         if _is_google_rss_feed(feed_url):
             google_stats = _post_process_google_rss_articles(articles, feed_config)
 
-        if feed_category == "Twitter":
-            newest = _newest_article_date(articles)
-            now_utc = datetime.now(timezone.utc)
-            is_stale = (
-                not articles
-                or newest is None
-                or (now_utc - newest) > timedelta(hours=TWITTER_STALE_HOURS_FOR_NITTER_FALLBACK)
-            )
-            if is_stale:
-                handle = _extract_x_handle(feed_config)
-                if handle:
-                    fallback_articles, fallback_instance = _fetch_nitter_twitter_feed(feed_config, handle)
-                    if fallback_articles:
-                        before = len(articles)
-                        articles = _merge_twitter_articles(articles, fallback_articles)
-                        nitter_note = (
-                            "    [INFO] Nitter fallback"
-                            f" ({fallback_instance}): +{len(articles) - before} merged"
-                        )
-                    else:
-                        nitter_note = (
-                            "    [WARN] Nitter fallback triggered but no instance returned parseable items"
-                        )
-                else:
-                    nitter_note = "    [WARN] Nitter fallback skipped: could not derive X handle"
-
         print(f"  [OK] {feed_name}: {len(articles)} articles")
         if google_stats and google_stats["attempted"] > 0:
             print(f"    [INFO] Google link decode: {google_stats['resolved']}/{google_stats['attempted']} resolved")
-        if nitter_note:
-            print(nitter_note)
 
     except Exception as e:
         print(f"  [FAIL] {feed_name}: {str(e)[:50]}")
