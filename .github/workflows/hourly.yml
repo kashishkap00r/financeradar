@@ -56,7 +56,12 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html static/articles.json static/telegram_reports.json static/youtube_cache.json static/reports_cache.json static/published_snapshot.json static/papers_cache.json static/twitter_url_cache.json static/twitter_clean_cache.json static/twitter_user_cache.json
+            git add index.html static/articles.json static/telegram_reports.json static/youtube_cache.json static/reports_cache.json static/published_snapshot.json static/papers_cache.json static/twitter_url_cache.json
+            for optional_file in static/twitter_clean_cache.json static/twitter_user_cache.json; do
+              if [ -f "$optional_file" ]; then
+                git add "$optional_file"
+              fi
+            done
             git commit -m "Update news feeds"
             git pull --no-rebase origin main
             git push
