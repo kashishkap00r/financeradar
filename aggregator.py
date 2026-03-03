@@ -1115,7 +1115,7 @@ def main():
             )
         logger.add_articles(len(twitter_articles))
     else:
-        logger.fail("Twitter", "0 tweets (auth + emergency + snapshot unavailable)")
+        logger.fail("Twitter", "0 tweets (google + snapshot unavailable)")
 
     if twitter_fetch_meta.get("warning"):
         logger.warn("Twitter ingest", twitter_fetch_meta["warning"])

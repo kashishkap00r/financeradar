@@ -12,6 +12,10 @@ FEED_FETCH_TIMEOUT = 15          # seconds, per-feed HTTP timeout
 FEED_CURL_TIMEOUT = 20           # seconds, curl fallback timeout
 FEED_THREAD_WORKERS = 10         # concurrent feed fetches
 MAX_ARTICLES_PER_FEED = 50       # cap per feed in final output
+RSS_PROXY_ENV_VAR = "RSS_PROXY_URL"   # optional Cloudflare RSS proxy base URL
+RSS_PROXY_TIMEOUT = 20                # seconds for proxy fallback request
+RSS_PROXY_ALLOWED_CATEGORIES = ("News", "Reports", "Twitter")
+RSS_PROXY_RETRY_HTTP_CODES = (403, 429)
 
 # ── Article freshness ─────────────────────────────────────────────────
 NEWS_FRESHNESS_DAYS = 5          # News tab: discard articles older than this

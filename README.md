@@ -462,6 +462,7 @@ Both workflows validate that required secrets are set before running, fail fast 
 | `TELEGRAM_API_HASH` | `hourly.yml` | Same as above |
 | `TELEGRAM_SESSION` | `hourly.yml` | Run `python3 generate_session.py` once interactively |
 | `OPENROUTER_API_KEY` | `ai-ranking.yml` | [openrouter.ai](https://openrouter.ai) → Keys |
+| `RSS_PROXY_URL` *(optional)* | `hourly.yml` | Cloudflare RSS proxy endpoint (for fallback retries on feed errors) |
 
 ### Cloudflare Pages Setup
 
@@ -520,6 +521,16 @@ Runtime behavior:
 - Primary mode: Google RSS fetch for all configured handles on every run.
 - URL normalization: Google wrapper links are resolved to canonical `https://x.com/.../status/...` URLs.
 - Last-resort mode: serve `static/twitter_clean_cache.json` snapshot when live Google fetch returns no usable tweets.
+
+### Optional RSS Proxy Fallback (News/Reports/Twitter)
+
+Set `RSS_PROXY_URL` to a proxy endpoint (for example a Cloudflare Pages function compatible with `GET ?url=...`).
+
+Behavior:
+- Direct feed fetch is always attempted first.
+- Proxy fallback is attempted once only for retryable failures (`403`, `429`, timeout/network, malformed XML, empty body).
+- Proxy fallback is skipped for `404` responses and for `Videos` category feeds.
+- If `RSS_PROXY_URL` is unset, behavior remains unchanged (no proxy fallback).
 
 ### Add a Telegram Channel
 
