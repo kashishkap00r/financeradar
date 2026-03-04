@@ -313,6 +313,15 @@ def generate_html(
         telegram_generated_at = ""
         telegram_warnings = []
 
+    # Load AI rankings snapshot for inline bootstrap (helps file:// rendering)
+    ai_rankings_file = os.path.join(SCRIPT_DIR, "static", "ai_rankings.json")
+    try:
+        with open(ai_rankings_file, "r", encoding="utf-8") as f:
+            ai_rankings_bootstrap = json.load(f)
+        ai_rankings_bootstrap_json = json.dumps(ai_rankings_bootstrap)
+    except (IOError, json.JSONDecodeError):
+        ai_rankings_bootstrap_json = "null"
+
     # Prepare video data
     if video_articles is None:
         video_articles = []
@@ -448,7 +457,7 @@ def generate_html(
     <div class="top-bar">
         <div class="top-bar-inner">
             <div class="brand">
-                <a href="/" class="logo">FinanceRadar</a>
+                <a href="/" class="logo" id="brand-home-link">FinanceRadar</a>
             </div>
             <div class="search-box">
                 <span class="search-icon">&#128269;</span>
@@ -633,7 +642,10 @@ def generate_html(
 
     <div class="container">
         <div class="content-tabs">
-            <button class="content-tab active" data-tab="news" onclick="switchTab('news')">
+            <button class="content-tab active" data-tab="home" onclick="switchTab('home')">
+                Home
+            </button>
+            <button class="content-tab" data-tab="news" onclick="switchTab('news')">
                 News <span class="tab-count">{len(sorted_articles)}</span>
             </button>
             <button class="content-tab" data-tab="reports" onclick="switchTab('reports')">
@@ -653,7 +665,90 @@ def generate_html(
             </button>
         </div>
 
-        <div id="tab-news" class="tab-content active">
+        <div id="tab-home" class="tab-content active">
+            <div class="home-hub" id="home-hub">
+                <div class="home-hero-card" id="home-hero-card">
+                    <div class="home-hero-head">
+                        <div>
+                            <h2 class="home-hero-title" id="home-hero-title">Spotlight</h2>
+                        </div>
+                    </div>
+                    <div class="home-hero-subtitle" id="home-hero-subtitle">Highlights for the day.</div>
+                    <div class="home-hero-list" id="home-hero-list"></div>
+                </div>
+
+                <div class="home-bento-grid" id="home-bento-grid">
+                    <section class="home-card home-card-news" data-home-card="news">
+                        <div class="home-card-head">
+                            <button class="home-card-title-link" type="button" onclick="openTabFromHome('news')">
+                                <h3 class="home-card-title">News Pulse</h3>
+                            </button>
+                        </div>
+                        <p class="home-card-subtitle">Curated finance headlines across India and global markets.</p>
+                        <div class="home-card-list-scroll" id="home-news-scroll">
+                            <div class="home-card-list" id="home-news-list"></div>
+                        </div>
+                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('news')">View More</button>
+                    </section>
+
+                    <section class="home-card home-card-telegram" data-home-card="telegram">
+                        <div class="home-card-head">
+                            <button class="home-card-title-link" type="button" onclick="openTabFromHome('reports')">
+                                <h3 class="home-card-title">Telegram Desk</h3>
+                            </button>
+                        </div>
+                        <p class="home-card-subtitle">Collated desk updates and report drops from tracked Telegram channels.</p>
+                        <div class="home-card-list-scroll" id="home-telegram-scroll">
+                            <div class="home-card-list" id="home-telegram-list"></div>
+                        </div>
+                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('reports')">View More</button>
+                    </section>
+
+                    <section class="home-card home-card-reports" data-home-card="reports">
+                        <div class="home-card-head">
+                            <button class="home-card-title-link" type="button" onclick="openTabFromHome('research')">
+                                <h3 class="home-card-title">Reports</h3>
+                            </button>
+                        </div>
+                        <p class="home-card-subtitle">High-signal research from Indian and global institutions.</p>
+                        <div class="home-card-list-scroll" id="home-research-scroll">
+                            <div class="home-card-list" id="home-research-list"></div>
+                        </div>
+                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('research')">View More</button>
+                    </section>
+
+                    <section class="home-card home-card-youtube" data-home-card="youtube">
+                        <div class="home-card-head">
+                            <button class="home-card-title-link" type="button" onclick="openTabFromHome('youtube')">
+                                <h3 class="home-card-title">YouTube Watchlist</h3>
+                            </button>
+                        </div>
+                        <p class="home-card-subtitle">Video explainers worth a quick watch before deeper reading.</p>
+                        <div class="home-card-list-scroll" id="home-youtube-scroll">
+                            <div class="home-card-list" id="home-youtube-list"></div>
+                        </div>
+                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('youtube')">View More</button>
+                    </section>
+
+                    <section class="home-card home-card-twitter" data-home-card="twitter">
+                        <div class="home-card-head">
+                            <button class="home-card-title-link" type="button" onclick="openTabFromHome('twitter')">
+                                <h3 class="home-card-title">Signal Tweets</h3>
+                            </button>
+                        </div>
+                        <p class="home-card-subtitle">High-signal posts from tracked market voices.</p>
+                        <div class="home-card-list-scroll" id="home-twitter-scroll">
+                            <div class="home-card-list" id="home-twitter-list"></div>
+                        </div>
+                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('twitter')">View More</button>
+                    </section>
+                </div>
+
+                <div class="home-no-results hidden" id="home-no-results">No Home sections match your search.</div>
+            </div>
+        </div><!-- /tab-home -->
+
+        <div id="tab-news" class="tab-content">
         <div class="filter-card">
             <div class="filter-head">
                 <div class="stats">
@@ -993,14 +1088,14 @@ def generate_html(
 """
 
     html += """        <footer>
-            Aggregated from {source_count} sources · Built with Python · Made by <a href="https://kashishkapoor.com/" target="_blank" rel="noopener">Kashish Kapoor</a> · Built for <a href="https://thedailybrief.zerodha.com/" target="_blank" rel="noopener">The Daily Brief by Zerodha</a>
+            Aggregated from {source_count} sources across News, Telegram, Reports, Papers, YouTube, and Twitter · Made by <a href="https://kashishkapoor.com/" target="_blank" rel="noopener">Kashish Kapoor</a> · Built for <a href="https://thedailybrief.zerodha.com/" target="_blank" rel="noopener">The Daily Brief by Zerodha</a>
         </footer>
     </div>
 
     <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
     <div class="keyboard-hint">
-        <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> <kbd>6</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
+        <kbd>H</kbd> home · <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> <kbd>6</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
     </div>
 
     <script>
@@ -1011,6 +1106,7 @@ def generate_html(
         const TELEGRAM_REPORTS = {telegram_reports_json};
         const TELEGRAM_GENERATED_AT = "{telegram_generated_at}";
         const TELEGRAM_WARNINGS = {json.dumps(telegram_warnings)};
+        const AI_RANKINGS_BOOTSTRAP = {ai_rankings_bootstrap_json};
         const YOUTUBE_VIDEOS = {video_articles_json};
         const YOUTUBE_PUBLISHERS = {youtube_publishers_json};
         const YOUTUBE_BUCKETS = {youtube_buckets_json};
@@ -1032,8 +1128,44 @@ def generate_html(
 </body>
 </html>
 """
+    all_tab_sources = set()
+
+    def _add_source_label(label):
+        if not isinstance(label, str):
+            return
+        cleaned = label.strip()
+        if cleaned:
+            all_tab_sources.add(cleaned)
+
+    for article in sorted_articles:
+        _add_source_label(article.get("source") or article.get("publisher"))
+
+    for report in telegram_data.get("reports", []):
+        if isinstance(report, dict):
+            _add_source_label(
+                report.get("channel")
+                or report.get("source")
+                or report.get("publisher")
+            )
+
+    for report in report_articles or []:
+        if isinstance(report, dict):
+            _add_source_label(report.get("publisher") or report.get("source"))
+
+    for video in video_articles or []:
+        if isinstance(video, dict):
+            _add_source_label(video.get("publisher") or video.get("source"))
+
+    for tweet in twitter_articles or []:
+        if isinstance(tweet, dict):
+            _add_source_label(tweet.get("publisher") or tweet.get("source"))
+
+    for paper in paper_articles or []:
+        if isinstance(paper, dict):
+            _add_source_label(paper.get("publisher") or paper.get("source"))
+
     # Apply template replacements
-    html = html.replace("{source_count}", str(len(sources)))
+    html = html.replace("{source_count}", str(len(all_tab_sources)))
     html = html.replace("{in_focus_count}", str(in_focus_count))
     html = html.replace("{today_iso}", today_iso)
 

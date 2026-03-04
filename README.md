@@ -423,7 +423,7 @@ The "In Focus" sidebar in the UI fetches this file and displays the top 20. The 
 - 🤖 icon button in the top bar with pulse dot + count badge
 - Slide-in sidebar showing the AI-ranked top 20 stories
 - Each item is bookmarkable
-- Data loaded from `static/ai_rankings.json` (generated daily)
+- Data loaded from `static/ai_rankings.json` (generated 4 times daily)
 
 ### Search
 - Real-time client-side filtering as you type
@@ -448,11 +448,11 @@ The "In Focus" sidebar in the UI fetches this file and displays the top 20. The 
 | Workflow | File | Schedule | Steps |
 |----------|------|----------|-------|
 | Update FinanceRadar | `hourly.yml` | Every hour (`0 * * * *`) | `pip install telethon` → `telegram_fetcher.py` → `aggregator.py` → commit `index.html`, `articles.json`, `telegram_reports.json`, `youtube_cache.json` |
-| AI News Ranking | `ai-ranking.yml` | Midnight UTC / ~5:30 AM IST (`0 0 * * *`) | `ai_ranker.py` → commit `ai_rankings.json` |
+| AI News Ranking | `ai-ranking.yml` | 4 times daily UTC (`0 0,6,12,18 * * *`) | `ai_ranker.py` + `wsw_ranker.py` → commit `ai_rankings.json`, `wsw_clusters.json` |
 
 Both workflows validate that required secrets are set before running, fail fast if missing.
 
-**GitHub Actions delay note:** Cron jobs typically run 1–2 hours late due to queue pressure. The AI ranking cron is set to midnight UTC (5:30 AM IST) to absorb delays and finish by ~8 AM IST.
+**GitHub Actions delay note:** Cron jobs can run 1–2 hours late due to queue pressure. AI ranking now runs 4 times daily (`0 0,6,12,18 * * *` UTC) so Spotlight and sidebar refresh every few hours even with occasional delays.
 
 ### Required GitHub Secrets
 

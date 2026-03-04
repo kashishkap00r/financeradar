@@ -2,8 +2,12 @@ name: AI News Ranking
 
 "on":
   schedule:
-    # 5:30 AM IST = 0:00 UTC (early to absorb GitHub Actions delays)
+    # 4x daily refresh for Home Spotlight + AI sidebar
+    # IST: 5:30, 11:30, 17:30, 23:30
     - cron: "0 0 * * *"
+    - cron: "0 6 * * *"
+    - cron: "0 12 * * *"
+    - cron: "0 18 * * *"
   workflow_dispatch:
 
 permissions:

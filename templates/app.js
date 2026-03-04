@@ -264,12 +264,14 @@
         }
 
         function getActiveTab() {
-            return document.querySelector('.content-tab.active')?.dataset.tab || 'news';
+            return document.querySelector('.content-tab.active')?.dataset.tab || 'home';
         }
 
         function onSearchInput() {
             const tab = getActiveTab();
-            if (tab === 'reports') {
+            if (tab === 'home') {
+                filterHomeCards();
+            } else if (tab === 'reports') {
                 filterReports();
             } else if (tab === 'research') {
                 filterResearch();
@@ -559,6 +561,8 @@
             } else if (e.key === 'Escape') {
                 document.getElementById('search').value = '';
                 onSearchInput();
+            } else if (e.key === 'h' || e.key === 'H') {
+                switchTab('home');
             } else if (e.key === '1') {
                 switchTab('news');
             } else if (e.key === '2') {
@@ -649,6 +653,7 @@
 
             saveBookmarks(bookmarks);
             updateBookmarkCount();
+            syncBookmarkState();
             renderSidebarContent();
         }
 
@@ -817,15 +822,8 @@
             let bookmarks = getBookmarks();
             bookmarks = bookmarks.filter(b => b.url !== url);
             saveBookmarks(bookmarks);
-
-            // Update main list button
-            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"], .tweet-card[data-url="${CSS.escape(url)}"]`);
-            if (article) {
-                const btn = article.querySelector('.bookmark-btn');
-                if (btn) btn.classList.remove('bookmarked');
-            }
-
             updateBookmarkCount();
+            syncBookmarkState();
             renderSidebarContent();
         }
 
@@ -877,6 +875,7 @@
         let aiRankings = null;
         let currentAiProvider = 'deepseek-v3';
         let currentAiBucket = safeStorage.get('financeradar_ai_bucket') || 'news';
+        const AI_REFRESH_INTERVAL_MS = 3 * 60 * 60 * 1000;
         const AI_BUCKET_ORDER = ['news', 'telegram', 'reports', 'twitter', 'youtube'];
         const AI_BUCKET_LABELS = {
             news: 'News',
@@ -936,19 +935,46 @@
             });
         }
 
+        function hasAiRankingsBootstrap() {
+            return typeof AI_RANKINGS_BOOTSTRAP === 'object'
+                && AI_RANKINGS_BOOTSTRAP
+                && typeof AI_RANKINGS_BOOTSTRAP.providers === 'object';
+        }
+
+        function applyAiRankingsPayload(payload) {
+            if (!payload || typeof payload !== 'object') return false;
+            const normalized = normalizeAiRankingsPayload(payload);
+            if (!normalized.providers || typeof normalized.providers !== 'object') return false;
+            aiRankings = normalized;
+            if (!AI_BUCKET_ORDER.includes(currentAiBucket)) {
+                currentAiBucket = 'news';
+            }
+            populateProviderDropdown();
+            renderAiRankings();
+            renderHomeTab();
+            return true;
+        }
+
         async function loadAiRankings() {
+            if (!aiRankings && hasAiRankingsBootstrap()) {
+                applyAiRankingsPayload(AI_RANKINGS_BOOTSTRAP);
+            }
             try {
-                const res = await fetch('static/ai_rankings.json');
+                const refreshToken = Math.floor(Date.now() / AI_REFRESH_INTERVAL_MS);
+                const res = await fetch(`static/ai_rankings.json?v=${refreshToken}`, { cache: 'no-store' });
                 if (!res.ok) throw new Error('Rankings not found');
-                aiRankings = normalizeAiRankingsPayload(await res.json());
-                if (!AI_BUCKET_ORDER.includes(currentAiBucket)) {
-                    currentAiBucket = 'news';
-                }
-                populateProviderDropdown();
-                renderAiRankings();
+                applyAiRankingsPayload(await res.json());
             } catch (e) {
+                if (aiRankings && aiRankings.providers) {
+                    return;
+                }
+                if (hasAiRankingsBootstrap()) {
+                    applyAiRankingsPayload(AI_RANKINGS_BOOTSTRAP);
+                    return;
+                }
                 document.getElementById('ai-rankings-content').innerHTML =
                     '<div class="ai-error"><div class="ai-error-title">AI Rankings Unavailable</div><div>Run ai_ranker.py to generate rankings</div></div>';
+                renderHomeTab();
             }
         }
 
@@ -991,6 +1017,7 @@
         function switchAiProvider() {
             currentAiProvider = document.getElementById('ai-provider').value;
             renderAiRankings();
+            if (homeRendered) renderHomeTab();
         }
 
         function switchAiBucket(bucket) {
@@ -999,6 +1026,7 @@
             safeStorage.set('financeradar_ai_bucket', bucket);
             populateProviderDropdown();
             renderAiRankings();
+            if (homeRendered) renderHomeTab();
         }
 
         function renderAiRankings() {
@@ -1066,11 +1094,7 @@
             }
             saveBookmarks(bookmarks);
             updateBookmarkCount();
-            const article = document.querySelector(`.article[data-url="${CSS.escape(url)}"], .tweet-card[data-url="${CSS.escape(url)}"]`);
-            if (article) {
-                const mainBtn = article.querySelector('.bookmark-btn');
-                if (mainBtn) mainBtn.classList.toggle('bookmarked', !exists);
-            }
+            syncBookmarkState();
         }
 
         function openAiSidebar() {
@@ -1115,6 +1139,9 @@
         });
 
         loadAiRankings();
+        setInterval(() => {
+            loadAiRankings();
+        }, AI_REFRESH_INTERVAL_MS);
 
         // ==================== WSW SIDEBAR ====================
         let wswData = null;
@@ -1476,6 +1503,28 @@
         updateWswViewPills();
         updateWswBookmarkActions();
 
+        // ==================== HOME TAB (vars) ====================
+        let homeRendered = false;
+        const HOME_LIMITS = {
+            hero: 7,
+            news: 12,
+            telegram: 12,
+            research: 12,
+            youtube: 9,
+            twitter: 9
+        };
+        const HOME_PAIR_MAX = {
+            topRow: 18,
+            bottomRow: 14
+        };
+        const SPOTLIGHT_PLAN = [
+            { bucket: 'news', count: 3 },
+            { bucket: 'telegram', count: 2 },
+            { bucket: 'youtube', count: 1 },
+            { bucket: 'twitter', count: 1 }
+        ];
+        const HOME_FALLBACK_TABS = new Set(['news', 'reports', 'research', 'youtube', 'twitter']);
+
         // ==================== REPORTS TAB ====================
         let reportsRendered = false;
         let filteredReports = [];
@@ -1524,8 +1573,8 @@
         const TWITTER_PAGE_SIZE = 30;
         let selectedTwitterPublishers = new Set();
         let twitterLane = safeStorage.get('financeradar_twitter_lane') || 'high-signal';
-        let activeTab = 'news';
-        const tabScrollPositions = { news: 0 };
+        let activeTab = 'home';
+        const tabScrollPositions = { home: 0, news: 0 };
         let pendingTabScrollCapture = null;
 
         function rememberActiveTabScroll() {
@@ -1543,14 +1592,9 @@
             btn.addEventListener('touchstart', capture, { passive: true });
         });
 
-        // Restore last active tab
+        // Always open Home on initial load.
         (function() {
-            var saved = safeStorage.get('financeradar_active_tab');
-            if (saved && saved !== 'news') {
-                switchTab(saved, true);
-            } else {
-                applyFilterCollapseForTab('news');
-            }
+            switchTab('home', true);
         })();
 
         function switchTab(tab, skipScroll) {
@@ -1570,8 +1614,11 @@
                 el.classList.toggle('active', el.id === 'tab-' + tab);
             });
             const searchEl = document.getElementById('search');
-            searchEl.placeholder = tab === 'reports' ? 'Search Telegram...' : tab === 'research' ? 'Search reports...' : tab === 'papers' ? 'Search papers...' : tab === 'youtube' ? 'Search YouTube...' : tab === 'twitter' ? 'Search tweets...' : 'Search articles...';
-            if (tab === 'reports') {
+            searchEl.placeholder = tab === 'home' ? 'Search home highlights...' : tab === 'reports' ? 'Search Telegram...' : tab === 'research' ? 'Search reports...' : tab === 'papers' ? 'Search papers...' : tab === 'youtube' ? 'Search YouTube...' : tab === 'twitter' ? 'Search tweets...' : 'Search articles...';
+            if (tab === 'home') {
+                renderHomeTab();
+                homeRendered = true;
+            } else if (tab === 'reports') {
                 if (!reportsRendered) {
                     renderMainReports();
                     reportsRendered = true;
@@ -1632,6 +1679,561 @@
                 }
             }
             safeStorage.set('financeradar_active_tab', tab);
+        }
+
+        const brandHomeLink = document.getElementById('brand-home-link');
+        if (brandHomeLink) {
+            brandHomeLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchTab('home');
+            });
+        }
+
+        function formatRelativeTimeShort(isoStr) {
+            if (!isoStr) return '';
+            const date = new Date(isoStr);
+            if (Number.isNaN(date.getTime())) return '';
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMin = Math.floor(diffMs / 60000);
+            const diffHr = Math.floor(diffMs / 3600000);
+            const diffDay = Math.floor(diffMs / 86400000);
+            if (diffMin < 1) return 'Just now';
+            if (diffMin < 60) return diffMin + 'm ago';
+            if (diffHr < 24) return diffHr + 'h ago';
+            if (diffDay < 7) return diffDay + 'd ago';
+            return date.toLocaleDateString();
+        }
+
+        function cleanHomeTitle(rawTitle) {
+            return String(rawTitle || '')
+                .replace(/[*_`~#>\[\]\(\)]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim() || 'Untitled';
+        }
+
+        function getTelegramReportDocuments(report) {
+            if (Array.isArray(report.documents) && report.documents.length > 0) return report.documents;
+            if (report.document && report.document.title) return [report.document];
+            return [];
+        }
+
+        function normalizeHomeFallbackTab(tab) {
+            return HOME_FALLBACK_TABS.has(tab) ? tab : 'news';
+        }
+
+        function buildHomeBookmarkButton(url, title, source) {
+            if (!url) {
+                return `<button class="bookmark-btn home-bookmark-btn home-bookmark-btn-disabled" type="button" aria-label="Bookmark unavailable" title="Bookmark unavailable" disabled>
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </button>`;
+            }
+
+            return `<button class="bookmark-btn home-bookmark-btn${isBookmarked(url) ? ' bookmarked' : ''}" type="button"
+                    data-url="${escapeForAttr(url)}"
+                    data-title="${escapeForAttr(title)}"
+                    data-source="${escapeForAttr(source || 'Home')}"
+                    onclick="toggleGenericBookmark(this)"
+                    aria-label="Bookmark"
+                    title="Bookmark">
+                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            </button>`;
+        }
+
+        function buildHomeItemHtml(item) {
+            const cleanTitle = cleanHomeTitle(item.title || '');
+            const title = escapeHtml(cleanTitle);
+            const url = sanitizeUrl(item.url || '');
+            const fallbackTab = normalizeHomeFallbackTab(String(item.fallbackTab || 'news'));
+            const sourceLabel = String(item.meta || '').trim() || 'Home';
+            const meta = item.meta ? `<div class="home-item-meta">${escapeHtml(item.meta)}</div>` : '';
+            const thumbnail = sanitizeUrl(item.thumbnail || '');
+            const media = thumbnail
+                ? `<div class="home-item-thumb"><img src="${escapeForAttr(thumbnail)}" alt="${escapeForAttr(cleanTitle)}" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`
+                : '';
+            const content = `${media}
+                <div class="home-item-body">
+                    <div class="home-item-title">${title}</div>
+                    ${meta}
+                </div>`;
+            const linkClass = `home-item-link${thumbnail ? ' home-item-link-with-thumb' : ''}`;
+            const bookmarkHtml = buildHomeBookmarkButton(url, cleanTitle, sourceLabel);
+
+            if (url) {
+                return `<article class="home-item${thumbnail ? ' home-item-with-thumb' : ''}">
+                    <a class="${linkClass}" href="${escapeForAttr(url)}" target="_blank" rel="noopener">
+                        ${content}
+                    </a>
+                    ${bookmarkHtml}
+                </article>`;
+            }
+
+            return `<article class="home-item${thumbnail ? ' home-item-with-thumb' : ''}">
+                <button class="${linkClass} home-item-link-button" type="button" onclick="openTabFromHome('${fallbackTab}')">
+                    ${content}
+                </button>
+                ${bookmarkHtml}
+            </article>`;
+        }
+
+        function renderHomeList(containerId, items, emptyText) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            if (!Array.isArray(items) || items.length === 0) {
+                container.innerHTML = `<div class="home-item-empty">${escapeHtml(emptyText)}</div>`;
+                return;
+            }
+            container.innerHTML = items.map(buildHomeItemHtml).join('');
+        }
+
+        function getHomeNewsItems(limit) {
+            const items = [];
+            const seen = new Set();
+            document.querySelectorAll('#articles .article').forEach(article => {
+                if (items.length >= limit) return;
+                const url = sanitizeUrl(article.dataset.url || '');
+                const title = article.dataset.title || '';
+                if (!title || (url && seen.has(url))) return;
+                if (url) seen.add(url);
+                const source = article.querySelector('.source-tag')?.textContent?.trim() || 'News';
+                items.push({ title: cleanHomeTitle(title), url, meta: source, fallbackTab: 'news' });
+            });
+            return items;
+        }
+
+        function getHomeTelegramItems(limit) {
+            const items = [];
+            TELEGRAM_REPORTS.forEach(report => {
+                if (items.length >= limit) return;
+                const lines = String(report.text || '').split('\n').map(line => line.trim()).filter(Boolean);
+                const docs = getTelegramReportDocuments(report);
+                const firstDocWithUrl = docs.find(doc => sanitizeUrl(doc && doc.url ? doc.url : ''));
+                const hasText = lines.length > 0;
+                const hasDocs = docs.length > 0;
+                if (!hasText && !hasDocs) return;
+
+                const title = cleanHomeTitle(lines[0] || (firstDocWithUrl && firstDocWithUrl.title) || (docs[0] && docs[0].title) || 'Telegram update');
+                const channel = report.channel || 'Telegram';
+                items.push({
+                    title,
+                    url: sanitizeUrl(report.url || (firstDocWithUrl && firstDocWithUrl.url) || ''),
+                    meta: channel,
+                    fallbackTab: 'reports'
+                });
+            });
+            return items;
+        }
+
+        function getHomeResearchItems(limit) {
+            return RESEARCH_REPORTS.slice(0, limit).map(report => {
+                const source = report.publisher || report.source || 'Research';
+                return {
+                    title: cleanHomeTitle(report.title || 'Research report'),
+                    url: sanitizeUrl(report.link || report.source_url || ''),
+                    meta: source,
+                    fallbackTab: 'research'
+                };
+            });
+        }
+
+        function getHomeYoutubeItems(limit) {
+            return YOUTUBE_VIDEOS.slice(0, limit).map(video => {
+                const channel = video.publisher || video.source || 'YouTube';
+                return {
+                    title: cleanHomeTitle(video.title || 'Untitled video'),
+                    url: sanitizeUrl(video.link || video.source_url || ''),
+                    thumbnail: sanitizeUrl(video.thumbnail || '') || (video.video_id ? `https://i.ytimg.com/vi/${video.video_id}/mqdefault.jpg` : ''),
+                    meta: channel,
+                    fallbackTab: 'youtube'
+                };
+            });
+        }
+
+        function getHomeTwitterItems(limit) {
+            return TWITTER_HIGH_SIGNAL.slice(0, limit).map(tweet => {
+                const publisher = tweet.publisher || tweet.source || 'Twitter';
+                return {
+                    title: cleanHomeTitle(tweet.title || 'Tweet'),
+                    url: sanitizeUrl(tweet.link || tweet.source_url || ''),
+                    meta: publisher,
+                    fallbackTab: 'twitter'
+                };
+            });
+        }
+
+        function getYoutubeVideoIdFromUrl(url) {
+            const raw = String(url || '').trim();
+            if (!raw) return '';
+            const short = raw.match(/youtu\.be\/([a-zA-Z0-9_-]{6,})/);
+            if (short && short[1]) return short[1];
+            const watch = raw.match(/[?&]v=([a-zA-Z0-9_-]{6,})/);
+            if (watch && watch[1]) return watch[1];
+            const embed = raw.match(/\/embed\/([a-zA-Z0-9_-]{6,})/);
+            if (embed && embed[1]) return embed[1];
+            return '';
+        }
+
+        function getSpotlightYoutubeThumbnail(url, title) {
+            const videoId = getYoutubeVideoIdFromUrl(url);
+            if (videoId) return `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+
+            const safeUrl = sanitizeUrl(url);
+            const normalizedTitle = cleanHomeTitle(title || '').toLowerCase();
+            const matched = YOUTUBE_VIDEOS.find(video => {
+                const videoUrl = sanitizeUrl(video.link || video.source_url || '');
+                if (safeUrl && videoUrl && videoUrl === safeUrl) return true;
+                const videoTitle = cleanHomeTitle(video.title || '').toLowerCase();
+                return normalizedTitle && videoTitle && normalizedTitle === videoTitle;
+            });
+            if (!matched) return '';
+            return sanitizeUrl(matched.thumbnail || '')
+                || (matched.video_id ? `https://i.ytimg.com/vi/${matched.video_id}/mqdefault.jpg` : '');
+        }
+
+        function getAiProviderOrderForBucket(bucket) {
+            const providers = getAvailableProvidersForBucket(bucket);
+            if (!providers.length) return [];
+            const order = [];
+            if (providers.some(([key]) => key === currentAiProvider)) {
+                order.push(currentAiProvider);
+            }
+            providers.forEach(([key]) => {
+                if (!order.includes(key)) order.push(key);
+            });
+            return order;
+        }
+
+        function buildSpotlightItemFromRanking(item, bucket) {
+            const bucketToTab = {
+                news: 'news',
+                telegram: 'reports',
+                reports: 'research',
+                youtube: 'youtube',
+                twitter: 'twitter'
+            };
+            const title = cleanHomeTitle(item.title || 'Untitled');
+            const url = sanitizeUrl(item.url || '');
+            const spotlight = {
+                title,
+                url,
+                meta: item.source || AI_BUCKET_LABELS[bucket] || 'AI pick',
+                fallbackTab: bucketToTab[bucket] || 'news',
+                bucket
+            };
+            if (bucket === 'youtube') {
+                spotlight.thumbnail = getSpotlightYoutubeThumbnail(url, title);
+            }
+            return spotlight;
+        }
+
+        function getHomeSpotlightItems(limit) {
+            if (!aiRankings || !aiRankings.providers) return getHomeNewsItems(limit);
+
+            const items = [];
+            const globalSeen = new Set();
+
+            SPOTLIGHT_PLAN.forEach(plan => {
+                const { bucket, count } = plan;
+                let added = 0;
+                const providerOrder = getAiProviderOrderForBucket(bucket);
+                providerOrder.forEach(providerKey => {
+                    if (added >= count) return;
+                    const provider = aiRankings.providers[providerKey];
+                    const rankings = getProviderBucketRankings(provider, bucket);
+                    rankings.forEach(rankingItem => {
+                        if (added >= count) return;
+                        const candidate = buildSpotlightItemFromRanking(rankingItem, bucket);
+                        const uniqueKey = candidate.url || `${bucket}|${candidate.title}|${candidate.meta}`;
+                        if (!candidate.title || globalSeen.has(uniqueKey)) return;
+                        globalSeen.add(uniqueKey);
+                        items.push(candidate);
+                        added += 1;
+                    });
+                });
+            });
+
+            if (!items.length) return getHomeNewsItems(limit);
+
+            if (items.length < limit) {
+                const fillSeen = new Set(items.map(item => item.url || `${item.bucket || 'news'}|${item.title}|${item.meta}`));
+                const newsFill = getHomeNewsItems(limit * 2);
+                newsFill.forEach(newsItem => {
+                    if (items.length >= limit) return;
+                    const key = newsItem.url || `news|${newsItem.title}|${newsItem.meta}`;
+                    if (fillSeen.has(key)) return;
+                    fillSeen.add(key);
+                    items.push({
+                        ...newsItem,
+                        bucket: 'news'
+                    });
+                });
+            }
+
+            return items.slice(0, limit);
+        }
+
+        function buildSpotlightItemHtml(item, index) {
+            const cleanTitle = cleanHomeTitle(item.title || 'Untitled');
+            const title = escapeHtml(cleanTitle);
+            const url = sanitizeUrl(item.url || '');
+            const bucket = String(item.bucket || 'news');
+            const laneLabel = bucket === 'news'
+                ? 'News'
+                : bucket === 'telegram'
+                    ? 'Telegram'
+                    : bucket === 'youtube'
+                        ? 'YouTube'
+                        : bucket === 'twitter'
+                            ? 'Tweet'
+                            : 'AI Pick';
+            const source = escapeHtml(String(item.meta || 'AI Pick'));
+            const fallbackTab = normalizeHomeFallbackTab(String(item.fallbackTab || 'news'));
+            const thumb = sanitizeUrl(item.thumbnail || '');
+            const bookmarkHtml = buildHomeBookmarkButton(url, cleanTitle, String(item.meta || laneLabel));
+            const media = thumb
+                ? `<div class="spotlight-thumb"><img src="${escapeForAttr(thumb)}" alt="${escapeForAttr(cleanTitle)}" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`
+                : '';
+
+            const content = `${media}
+                <div class="spotlight-content">
+                    <div class="spotlight-meta">
+                        <span class="spotlight-lane spotlight-lane-${escapeForAttr(bucket)}">${escapeHtml(laneLabel)}</span>
+                        <span class="spotlight-source">${source}</span>
+                    </div>
+                    <div class="spotlight-title">${title}</div>
+                </div>`;
+
+            const cls = `spotlight-item spotlight-item-${escapeForAttr(bucket)}${index === 0 ? ' spotlight-item-featured' : ''}${thumb ? ' spotlight-item-media' : ''}`;
+            if (url) {
+                return `<article class="${cls}">
+                    ${bookmarkHtml}
+                    <a class="spotlight-link" href="${escapeForAttr(url)}" target="_blank" rel="noopener">${content}</a>
+                </article>`;
+            }
+
+            return `<article class="${cls}">
+                ${bookmarkHtml}
+                <button class="spotlight-link spotlight-link-btn" type="button" onclick="openTabFromHome('${fallbackTab}')">${content}</button>
+            </article>`;
+        }
+
+        function getHomeHeroPayload() {
+            return {
+                title: 'Spotlight',
+                subtitle: 'Top highlights of the day.',
+                items: getHomeSpotlightItems(HOME_LIMITS.hero)
+            };
+        }
+
+        function renderHomeHero() {
+            const titleEl = document.getElementById('home-hero-title');
+            const subtitleEl = document.getElementById('home-hero-subtitle');
+            const listEl = document.getElementById('home-hero-list');
+            if (!titleEl || !subtitleEl || !listEl) return;
+
+            const payload = getHomeHeroPayload();
+            titleEl.textContent = payload.title;
+            subtitleEl.textContent = payload.subtitle;
+            if (!payload.items.length) {
+                listEl.innerHTML = '<div class="home-item-empty">No highlights available yet.</div>';
+                return;
+            }
+            listEl.innerHTML = payload.items.map((item, idx) => buildSpotlightItemHtml(item, idx)).join('');
+        }
+
+        function renderHomeTab() {
+            renderHomeHero();
+            const newsPool = getHomeNewsItems(HOME_PAIR_MAX.topRow);
+            const telegramPool = getHomeTelegramItems(HOME_PAIR_MAX.topRow);
+            const researchPool = getHomeResearchItems(HOME_PAIR_MAX.topRow);
+            const youtubePool = getHomeYoutubeItems(HOME_PAIR_MAX.bottomRow);
+            const twitterPool = getHomeTwitterItems(HOME_PAIR_MAX.bottomRow);
+
+            const topRowTarget = Math.min(
+                HOME_PAIR_MAX.topRow,
+                Math.max(
+                    HOME_LIMITS.news,
+                    HOME_LIMITS.telegram,
+                    HOME_LIMITS.research,
+                    newsPool.length,
+                    telegramPool.length,
+                    researchPool.length
+                )
+            );
+            const bottomRowTarget = Math.min(
+                HOME_PAIR_MAX.bottomRow,
+                Math.max(
+                    HOME_LIMITS.youtube,
+                    HOME_LIMITS.twitter,
+                    youtubePool.length,
+                    twitterPool.length
+                )
+            );
+
+            renderHomeList('home-news-list', newsPool.slice(0, topRowTarget), 'No news highlights available.');
+            renderHomeList('home-telegram-list', telegramPool.slice(0, topRowTarget), 'No Telegram highlights available.');
+            renderHomeList('home-research-list', researchPool.slice(0, topRowTarget), 'No report highlights available.');
+            renderHomeList('home-youtube-list', youtubePool.slice(0, bottomRowTarget), 'No YouTube highlights available.');
+            renderHomeList('home-twitter-list', twitterPool.slice(0, bottomRowTarget), 'No Twitter highlights available.');
+            bindHomeListScrollStates();
+            filterHomeCards();
+        }
+
+        function syncHomeListScrollState(listEl) {
+            if (!listEl) return;
+            const wrap = listEl.closest('.home-card-list-scroll');
+            if (!wrap) return;
+            const canScroll = listEl.scrollHeight > listEl.clientHeight + 2;
+            const atBottom = listEl.scrollTop + listEl.clientHeight >= listEl.scrollHeight - 2;
+            wrap.classList.toggle('has-overflow', canScroll);
+            wrap.classList.toggle('at-bottom', !canScroll || atBottom);
+        }
+
+        function bindHomeListScrollStates() {
+            document.querySelectorAll('.home-card-list').forEach((listEl) => {
+                if (listEl.dataset.scrollBound !== '1') {
+                    listEl.dataset.scrollBound = '1';
+                    listEl.addEventListener('scroll', () => syncHomeListScrollState(listEl), { passive: true });
+                }
+                syncHomeListScrollState(listEl);
+            });
+        }
+
+        function filterHomeCards() {
+            const query = (document.getElementById('search').value || '').toLowerCase().trim();
+            const cards = document.querySelectorAll('#home-bento-grid .home-card');
+            const heroCard = document.getElementById('home-hero-card');
+            const empty = document.getElementById('home-no-results');
+            let visibleCards = 0;
+
+            cards.forEach(card => {
+                const match = !query || card.textContent.toLowerCase().includes(query);
+                card.classList.toggle('hidden', !match);
+                if (match) visibleCards += 1;
+            });
+
+            const heroVisible = !query || (heroCard && heroCard.textContent.toLowerCase().includes(query));
+            if (heroCard) heroCard.classList.toggle('hidden', !heroVisible);
+
+            if (empty) {
+                const hasAnyVisible = visibleCards > 0 || !!heroVisible;
+                empty.classList.toggle('hidden', hasAnyVisible);
+            }
+        }
+
+        function resetNewsTabState() {
+            selectedPublishers.clear();
+            syncCheckboxes();
+            syncPresetButtons();
+            updatePublisherSummary();
+            if (inFocusOnly) {
+                inFocusOnly = false;
+                const inFocusBtn = document.getElementById('in-focus-toggle');
+                if (inFocusBtn) inFocusBtn.classList.remove('active');
+                syncMobileMenuState();
+            }
+            currentPage = 1;
+            setPageToToday();
+            applyPagination();
+        }
+
+        function resetReportsTabState() {
+            reportsViewMode = 'all';
+            reportsNoTargetFilterActive = false;
+            selectedTgChannels.clear();
+            reportsPage = 1;
+            const allBtn = document.getElementById('reports-view-all');
+            const pdfBtn = document.getElementById('reports-view-pdf');
+            const noPdfBtn = document.getElementById('reports-view-nopdf');
+            const noTargetBtn = document.getElementById('reports-notarget-filter');
+            if (allBtn) allBtn.classList.add('active');
+            if (pdfBtn) pdfBtn.classList.remove('active');
+            if (noPdfBtn) noPdfBtn.classList.remove('active');
+            if (noTargetBtn) noTargetBtn.classList.remove('active');
+            updateTgChannelSummary();
+            syncTgCheckboxes();
+        }
+
+        function resetResearchTabState() {
+            selectedResearchPublishers.clear();
+            researchRegionFilter = 'all';
+            researchPage = 1;
+            syncResearchCheckboxes();
+            syncResearchPublisherSummary();
+            const allBtn = document.getElementById('research-region-all');
+            const indianBtn = document.getElementById('research-region-indian');
+            const intlBtn = document.getElementById('research-region-international');
+            if (allBtn) allBtn.classList.add('active');
+            if (indianBtn) indianBtn.classList.remove('active');
+            if (intlBtn) intlBtn.classList.remove('active');
+        }
+
+        function resetPapersTabState() {
+            papersPage = 1;
+            if (papersRendered || paperSessionPool.length > 0) {
+                reshufflePaperSession();
+            }
+        }
+
+        function resetYoutubeTabState() {
+            selectedYoutubePublishers.clear();
+            youtubeBucketFilter = 'all';
+            youtubePage = 1;
+            syncYoutubeCheckboxes();
+            syncYoutubeBucketButtons();
+            updateYoutubePublisherSummary();
+        }
+
+        function resetTwitterTabState() {
+            selectedTwitterPublishers.clear();
+            twitterLane = 'high-signal';
+            safeStorage.set('financeradar_twitter_lane', 'high-signal');
+            twitterPage = 1;
+            syncTwitterCheckboxes();
+            syncTwitterLaneButtons();
+            syncTwitterPresetButtons();
+            updateTwitterPublisherSummary();
+            updateTwitterLaneSummary();
+        }
+
+        function resetTabStateForCleanView(tab) {
+            switch (tab) {
+                case 'news':
+                    resetNewsTabState();
+                    break;
+                case 'reports':
+                    resetReportsTabState();
+                    break;
+                case 'research':
+                    resetResearchTabState();
+                    break;
+                case 'papers':
+                    resetPapersTabState();
+                    break;
+                case 'youtube':
+                    resetYoutubeTabState();
+                    break;
+                case 'twitter':
+                    resetTwitterTabState();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function openTabFromHome(tab) {
+            if (!['news', 'reports', 'research', 'papers', 'youtube', 'twitter'].includes(tab)) return;
+            const search = document.getElementById('search');
+            if (search) search.value = '';
+
+            closeDropdown();
+            closeTwitterDropdown();
+            closeYoutubeDropdown();
+            closeTgDropdown();
+            closeResearchDropdown();
+
+            resetTabStateForCleanView(tab);
+            switchTab(tab);
         }
 
         function formatReportDate(isoStr) {
