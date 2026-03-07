@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-07T07:25:25.376584+00:00",
+  "generated_at": "2026-03-07T08:23:56.627823+00:00",
   "reports": [
     {
       "text": "**The NAV Trap: Why Your “Same Day” Mutual Fund Order May Fail**\n\n**The Reality Behind 2 PM Cutoff**\n• Many investors assume placing an order before **2:00 PM** guarantees the **same day NAV**\n• In reality, clicking **“Pay” at 1:45 PM** does **not guarantee** today’s NAV\n• The key factor is **when the money is actually received by the Clearing Corporation**\n• If funds reach after the cutoff, investors get **next day NAV**\n\n**What Actually Happens in the System**\n• Payments go through **aggregators** like **BillDesk** or **Razorpay**\n• These platforms process and forward the transaction to **ICCL (Indian Clearing Corporation Ltd)**\n• Even if payment is instant, **reporting delay can happen**\n• Example case\n• Payment completed at **13:38:13**\n• Reported to clearing system at **14:32:31**\n• Result: **Next Day NAV Allotment**\n\n**Important Rule Investors Must Understand**\n• NAV allotment depends on **fund realization**\n• This means the time when **AMC actually receives usable funds**\n• If realization happens after **2:00 PM**, order shifts to **next day NAV**\n• Execution time and realization time are **two different things**\n\n**How Smart Investors Avoid This Trap**\n**Buffer Time Strategy**\n• Place orders **before 1:00 PM**\n• This gives buffer for **payment gateway delays**\n• Helps secure **same day NAV**\n\n**Choose the Right Payment Mode**\n• Prefer **UPI or Net Banking**\n• Best reliability from major banks\n• **HDFC Bank**\n• **ICICI Bank**\n• **SBI**\n• **Axis Bank**\n• **Kotak Bank**\n• These usually process funds **faster to clearing systems**\n\n**Payment Modes to Avoid for Same-Day NAV**\n• **NEFT**\n• **RTGS**\n• **Mandates / Auto debit**\n• These methods may take **T+1 or even T+2** to reflect\n\n**Investor Insight: Market Timing Mistake**\n• Many investors wait for **last minute market dips**\n• Large number of transactions create **payment congestion**\n• Aggregator delays increase during **high volume periods**\n• Late orders often lead to **unexpected next day NAV**\n\n**Key Takeaway for Investors**\n• Do not rely on the **2 PM cutoff myth**\n• The real cutoff is **fund realization time**\n• Always place orders **well before 1 PM**\n• Early execution ensures **NAV certainty and better investment discipline**",
@@ -8,7 +8,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "269",
+      "views": "393",
       "images": [
         "https://cdn5.telesco.pe/file/GDYMISgNr5dkaNfX3n80XVuaCsYsqtDs5E-XYZqASEVRtzXLsyk-D6yU9bS_j7PfgLWknGcNUl2nPykGjeby49-capOtm7SppoJbYlylw5bbiiHULYqNXSxMH1mgkClG4tYWM0Dl6wRvvrpN0Brhh2dPdEcXqx0rTSVnvpbVHXzzAkFNu1-2YvEcE7-0l3DHz_uBexybX0iob49gj8q1okt9hMMJYf2O7wLjYUNBKjNDR_S8iXezhXTAmSm7JL3Tzbaj1A2p-pyBDtMFfXnyiYAVSq8v6uVo-BLuUPsAg5TfMyjnSlgP25AKZ3lv8nmVZ3ZemcQJVoIvWsi6haaA3g.jpg"
       ]
@@ -20,7 +20,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "211",
+      "views": "319",
       "images": []
     },
     {
@@ -30,7 +30,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "202",
+      "views": "305",
       "images": [
         "https://cdn5.telesco.pe/file/IRmqubKHQWGdo0pIosBBGnteImqnAizV4TpDUcMIcXOmlSOaLmyK8zKBlpLKja9dQU9a9-S6v-dfAOm4OwW_byw6fTwcbo1GYjc2QwEXq3OlKppur-t_DTDy7lO3Tx2F-ER7hXtUVbmq8RrMfKXDzV4o6VhhJKv3sx5lT1RRr2ClqPXMHIX8SLqTDTjrtO9pqD6f6KpdqvUFgwidr9c-Gvsx5IbiLHaqMsDcYKvXaaeUU1o4V0tsNHqZj33Xc9A1F_E1U8uzxLnLGgONurIeZVlmhZsdA2TmOKNKX94RIcV-lPpF1cSZHaax-u8z2AEBnmcioNNYnivIrrk3T8KZjg.jpg"
       ]
@@ -42,7 +42,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "202",
+      "views": "306",
       "images": [
         "https://cdn5.telesco.pe/file/Z5QIo1hT3KDfXnPL6eIsjCQaPRs9uxT_Qh4NMUoXaoNdrCtFxNBpnl-QnZfJqG0jfuKiQwgZw8Vv2TfeLBFh8WSnpvtugaap6E8sDGDdqvCPkDktiV1-3V_-OHDW1WBG5oTe-lVsstDUwA1oDz34yqZnp6yCnCdYQR9SmmP-IP1L6cI6arnQ3Q8iicQYRhCDDLvHaK4in3kdSihcHbJRRmXSNWnEXBMeb_CwG_yd3zBJY2A0RrXVWH92y04NPJhJJqVI4PbJUF9VoLvDjZiyik9iqSDhQFPC7EboqGKLPnQbxhIHnqnxXgkW1OoZNA5gsZb5hMQ2IJ0smA0JBCKV3A.jpg"
       ]
@@ -54,7 +54,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "208",
+      "views": "305",
       "images": [
         "https://cdn5.telesco.pe/file/qNeVsXnWchjFzsZpS8wuSbzO8ACgOo-34dZ3eyOzvFIkmRI1gYVrj0GiuwG2wzMfMJ7xgiLeFiTAuVKIx0EvCvPstOeuHC7jUCNIM_cjr5SCgBSQ9HibDjNLcsKnjsdldszKLTEFONXr0EDYiBJR5lQyZWWlPp1XWZcVGnTysLK6qQHYOM8euGfXXIFkHKkt9GO7cK6CvNlIenEcOADY7nJE2bSfulyE5rLI0kBnC-ilJFn_EDDcwG_YIRwlcJ8pgcDk3b_9KXqdsI4XyHMTVJKvARQiW29AH7HlOHDGw7JCdmDo_lS_QZTPiwhFkOV2sMF0XolerR69NYUZupLALw.jpg"
       ]
@@ -66,7 +66,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "199",
+      "views": "293",
       "images": [
         "https://cdn5.telesco.pe/file/cqdB4o_RBS1HctIYrbzREh28R6dqBYJEXpHqsDmHHu0tib6vLILfUtOgsdqBBYUZfp63QgzXdTlcWziyPYuhNqDzBUkhN_TXVOvTej3zwZtbn9M_cCg9NZjCjChogPQ4DyZrMbBpoh-gh3Hc9BnbcwxHz4WZn_KtknNqV4-t2eQqqp5l5OIHl701vJ_iQcQ35awLlAcZKRGZobCW5pc0ezVucyi1FgveQkHgan_piLM4HY4hq_t1e2Cbu0dbSgJVyBo3mbupeGB-yhByjQnPfl54v_kls1rKjtjs16A6CPSyuOz9lC7eflwNyWTzgan56e-hSYoKc1wRB4dcfs5zeA.jpg"
       ]
@@ -78,7 +78,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "687",
+      "views": "956",
       "images": []
     },
     {
@@ -88,7 +88,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "745",
+      "views": "1K",
       "images": []
     },
     {
@@ -98,7 +98,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "735",
+      "views": "971",
       "images": []
     },
     {
@@ -108,7 +108,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "706",
+      "views": "907",
       "images": []
     },
     {
@@ -118,7 +118,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "706",
+      "views": "909",
       "images": []
     },
     {
@@ -128,7 +128,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "642",
+      "views": "868",
       "images": []
     },
     {
@@ -138,7 +138,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "661",
+      "views": "852",
       "images": []
     },
     {
@@ -148,7 +148,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "560",
+      "views": "729",
       "images": []
     },
     {
@@ -158,7 +158,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "526",
+      "views": "699",
       "images": []
     },
     {
@@ -168,7 +168,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "527",
+      "views": "702",
       "images": []
     },
     {
@@ -178,7 +178,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "556",
+      "views": "699",
       "images": []
     },
     {
@@ -188,7 +188,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "556",
+      "views": "697",
       "images": []
     },
     {
@@ -198,7 +198,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "588",
+      "views": "728",
       "images": []
     },
     {
@@ -208,7 +208,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "556",
+      "views": "726",
       "images": []
     },
     {
@@ -218,7 +218,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "591",
+      "views": "762",
       "images": []
     },
     {
@@ -228,7 +228,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "589",
+      "views": "727",
       "images": []
     },
     {
@@ -238,7 +238,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "591",
+      "views": "731",
       "images": []
     },
     {
@@ -248,7 +248,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "794",
+      "views": "920",
       "images": []
     },
     {
@@ -258,7 +258,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "795",
+      "views": "951",
       "images": []
     },
     {
@@ -268,7 +268,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "797",
+      "views": "925",
       "images": []
     },
     {
@@ -278,7 +278,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "800",
+      "views": "958",
       "images": []
     },
     {
@@ -288,7 +288,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "863",
+      "views": "1.03K",
       "images": []
     },
     {
@@ -298,7 +298,7 @@
       "channel": "Stock Market Research",
       "documents": [],
       "document": null,
-      "views": "74",
+      "views": "91",
       "images": [
         "https://cdn5.telesco.pe/file/AMR4ycrFH5ZDpHm8p3KBwYKv8M1OPxb7lt6hXKxVD4OK1zEnppAK5igA6df0wtsVGVxS5imiWX_QESbZb3U8OmanEK-M6oM7w25IjjouMwDbRO2c7qM72YK0QSju224zHER1NklfRFDfz8zGEcmhYoLjeMMXdncQ1D1I1jiAKuSbaaRVzrrHQ2eTJ_57e4kfNQ8-fKF2SiZexBFcqZgzp5l6JY4NQPuE_8qK74TelEiEeeCaZBNiR_4VbA8VBuOU2RbNs-ZM3H72UWTVpitmLlyPrvq0CeupIzEUBgW-Nz2GxlNxLZpQZX17iBKeiCFZszwJNSmEjJK2YU5Cs6uNug.jpg"
       ]
@@ -310,7 +310,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "924",
+      "views": "1.06K",
       "images": []
     },
     {
@@ -328,7 +328,7 @@
         "title": "Jefferies-GREED & fear_ A question of timing-05032026.pdf",
         "size": "432.0 KB"
       },
-      "views": "116",
+      "views": "137",
       "images": []
     },
     {
@@ -338,7 +338,7 @@
       "channel": "Stock Market Research",
       "documents": [],
       "document": null,
-      "views": "95",
+      "views": "109",
       "images": [
         "https://cdn5.telesco.pe/file/h7IudEJP15vUZLomLTVcM9uENRKniwOGaFhxpsTSR63gBuccE4hj6Yk6zH3qc2XaYhDnu8FMU6sncDvg6SrqsIjSXw2Y-VeeM9tZ2WIygtDSNPnZqlOHtz9dko-DQSM6I_iKhlIlPiPqfJL3l-DXmS5XfI2fzkuPYykuauiT2NdoXjhGZP7iCZ0nBGJa4LvPjuu1V2auA-cKCsOynjUGJ-cMj18Wq19DiQ0hT7giAtRX4I1yCK38ByDpTUVMUScqL0k86vHPXFo0x2IRxLYC-GHiMav-uu3jaZOFSs0wv_7l_3ZWWVCXUL7MiRUgLC2-HxzKLyGg2g4qzK7tSfb7hg.jpg"
       ]
@@ -350,7 +350,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "1.6K",
+      "views": "1.89K",
       "images": []
     },
     {
@@ -360,7 +360,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "1.62K",
+      "views": "1.9K",
       "images": [
         "https://cdn5.telesco.pe/file/nqLzAITtNQFyh52NG5vhVyBRlpAtAVksd71qz6bFpYW4Dysrws6G22axYeEDx2vISftto2Sm4mvzBv2vFqKS4gFMza0QLlPDmJO7_TWXQEAGZX-B1brjW5KnQ_ZTGhSEgKZkoYfDHefiqMGmPbaDiT7DWvju5arnft_eCT4FFuZCzWPGpKUYradlRLmkEDFANTxfMsnCBSq9McDqNcvqXSoFoy4NPDBfBSyRhuXB5RytrL7Bs8QooJ36LWJVD6y2RfsowpjcbdMuKzLhOKvZnslWzWv1y5RFDcNV5c4Y3qYavYh7VjFj-fuSikg_SfcAFzyoK-fKafJGWJXZSqLGqw.jpg"
       ]
@@ -372,7 +372,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "1.56K",
+      "views": "1.81K",
       "images": [
         "https://cdn5.telesco.pe/file/AmJOoBHrkPsv7VIsklGBXcjfWFrlomIVqRJKz1KrhX2AfVCY7FfhhGK5VTWsfKZaXFOUQFNM4elgAQQ3jdejnNIX5IWcva9FnZoZLs-gj1eeJRvDTivTGujz-sPrHnmeoCZIuxxRKQT43PH_Px6RG3NE4vb2FEfex65RUTe3bwh637hBotTxzaXadk1VVD2PDtO3yzH7vMzZJiDoqA7ChM59iU9dXW9jQuJJHSTQ0cimUx88ntHt0yZycHcDzV8_ZrFQH8Dt8g8z8kedU5yKjqm2q4P0AB5_IGq4z8e3QIWV4TJGSnaZGhQ7tV6FYrg_xZxo9kLbLp0TNda-r7wDYg.jpg"
       ]
@@ -384,7 +384,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "1.55K",
+      "views": "1.79K",
       "images": [
         "https://cdn5.telesco.pe/file/NStFZLoION7cVA6fFr9MiRS_Ohf6daTkvlzwQP5XgfSlCqXOk6f9z7_nAWPx1zIElV09vBR_YSYFUIEBhdyHnBUZVt3fXqg_sjTsM7WpxaCi79lwQCCAbQ8RZKH4kyg3LuyrQWOIS-q51rQkhtENtEaTQfoR0FsqPuSP7Syaer_CMGmOt1jkiEFqM0ktJZlQLMDVrWYOT0Crywn5FwHtCBgg2GVJdp7uHHvaSJ6Urychtm_g5jhCxl-nQy7ky0HZfuxNHWnn3kIGvdXlVYZonXKLaX4fAUDL3iWluMA2zU0mZectnJ5rUmX9X_HL8LfHjphOdCd0QTf6fC0hu1-nZQ.jpg"
       ]
@@ -396,7 +396,7 @@
       "channel": "Stock Market Research",
       "documents": [],
       "document": null,
-      "views": "103",
+      "views": "115",
       "images": [
         "https://cdn5.telesco.pe/file/rjktivmEMGaHx3EtV59loDqbcqbO86UxsMD9G8laPjz3_o8PUUQiP_TRc_tXdLmCSl1gKkLqT5NjSezza-9VJhnwaypE3Qa5u7OQtZ75c9zr_eXeUQYL1UWaPc0LE9cxBtlTovgFgrzbLsYTyBG56c6rMYMwNwR3avpqRxqD9aZAzKW_aStwEP8R7AflhbmOBEAsb_YAqhk-h5eDQNMcnqBjkcxVtiPepZqU6FT-bnVy5uKCNqR40mRVEa3L1iQIVVWnbv8ZVXiJwwmHaDwjQcjNQVwM4PKR2KXF5sJZRGU_Uwnmy5UgIS1IIOj5pnac3iYw8dP7eO1tDHR_aumj_A.jpg"
       ]
@@ -408,7 +408,7 @@
       "channel": "Stock Market Research",
       "documents": [],
       "document": null,
-      "views": "156",
+      "views": "175",
       "images": []
     },
     {
@@ -426,7 +426,7 @@
         "title": "Defence - HSIE - 06 03 2026.pdf",
         "size": "7.2 MB"
       },
-      "views": "161",
+      "views": "176",
       "images": []
     },
     {
@@ -436,7 +436,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "565",
+      "views": "638",
       "images": [
         "https://cdn5.telesco.pe/file/QacScEP_08pcyiYpWXcq-XPsmUJ7Z84f15OfYEqMewY0_mx4R2CFwL1tLaxEOJb5qvKBQ_5cDbCSuV3MphqZCz1Ec4tab4-B50XFFrleEfkzW-cAPCdlD9fkpRDuKHk7R3Ud1IDSAt5KJRnb9FM4HNqYp2l9tqX_uX3v-3Hud9WqyGH5mQIpc1ZptcXAccFHAIgqAMegyBmAWHDsEbS2Esd8nK3Om1sbZC59DLI46M3F0zHeuk-b0bT6cgsiP6aVA7cY3dEPGZuczSkikHsYuR-7OBgCQuXov3qf5psC58u8dI3Z5s9Js9DPHwa48Jp7ab1RkdHVWr_upfo4x1Bw8w.jpg"
       ]
@@ -448,7 +448,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.11K",
+      "views": "2.29K",
       "images": [
         "https://cdn5.telesco.pe/file/RfYklwvrv_t2Yz_R27bRrFJr4TSEgVG9FLCaCBK--om-zYhlvjLoxrvwfEnXWGOx5oQOYF4v_Gf-UNxRfriruB48DnWHe1fMbbIcCBGPxkpjBqfFDtu785MSn-Pu2NwtR3u9mbItKNco2ALW1VYiW-iZ_lV8GLzR1Z3wJmZGacodTvUNhfd6qV3GqGS7yFn9f6xgHnb33t8OyZjOfteAeE5G_TbSUrj-L7edL0O2kukhF_LWLubvHIiBUrVCfTsqhiwxYh2TrHuJg5bSuwtikRz6xCQpWgfJbK3h1aps-uNokahK9W9O5SzYP2yAdxW8UC0__-Nid3i6G3T6TGn8CQ.jpg"
       ]
@@ -460,7 +460,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.12K",
+      "views": "2.28K",
       "images": [
         "https://cdn4.telesco.pe/file/VJzuhxkXQ9-3j4boyYDRMGnKehyJ8mVz2Yw4_2HckfbpplIGuUFVCxB0Ug566nmM-1NsJHHlr1L3hOIUPV7eSXlW7pBtXt5gsCZJS6jgNbHTXUD3FF2jk35Nip3X7WrdHm1ZFfepbpHvRWm3ofB8Wvx6CmyTMLX47oa35OTndrGYtjjj6oBWPKnjqAkWUukmtgwfce-wJ39T0t6qI7swkyg05uEIglAJy6U2rI-pLgco2U_CAqZ7XztcfO-lviyT592jBieUDgB-M0i_lGWEPR0DTNRI_cWO1Rx4xtwHvu6PTuHn_LcdE9g5PnFIetJeSt6-CBECZxAF_-CmzTuQzQ.jpg"
       ]
@@ -472,7 +472,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.01K",
+      "views": "2.07K",
       "images": []
     },
     {
@@ -482,7 +482,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.11K",
+      "views": "2.16K",
       "images": []
     },
     {
@@ -492,7 +492,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.94K",
+      "views": "2K",
       "images": []
     },
     {
@@ -510,7 +510,7 @@
         "title": "IPO Market Update - Mar'2026.pdf",
         "size": "2.9 MB"
       },
-      "views": "276",
+      "views": "285",
       "images": []
     },
     {
@@ -528,7 +528,7 @@
         "title": "Nuvama_Update_on_IT_industry_Enterprises_Gen_AI_will_need_IT_Services.pdf",
         "size": "208.8 KB"
       },
-      "views": "277",
+      "views": "286",
       "images": []
     },
     {
@@ -538,7 +538,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.16K",
+      "views": "2.21K",
       "images": []
     },
     {
@@ -548,7 +548,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.13K",
+      "views": "2.18K",
       "images": []
     },
     {
@@ -558,7 +558,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.12K",
+      "views": "2.18K",
       "images": []
     },
     {
@@ -568,7 +568,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.9K",
+      "views": "1.92K",
       "images": []
     },
     {
@@ -578,7 +578,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.97K",
+      "views": "2.04K",
       "images": []
     },
     {
@@ -588,7 +588,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.97K",
+      "views": "2.07K",
       "images": []
     },
     {
@@ -598,7 +598,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.94K",
+      "views": "2.01K",
       "images": []
     },
     {
@@ -608,7 +608,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.83K",
+      "views": "1.89K",
       "images": []
     },
     {
@@ -618,7 +618,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.26K",
+      "views": "3.34K",
       "images": [
         "https://cdn5.telesco.pe/file/guCBtNC6Mc4-eGE0dhmAjjd2m6XiEeuHSlrxyPHZJZ9UeQp_98s3TkXXiRQLlBxbm-Gz5MVJ3Mi6nmXG1gs4CJMH-dilFYzeFs6EVW1EHn9bsIPP44E-dFUvuH0k6Io52eIsNR1WuAsKrcSf8qp-0HsIBByvjSIw2GzrPJHLEZY1ag57ViHsPlmpqn9io_oVHN6zTdKntohCPTflcEBbMIW8YDV8WOxrGgqoGynhI_IyrcsQy-RnAlS4YIhSg_v9garRX4YUFlRTQOpfJ-LQKvtbWkG0e06Eax58b4hkLCt27jRLKWBEiTfREtNK7InQ81awenwBYAUoiobtVdVioQ.jpg"
       ]
@@ -630,7 +630,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.24K",
+      "views": "2.27K",
       "images": []
     },
     {
@@ -640,7 +640,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.16K",
+      "views": "2.2K",
       "images": []
     },
     {
@@ -650,7 +650,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.12K",
+      "views": "2.13K",
       "images": []
     },
     {
@@ -660,7 +660,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.12K",
+      "views": "2.13K",
       "images": []
     },
     {
@@ -670,7 +670,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.07K",
+      "views": "2.12K",
       "images": []
     },
     {
@@ -680,7 +680,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "2.11K",
+      "views": "2.12K",
       "images": []
     },
     {
@@ -690,7 +690,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.51K",
+      "views": "3.56K",
       "images": []
     },
     {
@@ -700,7 +700,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.72K",
+      "views": "3.78K",
       "images": []
     },
     {
@@ -710,7 +710,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.5K",
+      "views": "3.55K",
       "images": []
     },
     {
@@ -720,7 +720,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.92K",
+      "views": "1.93K",
       "images": []
     },
     {
@@ -730,7 +730,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.89K",
+      "views": "1.9K",
       "images": []
     },
     {
@@ -740,7 +740,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.57K",
+      "views": "1.6K",
       "images": []
     },
     {
@@ -750,7 +750,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.55K",
+      "views": "1.56K",
       "images": []
     },
     {
@@ -760,7 +760,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.22K",
+      "views": "1.23K",
       "images": []
     },
     {
@@ -770,7 +770,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.39K",
+      "views": "1.4K",
       "images": []
     },
     {
@@ -780,7 +780,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.08K",
+      "views": "1.09K",
       "images": []
     },
     {
@@ -790,7 +790,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.02K",
+      "views": "1.03K",
       "images": []
     },
     {
@@ -800,7 +800,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "969",
+      "views": "976",
       "images": []
     },
     {
@@ -810,7 +810,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "929",
+      "views": "936",
       "images": []
     },
     {
@@ -820,7 +820,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "999",
+      "views": "1.01K",
       "images": []
     },
     {
@@ -830,7 +830,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.04K",
+      "views": "1.05K",
       "images": []
     },
     {
@@ -840,7 +840,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "944",
+      "views": "950",
       "images": []
     },
     {
@@ -850,7 +850,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.23K",
+      "views": "1.24K",
       "images": []
     },
     {
@@ -860,7 +860,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.43K",
+      "views": "1.46K",
       "images": []
     },
     {
@@ -870,7 +870,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.07K",
+      "views": "1.08K",
       "images": []
     },
     {
@@ -880,7 +880,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.97K",
+      "views": "3K",
       "images": [
         "https://cdn5.telesco.pe/file/EaDEXVmupKMYBue3oud2qSJ0963wgnfMUwQmvKIGsGtU3nKI89ESxY0Fi0qUEnCUE6m3oi9B2eI0FyyLdnX8-RB1UlK9iuQpo1VeVRG1w4uzv2I1f8uwL_ycrXZXSOdXp5n8pnJWEObOSOx1Lb1oFiaPLh_wkzlF7bNGFcfZ0rNFec6yZBeAjIwMGb6BFxZNt0bPvSCkkLkJR8FnfhsPhQnZkqfNAN5Sbd--hMWHTprLY0YX-Gmcsbg_UDkL07YUPR_EZBZsf_Y5wxXrB2wzm8esMdjRaBCvEgIAVeWqSHT2r3lvojHUVcN7QVBvqB5CzSq6J68RURXWBhrNZIFEaQ.jpg"
       ]
@@ -892,7 +892,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.97K",
+      "views": "3.01K",
       "images": []
     },
     {
@@ -902,7 +902,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.94K",
+      "views": "2.97K",
       "images": []
     },
     {
@@ -912,7 +912,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.87K",
+      "views": "2.9K",
       "images": []
     },
     {
@@ -922,7 +922,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.52K",
+      "views": "2.55K",
       "images": [
         "https://cdn5.telesco.pe/file/pmhcrtdlOFCGd1RAI23EWToIjOC5ZRz1fvWvmDkfQDnM_qKWkXmdu2Su68amzHwfg-gLfEVUEDEGJMZK3CA8qPl1R_37k6vurL4xgrojMGV8GBT-i-04fWsdTsVk3sdx1O72pFcmmjnDhxhuxKIGriZujPbitFTYoOHUdyJAa7AHePzzBLeNrTsfGDbg99glM2EGZ1dgvLiVJKuVbhcN8mZFUdgJZpFR_ZRys1BsyerUwL0EsOOpQuvt48AGbQD1MWQxQKBZUEmXKVW_SmJ0HpzrchiffJy6B7il1OXFVnRDPokDkOCwCMqS7KsvfUhbltpCZuLAN_AsKSFN-ZwmYQ.jpg"
       ]
@@ -934,7 +934,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1113",
+      "views": "1144",
       "images": [
         "https://cdn5.telesco.pe/file/MeuMTY-7jXVPctwDzMqEDVg5MWn8zXieQZ1fKxsxSOXrPvVHcVBdfj64VJ_rwTJM3ZkuJvDQz7Uq8k4b75R5e0NsZ0Vd6lxnA8NVymEu2umoV9MO0Dt11mRJiZ24OhVUyszkNxzxvAXXqU411865mS7wb5ef4yQad3nWkaLyvnG85qBuVCXP-lyZiXlIqoOmie35Dj-fkVPBktGth1Qb8JP-wJg8odEM2mMHQn1z0CkwD_OYcxU6pSUPXYkLRn3SrX8b6Okb7OdFqdMUubCRUlo8hOfYzw1eV_pMBCDYSS6TKTSvlgaKZCG_tT2LotNvHx6LaRAUcabvf-Wp3loVPA.jpg"
       ]
@@ -946,7 +946,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "991",
+      "views": "1024",
       "images": [
         "https://cdn5.telesco.pe/file/Dv_j3w8xRPgtSVtjYwGUmjNaYU0_GTbi6CUMIWX53k4kPdxg9VG16av7BFF3OlNmDhNiGqKNrZbNU_v3m_iA_aTsb0_wnEOn9dsTJpbONbmnIWlRymlMdO8l7lRlue77QaMvT2c0VZdrOu7HPdYXqI5tWzgXB6A9a_uGRXQGFwkIGSrOQpCBvFSfyI8X3NdpiOwlIAnYdcNkv4NuufVU2ofkwsDVhtLFHFmSO1ve1RdQFKKRemM5peRH_CiDfVq7InWr2EwzGxXcsOZdUBvq3LRlC6x_R3Sy_FmLH-BQeh8EJype7q6NwvEm5uH_gW1fYaSTHmYUqhjxhOI-I6lrkA.jpg"
       ]
@@ -958,7 +958,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.47K",
+      "views": "2.52K",
       "images": []
     },
     {
@@ -968,7 +968,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.45K",
+      "views": "2.5K",
       "images": [
         "https://cdn5.telesco.pe/file/F6eg6PLRD7RKmdrb8XVtaJj0urZdZQUWCGMUN9ri0R4XvvpSmq0q1-Fi3VCjPGhXVYNnBuzapuMV6K3hZgWNjlLnR7IkoxARhzUys2KJOL5YwJoc0yH-YQbp6toNf82WocbSz205micE8rNWNNKLMeEGqUMTldLgLBDLJpSqu40pj69aBw1fWsPXwJjiDs2onYL7aIf8pURHFoLJQQ732MaGqqO9RAB25rSFgI6slNhdFYU2T1jbsXsPyi7OKP9wJ9cjyeAw4kR86kFP62qI2cu5U9mxP5LYvj0S9EnwRU17aL4gLpCj_6UUcjKMtTRYISaX8eLSFJdgy-NPvcPxYA.jpg"
       ]
@@ -980,7 +980,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.57K",
+      "views": "2.61K",
       "images": []
     },
     {
@@ -990,7 +990,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.25K",
+      "views": "2.28K",
       "images": []
     },
     {
@@ -1000,7 +1000,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.46K",
+      "views": "2.49K",
       "images": [
         "https://cdn5.telesco.pe/file/aSzGrGOTaU440R5ljdgm0v671WISMcvdODAecO_0KEtkjgO4-HQLVtf20Gnin2ScXSmWFxWe2o2bP1Z6tzoLwECTLPsXzGhu8nqlELQUS7-0injxXvPOyuHJwOJGmJeKM8TIQeNQuVp9qGopqQtGbqxfDJEnPz6r-YgggcQrACuivguI6aYcNb3Dx_8eWHobe-4MOWmOc1OfwJ_Z8PNf5ecO_WafNRQu1-h7iE25DCmsUlk1_o3UtXLST2AXSqFx_KjfTMaDx4yNIxAtpGzEE9C7dCFDPs4nXSmoOMXD7RJuCkaV2XTziqaZb61rtOhzWJ0V-gMdmc0HhGF_usQNbw.jpg"
       ]
@@ -1012,7 +1012,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.11K",
+      "views": "2.13K",
       "images": []
     },
     {
@@ -1022,7 +1022,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.31K",
+      "views": "2.33K",
       "images": []
     },
     {
@@ -1032,7 +1032,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.32K",
+      "views": "2.34K",
       "images": []
     },
     {
@@ -1042,7 +1042,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.34K",
+      "views": "2.36K",
       "images": []
     },
     {
@@ -1052,7 +1052,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.19K",
+      "views": "2.21K",
       "images": []
     },
     {
@@ -1062,7 +1062,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.1K",
+      "views": "1.11K",
       "images": []
     },
     {
@@ -1072,7 +1072,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.38K",
+      "views": "1.39K",
       "images": []
     },
     {
@@ -1082,7 +1082,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "976",
+      "views": "982",
       "images": []
     },
     {
@@ -1092,7 +1092,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "998",
+      "views": "1K",
       "images": []
     },
     {
@@ -1132,7 +1132,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.06K",
+      "views": "1.07K",
       "images": []
     },
     {
@@ -1152,7 +1152,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "948",
+      "views": "953",
       "images": []
     },
     {
@@ -1162,7 +1162,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "949",
+      "views": "954",
       "images": []
     },
     {
@@ -1172,7 +1172,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "960",
+      "views": "995",
       "images": []
     },
     {
@@ -1182,7 +1182,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.02K",
+      "views": "1.03K",
       "images": []
     },
     {
@@ -1202,7 +1202,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.21K",
+      "views": "1.25K",
       "images": []
     },
     {
@@ -1212,7 +1212,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.24K",
+      "views": "1.27K",
       "images": []
     },
     {
@@ -1222,7 +1222,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.25K",
+      "views": "1.28K",
       "images": []
     },
     {
@@ -1232,7 +1232,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "991",
+      "views": "997",
       "images": []
     },
     {
@@ -1242,7 +1242,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.02K",
+      "views": "1.03K",
       "images": []
     },
     {
@@ -1252,7 +1252,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "863",
+      "views": "870",
       "images": []
     },
     {
@@ -1262,7 +1262,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "844",
+      "views": "851",
       "images": []
     },
     {
@@ -1272,7 +1272,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "987",
+      "views": "994",
       "images": []
     },
     {
@@ -1282,7 +1282,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "992",
+      "views": "1.03K",
       "images": []
     },
     {
@@ -1292,7 +1292,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.07K",
+      "views": "1.08K",
       "images": []
     },
     {
@@ -1302,7 +1302,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "854",
+      "views": "860",
       "images": []
     },
     {
@@ -1312,7 +1312,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "822",
+      "views": "858",
       "images": []
     },
     {
@@ -1322,7 +1322,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "818",
+      "views": "854",
       "images": []
     },
     {
@@ -1332,7 +1332,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "777",
+      "views": "813",
       "images": []
     },
     {
@@ -1342,7 +1342,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "780",
+      "views": "786",
       "images": []
     },
     {
@@ -1352,7 +1352,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "809",
+      "views": "816",
       "images": []
     },
     {
@@ -1362,7 +1362,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "979",
+      "views": "987",
       "images": []
     },
     {
@@ -1372,7 +1372,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.05K",
+      "views": "1.06K",
       "images": []
     },
     {
@@ -1382,7 +1382,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "922",
+      "views": "961",
       "images": []
     },
     {
@@ -1392,7 +1392,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "998",
+      "views": "1.01K",
       "images": []
     },
     {
@@ -1402,7 +1402,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.07K",
+      "views": "1.08K",
       "images": []
     },
     {
@@ -1412,7 +1412,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.28K",
+      "views": "2.3K",
       "images": [
         "https://cdn5.telesco.pe/file/Q_Bd6xkOox5aaWCDgmO3c9zJ8APBsIWCBkwBfZ6Yk5kiLCpDa1HmpsxYbV-RtKkdqe3HwJwbnVb7zF45aNLZsPbE-pWFdLLRh6e8kcp2copvGSdwcLWIXQNX_3dn6V5ShNF6XK7-aTC7Rr3izyUFwlQR8wEdEAA4hPb5ecZC1T9NJPz-Miz-mJvVEh4zyC16GruhNYnqvseUwrwLahtzVA608pxaPvNygQa28MLuF0ub9bbZt-pGaw_7-4fT9bR4h3rW2daVDXEwUnzHOQktO-7OyaV4r_ikimCJiN9-jF2vx3VR0Oq4B4GQLTLlEMyPlhDadQYwenuQHNRpmBC8Jw.jpg"
       ]
@@ -1424,7 +1424,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.29K",
+      "views": "2.31K",
       "images": []
     },
     {
@@ -1434,7 +1434,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.48K",
+      "views": "2.5K",
       "images": [
         "https://cdn5.telesco.pe/file/T4chOPVDedEonpOEOx7cMGIQoYUTmuQcXYDuoNBvNbMa0OdOyKFxt4x9hkPy5Xyb3763mjN2vJ68eUaLLujDzneOlQro0dDNdiNM_uHk7Q7mzNde76WwkrCWuOyDlp1AMnwr35zT-FrBBoe3UDjNxXL8vg5dsovMYmXBa9orV1_sm7SoHuYybf3_HbPcOYG5UvXhxw2qEN1L1wIz2iGKKAfkyZBF-S-xhOh6Ch7NHSxjDGYKFqRNuiKUcvgmVSejosm_LqHzdue6KFQY-ud6ky_WllAO_nNATX7wEkjp8OxDjpS6P86HGvbCkWF1AwGLfMHEhx9ZsxQMQjyb1H-sdg.jpg"
       ]
@@ -1446,7 +1446,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.25K",
+      "views": "2.27K",
       "images": []
     },
     {
@@ -1456,7 +1456,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.33K",
+      "views": "2.35K",
       "images": []
     },
     {
@@ -1466,7 +1466,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.58K",
+      "views": "2.64K",
       "images": []
     },
     {
@@ -1476,7 +1476,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.55K",
+      "views": "2.6K",
       "images": []
     },
     {
@@ -1486,7 +1486,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.46K",
+      "views": "2.48K",
       "images": []
     },
     {
@@ -1496,7 +1496,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.57K",
+      "views": "2.61K",
       "images": []
     },
     {
@@ -1506,7 +1506,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.42K",
+      "views": "1.43K",
       "images": []
     },
     {
@@ -1516,7 +1516,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.38K",
+      "views": "1.39K",
       "images": []
     },
     {
@@ -1526,7 +1526,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.28K",
+      "views": "1.32K",
       "images": []
     },
     {
@@ -1546,7 +1546,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "924",
+      "views": "942",
       "images": [
         "https://cdn5.telesco.pe/file/tWEhK13c5cscPfKb3uynxWooGykodqAzp_-UFjm7kSrQYBV9UBcyJBLbyef2aCdv5PTFIRfDjUuhpc-M9SXWk16gxr0CI9N9ohb8-y3iSwdGYc0AXt171AmhzHq62UyqZU8RMPmk0dkCb2IkFt664yt9rmx8FykPJjuslH7ZnHCdNYtOem6rhXKilNMmA4CVfiUtvOFXdNpNREnP8HWtspyzM--GasLlzDzrGW_T4AiWPKAN6sbA_j-jvS3_Mr7VLOD1hBHJSor9XqB65LA5YbbUAvWNZb--wf3XC3-TGqqh9iK_bw3oezXf0kI6ZYhHdaL5TtkdTHleMG20hIjKEA.jpg"
       ]
@@ -1558,7 +1558,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.3K",
+      "views": "2.31K",
       "images": [
         "https://cdn5.telesco.pe/file/Eqy_SF_n2jvvoyuGUJhHhH-Q_AYbt3JUo7n73zzhUB2BLwe_Q8NMg_pcY48KTH9GjmYD-8ZbdkB7JLz6by6j9hlyP1sKSEjao-VQ4SqgIeKhPDfSKav_DdojKpvRnHoYMbhIOnL44bXlpfCFVq2YIiNh-CsVW0khbsPoko4pK_pNRZNwYQeYWFmzKkMrgX1-sBce020eDDvWKijAyyrpbmv1LYQJccVbU9fQtfpADOVde-dyHXeMy--2rdPYu-RGxFFVvFofecCgCX0jOTtrtsnZjgVCmUvBgN8Daw8cEuGTxl6h0sbWvvfCo5v0_RVdwSrN8xKLyO9q64D7eYhFwQ.jpg"
       ]
@@ -1570,7 +1570,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1224",
+      "views": "1266",
       "images": [
         "https://cdn5.telesco.pe/file/g8YnXnH7T9HtuI_1wee_dmSjDI3qEzIsM4UW6spfUNUZ8-C3HeKXjs6_LR49nydehnVkCsggn68Hj0_fhRtD1UXLRmCnI4OuZSX27-lhMhbulhwk6lnGi2BB7ezWGRtpOhlmsl9ltdzqjpBesAmP-afLC7svGp0Lw49IL-AKl6WBUEBvizgyL-uZ90HmUwr_sbQPYYTzvRxxPjaCK49SvXVGZJxDgH68JcE26vro1-wbtfNp-g0msn5vR-RI3UyuLTCy06PyM4p427O04g_mZ3Y3e8ATK6bRHeZxbrq5DIrTlV_m1KoovBVGXsHPgeEYTHn20IT-jxldahQSMu3c6Q.jpg"
       ]
@@ -1582,7 +1582,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.46K",
+      "views": "2.48K",
       "images": []
     },
     {
@@ -1592,7 +1592,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1071",
+      "views": "1099",
       "images": [
         "https://cdn5.telesco.pe/file/mU7q83bArX7y8OH42pS_E2x0E6i0zyy2Qx7yLhCz7VzusJpc4xwT6z3omenNUojo8U3ZubudyX4iZ1quv_yzK21iyXbAsS7DDkZynt3zUacT2B0Dhvq0TGhbOA9an157FoM3ScSK06dHZ0D3WOPldSZpTY2QFzAwWEl1lHZG7pFJIbXBPCQeNlI74cCKYLe9S5gQbIPZoC1kecitn5veL9rnBHsMNQerqT2WdR1Vooc1R2imBA5e3hIGL4BcKQpRzTaOv6naAYD5NvdPPnuzlIqRd9JhpTsoF-7kwqQlOsAbL4xbq_Z6HvLs1ZlfSaYT8QnvKbKiOn9Xw9P2uBx-Yw.jpg"
       ]
@@ -1604,7 +1604,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "949",
+      "views": "970",
       "images": []
     },
     {
@@ -1614,7 +1614,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.93K",
+      "views": "2.95K",
       "images": [
         "https://cdn5.telesco.pe/file/JiFQ62munT51Z2jSzfCb_djijK52ZD9-XufhW5-HWOzSB1QFgdX12qiwgl96KWuXdoBylac_cqIiHa4MbbP6QcTtwcw_kLipsGnAOLVSeWtjEqbCkG1vIqseJVNZLHqLLbJn4lJ_aa4af_0HMqLUxoWzPp05yt0EcnoC7pufZ1fP4BhpIUFlvcvyTLTKazBDrGRZzQMPZQV6CaMKDicEJQEyuY0dYu6baVDx0QA-eOcIyTZoFgFHWU060RzoLP6zts30c2QeekGGnnTGUCfRcOx-fiGvobn7RGttjWviO6Rk4PnDKWRQdH5S-r2sSkUPMOAMsmYC56FskosBIazAqA.jpg"
       ]
@@ -1626,7 +1626,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.54K",
+      "views": "2.56K",
       "images": [
         "https://cdn5.telesco.pe/file/qme0G5YjETP8ZOL0uQ3qCH9fvLq4of7hpaHWK6-yRW7FFWtNivFuAxKxCrNkIcbZyZpOZ0S2kXtfTZAckCy34bXEAj-awuaRJbTTD-oSZX_zfuBUuIzhWEFxdXgrANSvwnm2rmmX62lD4CnrH9tXOmqWpteYRdn_R_AFY2i4NmKI-D1vmxeZqt3HyPODFpOsKRiGZ1ohmP0S8E81ZO9W-X9-8amPHeEVMPZ7kNw9iExPcyaoA2-qOHf65hOMbpoo1fks06W9c8IEa4JMfHKCf1xIRcsQ08xjFCkcNXAR4FKpyjaoAeu5hpOxNfSOemBpgZxzvIO5Zma3nDu_IrA6Ew.jpg"
       ]
@@ -1638,7 +1638,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.55K",
+      "views": "2.57K",
       "images": []
     },
     {
@@ -1648,7 +1648,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.29K",
+      "views": "2.31K",
       "images": []
     },
     {
@@ -1666,7 +1666,7 @@
         "title": "Nuvama_Update_on_IT_industry_Enterprises_Gen_AI_will_need_IT_Services.pdf",
         "size": "208.8 KB"
       },
-      "views": "1043",
+      "views": "1068",
       "images": []
     },
     {
@@ -1684,7 +1684,7 @@
         "title": "Systematix_Initiating_Coverage_on_Bluestone_Jewellery_and_Lifestyle.pdf",
         "size": "1.1 MB"
       },
-      "views": "1056",
+      "views": "1083",
       "images": []
     },
     {
@@ -1702,7 +1702,7 @@
         "title": "Defence - HSIE - 06 03 2026.pdf",
         "size": "7.2 MB"
       },
-      "views": "1058",
+      "views": "1084",
       "images": []
     },
     {
@@ -1720,7 +1720,7 @@
         "title": "Axis Securities sees 12% UPSIDE in Coal India Ltd- .pdf",
         "size": "333.4 KB"
       },
-      "views": "4810",
+      "views": "4943",
       "images": []
     },
     {
@@ -1738,7 +1738,7 @@
         "title": "Nuvama_Update_on_IT_industry_Enterprises_Gen_AI_will_need_IT_Services.pdf",
         "size": "208.8 KB"
       },
-      "views": "4799",
+      "views": "4933",
       "images": []
     },
     {
@@ -1756,7 +1756,7 @@
         "title": "Systematix_Initiating_Coverage_on_Bluestone_Jewellery_and_Lifestyle.pdf",
         "size": "1.1 MB"
       },
-      "views": "4661",
+      "views": "4786",
       "images": []
     },
     {
@@ -1766,7 +1766,7 @@
       "channel": "Research Reports",
       "documents": [],
       "document": null,
-      "views": "4471",
+      "views": "4583",
       "images": []
     },
     {
@@ -1784,7 +1784,7 @@
         "title": "Arihant Capital Pre-Conference Note.pdf",
         "size": "1.2 MB"
       },
-      "views": "3752",
+      "views": "3864",
       "images": []
     },
     {
@@ -1794,7 +1794,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.59K",
+      "views": "2.6K",
       "images": [
         "https://cdn5.telesco.pe/file/NJuym9iZn1DYu2ZK4icuujF7BwCTcFlXt_7CEWwALrWfClkR1UPy_94l3yxo-Uhp2RVdDFZBfWwIpxly-YaDuO9nP0GPgvlhlhwF43iNOvwYNHAHDWbLvqBmRhBLQnrmMSmgwH4rewQWozKglaNmsbygP_BdpkGXjvqrnnth2-WMmCUL4zxfSXsXw5w7tXfZZXVMxlf2kXjCH9_X3CnyGmOYKtZUjnEwYFC-qyUZXKqay32hD3jHk_wYqtlGOp7xFuW55L_P0Py1Wd4poodo4NUo-usGow7SAjTqXPmJeGq_lFkXSYqCrS2_Q28ksGtqPkiI1ZoNPogJn_Qz_Lecag.jpg"
       ]
@@ -1806,7 +1806,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.26K",
+      "views": "2.27K",
       "images": []
     },
     {
@@ -1816,7 +1816,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.38K",
+      "views": "2.4K",
       "images": []
     },
     {
@@ -1826,7 +1826,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.37K",
+      "views": "2.38K",
       "images": []
     },
     {
@@ -1866,7 +1866,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.37K",
+      "views": "1.38K",
       "images": []
     },
     {
@@ -1876,7 +1876,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.2K",
+      "views": "1.23K",
       "images": []
     },
     {
@@ -1926,7 +1926,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.12K",
+      "views": "1.13K",
       "images": []
     },
     {
@@ -1936,7 +1936,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.02K",
+      "views": "1.03K",
       "images": []
     },
     {
@@ -1956,7 +1956,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.23K",
+      "views": "1.24K",
       "images": []
     },
     {
@@ -1966,7 +1966,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.23K",
+      "views": "1.24K",
       "images": []
     },
     {
@@ -2006,7 +2006,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.23K",
+      "views": "1.26K",
       "images": []
     },
     {
@@ -2026,7 +2026,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.38K",
+      "views": "1.39K",
       "images": []
     },
     {
@@ -2046,7 +2046,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.37K",
+      "views": "1.38K",
       "images": []
     },
     {
@@ -2056,7 +2056,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1142",
+      "views": "1168",
       "images": [
         "https://cdn5.telesco.pe/file/tU6QAAoVXrW56LHSP9pOxVo3Q6U03q31W0wOLdDUJO7piu_7q-wYK_02j-FciN4pcG_tzG-kRuITuwCQloR8-LyLCGhNqPYOapa_BPfJpYI0gsdU7uosPBmDhsezvWx9_bL6y6GaA7lUkClz_Sx3Z_pOR2LHJgvEJKHx4g3DARjYYevP8E7v7Nsn0ue9JknZqPw1K41HEo_ds9t5djaY8VKvzbmFjgaZRG2ScuaLjiCJyzWV14KL07nwk_oqZc_AGUOIrXJt5LJUFLyOvPaczaoMoMyBjczESbFLg7jQOkGyqg1MzBCYtN8GBh06q4Iq0ToLKAOAfZ8CvVZVufBpBQ.jpg"
       ]
@@ -2068,7 +2068,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.89K",
+      "views": "2.9K",
       "images": []
     },
     {
@@ -2078,7 +2078,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.55K",
+      "views": "1.56K",
       "images": []
     },
     {
@@ -2088,7 +2088,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.5K",
+      "views": "1.54K",
       "images": []
     },
     {
@@ -2118,7 +2118,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.56K",
+      "views": "1.6K",
       "images": []
     },
     {
@@ -2138,7 +2138,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.46K",
+      "views": "1.47K",
       "images": []
     },
     {
@@ -2148,7 +2148,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.8K",
+      "views": "2.81K",
       "images": []
     },
     {
@@ -2158,7 +2158,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.45K",
+      "views": "1.48K",
       "images": []
     },
     {
@@ -2188,7 +2188,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.64K",
+      "views": "1.67K",
       "images": []
     },
     {
@@ -2208,7 +2208,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.46K",
+      "views": "1.47K",
       "images": []
     },
     {
@@ -2218,7 +2218,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.36K",
+      "views": "1.37K",
       "images": []
     },
     {
@@ -2238,7 +2238,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.27K",
+      "views": "1.31K",
       "images": []
     },
     {
@@ -2248,7 +2248,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.89K",
+      "views": "2.9K",
       "images": []
     },
     {
@@ -2258,7 +2258,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.88K",
+      "views": "2.89K",
       "images": []
     },
     {
@@ -2268,7 +2268,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.92K",
+      "views": "2.93K",
       "images": []
     },
     {
@@ -2278,7 +2278,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.9K",
+      "views": "2.92K",
       "images": []
     },
     {
@@ -2288,7 +2288,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1009",
+      "views": "1022",
       "images": [
         "https://cdn5.telesco.pe/file/DrwbAyURzQBYAZGzm9sx7FbRTaW3gDmnyDFbI-mz5YUF7q0FOXyRT-XO4yOF5mQKX01BxrsRYSQRMOfpS39qxtV20gvUf7dbIdDLuv_jQX3WzzAd6Xm8k68ckvt4TOXoo-8LGHl0ZaXBZSChGzrng5PY0qnvvEx3eEaFFOEqgjjPCoyDGRrAPRIrBBmwaC6j0kIruIgryJ1nbStQyB-ul-yELhwSU6RND5CRv7qyT7Ab2SL9y6OEH7BBkEY3BzwMFngdf0wu0eFagYrCxHVPf2W_rKa3SnD76WyCaRc92U0Ihgup-MIy8F3dWl49I88mzkMaO1xKCZjikShzXIQdbw.jpg"
       ]
@@ -2300,7 +2300,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.44K",
+      "views": "2.45K",
       "images": [
         "https://cdn5.telesco.pe/file/bEBn3i37bgZqIKm95G9Mwbk_zgmB74Q88Bf7I9ijCRZBkegty-KAO3LQpTeRlCsb-YeKiXvpBF3oA_HWu7UpIk_WvuKLziY3X9F5fbQOsKMBfhV34KD3uwzSZWdA29HoZn3NBmsxrqNNTukiUKFOUNcPKmS8JfdpruIcoJOPjNZRBW93jx4Mvg0YxkIK7T8FEDpkdsTli2EyLYhSesxKShH0O2pQ21KApsvuRUoVKFFzFfk8_nRaF37k51mLs9vIYoO5Jl-sDrsqWRYwUIDnCH4THAJAs1Ia80D1vpCukyuJF6bF1b4Qk8O6l5_eYpUTLovvye-pU9F9LwSs0HZBNQ.jpg"
       ]
@@ -2312,7 +2312,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "996",
+      "views": "1008",
       "images": [
         "https://cdn5.telesco.pe/file/FOSIXMVoOl3485jU_buN6eRqKQy-EBLzIANSH9M4HicLoGqmo6cgGHYRxVjLUsJ26s4Q7GKjQqYUAnNvNfkqKfmjIIaqRgo9hp6qeHK9Mf4t4CQlNvnbdw14oHWu6t0uOiKYolBXQO9YUCa-jgqraVqMiJ2qijPEKU1eOjIHxRgSGL6GI1eEiRgKtQ8liTcmwyQpOeIySZ8qdTflW4w6GwtafeVChqNF63lKni1vsnjWhxPpWgewtpTUYoXnstwOuJpOBARPAVAQL5uRrKLmr0PfhtB136EBYFev0Fp1moVv6UynZSt5XjLAY4lxd46QLK_9ycvrAiJUo3DIZ-2sGA.jpg"
       ]
@@ -2344,7 +2344,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.51K",
+      "views": "2.53K",
       "images": [
         "https://cdn5.telesco.pe/file/mwE4N7my1LtMQon_GFtE1OlP1AUkjuMAGpX2EwKBTwOB01TFC-V3tjf9hzjo6PeDmcfogRGGyA9KPhzYp8weMiLaUUqzcR_kF9ore_-SKk5dCSl6ZLsmY6_AlT4p4apUPhkv7PBivWssDHPl6mfgq1mWOlEm62_UHx5OU7p1YeXqnDR0jpvJd--eMlMYLBLn5YiqeFiTyW63dvwNkXar3C9coIYsjztNQSa0A45M_T3CdTFI0-tAs1tEfZsWft5Jz1MFOZwtvuUGTE6oqD2RE95g12Shuk_Uk0YEpjchpSJABEtivhvIuhiyq9tjYjSKhMbC32w-VkkqVc0JJFN8mg.jpg"
       ]
@@ -2356,7 +2356,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.31K",
+      "views": "2.32K",
       "images": [
         "https://cdn5.telesco.pe/file/AkUX6_QAEig7wVvdhpdLM1gnIqNmJTNZ5MlNlP640MOinIIkQq49N101qL0Pnt6SRzTAEMOISMNYNEp8aNIIG_SE4XSMFZgfsK8luqiRCj98tN2NL-BXeNLrqn-4R6NqqTcaGku0GnpTQUB9GIkVMXA6-cxBVNiO_1jMAqOtdasSZygIpEvSZglCuLcw3Fsxm20VaIt8Yw_E8eTrViJ4kFAufSTKXi_gSUgb2BN5zezl1oq9S-R7sSFbofO9uZXvGDzgJf9Q7LzOj3G-5oiTACd0PCTyl5oJ9hWJaPxPTEFCSSsdDNGG1_UVICmBwjXssDNjZMBraIHwE3vI0Fku2g.jpg"
       ]
@@ -2408,7 +2408,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.4K",
+      "views": "1.43K",
       "images": []
     },
     {
@@ -2448,9 +2448,9 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.82K",
+      "views": "2.83K",
       "images": [
-        "https://cdn5.telesco.pe/file/fLavWJhWtD3OS7CrQ0Bnn57cmz87SbCGKUd61fNYyX14Rl0dgU9ZoSySdIAB4s7AwuciRtpHRnaayJxxEAuw5s9PJYqtbnEyMYLK9yFhlYY3mWv66HcKxFHhscsCZjbwYGZjeBBLX1oVhQV-xfK2aNv4xhMpZ7gnVgtwnM5EWowXW1dMfIM95-2BO73iGW37JtPVsgYqj_w3CcGlQPMTGSXR7aEgvtUKoiYvwqhaKX380kHgTftzFs_SGlnWpND3UGAgKpOGjb9i2xqPsNkeGJ2XqlXsiO44L3FwzhZf1iXyzv015qPzUZlcF9FcjDyiSmj3yyJVuxs1ebIH-IIbXw.jpg"
+        "https://cdn5.telesco.pe/file/CZDw3M4wbF4GeZIpjQOOA_OLgQZuMGJpQ6h9n4rfcr7_6X_VR6BG6p30AF3MRcDKCegPiGKEz0_D537-9YG_GbLr-4Zoa5tK8QydDjJFyVDR3H5icf6yc0zSS0GU09O35PGNTqy2tSoMPJjR7r5XuLqu4IXIBl-mXzOhjhorkCvDu9iwYlx8nVWhsWg_MdqCsFAi_dfJHGwLBRMI-YOKw2opjBDqAOmOVWsIaHD3GQC51WZUfd7LiLnTmagTYVcxpk8VBjhT5d-aDLdTEjIQ0Ksqfzb7nG53scxqSCaiNH_w9dBCamZVLCTPYBc3-Q09_xNOWPR5BIwXzJg2L-X4RA.jpg"
       ]
     },
     {
@@ -2460,9 +2460,9 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.54K",
+      "views": "2.55K",
       "images": [
-        "https://cdn5.telesco.pe/file/NhEHEGyD3d45apYYSUwNK9qeVPpvkfLeaYXe27ikcpp3Iyma4kaiwwqyqPNrazWNJ9uUEy4w-Wi35WRAuMy03mMcUsyuiT9tEAugwae1H0-VRwb9LwxRKWYhbUJ2drvFjeXQRh8TuE9-X0pOEOtnVr8o46X8Q7zhOqFFpsocn6WBHDNZFbH11IWG87LjeUNzbMhn72x4CrIQr2EX-F0Xu3DJ2dbf39mAzAW5vmoQ3Kk1-MVpwjOMVlQED63IuxjSO0SRnMmOEPAhW3rBjfpmm90Grhd_Pzl7D3xW9Zk5iNc2j9VLWgZcVtPA3v5Lv7jZhuRALcs8_RqXlhLkkyzGFg.jpg"
+        "https://cdn5.telesco.pe/file/G7NiBDjkFCat24DkQaQSxZXSzg_13_afTCnWGcbsGW8Qt4BLPNepTPNAiRc4Gg6N0rH51O9CT0pI4RBVBbKpfDiyMVCGrSzDQdjtXIONWTGR1YMVrwW4HpXs8zg7clO5ZbRwGLR4eWLNy1zpD8qlpdjQgk5wDGGefMaFtr1eqkuRDL5rGdpgGPFvO44YOA-WuBvm9CZRLp2aSyqryFDC78muzU3hOtWHSqb1XxeQo8G7EVIqL37UcaonYOKGhCWD6UMIanZ26HLq533dQUof-4bdOo2i8ABBVSkRVEt6_HTaG59VXCpypuNKit8KlW1l3MKyZaUYzPElVKR9167ysg.jpg"
       ]
     },
     {
@@ -2472,9 +2472,9 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.68K",
+      "views": "2.69K",
       "images": [
-        "https://cdn5.telesco.pe/file/UjoF5SkvKzxK2T1_AJ9dtf2L5wFy-48iwswhq3_H-k2QvftNlW-x73nbinZLyIM7H_LgYXzejyx-EpfQGwGIpNFCZ6fbhikHtby4XKFeL1As98kQ4eVh2jpO4nwmF_W0o9DI9gQS60JeDXdFdjaT3WsnDMRIxr6hFLvV8oTK8qXkYOTEhoupMOd5GGpQYEiJYIC9iU1qytwnIjQBl1sDt2XwujpdHYFAXB5-4uhhsEeyThLmlMihnzut9pemHl5oOVeZsC-fwhhf5K5ho21T6-c0te3PR_3y9x9GxvJ9ChHwMuQI54GqHlTQRk45sxIu_rt8VEEyccaYvp-csrNE1Q.jpg"
+        "https://cdn5.telesco.pe/file/BZOGcAD20p7x8GimyiZufXnfu_krwuccp880mc4K-BrPvnKYRbQRbyeyA_QaGfZk89RACmhwVzfrd4__TmlQlRTNHGS97c5JpBNTTMTHPpgq10aIJ4x443NbZw3E7ZBDO0cSpW7iJFhalJrRVWJ6_jV0r-LSfDO1_8HLsjUB4IGG-2QeEDXzEDc3MPDKYqDxpOYMftamHxcLJoxC7pf1A__MNmFUNm1OoByg939m557noVygd_ZxxQBdhcZUDJV8bcVaMnSAFXdoZVekisNC_j2hT7i6OXqZkKis2YgL1gvJBFe4ZPyVCPUJMk72IE-SBbYF91aznPikmRCfUL2UrQ.jpg"
       ]
     },
     {
@@ -2484,7 +2484,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1111",
+      "views": "1121",
       "images": [
         "https://cdn5.telesco.pe/file/LoSoqzPuZKdz_hEEzVYYTL_17fIwTcpWvU6-rejJqrOWeD6zr9ZpPhDANJydLEhCZ6oiYz1Z1tsdu53mIK40dVCVEWNKw_Z5IS0tVXY3MTfuCyb_WL2UgugcVMvKi5IIcGF7D5lLW1zNmuYjH7aX0syOCvGeUK-_ns97KOJoS8ct1oYvb3b_mYpfjIb_73MlcH4YHDes2bNsPgL1tQlMDkQeZ-GxEqaFXbueUYBOoT2gaVCs-Ndnsl19MH-6BTVXXzWDAWxsAq3ZYQn2UezdKQPpvgW683jsICW4vv_6ax_6YYA4VongXvYq21onkuR2A45MKN3o3c_PsfDa7katDA.jpg"
       ]
@@ -2506,7 +2506,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.3K",
+      "views": "1.33K",
       "images": []
     },
     {
@@ -2576,9 +2576,9 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "945",
+      "views": "955",
       "images": [
-        "https://cdn5.telesco.pe/file/tkV04-IpFHETWZ_KZAHPqeBrKTJ1W74ye8Ej6kJCdQRgWC3MO4vREeWfpKyH5PYw7LsHp7ZnmF09jTnCr4E3QaB2of5dg816I3mZ98V53CnjWsdki_ZY6pyuQOy9ztHYlWsuFBRJcv5xtZDgqBuDNgqCaUzPYsBKt-lJibYthhOJrYwyPeEnQ61UunktyPvzx7M-Ud7VdH_hpRYblWQYnvDrH3QyIAxblmzmW7OwdMH7p9RMA900iwAH8WI4zsMCu55NWQnRkaXd0lz7gsL2bIuWO9lQ9DvvkFVv_40cWGsOepPxf5L4mvwDzNaF_4Lf5Oxrt-OUdE4R8AYjxTyY0A.jpg"
+        "https://cdn5.telesco.pe/file/HkNyiQO2kQn-PZ6BBKsFRBQ3CI3OFqDydzdLItYM-SuDTowIHB9LeWxh6z0_brGt_zMc59QCwUQGnqRo1B8YgJc8783JugmU8J7YCfAU9qZJ8gP1GWNTlOWERlZ9Gw90jS2ut6s71WEe6EREYebELJ1orljObMCnWYH5umyewlIB854Hec1DrV4yRDfA_OV2NJL5MPqZcZnnjrYyDU3rlOCv1vA5vQX_kW8Jf7DyPKQqSvlsKxTEpWk3zV6_y05nRYnCvC5Z4hBDMrNH-UUhg7hAR4WXFbK4mdMdKrMLaAjZlsE2jAtcn1gaeSDyHEJJYPyy6Irhs9WL_0QzOF14pg.jpg"
       ]
     },
     {
@@ -2588,7 +2588,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.82K",
+      "views": "2.83K",
       "images": []
     },
     {
@@ -2598,7 +2598,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.21K",
+      "views": "2.22K",
       "images": []
     },
     {
@@ -2608,7 +2608,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.16K",
+      "views": "2.17K",
       "images": []
     },
     {
@@ -2618,7 +2618,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "777",
+      "views": "783",
       "images": [
         "https://cdn5.telesco.pe/file/QjctJG9fKAWNr_dqW1xf1Cbak-5UP5wcCedDmqgmj9vErIO_06X5tTWnNhy849qFAS8WEuUt-857QVYA_aelJ1gkH1E44JLotEsq4gb8zckFO8jZk4-5gO7plaQWQiCaeNOOzH_BXPHNQYsvRl7gcquSPB7pfih8PgpLBv3Ht-DFSsD253lIsfJVeIfCuq9MWFKUEvCHrB6yLF-_5nLQmVJdULSAsaW9U44HmO1XtY0vDK9pV7Vifu4RirXtRWGVSxoEomKqWkcnDqKCFoj0KkW8UCkLhDhglqDNQTiuzeHslky8Gs_9KUI7Hy1-Hc7CH1U7h-X7ke4Q-haAP4vMjw.jpg"
       ]
@@ -2630,7 +2630,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1187",
+      "views": "1204",
       "images": [
         "https://cdn5.telesco.pe/file/VrmfQYVd-Iiy-ta9MAgr0vngXHNAr2Kir585z-RLlCyg9qwdert8artmb6NxKb8lIGyk68jS8D8HvSCeh2fqYXdDCq1Bp4qe-FlF2QUHyZ4FnJ9oyrXjhgckxfgAUDC0a9jsesp-zk15cWNtBRBXJX5hBNpPtEZofDTQiuy1HNA1YAGLZYPao4RNV96XQU6Sg7WW00ehMmmpvfEONIXPPyDH9ecluzrjrvr4DzUqu5-8HIfEeIzos95xHoyunOHZ0zcp2vBEnZPIEjd8S7Qrw-0KqEdBLOFfERlmBgaKwWEJj4Mh34GTJHvz8unswhi2sf_6Ho-MVnb1b-y9nkwDpw.jpg"
       ]
@@ -2642,7 +2642,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.18K",
+      "views": "2.19K",
       "images": [
         "https://cdn5.telesco.pe/file/noy7-NncUDZd4Pgb3zH1SH3Unhaj4MdYzVcdU4s2G2AM7O_MugiSwYKFUEy5PveLkvdMvllHCag7uET904iH7LKPN-jihdodPE6RZJOD8DUTaftbi6WldKGS-UaQGNzUbg9cDsXC-1qxWxo6LnVH0100aEtDo4TLaM5Qbl1S8bMiCbP0DHQ99j-8GWkFoV3jDWk7xWLJdhQGdmCfDqpMjcFvYcKUSPZacppKTRxipy5HQgfIRT0Q5mz0128FFZEa3yFFNcl7f78nP-PqZ_Wlb2r22Ogx0gvZqiwd368kRgeyAtwZMJac6z7joYgcChRw40ZZ_4tqGpsO8o1yePhwZg.jpg"
       ]
@@ -2684,7 +2684,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.45K",
+      "views": "2.46K",
       "images": [
         "https://cdn5.telesco.pe/file/dh9I2hI3jiRdUqJ1mxo3ouaR_HWMH5dATa3ikF0gXLqdz4VKtJBr20okG2mvxGCP9GBXvfHHbfD3Gj_gzvANRnLHfr4yJbmVQ3vbnd9RFHy1vOoZV7zqt5h_YnqZWMJej_qSqpvlEnp9ZyWAiFGcD_9SpmQ6Hhmhw89idrPJ2-Bi90byM655lVJEqQtGh9hxid2NgDFEAYnQiSX8RZUchY3_fm7Zxy978D-7eEes-N__5LK5c_SKExawOkCAqwi2anGCeXlIvS5aIOEYCVUMmfsp1ZARjqx5qh3f-X5-rorbTPRCCP64rJmV19ate2qDj8o_vO-Z1lX4W4XFAaZx4g.jpg"
       ]
@@ -2696,7 +2696,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "724",
+      "views": "730",
       "images": [
         "https://cdn5.telesco.pe/file/jU6pLTy0fmHoBb7e9OyJoKDmK9PIdThuQoDPOWyISGfMADxeIRuRBSNCZG7omnNquHBzhAEbpI0xTeZvcBLsqjEjtJ4ohN7u9C23GLV08MTMZ93Gn19eXizVO_TDZovoToQj0_4ant0YOfJYHEpGWOsrNVE7Polpy3ANe6mGp63rTyNwQAjFNk4p56A_1KvCX5eXmTya3PtHsvNcArGJpJQ76pDWcGkZstPQkMzgsywG6R5aMEXFNGVG5oihIEnLOSR5-F9OW_OOPxWmlrYMJhwYGtpoG9SFpFNNAfCptaeLHPHU1a_V75Sh_buZwH2iGBxIrcFKbLvnLyo-zOxcxg.jpg"
       ]
@@ -2768,7 +2768,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "801",
+      "views": "810",
       "images": [
         "https://cdn5.telesco.pe/file/k5q5eiCICo9uE9jTSgeK-JFnQpCI_V7wLMGbzWKybhHmpNAgfisf0gPFMMZPqmqXqT2fgWShjXypnci7fX2xrz8ZoDUzD7RQUKVLOU1EZRgKKSceq_cQiw-u5hPEXUKTOByzClXbmkAG9MWcKLWydgJLpHY1_9qUxwlAjAyDCC7U22UDfhVED3vB8xnvGz6guXRqXRigum3b9ruFpme_LSL3TI5Aa0XIfzqvSi6ofISKoAxr3PtFk0PwITCDkuG3yLsDs8NGqweoVCcQiLKFaNZcZ9DeUC_ViaYwcc4L_YtXmND_Jq3GarU4nK3KrG34BF8_-dGST7zfALYX26mAbw.jpg"
       ]
@@ -2798,7 +2798,7 @@
         "title": "Jan'26 IIP data.pdf",
         "size": "343.4 KB"
       },
-      "views": "1037",
+      "views": "1062",
       "images": []
     },
     {
@@ -2816,7 +2816,7 @@
         "title": "Middle east tensions March 2026.pdf",
         "size": "391.7 KB"
       },
-      "views": "1030",
+      "views": "1058",
       "images": []
     },
     {
@@ -2834,7 +2834,7 @@
         "title": "BoP_Q3FY26.pdf",
         "size": "221.2 KB"
       },
-      "views": "1023",
+      "views": "1051",
       "images": []
     },
     {
@@ -2852,7 +2852,7 @@
         "title": "Strait_Under_Fire_Global_and_Indian_Macros_&_Markets_at_the_Crossroads.pdf",
         "size": "9.6 MB"
       },
-      "views": "989",
+      "views": "1016",
       "images": []
     },
     {
@@ -2870,7 +2870,7 @@
         "title": "The Iran War Series - Day 3 - FrontWaveResearch.pdf",
         "size": "200.4 KB"
       },
-      "views": "958",
+      "views": "970",
       "images": []
     },
     {
@@ -2888,7 +2888,7 @@
         "title": "IBJA_Bullion Daily Report - 06-03-2026.pdf",
         "size": "1.0 MB"
       },
-      "views": "985",
+      "views": "1000",
       "images": []
     },
     {
@@ -2906,7 +2906,7 @@
         "title": "Commodity Technical Report 06 March 2026.pdf",
         "size": "592.1 KB"
       },
-      "views": "982",
+      "views": "997",
       "images": []
     },
     {
@@ -2924,7 +2924,7 @@
         "title": "Stock Option OI report - 060326.pdf",
         "size": "1006.9 KB"
       },
-      "views": "987",
+      "views": "1003",
       "images": []
     },
     {
@@ -2942,7 +2942,7 @@
         "title": "Daily Derivatives 060326.pdf",
         "size": "1.2 MB"
       },
-      "views": "943",
+      "views": "958",
       "images": []
     },
     {
@@ -2960,7 +2960,7 @@
         "title": "Technical Morning_Call 06032026.pdf",
         "size": "683.4 KB"
       },
-      "views": "904",
+      "views": "918",
       "images": []
     },
     {
@@ -2978,7 +2978,7 @@
         "title": "060326.pdf",
         "size": "632.2 KB"
       },
-      "views": "917",
+      "views": "928",
       "images": []
     },
     {
@@ -2996,7 +2996,7 @@
         "title": "MORNING_INDIA-20260306-MOSL-MI-PG026.pdf",
         "size": "2.4 MB"
       },
-      "views": "888",
+      "views": "899",
       "images": []
     },
     {
@@ -3014,7 +3014,7 @@
         "title": "IT+-+sector+update-Mar-26-NUVAMA.pdf",
         "size": "208.8 KB"
       },
-      "views": "816",
+      "views": "825",
       "images": []
     },
     {
@@ -3032,7 +3032,7 @@
         "title": "Elara_Securities_Initiating_Coverage_on_Granules_India,_with_40%.pdf",
         "size": "4.4 MB"
       },
-      "views": "855",
+      "views": "867",
       "images": []
     },
     {
@@ -3050,7 +3050,7 @@
         "title": "Mirae Sharekhan India Strategy Market Outlook__2026.pdf",
         "size": "9.8 MB"
       },
-      "views": "805",
+      "views": "830",
       "images": []
     },
     {
@@ -3068,7 +3068,7 @@
         "title": "Reliance_Industries_Correction_overdone,_near_bear_case_valuation;.pdf",
         "size": "516.9 KB"
       },
-      "views": "764",
+      "views": "789",
       "images": []
     },
     {
@@ -3086,7 +3086,7 @@
         "title": "Affordable Housing Finance sector update - 260305.pdf",
         "size": "3.9 MB"
       },
-      "views": "685",
+      "views": "696",
       "images": []
     },
     {
@@ -3104,7 +3104,7 @@
         "title": "Morning Wrap 20260306.pdf",
         "size": "640.9 KB"
       },
-      "views": "736",
+      "views": "760",
       "images": []
     },
     {
@@ -3122,7 +3122,7 @@
         "title": "Cement+-+sector+update-Mar-26-NUVAMA.pdf",
         "size": "194.7 KB"
       },
-      "views": "694",
+      "views": "718",
       "images": []
     },
     {
@@ -3140,7 +3140,7 @@
         "title": "Bharat Connect Conference - SPEB Adhesives Ltd..pdf",
         "size": "406.1 KB"
       },
-      "views": "673",
+      "views": "687",
       "images": []
     },
     {
@@ -3158,7 +3158,7 @@
         "title": "Bharat Connect Conference- Sat Kartar Life.pdf",
         "size": "386.4 KB"
       },
-      "views": "611",
+      "views": "622",
       "images": []
     },
     {
@@ -3176,7 +3176,7 @@
         "title": "Polycab+India+-+company+update-Mar-26-NUVAMA.pdf",
         "size": "316.4 KB"
       },
-      "views": "622",
+      "views": "634",
       "images": []
     },
     {
@@ -3194,7 +3194,7 @@
         "title": "IT+-+sector+update-Mar-26-NUVAMA.pdf",
         "size": "208.8 KB"
       },
-      "views": "810",
+      "views": "823",
       "images": []
     },
     {
@@ -3212,7 +3212,7 @@
         "title": "AMP - 260306.pdf",
         "size": "2.4 MB"
       },
-      "views": "818",
+      "views": "833",
       "images": []
     },
     {
@@ -3230,7 +3230,7 @@
         "title": "Paramatrix Technologies Limited Factsheet.pdf",
         "size": "2.0 MB"
       },
-      "views": "823",
+      "views": "831",
       "images": []
     },
     {
@@ -3280,7 +3280,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "644",
+      "views": "652",
       "images": [
         "https://cdn5.telesco.pe/file/npmIttsaA5T87Q8exHU7UpW2dqjU274gRs9BKmExBMry8Co-iOg7XEfJF3J4rRUc28sFl_xmi_3Mqt24aiOxuTA911RsvHpLa97lwKpiagamGpS3BflzryGKlun6f5W7mp1FM5dED7YafR-70IPlC2fI3GvZTwaS3nV7BgzPDtrjKByPb2U9hWICmclZ8jebYLzU7M2r-1O0uKz_kZV5lcvNnlUfGMtk8Rf0JOvW_rDb_vPo1Mw3FVs6MAsQ-1r9lfbtj9f9t0_nUUxoSZ_pUS026h4DpuDHXhFHhuvF03uTIWheKbS8EEUFn_fPLLfFeRVKd9po3e8EfX04wGvpdA.jpg"
       ]
@@ -3292,7 +3292,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "638",
+      "views": "646",
       "images": [
         "https://cdn5.telesco.pe/file/HX6if80OOmga3V_IKueIA8abcXPw3EghsbKOScsVLUxa-nHGsZDlCn1sq98h8rIfsRc1InhLgEXyY3Lngfua9yW2O9BPaAyxMMDNSaWAGUoMQ31GLOQbast747i440mLQaMCbjBAA-iM8wrbTOByMpFj__lCtuWBXPp8lsSGA9DxS4ov23kFus0sCl0PcqnEXE0-mFx5lvrYO8wS-5mLx047gA84pdSbaX6Lsm83ETSYnPlFsCnKTsqyh4A1L-b6ICLeCZvuOsbiL2VRnjzE4K-azvcJ-S3lKRjupPrt0TSrtZWNyyCCtu_qZaT1v93L1KCUxsXb24Kg-X19cJXF7g.jpg"
       ]
@@ -3326,7 +3326,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.28K",
+      "views": "1.29K",
       "images": []
     },
     {
@@ -3366,7 +3366,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "740",
+      "views": "747",
       "images": [
         "https://cdn5.telesco.pe/file/KzBuK_SWhUjYpWp8gRhZc9Y3nHXLyiH5t-4O-igsMCzwKRsny59eZ9LSTylzSoXF76ISRuHmyw_PlcvyLK3DJ5GaB9Jc3xHUNx_NWI3VO6crO8E2PM36z3k1xAeP08EPME5vDPrVZb2JYAtQUQ6Nt75C2Y_bSbQSCUxXQDw66j8SY9G9Gwvc22AsL_B2ywtjTYIcXYxKvzWfDm6VrzLWd9AS3uh_xvtNXNx_M4ZLXQwZgAjiJsaDyOc3xtni0bx38gY6jztPpDQrSljDtGqf96KQbLawAzcmnJ4DWCaMfI_cX6QlwuGfH07dcR4eUOHr63FWE-BmQ4AcAb7KiDJTuA.jpg"
       ]
@@ -3378,7 +3378,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.54K",
+      "views": "2.55K",
       "images": [
         "https://cdn5.telesco.pe/file/j_b4nSd3dDGtdt3rAZN6yJg-iJZiEfvobkSj61lh1FxLPPT48r8A1cN3btJwz5_14lOXQEave4ve6yt7WDjyZmqI2ZuOduWT06C9ojRMHdJgsSERzab4uQfAkmesO3OTtJQ8lExsL0CPgrm-e6J_VYWFqrefnvowrENrJDU09E14rM03zWwXCIoGNiSSmgBwPFnvuFlcwItiFEsrxOkll1OHmOmaD5peWM_Oo_Ddr7b_FNPTzr6tXM5B1FI9TsDtPmFtPY0s1LU6AlJ67sZL0h8yqE4SUXokJYQ_AsQgAg-kEiTuhrH1oo3Cg1ieFCkYAADJvS1FTO6yKrVKOG0u6Q.jpg"
       ]
@@ -3390,7 +3390,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.72K",
+      "views": "2.73K",
       "images": []
     },
     {
@@ -3400,7 +3400,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.39K",
+      "views": "2.4K",
       "images": []
     },
     {
@@ -3410,7 +3410,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.51K",
+      "views": "2.52K",
       "images": []
     },
     {
@@ -3430,7 +3430,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.72K",
+      "views": "2.74K",
       "images": [
         "https://cdn5.telesco.pe/file/AuKPgy4T_p7xVzda4BtMQTLvFPyOT_04R-ephsVRdRZQE8sozw9h_FOfeKgVJcg2JCKJ9uPltCjaZluJcv0BHGBFSyiRFATTRBHgSvezhJe3o5Xu06B8K32_bPx3-EJAHIZxtT6JlPwCUe7oTpL4-IMsGGhVGIFsJrlSfl9p95zbgwNnHvhDS5BxvbhTirY59m--YKkXzaceMIadUfY9qgNZJPFS0xQvPFIGcamgQCLTRV0oM697t7Ntc8Iix3qJ5ATasErC2sl7TD1ik0NR2vR5CnRFNdiZTNy2nQifFUbWt4t58gU38_-NWtIZ7Q4EF4Kaiy3olDzze9jBLcxkFw.jpg"
       ]
@@ -3442,7 +3442,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.41K",
+      "views": "1.42K",
       "images": []
     },
     {
@@ -3462,7 +3462,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.38K",
+      "views": "1.39K",
       "images": []
     },
     {
@@ -3622,7 +3622,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.21K",
+      "views": "1.24K",
       "images": []
     },
     {
@@ -3642,7 +3642,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.21K",
+      "views": "1.24K",
       "images": []
     },
     {
@@ -3702,7 +3702,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.66K",
+      "views": "2.67K",
       "images": [
         "https://cdn5.telesco.pe/file/Msl0NgQsH96MhNqEU_U7tYrvSc841c0CBcFJoZ8J-zNaLdjPlwTeF_mlM8SgZqnQoGGqhzjBgur1IF8WKyJA5L-0SKQN7j5ylaBH187Dlj9ssi7mYDbCJqwxgmDPeFFdT7a_PpFVHRqCpi5HYbUyFq_Q5ED8ZlVIbMc4qLeJCLs5n0IkDXu8c4TOcUrU_ggYZj3Ayoi0VXFRu77lZUrU-hXP5SBRH1HucfveEtGiIP9A2iWSk5fs2TFCfFjyWA1xBjzxBR_tV8khs9AxheZk6rHLN0vuy6SCB3hMvOa4vHNhofbbRB33PAJrLyaYJqhPjsSBpw7MhOus45MNfmOKSw.jpg"
       ]
@@ -3714,7 +3714,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.46K",
+      "views": "2.47K",
       "images": []
     },
     {
@@ -3724,7 +3724,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.58K",
+      "views": "2.59K",
       "images": []
     },
     {
@@ -3734,7 +3734,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.68K",
+      "views": "2.69K",
       "images": []
     },
     {
@@ -3744,7 +3744,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "967",
+      "views": "973",
       "images": [
         "https://cdn5.telesco.pe/file/X-GTzlOJ7Gw9AUncBjziAWSMpgD-oZbyT-htogqQbumcuMl6F1fBXWMLXLjMDQhOFOxUY3Omn05kcAIg2CBRc3NuL43obc2QD1jAmqd1nHcgI6nWs00MGxYNAZWfpkVuTvRQ07io0akcoK6tnj3T7IWbbyXlaGQ2NvmkfHoU-pl64yxtlsXLNb5u05THjgqzUl_mVuRovk5UMeS6TH5cQ1V0zsIuDMVDU52tbjvvMWszB5JH11o_AENnGF3t7i_kfxZM5y7hNlLMQiSjIpWhjRJ2tgl5yMEPnmM_HY_XAUKCUC4hw9IOXvGzpUz_na4eh25fLaOEwgKTbzHekB5BAw.jpg"
       ]
@@ -3756,7 +3756,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1016",
+      "views": "1025",
       "images": [
         "https://cdn5.telesco.pe/file/JfdPZ-m3OsBzrwxZRJDkogx5gTTf_79NrHFyh2kBmPZgCR2DUyjkZwt9LW8qwQSFoOSoQ6fL79mvCHt6pNdSRtahYyqx1urTtL1WO0VlMZW7OHZKAIIJMJ_wV8uAhrVsimcE_cf-vw7IqwI0dLF22Li8Bt7nAQ3iVhN6WgBzL95FtDyERYEz7CNDU96_4HeAkP6xCMmbhHcyvX2jYPlMCbszC-NLszONllVxl6XMpOskYmz1flkRMJGGTE6KiF08Em77tkSd5xahEEU0F6iCfYYULUGML3u4IPtLlCahTCanLjXznAh5FGCIT2qrvXSm10rUeg-BOFdLGg9bkZTNsw.jpg"
       ]
@@ -3768,7 +3768,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.51K",
+      "views": "2.52K",
       "images": [
         "https://cdn5.telesco.pe/file/LJRK234aQFkIyYUymH8-q5R_V9zkeOF7r9W9NjKqqazK-Jee_UiF-L_C0pU5wGBfcpNnjrOYGlrJh6eg4SFxh4N5DmrBb5QMhkItdx85wxjTPKlp2854F6746JTll3hACUDijhFOkMwwPJ5PPTCcD-f4LnHyAOew1yWLbnBSslCJA9Gsv4OqCPhk2qoDzb4Qij9bH1R-J_J4Wk0hjanYKTQighIH-LkisqkurAQNaUe2rhPf1PrE_abEameq6BFJY3h8qZp8ByDYw0ALso6hklVCxb4bO8ZZYS9foAbXco3wDrkkI6Bxpw7D6NOgWJkwc9suLXZ4MAao70PCXeao2Q.jpg"
       ]
@@ -3780,7 +3780,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "887",
+      "views": "896",
       "images": []
     },
     {
@@ -3790,7 +3790,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "891",
+      "views": "904",
       "images": [
         "https://cdn5.telesco.pe/file/UTTJwfPWqWQMLT0nbS8MMJ_giYehH_rauf6aF0BLxbN7sICaebbQAstBZD-wcMuVB2-kuvpUMSC4W2AQQhbsbKwo2l85M4WA3XZyjcZBZQ5NpgbmJqeelqCmrfoUtqp8dwJw0awz5wsM-342fjfkEOrP4QZ5ts43j_rxk5CgLwWhn1Hu086S3KcRle10c7kOxc6DlSPe_TUFVZHDm888fkYBe1ZGncVMchKnbne6qLHBrSy3j1tEV4mPUQLM04rsVWFQtADIBduBnkiDJ1ezEqnfWZmMltmO52qgtBUePImKZm7nj5JTAG9oumUyVwioyrwonI0YWP33d8pKUVX_xA.jpg"
       ]
@@ -3814,7 +3814,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "885",
+      "views": "895",
       "images": []
     },
     {
@@ -3824,7 +3824,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.51K",
+      "views": "2.52K",
       "images": []
     },
     {
@@ -3864,7 +3864,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "740",
+      "views": "747",
       "images": []
     },
     {
@@ -3884,7 +3884,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "765",
+      "views": "773",
       "images": []
     },
     {
@@ -3894,7 +3894,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "635",
+      "views": "644",
       "images": []
     },
     {
@@ -3904,7 +3904,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.46K",
+      "views": "1.47K",
       "images": []
     },
     {
@@ -3914,7 +3914,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.4K",
+      "views": "1.41K",
       "images": []
     },
     {
@@ -3944,7 +3944,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.55K",
+      "views": "2.56K",
       "images": []
     },
     {
@@ -3954,7 +3954,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.75K",
+      "views": "2.76K",
       "images": []
     },
     {
@@ -3964,7 +3964,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "716",
+      "views": "726",
       "images": []
     },
     {
@@ -3974,7 +3974,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.41K",
+      "views": "2.42K",
       "images": []
     },
     {
@@ -3994,7 +3994,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.51K",
+      "views": "2.52K",
       "images": []
     },
     {
@@ -4034,7 +4034,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "656",
+      "views": "664",
       "images": []
     },
     {
@@ -4084,7 +4084,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "625",
+      "views": "633",
       "images": []
     },
     {
@@ -4094,7 +4094,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.36K",
+      "views": "1.37K",
       "images": []
     },
     {
@@ -4176,7 +4176,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "674",
+      "views": "683",
       "images": []
     },
     {
@@ -4196,7 +4196,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "663",
+      "views": "670",
       "images": []
     },
     {
@@ -4206,7 +4206,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.07K",
+      "views": "1.08K",
       "images": []
     },
     {
@@ -4236,7 +4236,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.22K",
+      "views": "2.23K",
       "images": []
     },
     {
@@ -4246,7 +4246,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "791",
+      "views": "798",
       "images": []
     },
     {
@@ -4276,7 +4276,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.04K",
+      "views": "1.05K",
       "images": []
     },
     {
@@ -4316,7 +4316,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.07K",
+      "views": "2.08K",
       "images": []
     },
     {
@@ -4326,7 +4326,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "814",
+      "views": "822",
       "images": []
     },
     {
@@ -4336,7 +4336,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.24K",
+      "views": "2.25K",
       "images": []
     },
     {
@@ -4346,7 +4346,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "722",
+      "views": "731",
       "images": []
     },
     {
@@ -4386,7 +4386,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "697",
+      "views": "707",
       "images": []
     },
     {
@@ -4396,7 +4396,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "948",
+      "views": "949",
       "images": []
     },
     {
@@ -4406,7 +4406,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "918",
+      "views": "919",
       "images": []
     },
     {
@@ -4416,7 +4416,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "919",
+      "views": "920",
       "images": []
     },
     {
@@ -4426,7 +4426,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "917",
+      "views": "918",
       "images": []
     },
     {
@@ -4436,7 +4436,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "892",
+      "views": "893",
       "images": []
     },
     {
@@ -4446,7 +4446,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "890",
+      "views": "891",
       "images": []
     },
     {
@@ -4456,7 +4456,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "927",
+      "views": "928",
       "images": []
     },
     {
@@ -4466,7 +4466,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "988",
+      "views": "989",
       "images": []
     },
     {
@@ -4476,7 +4476,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "641",
+      "views": "648",
       "images": []
     },
     {
@@ -4504,7 +4504,7 @@
         "title": "IT+-+sector+update-Mar-26-NUVAMA.pdf",
         "size": "208.8 KB"
       },
-      "views": "1060",
+      "views": "1066",
       "images": []
     },
     {
@@ -4532,7 +4532,7 @@
         "title": "Elara_Securities_Initiating_Coverage_on_Granules_India,_with_40%.pdf",
         "size": "4.4 MB"
       },
-      "views": "1038",
+      "views": "1044",
       "images": []
     },
     {
@@ -4542,7 +4542,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "735",
+      "views": "745",
       "images": []
     },
     {
@@ -4552,7 +4552,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "976",
+      "views": "978",
       "images": []
     },
     {
@@ -4562,7 +4562,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "948",
+      "views": "950",
       "images": []
     },
     {
@@ -4572,7 +4572,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "594",
+      "views": "602",
       "images": []
     },
     {
@@ -4582,7 +4582,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "946",
+      "views": "948",
       "images": []
     },
     {
@@ -4592,7 +4592,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "593",
+      "views": "602",
       "images": []
     },
     {
@@ -4612,7 +4612,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "916",
+      "views": "918",
       "images": []
     },
     {
@@ -4622,7 +4622,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "853",
+      "views": "854",
       "images": []
     },
     {
@@ -4632,7 +4632,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "851",
+      "views": "852",
       "images": []
     },
     {
@@ -4642,7 +4642,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "824",
+      "views": "825",
       "images": []
     },
     {
@@ -4652,7 +4652,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "853",
+      "views": "854",
       "images": []
     },
     {
@@ -4662,7 +4662,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "887",
+      "views": "888",
       "images": []
     },
     {
@@ -4702,7 +4702,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.1K",
+      "views": "1.11K",
       "images": []
     },
     {
@@ -4732,7 +4732,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.36K",
+      "views": "2.37K",
       "images": []
     },
     {
@@ -4742,7 +4742,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "681",
+      "views": "699",
       "images": []
     },
     {
@@ -4762,7 +4762,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "819",
+      "views": "825",
       "images": []
     },
     {
@@ -4772,7 +4772,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "1.87K",
+      "views": "1.88K",
       "images": []
     },
     {
@@ -4782,7 +4782,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "1.76K",
+      "views": "1.77K",
       "images": [
         "https://cdn5.telesco.pe/file/dBfRPE-8FkwBA7OaGv0OP1tEdwtOJ21K7JJbosb0dOr_I50NBUFeov-PCjHAbuJm1C9l20mmDQrPO3odRi8HgvIYZ9jGXwJVoPV2E-6Zxgy8Jzswddzpwr8hBm2OfJAeKDbzFf0XHqMKny1IY4VfevkO7lD5UhLsDZnSULkWo8-e2wsPfGmKJm3EiGmD5tb0g7UaDOufPpCmZBdHUdlIzawbsu-6TZk0l7S9O2A8k529LVTx8xXO8o3LCM6rEN_NuOj5M_qLAZuuAFKJyu6b_G8N5mDZp78W2n8TWW5gIoYll3BSu2d4TqquiRxwPDezKe7AqcvH3d5J9qGKt0R-Sw.jpg",
         "https://cdn5.telesco.pe/file/sq0HNPNVUlmFCOpeqAc-u1aqZRoUPQGE_YBcyR4uhut_Cal4UN_0j7VIavzB5-f3veIgMgBneZ7pIX6YcA5meBLopTPPITMlJFpH0UTjvNhW9uOGb7nac6hxYyajXhZDNt3bj9yUnxbSnsySISJI7OUkN3DK5zb4TeEzaX9qAQY4GTGekhSQ-fWpA3fjl8MUJ0tx1kcSviw7smsBu-O3JUyBRR9RICqHoaDU9j7y78zYMn4YE2g0Di5hYaZRUWKbc9BcPEkdiS-rm6F5JejhPwdZ3qUH-aF60ZhbFQQ6PZigADficqJkrKc6cbqMysba-W0gMjYYC8xrA4wv4e4mMQ.jpg",
@@ -4797,7 +4797,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "718",
+      "views": "724",
       "images": []
     },
     {
@@ -4843,7 +4843,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "620",
+      "views": "626",
       "images": [
         "https://cdn5.telesco.pe/file/X7sCu3CgCaQkPjHGCcuJSeqigUcN_CrIXAxewGxvwHBIsqGQLW3KeQDPyU23ZE7cn7BJrsc4XsV_DuRn2I39MX9ySRoFX6lrsxeORLiuuA96TQBS88haHlKva0-1wgaxvBOU2NmS-aBlAvVyGNI0HDlP4z2FBZSNO2vN8d9TBykcVNZdj9KsnqHQTs3sCqBclKgZ7MQjLdCPiHAzFfFJzxismbdtHMRut_j8B-cFUsG0jMWwNK9Fy6_qcFAmzW7zvYUE8I5_Rsv_kfbN-WstFhdzMe7RbH4eFNyCMCxkfguQDQFCY0RY06s2VTgfJV5Kc5u5pxfiM4L4j_s5gt20Vg.jpg"
       ]
@@ -4855,7 +4855,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "633",
+      "views": "640",
       "images": []
     },
     {
@@ -4875,7 +4875,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "611",
+      "views": "617",
       "images": []
     },
     {
@@ -4885,7 +4885,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.07K",
+      "views": "1.08K",
       "images": []
     },
     {
@@ -4905,7 +4905,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.1K",
+      "views": "1.11K",
       "images": []
     },
     {
@@ -4915,7 +4915,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "661",
+      "views": "667",
       "images": []
     },
     {
@@ -4975,7 +4975,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "646",
+      "views": "652",
       "images": []
     },
     {
@@ -4985,7 +4985,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "973",
+      "views": "974",
       "images": []
     },
     {
@@ -4995,7 +4995,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.09K",
+      "views": "2.1K",
       "images": []
     },
     {
@@ -5005,7 +5005,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "679",
+      "views": "684",
       "images": []
     },
     {
@@ -5025,7 +5025,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "929",
+      "views": "930",
       "images": []
     },
     {
@@ -5035,7 +5035,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.28K",
+      "views": "2.29K",
       "images": []
     },
     {
@@ -5055,7 +5055,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "944",
+      "views": "945",
       "images": []
     },
     {
@@ -5065,7 +5065,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "975",
+      "views": "976",
       "images": []
     },
     {
@@ -5075,7 +5075,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "971",
+      "views": "972",
       "images": []
     },
     {
@@ -5095,7 +5095,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "690",
+      "views": "695",
       "images": []
     },
     {
@@ -5187,7 +5187,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "794",
+      "views": "801",
       "images": []
     },
     {
@@ -5197,7 +5197,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "819",
+      "views": "824",
       "images": []
     },
     {
@@ -5207,7 +5207,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.26K",
+      "views": "2.27K",
       "images": [
         "https://cdn5.telesco.pe/file/tdvMBygc00aJmMTMVcqIWHZzIl64sPIF2zICxb2HC25WGDkRI-HuroVS0F8PZLYgaHRADdAcc-UWjwYsXTTEX8K9hGi5-o28ehpjRkXmujAUu-LpBtT0wK02Jh8qUfDZKsDCPYxTGGPOXMHJXMZi-yZQIQ8BM1If4_SUre8MbNw1M0zCvnXjh43m6oPz7adeuKI6aTb8IB9ssWYo4kskB78jqRrknHww8gw8pcaIG5yCVe6XoWPkWAum040_bKs8r8ffV0nm9ZbdVmyWtr9t8bGNrvXSUHKKVVyVylpPrwUfqza9dNQuL-a7sM6lfHkGjnh62lxxEVxTfNnO-R7e1w.jpg"
       ]
@@ -5229,7 +5229,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "934",
+      "views": "943",
       "images": [
         "https://cdn5.telesco.pe/file/QrcmK8HkpDHeZSr8Zz-BQ1TyfY0QKQy-x8jbKXGNMD_5p6Zuehp6asO7RHoN0Mcf0ZGIQJQGPPfymXXKQb2sjs_XueHVIPoRoU6OLu_yrPWrodSvgGAR8aX8Sey1b8vMNho7ByuMcVn4tIPR8dJx5KHAWYb3tMbYsLhdhpeUQF_UuZpx5J4ne82DmdTSborgaDXWTS2PHrLI2aSfkfeZ8BD1Vyd67G2QIUYS1D7HdhQPBEXg2SlojGOoknhYUIRZx_2bRzCTR6eHgT3HZ_tXZnOe4lVz2dHNMoCZ_SVtuCrkDD2gFQlaQPMFHFUeMXicbNOBWEU8GITIPILFNf736A.jpg"
       ]
@@ -5251,7 +5251,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "988",
+      "views": "997",
       "images": []
     },
     {
@@ -5261,7 +5261,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1052",
+      "views": "1061",
       "images": [
         "https://cdn5.telesco.pe/file/GivYI1GSjfvuLlVMh2_Joc6dguNqZJAvfPMnb-9o8qrhGpLh9BxSRUfhq31OxT0eO8V7lgHi7A5hYtj9d61nxmogiTdY1K2yt0A8iUZIk7OuA90epTqPvPDR1VFgcjgcCMJBpXbCNZ-bBVuo6dyc-2FXLv8DaBwqhSKMEEbUzzIZuzipoKXJtlBDpr6l0Jkjx2iiAi2669Lf1zaekAW58V8-qwVPoMPWZ8Xn7RTRPdDBWYRV33XbEnaYN8vOKApo7nr5cdvflJUzMgtwR-CgKDaxVlTFhwk--7HtZyrxfomzUjR5GOLzc3lTUpYnxxA0h2Rt0GeZrN0Nvm-ttEao4Q.jpg"
       ]
@@ -5285,7 +5285,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.03K",
+      "views": "3.04K",
       "images": []
     },
     {
@@ -5305,7 +5305,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.9K",
+      "views": "2.91K",
       "images": [
         "https://cdn5.telesco.pe/file/uK6IrLUd_MrTtK6YRl8p-EqH_CDhFlLcBvkL36fQgDfRlf1G2N6KIDjXyyytgaq-GlT8Lvv6dRbRD5an9UM68HoiTwRyNXUniopqHjJKXsC9xwor5icy11I3oPjWuq355tdJCOwWVu6lcynRk-Q28ewRoR617XzKSz0_we8z5uMNagUGCZsKaMtEM_-aN4CvyB2_JXCWgw_Zsd13X-_jRkxRU34SJhCRNv1GLsJc7DfShFepMnfMDkj3CroqLzHJYkMUtVOqOjjIiv4WZsrVglsO-T1feOmsHeDY2E2ZYfZeOFiwRicthDtj8dZGytYiV-n37boe0Ju46eVjRmIPRQ.jpg"
       ]
@@ -5317,7 +5317,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1115",
+      "views": "1120",
       "images": [
         "https://cdn5.telesco.pe/file/ST13SMyYfJEp09nzIz4bnxyCCx8DnUQRsr7NUymZMdee40xrqXlGTyGZhVBPHYbL_aFvo6bmjptu4mmbjzWb_Jk_V5Aeq7CtyK7YE_0fWB_Ma_JteJ2JOUJY1GTlJygmkVkxkdK6BIWAVFKE0K2KAua6zVzWZzV04BLo7FnsXOHHIgfWP8W36EzNvf7ablUQX2tiuF6EhjkK6QQhvVociFv-fn30SyaJAv5lm90i3GSu5yIONONmBtXRDbA4E4cl43W9DybXOR-9sWtSLfxyPk2yZHNWLgAsCtvLEXsSNwjrs0vSA4S8TM2clc0t3b4MfInLEFZFWD0mXJvEXZKcQw.jpg"
       ]
@@ -5329,7 +5329,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "858",
+      "views": "863",
       "images": [
         "https://cdn5.telesco.pe/file/qulFjS2fwkrqrFhwD1Jof4xyD6Htu6e9nhonFrz3VFQtGKEyuTijHoFHcVibgGTsBp35sYfHW0FSfooqqwqHJs5fmfDbThhhhnN-nT1hONxJfGRwEZ-b5f-HQIxZ3ajtTUDw-gdkCWXSybhh3lNLDCPKuCqjz-W0sUb1QzbMs4eH2Zn4xroEZ7Uqzub3QIzYRgoLtNxm_W1GjfwzqF0yQqhnjmte0WzUGNy5nmvzoSjX4i9_hxs0y4LkJHsD8NrEIFcADB8ZYu1fLxFPBcAjeygSDJyHloRLyPgJ7vpWdDpw_jjO7i736zvnyYa8sHj8Pu003XCQSXOHpF0RXY3hKA.jpg"
       ]
@@ -5341,7 +5341,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "821",
+      "views": "826",
       "images": [
         "https://cdn5.telesco.pe/file/ep8w9-hywcAP74oJCkjyahtYW7g2Qvc3EkHYiyl9V3Lnc-8ZOeGvj_wVJOn8USHk7Z1FFb770ceeHWqzvIar3X55LAc1DJtwEJXieHyM2WXJX8J0BmYedk3BGHmbQjro2AvgS1NUN0uj3SnlmLpYaEOkxB8Gsw6UaXQO1-5S9yfQVls_JKSaL9R6ALLMb7F5YarSqPGxEfF0wvqMMr4T8Pu9KjoEfLxI354eQw4y7cwK6vnAG3kcnhs3a585pfq1PCy1-yKBO42WFt3sLNmwPYuiwrXk8rEAj6EkCW7BlivhDx_CEl5jUla9w-wWNqlZxO6SV2y48jWAm3v86QPK4w.jpg"
       ]
@@ -5353,7 +5353,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "712",
+      "views": "717",
       "images": [
         "https://cdn5.telesco.pe/file/i-YxIS1KJD1T01-g5qQAouDtO5cpklEx-LLonyHjH2wDz6NFsm6ITrGI5sSh91gpRPYy_7h7uiyGaqBgHqAbImEaaokt-2hohqKZlEs9DB2j5GLvAT8ASWHpgcg8AdkxhVlhrZdtDTaQqO4b7KeNA3-KDbWHqTfz6gPZP0aDsS1GbAqAw09UKFTqxJYUskbSaaZJ2FunjitVPg4VqkvA5ZrpW9NE38fsx7WoWYjZ-6bDgPI3EfWfyNzEEjKCiBYVWLlGc_vDgfzL2gE7lhpSewzdyhSFL0WL1AolVRW2btmK6D6MCUuiamXgsjg_sYHtkYXxrhsaaxsM98hwOsHxng.jpg"
       ]
@@ -5365,7 +5365,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "652",
+      "views": "655",
       "images": [
         "https://cdn5.telesco.pe/file/s63j6hP5QGyIjpv930BonGs_TMzHjPDT1vutVh0iJikMadX8fzQwjKB2JMNeTpCpovf9LTYZ5NUS-0LukpuXgbs4UYzILDvxSzSKmqA__Xp2bde-2PZYdUhov1E3SLV0hyG0VBQcusaZcLz4AIh85A4t1-rWJno6QFUnco2zo-8x8rM5Zcxg5oVT59UhZy-wchCPU4hjRkaV80sNjkiUOp1BqN2zAeAYOoU_6CZC4y7BFcSnDwqlkYBuxGDIa102SPOQa9EuFE7xuzU69v3QtDAjLHWcztwk4ErLod56s6KBQjn7J4f9WA27W-oT9lK_MArXhk5e7A1tzxUJbqlgQg.jpg"
       ]
@@ -5377,7 +5377,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "611",
+      "views": "616",
       "images": [
         "https://cdn5.telesco.pe/file/vl5beMKDBEiuYXoneWsbc8ApYXolzM_cspPt7wOpYmH04W9Jr2YTFjBsrG75hFzIL6fiy4Rz6mr6q9h2loQ1kdnYON0RfnkGxgkq0bZI1Er8GrmAOiXm4yW9ScuZpoE7s4qUsX4uGxWCW0tINOPCaL5tEfbTKBIu5GUQ-dEhZqx6hbMktUCGLHp87RKTJrOghnK098fRJjz5JMWLPtFy8TXz06fdPQ7a4lOglq2tl7W5j3KSuS9XxRkW-pw8MxfwCQ2-D5VtNf-erN0QcX6GhHCgL2gKn6UTucYUxwoCOqJPjPYCj9MudD6qLtdpQv5Ul61LB0RBoSybrfdu0bSBSA.jpg"
       ]
@@ -5389,7 +5389,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "608",
+      "views": "613",
       "images": [
         "https://cdn5.telesco.pe/file/hpG_9w8FDYJGrzYy0mN4UEhM9Bfkl6WbgOCUBQcY9yY6z2dW6tXnAYB1_1Kp-onDwsFhb9PMrMmPoBPSLoUAGxz63W3cbhkG7C70qSQkmQuxKajJy5UyCsj57KSL-pa77cSeU7NAAiHJWAbuUYd7J01I7axHgQhDWf6m-Q3lJO7URHNBpxLBcNdizYqqTK0kESc6b-y1Zp2l_ike9HfyTebjfOgvltn_V0SW204xKCSKaBauufJR-mPhXYfmlhoHhDOE0ZczdC-cFQZdV47OL2wp7wGPZLOqWMH4ovvqluSzoukYC8xav-0OV7b4Y-8MaDQ3O5z0NM7QvGrWOF5pMg.jpg"
       ]
@@ -5401,7 +5401,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "660",
+      "views": "666",
       "images": [
         "https://cdn5.telesco.pe/file/V-srpMRp-hkZq35FdYm32qbGHI2O1Qz0Jipc3WLrQsJ7ZlAKOFr7y7pJSH05EqEcCYD3Urn2gkW79iOCC6_31vXSPCzWDjP3AnHhvMwUqzNjk5Wy7nuSn3Yw4n4hAs87da9jkIRVap8MDBIWy9OImiRXr0mooi0I4eX9Wp-4RiPZ27WdQ9U0hMBpGVoyVxuf_vhCqfzasVIW66ykWjVrnaiUoiAXJS3fYlLh1naR2Bdjg4RW2FO3V_YbK9WjfGpigNYCl3casNDAonKPq5cDyI-Zi-Gc2k1JB2vNG5g495k0HKkx5nD_-fA_cqXiSAotA1kevQHVFerInJo5SxdcRg.jpg"
       ]
@@ -5413,7 +5413,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "604",
+      "views": "610",
       "images": [
         "https://cdn5.telesco.pe/file/EsPi67PLimve-AJQuyTmyJ30qwPMdQdK0TyADfwzU7PihZbiMhN7I0oij_jlDUgRtDocElAgV64pqHsY18M6TUf2kfYfsDYMD_i7n18ye8JLsKtElxCBXjkpIcU0FXIQsGK3G3zpNifTqJfPtV4uUNtTnp57S2wxq_fQoUqF5UJEkR98YARMM4mPfOCZG8AN4wbNtEdZzjnDZQp3PHNl14pSJFaO6K3NICPGcNM-PGukAOJoYv7C7dXpaSOAyvLlaT9l5i-RetQwoK8ZL0F-bJeyMYZt6JOGYd5OkgI0eBewpZTBCd_RtsfPnW1AKLGAYcgsB8GudQeIZxRoEvJu-A.jpg"
       ]
@@ -5425,7 +5425,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "732",
+      "views": "740",
       "images": [
         "https://cdn5.telesco.pe/file/sq3sHJ2lwUEGgy4f0XgUr5EpZlUsFk5ziMQk8Ahw54-hy-jkOc-cWX17x396DnAce5q1ompXZGgTUPhG14ltXC8aN4o4H1OpZXHWiviUzzN1K7c_l9R-m0w8z5iml-D6p_9o4-VzRd9U59Bi9rRBVnCBLuiiGJKy6QCon3SiiISH3XKSf-I4Y9cpdW7_Ng7sUMYWmwh2fi1M8QqIg6fDXjoOaR7gQufGZ5kmArwzNF5KHq8gDGZ8lRcZ_DdixwU9sU0tQ92J4TGwoCx9KZZm4DZVxfEV44irwGxmmIUfPsO2lbuwp3dC_XvrpM-Bl92ju3YVj6F7tLTNoaTIj90z4g.jpg"
       ]
@@ -5437,7 +5437,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "760",
+      "views": "768",
       "images": [
         "https://cdn5.telesco.pe/file/XF3L6MsT3GzT0ldyb-VkPeC5T1U7FjPwKjCM29yx4SNZ345Tu2ueLhr-s0t1C-QCHJjBWUV06etLKckfoVHC1ZuWavpMCZEIv48du1s4db6LkVaCPNKrcvWsuGdUi67Kk5WdyikjlFdudbCRVIsyNuY720DASCeeVmFDuM_sM7F5XIuFER7unjpu6HbyXYcESPRneTjehTwXlEtPpqfUPSUgdGn-PebGwv8q7XQ2_3ZND06hfAaioW3d6qF9aJSrZ9SzElo8TprfH53hAjG76AiEdhfmBe4cdfAI-avrvDyU75bNPxQzr8uc3vRZoVU3tNNJNDmj1avvWjk6zpwwKA.jpg"
       ]
@@ -5449,7 +5449,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "847",
+      "views": "856",
       "images": [
         "https://cdn5.telesco.pe/file/AJtBtht69SQ2d4OYRznMbu44NJ-qt_B_p-sM-WTtkdlGNCATOr_24dtuBjUCn4bkyr8Jo9bEWDGHllXHCncWr4PhGn3BHTWT_JUNQJXpjRdtI_pomBxZhcRTAuHZ3x5C0FcX7-OuINqrqTj-tAaMzhmZXG-q_DjN-bymQXWgQxi7Hcmnr8JMu8GB0H465006qJdtqanXSmTDizhbHYI_PgwSxWyG2qehhF0wnXfkWdvwoOdXkspRqbhDpSXDAzocy__amYqap-h2Ai9DIZLomNbF_nZKcnE0qpjeooFerzqPint_lgSx22GBIcB8n0zCQoUXiDFXnSELSQ-ifJpkGA.jpg"
       ]
@@ -5469,7 +5469,7 @@
         "title": "Mirae Sharekhan India Strategy Market Outlook__2026.pdf",
         "size": "9.8 MB"
       },
-      "views": "865",
+      "views": "874",
       "images": []
     },
     {
@@ -5487,7 +5487,7 @@
         "title": "Reliance_Industries_Correction_overdone,_near_bear_case_valuation;.pdf",
         "size": "516.9 KB"
       },
-      "views": "960",
+      "views": "968",
       "images": []
     },
     {
@@ -5505,7 +5505,7 @@
         "title": "Affordable Housing Finance sector update - 260305.pdf",
         "size": "3.9 MB"
       },
-      "views": "1003",
+      "views": "1011",
       "images": []
     },
     {
@@ -5628,7 +5628,7 @@
         "title": "Motilal_Oswal_Initiating_Coverage_on_Jain_Resource_Recycling,_with.pdf",
         "size": "3.8 MB"
       },
-      "views": "507",
+      "views": "513",
       "images": []
     },
     {
@@ -5646,7 +5646,7 @@
         "title": "Elara_Securities_Initiating_Coverage_on_Granules_India,_with_40%.pdf",
         "size": "4.4 MB"
       },
-      "views": "506",
+      "views": "512",
       "images": []
     },
     {
@@ -5656,7 +5656,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1183",
+      "views": "1187",
       "images": [
         "https://cdn5.telesco.pe/file/G90NMo4va5ixjUYsEnFsaT8Mh2YYlfJN70WlkEtUcj3QnDZsPmzkZw-iIDjjbjesTIUwDOqt_CVGkRvqN_ckoHz3GwEVtSmNagx_Ol9est7Z-21bW-pOZyr2yQcJquWhg9AkpZ1HdZ7GtYxv2VinTib0ZYbx0uc8x2piY1JBjOJZwqeAnVlGCa465CkNQYiaDcDONP4zO0rHHAc7kZkrdQORVQgRXeQurvrMR3XFECdIfS6tC_LXPB0WON4kAsQMczIXTL2ZO8D5qVISnFMocfXkJpPt9J687n4DzBNI2SqyI87GdU2MhsA51XuUznvmKAmJYnXxqG1TN7ZTIKJ-uQ.jpg"
       ]
@@ -5698,7 +5698,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.78K",
+      "views": "1.79K",
       "images": []
     },
     {
@@ -5808,7 +5808,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.4K",
+      "views": "1.41K",
       "images": []
     },
     {
@@ -5818,7 +5818,7 @@
       "channel": "Beat The Street News| Latest Share Market News",
       "documents": [],
       "document": null,
-      "views": "1.58K",
+      "views": "1.59K",
       "images": []
     },
     {
@@ -5930,7 +5930,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.88K",
+      "views": "2.89K",
       "images": []
     },
     {
@@ -5940,7 +5940,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1198",
+      "views": "1200",
       "images": [
         "https://cdn5.telesco.pe/file/G90NMo4va5ixjUYsEnFsaT8Mh2YYlfJN70WlkEtUcj3QnDZsPmzkZw-iIDjjbjesTIUwDOqt_CVGkRvqN_ckoHz3GwEVtSmNagx_Ol9est7Z-21bW-pOZyr2yQcJquWhg9AkpZ1HdZ7GtYxv2VinTib0ZYbx0uc8x2piY1JBjOJZwqeAnVlGCa465CkNQYiaDcDONP4zO0rHHAc7kZkrdQORVQgRXeQurvrMR3XFECdIfS6tC_LXPB0WON4kAsQMczIXTL2ZO8D5qVISnFMocfXkJpPt9J687n4DzBNI2SqyI87GdU2MhsA51XuUznvmKAmJYnXxqG1TN7ZTIKJ-uQ.jpg"
       ]
@@ -5952,7 +5952,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1170",
+      "views": "1173",
       "images": [
         "https://cdn5.telesco.pe/file/V-srpMRp-hkZq35FdYm32qbGHI2O1Qz0Jipc3WLrQsJ7ZlAKOFr7y7pJSH05EqEcCYD3Urn2gkW79iOCC6_31vXSPCzWDjP3AnHhvMwUqzNjk5Wy7nuSn3Yw4n4hAs87da9jkIRVap8MDBIWy9OImiRXr0mooi0I4eX9Wp-4RiPZ27WdQ9U0hMBpGVoyVxuf_vhCqfzasVIW66ykWjVrnaiUoiAXJS3fYlLh1naR2Bdjg4RW2FO3V_YbK9WjfGpigNYCl3casNDAonKPq5cDyI-Zi-Gc2k1JB2vNG5g495k0HKkx5nD_-fA_cqXiSAotA1kevQHVFerInJo5SxdcRg.jpg"
       ]
@@ -5976,7 +5976,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1204",
+      "views": "1207",
       "images": [
         "https://cdn5.telesco.pe/file/MvO2IX-NOC8BDy4jyJ_MwxWKm0wo_kTMdPTtNNkN4cNRNiactWziGdgip20ncJ4lpgCzj_6Vl0ThUroZgTjmmhy6V3WM6-yw3R6MQcfV-FpM8cf8LXut1LVrUxhunYjQFKZm6fo_0jQD2VDZZ1mlrwRmc_FhM0NYPCd6LlPdiYrSWScb3nNbd5GmWsKHSFaMk5Rib-v89G0gOq4LGCW4H0VyqT1lAzjjcaoS-OY_8J3tMYxaQQIrVAY5cZEinLyN7YNoOh5EzE8ARhT4HHkkKdT8wavLLs5AvLmUBy0HG5fW5bNnwHaiEQmfc_cYGgwWXcxc_T359CsPNwHF1oxJEQ.jpg"
       ]
@@ -6006,7 +6006,7 @@
         "title": "Charts of the day – 5th March, 2026.pdf",
         "size": "713.0 KB"
       },
-      "views": "1189",
+      "views": "1192",
       "images": []
     },
     {
@@ -6026,7 +6026,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.51K",
+      "views": "3.52K",
       "images": []
     },
     {
@@ -6046,7 +6046,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.63K",
+      "views": "3.64K",
       "images": []
     },
     {
@@ -6094,7 +6094,7 @@
         "title": "Motilal_Oswal_Initiating_Coverage_on_Jain_Resource_Recycling,_with.pdf",
         "size": "3.8 MB"
       },
-      "views": "1692",
+      "views": "1708",
       "images": []
     },
     {
@@ -6112,7 +6112,7 @@
         "title": "Elara_Securities_Initiating_Coverage_on_Granules_India,_with_40%.pdf",
         "size": "4.4 MB"
       },
-      "views": "1702",
+      "views": "1718",
       "images": []
     },
     {
@@ -6122,7 +6122,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "2515",
+      "views": "2518",
       "images": [
         "https://cdn5.telesco.pe/file/G90NMo4va5ixjUYsEnFsaT8Mh2YYlfJN70WlkEtUcj3QnDZsPmzkZw-iIDjjbjesTIUwDOqt_CVGkRvqN_ckoHz3GwEVtSmNagx_Ol9est7Z-21bW-pOZyr2yQcJquWhg9AkpZ1HdZ7GtYxv2VinTib0ZYbx0uc8x2piY1JBjOJZwqeAnVlGCa465CkNQYiaDcDONP4zO0rHHAc7kZkrdQORVQgRXeQurvrMR3XFECdIfS6tC_LXPB0WON4kAsQMczIXTL2ZO8D5qVISnFMocfXkJpPt9J687n4DzBNI2SqyI87GdU2MhsA51XuUznvmKAmJYnXxqG1TN7ZTIKJ-uQ.jpg"
       ]
@@ -6142,7 +6142,7 @@
         "title": "JM Financial sees 28% UPSIDE in Reliance Industries- .pdf",
         "size": "516.9 KB"
       },
-      "views": "1335",
+      "views": "1339",
       "images": []
     },
     {
@@ -6160,7 +6160,7 @@
         "title": "NSE Corporate Performance Review-.pdf",
         "size": "1.1 MB"
       },
-      "views": "1292",
+      "views": "1296",
       "images": []
     },
     {
@@ -6178,7 +6178,7 @@
         "title": "Antique Initing Coverage on Affordable Housing Finance- .pdf",
         "size": "3.9 MB"
       },
-      "views": "1269",
+      "views": "1273",
       "images": []
     },
     {
@@ -6196,7 +6196,7 @@
         "title": "Elara_Securities_Initiating_Coverage_on_Granules_India,_with_40%.pdf",
         "size": "4.4 MB"
       },
-      "views": "1166",
+      "views": "1170",
       "images": []
     },
     {
@@ -6214,7 +6214,7 @@
         "title": "Motilal_Oswal_Initiating_Coverage_on_Jain_Resource_Recycling,_with.pdf",
         "size": "3.8 MB"
       },
-      "views": "1149",
+      "views": "1153",
       "images": []
     },
     {
@@ -6232,7 +6232,7 @@
         "title": "ICICI Direct on India Market Strategy.pdf",
         "size": "519.9 KB"
       },
-      "views": "1004",
+      "views": "1008",
       "images": []
     },
     {
@@ -6250,7 +6250,7 @@
         "title": "Antique Daily 05-Mar-26.pdf",
         "size": "8.1 MB"
       },
-      "views": "1082",
+      "views": "1086",
       "images": []
     },
     {
@@ -6268,7 +6268,7 @@
         "title": "JM Financial sees 28% UPSIDE in Reliance Industries- .pdf",
         "size": "516.9 KB"
       },
-      "views": "5722",
+      "views": "5776",
       "images": []
     },
     {
@@ -6286,7 +6286,7 @@
         "title": "NSE Corporate Performance Review-.pdf",
         "size": "1.1 MB"
       },
-      "views": "5761",
+      "views": "5803",
       "images": []
     },
     {
@@ -6304,7 +6304,7 @@
         "title": "Antique Initing Coverage on Affordable Housing Finance- .pdf",
         "size": "3.9 MB"
       },
-      "views": "5734",
+      "views": "5779",
       "images": []
     },
     {
@@ -6322,7 +6322,7 @@
         "title": "Elara_Securities_Initiating_Coverage_on_Granules_India,_with_40%.pdf",
         "size": "4.4 MB"
       },
-      "views": "5194",
+      "views": "5228",
       "images": []
     },
     {
@@ -6340,7 +6340,7 @@
         "title": "Motilal_Oswal_Initiating_Coverage_on_Jain_Resource_Recycling,_with.pdf",
         "size": "3.8 MB"
       },
-      "views": "5164",
+      "views": "5193",
       "images": []
     },
     {
@@ -6358,7 +6358,7 @@
         "title": "ICICI Direct on India Market Strategy.pdf",
         "size": "519.9 KB"
       },
-      "views": "5040",
+      "views": "5067",
       "images": []
     },
     {
@@ -6376,7 +6376,7 @@
         "title": "Antique Daily 05-Mar-26.pdf",
         "size": "8.1 MB"
       },
-      "views": "5892",
+      "views": "5926",
       "images": []
     },
     {
@@ -6470,7 +6470,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.35K",
+      "views": "2.36K",
       "images": []
     },
     {
@@ -6490,7 +6490,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.23K",
+      "views": "2.24K",
       "images": []
     },
     {
@@ -6512,8 +6512,8 @@
       "document": null,
       "views": "2.19K",
       "images": [
-        "https://cdn5.telesco.pe/file/uD7QymjBbBPD8iF8C7IA51dY4k4If5zo-Jw6Vs2RX32iUIch6miUd_XZbcEBMVS4bPCONeugzW9JkI_E2kN0Hu4ct0uHnuWqx6zVfnOvv8OIyVVD8qNcJv-tMTw4kYaCkUevLSpVrYOy4L25e-EjFQtM6fAA2jlzLveBvfWvH0oZ2iML75JdTdSlCDKJh-2N_yevGPntnUMWQssKADtV8CPSNmTT7-8A_RsPyZdbeVbi2ugwsKF0Pk9nfwWTcch8WVnVt3XzpTTSpuOA4nnDr17y0FyCSl_DCfIVDR5tAr8W9dIHnrfF2VhZh-C5URSwC7ik73ZEiTGwSWRV06u55w.jpg",
-        "https://cdn5.telesco.pe/file/A5dUpzspm5IFON6jEqsLRbBdwFgziZLh571582OjGf4DjLsl_e9k01JsQi5NIaEci3YB51n61MbNMMH1p_pu1-sNSjNcPr_3P9IktqSeFAQ5tZC1D_b3KUltJ5scoKarY8RxJcgXA3qt3FwNfnlEVDx4ieX2OlsNwDI7tAjAFm7kdDvy_53BqJvE07EPzJq09hQoosyLs0fPivPYZXF5x2s-9zXpriTZjIps8D8xECHZ5m6mR2csk9huPTa8s-_qTCQOwu2GnFTFAS3mzI3IK0rsO3Mc5JJB_rg099soGVCTzV57E-g27evqlJk1EuVpzMNUFcNuJgsxuLHNnSuA9g.jpg"
+        "https://cdn5.telesco.pe/file/iOaLJj7a1X6vZqHOT6JdZvAp0Sx_GVzkCYRfB3LlmYjel-VlfBdO7C0v1BeL0gTNYrB2osZAfIW1G5t8EItEyrx47eBgpK0oiI-Wy3XrcRZR4sv8zeTVc_nWgqx9uwqL4j63_LkLp86wXy6fFpYV9R_ZDXEAEgyZjE9nUInzdHcV5Udv5rXMk9Z72w0PJi0FO0Tg-5Lb48EFUsfJ692rgh5Ag2Cq6iSb1IAPYoDq3vm8Z182c54OIBBkwREJDExIk22YHybtlOs1I_qqB6ZbQaF0uURDZRMKu_ATAMMECsq7QdsYgQXWDLBvpek-91nBOpj0fJfoWSsbytsxul2wHw.jpg",
+        "https://cdn5.telesco.pe/file/ToXUA-5Ha0wGRLCmZt6SHg2aoRlo3xUB9QIfr4kFdKJHt_kgkXuLqSYhpqbi34gW1KSIooojxAzBy_f7NSf-Q6rHgNpcgZ10zZv19asAoZ8o9sNuXKw3O6CZJjFe48WJZCB_SaUwGVFJzdXJmMPkPwxnYPv7qq6IR2ZNAZt5MkxU8DNDZt8-oX4RNGsM0cYbxZxKPgJIrQttnr2ezPJyReFV1xifQuLWg47ZEjq0S6DL4DrCkRN-2_GqxkQynmc7SfrQQzcegsjkch9M19FSHk-5H5SstC8WxcJ61iXnWYEPdZeGCxXAn26wtgI600Q1pL54q3X-s5y9PYLPut3q8Q.jpg"
       ]
     },
     {
@@ -6525,7 +6525,7 @@
       "document": null,
       "views": "2.58K",
       "images": [
-        "https://cdn5.telesco.pe/file/tejmbcuzWXRngtYDEiXbIJZka7qbT8p9eZojXWZWK3fdXBbDXWldcW66JX50_zqcfUKzlhTfxY-9hIHfax9yEXHu3TnGqLpKl1_IfrG8yqxR-lF6qvmHul2m8jMl-6IbiDh0spPHYfQgP272nr4bdRKEfDKwAwYWVj8qrD2KLHKPdw5I0kzF61WGIorixhyBs3i3UGL6wqYmLudLDzC5RidOkdP9R_U94_JAYb2oSEFJ9pPYQDbrRbtlqQlSjjgGwl-SQ_PC_lztRl7-CTGbOHJ-8ronnGYrAnXgG8NEDJDnWpqt2OtwPm-DWYbqs7FNVedI8fmjQBUQoWDl1m16AA.jpg"
+        "https://cdn5.telesco.pe/file/SggS2PuxVH9U1_nhBeG21OnQYGFFuQ10Wxye0KV9YdLbQkrEJP89WN9iHQ8ZxRqwdgJrZru1YN64g0YZ68_BOPz15-Cv6vy7XKkDBo6V3rkDPWftLoBQ4oDgwAqAnfAB2tb79igqmDpUpO5GdM0hqnWtt_b-gwjKWlzSv6RFWoMxGcOX5pIuQD2saBrR0Y9BHqRqbsJqSDS9CEj-pO-Qmua2tFZEmleQbOnH9XVzhZJJipH901wHNC8H96-qv9DEGmnZJdHxcGEugBhwhb-961h070zSJWD6utylAKxg6gPphQLyKMnEYasOfovH1VSnK4QAR1dXKFhgvRv1584j2A.jpg"
       ]
     },
     {
@@ -6535,9 +6535,9 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.25K",
+      "views": "2.26K",
       "images": [
-        "https://cdn5.telesco.pe/file/uQltGbgo1miIkeo98XrxGWkuqa7h9NYeq5eRrUUvIg4c647al5TD3mrmlu-Ps-rH96UMn0xEKp7Sc-HDITfANg3fVlV1ab7-8tvyUhAi6Ys8huteZ6rQQlWEPOfjMeRdRXpEtiz8YkZweERvLrPfhcjw761WxCi0aam0XoPTlA7b1B469SGfyYRUo3rk60lUWJTVNVEgwTein1ZgoBAjPAJpqGaEawr9qqrLIPMjpGoBpHh7e_OuP4ZYJOQoAIip2R4a_uyHNJF2ZcFykxGBpxZHhwFyC_ZiLqJ_iaWYna-_XNrIC59Bb3yP71YjwGpmc2nZFn9LCaacyU7WXhAkDA.jpg"
+        "https://cdn5.telesco.pe/file/j7OvuCT166_D4fYbHb5OVclizVNnl9tnx8zOY9l0mDu2Hpcdp8hxslAxoqXKP7UXO8zI7OxNtnagHAdHyRcbUcDIos6MGW_NiUZlkJNrxhzZkJmsyoR3-o9VIs_TuF_1uTuElii_gGUrKTl376yJf8_Lc_f5R3XoEr8gnd97qhWQHrrteiTCigR_V8UD2g0eIzfmIR6yLYVtoMHKarYx_QT3ddkErR-1XK3JjunlN3bw5NjpQ-Qgo_m6RFOc6Q3fAmUacDzFP426hCU0KTqh7ceU_RBw1Wg__IR_anITikg-kpObkTSstp-Y0uCCPHAhYLG8oacTUEfHqEMEuztKRA.jpg"
       ]
     },
     {
@@ -6557,7 +6557,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1211",
+      "views": "1213",
       "images": [
         "https://cdn5.telesco.pe/file/G90NMo4va5ixjUYsEnFsaT8Mh2YYlfJN70WlkEtUcj3QnDZsPmzkZw-iIDjjbjesTIUwDOqt_CVGkRvqN_ckoHz3GwEVtSmNagx_Ol9est7Z-21bW-pOZyr2yQcJquWhg9AkpZ1HdZ7GtYxv2VinTib0ZYbx0uc8x2piY1JBjOJZwqeAnVlGCa465CkNQYiaDcDONP4zO0rHHAc7kZkrdQORVQgRXeQurvrMR3XFECdIfS6tC_LXPB0WON4kAsQMczIXTL2ZO8D5qVISnFMocfXkJpPt9J687n4DzBNI2SqyI87GdU2MhsA51XuUznvmKAmJYnXxqG1TN7ZTIKJ-uQ.jpg"
       ]
@@ -6579,7 +6579,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1213",
+      "views": "1215",
       "images": []
     },
     {
@@ -6589,7 +6589,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1206",
+      "views": "1208",
       "images": []
     },
     {
@@ -6607,7 +6607,7 @@
         "title": "market strategy-us-iran-war.pdf",
         "size": "519.9 KB"
       },
-      "views": "1177",
+      "views": "1179",
       "images": []
     },
     {
@@ -6627,7 +6627,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1190",
+      "views": "1191",
       "images": [
         "https://cdn5.telesco.pe/file/qOrSurDLBETCyIm_yNifuzzNBrHNQhEDhgiL0APj5Pb8Ivt6kTDxwr6_fARflsrKEqn25U-ihnB4yjZrvBs6_aySUyEuR7MKa4yZ_25Gt_o5Wo1hMXYp7qKVQAv6gzISX2UIU7X1FVqdnYxkEokIUoZmZ1KjvobhXMcprQ9LVekuWja9om009KzvAwkxidxM3B7huvb43AFwHrnRxfrh0pFdSLVP2QY8G21beFvlm0n7bW_hBpCcdATD-HpJOnSHIFvXLOm5ItaF96yHbf3cOsXu3E2pdnP_UYx8qFbMmc_wkD0p49zxU15TaQSiHTglfDqr4WEyzXxTZRIMKlYZ9g.jpg"
       ]
@@ -6639,7 +6639,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "864",
+      "views": "866",
       "images": [
         "https://cdn5.telesco.pe/file/LGK7bYYWSCN_hviuHIgYPcfFpLE1ro_aJFOPlpM-6l169ZjOPqHfMG_j2Ix-hk4ucIPepMTm3hKHvGPOTED7W05i8aGZgziRpiBSCv-qZem6Nh315GXZYf55cpiq6AHGYvsuyVrs2vO6a1zUICvmEgp7n0cImo34Encm87F66yLAVhYdfq9nILdgcxlN7FPeiyr_TG6gYgFlV3J4ZTOxzBHJjNsAQv7FFgUZIqPOCR-weYLXdVInVBO6LZ51eyNfTtnMCCvaWZ_E4ys0rvWAL_pWZYZsHNA-68assflZFIvZb0lMtAmU_AIlm8xecEOYOQkPRzs11fFCnVra8Yi-PA.jpg"
       ]
@@ -6661,7 +6661,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.98K",
+      "views": "2.99K",
       "images": []
     },
     {
@@ -6725,7 +6725,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "1.8K",
+      "views": "1.81K",
       "images": [
         "https://cdn5.telesco.pe/file/NlgSStLixREv_8YPaj8UmhskCODmauM3BDkrluNxrSyDEPVT7TO0UnBUw_usalpb4ADnVt82B0Q_SlndCQt5tCiIUozV9eE52YF35HPOFOi899CvPI3pNFxPGFNKZlb_F7_czp7YyPQBAsWOzk8dhOD3SMjiLV3aDYpnqaiINHow0G8Nr-AbQ4nFWLyP6dfe6DLNGV8yGG5DbyojvjmjEPapqwLBLQBTLSkB3Thd8DVqvofOU_-3Kd0AL_Ab_CFwdOtUdHT0zaHhD_AyiK-1h6OoIRrY4DSBxmwhCSpPP0iIuofS6jCKeAXA_3UiboS5pq02ZCYIPoqYZlR1HDoy7g.jpg"
       ]
@@ -6794,7 +6794,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1464",
+      "views": "1466",
       "images": [
         "https://cdn5.telesco.pe/file/e53RHEs_oBixk0q10iXL_8MJZqzm_lXH8T0ZnwYhSNZ3r4scTrlnnVUdXPmBBYiTmhsD3pu4wZpffOyscF10NI2AaEdXOQynlLG_jmhoclzUkbQloOFK8kzq_2pRdS1RSCFdILS4zY7tzLdjINbHQfuQ0Q72d7HBO7ILhrA51sDLt0QY5EhnEG5o00IgFpdh2O5oqwyzbYItHJcI4E_VewIb5s68bHz3r481qFMU-z-kyqR8j0HSg2J2zI6kkeTVHMoug-hkUiomG7G4S4x8iAQcXVSZ01mj3lx0m2VPjJCFiniLeGUomLRLWBHoACqtMZpX1sKqLCVtSWkzb-JefA.jpg"
       ]
@@ -6806,7 +6806,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1570",
+      "views": "1574",
       "images": [
         "https://cdn5.telesco.pe/file/gPJod8NZVYctjfan2YXUdMYmg4tVeN0qqpH4jtrXlSbgbVnGa_B7wM2UXhRlHYEuMdjNrkUrl846kjTTBENCpnbtWx0d_QhOcKU6IK3y572gZnr_GOIRCTeNwY1Kb-j_tIHq2nrXes-WycGpk0l6aaQnt7IMNvfWuBxbNfeAXPB_-F55DEWKwWi7tHl-tZgPU-2dCQEJCw0PEZACp_3WqvbGv1zWtPPVEAlqKRBnZuQUhrLLUFbtN3yabjxoB0SOomoMukWwh3EGPRSY5vdaccNDkLnMSigyRGKXGFwf7Twt6FmY7bXykfdI3K3GCUmbM-dD3AJeCJocFNttgQI3XA.jpg"
       ]
@@ -6818,7 +6818,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "2030",
+      "views": "2032",
       "images": [
         "https://cdn5.telesco.pe/file/FbwSTBdo8FL8-uqDt_mSlfrw_WmSxfLugHDvzmlLRfYBIBuhMjF72DM3U2HBpx51ygg9Rf54LdYT0J-895svA3RATi8H-s-tPQdRIMZhOlVwCcE1HytMVGg27eKRyuHK3rWwpsdt3YyokrHTLP4vbNUCQ6KnWs5CkNLnTJMqTLX4hpldVNuzs8PPuy84LdFwHYfwhFsKUzCb2xERlXkHzWm-wvOi3YDyUfcTXaf97EVdLx0K2it5R8VlC677LGH6eKEGOZyA9dwI3NCsabPbdVFCIVOH6d_ZwrY044zY3Kf8WQ722032NKTGVgactJrDXO-2O63t_BGuH89mBhKrsQ.jpg"
       ]
@@ -6850,7 +6850,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1320",
+      "views": "1324",
       "images": [
         "https://cdn5.telesco.pe/file/qjl4zQ7G3CyRRgfLQUBqUX8WDI9RCBkW2m97KXNbLNR0cGj5P1-Qv5eeYWdmRKkIw_I9vIgKUgqjp6hnVO8Jl_ICYTqRmd-ksJaSK8y1cCKBBY-__SeSglOhGtPqQzuFqdxMD9u1KX9eVfURN2HzJo9_yHtqqIwjnf2_w_oglPUjY3Rjhoqi0zO6xnDGz0TQ-Rr3M3-o3Zk_eMhupzaNEMqQeVe5UmBjybUopyjX89pcRfiDIRORxd8GNOy2uCnMsuG1ZOO7t_TgPhFRpE2NUXFBLsMk0kqu2nOEgtdPZxjZ8K06k8mMjhXnT7SgEArHISNPxLeH7sq-O15_8Z6UAg.jpg"
       ]
@@ -6870,7 +6870,7 @@
         "title": "JAIN_RESOURCE_RECYCLING_INITIATING_COVERAGE_Building_scale_in_a.pdf",
         "size": "3.8 MB"
       },
-      "views": "970",
+      "views": "971",
       "images": []
     },
     {
@@ -6880,7 +6880,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1118",
+      "views": "1122",
       "images": [
         "https://cdn5.telesco.pe/file/MypjRV5qzhAmsj000RdnRaTVrET52QeHnAWWeCzpBDqDMa96E5F8hJLPgD1AQRJxqYNxfDJDgt7BGCXBm3psxPq9fnr73N-rKFclH-gHo1d4_jRzLBLtj2Lj3TQmayE8xxng9g_vx8Gb9VUqqr1pq_xMjrwox7bASOhys07t6iFkVqs8kWEv-BjWucI9j776l6uh2Ft2ggWM5qVgtxrnta_5eqFmqhdYfWRN4_H8RZCj2g5NJ27NlqakFLK1lVldburglGr2SdqNu_DPAcyDgX0Kfws2v-4ttmyKnQZTUNKJFgYoSk5tDRpNYR6UypVnjB5wtCo4C7CLhdKnElBYSQ.jpg"
       ]
@@ -6892,7 +6892,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1064",
+      "views": "1068",
       "images": []
     },
     {
@@ -6924,7 +6924,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "871",
+      "views": "875",
       "images": []
     },
     {
@@ -6954,7 +6954,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "859",
+      "views": "864",
       "images": []
     },
     {
@@ -6996,7 +6996,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "772",
+      "views": "776",
       "images": []
     },
     {
@@ -7030,7 +7030,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "784",
+      "views": "788",
       "images": []
     },
     {
@@ -7060,7 +7060,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "768",
+      "views": "772",
       "images": []
     },
     {
@@ -7070,7 +7070,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "728",
+      "views": "732",
       "images": []
     },
     {
@@ -7090,7 +7090,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "895",
+      "views": "899",
       "images": []
     },
     {
@@ -7120,7 +7120,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "1.99K",
+      "views": "2K",
       "images": []
     },
     {
@@ -7130,7 +7130,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "749",
+      "views": "753",
       "images": []
     },
     {
@@ -7148,7 +7148,7 @@
         "title": "Affordable Housing Finance sector update - 260305.pdf",
         "size": "3.9 MB"
       },
-      "views": "639",
+      "views": "645",
       "images": []
     },
     {
@@ -7158,7 +7158,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.3K",
+      "views": "2.31K",
       "images": []
     },
     {
@@ -7168,7 +7168,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "878",
+      "views": "882",
       "images": []
     },
     {
@@ -7178,7 +7178,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "803",
+      "views": "807",
       "images": []
     },
     {
@@ -7208,7 +7208,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "778",
+      "views": "784",
       "images": []
     },
     {
@@ -7218,7 +7218,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "860",
+      "views": "867",
       "images": []
     },
     {
@@ -7228,7 +7228,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "751",
+      "views": "754",
       "images": []
     },
     {
@@ -7238,7 +7238,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "852",
+      "views": "855",
       "images": []
     },
     {
@@ -7248,7 +7248,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1076",
+      "views": "1077",
       "images": [
         "https://cdn5.telesco.pe/file/jO8WzQvyE3zWtX0-SlFJRrD-oK5OXpWNgZ4nRxsHc1ePdNS4MhBk4e94eMgSsiPCMEQc6_9Fi3V2neDcwgOWM-Tut_IEB0W9cxKeI49ZTVw9ch9YUYGIYUM9Og2-axm3y2Hlj0hgc4qsSRcSHsdtrE_Jbe159615Mw46uC2IFwdONobfKiMtxI2fWVXnZGYsfYP1dhDGSAiXtA15zLPgiuW9XJAoNckxlFc4YXhdznrVvjq9rlP8d65--IiOijZrAHLtH3DkpLbxMeusA4t9RZcJvrqkLQcE0_6EJg_iy9f6c-qKt0pkhr08YfiYh0D3abzihnbv3sqG1vbpC8T4xw.jpg"
       ]
@@ -7268,7 +7268,7 @@
         "title": "Mirae Asset Sharekhan Morning Tiger  (2).pdf",
         "size": "1.1 MB"
       },
-      "views": "956",
+      "views": "957",
       "images": []
     },
     {
@@ -7286,7 +7286,7 @@
         "title": "Technical Dashboard - 04.03.2026 (Front Wave Research).pdf",
         "size": "305.6 KB"
       },
-      "views": "959",
+      "views": "960",
       "images": []
     },
     {
@@ -7304,7 +7304,7 @@
         "title": "Commodity Technical Report 05 March 2026.pdf",
         "size": "604.5 KB"
       },
-      "views": "1047",
+      "views": "1049",
       "images": []
     },
     {
@@ -7322,7 +7322,7 @@
         "title": "050326.pdf",
         "size": "605.5 KB"
       },
-      "views": "1047",
+      "views": "1049",
       "images": []
     },
     {
@@ -7340,7 +7340,7 @@
         "title": "Technical Morning_Call 05032026.pdf",
         "size": "680.9 KB"
       },
-      "views": "1047",
+      "views": "1048",
       "images": []
     },
     {
@@ -7358,7 +7358,7 @@
         "title": "Stock Option OI report - 050326.pdf",
         "size": "1008.4 KB"
       },
-      "views": "954",
+      "views": "955",
       "images": []
     },
     {
@@ -7376,7 +7376,7 @@
         "title": "Daily Derivatives 050326.pdf",
         "size": "1.2 MB"
       },
-      "views": "917",
+      "views": "918",
       "images": []
     },
     {
@@ -7394,7 +7394,7 @@
         "title": "AMP - 260305.pdf",
         "size": "8.1 MB"
       },
-      "views": "975",
+      "views": "976",
       "images": []
     },
     {
@@ -7412,7 +7412,7 @@
         "title": "BoP Report Q3FY26.pdf",
         "size": "495.1 KB"
       },
-      "views": "1049",
+      "views": "1050",
       "images": []
     },
     {
@@ -7430,7 +7430,7 @@
         "title": "DDW_20260304.pdf",
         "size": "604.8 KB"
       },
-      "views": "1132",
+      "views": "1133",
       "images": []
     },
     {
@@ -7448,7 +7448,7 @@
         "title": "Reliance_Industries_Correction_overdone,_near_bear_case_valuation;.pdf",
         "size": "516.9 KB"
       },
-      "views": "1190",
+      "views": "1191",
       "images": []
     },
     {
@@ -7466,7 +7466,7 @@
         "title": "Exencial Industry Tidings - 4th March 2026.pdf",
         "size": "623.2 KB"
       },
-      "views": "1190",
+      "views": "1191",
       "images": []
     },
     {
@@ -7484,7 +7484,7 @@
         "title": "SBI_Securities_Sectoral_Derivative_Snapshot_27-02-2026.pdf",
         "size": "774.4 KB"
       },
-      "views": "925",
+      "views": "927",
       "images": []
     },
     {
@@ -7502,7 +7502,7 @@
         "title": "Middle east tensions March 2026.pdf",
         "size": "391.7 KB"
       },
-      "views": "847",
+      "views": "849",
       "images": []
     },
     {
@@ -7520,7 +7520,7 @@
         "title": "First_Quantum_Minerals_Growing_Responsibly_—_Fourth_Quarter_2025.pdf",
         "size": "11.9 MB"
       },
-      "views": "795",
+      "views": "797",
       "images": []
     },
     {
@@ -7538,7 +7538,7 @@
         "title": "JM Financial Thematic Report on India NBFCs-.pdf",
         "size": "3.1 MB"
       },
-      "views": "792",
+      "views": "794",
       "images": []
     },
     {
@@ -7556,7 +7556,7 @@
         "title": "QuantumBlack - AI in Southeast Asia  An era of opportunity.pdf",
         "size": "15.7 MB"
       },
-      "views": "741",
+      "views": "743",
       "images": []
     },
     {
@@ -7574,7 +7574,7 @@
         "title": "MIT Technology Review March-April 2026.pdf",
         "size": "15.5 MB"
       },
-      "views": "756",
+      "views": "757",
       "images": []
     },
     {
@@ -7592,7 +7592,7 @@
         "title": "Q3FY26 Corporate Earnings Review_20260302.pdf",
         "size": "1.1 MB"
       },
-      "views": "912",
+      "views": "916",
       "images": []
     },
     {
@@ -7610,7 +7610,7 @@
         "title": "Reliance_Industries_Correction_overdone,_near_bear_case_valuation;.pdf",
         "size": "516.9 KB"
       },
-      "views": "905",
+      "views": "908",
       "images": []
     },
     {
@@ -7628,7 +7628,7 @@
         "title": "Motilal Oswal sees 17% UPSIDE in LG Electronics India.pdf",
         "size": "828.8 KB"
       },
-      "views": "898",
+      "views": "901",
       "images": []
     },
     {
@@ -7646,7 +7646,7 @@
         "title": "PL_Capital_sees_49%_UPSIDE_in_Latent_View_Analytics_Navigating_the.pdf",
         "size": "427.6 KB"
       },
-      "views": "854",
+      "views": "857",
       "images": []
     },
     {
@@ -7664,7 +7664,7 @@
         "title": "Emkay_sees_36%_UPSIDE_in_Apollo_Tyres_Robust_demand_amid_tight_supply.pdf",
         "size": "1.2 MB"
       },
-      "views": "809",
+      "views": "812",
       "images": []
     },
     {
@@ -7682,7 +7682,7 @@
         "title": "Axis_Securities_on_Axis_Intellect_Aggressive_AI_based_Top_Ideas.pdf",
         "size": "1.9 MB"
       },
-      "views": "906",
+      "views": "909",
       "images": []
     },
     {
@@ -7700,7 +7700,7 @@
         "title": "Axis_Securities_on_Axis_Intellect_Balanced_AI_based_Top_Ideas_March.pdf",
         "size": "1.4 MB"
       },
-      "views": "923",
+      "views": "926",
       "images": []
     },
     {
@@ -7718,7 +7718,7 @@
         "title": "JM_Financial_Initiating_Coverage_on_Adani_Energy_Solutions,_with.pdf",
         "size": "2.4 MB"
       },
-      "views": "919",
+      "views": "922",
       "images": []
     },
     {
@@ -7728,7 +7728,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "830",
+      "views": "833",
       "images": []
     },
     {
@@ -7738,7 +7738,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "839",
+      "views": "841",
       "images": []
     },
     {
@@ -7748,7 +7748,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "945",
+      "views": "947",
       "images": [
         "https://cdn5.telesco.pe/file/HD6XIpTXsUx9uxrfaxws8_BrwszTkEVHf3oJ3575-zc85K3dsEahiQfo9HI-0BAnw1n9lVw-BxPwweC1wy2GklGa3kEyG4NTSUF3GR_oVV1Wchl8MPi4YoDd0lC0_LUljXen6bZNuzm6EISjAuNX3XrpMEI5LZQpLJzzb5pvyYC895wUfRFHL5W-rkU-EV8Pko1kX9fXC3MY6rmt0_ygCk2drrN5lX2ThnwJlZNuJc2GDk6Ftiiwtb2cOYJou2Kt1kSppbrIrLgegdrm0X0P7kPRNh7h6w6xhT8ySxx3BP-VfvOIBZ0mAMSu8YVlL1vhqqWexf93Bh9XkG3IdJx0aw.jpg"
       ]
@@ -7760,7 +7760,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "798",
+      "views": "800",
       "images": []
     },
     {
@@ -7780,7 +7780,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "806",
+      "views": "808",
       "images": []
     },
     {
@@ -7800,7 +7800,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "797",
+      "views": "799",
       "images": []
     },
     {
@@ -7833,7 +7833,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "825",
+      "views": "827",
       "images": []
     },
     {
@@ -7853,7 +7853,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "848",
+      "views": "850",
       "images": []
     },
     {
@@ -7871,7 +7871,7 @@
         "title": "Affordable Housing Finance sector update - 260305.pdf",
         "size": "3.9 MB"
       },
-      "views": "2057",
+      "views": "2070",
       "images": []
     },
     {
@@ -7881,7 +7881,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "834",
+      "views": "836",
       "images": []
     },
     {
@@ -7911,7 +7911,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.15K",
+      "views": "2.16K",
       "images": []
     },
     {
@@ -7941,7 +7941,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "873",
+      "views": "877",
       "images": []
     },
     {
@@ -7961,7 +7961,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1176",
+      "views": "1180",
       "images": []
     },
     {
@@ -7971,7 +7971,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1212",
+      "views": "1215",
       "images": []
     },
     {
@@ -7981,7 +7981,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1457",
+      "views": "1461",
       "images": [
         "https://cdn5.telesco.pe/file/l2fMRzFETYtRs977UgGVzCoLwoyIXLHkNNbjBcll3TjIxxI1pANCb08P0HOukzdWXC4betbi01FfCzIH2yftipHAp-VictZDyzglLyvA22WFj2Qk-XEmBF9jEKmf3fLBrOIvAgf0kYKgUB68Zg8hUVQx27BItKBnjnDbh3X0a6DpHEwRXctg9eTbfrpKdCOonfY_20IqSf-G5ry3yU1QKkd9m6-6Hb7Xdl9-GxX2t4qhbn9POKuMlElRHqWdtc2fXKCXBsmuoUCFOv7eqL-sLOeztCKwOmtU2EnIiz1CJ3dk6WMQi6THnxAl9Jo4oB9ZCSOelrMVT6CVGv37Ohzrvw.jpg"
       ]
@@ -8043,7 +8043,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1094",
+      "views": "1095",
       "images": [
         "https://cdn5.telesco.pe/file/fIOioYyg2ViQ5axo5EPsRuTbL74TDAko_9g-i2z8JZm0Bcek1MARdpRKOGhB3iEwxf75tfZfIs1max3vJUfgu4ZusK0FnIB8r3ycMYYQw8gw1JHLLqx3GTJ-NkbMTO21HDEVpSFAfc_E-yXzYOgjQd-QRGpCARxmMlbxq79odNyh2zz9ssVCtx2oHOa5rbFraKIMKH0etszC3PriEkk_cD1h3yycOEQEuOFcp8ILa7totgxcslszzugZIVNyK-6tEFcarfCX_PJRTIhJknkhD9DHTH87FzSoWsYmN0wQhDqxDBnznWBurM6Q0qLfNWdk23Fmqv_5eSIP4K1c2B8p-Q.jpg"
       ]
@@ -8055,7 +8055,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1096",
+      "views": "1097",
       "images": [
         "https://cdn5.telesco.pe/file/Ah1xMzdv-Nj_VjzKlaoDSMZGQvCdcrpsYiUzNFLlVKIWBMxGqD_EhwIyBWdL8KTrfa3shXSLWOhTigoIhnIjQd_OQHMsodmQJ5lBaCENUMq1BhZVBekJX1pdarnayBjSAhognZhoJDnFJfJADw-DlvW8CrNg8S6844pn1Xj6RO6V9rb2S7pOKariTEPUeOh5yeH6DXokEl1V5Ch3YqQGQeermrLHWLX21nJZvT9huDZ1ZzH_MUWQLmvcuZIP9UI2rTQ9mS0v2fKqoS0cq45Dr0S1VztLv5yIa0DcPXpvgUPWAq4QbwFaYvhqVDm10YU1QuoV3vy8cB_ZjqWF-ACLmA.jpg"
       ]
@@ -8067,7 +8067,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "2406",
+      "views": "2410",
       "images": []
     },
     {
@@ -8077,7 +8077,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "878",
+      "views": "880",
       "images": [
         "https://cdn5.telesco.pe/file/mPBkzTBYea4Yb9lFMx4ChpE5wyWfbckQ-x9c1-7fMH7yrL-cknMWW0R8SqGFNzEgCQTjsgUGJC9QT60y_dYFwnnWoi7iDf-0pFZYW4B9Nmiq6qkZKPFksAk6361MRVrwayKj6VD7SZ7ImvnPpPL2y1yMq_GVOdz-pHNypytU6y6ZpVFPopfp1fMO2LNIBehGQdvBPN6bVG5nQ2OgJ7PeOh2oRXuyzut4VXGjaVjeAKCf0TlF3mDGzoOtkccmeo16S1OYTbgV97vF0MbimHz8hw-bgvgLgPcPhESsZv6ycHCuGaxAaVG5bLJRMn0JgQPs_GeDjRJWBNGvPaFeQq5ySQ.jpg"
       ]
@@ -8089,7 +8089,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "945",
+      "views": "947",
       "images": [
         "https://cdn5.telesco.pe/file/VHJawIFNVjvCbSeUxKUeOhYwv8_fahZg9RZxHWZ1twxDipvOitIoiyg2SrJN54UGq-tf1Gm0XQmpRZpzRnesyrf3-I_j4lR665bEx9ioxdh1LVIzFWqXD_UW8pEE2NlUyFxCS1wdUOO2lro3wmzJwYfSkaDSWO99VW2scAm2QMpzg7teAyb5x5jJ5_cacYbZy4UbFS2M_PYjEkRBun5qeoqEpC434JIwgFGnOEoZiKJVyAZVXFwToJ9qhA4T1NaGlg1TCxJcPu8cLzj-WBVlyPNMURTa1_0hJHv4f--4jNjhWN4u_gRy8XJo8XMEcRkqMN8g0CWTTC8fX7S-JMBVpg.jpg"
       ]
@@ -8101,7 +8101,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "2534",
+      "views": "2535",
       "images": [
         "https://cdn5.telesco.pe/file/G90NMo4va5ixjUYsEnFsaT8Mh2YYlfJN70WlkEtUcj3QnDZsPmzkZw-iIDjjbjesTIUwDOqt_CVGkRvqN_ckoHz3GwEVtSmNagx_Ol9est7Z-21bW-pOZyr2yQcJquWhg9AkpZ1HdZ7GtYxv2VinTib0ZYbx0uc8x2piY1JBjOJZwqeAnVlGCa465CkNQYiaDcDONP4zO0rHHAc7kZkrdQORVQgRXeQurvrMR3XFECdIfS6tC_LXPB0WON4kAsQMczIXTL2ZO8D5qVISnFMocfXkJpPt9J687n4DzBNI2SqyI87GdU2MhsA51XuUznvmKAmJYnXxqG1TN7ZTIKJ-uQ.jpg"
       ]
@@ -8169,7 +8169,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.71K",
+      "views": "3.72K",
       "images": []
     },
     {
@@ -8179,7 +8179,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.64K",
+      "views": "3.65K",
       "images": []
     },
     {
@@ -8289,7 +8289,7 @@
         "title": "Axis_Securities_on_Axis_Intellect_Balanced_AI_based_Top_Ideas_March.pdf",
         "size": "1.4 MB"
       },
-      "views": "1199",
+      "views": "1200",
       "images": []
     },
     {
@@ -8307,7 +8307,7 @@
         "title": "JM_Financial_Initiating_Coverage_on_Adani_Energy_Solutions,_with.pdf",
         "size": "2.4 MB"
       },
-      "views": "1195",
+      "views": "1196",
       "images": []
     },
     {
@@ -8325,7 +8325,7 @@
         "title": "Motilal Oswal sees 17% UPSIDE in LG Electronics India.pdf",
         "size": "828.8 KB"
       },
-      "views": "6008",
+      "views": "6029",
       "images": []
     },
     {
@@ -8343,7 +8343,7 @@
         "title": "PL_Capital_sees_49%_UPSIDE_in_Latent_View_Analytics_Navigating_the.pdf",
         "size": "427.6 KB"
       },
-      "views": "5988",
+      "views": "6005",
       "images": []
     },
     {
@@ -8361,7 +8361,7 @@
         "title": "Emkay_sees_36%_UPSIDE_in_Apollo_Tyres_Robust_demand_amid_tight_supply.pdf",
         "size": "1.2 MB"
       },
-      "views": "6360",
+      "views": "6378",
       "images": []
     },
     {
@@ -8379,7 +8379,7 @@
         "title": "Axis_Securities_on_Axis_Intellect_Aggressive_AI_based_Top_Ideas.pdf",
         "size": "1.9 MB"
       },
-      "views": "6777",
+      "views": "6801",
       "images": []
     },
     {
@@ -8397,7 +8397,7 @@
         "title": "Axis_Securities_on_Axis_Intellect_Balanced_AI_based_Top_Ideas_March.pdf",
         "size": "1.4 MB"
       },
-      "views": "7136",
+      "views": "7159",
       "images": []
     },
     {
@@ -8415,7 +8415,7 @@
         "title": "JM_Financial_Initiating_Coverage_on_Adani_Energy_Solutions,_with.pdf",
         "size": "2.4 MB"
       },
-      "views": "7186",
+      "views": "7209",
       "images": []
     },
     {
@@ -8458,7 +8458,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "2718",
+      "views": "2721",
       "images": [
         "https://cdn5.telesco.pe/file/k8YoLI0agyvThtIjUhszLSrKo0DL3ISRS1Ox7LKFR9ByOtpVcILgDjeH6Yki8VA7FEwksXBWapu7D_F_TWpHlih0lpmrdqbb3JjW6hrOhdTDFghc-9TMtK-lXWMtfhsh62BZHW2kAwfdEF6y-IsIdIA5L1Z4PFkNmBSXPLDx-_f07PzuEuhikAnUgdXj1MgXNoC1ci9dAEQqF1eKcR3hbu4dFNUl2ViqEh9iUEspj2x3Pwpc56U17TgVO0wQH9b6fZYXIe7m7mXoZ7-C5nRzpyTCJCOn7pWoHNEN5masNlQEdMhxaYZQHCosC_PYbQ-uKYDjLzugbBA1GYOFX1iVMA.jpg"
       ]
@@ -8484,7 +8484,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.21K",
+      "views": "3.22K",
       "images": []
     },
     {
@@ -8598,7 +8598,7 @@
         "title": "JM Adani Energy Solutions Initiating Cover.pdf",
         "size": "2.4 MB"
       },
-      "views": "672",
+      "views": "674",
       "images": []
     },
     {
@@ -8722,7 +8722,7 @@
         "title": "The Trader Times - 2 March 2026.pdf",
         "size": "10.2 MB"
       },
-      "views": "1407",
+      "views": "1408",
       "images": []
     },
     {
@@ -8776,7 +8776,7 @@
         "title": "Mutual-Fund-Insight Mar 2026 (1).pdf",
         "size": "21.8 MB"
       },
-      "views": "1273",
+      "views": "1274",
       "images": []
     },
     {
@@ -8794,7 +8794,7 @@
         "title": "Wealth-Insight Mar 2026 (1).pdf",
         "size": "11.4 MB"
       },
-      "views": "1259",
+      "views": "1260",
       "images": []
     },
     {
@@ -8812,7 +8812,7 @@
         "title": "Open 09 March 2026 (1).pdf",
         "size": "40.2 MB"
       },
-      "views": "1213",
+      "views": "1214",
       "images": []
     },
     {
@@ -8830,7 +8830,7 @@
         "title": "DQChannels - February 2026 (1).pdf",
         "size": "10.5 MB"
       },
-      "views": "1221",
+      "views": "1222",
       "images": []
     },
     {
@@ -8902,7 +8902,7 @@
         "title": "Outlook Business March 2026 (1).pdf",
         "size": "87.2 MB"
       },
-      "views": "1360",
+      "views": "1361",
       "images": []
     },
     {
@@ -8920,7 +8920,7 @@
         "title": "Business Today 15 March 2026 (1).pdf",
         "size": "24.5 MB"
       },
-      "views": "1267",
+      "views": "1268",
       "images": []
     },
     {
@@ -8938,7 +8938,7 @@
         "title": "The Week India - March 8, 2026 (1).pdf",
         "size": "25.3 MB"
       },
-      "views": "1212",
+      "views": "1213",
       "images": []
     },
     {
@@ -8956,7 +8956,7 @@
         "title": "DataQuest - February 2026 (1).pdf",
         "size": "36.5 MB"
       },
-      "views": "1202",
+      "views": "1203",
       "images": []
     },
     {
@@ -8974,7 +8974,7 @@
         "title": "Voice & Data - February 2026 (1).pdf",
         "size": "34.5 MB"
       },
-      "views": "1207",
+      "views": "1208",
       "images": []
     },
     {
@@ -8992,7 +8992,7 @@
         "title": "The Economist UK Edition 28 March 2026 (1).pdf",
         "size": "81.3 MB"
       },
-      "views": "1088",
+      "views": "1089",
       "images": []
     },
     {
@@ -9010,7 +9010,7 @@
         "title": "Barrons 02 March 2026 (1).pdf",
         "size": "14.2 MB"
       },
-      "views": "1077",
+      "views": "1078",
       "images": []
     },
     {
@@ -9028,7 +9028,7 @@
         "title": "India Today 09 March 2026 (1).pdf",
         "size": "56.0 MB"
       },
-      "views": "1041",
+      "views": "1043",
       "images": []
     },
     {
@@ -9046,7 +9046,7 @@
         "title": "Business India  16 February - 1 March 2026 (1).pdf",
         "size": "14.6 MB"
       },
-      "views": "1074",
+      "views": "1076",
       "images": []
     },
     {
@@ -9064,7 +9064,7 @@
         "title": "The Economist UK Edition 28 March 2026 (1).pdf",
         "size": "81.3 MB"
       },
-      "views": "1011",
+      "views": "1013",
       "images": []
     },
     {
@@ -9082,7 +9082,7 @@
         "title": "Business Today 15 March 2026 (1).pdf",
         "size": "24.5 MB"
       },
-      "views": "1024",
+      "views": "1026",
       "images": []
     },
     {
@@ -9100,7 +9100,7 @@
         "title": "Barrons 02 March 2026 (1).pdf",
         "size": "14.2 MB"
       },
-      "views": "1138",
+      "views": "1140",
       "images": []
     },
     {
@@ -9118,7 +9118,7 @@
         "title": "India Today 09 March 2026 (1).pdf",
         "size": "56.0 MB"
       },
-      "views": "1189",
+      "views": "1190",
       "images": []
     },
     {
@@ -9136,7 +9136,7 @@
         "title": "Business India  16 February - 1 March 2026 (1).pdf",
         "size": "14.6 MB"
       },
-      "views": "1227",
+      "views": "1228",
       "images": []
     },
     {
@@ -9174,7 +9174,7 @@
         "title": "JM Adani Energy Solutions Initiating Cover.pdf",
         "size": "2.4 MB"
       },
-      "views": "2312",
+      "views": "2325",
       "images": []
     },
     {
@@ -9204,7 +9204,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1261",
+      "views": "1262",
       "images": [
         "https://cdn5.telesco.pe/file/TWO3nkw6sqmmuW5dQDzs6xSla3SktSySsoFIJSyXIcigsUtC4knfL43rUoUG1m4yK2dUL-vj_5BovHTihqtkEX1vhaRQR-xlgljRvJR0R5pxbzOQfQw-CpDNCbFcSCPMmTQ69Y9LuYrPcr14jSiWrknAM8ck4BJgRlw9bQDiYg1TTIVcMeI0rbbzWx6c5cBu-spRJ1Q69k37_k_OXwL6ZbBCasj9QF2npaJUPobLJnFjwNQfEyFPnFe1LTeVPzC2gGCoqwPrVzj7cAzSmbxaWgxGhrhiM3xAkXGnXjf8Aj0__jivBdGM_ankUhlc6ZYflXuB0bQEeeRSkVDVFe-mdw.jpg"
       ]
@@ -9404,7 +9404,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1644",
+      "views": "1647",
       "images": [
         "https://cdn5.telesco.pe/file/F3u0446MUDyLNdi59dRO_1CevU1Fx9cxAIYqoLlkz438Pl-NyCHJgl8xzDHlhvrYKND276j09sHZymSeRolvzAy7GxkWDIpGVJ5WP_wdy9rsv46fuv_V70Qsil6advCGhqi3lEvrTSKG_kRPbKfqYIIe6sUz7GvngODOvEeH_eYQuOiP86oVagv8G5pQs4l9Rg8RXY-T6fegTR8y7qBaweBkcHL-5sBCeB-IuEzLHANyCy5eHKkqQnJr1PN_AfKg4X9u8-5OHScwmPwHknvfaRvSsg_ns1ZSnGjWvpH9e9BGnkLHGkDBzBARBwCDcOhhVFocjbKymC1Z6BDmY_3vfg.jpg"
       ]
@@ -9482,7 +9482,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "3.21K",
+      "views": "3.22K",
       "images": []
     },
     {
@@ -9502,7 +9502,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1728",
+      "views": "1731",
       "images": [
         "https://cdn5.telesco.pe/file/HQSJuwyHzcOs6DXTaXlNCOKw4w5xUI1Xqzy6LAv4wnBFv21QG9R3Dc_xHtg3aY6f2TduQwnfQNRTDSyw2dgKdqA1h9ARsDOn3_Xi9kNyWejlNJzYzS8ETtrO-ojLJmnRLDP83rMiF55bmsfpzm_A62z1eRB8NUG3_CBYUKoB5odrwkxVQErbMAFZbOHBZwSgMcWgDShBAB0uBSJgamJvOXGqpkKZIubRatHJR4uDtRnbeg-JTxBUXF6Gywqq0ku_uAAbFlc0TfVtb7HPce2mbjQbJ02MlHlLtVuT3BHhEVTY2iSey3U6AY7mjRAING8dzB2EDzSr8Ygt8vfAcDHeOg.jpg"
       ]
@@ -9514,7 +9514,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "2.82K",
+      "views": "2.83K",
       "images": []
     },
     {
@@ -9618,7 +9618,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1867",
+      "views": "1869",
       "images": [
         "https://cdn5.telesco.pe/file/aJmpNRhMG69pcWs8SI1sYVks3HfpwrXuaxLT-CYluPJ5S4FIaH8ayMb2QXTo-2dleD1ta8VndqdZ0SuQBTodKcGgMw8FIyM1mIfBP29ZCXJ9Xo25YyGVBk41AHdB61vcir831KHdLl8a9m7BXa1lQsiXK-HXzA-cGXuHJo6SFELGL5HhIn1SOfAeeMGld4sdtwyh6KfoEmJlPmviDq3II9d7QqEqowVb76iHGG2XRCX_nKEhY-0_x0Tp96Uz1DioVehWTBCYVVko0KQI34kaaLUxKRReCWhvyBfFBfVVi7Hz8IRYWIVnwguBOrDgKxjaTTTun3Y233LWusxmYBe5CA.jpg"
       ]
@@ -9630,7 +9630,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1818",
+      "views": "1820",
       "images": [
         "https://cdn5.telesco.pe/file/rv3RWQ1vEIbadGK4sKLBfnIeJD47r3XULyWDt5lQ-dOkkeuhq9jWUa-pdqpOF-k5refPnVxXNBOEmK-sLQn_XPnR-6Y-ZIOkF27MhBA0VsfbcgdVM7ggUMFJwtP3fLHwfLYb4HaXgSFmGr07h-H5CpMmGXEc59CWCvnRihpZFSvWmw6F0yROYo8avkLrZ3v0Eew4XI0MTYC10zRfKWEwhm4_oFh9_sGPtqfomecp1RPcDZJI71f9NVgWj1RVhFzuQgH4VIHWpdkQBDi1sBXqT_VYGIeRM-K_t3nCAQLQmvm_C6qBIQbPh9J7RKLYTgG3hOGfRINBuJJfmOnl34x0yQ.jpg"
       ]
@@ -9728,7 +9728,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1229",
+      "views": "1230",
       "images": []
     },
     {
@@ -9760,7 +9760,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1170",
+      "views": "1172",
       "images": [
         "https://cdn5.telesco.pe/file/aTOOoxtvAT9Nw8q4VyqyvFP4oKW54I9XG8C1Pup5kbXZg5YTtBfKq3WY5iAbtGzCaEBEMPrmmDB6fvqha7WtoXbMriEKGUQDamIDRPTiwOiJJn5w7mTnWU1hFoMHQs4z4Bp7ddCtV0MbvBGtr_ydKZjIarbs4lvbw5b6_bgPCNISwOa-SkJBl1lU_kjHAnXIqvwfW53nLr4AOO_-MKBMWQuSMTC6Z1Hb049Pslcdq8j6nfeLhHfmiopjFFSZLnC90zfkXPirrOrSlD9RPWYQsdalKpoHMzTG6tzHxUsUbhwmeGr-1h-98Z6PS4flUswfKCwJQNPASDy5YMmcL0W24A.jpg"
       ]
@@ -9772,7 +9772,7 @@
       "channel": "📈",
       "documents": [],
       "document": null,
-      "views": "1.92K",
+      "views": "1.93K",
       "images": [
         "https://cdn5.telesco.pe/file/FGgBIgFGqi7DNm9dFVogs1PTyvvFIMYv0xz8s9OxyZ1hFLMD3MVI1Vi1ZH_8hJ7GIYd6dbiBjFVtxmP-3fvfdlhPcyLHhPB2gkXR2dO3fiUQjC5UF7xN633JCfWWpd3O8kynL8lSSK6zAVafj3OXnftyJsgmT_ZNO6jdz12k3cfnA4sX-Kjth3PbPy1qpK3INgAoeW6YIVVjz_VQXC6eLirCcHeKfDNTChdkFFt9D84cAWjh8HzGTrIUegVnPw8Ax7fXEmX5DpH2pcXl_MBQxgupgQiswmNfudvqRiqwKZo9v3dqtujCmWK3r385ACTiQb2fdn8o7SJTUZpPIBXNzg.jpg"
       ]
@@ -9859,7 +9859,7 @@
         "title": "JM Adani Energy Solutions Initiating Cover.pdf",
         "size": "2.4 MB"
       },
-      "views": "1010",
+      "views": "1011",
       "images": []
     },
     {
@@ -9889,7 +9889,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1678",
+      "views": "1680",
       "images": [
         "https://cdn5.telesco.pe/file/Q9ckUCkjqSAcqN1s-mtZ91GjgFWlvPjOAetHMPE4C1eZjHCTFNPGMqnikPRFbCCywTQH30MIRYF3ZgCAQzSjgGKIR42-Te4o-FXZO9SEuXP6oT1blzbSfqhkAQ-mN7dYzgYZWlmLfcQ10_-G5HnvAik5wF8I7L1sEFdLE_C24FPjUQN6n4DWum6LCab9bysuqO7uKrOFzuxtMRhYFqgGZhPQVumwsYEa3SaRII3pIjSEpNQQOt8XnMhsr_B53X_0nlEq7Ebe4Aab47NDUvtn9py7TrcMOe_FIQOp93SED1IQxXGO_WsB0imQ2Q5U8JvhFLYH9G9Pc0nxSMmcfNVs-Q.jpg"
       ]
@@ -9911,7 +9911,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1581",
+      "views": "1583",
       "images": [
         "https://cdn5.telesco.pe/file/seIH_POKogra-lrb07Kqfs4peQNzA9JDzymi279WgTUkapVubrGP1KX68WDwVGGI_KOlHuUniE4Tx66PKb6KchqA1Y5MEu7PxB5WG8OjtGaFVORcSCZDaX9WBhXSnmXf9oVLSwRXoMP_FTUZ9mwvGprydz9DGnJAgSNMmur3_YGHRkrTx90be1c4Hu8nXd0248P_jMJOuhlrnzVR3d912x_3BM-i-uupHecAgnlWDPpIclmIGVcKe51sNelMpnSNbveT0TNspaV-4BzfySn6j-gqgFPbCu5JkEAMkHVgC255VzK_jD_EOfPqHy2kUAzE76qOiyOPZ0oJwkIb6X002w.jpg"
       ]
@@ -9923,7 +9923,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1127",
+      "views": "1128",
       "images": []
     },
     {
@@ -9933,7 +9933,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1042",
+      "views": "1043",
       "images": []
     },
     {
@@ -9943,7 +9943,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1058",
+      "views": "1059",
       "images": [
         "https://cdn5.telesco.pe/file/pjnELxbPlJ_INd74WW7PvqdNdLdWwBOUdcl8rWKss8taDMg74vfwe7S8aqFURhDUcTD-_u5S4v2c3vvfxHcVO2l9BW7MB2ObnsoejW_mE9PSceLzut-MbLdk94fFbiWHPLANIahckVV7DvfOdoit_Yrms1TOhbV3u6sMkA6Ou_u9M9PM_17c4wq3f4RIoVBTMFdtjM55Mvdqb7baZ5zlU_4HqEFEANtGP54jx7FAIT-mrZUTEkuR3Y_Z1rhl25e165N2qFfbbOXkjHADEPAk11czxSiqUChbZgPp240tMJoReVofzmT2bNl-YPtFia39i2HgjCXOlSnh0TqApsQCBA.jpg"
       ]
@@ -10003,7 +10003,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "976",
+      "views": "978",
       "images": []
     },
     {
@@ -10013,7 +10013,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "897",
+      "views": "898",
       "images": []
     },
     {
@@ -10035,7 +10035,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "864",
+      "views": "866",
       "images": []
     },
     {
@@ -10045,7 +10045,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1093",
+      "views": "1096",
       "images": []
     },
     {
@@ -10067,7 +10067,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "913",
+      "views": "915",
       "images": []
     },
     {
@@ -10077,7 +10077,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "918",
+      "views": "920",
       "images": []
     },
     {
@@ -10087,7 +10087,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "777",
+      "views": "779",
       "images": []
     },
     {
@@ -10097,7 +10097,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "803",
+      "views": "805",
       "images": []
     },
     {
@@ -10119,7 +10119,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "888",
+      "views": "890",
       "images": [
         "https://cdn5.telesco.pe/file/hxKNt2-lUnE5dozLPL4I9CU3weJemnLx9HAUBDIr7f4RUTi7NABRk5xg7eLCF8qbh43GdtGrtTXPwpAuMr0f7XzoCayP4-hMpnVRIOF-gMjY8IyM-BUBELMUbKGD_hs6xf8n_X-Qu8kKqdzFyd5vs64_dcYp18Pczo-4NOjtE2DcabGCZd_5duGAUDHI9DIQ8xByICh90qOvPJwoQV6cymgVvccgQcngilYDAG2QUodi1rSKOrMyv5J0lWNVOZt_TqTTGw-xq89EosIyk_DmYxVQc_91eoMkBS63U6mblfldZV8XiBHAlViY_YRRrul8wMftPh7uAcqHlpb03Ap8KQ.jpg"
       ]
@@ -10131,7 +10131,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "802",
+      "views": "804",
       "images": []
     },
     {
@@ -10153,7 +10153,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "785",
+      "views": "788",
       "images": []
     },
     {
@@ -10163,7 +10163,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "763",
+      "views": "765",
       "images": []
     },
     {
@@ -10195,7 +10195,7 @@
       "channel": "Research Reports",
       "documents": [],
       "document": null,
-      "views": "7115",
+      "views": "7142",
       "images": [
         "https://cdn5.telesco.pe/file/kSOHeHOTkZsFyp-7TWEtcBA1dbv3EJJvivBjC-Exq8F-f7uYlXZ9QewJinDG5i90eRBYNYUVRzMjmVtVqSLlxILYF8wXoVVQ4ARGzR8mEef1II6paKOtqzTjDf46EslxjJ47qGaiwcconem81bnOwkDxMjsMEhpiVaHiyL-L9TYLCky5BQliD0H2iYntvGtTi3K8xOGie4BTj5Lcq1-SHIoNfPRjM_yK1A8wPvLgCX0Mg8moERdantuNvnf-Wz2S4j27bUCokhZ4HSMuOIbC_xeDs8mrA-_E7t7nQBz05dF3dQ2u0-tZ5IlgQrHaFNOZ4ZTSs7YR3XifsdCLyTThhA.jpg"
       ]
@@ -10219,7 +10219,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "754",
+      "views": "756",
       "images": []
     },
     {
@@ -10579,7 +10579,7 @@
         "title": "BANKS-20260302-MOSL-SU-PG012.pdf",
         "size": "1.2 MB"
       },
-      "views": "1015",
+      "views": "1016",
       "images": []
     },
     {
@@ -10597,7 +10597,7 @@
         "title": "AMP - 260304.pdf",
         "size": "1.4 MB"
       },
-      "views": "1092",
+      "views": "1093",
       "images": []
     },
     {
@@ -10607,7 +10607,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "776",
+      "views": "778",
       "images": []
     },
     {
@@ -10617,7 +10617,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "730",
+      "views": "732",
       "images": [
         "https://cdn5.telesco.pe/file/P970eWd01Ot-OTiEKIGXaK1kW0d-QyJIHgAdmr_5zEUHjP48763xbSzxuVu2rQ-dRC3qIzpcgE9YHj6x2uxhrIgb5_J-dcUyimWL9kXjxK3pCGMtbWeWRxNwx01yrWhQ2li74bmdGC9VAkA7CaJBjmJxEkzSMjUi3bszSUM_8lSYDcoToVPQL86nHWqMxEA0Hw5zaic623yzIY4bXRZuyM8OHsTyqKQeGUslQ5iBl8sXAX3FQGskfvZgR1ZpEb2RQMuYsBddxutfXf-yYaVAhMwqjSodEAk6KtP9vghdrfPr3rgyKvIUEz93MGPEjM6Wmi0g5bDDIzVUvBIi49xByw.jpg"
       ]
@@ -10629,7 +10629,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "789",
+      "views": "790",
       "images": [
         "https://cdn5.telesco.pe/file/nYlRAIAn9IRx_roxuz8lp1qpPjUlp8xs11vLCjJC_WgvMGZSSk5NySNGlGFoXGGcnADjXblM5aKZQb8P9Q6WHMR13H6bprmzvPkd_SY3kVE3kETVTbV_f1XMNKGxg1Frad7487uB6M71LAY2a1mXK5YQE0fSIHHm4uS_NiX-w6TmdNulL5cJ4liz5OsLnpP562oVWCqeU4SrwGwVlWNOnVd_SaIjM5FNZGfs5YRA6B7_NooIP1Jatd2tAQOJaLK8YzhESg0lNXBX-o8KG9evnc9LM2Zg5MHXPC2HsZIXuFGqDBlyT_7-S1_yXZCrJebwSzDnPQxLGK_cXfC-_pOj0w.jpg"
       ]
@@ -10641,7 +10641,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1114",
+      "views": "1115",
       "images": [
         "https://cdn5.telesco.pe/file/GwWxMeAdvOUSzcMuMFpTQhUQVuAvlGoGkmjSnUXhZ-QOoV0WRK1H8oVNBoN0VyXLmt1UvBCxHbiPfcuQQP2ilmEoH8ZAY7gbSOVg-xnJPfFI-2SbONH8hheWNkTSmiLmaHyhFnyK50GBqMHAcgT7K12amD8IbttiIwhlIEYH8haJsmnR0bvbLbos31Peiqs0wd35GdR4pMt8jJMGd20vCop-cZYpA7jHLYlsERVyf6HhPbfjSJY_Kc1oKg5vTD4l79hO4ti3Wi5pzhdw6r0hVA6ONb8vC8-kIb1LpOPE2_bZaxp8l1UIwfvfiKnRzIUi8JTTegR8dgWd6eC15iUgrw.jpg"
       ]
@@ -10653,7 +10653,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "741",
+      "views": "743",
       "images": []
     },
     {
@@ -10687,7 +10687,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "716",
+      "views": "718",
       "images": [
         "https://cdn5.telesco.pe/file/EItHdTrNWJR9HY_p4c78vGWvDry1JktRmNQFHwPkvBc1bktDXzeqxMAcG1X13_PxzfXtk6V_CHjexWpRFrbbWmgBRfFj8KeIc6KcUo_bqBAfKi3D1CPAdRlJ5g6kqir5bWy-leqZt9qT33biQQfT_gnkkVxIrazyE66KL69ofpJ9mOv2Q1F9byFFJXjfUq1PYcynku92mWlXHWWf5u-j15ohIellE6W2m-7PaKXiINyRYdjYLQSLqN8A1GfbLkTnR9clOVGx0GFFnEaiBT09ltxAd2v3ktFW0tQYl2cwlDE8VbF0eLwKO74xs2dYPlkSNgBawvdBWH-BdlSldWNkLg.jpg"
       ]
@@ -10699,7 +10699,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "820",
+      "views": "821",
       "images": [
         "https://cdn5.telesco.pe/file/e36bHduraJcbBkpxUOYqZLb73RBq8I1KkDM82UrMAligFe-EdSPiyMT7dlo7Ysffwq8R-0MnhX4LtzMkgtlSPfBNBUoo8LzKnkSNpplN6PpzE1lgvOBU6aw-47ggtBrMRNfDM7q-1SLW-K1SG1TlWhcN2BDoTJI5vxJas9XmqHwAjZb55Gh39gaglt0R8FvJHq9xIRuHyv3JoHa0P89e9IhS4oN05GijlXB9A99w0o6GN7sfFWGTfota3bQvWLKRUzsdo5_jEgVgtKxFPh8NG_F_wccmDcKx_X9fRVwhAAOnocUESqXi90Jr3Iqr9VVq7011c8O7zVTw8cBBnn-gGw.jpg"
       ]
@@ -10711,7 +10711,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "830",
+      "views": "831",
       "images": [
         "https://cdn5.telesco.pe/file/lsSnAE3ntME_bbD5WPtsoi8edg4ztqBk6ltcS9CF0SIn_NV3qitpsHHV44J_p3ZtQeKoU_U2SgrGoM6WISn3JltU47BkpDTGJvt_8cMWRz3o1wpwcNGmpcmMH8kx0ENx6LJDjG2OzoubB2cga5_G-_CsYbmjElH00hx3ZVx7L1BgrfKnpptA_heiH1u79QFx9BNQz34EAWXKFxRIz4LBBvU3TVCYlMg64O0GWxS6zbeeE8DZJIbSkLCtNAmmuQaPt2lhSPefcsAQPrsagmmkoxFCnyxftqIJfgOw-oAp51THNf0NMPvLDe0cYoHmE7XcAH_OO_Ed5IIzpdGnKTHmaw.jpg"
       ]
@@ -10735,7 +10735,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "732",
+      "views": "734",
       "images": []
     },
     {
@@ -10769,7 +10769,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "746",
+      "views": "748",
       "images": []
     },
     {
@@ -10813,7 +10813,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "756",
+      "views": "758",
       "images": []
     },
     {
@@ -10833,7 +10833,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "993",
+      "views": "994",
       "images": []
     },
     {
@@ -10843,7 +10843,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "785",
+      "views": "786",
       "images": []
     },
     {
@@ -10853,7 +10853,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "767",
+      "views": "768",
       "images": []
     },
     {
@@ -10863,7 +10863,7 @@
       "channel": "Stock Market Research",
       "documents": [],
       "document": null,
-      "views": "745",
+      "views": "749",
       "images": [
         "https://cdn5.telesco.pe/file/i0EaJHvvHajjOpecTwbaZHUCln2Q6Vl5JuKCgboErSlkQR0KrvCODJvAln7eoyIMfAsFhzeKGzIknlvlamuRAQiLgfPkG2E6PeUf5GRgMM6dy6See3GXwRlItsl3gXBOrCwBIoCxf1zH6HtqRJUn_cU2o0OHX3R8rMehDRf9MWP3jPBe2wb9sGVGaFM5WN9BIYnADC5cq96s0AV05PasY_Ml-zisazpgdPkj7SySKj6Coj4ghf5jvlKZyp9P2e8Kyvt0nvuXEtrtuiusa5Ll_3iTniv4Z5e7yE0wjXxqEnXKogoGgZ-iY4ynzMC0KXKOKjakTV9bpjnlDWLkuosQWg.jpg"
       ]
@@ -10875,7 +10875,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "685",
+      "views": "686",
       "images": []
     },
     {
@@ -10885,7 +10885,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "896",
+      "views": "897",
       "images": []
     },
     {
@@ -10895,7 +10895,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "670",
+      "views": "671",
       "images": []
     },
     {
@@ -10939,7 +10939,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1271",
+      "views": "1273",
       "images": [
         "https://cdn5.telesco.pe/file/K0qIGX0vE1nWwwZUEPF3Jo-itEWT51cOLpymcb4dZIV0L5EP7E2swfROY4w3v6MjYomJim0j1fI9Ua3vRGliOvErsr8cv4vPDLKoXJC0sQnucScIqgnkIFPJy_acyxiVVo1XwY6GWGo_P-QbrkbwSHGH4y9L0YiSUsSncN-XZdu36ZUuJhAOZLIBeeXeN-c4KoO9UrKnPDjTA98weAI_BaYnmOnqjoy7l7HA1nKcrWLf-AdbnK1rtnkCLOjvfqSMqJdYcZE-LKW2X7o6KwTYEdx35EA-u0FdpkTgVe3V39dkH-YgLKN1fuPeyverfMk6Xc0Z1WS4hmqBrmCN05tT_g.jpg"
       ]
@@ -10951,7 +10951,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1478",
+      "views": "1480",
       "images": [
         "https://cdn5.telesco.pe/file/nkeE9VKtF81bhDwOeydtEXT75vWdK-5Ef_aGc9Qq_jX0EwFw9MN6nz2jp9bpBNqy_2V1uDij2kxeptB0Xfav36Y-5GSXbQLiSsLESed1r4hKI-jNKcbwZD9iXpuTA8OvxzNaKoPT9sPNoqfbBJAdQRbJRcaX_WBJAiTcXgGYZx2b1bn0JPTGWFzLBuNInRrKx-WJKSHhq5Y-T2YBZ_gmj8gS7nujEky3W9RyudFvl2VdHRzlRWgyXHfrZCMdM07X9nlwBga0YX-bKiJ8swjfFXXDAw0LApRdLw-I71k6_xZqnm1lDRRw7c9ahtIiR13mRawYqF0KotTICHw3OJ1PLw.jpg"
       ]
@@ -10963,7 +10963,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "708",
+      "views": "709",
       "images": []
     },
     {
@@ -10973,7 +10973,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "632",
+      "views": "633",
       "images": []
     },
     {
@@ -10983,7 +10983,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "700",
+      "views": "702",
       "images": []
     },
     {
@@ -10993,7 +10993,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "819",
+      "views": "820",
       "images": []
     },
     {
@@ -11003,7 +11003,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "791",
+      "views": "792",
       "images": []
     },
     {
@@ -11013,7 +11013,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "717",
+      "views": "718",
       "images": []
     },
     {
@@ -11023,7 +11023,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "696",
+      "views": "697",
       "images": []
     },
     {
@@ -11033,7 +11033,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "721",
+      "views": "722",
       "images": []
     },
     {
@@ -11043,7 +11043,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "686",
+      "views": "687",
       "images": []
     },
     {
@@ -11053,7 +11053,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "716",
+      "views": "718",
       "images": []
     },
     {
@@ -11063,7 +11063,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "706",
+      "views": "707",
       "images": []
     },
     {
@@ -11073,7 +11073,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "718",
+      "views": "719",
       "images": []
     },
     {
@@ -11083,7 +11083,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "895",
+      "views": "896",
       "images": []
     },
     {
@@ -11093,7 +11093,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "789",
+      "views": "790",
       "images": []
     },
     {
@@ -11103,7 +11103,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "820",
+      "views": "821",
       "images": []
     },
     {
@@ -11113,7 +11113,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1235",
+      "views": "1236",
       "images": []
     },
     {
@@ -11131,7 +11131,7 @@
         "title": "Jan'26 IIP data.pdf",
         "size": "343.4 KB"
       },
-      "views": "879",
+      "views": "887",
       "images": []
     },
     {
@@ -11149,7 +11149,7 @@
         "title": "Middle east tensions March 2026.pdf",
         "size": "391.7 KB"
       },
-      "views": "861",
+      "views": "869",
       "images": []
     },
     {
@@ -11167,7 +11167,7 @@
         "title": "BoP_Q3FY26.pdf",
         "size": "221.2 KB"
       },
-      "views": "853",
+      "views": "862",
       "images": []
     },
     {
@@ -11185,7 +11185,7 @@
         "title": "Strait_Under_Fire_Global_and_Indian_Macros_&_Markets_at_the_Crossroads.pdf",
         "size": "9.6 MB"
       },
-      "views": "847",
+      "views": "854",
       "images": []
     },
     {
@@ -11203,7 +11203,7 @@
         "title": "The Iran War Series - Day 3 - FrontWaveResearch.pdf",
         "size": "200.4 KB"
       },
-      "views": "841",
+      "views": "850",
       "images": []
     },
     {
@@ -11213,7 +11213,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "1821",
+      "views": "1824",
       "images": []
     },
     {
@@ -11231,7 +11231,7 @@
         "title": "SBI Securities IPO Note on Sedemac Mechatronics.pdf",
         "size": "467.1 KB"
       },
-      "views": "799",
+      "views": "809",
       "images": []
     },
     {
@@ -11241,7 +11241,7 @@
       "channel": "Stock Market Research",
       "documents": [],
       "document": null,
-      "views": "1124",
+      "views": "1133",
       "images": []
     },
     {
@@ -11251,7 +11251,7 @@
       "channel": "Stock Market Research",
       "documents": [],
       "document": null,
-      "views": "1089",
+      "views": "1092",
       "images": [
         "https://cdn5.telesco.pe/file/TtEPJAsr1zwzfIMa0KvfyQRQsypEWeeDBWExhT1M0ZSbYbkn7O3ZCKnxHN-XbaizM6nnEYQJHBPUf3bgESjXea2lavpFLUb9tRZPuEwbMXcgzyb--TIfdITBr6rGKSCfEdE0ZaDfR4XonmIU9XadGigV5OZLjttFsFP6NoPuS7vzUn0GTR_ZikWszdxfPHUT5tYrJNdTPW78drfznOo_jOgQLFXExlVSeyFrRGgwzpnduoGmUBv_7-tTinA9_feijH_kx6Omk5QKSySA85A-6cIc0scdJeIbGMhbvvbPUMlfXLOvk03dy6Wbv4H0lSplpZzG9h-np5K5SX1o0hNwYw.jpg"
       ]
@@ -11263,7 +11263,7 @@
       "channel": "Stock Market Research",
       "documents": [],
       "document": null,
-      "views": "986",
+      "views": "989",
       "images": []
     },
     {
@@ -11273,7 +11273,7 @@
       "channel": "Stock Market Research",
       "documents": [],
       "document": null,
-      "views": "995",
+      "views": "999",
       "images": [
         "https://cdn5.telesco.pe/file/Pth1bvcFIYQBJI25sCXKDitWF9QucCz4uuNXeLaWf1ZTyhhcLiAGDEQTFnPHTae6bQbIoahDlGU0gkl4poUEvgh2Vf4gs-MaVyfUjuHz06J-1ugtr6VlP7nNZdpKSiZgCtRMwn7nr0Vb48YLmAYiCkwn0qqvSa1jBsc25eyA7G72b23OEXgGoEwMhqYyGUYQO8vya7twwGTywXqagzlsZKQfLEPCG7NSwCIa8E8WZ-XoP85inl6ylq4j_0x5o8fT7s87X8E-2g8AiGEVQRU0iYtB-wvFMW05dLi2b4bOUIMjHNH-N-P7m_U6CzPnrEpd0UwZyuUid3OJD0JOxGyQDQ.jpg"
       ]
@@ -11285,7 +11285,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1650",
+      "views": "1652",
       "images": [
         "https://cdn5.telesco.pe/file/aDDE3QCz8Z9Fx5uHQCTgVPJtIno7ijt2U9SPNc8cjQwa28TF5I14B8yIGSQb6etGg1Vj4XGKSnmuTKNX7qBJLGgYDeLyb5fq0n9rBzRbOVkc-QCRTNXRx0kbNwuOjkCBnd30JYl4lkIF7DA4B-f9JCLRMhAE42Qe3-5ir3bIUCZLuCTrw7jYhUBRmZ2EhacFdlFf9h4LwyuL-bZxp1EK4hggfLGp4P8sEM6sJbNH7cCOMfU5ACaycgktE6To6wDId2fwXFs3vDFENQn1G9cHfTEXkJrDhIOw3EOekOWi_nTEfF4mf8545BFZWNwOWS-tkjvth9PcvsIgAVMxgqa2rg.jpg"
       ]
@@ -11297,7 +11297,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1439",
+      "views": "1440",
       "images": [
         "https://cdn5.telesco.pe/file/EAPRNSGz0H50KlJzS3HGGLQwxLs7N9RT269gbYkZ3VhEYg5KAAbA8dXXBPA3BjBdCNKm7AFYvm0oG4PRPxxkIyOeeDsMpLVrzYgtsHT_Jw-miTz3NEh8_nBthnsXM8k27DPlOc81QyagLgAZhjCBU3AA3vJdcspoKUQYI23J3JMtcZApJKfRS8odYmLFT3k5qD9T1DO4wJkjwL4Orh3NAvyeZefcfeLQ5A1ee1mPRgfj7rZf2eKERlqjawwsG2Zi0a0z984VZ1GNiwUQchjRRhIccn-0ia9eM0sYdAFSNVrkn2Qh5318QYor748v98fvDOFB5x3vd3r-ZeUfLyB3cA.jpg"
       ]
@@ -11309,7 +11309,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1123",
+      "views": "1124",
       "images": []
     },
     {
@@ -11319,7 +11319,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1078",
+      "views": "1079",
       "images": []
     },
     {
@@ -11329,7 +11329,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1060",
+      "views": "1061",
       "images": [
         "https://cdn5.telesco.pe/file/RHaaiP9L5kW7C13aDgPHsVkFQqOzhfygVQmqastXrjkcB7UNWOb7zDqLdNiPCVIX1fmDAbdWv6nTyWiQw_eAAO_i68EW2c-VHgCVLLF7egmKUxGW09eGe9PpQdMwLbWngLwZFn1ONAs-PACMH5NBWVUyxfGBuTVabP3ZGJnN_SrtFwdqPWVJKt75wenUI2MzZQwJJuCEB85QTFe80-XbLAYG_M0cetWW8XJdjuk926LXo7Kp74WnWrg_7j7O9EZMbwP5GY9EcJK265vjei5p28ubxHwhGcqlfbUH6fYZRztPqhs60xFROU2ggfmhaqH2wBThGb6gJ-XZkQ9UZ7osXA.jpg"
       ]
@@ -11341,7 +11341,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1003",
+      "views": "1004",
       "images": [
         "https://cdn5.telesco.pe/file/qHrd_X_2PLkQg_Q9s5r_beaS6MfCOjzLAHOQ3QP9OMMePkkEwdSwojqBVWpMbO9QEg-kbB1-XcEoW-tq2f-IsbKb0HGS994uyrO6DJkn1LDW0aYhy5GL5FcpP0RxbyaMeQi0IPdrSaIGNXL7RiC53IOEYePJ8sCPENCo-I90CaTzahDFMwbAkG-AMcSNPpNRL7y6YiOMrDz_qYkS1qAoaadQdCFSn4-yN6icyvsX07zwqXjqokk2ahNn1nawxI0qssYbF_wF0lG-uJBpghWCfrYtU8-aVlp9-6jQwhhRlvwnWsscBXHWVB-fT-kYVbA48aCWRdiWX3nPTgoXANpLuQ.jpg"
       ]
@@ -11353,7 +11353,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "970",
+      "views": "971",
       "images": [
         "https://cdn5.telesco.pe/file/C4n7KFimGvmIaEZCa0VzQDFqg1EyGktvfilBvXBqqaZS9dwAOK5pKLZNDRPKEggTjyaCCI3W7pOd2lfq2ZfbIq6w8oHFBWdsDPB1WZpFkh-dTN855ao8TCR9Sh5pHR_FMQMQe2hDOkuH7VzSrPTg1D1ByBJ_UlepchOtLGTWOwmkHzdgThcTawBXD62m2aglKkDbwWvc-466JouZrJVScULKjR9p5Ze9jCVKjAAZ6un0PmYHy04oCQXrNPvIS6Pb3kRApw5RzQUI7fPl3UqyJl5ui-ABWHlz-ThI4FDQI18lnT3r1IAU8jG9N1p-zixRgiyTMjCM-FYeQPWR28MEJg.jpg"
       ]
@@ -11365,7 +11365,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1060",
+      "views": "1061",
       "images": []
     },
     {
@@ -11375,7 +11375,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1092",
+      "views": "1093",
       "images": [
         "https://cdn5.telesco.pe/file/iVadNFVU0uuV-WnUiMunzU2Om15MMjQJlXIlLX8TWGr8Px4Ua72fAjqDRI6Qpe4IKvHOvgkqvQt2CfMrsfibTcWBdYEwH6bM9EjVo_78BDMO5pYi74tA5_TyMHEGiN6IotOT9kPIKPhk338456xOvqUpi1RWdrPGtSZTXdkVlCU6dPWo7LGR6wnm-MJA0KfVuqfj8cDjrOi0x969sqFMEhd8V7N0xTdzq4VsY6mNjRRGqLJVxSyhq3znD0trHWf_YD9GuFQrZecDUjGXQULyZhViMdJx8tzPPcLsaKN4JXqErrAYOukClXd1_W2aI1nO6Sam7UzjulS15hyjrT-9zQ.jpg"
       ]
@@ -11387,7 +11387,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1171",
+      "views": "1172",
       "images": [
         "https://cdn5.telesco.pe/file/DM6pXLDn8RYkKYZKdBICeH70r-aP8RzJo1nhGxhRRFkNxb8uQz_OMCWu1vMHu2OszHfXW0f_OleKw6XY9oT403D7UwsdvcOq_JEZA56qOqVunjTlEeYzJBDPZuVcBaXFQmXdEtj6phwaqFRUhLRMWk_2G9XfqckeCSmuViMUUnffy16JMxYAbIub1tdos2mKjCtVOLMcF7JHRZdvpOnxVopW1OOadpXhTU__c_5M8UFyO4NFxpBUaRYvm_yMeFbFpv6gDhOm3pvDfCaPlp3bN_cUu_a7EG4981HXhrj9R4Pvu0uj-VSzN-Gc5PhLEIh2Z-ceMdRrNwzlc3lrhDBhRg.jpg"
       ]
@@ -11399,7 +11399,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1121",
+      "views": "1122",
       "images": [
         "https://cdn5.telesco.pe/file/sha9j7GhdfOfygF1kcNDK5Tt4b_upRVW74eNUCO_18TS8iegoBoxxv0_pTXNE40B9OW6k3SZ7rYoYrQ_DrlY7Zg86xcnGutvnu7zS1xo9yDcky0eLhitiDOPlI-Hi5hsbWt46t2i_vL0SFipjSc-Qxb8Hrs6bY-GFehLVLtvjUE7wxw9YDQaS0BGPuiBGpiJPm-o2BI6NPWsg4_Vt0owJh2eV0ebRH08e9fcOfchaM7cuOZGj8_w6AmM_UYKsl6ijM6PCB7-xFDr971mBTCxz18VY93qBGUaKa6KMaJ6OxEM5EHLJIKs2VY5GhMa6T_4nwzcSxaBxJvfiTyw-F6jUA.jpg"
       ]
@@ -11411,7 +11411,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1461",
+      "views": "1463",
       "images": [
         "https://cdn5.telesco.pe/file/I8tYg4IyiJJW3lXiP42GthoqBumeFQa15yI_oHdAuSnOtFUSTy7Bmf6g-RMWzrYbRCO4DJxii3xcZ9hNX2oWwiFdxNuj1BMxcfqC8lDU-p2YQ71e89BQAZ1kgb-onKNcQKPy3u30V9Ni46OKfBObCA397nDxB_3aOA-75jApZ2xfsMCBd5v4GjMYXeIX7MJ_EO3qNXc3ZhI_XqoBZi88tqOMrJZ5p3KaypPjAKzPaK4727Tf4b7fMtDUvaw1SOWYP9MWskyV1JbCzNxur1JEUBG1nE5o6EFmwfPINeSZTLgLTQluoDWTkHWQRUi3jzzn4tdkOAQrqmKBh_bJ2pK9nw.jpg"
       ]
@@ -11423,7 +11423,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1473",
+      "views": "1475",
       "images": [
         "https://cdn5.telesco.pe/file/rmueZTyRdHk0I-6uFYcmIAclUXlohqTqYs_hoNfRo9bQvJ-yqV79LbcjLF6ANcPYiJpPGtu1XzK-P9XAPbXJwWZ9e4ZzQNEyunO49nb7e3VpJ-y7UIInKqDZcEUadcyG7atpMXWBoKWjHYHHGYAnwkF0DS_bdc9v9xjkTZx6w1_7CsARREtds_HKt3ahDzURO-vlKF0_TcQ-rBMVWfZuAubdPrd-T6vD52jChu-c6OrKkqZ5MINzTCRCPieKzk8X_Inp5juD5DL8_Zdh44Y-Jdq0650B8rwJw1V_qg1UNhA4Ak6UC20nwLgF2fiQHaMiWmMQcyYK3-Gogup68qWSeg.jpg"
       ]
@@ -11435,7 +11435,7 @@
       "channel": "Brokerage Reports",
       "documents": [],
       "document": null,
-      "views": "1553",
+      "views": "1555",
       "images": [
         "https://cdn5.telesco.pe/file/IPpN2Y4LynXNArWM3dfe3oTCCAvJC6yNptcNLpbCqN4KOVw-HtB2GfoFNNYLKvHOD6HeT3eB-VDNJPM9LUF4kRpmKa3jN6vxTaBwr6x0LP04ddj4m3lAKC2WFsQjaaEue8C78ul71GBV5W5hFZ_J6YFAy3eVhuPfKLLTek06tHW-z_QVqfetSmoV7znjQL3cCp5lS2iDY-wdwh5_KgDKqgqaur5ZPRP7NgEM3KPepHzACWU5xy3oW1eeny8GLcCjfTJG3Z9zRY9JJZ44SElUUHj1iZc_2hj9nW1cKVvHUy3O13TCbkP_3V1NJZtIX-wCCCAWgaWwcs9a3PwKpdg8vg.jpg"
       ]
@@ -11635,7 +11635,7 @@
         "title": "JM_Financial_sees_30%_UPSIDE_in_Bharti_Airtel_Deep_dive_into_key.pdf",
         "size": "509.0 KB"
       },
-      "views": "1291",
+      "views": "1292",
       "images": []
     },
     {
@@ -11653,7 +11653,7 @@
         "title": "ICICI_Direct_sees_21%_UPSIDE_in_RACL_Geartech_Strong_orderbook_driving.pdf",
         "size": "510.4 KB"
       },
-      "views": "9380",
+      "views": "9412",
       "images": []
     },
     {
@@ -11671,7 +11671,7 @@
         "title": "ICICI_Direct_sees_155_UPSIDE_in_Coal_India_Dividend_paying_machine.pdf",
         "size": "437.4 KB"
       },
-      "views": "9076",
+      "views": "9103",
       "images": []
     },
     {
@@ -11681,7 +11681,7 @@
       "channel": "BTS Reports",
       "documents": [],
       "document": null,
-      "views": "3063",
+      "views": "3067",
       "images": [
         "https://cdn5.telesco.pe/file/lgw-tCwZT6lYjsa4hdSZ8S2eOAhwOo1OmckKIitrfN7eHbloFMCYKrpZAUYkFpIBQ61PjN_Xjg03w5aWdDuTzEl747pjxdbjEH2AD9ghYW9ICjDbPEXruBbm-XUobNtvGv1RIt5-KqZZhotTC-ZfigpWrxlrbT-8ftYRDkoFp-FfMlq6-2_dwRgj_w2pAAr0iWGe_1kZc1zK8nyzpswljHIVY3Dg53vkA-UUIr-qGhlMbMNurT3Lt652qESvPGBbU3gvxhs6OTm_WlK8bW62b1lFzCobVHEk4d7P6QuuQSiiajwo9wvZphKr_tXOHvcZrBr-mBRrIXtNsMOoeEJokw.jpg"
       ]
@@ -11701,7 +11701,7 @@
         "title": "Axis_Securities_Pick_of_the_Week_Fortis_Healthcare_with_10%_UPSIDE.pdf",
         "size": "175.6 KB"
       },
-      "views": "9579",
+      "views": "9603",
       "images": []
     },
     {
@@ -11719,7 +11719,7 @@
         "title": "Axis Top Picks - March 2026.pdf",
         "size": "1.9 MB"
       },
-      "views": "9270",
+      "views": "9290",
       "images": []
     },
     {
@@ -11737,7 +11737,7 @@
         "title": "SBI Securities IPO Note on Sedemac Mechatronics.pdf",
         "size": "467.1 KB"
       },
-      "views": "8292",
+      "views": "8311",
       "images": []
     },
     {
@@ -11755,7 +11755,7 @@
         "title": "Emkay_sees_49%_UPSIDE_in_Shriram_Pistons_and_Rings_Growth_firing.pdf",
         "size": "2.4 MB"
       },
-      "views": "8060",
+      "views": "8081",
       "images": []
     },
     {
@@ -11773,7 +11773,7 @@
         "title": "Motilal_Oswal_sees_19%_UPSIDE_in_Hyundai_Motor_New_launches_and.pdf",
         "size": "1.1 MB"
       },
-      "views": "7797",
+      "views": "7817",
       "images": []
     },
     {
@@ -11791,7 +11791,7 @@
         "title": "Motilal_Oswal_sees_19%_UPSIDE_in_Cummins_India_Demand_environment.pdf",
         "size": "461.0 KB"
       },
-      "views": "7558",
+      "views": "7569",
       "images": []
     },
     {
@@ -11809,7 +11809,7 @@
         "title": "Incred_Initiates_Coevrage_on_Raymond_Ltd_with_34%_UPSIDE_Waiting.pdf",
         "size": "511.4 KB"
       },
-      "views": "8169",
+      "views": "8184",
       "images": []
     },
     {
@@ -11827,7 +11827,7 @@
         "title": "Motilal_Oswal_sees_255_UPSIDE_in_Bharti_Airtel_Assessing_Bharti’s.pdf",
         "size": "598.9 KB"
       },
-      "views": "8430",
+      "views": "8446",
       "images": []
     },
     {
@@ -11845,7 +11845,7 @@
         "title": "JM_Financial_sees_30%_UPSIDE_in_Bharti_Airtel_Deep_dive_into_key.pdf",
         "size": "509.0 KB"
       },
-      "views": "8407",
+      "views": "8430",
       "images": []
     },
     {
@@ -11887,7 +11887,7 @@
         "title": "Antique_Initiating_Coverage_on_Canara_HSBC_Life_Insurance_Company.pdf",
         "size": "3.5 MB"
       },
-      "views": "3322",
+      "views": "3335",
       "images": []
     },
     {
@@ -11901,26 +11901,6 @@
       "images": [
         "https://cdn5.telesco.pe/file/G90NMo4va5ixjUYsEnFsaT8Mh2YYlfJN70WlkEtUcj3QnDZsPmzkZw-iIDjjbjesTIUwDOqt_CVGkRvqN_ckoHz3GwEVtSmNagx_Ol9est7Z-21bW-pOZyr2yQcJquWhg9AkpZ1HdZ7GtYxv2VinTib0ZYbx0uc8x2piY1JBjOJZwqeAnVlGCa465CkNQYiaDcDONP4zO0rHHAc7kZkrdQORVQgRXeQurvrMR3XFECdIfS6tC_LXPB0WON4kAsQMczIXTL2ZO8D5qVISnFMocfXkJpPt9J687n4DzBNI2SqyI87GdU2MhsA51XuUznvmKAmJYnXxqG1TN7ZTIKJ-uQ.jpg"
       ]
-    },
-    {
-      "text": "MACQUARIE FLAGS GULF RISK FOR Larsen & Toubro\n\n• 37% Of Order Book Linked To Middle East As Of 3QFY26\n• 33% Of 9MFY26 Order Inflow From Region\n\nKey Risks If Gulf Conflict Escalates:\n1.Potential Physical Damage To Infra And Hydrocarbon Sites; Risk Of Project Delays Or Cancellations\n\n2.Worker Safety Concerns, Possible Evacuations May Disrupt Execution Timelines\n\n3.Margin Pressure Risk Amid Geopolitical Uncertainty In The Region\n\nNet Impact: Elevated Execution And Earnings Risk If Conflict Prolongs Or Intensifies.",
-      "date": "2026-03-02T08:22:19+00:00",
-      "url": "https://t.me/btsreports/49297",
-      "channel": "BTS Reports",
-      "documents": [],
-      "document": null,
-      "views": "1867",
-      "images": []
-    },
-    {
-      "text": "MTAR Technologies talks about the Data Centre opportunity \n\nSeeing increase in demand for data center opportunity\n\nGuidance \n👉 Revenue CAGR growth of ~40% with an improvement of margins improving by ~300 bps in next 3 years\n👉 Aim to bringing down the working capital days to sub 200 days",
-      "date": "2026-03-02T07:48:41+00:00",
-      "url": "https://t.me/btsreports/49296",
-      "channel": "BTS Reports",
-      "documents": [],
-      "document": null,
-      "views": "1734",
-      "images": []
     },
     {
       "text": "",
@@ -11937,7 +11917,7 @@
         "title": "JM_Financial_Initiates_Coverage_on_Urban_Company_with_15%_UPSIDE.pdf",
         "size": "3.7 MB"
       },
-      "views": "4316",
+      "views": "4325",
       "images": []
     },
     {
@@ -11955,7 +11935,7 @@
         "title": "Physicswallah_IC_26Feb26.pdf",
         "size": "2.1 MB"
       },
-      "views": "5042",
+      "views": "5051",
       "images": []
     },
     {
@@ -11973,7 +11953,7 @@
         "title": "2026_02_10_Investec_Bank_UK_P_India_IT_Services_Fears_driven_by.pdf",
         "size": "936.2 KB"
       },
-      "views": "6125",
+      "views": "6133",
       "images": []
     },
     {
@@ -11991,7 +11971,7 @@
         "title": "Motilal_Oswal_Initiating_Coverage_on_Northern_Arc_Capital,_with.pdf",
         "size": "4.9 MB"
       },
-      "views": "5987",
+      "views": "5994",
       "images": []
     },
     {
@@ -12009,7 +11989,7 @@
         "title": "Motilal_Oswal_Initiating_Coverage_on_Lenskart_Solutions,_with_27%.pdf",
         "size": "4.6 MB"
       },
-      "views": "6816",
+      "views": "6823",
       "images": []
     },
     {
@@ -12027,7 +12007,7 @@
         "title": "Motilal_Oswal_Initiating_Coverage_on_Premier_Energies,_with_21%.pdf",
         "size": "3.1 MB"
       },
-      "views": "9692",
+      "views": "9698",
       "images": []
     }
   ],
