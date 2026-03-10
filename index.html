@@ -2663,7 +2663,7 @@
 
             .brand {
                 display: flex;
-                max-width: 120px;
+                max-width: 108px;
                 min-width: 72px;
             }
             .logo {
@@ -2680,13 +2680,34 @@
                 min-width: 0;
             }
 
+            #search {
+                height: 32px;
+                font-size: 13px;
+                padding: 0 10px 0 30px;
+            }
+
+            .search-icon {
+                left: 9px;
+                font-size: 13px;
+            }
+
+            .bookmarks-toggle,
+            .mobile-menu-toggle {
+                width: 30px;
+                height: 30px;
+                flex-shrink: 0;
+            }
+
+            .bookmarks-toggle {
+                display: inline-flex;
+            }
+
             .mobile-menu-toggle {
                 display: inline-flex;
             }
 
             .ai-toggle,
             .wsw-toggle,
-            .bookmarks-toggle,
             .theme-toggle {
                 display: none;
             }
@@ -3002,9 +3023,6 @@
                 </button>
                 <button class="mobile-menu-action" type="button" onclick="openMobileWswSidebar()">
                     <span>Who Said What</span>
-                </button>
-                <button class="mobile-menu-action" type="button" onclick="openMobileBookmarksSidebar()">
-                    <span>Bookmarks</span>
                 </button>
                 <button class="mobile-menu-action" data-mobile-action="theme" type="button" onclick="toggleMobileTheme()">
                     <span>Theme</span>
@@ -18002,11 +18020,6 @@
         function openMobileWswSidebar() {
             closeMobileMenu();
             openWswSidebar();
-        }
-
-        function openMobileBookmarksSidebar() {
-            closeMobileMenu();
-            openSidebar();
         }
 
         function toggleMobileTheme() {

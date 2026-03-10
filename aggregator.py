@@ -520,9 +520,6 @@ def generate_html(
                 <button class="mobile-menu-action" type="button" onclick="openMobileWswSidebar()">
                     <span>Who Said What</span>
                 </button>
-                <button class="mobile-menu-action" type="button" onclick="openMobileBookmarksSidebar()">
-                    <span>Bookmarks</span>
-                </button>
                 <button class="mobile-menu-action" data-mobile-action="theme" type="button" onclick="toggleMobileTheme()">
                     <span>Theme</span>
                     <span id="mobile-theme-state" class="mobile-menu-action-meta">Light</span>

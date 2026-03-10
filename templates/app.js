@@ -707,11 +707,6 @@
             openWswSidebar();
         }
 
-        function openMobileBookmarksSidebar() {
-            closeMobileMenu();
-            openSidebar();
-        }
-
         function toggleMobileTheme() {
             toggleTheme();
         }
