@@ -323,7 +323,6 @@
             inFocusOnly = !inFocusOnly;
             const btn = document.getElementById('in-focus-toggle');
             if (btn) btn.classList.toggle('active', inFocusOnly);
-            syncMobileMenuState();
             filterArticles();
         }
 
@@ -666,11 +665,6 @@
         }
 
         function syncMobileMenuState() {
-            const inFocusAction = document.querySelector('[data-mobile-action="in-focus"]');
-            const inFocusState = document.getElementById('mobile-in-focus-state');
-            if (inFocusAction) inFocusAction.classList.toggle('active', inFocusOnly);
-            if (inFocusState) inFocusState.textContent = inFocusOnly ? 'On' : 'Off';
-
             const themeAction = document.querySelector('[data-mobile-action="theme"]');
             const themeState = document.getElementById('mobile-theme-state');
             const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
@@ -716,10 +710,6 @@
         function openMobileBookmarksSidebar() {
             closeMobileMenu();
             openSidebar();
-        }
-
-        function toggleMobileInFocus() {
-            toggleInFocus();
         }
 
         function toggleMobileTheme() {
@@ -2130,7 +2120,6 @@
                 inFocusOnly = false;
                 const inFocusBtn = document.getElementById('in-focus-toggle');
                 if (inFocusBtn) inFocusBtn.classList.remove('active');
-                syncMobileMenuState();
             }
             currentPage = 1;
             setPageToToday();

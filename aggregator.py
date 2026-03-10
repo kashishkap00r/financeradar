@@ -479,10 +479,6 @@ def generate_html(
                 </svg>
                 <span id="bookmark-count" class="bookmark-count hidden">0</span>
             </button>
-            <button id="in-focus-toggle" class="in-focus-toggle" type="button" aria-label="Stories in focus" data-tooltip="Stories in focus" onclick="toggleInFocus()">
-                <span class="pulse-dot"></span>
-                <span class="in-focus-count">{in_focus_count}</span>
-            </button>
             <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" data-tooltip="Toggle theme">
                 <svg class="icon-moon feather feather-moon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -526,10 +522,6 @@ def generate_html(
                 </button>
                 <button class="mobile-menu-action" type="button" onclick="openMobileBookmarksSidebar()">
                     <span>Bookmarks</span>
-                </button>
-                <button class="mobile-menu-action" data-mobile-action="in-focus" type="button" onclick="toggleMobileInFocus()">
-                    <span>In Focus Stories</span>
-                    <span id="mobile-in-focus-state" class="mobile-menu-action-meta">Off</span>
                 </button>
                 <button class="mobile-menu-action" data-mobile-action="theme" type="button" onclick="toggleMobileTheme()">
                     <span>Theme</span>
@@ -776,6 +768,10 @@ def generate_html(
                 <button class="preset-btn" data-preset="World Desk" onclick="togglePreset('World Desk')">World Desk</button>
                 <button class="preset-btn" data-preset="Indie Voices" onclick="togglePreset('Indie Voices')">Indie Voices</button>
                 <button class="preset-btn" data-preset="Official Channels" onclick="togglePreset('Official Channels')">Official Channels</button>
+                <button id="in-focus-toggle" class="in-focus-toggle" type="button" aria-label="In Focus Stories" data-tooltip="In Focus Stories" onclick="toggleInFocus()">
+                    <span class="pulse-dot"></span>
+                    <span class="in-focus-count">{in_focus_count}</span>
+                </button>
                 <div class="publisher-dropdown" id="publisher-dropdown">
                     <button class="publisher-dropdown-trigger" id="publisher-trigger" onclick="toggleDropdown()">
                         <span class="filter-summary" id="publisher-summary">All publishers</span>

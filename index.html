@@ -989,7 +989,7 @@
             margin-bottom: 6px;
         }
 
-        /* In Focus toggle — matches ai-toggle / bookmarks-toggle pattern */
+        /* In Focus toggle — reused inside the News filter controls */
         .in-focus-toggle {
             position: relative;
             padding: 0;
@@ -2687,7 +2687,6 @@
             .ai-toggle,
             .wsw-toggle,
             .bookmarks-toggle,
-            .in-focus-toggle,
             .theme-toggle {
                 display: none;
             }
@@ -2963,10 +2962,6 @@
                 </svg>
                 <span id="bookmark-count" class="bookmark-count hidden">0</span>
             </button>
-            <button id="in-focus-toggle" class="in-focus-toggle" type="button" aria-label="Stories in focus" data-tooltip="Stories in focus" onclick="toggleInFocus()">
-                <span class="pulse-dot"></span>
-                <span class="in-focus-count">43</span>
-            </button>
             <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" data-tooltip="Toggle theme">
                 <svg class="icon-moon feather feather-moon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -3010,10 +3005,6 @@
                 </button>
                 <button class="mobile-menu-action" type="button" onclick="openMobileBookmarksSidebar()">
                     <span>Bookmarks</span>
-                </button>
-                <button class="mobile-menu-action" data-mobile-action="in-focus" type="button" onclick="toggleMobileInFocus()">
-                    <span>In Focus Stories</span>
-                    <span id="mobile-in-focus-state" class="mobile-menu-action-meta">Off</span>
                 </button>
                 <button class="mobile-menu-action" data-mobile-action="theme" type="button" onclick="toggleMobileTheme()">
                     <span>Theme</span>
@@ -3260,6 +3251,10 @@
                 <button class="preset-btn" data-preset="World Desk" onclick="togglePreset('World Desk')">World Desk</button>
                 <button class="preset-btn" data-preset="Indie Voices" onclick="togglePreset('Indie Voices')">Indie Voices</button>
                 <button class="preset-btn" data-preset="Official Channels" onclick="togglePreset('Official Channels')">Official Channels</button>
+                <button id="in-focus-toggle" class="in-focus-toggle" type="button" aria-label="In Focus Stories" data-tooltip="In Focus Stories" onclick="toggleInFocus()">
+                    <span class="pulse-dot"></span>
+                    <span class="in-focus-count">43</span>
+                </button>
                 <div class="publisher-dropdown" id="publisher-dropdown">
                     <button class="publisher-dropdown-trigger" id="publisher-trigger" onclick="toggleDropdown()">
                         <span class="filter-summary" id="publisher-summary">All publishers</span>
@@ -17625,7 +17620,6 @@
             inFocusOnly = !inFocusOnly;
             const btn = document.getElementById('in-focus-toggle');
             if (btn) btn.classList.toggle('active', inFocusOnly);
-            syncMobileMenuState();
             filterArticles();
         }
 
@@ -17968,11 +17962,6 @@
         }
 
         function syncMobileMenuState() {
-            const inFocusAction = document.querySelector('[data-mobile-action="in-focus"]');
-            const inFocusState = document.getElementById('mobile-in-focus-state');
-            if (inFocusAction) inFocusAction.classList.toggle('active', inFocusOnly);
-            if (inFocusState) inFocusState.textContent = inFocusOnly ? 'On' : 'Off';
-
             const themeAction = document.querySelector('[data-mobile-action="theme"]');
             const themeState = document.getElementById('mobile-theme-state');
             const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
@@ -18018,10 +18007,6 @@
         function openMobileBookmarksSidebar() {
             closeMobileMenu();
             openSidebar();
-        }
-
-        function toggleMobileInFocus() {
-            toggleInFocus();
         }
 
         function toggleMobileTheme() {
@@ -19432,7 +19417,6 @@
                 inFocusOnly = false;
                 const inFocusBtn = document.getElementById('in-focus-toggle');
                 if (inFocusBtn) inFocusBtn.classList.remove('active');
-                syncMobileMenuState();
             }
             currentPage = 1;
             setPageToToday();
