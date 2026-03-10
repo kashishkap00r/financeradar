@@ -1126,38 +1126,89 @@
         }
         .mobile-menu-actions {
             padding: 8px;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 6px;
         }
         .mobile-menu-action {
-            width: 100%;
             border: 1px solid var(--border);
-            border-radius: 10px;
-            background: var(--bg-secondary);
+            border-radius: 14px;
+            background:
+                radial-gradient(circle at top, rgba(225, 75, 75, 0.12), transparent 60%),
+                linear-gradient(180deg, var(--bg-secondary), color-mix(in srgb, var(--bg-secondary) 88%, var(--bg-primary)));
             color: var(--text-primary);
-            padding: 10px 12px;
+            padding: 12px 10px 10px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 13px;
+            display: grid;
+            justify-items: center;
+            align-content: start;
+            gap: 8px;
+            min-height: 102px;
+            font-size: 12px;
             font-weight: 600;
-            transition: border-color 0.15s, background 0.15s, color 0.15s;
-            text-align: left;
+            transition: transform 0.15s ease, border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s ease;
+            text-align: center;
         }
         .mobile-menu-action:hover {
-            background: var(--bg-hover);
             border-color: var(--border-light);
+            background:
+                radial-gradient(circle at top, rgba(225, 75, 75, 0.18), transparent 60%),
+                linear-gradient(180deg, var(--bg-hover), color-mix(in srgb, var(--bg-secondary) 80%, var(--bg-primary)));
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
         }
         .mobile-menu-action.active {
             border-color: var(--accent);
             color: var(--accent);
         }
+        .mobile-menu-action-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 11px;
+            border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+            background: color-mix(in srgb, var(--bg-primary) 72%, transparent);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            line-height: 1;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+        .mobile-menu-action-label {
+            display: block;
+            line-height: 1.2;
+            letter-spacing: 0.1px;
+        }
         .mobile-menu-action-meta {
             font-size: 11px;
             font-weight: 600;
             color: var(--text-muted);
+            line-height: 1.1;
+        }
+        .mobile-theme-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .mobile-theme-icon .icon-sun {
+            display: none;
+        }
+        .mobile-menu-action[data-theme="dark"] .mobile-theme-icon .icon-moon {
+            display: none;
+        }
+        .mobile-menu-action[data-theme="dark"] .mobile-theme-icon .icon-sun {
+            display: inline;
+        }
+        .mobile-menu-action.active .mobile-menu-action-icon {
+            border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+            background: color-mix(in srgb, var(--accent-soft) 86%, var(--bg-primary));
+        }
+        .mobile-menu-action.active .mobile-menu-action-meta {
+            color: var(--accent);
         }
 
         /* Bookmarks Sidebar */
@@ -3019,13 +3070,33 @@
             </div>
             <div class="mobile-menu-actions">
                 <button class="mobile-menu-action" type="button" onclick="openMobileAiSidebar()">
-                    <span>AI Picks</span>
+                    <span class="mobile-menu-action-icon" aria-hidden="true">🤖</span>
+                    <span class="mobile-menu-action-label">AI Picks</span>
+                    <span class="mobile-menu-action-meta">Top stories</span>
                 </button>
                 <button class="mobile-menu-action" type="button" onclick="openMobileWswSidebar()">
-                    <span>Who Said What</span>
+                    <span class="mobile-menu-action-icon" aria-hidden="true">🗣</span>
+                    <span class="mobile-menu-action-label">Who Said What</span>
+                    <span class="mobile-menu-action-meta">Story ideas</span>
                 </button>
                 <button class="mobile-menu-action" data-mobile-action="theme" type="button" onclick="toggleMobileTheme()">
-                    <span>Theme</span>
+                    <span class="mobile-menu-action-icon mobile-theme-icon" aria-hidden="true">
+                        <svg class="icon-moon" viewBox="0 0 24 24">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg class="icon-sun" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </span>
+                    <span class="mobile-menu-action-label">Theme</span>
                     <span id="mobile-theme-state" class="mobile-menu-action-meta">Light</span>
                 </button>
             </div>
@@ -17983,7 +18054,10 @@
             const themeAction = document.querySelector('[data-mobile-action="theme"]');
             const themeState = document.getElementById('mobile-theme-state');
             const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            if (themeAction) themeAction.classList.toggle('active', currentTheme === 'dark');
+            if (themeAction) {
+                themeAction.classList.toggle('active', currentTheme === 'dark');
+                themeAction.setAttribute('data-theme', currentTheme);
+            }
             if (themeState) themeState.textContent = currentTheme === 'dark' ? 'Dark' : 'Light';
         }
 

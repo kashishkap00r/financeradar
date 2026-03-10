@@ -668,7 +668,10 @@
             const themeAction = document.querySelector('[data-mobile-action="theme"]');
             const themeState = document.getElementById('mobile-theme-state');
             const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            if (themeAction) themeAction.classList.toggle('active', currentTheme === 'dark');
+            if (themeAction) {
+                themeAction.classList.toggle('active', currentTheme === 'dark');
+                themeAction.setAttribute('data-theme', currentTheme);
+            }
             if (themeState) themeState.textContent = currentTheme === 'dark' ? 'Dark' : 'Light';
         }
 
