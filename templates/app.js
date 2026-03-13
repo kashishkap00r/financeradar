@@ -1294,6 +1294,7 @@
                 }
                 populateWswProviderDropdown();
                 renderWswContent();
+                renderHomeTab();
             } catch(e) {
                 document.getElementById('wsw-content').innerHTML =
                     '<div class="ai-error"><div class="ai-error-title">WSW Unavailable</div>' +
@@ -1322,6 +1323,7 @@
         function switchWswProvider() {
             currentWswProvider = document.getElementById('wsw-provider').value;
             renderWswContent();
+            renderHomeTab();
         }
 
         function syncWswClusterBookmarkButtons() {
