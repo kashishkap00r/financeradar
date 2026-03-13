@@ -675,6 +675,10 @@ def generate_html(
         </nav>
 
         <div id="tab-home" class="tab-content active">
+            <div class="np-masthead">
+                <h1><a href="/" class="masthead-link">Finance Radar</a></h1>
+                <div class="tagline">Curated intelligence from across Indian finance</div>
+            </div>
             <div id="home-newspaper"></div>
             <div class="home-no-results hidden" id="home-no-results">No results match your search.</div>
         </div><!-- /tab-home -->

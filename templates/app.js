@@ -1551,6 +1551,14 @@
         // These vars must be assigned BEFORE the switchTab('home') IIFE below,
         // because renderHomeTab() is called synchronously during initialization.
         var BOOKMARK_SVG = '<svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>';
+        var BUCKET_COLORS = {
+            news: '#4A8F7A', telegram: '#5E6A96', reports: '#9A8345',
+            twitter: '#4A8A9A', youtube: '#A86565', papers: '#7A6B8F'
+        };
+        var BUCKET_LABELS = {
+            news: 'News', telegram: 'Telegram', reports: 'Reports',
+            twitter: 'Twitter', youtube: 'YouTube', papers: 'Papers'
+        };
         var homeRendered = false;
         var HOME_LIMITS = {
             hero: 7,
@@ -1802,40 +1810,15 @@
         }
 
         function getHomeResearchItems(limit) {
-            return RESEARCH_REPORTS.slice(0, limit).map(report => {
-                const source = report.publisher || report.source || 'Research';
-                return {
-                    title: cleanHomeTitle(report.title || 'Research report'),
-                    url: sanitizeUrl(report.link || report.source_url || ''),
-                    meta: source,
-                    fallbackTab: 'research'
-                };
-            });
+            return RESEARCH_REPORTS.slice(0, limit);
         }
 
         function getHomeYoutubeItems(limit) {
-            return YOUTUBE_VIDEOS.slice(0, limit).map(video => {
-                const channel = video.publisher || video.source || 'YouTube';
-                return {
-                    title: cleanHomeTitle(video.title || 'Untitled video'),
-                    url: sanitizeUrl(video.link || video.source_url || ''),
-                    thumbnail: sanitizeUrl(video.thumbnail || '') || (video.video_id ? `https://i.ytimg.com/vi/${video.video_id}/mqdefault.jpg` : ''),
-                    meta: channel,
-                    fallbackTab: 'youtube'
-                };
-            });
+            return YOUTUBE_VIDEOS.slice(0, limit);
         }
 
         function getHomeTwitterItems(limit) {
-            return TWITTER_HIGH_SIGNAL.slice(0, limit).map(tweet => {
-                const publisher = tweet.publisher || tweet.source || 'Twitter';
-                return {
-                    title: cleanHomeTitle(tweet.title || 'Tweet'),
-                    url: sanitizeUrl(tweet.link || tweet.source_url || ''),
-                    meta: publisher,
-                    fallbackTab: 'twitter'
-                };
-            });
+            return TWITTER_HIGH_SIGNAL.slice(0, limit);
         }
 
         function getYoutubeVideoIdFromUrl(url) {
@@ -1856,13 +1839,20 @@
 
         function npBookmarkBtn(url, title, source) {
             if (!url) return '';
-            const cls = 'np-bk bookmark-btn' + (isBookmarked(url) ? ' bookmarked' : '');
+            const cls = 'btn-bk bookmark-btn' + (isBookmarked(url) ? ' bookmarked' : '');
             return '<button class="' + cls + '" type="button"'
                 + ' data-url="' + escapeForAttr(url) + '"'
                 + ' data-title="' + escapeForAttr(title) + '"'
                 + ' data-source="' + escapeForAttr(source || 'Home') + '"'
                 + ' onclick="toggleGenericBookmark(this)" aria-label="Bookmark">'
                 + BOOKMARK_SVG + '</button>';
+        }
+
+        function catMeta(item, bk) {
+            var bucket = item._bucket || 'news';
+            var color = BUCKET_COLORS[bucket] || '#6B645C';
+            var label = BUCKET_LABELS[bucket] || 'News';
+            return '<div class="card-meta"><span class="cat-dot" style="background:' + color + '"></span><span class="cat-label">' + label + '</span>' + (bk || '') + '</div>';
         }
 
         function cardHero(item) {
@@ -1874,8 +1864,9 @@
             const titleHtml = url
                 ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                 : title;
-            return '<div class="card-hero">' + bk
-                + '<h3 class="hero-title">' + titleHtml + '</h3>'
+            return '<div class="card-hero">'
+                + catMeta(item) + bk
+                + '<h2 class="hero-title">' + titleHtml + '</h2>'
                 + desc
                 + '<div class="hero-source">' + source + '</div></div>';
         }
@@ -1888,8 +1879,9 @@
             const titleHtml = url
                 ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                 : title;
-            return '<div class="card-medium">' + bk
-                + '<div class="medium-title">' + titleHtml + '</div>'
+            return '<div class="card-medium">'
+                + catMeta(item, bk)
+                + '<h3 class="medium-title">' + titleHtml + '</h3>'
                 + '<div class="medium-source">' + source + '</div></div>';
         }
 
@@ -1898,10 +1890,12 @@
             const url = sanitizeUrl(item.url || '');
             const source = escapeHtml(item.meta || 'News');
             const bk = npBookmarkBtn(url, title, item.meta);
+            var bucket = item._bucket || 'news';
+            var color = BUCKET_COLORS[bucket] || '#6B645C';
             const linkHtml = url
                 ? '<a class="compact-link" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                 : '<span class="compact-link">' + title + '</span>';
-            return '<div class="card-compact"><div class="compact-body">'
+            return '<div class="card-compact"><span class="cat-dot" style="background:' + color + '"></span><div class="compact-body">'
                 + linkHtml
                 + '<span class="compact-src">' + source + '</span></div>' + bk + '</div>';
         }
@@ -1977,10 +1971,10 @@
                     + '<a class="yt-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     + bk + '</div><div class="yt-channel">' + channel + '</div></div></div>';
             }).join('');
-            return '<section class="slider-section"><div class="slider-inner">'
+            return '<section class="slider-section">'
                 + '<div class="slider-header"><h2 class="slider-label">Watch</h2>'
                 + '<div class="slider-nav">' + sliderArrows('yt-track') + '</div></div>'
-                + '<div class="slider-track" id="yt-track">' + cards + '</div></div></section>';
+                + '<div class="slider-track" id="yt-track">' + cards + '</div></section>';
         }
 
         function buildRpSlider(items) {
@@ -1997,10 +1991,10 @@
                     + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     + regionBadge + '</div>' + bk + '</div></div></div>';
             }).join('');
-            return '<section class="slider-section"><div class="slider-inner">'
+            return '<section class="slider-section">'
                 + '<div class="slider-header"><h2 class="slider-label">Research Reports</h2>'
                 + '<div class="slider-nav">' + sliderArrows('rp-track') + '</div></div>'
-                + '<div class="slider-track" id="rp-track">' + cards + '</div></div></section>';
+                + '<div class="slider-track" id="rp-track">' + cards + '</div></section>';
         }
 
         function buildTwSlider(items) {
@@ -2015,10 +2009,10 @@
                     + '<a class="tw-text" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     + '</div>' + bk + '</div></div></div>';
             }).join('');
-            return '<section class="slider-section"><div class="slider-inner">'
+            return '<section class="slider-section">'
                 + '<div class="slider-header"><h2 class="slider-label">Voices</h2>'
                 + '<div class="slider-nav">' + sliderArrows('tw-track') + '</div></div>'
-                + '<div class="slider-track" id="tw-track">' + cards + '</div></div></section>';
+                + '<div class="slider-track" id="tw-track">' + cards + '</div></section>';
         }
 
         function buildPpSlider(items) {
@@ -2026,17 +2020,19 @@
             const cards = items.map(p => {
                 const title = escapeHtml(cleanHomeTitle(p.title));
                 const url = sanitizeUrl(p.link || p.source_url || '');
-                const venue = escapeHtml(p.publisher || p.source || 'Paper');
-                const bk = npBookmarkBtn(url, title, venue);
-                return '<div class="slider-card slider-pp"><div class="slider-card-body">'
-                    + '<div class="slider-card-header"><div><div class="pp-venue">' + venue + '</div>'
+                const authors = escapeHtml(p.authors || p.publisher || p.source || 'Paper');
+                const bk = npBookmarkBtn(url, title, authors);
+                return '<div class="slider-card slider-pp">'
+                    + '<div class="slider-card-header">'
+                    + '<div class="pp-authors">' + authors + '</div>'
+                    + bk + '</div>'
                     + '<a class="pp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
-                    + '</div>' + bk + '</div></div></div>';
+                    + '</div>';
             }).join('');
-            return '<section class="slider-section"><div class="slider-inner">'
+            return '<section class="slider-section">'
                 + '<div class="slider-header"><h2 class="slider-label">Papers</h2>'
                 + '<div class="slider-nav">' + sliderArrows('pp-track') + '</div></div>'
-                + '<div class="slider-track" id="pp-track">' + cards + '</div></div></section>';
+                + '<div class="slider-track" id="pp-track">' + cards + '</div></section>';
         }
 
         // ==================== WSW BREAKER BUILDER ====================
@@ -2081,6 +2077,10 @@
             const youtubeItems = getHomeYoutubeItems(12);
             const twitterItems = getHomeTwitterItems(12);
             const papersItems = (typeof PAPER_ARTICLES !== 'undefined' ? PAPER_ARTICLES : []).slice(0, 12);
+
+            // Tag items with bucket for category dots
+            newsItems.forEach(function(it) { it._bucket = 'news'; });
+            telegramItems.forEach(function(it) { it._bucket = 'telegram'; });
 
             // Merge news + telegram for the newspaper feed (interleave)
             const feed = [];

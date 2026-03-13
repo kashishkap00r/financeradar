@@ -921,8 +921,8 @@
             color: var(--accent);
         }
 
-        /* WSW cluster card styles */
-        .wsw-quote {
+        /* WSW cluster card styles (sidebar only) */
+        #wsw-content .wsw-quote {
             font-style: italic;
             font-size: 12px;
             color: var(--text-secondary);
@@ -931,7 +931,7 @@
             border-left: 2px solid var(--accent);
             padding-left: 6px;
         }
-        .wsw-speaker { font-style: normal; font-weight: 600; }
+        #wsw-content .wsw-speaker { font-style: normal; font-weight: 600; }
         .wsw-india { font-size: 11px; color: var(--text-muted); margin: 2px 0; }
         .wsw-confidence {
             display: inline-block; font-size: 10px;
@@ -1982,6 +1982,74 @@
             text-align: center;
         }
 
+        /* ═══ Newspaper Masthead ═══ */
+        .np-masthead {
+            padding: 2.5rem 0 1.25rem;
+            border-bottom: 2.5px solid var(--text-primary);
+        }
+        .np-masthead h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(2.8rem, 6vw, 4.2rem);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            margin: 0;
+        }
+        .np-masthead .masthead-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .np-masthead .masthead-link:hover { color: var(--accent); }
+        .np-masthead .tagline {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* ═══ Shared card parts ═══ */
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-meta .btn-bk { margin-left: auto; }
+        .cat-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+        .cat-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+        }
+
+        /* ═══ Newspaper bookmark button ═══ */
+        .btn-bk {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 2px;
+            flex-shrink: 0;
+            transition: color 0.2s ease;
+        }
+        .btn-bk:hover { color: var(--accent); }
+        .btn-bk.active, .btn-bk.bookmarked { color: var(--accent); }
+        .btn-bk svg {
+            width: 14px;
+            height: 14px;
+        }
+
         /* ═══ HERO card ═══ */
         .card-hero {
             position: relative;
@@ -2019,7 +2087,7 @@
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
-        .card-hero > .np-bk {
+        .card-hero > .btn-bk {
             position: absolute;
             top: 0;
             right: 0;
@@ -2064,11 +2132,7 @@
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
-        .card-medium > .np-bk {
-            position: absolute;
-            top: 1rem;
-            right: 0;
-        }
+        /* medium-card bookmark is in .card-meta row, no absolute positioning needed */
 
         /* ═══ COMPACT card ═══ */
         .card-compact {
@@ -2103,38 +2167,9 @@
             display: block;
             margin-top: 0.15rem;
         }
-        .card-compact > .np-bk {
+        .card-compact > .btn-bk {
             flex-shrink: 0;
             align-self: center;
-        }
-
-        /* ═══ Newspaper bookmark button ═══ */
-        .np-bk {
-            width: 28px;
-            height: 28px;
-            padding: 0;
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            background: var(--bg-secondary);
-            color: var(--text-muted);
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.15s ease;
-        }
-        .np-bk svg {
-            width: 14px;
-            height: 14px;
-        }
-        .np-bk:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .np-bk.bookmarked {
-            border-color: rgba(196, 90, 53, 0.35);
-            background: var(--accent-soft);
-            color: var(--accent);
         }
 
         /* ═══ PATTERN A — Lead Grid ═══ */
@@ -2285,21 +2320,17 @@
         .wsw-bk-link:hover .wsw-quote p {
             color: var(--accent);
         }
-        .wsw-breaker .np-bk {
+        .wsw-breaker .btn-bk {
             display: block;
             margin: -0.5rem auto 0;
         }
 
         /* ═══ SLIDERS (shared) ═══ */
         .slider-section {
-            padding: 1.75rem 0;
-            margin: 0;
+            padding: 1.75rem 2.5rem;
+            margin: 0 -2.5rem;
             background: var(--bg-secondary);
             background: color-mix(in srgb, var(--text-primary) 3%, var(--bg-primary));
-            border-radius: 4px;
-        }
-        .slider-inner {
-            padding: 0 1.5rem;
         }
         .slider-header {
             display: flex;
@@ -2366,7 +2397,7 @@
             align-items: flex-start;
             gap: 0.5rem;
         }
-        .slider-card .np-bk {
+        .slider-card .btn-bk {
             flex-shrink: 0;
         }
 
@@ -2386,7 +2417,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 3px 3px 0 0;
         }
         .yt-play {
             width: 40px;
@@ -2492,11 +2522,11 @@
             width: 300px;
             padding: 1rem 0 0.75rem;
         }
-        .pp-venue {
+        .pp-authors {
             font-size: 0.65rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
             color: var(--text-secondary);
         }
         .pp-title {
@@ -2913,6 +2943,7 @@
                 padding-top: 1rem;
                 position: static;
             }
+            .slider-section { padding: 1.5rem 1.25rem; margin: 0 -1.25rem; }
             .slider-yt { width: 240px; }
             .slider-rp, .slider-tw, .slider-pp { width: 260px; }
             .wsw-quote { padding: 1rem; }
