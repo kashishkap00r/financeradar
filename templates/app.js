@@ -183,6 +183,7 @@
             selectedPublishers.clear();
             syncCheckboxes();
             syncPresetButtons();
+            syncDeskButtons();
             updatePublisherSummary();
             filterArticles();
         }
@@ -191,6 +192,7 @@
             selectedPublishers.clear();
             syncCheckboxes();
             syncPresetButtons();
+            syncDeskButtons();
             updatePublisherSummary();
             filterArticles();
         }
@@ -202,6 +204,7 @@
                 selectedPublishers.delete(pub);
             }
             syncPresetButtons();
+            syncDeskButtons();
             updatePublisherSummary();
             filterArticles();
         }
@@ -223,6 +226,7 @@
             }
             syncCheckboxes();
             syncPresetButtons();
+            syncDeskButtons();
             updatePublisherSummary();
             filterArticles();
         }
@@ -244,6 +248,55 @@
                 } else {
                     btn.classList.remove('active', 'partial');
                 }
+            });
+        }
+
+        const NEWS_DESKS = {
+            'india-desk': ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express"],
+            'world-desk': ["BBC", "CNBC", "WSJ", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World", "Techmeme"],
+            'indie-voices': ["Finshots", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data", "Noah Smith", "Ideas For India", "The India Forum", "Neel Chhabra", "Ember"],
+            'official-channels': ["RBI", "SEBI", "ECB", "ADB", "FRED"]
+        };
+
+        function resolveDeskPubs(deskKey) {
+            const deskNames = NEWS_DESKS[deskKey];
+            if (!deskNames) return [];
+            return ALL_PUBLISHERS.filter(p => deskNames.some(d => p.includes(d)));
+        }
+
+        function syncDeskButtons() {
+            document.querySelectorAll('.tv-desk-btn').forEach(btn => {
+                const deskKey = btn.dataset.desk;
+                const deskPubs = resolveDeskPubs(deskKey);
+                const selectedCount = deskPubs.filter(p => selectedPublishers.has(p)).length;
+                btn.classList.remove('active', 'partial');
+                if (selectedPublishers.size > 0 && selectedCount === deskPubs.length && deskPubs.length > 0) {
+                    btn.classList.add('active');
+                } else if (selectedPublishers.size > 0 && selectedCount > 0) {
+                    btn.classList.add('partial');
+                }
+            });
+        }
+
+        function initDeskButtons() {
+            document.querySelectorAll('.tv-desk-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const deskKey = btn.dataset.desk;
+                    const resolved = resolveDeskPubs(deskKey);
+                    const allSelected = resolved.length > 0 && resolved.every(p => selectedPublishers.has(p));
+                    if (allSelected) {
+                        resolved.forEach(p => selectedPublishers.delete(p));
+                    } else {
+                        resolved.forEach(p => selectedPublishers.add(p));
+                    }
+                    currentPage = 1;
+                    syncCheckboxes();
+                    syncPresetButtons();
+                    syncDeskButtons();
+                    updatePublisherSummary();
+                    filterArticles();
+                    applyPagination(true);
+                });
             });
         }
 
@@ -388,6 +441,7 @@
 
         // Initialize publisher dropdown
         initPublisherDropdown();
+        initDeskButtons();
 
         // Pagination
         const PAGE_SIZE = 20;
@@ -1492,8 +1546,11 @@
         updateWswBookmarkActions();
 
         // ==================== HOME TAB (vars) ====================
-        let homeRendered = false;
-        const HOME_LIMITS = {
+        // These vars must be assigned BEFORE the switchTab('home') IIFE below,
+        // because renderHomeTab() is called synchronously during initialization.
+        var BOOKMARK_SVG = '<svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>';
+        var homeRendered = false;
+        var HOME_LIMITS = {
             hero: 7,
             news: 12,
             telegram: 12,
@@ -1501,17 +1558,11 @@
             youtube: 9,
             twitter: 9
         };
-        const HOME_PAIR_MAX = {
+        var HOME_PAIR_MAX = {
             topRow: 18,
             bottomRow: 14
         };
-        const SPOTLIGHT_PLAN = [
-            { bucket: 'news', count: 3 },
-            { bucket: 'telegram', count: 2 },
-            { bucket: 'youtube', count: 1 },
-            { bucket: 'twitter', count: 1 }
-        ];
-        const HOME_FALLBACK_TABS = new Set(['news', 'reports', 'research', 'youtube', 'twitter']);
+        // (SPOTLIGHT_PLAN and HOME_FALLBACK_TABS removed — newspaper layout uses direct data access)
 
         // ==================== REPORTS TAB ====================
         let reportsRendered = false;
@@ -1596,7 +1647,9 @@
             }
             pendingTabScrollCapture = null;
             document.querySelectorAll('.content-tab').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.tab === tab);
+                const isActive = btn.dataset.tab === tab;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
             });
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.toggle('active', el.id === 'tab-' + tab);
@@ -1706,73 +1759,7 @@
             return [];
         }
 
-        function normalizeHomeFallbackTab(tab) {
-            return HOME_FALLBACK_TABS.has(tab) ? tab : 'news';
-        }
-
-        function buildHomeBookmarkButton(url, title, source) {
-            if (!url) {
-                return `<button class="bookmark-btn home-bookmark-btn home-bookmark-btn-disabled" type="button" aria-label="Bookmark unavailable" title="Bookmark unavailable" disabled>
-                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                </button>`;
-            }
-
-            return `<button class="bookmark-btn home-bookmark-btn${isBookmarked(url) ? ' bookmarked' : ''}" type="button"
-                    data-url="${escapeForAttr(url)}"
-                    data-title="${escapeForAttr(title)}"
-                    data-source="${escapeForAttr(source || 'Home')}"
-                    onclick="toggleGenericBookmark(this)"
-                    aria-label="Bookmark"
-                    title="Bookmark">
-                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-            </button>`;
-        }
-
-        function buildHomeItemHtml(item) {
-            const cleanTitle = cleanHomeTitle(item.title || '');
-            const title = escapeHtml(cleanTitle);
-            const url = sanitizeUrl(item.url || '');
-            const fallbackTab = normalizeHomeFallbackTab(String(item.fallbackTab || 'news'));
-            const sourceLabel = String(item.meta || '').trim() || 'Home';
-            const meta = item.meta ? `<div class="home-item-meta">${escapeHtml(item.meta)}</div>` : '';
-            const thumbnail = sanitizeUrl(item.thumbnail || '');
-            const media = thumbnail
-                ? `<div class="home-item-thumb"><img src="${escapeForAttr(thumbnail)}" alt="${escapeForAttr(cleanTitle)}" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`
-                : '';
-            const content = `${media}
-                <div class="home-item-body">
-                    <div class="home-item-title">${title}</div>
-                    ${meta}
-                </div>`;
-            const linkClass = `home-item-link${thumbnail ? ' home-item-link-with-thumb' : ''}`;
-            const bookmarkHtml = buildHomeBookmarkButton(url, cleanTitle, sourceLabel);
-
-            if (url) {
-                return `<article class="home-item${thumbnail ? ' home-item-with-thumb' : ''}">
-                    <a class="${linkClass}" href="${escapeForAttr(url)}" target="_blank" rel="noopener">
-                        ${content}
-                    </a>
-                    ${bookmarkHtml}
-                </article>`;
-            }
-
-            return `<article class="home-item${thumbnail ? ' home-item-with-thumb' : ''}">
-                <button class="${linkClass} home-item-link-button" type="button" onclick="openTabFromHome('${fallbackTab}')">
-                    ${content}
-                </button>
-                ${bookmarkHtml}
-            </article>`;
-        }
-
-        function renderHomeList(containerId, items, emptyText) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            if (!Array.isArray(items) || items.length === 0) {
-                container.innerHTML = `<div class="home-item-empty">${escapeHtml(emptyText)}</div>`;
-                return;
-            }
-            container.innerHTML = items.map(buildHomeItemHtml).join('');
-        }
+        // (Old bento-grid home builders removed — replaced by newspaper layout)
 
         function getHomeNewsItems(limit) {
             const items = [];
@@ -1861,258 +1848,323 @@
             return '';
         }
 
-        function getSpotlightYoutubeThumbnail(url, title) {
-            const videoId = getYoutubeVideoIdFromUrl(url);
-            if (videoId) return `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+        // (Old spotlight/AI-ranking home functions removed — newspaper layout uses direct data access)
 
-            const safeUrl = sanitizeUrl(url);
-            const normalizedTitle = cleanHomeTitle(title || '').toLowerCase();
-            const matched = YOUTUBE_VIDEOS.find(video => {
-                const videoUrl = sanitizeUrl(video.link || video.source_url || '');
-                if (safeUrl && videoUrl && videoUrl === safeUrl) return true;
-                const videoTitle = cleanHomeTitle(video.title || '').toLowerCase();
-                return normalizedTitle && videoTitle && normalizedTitle === videoTitle;
-            });
-            if (!matched) return '';
-            return sanitizeUrl(matched.thumbnail || '')
-                || (matched.video_id ? `https://i.ytimg.com/vi/${matched.video_id}/mqdefault.jpg` : '');
+        // ==================== NEWSPAPER CARD BUILDERS ====================
+
+        function npBookmarkBtn(url, title, source) {
+            if (!url) return '';
+            const cls = 'np-bk bookmark-btn' + (isBookmarked(url) ? ' bookmarked' : '');
+            return '<button class="' + cls + '" type="button"'
+                + ' data-url="' + escapeForAttr(url) + '"'
+                + ' data-title="' + escapeForAttr(title) + '"'
+                + ' data-source="' + escapeForAttr(source || 'Home') + '"'
+                + ' onclick="toggleGenericBookmark(this)" aria-label="Bookmark">'
+                + BOOKMARK_SVG + '</button>';
         }
 
-        function getAiProviderOrderForBucket(bucket) {
-            const providers = getAvailableProvidersForBucket(bucket);
-            if (!providers.length) return [];
-            const order = [];
-            if (providers.some(([key]) => key === currentAiProvider)) {
-                order.push(currentAiProvider);
-            }
-            providers.forEach(([key]) => {
-                if (!order.includes(key)) order.push(key);
-            });
-            return order;
-        }
-
-        function buildSpotlightItemFromRanking(item, bucket) {
-            const bucketToTab = {
-                news: 'news',
-                telegram: 'reports',
-                reports: 'research',
-                youtube: 'youtube',
-                twitter: 'twitter'
-            };
-            const title = cleanHomeTitle(item.title || 'Untitled');
+        function cardHero(item) {
+            const title = escapeHtml(cleanHomeTitle(item.title));
             const url = sanitizeUrl(item.url || '');
-            const spotlight = {
-                title,
-                url,
-                meta: item.source || AI_BUCKET_LABELS[bucket] || 'AI pick',
-                fallbackTab: bucketToTab[bucket] || 'news',
-                bucket
-            };
-            if (bucket === 'youtube') {
-                spotlight.thumbnail = getSpotlightYoutubeThumbnail(url, title);
-            }
-            return spotlight;
+            const source = escapeHtml(item.meta || 'News');
+            const desc = item.description ? '<p class="hero-desc">' + escapeHtml(item.description) + '</p>' : '';
+            const bk = npBookmarkBtn(url, title, item.meta);
+            const titleHtml = url
+                ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                : title;
+            return '<div class="card-hero">' + bk
+                + '<h3 class="hero-title">' + titleHtml + '</h3>'
+                + desc
+                + '<div class="hero-source">' + source + '</div></div>';
         }
 
-        function getHomeSpotlightItems(limit) {
-            if (!aiRankings || !aiRankings.providers) return getHomeNewsItems(limit);
+        function cardMedium(item) {
+            const title = escapeHtml(cleanHomeTitle(item.title));
+            const url = sanitizeUrl(item.url || '');
+            const source = escapeHtml(item.meta || 'News');
+            const bk = npBookmarkBtn(url, title, item.meta);
+            const titleHtml = url
+                ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                : title;
+            return '<div class="card-medium">' + bk
+                + '<div class="medium-title">' + titleHtml + '</div>'
+                + '<div class="medium-source">' + source + '</div></div>';
+        }
 
-            const items = [];
-            const globalSeen = new Set();
+        function cardCompact(item) {
+            const title = escapeHtml(cleanHomeTitle(item.title));
+            const url = sanitizeUrl(item.url || '');
+            const source = escapeHtml(item.meta || 'News');
+            const bk = npBookmarkBtn(url, title, item.meta);
+            const linkHtml = url
+                ? '<a class="compact-link" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                : '<span class="compact-link">' + title + '</span>';
+            return '<div class="card-compact"><div class="compact-body">'
+                + linkHtml
+                + '<span class="compact-src">' + source + '</span></div>' + bk + '</div>';
+        }
 
-            SPOTLIGHT_PLAN.forEach(plan => {
-                const { bucket, count } = plan;
-                let added = 0;
-                const providerOrder = getAiProviderOrderForBucket(bucket);
-                providerOrder.forEach(providerKey => {
-                    if (added >= count) return;
-                    const provider = aiRankings.providers[providerKey];
-                    const rankings = getProviderBucketRankings(provider, bucket);
-                    rankings.forEach(rankingItem => {
-                        if (added >= count) return;
-                        const candidate = buildSpotlightItemFromRanking(rankingItem, bucket);
-                        const uniqueKey = candidate.url || `${bucket}|${candidate.title}|${candidate.meta}`;
-                        if (!candidate.title || globalSeen.has(uniqueKey)) return;
-                        globalSeen.add(uniqueKey);
-                        items.push(candidate);
-                        added += 1;
-                    });
+        // ==================== NEWSPAPER PATTERN BUILDERS ====================
+        function renderPatternA(items) {
+            if (!items.length) return '';
+            const hero = items[0];
+            const sidebar = items.slice(1, 5);
+            const grid = items.slice(5);
+            return '<section class="feed-section"><div class="pa-lead">'
+                + cardHero(hero)
+                + '<div class="pa-sidebar">' + sidebar.map(cardCompact).join('') + '</div>'
+                + '</div><div class="pa-grid">' + grid.map(cardMedium).join('') + '</div></section>';
+        }
+
+        function renderPatternB(items) {
+            if (!items.length) return '';
+            const sidebar = items.slice(0, 4);
+            const hero = items[4] || items[0];
+            const grid = items.slice(5);
+            return '<section class="feed-section"><div class="pb-lead">'
+                + '<div class="pb-sidebar">' + sidebar.map(cardCompact).join('') + '</div>'
+                + cardHero(hero)
+                + '</div><div class="pb-grid">' + grid.map(cardMedium).join('') + '</div></section>';
+        }
+
+        function renderPatternC(items) {
+            if (!items.length) return '';
+            const mid = Math.ceil(items.length / 2) + 1;
+            const left = items.slice(0, mid);
+            const right = items.slice(mid);
+            return '<section class="feed-section"><div class="pc-grid">'
+                + '<div class="pc-col-left">' + left.map(cardMedium).join('') + '</div>'
+                + '<div class="pc-col-right">' + right.map(cardCompact).join('') + '</div>'
+                + '</div></section>';
+        }
+
+        function renderPatternD(items) {
+            if (!items.length) return '';
+            const hero = items[0];
+            const sidebar = items.slice(1, 5);
+            const scroll = items.slice(5);
+            return '<section class="feed-section"><div class="pd-lead">'
+                + cardHero(hero)
+                + '<div class="pd-sidebar">' + sidebar.map(cardCompact).join('') + '</div>'
+                + '</div>'
+                + '<div class="pd-scroll-label"><span class="pd-scroll-title">Also in the Feed</span>'
+                + '<span class="pd-scroll-count">' + scroll.length + ' items</span></div>'
+                + '<div class="pd-scroll-container"><div class="pd-scroll-grid">'
+                + scroll.map(cardCompact).join('')
+                + '</div></div></section>';
+        }
+
+        // ==================== SLIDER BUILDERS ====================
+        function sliderArrows(trackId) {
+            return '<button class="slider-arrow slider-prev" aria-label="Scroll left" data-track="' + trackId + '">&#8249;</button>'
+                + '<button class="slider-arrow slider-next" aria-label="Scroll right" data-track="' + trackId + '">&#8250;</button>';
+        }
+
+        function buildYtSlider(items) {
+            if (!items.length) return '';
+            const cards = items.map(v => {
+                const title = escapeHtml(cleanHomeTitle(v.title));
+                const url = sanitizeUrl(v.link || v.source_url || '');
+                const channel = escapeHtml(v.publisher || v.source || 'YouTube');
+                const videoId = getYoutubeVideoIdFromUrl(url);
+                const thumb = sanitizeUrl(v.thumbnail || '') || (videoId ? 'https://i.ytimg.com/vi/' + videoId + '/mqdefault.jpg' : '');
+                const bk = npBookmarkBtn(url, title, channel);
+                return '<div class="slider-card slider-yt">'
+                    + (thumb ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener" class="yt-thumb" style="background-image:url(' + escapeForAttr(thumb) + ')"><span class="yt-play">&#9654;</span></a>' : '')
+                    + '<div class="slider-card-body"><div class="slider-card-header">'
+                    + '<a class="yt-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                    + bk + '</div><div class="yt-channel">' + channel + '</div></div></div>';
+            }).join('');
+            return '<section class="slider-section"><div class="slider-inner">'
+                + '<div class="slider-header"><h2 class="slider-label">Watch</h2>'
+                + '<div class="slider-nav">' + sliderArrows('yt-track') + '</div></div>'
+                + '<div class="slider-track" id="yt-track">' + cards + '</div></div></section>';
+        }
+
+        function buildRpSlider(items) {
+            if (!items.length) return '';
+            const cards = items.map(r => {
+                const title = escapeHtml(cleanHomeTitle(r.title));
+                const url = sanitizeUrl(r.link || r.source_url || '');
+                const pub = escapeHtml(r.publisher || r.source || 'Research');
+                const region = r.region || '';
+                const bk = npBookmarkBtn(url, title, pub);
+                const regionBadge = region ? '<span class="rp-region">' + escapeHtml(region) + '</span>' : '';
+                return '<div class="slider-card slider-rp"><div class="slider-card-body">'
+                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + pub + '</div>'
+                    + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                    + regionBadge + '</div>' + bk + '</div></div></div>';
+            }).join('');
+            return '<section class="slider-section"><div class="slider-inner">'
+                + '<div class="slider-header"><h2 class="slider-label">Research Reports</h2>'
+                + '<div class="slider-nav">' + sliderArrows('rp-track') + '</div></div>'
+                + '<div class="slider-track" id="rp-track">' + cards + '</div></div></section>';
+        }
+
+        function buildTwSlider(items) {
+            if (!items.length) return '';
+            const cards = items.map(t => {
+                const title = escapeHtml(cleanHomeTitle(t.title));
+                const url = sanitizeUrl(t.link || t.source_url || '');
+                const author = escapeHtml(t.publisher || t.source || 'Twitter');
+                const bk = npBookmarkBtn(url, title, author);
+                return '<div class="slider-card slider-tw"><div class="slider-card-body">'
+                    + '<div class="slider-card-header"><div><div class="tw-author">' + author + '</div>'
+                    + '<a class="tw-text" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                    + '</div>' + bk + '</div></div></div>';
+            }).join('');
+            return '<section class="slider-section"><div class="slider-inner">'
+                + '<div class="slider-header"><h2 class="slider-label">Voices</h2>'
+                + '<div class="slider-nav">' + sliderArrows('tw-track') + '</div></div>'
+                + '<div class="slider-track" id="tw-track">' + cards + '</div></div></section>';
+        }
+
+        function buildPpSlider(items) {
+            if (!items.length) return '';
+            const cards = items.map(p => {
+                const title = escapeHtml(cleanHomeTitle(p.title));
+                const url = sanitizeUrl(p.link || p.source_url || '');
+                const venue = escapeHtml(p.publisher || p.source || 'Paper');
+                const bk = npBookmarkBtn(url, title, venue);
+                return '<div class="slider-card slider-pp"><div class="slider-card-body">'
+                    + '<div class="slider-card-header"><div><div class="pp-venue">' + venue + '</div>'
+                    + '<a class="pp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                    + '</div>' + bk + '</div></div></div>';
+            }).join('');
+            return '<section class="slider-section"><div class="slider-inner">'
+                + '<div class="slider-header"><h2 class="slider-label">Papers</h2>'
+                + '<div class="slider-nav">' + sliderArrows('pp-track') + '</div></div>'
+                + '<div class="slider-track" id="pp-track">' + cards + '</div></div></section>';
+        }
+
+        // ==================== WSW BREAKER BUILDER ====================
+        function buildWswBreaker(cluster) {
+            if (!cluster) return '';
+            const quote = escapeHtml(cluster.quote_snippet || cluster.headline || '');
+            const speaker = escapeHtml(cluster.quote_speaker || cluster.source || '');
+            const url = sanitizeUrl(cluster.source_url_primary || cluster.url || '');
+            const bk = npBookmarkBtn(url, quote.substring(0, 80), speaker);
+            const inner = '<blockquote class="wsw-quote"><p>&ldquo;' + quote + '&rdquo;</p>'
+                + '<cite>&mdash; ' + speaker + '</cite></blockquote>';
+            const wrapped = url
+                ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener" class="wsw-bk-link">' + inner + '</a>'
+                : inner;
+            return '<div class="wsw-breaker"><div class="wsw-rule"></div>'
+                + wrapped + bk + '<div class="wsw-rule"></div></div>';
+        }
+
+        // ==================== SLIDER NAVIGATION ====================
+        function initSliders() {
+            document.querySelectorAll('.slider-arrow').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const trackId = btn.dataset.track;
+                    const track = document.getElementById(trackId);
+                    if (!track) return;
+                    const dir = btn.classList.contains('slider-prev') ? -320 : 320;
+                    track.scrollBy({ left: dir, behavior: 'smooth' });
                 });
             });
-
-            if (!items.length) return getHomeNewsItems(limit);
-
-            if (items.length < limit) {
-                const fillSeen = new Set(items.map(item => item.url || `${item.bucket || 'news'}|${item.title}|${item.meta}`));
-                const newsFill = getHomeNewsItems(limit * 2);
-                newsFill.forEach(newsItem => {
-                    if (items.length >= limit) return;
-                    const key = newsItem.url || `news|${newsItem.title}|${newsItem.meta}`;
-                    if (fillSeen.has(key)) return;
-                    fillSeen.add(key);
-                    items.push({
-                        ...newsItem,
-                        bucket: 'news'
-                    });
-                });
-            }
-
-            return items.slice(0, limit);
         }
 
-        function buildSpotlightItemHtml(item, index) {
-            const cleanTitle = cleanHomeTitle(item.title || 'Untitled');
-            const title = escapeHtml(cleanTitle);
-            const url = sanitizeUrl(item.url || '');
-            const bucket = String(item.bucket || 'news');
-            const laneLabel = bucket === 'news'
-                ? 'News'
-                : bucket === 'telegram'
-                    ? 'Telegram'
-                    : bucket === 'youtube'
-                        ? 'YouTube'
-                        : bucket === 'twitter'
-                            ? 'Tweet'
-                            : 'AI Pick';
-            const source = escapeHtml(String(item.meta || 'AI Pick'));
-            const fallbackTab = normalizeHomeFallbackTab(String(item.fallbackTab || 'news'));
-            const thumb = sanitizeUrl(item.thumbnail || '');
-            const bookmarkHtml = buildHomeBookmarkButton(url, cleanTitle, String(item.meta || laneLabel));
-            const media = thumb
-                ? `<div class="spotlight-thumb"><img src="${escapeForAttr(thumb)}" alt="${escapeForAttr(cleanTitle)}" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`
-                : '';
-
-            const content = `${media}
-                <div class="spotlight-content">
-                    <div class="spotlight-meta">
-                        <span class="spotlight-lane spotlight-lane-${escapeForAttr(bucket)}">${escapeHtml(laneLabel)}</span>
-                        <span class="spotlight-source">${source}</span>
-                    </div>
-                    <div class="spotlight-title">${title}</div>
-                </div>`;
-
-            const cls = `spotlight-item spotlight-item-${escapeForAttr(bucket)}${index === 0 ? ' spotlight-item-featured' : ''}${thumb ? ' spotlight-item-media' : ''}`;
-            if (url) {
-                return `<article class="${cls}">
-                    ${bookmarkHtml}
-                    <a class="spotlight-link" href="${escapeForAttr(url)}" target="_blank" rel="noopener">${content}</a>
-                </article>`;
-            }
-
-            return `<article class="${cls}">
-                ${bookmarkHtml}
-                <button class="spotlight-link spotlight-link-btn" type="button" onclick="openTabFromHome('${fallbackTab}')">${content}</button>
-            </article>`;
-        }
-
-        function getHomeHeroPayload() {
-            return {
-                title: 'Spotlight',
-                subtitle: 'Top highlights of the day.',
-                items: getHomeSpotlightItems(HOME_LIMITS.hero)
-            };
-        }
-
-        function renderHomeHero() {
-            const titleEl = document.getElementById('home-hero-title');
-            const subtitleEl = document.getElementById('home-hero-subtitle');
-            const listEl = document.getElementById('home-hero-list');
-            if (!titleEl || !subtitleEl || !listEl) return;
-
-            const payload = getHomeHeroPayload();
-            titleEl.textContent = payload.title;
-            subtitleEl.textContent = payload.subtitle;
-            if (!payload.items.length) {
-                listEl.innerHTML = '<div class="home-item-empty">No highlights available yet.</div>';
-                return;
-            }
-            listEl.innerHTML = payload.items.map((item, idx) => buildSpotlightItemHtml(item, idx)).join('');
-        }
-
+        // ==================== RENDER HOME TAB (Newspaper) ====================
         function renderHomeTab() {
-            renderHomeHero();
-            const newsPool = getHomeNewsItems(HOME_PAIR_MAX.topRow);
-            const telegramPool = getHomeTelegramItems(HOME_PAIR_MAX.topRow);
-            const researchPool = getHomeResearchItems(HOME_PAIR_MAX.topRow);
-            const youtubePool = getHomeYoutubeItems(HOME_PAIR_MAX.bottomRow);
-            const twitterPool = getHomeTwitterItems(HOME_PAIR_MAX.bottomRow);
+            if (!HOME_LIMITS || !HOME_PAIR_MAX) return;
+            const container = document.getElementById('home-newspaper');
+            if (!container) return;
 
-            const topRowTarget = Math.min(
-                HOME_PAIR_MAX.topRow,
-                Math.max(
-                    HOME_LIMITS.news,
-                    HOME_LIMITS.telegram,
-                    HOME_LIMITS.research,
-                    newsPool.length,
-                    telegramPool.length,
-                    researchPool.length
-                )
-            );
-            const bottomRowTarget = Math.min(
-                HOME_PAIR_MAX.bottomRow,
-                Math.max(
-                    HOME_LIMITS.youtube,
-                    HOME_LIMITS.twitter,
-                    youtubePool.length,
-                    twitterPool.length
-                )
-            );
+            // Gather items from all data sources
+            const newsItems = getHomeNewsItems(40);
+            const telegramItems = getHomeTelegramItems(20);
+            const researchItems = getHomeResearchItems(15);
+            const youtubeItems = getHomeYoutubeItems(12);
+            const twitterItems = getHomeTwitterItems(12);
+            const papersItems = (typeof PAPER_ARTICLES !== 'undefined' ? PAPER_ARTICLES : []).slice(0, 12);
 
-            renderHomeList('home-news-list', newsPool.slice(0, topRowTarget), 'No news highlights available.');
-            renderHomeList('home-telegram-list', telegramPool.slice(0, topRowTarget), 'No Telegram highlights available.');
-            renderHomeList('home-research-list', researchPool.slice(0, topRowTarget), 'No report highlights available.');
-            renderHomeList('home-youtube-list', youtubePool.slice(0, bottomRowTarget), 'No YouTube highlights available.');
-            renderHomeList('home-twitter-list', twitterPool.slice(0, bottomRowTarget), 'No Twitter highlights available.');
-            bindHomeListScrollStates();
-            filterHomeCards();
-        }
-
-        function syncHomeListScrollState(listEl) {
-            if (!listEl) return;
-            const wrap = listEl.closest('.home-card-list-scroll');
-            if (!wrap) return;
-            const canScroll = listEl.scrollHeight > listEl.clientHeight + 2;
-            const atBottom = listEl.scrollTop + listEl.clientHeight >= listEl.scrollHeight - 2;
-            wrap.classList.toggle('has-overflow', canScroll);
-            wrap.classList.toggle('at-bottom', !canScroll || atBottom);
-        }
-
-        function bindHomeListScrollStates() {
-            document.querySelectorAll('.home-card-list').forEach((listEl) => {
-                if (listEl.dataset.scrollBound !== '1') {
-                    listEl.dataset.scrollBound = '1';
-                    listEl.addEventListener('scroll', () => syncHomeListScrollState(listEl), { passive: true });
+            // Merge news + telegram for the newspaper feed (interleave)
+            const feed = [];
+            let ni = 0, ti = 0;
+            // Pattern: 3 news, 1 telegram, repeat
+            while (feed.length < 60 && (ni < newsItems.length || ti < telegramItems.length)) {
+                for (let k = 0; k < 3 && ni < newsItems.length; k++) {
+                    feed.push(newsItems[ni++]);
                 }
-                syncHomeListScrollState(listEl);
-            });
+                if (ti < telegramItems.length) {
+                    feed.push(telegramItems[ti++]);
+                }
+            }
+
+            // Split feed across 4 pattern sections
+            const s1 = feed.slice(0, 15);
+            const s3 = feed.slice(15, 27);
+            const s5 = feed.slice(27, 37);
+            const s7 = feed.slice(37);
+
+            // Get WSW breakers
+            const wswClusters = getWswBreakers();
+            const breakers = [];
+            for (let i = 0; i < 6; i++) {
+                breakers.push(wswClusters[i] ? buildWswBreaker(wswClusters[i]) : '');
+            }
+
+            // Build the full newspaper layout
+            const html = [
+                renderPatternA(s1),
+                breakers[0],
+                buildYtSlider(youtubeItems),
+                breakers[1],
+                renderPatternB(s3),
+                breakers[2],
+                buildRpSlider(researchItems),
+                breakers[3],
+                renderPatternC(s5),
+                breakers[4],
+                buildTwSlider(twitterItems),
+                breakers[5],
+                renderPatternD(s7),
+                buildPpSlider(papersItems)
+            ].filter(Boolean).join('');
+
+            container.innerHTML = html || '<div class="home-no-results">No content available yet.</div>';
+
+            // Initialize slider navigation
+            initSliders();
+        }
+
+        function getWswBreakers() {
+            if (!wswData || !wswData.providers) return [];
+            const provider = wswData.providers[currentWswProvider];
+            if (!provider || !provider.clusters) return [];
+            return provider.clusters.slice(0, 6);
         }
 
         function filterHomeCards() {
             const query = (document.getElementById('search').value || '').toLowerCase().trim();
-            const cards = document.querySelectorAll('#home-bento-grid .home-card');
-            const heroCard = document.getElementById('home-hero-card');
+            const container = document.getElementById('home-newspaper');
             const empty = document.getElementById('home-no-results');
-            let visibleCards = 0;
+            if (!container) return;
 
-            cards.forEach(card => {
-                const match = !query || card.textContent.toLowerCase().includes(query);
-                card.classList.toggle('hidden', !match);
-                if (match) visibleCards += 1;
-            });
-
-            const heroVisible = !query || (heroCard && heroCard.textContent.toLowerCase().includes(query));
-            if (heroCard) heroCard.classList.toggle('hidden', !heroVisible);
-
-            if (empty) {
-                const hasAnyVisible = visibleCards > 0 || !!heroVisible;
-                empty.classList.toggle('hidden', hasAnyVisible);
+            if (!query) {
+                container.querySelectorAll('.feed-section, .slider-section, .wsw-breaker').forEach(el => {
+                    el.classList.remove('hidden');
+                });
+                if (empty) empty.classList.add('hidden');
+                return;
             }
+
+            let visible = 0;
+            container.querySelectorAll('.feed-section, .slider-section, .wsw-breaker').forEach(el => {
+                const match = el.textContent.toLowerCase().includes(query);
+                el.classList.toggle('hidden', !match);
+                if (match) visible++;
+            });
+            if (empty) empty.classList.toggle('hidden', visible > 0);
         }
 
         function resetNewsTabState() {
             selectedPublishers.clear();
             syncCheckboxes();
             syncPresetButtons();
+            syncDeskButtons();
             updatePublisherSummary();
             if (inFocusOnly) {
                 inFocusOnly = false;
@@ -2206,21 +2258,6 @@
                 default:
                     break;
             }
-        }
-
-        function openTabFromHome(tab) {
-            if (!['news', 'reports', 'research', 'papers', 'youtube', 'twitter'].includes(tab)) return;
-            const search = document.getElementById('search');
-            if (search) search.value = '';
-
-            closeDropdown();
-            closeTwitterDropdown();
-            closeYoutubeDropdown();
-            closeTgDropdown();
-            closeResearchDropdown();
-
-            resetTabStateForCleanView(tab);
-            switchTab(tab);
         }
 
         function formatReportDate(isoStr) {
@@ -2689,14 +2726,7 @@
             });
 
             container.innerHTML = html;
-            container.querySelectorAll('.report-text').forEach(el => {
-                if (el.scrollHeight > el.clientHeight) {
-                    const btn = el.nextElementSibling;
-                    if (btn && btn.classList.contains('report-expand-btn')) {
-                        btn.style.display = 'block';
-                    }
-                }
-            });
+            requestAnimationFrame(() => checkOverflow(container, '.report-text', '.report-expand-btn'));
             renderReportsPagination(totalPages);
         }
 
@@ -3525,18 +3555,21 @@
             const expanded = textEl.classList.toggle('expanded');
             btn.textContent = expanded ? 'Show less' : 'Show more';
         }
-        function checkTweetOverflow(container) {
-            container.querySelectorAll('.tweet-card-body').forEach(el => {
-                const btn = el.nextElementSibling;
-                if (btn && btn.classList.contains('tweet-expand-btn')) {
-                    // Temporarily remove line-clamp to measure true content height
-                    el.style.webkitLineClamp = 'unset';
-                    el.style.display = 'block';
-                    const fullHeight = el.scrollHeight;
-                    el.style.webkitLineClamp = '';
-                    el.style.display = '';
-                    btn.style.display = fullHeight > el.clientHeight ? 'block' : 'none';
-                }
+        function checkOverflow(container, textSelector, btnSelector) {
+            if (!container) return;
+            container.querySelectorAll(textSelector).forEach(el => {
+                const btn = el.parentElement.querySelector(btnSelector);
+                if (!btn) return;
+                const clampedH = el.clientHeight;
+                const clone = el.cloneNode(true);
+                clone.classList.add('expanded');
+                clone.style.position = 'absolute';
+                clone.style.visibility = 'hidden';
+                clone.style.width = el.offsetWidth + 'px';
+                el.parentNode.appendChild(clone);
+                const naturalH = clone.scrollHeight;
+                clone.remove();
+                btn.style.display = naturalH > clampedH + 2 ? '' : 'none';
             });
         }
 
@@ -3846,7 +3879,7 @@
             });
 
             container.innerHTML = html;
-            checkTweetOverflow(container);
+            requestAnimationFrame(() => checkOverflow(container, '.tweet-card-body', '.tweet-expand-btn'));
             syncBookmarkState();
             renderTwitterPagination(totalPages);
         }

@@ -433,7 +433,7 @@ def generate_html(
     <link rel="icon" href="static/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
 """
     # Read CSS from external file
@@ -650,111 +650,33 @@ def generate_html(
     </div>
 
     <div class="container">
-        <div class="content-tabs">
-            <button class="content-tab active" data-tab="home" onclick="switchTab('home')">
-                Home
+        <nav class="content-tabs" role="tablist">
+            <button class="content-tab active" role="tab" aria-selected="true" data-tab="home" onclick="switchTab('home')">
+                All
             </button>
-            <button class="content-tab" data-tab="news" onclick="switchTab('news')">
-                News <span class="tab-count">{len(sorted_articles)}</span>
+            <button class="content-tab" role="tab" aria-selected="false" data-tab="news" onclick="switchTab('news')">
+                <span class="cat-dot" style="background:#4A8F7A"></span> News <span class="tab-count">{len(sorted_articles)}</span>
             </button>
-            <button class="content-tab" data-tab="reports" onclick="switchTab('reports')">
-                Telegram <span class="tab-count">{report_count}</span>
+            <button class="content-tab" role="tab" aria-selected="false" data-tab="reports" onclick="switchTab('reports')">
+                <span class="cat-dot" style="background:#5E6A96"></span> Telegram <span class="tab-count">{report_count}</span>
             </button>
-            <button class="content-tab" data-tab="research" onclick="switchTab('research')">
-                Reports <span class="tab-count">{research_count}</span>
+            <button class="content-tab" role="tab" aria-selected="false" data-tab="research" onclick="switchTab('research')">
+                <span class="cat-dot" style="background:#9A8345"></span> Reports <span class="tab-count">{research_count}</span>
             </button>
-            <button class="content-tab" data-tab="papers" onclick="switchTab('papers')">
-                Paper <span class="tab-count">{paper_count}</span>
+            <button class="content-tab" role="tab" aria-selected="false" data-tab="papers" onclick="switchTab('papers')">
+                <span class="cat-dot" style="background:#7A6B8F"></span> Paper <span class="tab-count">{paper_count}</span>
             </button>
-            <button class="content-tab" data-tab="youtube" onclick="switchTab('youtube')">
-                YouTube <span class="tab-count">{video_count}</span>
+            <button class="content-tab" role="tab" aria-selected="false" data-tab="youtube" onclick="switchTab('youtube')">
+                <span class="cat-dot" style="background:#A86565"></span> YouTube <span class="tab-count">{video_count}</span>
             </button>
-            <button class="content-tab" data-tab="twitter" onclick="switchTab('twitter')">
-                Twitter <span class="tab-count">{twitter_count}</span>
+            <button class="content-tab" role="tab" aria-selected="false" data-tab="twitter" onclick="switchTab('twitter')">
+                <span class="cat-dot" style="background:#4A8A9A"></span> Twitter <span class="tab-count">{twitter_count}</span>
             </button>
-        </div>
+        </nav>
 
         <div id="tab-home" class="tab-content active">
-            <div class="home-hub" id="home-hub">
-                <div class="home-hero-card" id="home-hero-card">
-                    <div class="home-hero-head">
-                        <div>
-                            <h2 class="home-hero-title" id="home-hero-title">Spotlight</h2>
-                        </div>
-                    </div>
-                    <div class="home-hero-subtitle" id="home-hero-subtitle">Highlights for the day.</div>
-                    <div class="home-hero-list" id="home-hero-list"></div>
-                </div>
-
-                <div class="home-bento-grid" id="home-bento-grid">
-                    <section class="home-card home-card-news" data-home-card="news">
-                        <div class="home-card-head">
-                            <button class="home-card-title-link" type="button" onclick="openTabFromHome('news')">
-                                <h3 class="home-card-title">News Pulse</h3>
-                            </button>
-                        </div>
-                        <p class="home-card-subtitle">Curated finance headlines across India and global markets.</p>
-                        <div class="home-card-list-scroll" id="home-news-scroll">
-                            <div class="home-card-list" id="home-news-list"></div>
-                        </div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('news')">View More</button>
-                    </section>
-
-                    <section class="home-card home-card-telegram" data-home-card="telegram">
-                        <div class="home-card-head">
-                            <button class="home-card-title-link" type="button" onclick="openTabFromHome('reports')">
-                                <h3 class="home-card-title">Telegram Desk</h3>
-                            </button>
-                        </div>
-                        <p class="home-card-subtitle">Collated desk updates and report drops from tracked Telegram channels.</p>
-                        <div class="home-card-list-scroll" id="home-telegram-scroll">
-                            <div class="home-card-list" id="home-telegram-list"></div>
-                        </div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('reports')">View More</button>
-                    </section>
-
-                    <section class="home-card home-card-reports" data-home-card="reports">
-                        <div class="home-card-head">
-                            <button class="home-card-title-link" type="button" onclick="openTabFromHome('research')">
-                                <h3 class="home-card-title">Reports</h3>
-                            </button>
-                        </div>
-                        <p class="home-card-subtitle">High-signal research from Indian and global institutions.</p>
-                        <div class="home-card-list-scroll" id="home-research-scroll">
-                            <div class="home-card-list" id="home-research-list"></div>
-                        </div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('research')">View More</button>
-                    </section>
-
-                    <section class="home-card home-card-youtube" data-home-card="youtube">
-                        <div class="home-card-head">
-                            <button class="home-card-title-link" type="button" onclick="openTabFromHome('youtube')">
-                                <h3 class="home-card-title">YouTube Watchlist</h3>
-                            </button>
-                        </div>
-                        <p class="home-card-subtitle">Video explainers worth a quick watch before deeper reading.</p>
-                        <div class="home-card-list-scroll" id="home-youtube-scroll">
-                            <div class="home-card-list" id="home-youtube-list"></div>
-                        </div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('youtube')">View More</button>
-                    </section>
-
-                    <section class="home-card home-card-twitter" data-home-card="twitter">
-                        <div class="home-card-head">
-                            <button class="home-card-title-link" type="button" onclick="openTabFromHome('twitter')">
-                                <h3 class="home-card-title">Signal Tweets</h3>
-                            </button>
-                        </div>
-                        <p class="home-card-subtitle">High-signal posts from tracked market voices.</p>
-                        <div class="home-card-list-scroll" id="home-twitter-scroll">
-                            <div class="home-card-list" id="home-twitter-list"></div>
-                        </div>
-                        <button class="home-view-more-btn" type="button" onclick="openTabFromHome('twitter')">View More</button>
-                    </section>
-                </div>
-
-                <div class="home-no-results hidden" id="home-no-results">No Home sections match your search.</div>
-            </div>
+            <div id="home-newspaper"></div>
+            <div class="home-no-results hidden" id="home-no-results">No results match your search.</div>
         </div><!-- /tab-home -->
 
         <div id="tab-news" class="tab-content">
@@ -781,10 +703,10 @@ def generate_html(
             </div>
 
             <div class="filter-controls" id="news-filter-controls">
-                <button class="preset-btn" data-preset="India Desk" onclick="togglePreset('India Desk')">India Desk</button>
-                <button class="preset-btn" data-preset="World Desk" onclick="togglePreset('World Desk')">World Desk</button>
-                <button class="preset-btn" data-preset="Indie Voices" onclick="togglePreset('Indie Voices')">Indie Voices</button>
-                <button class="preset-btn" data-preset="Official Channels" onclick="togglePreset('Official Channels')">Official Channels</button>
+                <button class="tv-desk-btn" data-desk="india-desk">India Desk</button>
+                <button class="tv-desk-btn" data-desk="world-desk">World Desk</button>
+                <button class="tv-desk-btn" data-desk="indie-voices">Indie Voices</button>
+                <button class="tv-desk-btn" data-desk="official-channels">Official Channels</button>
                 <button id="in-focus-toggle" class="in-focus-toggle" type="button" aria-label="In Focus Stories" data-tooltip="In Focus Stories" onclick="toggleInFocus()">
                     <span class="pulse-dot"></span>
                     <span class="in-focus-count">{in_focus_count}</span>
