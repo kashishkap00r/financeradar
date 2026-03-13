@@ -470,7 +470,7 @@ def generate_html(
                 <input type="text" class="search-input" id="search-input" placeholder="Search...">
             </div>
             <button class="bk-panel-toggle" id="bk-toggle" type="button" aria-label="Bookmarks" data-tooltip="Bookmarks">
-                <svg class="bk-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                <svg class="bk-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 <span class="bk-count" id="bk-count">0</span>
             </button>
             <button id="ai-toggle" class="util-btn" type="button" aria-label="Top AI stories" data-tooltip="AI Picks" onclick="openAiSidebar()">
