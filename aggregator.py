@@ -458,46 +458,6 @@ def generate_html(
     </script>
 </head>
 <body>
-    <div class="utility">
-        <span>{today_str}</span>
-        <div class="utility-nav">
-            <a href="/" class="utility-link active">Feed</a>
-            <a href="about.html" class="utility-link">About</a>
-            <div class="search-wrap" id="search-wrap">
-                <button class="search-toggle" id="search-toggle" type="button" aria-label="Search" data-tooltip="Search">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                </button>
-                <input type="text" class="search-input" id="search-input" placeholder="Search...">
-            </div>
-            <button class="bk-panel-toggle" id="bk-toggle" type="button" aria-label="Bookmarks" data-tooltip="Bookmarks">
-                <svg class="bk-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                <span class="bk-count" id="bk-count">0</span>
-            </button>
-            <button id="ai-toggle" class="util-btn" type="button" aria-label="Top AI stories" data-tooltip="AI Picks" onclick="openAiSidebar()">
-                <span style="font-size: 14px;">🤖</span>
-            </button>
-            <button id="wsw-toggle" class="util-btn" type="button" aria-label="Who Said What" data-tooltip="Who Said What" onclick="openWswSidebar()">
-                <span style="font-size: 14px;">🗣</span>
-            </button>
-            <button id="theme-toggle" class="util-btn" type="button" aria-label="Toggle theme" data-tooltip="Toggle theme">
-                <svg class="icon-moon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-                <svg class="icon-sun" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-            </button>
-        </div>
-    </div>
-
     <div class="bk-overlay" id="bk-overlay"></div>
     <aside id="bk-panel" class="bk-panel">
         <div class="bk-panel-header">
@@ -581,6 +541,24 @@ def generate_html(
     </div>
 
     <div class="container">
+        <div class="utility">
+            <span>{today_str}</span>
+            <div class="utility-nav">
+                <a href="/" class="utility-link active">Feed</a>
+                <a href="about.html" class="utility-link">About</a>
+                <div class="search-wrap" id="search-wrap">
+                    <button class="search-toggle" id="search-toggle" type="button" aria-label="Search" data-tooltip="Search">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                    <input type="text" class="search-input" id="search-input" placeholder="Search...">
+                </div>
+                <button class="bk-panel-toggle" id="bk-toggle" type="button" aria-label="Bookmarks" data-tooltip="Bookmarks">
+                    <svg class="bk-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    <span class="bk-count" id="bk-count">0</span>
+                </button>
+            </div>
+        </div>
+
         <div class="masthead">
             <h1><a href="/" class="masthead-link">Finance Radar</a></h1>
             <div class="tagline">Curated intelligence from across Indian finance</div>

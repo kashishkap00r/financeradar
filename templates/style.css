@@ -80,6 +80,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0.65rem 2.5rem;
+            margin: 0 -2.5rem;
             border-bottom: 1px solid var(--border);
             font-size: 0.78rem;
             font-weight: 600;
@@ -183,24 +184,6 @@
             line-height: 14px;
             text-align: center;
         }
-
-        /* Utility bar extra buttons (AI, WSW, Theme) */
-        .util-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: none;
-            border: none;
-            padding: 0.2rem;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: color 0.2s ease;
-            line-height: 0;
-        }
-        .util-btn:hover { color: var(--accent); }
-        .util-btn .icon-sun { display: none; }
-        [data-theme="dark"] .util-btn .icon-moon { display: none; }
-        [data-theme="dark"] .util-btn .icon-sun { display: inline; }
 
         /* Bookmark overlay + panel */
         .bk-overlay {
@@ -2970,7 +2953,7 @@
         /* Responsive */
         @media (max-width: 768px) {
             .container { padding: 0 1.25rem; }
-            .utility { padding: 0.65rem 1.25rem; }
+            .utility { padding: 0.65rem 1.25rem; margin: 0 -1.25rem; }
             .utility > span { display: none; }
             .search-wrap.open .search-input { width: 140px; }
             .foot-nav { flex-wrap: wrap; gap: 1rem; }
