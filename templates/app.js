@@ -17,9 +17,9 @@
         }
 
         function updateTopBarHeightVar() {
-            const topBar = document.querySelector('.top-bar');
-            if (!topBar) return;
-            document.documentElement.style.setProperty('--top-bar-height', topBar.offsetHeight + 'px');
+            var utilBar = document.querySelector('.utility');
+            if (!utilBar) return;
+            document.documentElement.style.setProperty('--top-bar-height', utilBar.offsetHeight + 'px');
         }
 
         function lockBodyScroll() {
@@ -86,12 +86,39 @@
         }
         updateTopBarHeightVar();
         window.addEventListener('load', updateTopBarHeightVar);
-        window.addEventListener('resize', () => {
-            updateTopBarHeightVar();
-            if (!isMobileViewport() && isMobileMenuOpen()) {
-                closeMobileMenu();
+        window.addEventListener('resize', updateTopBarHeightVar);
+
+        // Expandable search
+        var searchWrap = document.getElementById('search-wrap');
+        var searchToggle = document.getElementById('search-toggle');
+        var globalSearch = document.getElementById('search-input');
+
+        if (searchToggle) searchToggle.addEventListener('click', function() {
+            if (searchWrap) searchWrap.classList.toggle('open');
+            if (searchWrap && searchWrap.classList.contains('open')) {
+                if (globalSearch) globalSearch.focus();
+            } else if (globalSearch) {
+                globalSearch.value = '';
+                globalSearch.dispatchEvent(new Event('input'));
             }
         });
+
+        if (globalSearch) globalSearch.addEventListener('blur', function() {
+            if (!globalSearch.value && searchWrap) {
+                searchWrap.classList.remove('open');
+            }
+        });
+
+        if (globalSearch) globalSearch.addEventListener('keydown', function(ev) {
+            if (ev.key === 'Escape') {
+                globalSearch.value = '';
+                globalSearch.dispatchEvent(new Event('input'));
+                if (searchWrap) searchWrap.classList.remove('open');
+                globalSearch.blur();
+            }
+        });
+
+        if (globalSearch) globalSearch.addEventListener('input', onSearchInput);
 
         const FILTER_COLLAPSE_KEY_PREFIX = 'financeradar_filters_collapsed_';
 
@@ -317,7 +344,7 @@
         }
 
         function getActiveTab() {
-            return document.querySelector('.content-tab.active')?.dataset.tab || 'home';
+            return document.querySelector('.tab-pill.tab-active')?.dataset.tab || 'home';
         }
 
         function onSearchInput() {
@@ -340,7 +367,7 @@
         }
 
         function filterArticles() {
-            const query = document.getElementById('search').value.toLowerCase();
+            const query = document.getElementById('search-input').value.toLowerCase();
             const articles = document.querySelectorAll('.article');
             const dateHeaders = document.querySelectorAll('.date-header');
 
@@ -577,10 +604,15 @@
             }
         }
 
-        // Back to top button
+        // Scroll to top button
+        var scrollTopBtn = document.getElementById('scroll-top');
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        }
         window.addEventListener('scroll', () => {
-            const btn = document.querySelector('.back-to-top');
-            btn.classList.toggle('visible', window.scrollY > 500);
+            if (scrollTopBtn) scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
         });
 
         // Keyboard navigation
@@ -610,10 +642,11 @@
                 articles[currentArticle]?.querySelector('a')?.focus();
             } else if (e.key === '/') {
                 e.preventDefault();
-                document.getElementById('search').focus();
+                if (searchWrap) searchWrap.classList.add('open');
+                if (globalSearch) globalSearch.focus();
             } else if (e.key === 'Escape') {
-                document.getElementById('search').value = '';
-                onSearchInput();
+                if (globalSearch) { globalSearch.value = ''; globalSearch.dispatchEvent(new Event('input')); }
+                if (searchWrap) searchWrap.classList.remove('open');
             } else if (e.key === 'h' || e.key === 'H') {
                 switchTab('home');
             } else if (e.key === '1') {
@@ -669,12 +702,8 @@
 
         function updateBookmarkCount() {
             const count = getBookmarks().length;
-            const badge = document.getElementById('bookmark-count');
-            const toggle = document.getElementById('bookmarks-toggle');
-
-            badge.textContent = count;
-            badge.classList.toggle('hidden', count === 0);
-            toggle.classList.toggle('has-bookmarks', count > 0);
+            var badge = document.getElementById('bk-count');
+            if (badge) badge.textContent = count;
         }
 
         function initBookmarkButtons() {
@@ -769,40 +798,36 @@
         }
 
         function openSidebar() {
-            const overlay = document.getElementById('sidebar-overlay');
-            if (!overlay || overlay.classList.contains('open')) return;
-            overlay.classList.add('open');
+            var panel = document.getElementById('bk-panel');
+            var overlay = document.getElementById('bk-overlay');
+            if (!panel) return;
+            panel.classList.add('open');
+            if (overlay) overlay.classList.add('open');
             lockBodyScroll();
             renderSidebarContent();
         }
 
         function closeSidebar() {
-            const overlay = document.getElementById('sidebar-overlay');
-            if (!overlay || !overlay.classList.contains('open')) return;
-            overlay.classList.remove('open');
+            var panel = document.getElementById('bk-panel');
+            var overlay = document.getElementById('bk-overlay');
+            if (panel) panel.classList.remove('open');
+            if (overlay) overlay.classList.remove('open');
             unlockBodyScroll();
         }
 
         function renderSidebarContent() {
-            const container = document.getElementById('sidebar-content');
-            const bookmarks = getBookmarks();
+            var container = document.getElementById('bk-list');
+            if (!container) return;
+            var bookmarks = getBookmarks();
 
             if (bookmarks.length === 0) {
-                container.innerHTML = '<div class="sidebar-empty">No bookmarks yet.<br>Click the bookmark icon on articles to save them.</div>';
+                container.innerHTML = '<p class="bk-empty">No bookmarks yet. Click the bookmark icon on any article to save it.</p>';
                 return;
             }
 
-            container.innerHTML = bookmarks.map(b => `
-                <div class="sidebar-article" data-url="${escapeHtml(b.url)}">
-                    <div class="sidebar-article-title">
-                        <a href="${escapeHtml(b.url)}" target="_blank" rel="noopener">${escapeHtml(b.title)}</a>
-                    </div>
-                    <div class="sidebar-article-meta">
-                        <span class="sidebar-article-source">${escapeHtml(b.source)}</span>
-                        <button class="sidebar-remove" onclick="removeBookmark('${escapeForAttr(b.url)}')" title="Remove bookmark">✕</button>
-                    </div>
-                </div>
-            `).join('');
+            container.innerHTML = bookmarks.map(function(b) {
+                return '<div class="bk-saved-item"><div><a href="' + escapeHtml(b.url) + '" target="_blank" rel="noopener">' + escapeHtml(b.title) + '</a><span class="bk-saved-src">' + escapeHtml(b.source) + '</span></div><button class="bk-remove" onclick="removeBookmark(\'' + escapeForAttr(b.url) + '\')" title="Remove">&times;</button></div>';
+            }).join('');
         }
 
         function escapeHtml(text) {
@@ -889,24 +914,26 @@
             renderSidebarContent();
         }
 
-        // Sidebar toggle
-        const bookmarksToggleBtn = document.getElementById('bookmarks-toggle');
-        if (bookmarksToggleBtn) bookmarksToggleBtn.addEventListener('click', openSidebar);
-        document.getElementById('sidebar-overlay').addEventListener('click', (e) => {
-            if (e.target.id === 'sidebar-overlay') closeSidebar();
-        });
-        document.getElementById('mobile-menu-overlay').addEventListener('click', (e) => {
-            if (e.target.id === 'mobile-menu-overlay') closeMobileMenu();
-        });
-
-        // Close sidebar with Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && isMobileMenuOpen()) {
-                closeMobileMenu();
-                return;
-            }
-            if (e.key === 'Escape' && document.getElementById('sidebar-overlay').classList.contains('open')) {
+        // Bookmark panel toggle
+        var bkToggleBtn = document.getElementById('bk-toggle');
+        if (bkToggleBtn) bkToggleBtn.addEventListener('click', function() {
+            var panel = document.getElementById('bk-panel');
+            if (panel && panel.classList.contains('open')) {
                 closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+        var bkOverlayEl = document.getElementById('bk-overlay');
+        if (bkOverlayEl) bkOverlayEl.addEventListener('click', closeSidebar);
+
+        // Close bookmark panel with Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                var panel = document.getElementById('bk-panel');
+                if (panel && panel.classList.contains('open')) {
+                    closeSidebar();
+                }
             }
         });
 
@@ -1632,13 +1659,20 @@
         }
 
         window.addEventListener('scroll', rememberActiveTabScroll, { passive: true });
-        document.querySelectorAll('.content-tab').forEach(btn => {
+        document.querySelectorAll('.tab-pill').forEach(btn => {
             const capture = () => {
                 pendingTabScrollCapture = window.scrollY || window.pageYOffset || 0;
             };
             btn.addEventListener('pointerdown', capture, { passive: true });
             btn.addEventListener('mousedown', capture, { passive: true });
             btn.addEventListener('touchstart', capture, { passive: true });
+        });
+
+        // Tab pill click handlers
+        document.querySelectorAll('.tab-pill').forEach(function(pill) {
+            pill.addEventListener('click', function() {
+                switchTab(pill.dataset.tab);
+            });
         });
 
         // Always open Home on initial load.
@@ -1656,16 +1690,16 @@
                 }
             }
             pendingTabScrollCapture = null;
-            document.querySelectorAll('.content-tab').forEach(btn => {
+            document.querySelectorAll('.tab-pill').forEach(btn => {
                 const isActive = btn.dataset.tab === tab;
-                btn.classList.toggle('active', isActive);
+                btn.classList.toggle('tab-active', isActive);
                 btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
             });
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.toggle('active', el.id === 'tab-' + tab);
             });
-            const searchEl = document.getElementById('search');
-            searchEl.placeholder = tab === 'home' ? 'Search home highlights...' : tab === 'reports' ? 'Search Telegram...' : tab === 'research' ? 'Search reports...' : tab === 'papers' ? 'Search papers...' : tab === 'youtube' ? 'Search YouTube...' : tab === 'twitter' ? 'Search tweets...' : 'Search articles...';
+            const searchEl = document.getElementById('search-input');
+            if (searchEl) searchEl.placeholder = 'Search...';
             if (tab === 'home') {
                 renderHomeTab();
                 homeRendered = true;
@@ -1707,9 +1741,9 @@
             }
             activeTab = tab;
             applyFilterCollapseForTab(tab);
-            const activeTabButton = document.querySelector('.content-tab.active');
+            const activeTabButton = document.querySelector('.tab-pill.tab-active');
             if (isMobileViewport() && activeTabButton) {
-                const tabStrip = activeTabButton.closest('.content-tabs');
+                const tabStrip = activeTabButton.closest('.tab-bar');
                 if (tabStrip) {
                     const targetLeft = activeTabButton.offsetLeft - ((tabStrip.clientWidth - activeTabButton.offsetWidth) / 2);
                     tabStrip.scrollTo({
@@ -2140,7 +2174,7 @@
         }
 
         function filterHomeCards() {
-            const query = (document.getElementById('search').value || '').toLowerCase().trim();
+            const query = (document.getElementById('search-input').value || '').toLowerCase().trim();
             const container = document.getElementById('home-newspaper');
             const empty = document.getElementById('home-no-results');
             if (!container) return;
@@ -2588,7 +2622,7 @@
         }
 
         function filterReports() {
-            const query = document.getElementById('search').value.toLowerCase().trim();
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
             filteredReports = query
                 ? TELEGRAM_REPORTS.filter(r => {
                     const text = (r.text || '').toLowerCase();
@@ -2828,7 +2862,7 @@
         }
 
         function filterResearch() {
-            const query = document.getElementById('search').value.toLowerCase().trim();
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
             filteredResearch = RESEARCH_REPORTS.filter(r => {
                 const matchesSearch = !query || (r.title + ' ' + r.source + ' ' + (r.publisher || '') + ' ' + (r.description || '')).toLowerCase().includes(query);
                 const pub = r.publisher || r.source;
@@ -3103,7 +3137,7 @@
         }
 
         function filterPapers() {
-            const query = document.getElementById('search').value.toLowerCase().trim();
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
             const sourcePool = paperSessionPool.length > 0 ? paperSessionPool : PAPER_ARTICLES;
             filteredPapers = sourcePool.filter(p => {
                 const haystack = (
@@ -3266,7 +3300,7 @@
         }
 
         function filterYoutube() {
-            const query = document.getElementById('search').value.toLowerCase().trim();
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
             filteredYoutube = YOUTUBE_VIDEOS.filter(v => {
                 const matchesSearch = !query || (v.title + ' ' + v.source + ' ' + v.publisher).toLowerCase().includes(query);
                 const pub = v.publisher || v.source;
@@ -3622,7 +3656,7 @@
         }
 
         function filterTwitter() {
-            const query = document.getElementById('search').value.toLowerCase().trim();
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
             const pool = getActiveTwitterPool();
             filteredTwitter = pool.filter(t => {
                 const matchesSearch = !query || (t.title + ' ' + t.source + ' ' + (t.publisher || '')).toLowerCase().includes(query);

@@ -422,6 +422,10 @@ def generate_html(
     report_count = len(telegram_reports_list)
     channel_count = len(set(r.get("channel", "") for r in telegram_reports_list))
 
+    today_str = now_ist.strftime('%A, %d %B %Y')
+    now_ts = now_ist.strftime('%b %d, %Y, %I:%M %p IST')
+    total_items = len(sorted_articles) + report_count + research_count + paper_count + video_count + twitter_count
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -429,7 +433,7 @@ def generate_html(
     <script>try{{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light')}}catch(e){{}}</script>
     <script>try{{var t=localStorage.getItem('financeradar_active_tab')||'news';if(localStorage.getItem('financeradar_filters_collapsed_'+t)!=='false')document.documentElement.classList.add('filters-collapsed')}}catch(e){{}}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinanceRadar</title>
+    <title>Finance Radar</title>
     <link rel="icon" href="static/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -454,36 +458,32 @@ def generate_html(
     </script>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="top-bar-inner">
-            <div class="brand">
-                <a href="/" class="logo" id="brand-home-link">FinanceRadar</a>
+    <div class="utility">
+        <span>{today_str}</span>
+        <div class="utility-nav">
+            <a href="/" class="utility-link active">Feed</a>
+            <a href="about.html" class="utility-link">About</a>
+            <div class="search-wrap" id="search-wrap">
+                <button class="search-toggle" id="search-toggle" type="button" aria-label="Search" data-tooltip="Search">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+                <input type="text" class="search-input" id="search-input" placeholder="Search...">
             </div>
-            <div class="search-box">
-                <span class="search-icon">&#128269;</span>
-                <input type="text" id="search" placeholder="Search articles..." oninput="onSearchInput()">
-            </div>
-            <button id="ai-toggle" class="ai-toggle" type="button" aria-label="Top AI stories" data-tooltip="Top AI stories" onclick="openAiSidebar()">
-                <span style="font-size: 16px;">🤖</span>
+            <button class="bk-panel-toggle" id="bk-toggle" type="button" aria-label="Bookmarks" data-tooltip="Bookmarks">
+                <svg class="bk-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                <span class="bk-count" id="bk-count">0</span>
             </button>
-            <button id="wsw-toggle" class="wsw-toggle" type="button"
-                    aria-label="Who Said What story ideas"
-                    data-tooltip="Who Said What"
-                    onclick="openWswSidebar()">
-                <span style="font-size: 16px;">🗣</span>
-                <span id="wsw-bookmark-count" class="bookmark-count hidden">0</span>
+            <button id="ai-toggle" class="util-btn" type="button" aria-label="Top AI stories" data-tooltip="AI Picks" onclick="openAiSidebar()">
+                <span style="font-size: 14px;">🤖</span>
             </button>
-            <button id="bookmarks-toggle" class="bookmarks-toggle" type="button" aria-label="Your bookmarks" data-tooltip="Your bookmarks">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                </svg>
-                <span id="bookmark-count" class="bookmark-count hidden">0</span>
+            <button id="wsw-toggle" class="util-btn" type="button" aria-label="Who Said What" data-tooltip="Who Said What" onclick="openWswSidebar()">
+                <span style="font-size: 14px;">🗣</span>
             </button>
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" data-tooltip="Toggle theme">
-                <svg class="icon-moon feather feather-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <button id="theme-toggle" class="util-btn" type="button" aria-label="Toggle theme" data-tooltip="Toggle theme">
+                <svg class="icon-moon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
-                <svg class="icon-sun feather feather-sun" viewBox="0 0 24 24" aria-hidden="true">
+                <svg class="icon-sun" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
                     <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -495,88 +495,19 @@ def generate_html(
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                 </svg>
             </button>
-            <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Quick actions" onclick="toggleMobileMenu()">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <line x1="4" y1="7" x2="20" y2="7"></line>
-                    <line x1="4" y1="12" x2="20" y2="12"></line>
-                    <line x1="4" y1="17" x2="20" y2="17"></line>
-                </svg>
-            </button>
         </div>
     </div>
 
-    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
-        <div class="mobile-menu-panel">
-            <div class="mobile-menu-header">
-                <div class="mobile-menu-title">Quick Actions</div>
-                <button class="mobile-menu-close" type="button" aria-label="Close quick actions" onclick="closeMobileMenu()">
-                    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-            </div>
-            <div class="mobile-menu-actions">
-                <button class="mobile-menu-action" type="button" onclick="openMobileAiSidebar()">
-                    <span class="mobile-menu-action-icon" aria-hidden="true">🤖</span>
-                    <span class="mobile-menu-action-label">AI Picks</span>
-                    <span class="mobile-menu-action-meta">Top stories</span>
-                </button>
-                <button class="mobile-menu-action" type="button" onclick="openMobileWswSidebar()">
-                    <span class="mobile-menu-action-icon" aria-hidden="true">🗣</span>
-                    <span class="mobile-menu-action-label">Who Said What</span>
-                    <span class="mobile-menu-action-meta">Story ideas</span>
-                </button>
-                <button class="mobile-menu-action" data-mobile-action="theme" type="button" onclick="toggleMobileTheme()">
-                    <span class="mobile-menu-action-icon mobile-theme-icon" aria-hidden="true">
-                        <svg class="icon-moon" viewBox="0 0 24 24">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg class="icon-sun" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </span>
-                    <span class="mobile-menu-action-label">Theme</span>
-                    <span id="mobile-theme-state" class="mobile-menu-action-meta">Light</span>
-                </button>
-            </div>
+    <div class="bk-overlay" id="bk-overlay"></div>
+    <aside id="bk-panel" class="bk-panel">
+        <div class="bk-panel-header">
+            <h3 class="bk-panel-title">Bookmarks</h3>
+            <button class="bk-panel-close" onclick="document.getElementById('bk-panel').classList.remove('open');document.getElementById('bk-overlay').classList.remove('open')">&times;</button>
         </div>
-    </div>
-
-    <!-- Bookmarks Sidebar -->
-    <div id="sidebar-overlay" class="sidebar-overlay">
-        <div class="bookmarks-sidebar">
-            <div class="sidebar-header">
-                <div class="sidebar-title">
-                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
-                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    Bookmarks
-                </div>
-                <button class="sidebar-close" onclick="closeSidebar()" aria-label="Close sidebar">
-                    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-            </div>
-            <div id="sidebar-content" class="sidebar-content">
-                <div class="sidebar-empty">No bookmarks yet.<br>Click the bookmark icon on articles to save them.</div>
-            </div>
-            <div class="sidebar-footer">
-                <button class="sidebar-btn copy-btn" onclick="copyBookmarks()">
-                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                    <span>Copy All</span>
-                </button>
-                <button class="sidebar-btn danger" onclick="clearAllBookmarks()">Clear All</button>
-            </div>
+        <div class="bk-panel-list" id="bk-list">
+            <p class="bk-empty">No bookmarks yet. Click the bookmark icon on any article to save it.</p>
         </div>
-    </div>
+    </aside>
 
     <!-- AI Rankings Sidebar -->
     <div id="ai-sidebar-overlay" class="sidebar-overlay">
@@ -650,35 +581,22 @@ def generate_html(
     </div>
 
     <div class="container">
-        <nav class="content-tabs" role="tablist">
-            <button class="content-tab active" role="tab" aria-selected="true" data-tab="home" onclick="switchTab('home')">
-                All
-            </button>
-            <button class="content-tab" role="tab" aria-selected="false" data-tab="news" onclick="switchTab('news')">
-                <span class="cat-dot" style="background:#4A8F7A"></span> News <span class="tab-count">{len(sorted_articles)}</span>
-            </button>
-            <button class="content-tab" role="tab" aria-selected="false" data-tab="reports" onclick="switchTab('reports')">
-                <span class="cat-dot" style="background:#5E6A96"></span> Telegram <span class="tab-count">{report_count}</span>
-            </button>
-            <button class="content-tab" role="tab" aria-selected="false" data-tab="research" onclick="switchTab('research')">
-                <span class="cat-dot" style="background:#9A8345"></span> Reports <span class="tab-count">{research_count}</span>
-            </button>
-            <button class="content-tab" role="tab" aria-selected="false" data-tab="papers" onclick="switchTab('papers')">
-                <span class="cat-dot" style="background:#7A6B8F"></span> Paper <span class="tab-count">{paper_count}</span>
-            </button>
-            <button class="content-tab" role="tab" aria-selected="false" data-tab="youtube" onclick="switchTab('youtube')">
-                <span class="cat-dot" style="background:#A86565"></span> YouTube <span class="tab-count">{video_count}</span>
-            </button>
-            <button class="content-tab" role="tab" aria-selected="false" data-tab="twitter" onclick="switchTab('twitter')">
-                <span class="cat-dot" style="background:#4A8A9A"></span> Twitter <span class="tab-count">{twitter_count}</span>
-            </button>
+        <div class="masthead">
+            <h1><a href="/" class="masthead-link">Finance Radar</a></h1>
+            <div class="tagline">Curated intelligence from across Indian finance</div>
+        </div>
+
+        <nav class="tab-bar" role="tablist">
+            <button class="tab-pill tab-active" role="tab" aria-selected="true" data-tab="home">All</button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="news"><span class="cat-dot" style="background:#4A8F7A"></span> News <span class="tab-count">{len(sorted_articles)}</span></button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="reports"><span class="cat-dot" style="background:#5E6A96"></span> Telegram <span class="tab-count">{report_count}</span></button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="research"><span class="cat-dot" style="background:#9A8345"></span> Reports <span class="tab-count">{research_count}</span></button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="papers"><span class="cat-dot" style="background:#7A6B8F"></span> Papers <span class="tab-count">{paper_count}</span></button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="youtube"><span class="cat-dot" style="background:#A86565"></span> YouTube <span class="tab-count">{video_count}</span></button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="twitter"><span class="cat-dot" style="background:#4A8A9A"></span> Twitter <span class="tab-count">{twitter_count}</span></button>
         </nav>
 
         <div id="tab-home" class="tab-content active">
-            <div class="np-masthead">
-                <h1><a href="/" class="masthead-link">Finance Radar</a></h1>
-                <div class="tagline">Curated intelligence from across Indian finance</div>
-            </div>
             <div id="home-newspaper"></div>
             <div class="home-no-results hidden" id="home-no-results">No results match your search.</div>
         </div><!-- /tab-home -->
@@ -1026,15 +944,25 @@ def generate_html(
         </div><!-- /tab-twitter -->
 """
 
-    html += """        <footer>
-            Aggregated from {source_count} sources across News, Telegram, Reports, Papers, YouTube, and Twitter · Made by <a href="https://kashishkapoor.com/" target="_blank" rel="noopener">Kashish Kapoor</a> · Built for <a href="https://thedailybrief.zerodha.com/" target="_blank" rel="noopener">The Daily Brief by Zerodha</a>
+    html += f"""        <footer>
+            <div class="foot-stats">
+                <strong>{total_items}</strong> items &middot; last updated {now_ts} &middot; no ads, ever
+            </div>
+            <nav class="foot-nav">
+                <a href="/">Feed</a>
+                <a href="about.html">About</a>
+                <a href="https://github.com/kashishkap00r/financeradar" target="_blank" rel="noopener">GitHub</a>
+                <a href="/" class="foot-accent">RSS (soon)</a>
+            </nav>
         </footer>
     </div>
 
-    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+    <button class="scroll-top" id="scroll-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
 
     <div class="keyboard-hint">
-        <kbd>H</kbd> home · <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> <kbd>6</kbd> tabs · <kbd>J</kbd> <kbd>K</kbd> navigate · <kbd>/</kbd> search
+        <kbd>H</kbd> home &middot; <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> <kbd>6</kbd> tabs &middot; <kbd>J</kbd> <kbd>K</kbd> navigate &middot; <kbd>/</kbd> search
     </div>
 
     <script>
