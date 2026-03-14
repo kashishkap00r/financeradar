@@ -500,7 +500,7 @@ def generate_html(
     <aside id="bk-panel" class="bk-panel">
         <div class="bk-panel-header">
             <h3 class="bk-panel-title">Bookmarks</h3>
-            <button class="bk-panel-close" onclick="document.getElementById('bk-panel').classList.remove('open');document.getElementById('bk-overlay').classList.remove('open')">&times;</button>
+            <button class="bk-panel-close" onclick="closeSidebar()">&times;</button>
         </div>
         <div class="bk-panel-list" id="bk-list">
             <p class="bk-empty">No bookmarks yet. Click the bookmark icon on any article to save it.</p>
