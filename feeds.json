@@ -1765,5 +1765,32 @@
     "feed": "https://powerline.net.in/feed/",
     "category": "News",
     "publisher": "Power Line Magazine"
+  },
+  {
+    "id": "gs-publishing-research",
+    "name": "Goldman Sachs — Research",
+    "url": "https://www.gspublishing.com/content/public.html",
+    "feed": "gspub:research",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "Goldman Sachs"
+  },
+  {
+    "id": "kpler-blog",
+    "name": "Kpler",
+    "url": "https://www.kpler.com/pt/resources/blog",
+    "feed": "kpler:blog",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "Kpler"
+  },
+  {
+    "id": "crisil-ratings-reports",
+    "name": "CRISIL Ratings — Reports",
+    "url": "https://www.crisilratings.com/en/home/our-analysis/reports.html",
+    "feed": "crisilreports:analysis",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "CRISIL Ratings"
   }
 ]

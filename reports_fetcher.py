@@ -1041,11 +1041,143 @@ def fetch_ssga_insights(feed_config):
     return articles
 
 
+# ── GS Publishing (Goldman Sachs Research papers) ────────────────────
+
+@scraper
+def fetch_gs_publishing(feed_config):
+    """Fetch public research papers from GS Publishing.
+
+    gspublishing.com — Next.js SSR page listing research papers.
+    Links: /content/research/en/reports/YYYY/MM/DD/UUID.html
+    Metadata: "DD Mon YYYY | time | pages | Research | Category - Author"
+    """
+    articles = []
+    content = _fetch_url(
+        "https://www.gspublishing.com/content/public.html",
+        timeout=25, feed_config=feed_config,
+    ).decode("utf-8", errors="replace")
+
+    for m in re.finditer(
+        r'href="(/content/research/en/reports/(\d{4})/(\d{2})/(\d{2})/[^"]+\.html)"'
+        r'[^>]*>([^<]+)</a>',
+        content,
+    ):
+        path, year, month, day, title = m.group(1), m.group(2), m.group(3), m.group(4), m.group(5).strip()
+        link = "https://www.gspublishing.com" + path
+        dt = _parse_date_flexible(f"{year}-{month}-{day}")
+
+        # Try to extract category from metadata text after the link
+        after = content[m.end():m.end() + 300]
+        cat_m = re.search(r'Research\s*\|\s*(\w[\w\s&]*?)(?:\s*-\s*|\s*<)', after)
+        desc = f"[{cat_m.group(1).strip()}]" if cat_m else ""
+
+        articles.append(_make_article(title, link, dt, desc, feed_config))
+
+    return articles
+
+
+# ── Kpler Blog (commodity/energy market analysis) ────────────────────
+
+@scraper
+def fetch_kpler(feed_config):
+    """Fetch blog posts from Kpler.
+
+    kpler.com/pt/resources/blog — Webflow-rendered blog with SSR HTML.
+    Two layouts: featured (main-blog-link-wrap) and grid (blog-link-wrap).
+    Dates in blog-grid-date divs or featured-author divs.
+    """
+    articles = []
+    content = _fetch_url(
+        "https://www.kpler.com/pt/resources/blog",
+        timeout=20, feed_config=feed_config,
+    ).decode("utf-8", errors="replace")
+
+    seen_urls = set()
+
+    # Grid articles: <a href="/pt/blog/slug" class="blog-link-wrap ...">
+    for m in re.finditer(
+        r'<a[^>]*href="(/pt/blog/[^"]+)"[^>]*class="[^"]*blog-link-wrap[^"]*"[^>]*>(.*?)</a>',
+        content, re.DOTALL,
+    ):
+        url = "https://www.kpler.com" + m.group(1)
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+        block = m.group(2)
+
+        # Title: <h1>, <h5>, or <h6> tags
+        title_m = re.search(r'<h[1-6][^>]*>([^<]+)</h[1-6]>', block)
+        title = _strip_html(title_m.group(1)).strip() if title_m else ""
+        if not title or len(title) < 10:
+            continue
+
+        # Date: blog-grid-date or featured-author with date pattern
+        date_m = re.search(r'blog-grid-date[^>]*>([^<]+)<', block)
+        if not date_m:
+            date_m = re.search(r'featured-author[^>]*>(\w+ \d{1,2}, \d{4})<', block)
+        dt = _parse_date_flexible(date_m.group(1).strip()) if date_m else None
+
+        # Description: <p> tag (featured articles only)
+        desc_m = re.search(r'<p[^>]*>([^<]{20,})</p>', block)
+        desc = _strip_html(desc_m.group(1)).strip()[:300] if desc_m else ""
+
+        articles.append(_make_article(title, url, dt, desc, feed_config))
+
+    return articles
+
+
+# ── CRISIL Ratings Reports (research reports, separate from press releases) ──
+
+@scraper
+def fetch_crisil_reports(feed_config):
+    """Fetch research reports from CRISIL Ratings analysis section.
+
+    crisilratings.com/en/home/our-analysis/reports.html — uses analyticstile-link
+    class with title attribute. Different HTML from press releases page.
+    """
+    articles = []
+    content = _fetch_url(
+        "https://www.crisilratings.com/en/home/our-analysis/reports.html",
+        feed_config=feed_config,
+    ).decode("utf-8", errors="replace")
+
+    seen = set()
+    for m in re.finditer(
+        r'(?:analyticstile-link|banner-link)"\s+href="([^"]+/our-analysis/reports/[^"]+)"'
+        r'[^>]*\s+title="([^"]+)"',
+        content,
+    ):
+        path, title = m.group(1), html.unescape(m.group(2)).strip()
+        if not title or len(title) < 10 or path in seen:
+            continue
+        seen.add(path)
+        link = "https://www.crisilratings.com" + path
+
+        # Search backward from the match for a nearby date like "March 05, 2026"
+        before = content[max(0, m.start() - 800):m.start()]
+        date_m = re.search(r'(\w+ \d{1,2}, \d{4})', before)
+        if not date_m:
+            # Also search forward (some layouts put date after title)
+            after = content[m.end():m.end() + 500]
+            date_m = re.search(r'(\w+ \d{1,2}, \d{4})', after)
+        if not date_m:
+            # Fallback: extract from URL path /reports/YYYY/MM/ (use 15th as midpoint)
+            url_date_m = re.search(r'/reports/(\d{4})/(\d{2})/', path)
+            dt = _parse_date_flexible(f"{url_date_m.group(1)}-{url_date_m.group(2)}-15") if url_date_m else None
+        else:
+            dt = _parse_date_flexible(date_m.group(1))
+
+        articles.append(_make_article(title, link, dt, "", feed_config))
+
+    return articles
+
+
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
 REPORT_FETCHERS = {
     "crisilratings:": fetch_crisil_ratings,
+    "crisilreports:": fetch_crisil_reports,
     "crisil:": fetch_crisil_research,
     "baroda:": fetch_baroda_etrade,
     "sbi:": fetch_sbi_research,
@@ -1054,10 +1186,12 @@ REPORT_FETCHERS = {
     "hdfcsec:": fetch_hdfc_sec,
     "axis:": fetch_axis_direct,
     "gs:": fetch_goldman_sachs,
+    "gspub:": fetch_gs_publishing,
     "creditsights:": fetch_creditsights,
     "jpmorgan:": fetch_jpmorgan,
     "ubs:": fetch_ubs,
     "ssga:": fetch_ssga_insights,
+    "kpler:": fetch_kpler,
 }
 
 
