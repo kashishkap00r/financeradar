@@ -16,12 +16,6 @@
             return window.matchMedia('(max-width: ' + MOBILE_BREAKPOINT + 'px)').matches;
         }
 
-        function updateTopBarHeightVar() {
-            var utilBar = document.querySelector('.utility');
-            if (!utilBar) return;
-            document.documentElement.style.setProperty('--top-bar-height', utilBar.offsetHeight + 'px');
-        }
-
         function lockBodyScroll() {
             if (bodyScrollLockDepth > 0) {
                 bodyScrollLockDepth += 1;
@@ -68,7 +62,6 @@
                 btn.setAttribute('data-theme', theme);
                 btn.setAttribute('aria-pressed', theme === 'light' ? 'false' : 'true');
             }
-            syncMobileMenuState();
         };
         function toggleTheme() {
             const current = document.documentElement.getAttribute('data-theme') || 'dark';
@@ -84,10 +77,6 @@
         if (themeToggleBtn) {
             themeToggleBtn.addEventListener('click', toggleTheme);
         }
-        updateTopBarHeightVar();
-        window.addEventListener('load', updateTopBarHeightVar);
-        window.addEventListener('resize', updateTopBarHeightVar);
-
         // Expandable search
         var searchWrap = document.getElementById('search-wrap');
         var searchToggle = document.getElementById('search-toggle');
@@ -612,7 +601,7 @@
             });
         }
         window.addEventListener('scroll', () => {
-            if (scrollTopBtn) scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+            if (scrollTopBtn) scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
         });
 
         // Keyboard navigation
@@ -745,56 +734,6 @@
             document.querySelectorAll('.bookmark-btn[data-url]').forEach(btn => {
                 btn.classList.toggle('bookmarked', urls.has(btn.dataset.url));
             });
-        }
-
-        function syncMobileMenuState() {
-            const themeAction = document.querySelector('[data-mobile-action="theme"]');
-            const themeState = document.getElementById('mobile-theme-state');
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            if (themeAction) {
-                themeAction.classList.toggle('active', currentTheme === 'dark');
-                themeAction.setAttribute('data-theme', currentTheme);
-            }
-            if (themeState) themeState.textContent = currentTheme === 'dark' ? 'Dark' : 'Light';
-        }
-
-        function isMobileMenuOpen() {
-            const overlay = document.getElementById('mobile-menu-overlay');
-            return Boolean(overlay && overlay.classList.contains('open'));
-        }
-
-        function openMobileMenu() {
-            const overlay = document.getElementById('mobile-menu-overlay');
-            if (!overlay || overlay.classList.contains('open')) return;
-            syncMobileMenuState();
-            overlay.classList.add('open');
-            lockBodyScroll();
-        }
-
-        function closeMobileMenu() {
-            const overlay = document.getElementById('mobile-menu-overlay');
-            if (!overlay || !overlay.classList.contains('open')) return;
-            overlay.classList.remove('open');
-            unlockBodyScroll();
-        }
-
-        function toggleMobileMenu() {
-            if (isMobileMenuOpen()) closeMobileMenu();
-            else openMobileMenu();
-        }
-
-        function openMobileAiSidebar() {
-            closeMobileMenu();
-            openAiSidebar();
-        }
-
-        function openMobileWswSidebar() {
-            closeMobileMenu();
-            openWswSidebar();
-        }
-
-        function toggleMobileTheme() {
-            toggleTheme();
         }
 
         function openSidebar() {
@@ -2959,7 +2898,6 @@
                         <div class="report-card-header">
                             <div class="report-card-left">
                                 ${sourceHtml}
-                                <span class="research-region-badge ${regionCls}">${regionLabel}</span>
                             </div>
                             <div class="report-card-right">
                                 ${r.date ? `<span class="report-card-date">${formatResearchDate(r.date)}</span>` : ''}
@@ -3519,11 +3457,11 @@
                             <div class="video-title">${titleHtml}</div>
                             <div class="video-meta">
                                 <span>${formatYoutubeDate(v.date)}</span>
-                                <button class="bookmark-btn" data-url="${escapeForAttr(bookmarkUrl)}" data-title="${escapeForAttr(v.title)}" data-source="${channel}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark video" title="Bookmark">
-                                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                                </button>
                             </div>
                         </div>
+                        <button class="bookmark-btn video-bookmark" data-url="${escapeForAttr(bookmarkUrl)}" data-title="${escapeForAttr(v.title)}" data-source="${channel}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark video" title="Bookmark">
+                            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        </button>
                     </div>
                 `;
             });

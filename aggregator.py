@@ -467,6 +467,10 @@ def generate_html(
         <div class="bk-panel-list" id="bk-list">
             <p class="bk-empty">No bookmarks yet. Click the bookmark icon on any article to save it.</p>
         </div>
+        <div class="bk-panel-footer">
+            <button class="bk-action-btn" onclick="copyBookmarks()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> <span>Copy All</span></button>
+            <button class="bk-action-btn danger" onclick="clearAllBookmarks()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> <span>Clear All</span></button>
+        </div>
     </aside>
 
     <!-- AI Rankings Sidebar -->
@@ -930,7 +934,6 @@ def generate_html(
                 <a href="/">Feed</a>
                 <a href="about.html">About</a>
                 <a href="https://github.com/kashishkap00r/financeradar" target="_blank" rel="noopener">GitHub</a>
-                <a href="/" class="foot-accent">RSS (soon)</a>
             </nav>
         </footer>
     </div>
