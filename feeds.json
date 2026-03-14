@@ -1725,5 +1725,37 @@
     "feed": "https://news.google.com/rss/search?q=site:financialexpress.com/business/industry&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
     "publisher": "Financial Express"
+  },
+  {
+    "id": "yt-sahil-kapoor-netra",
+    "name": "Sahil Kapoor — Netra Webinar",
+    "url": "https://www.youtube.com/playlist?list=PLGQHsm6WO6S7XVxB6ONlWyLzxmgDYv0pE",
+    "feed": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLGQHsm6WO6S7XVxB6ONlWyLzxmgDYv0pE",
+    "category": "Videos",
+    "youtube_bucket": "Educational/Explainers"
+  },
+  {
+    "id": "x-madhav-chanchani",
+    "name": "Madhav Chanchani (X)",
+    "url": "https://x.com/madhavchanchani",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/madhavchanchani/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Madhav Chanchani"
+  },
+  {
+    "id": "x-piie",
+    "name": "PIIE (X)",
+    "url": "https://x.com/PIIE",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/PIIE/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "PIIE"
+  },
+  {
+    "id": "x-carbon-brief",
+    "name": "Carbon Brief (X)",
+    "url": "https://x.com/CarbonBrief",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/CarbonBrief/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Carbon Brief"
   }
 ]
