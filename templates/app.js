@@ -13,6 +13,12 @@
         var _tabDataCache = {};
         function loadTabData(key, url) {
             if (_tabDataCache[key]) return _tabDataCache[key];
+            // Use pre-started fetch from inline script if available
+            var preKey = key === 'ai' ? 'tab_ai_rankings' : 'tab_' + key;
+            if (window.__preloaded && window.__preloaded[preKey]) {
+                _tabDataCache[key] = window.__preloaded[preKey];
+                return _tabDataCache[key];
+            }
             var p = fetch(url).then(function(r) { return r.json(); });
             _tabDataCache[key] = p;
             return p;
