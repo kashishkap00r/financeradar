@@ -1815,16 +1815,29 @@
         // (Old bento-grid home builders removed — replaced by newspaper layout)
 
         function getHomeNewsItems(limit) {
+            if (!NEWS_ARTICLES) return [];
             const items = [];
             const seen = new Set();
-            document.querySelectorAll('#articles .article').forEach(article => {
+            NEWS_ARTICLES.forEach(function(a) {
                 if (items.length >= limit) return;
-                const url = sanitizeUrl(article.dataset.url || '');
-                const title = article.dataset.title || '';
+                var url = a.link || '';
+                var title = a.title || '';
                 if (!title || (url && seen.has(url))) return;
                 if (url) seen.add(url);
-                const source = article.querySelector('.source-tag')?.textContent?.trim() || 'News';
-                items.push({ title: cleanHomeTitle(title), url, meta: source, fallbackTab: 'news' });
+                var source = a.source || 'News';
+                if (source.length > 35) source = source.slice(0, 35) + '...';
+                items.push({
+                    title: cleanHomeTitle(title),
+                    url: url,
+                    meta: source,
+                    fallbackTab: 'news',
+                    date: a.date || null,
+                    in_focus: a.in_focus || false,
+                    related_sources: a.related_sources || [],
+                    source_url: a.source_url || '',
+                    time: a.time || '',
+                    publisher: a.publisher || ''
+                });
             });
             return items;
         }
