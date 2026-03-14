@@ -454,14 +454,7 @@ def generate_html(
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-"""
-    # Read CSS from external file
-    css_path = os.path.join(SCRIPT_DIR, "templates", "style.css")
-    with open(css_path, "r", encoding="utf-8") as f:
-        css_content = f.read()
-    html += css_content
-    html += f"""    </style>
+    <link rel="stylesheet" href="templates/style.css">
     <script>
     (function(){{
       if (document.fonts && document.fonts.ready) {{
@@ -983,12 +976,9 @@ def generate_html(
         const RESEARCH_PUBLISHERS = {research_publishers_json};
         let PAPER_ARTICLES = null;
 """
-    # Read JS from external file
-    js_path = os.path.join(SCRIPT_DIR, "templates", "app.js")
-    with open(js_path, "r", encoding="utf-8") as f:
-        js_content = f.read()
-    html += "\n" + js_content
-    html += """    </script>
+    html += """
+    </script>
+    <script src="templates/app.js" defer></script>
 </body>
 </html>
 """
