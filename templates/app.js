@@ -84,6 +84,8 @@
 
         var utilityBar = document.querySelector('.utility');
 
+        var searchClosing = false;
+
         function openSearch() {
             if (searchWrap) searchWrap.classList.add('open');
             if (utilityBar) utilityBar.classList.add('search-active');
@@ -91,13 +93,17 @@
         }
 
         function closeSearch() {
+            if (searchClosing) return;
+            searchClosing = true;
             if (searchWrap) searchWrap.classList.remove('open');
             if (utilityBar) utilityBar.classList.remove('search-active');
             if (globalSearch) {
+                var hadValue = globalSearch.value !== '';
                 globalSearch.value = '';
-                globalSearch.dispatchEvent(new Event('input'));
+                if (hadValue) globalSearch.dispatchEvent(new Event('input'));
                 globalSearch.blur();
             }
+            searchClosing = false;
         }
 
         if (searchToggle) searchToggle.addEventListener('click', function() {
@@ -110,7 +116,7 @@
 
         if (globalSearch) globalSearch.addEventListener('blur', function() {
             if (!globalSearch.value) {
-                closeSearch();
+                setTimeout(function() { closeSearch(); }, 150);
             }
         });
 
