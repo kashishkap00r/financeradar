@@ -972,53 +972,6 @@
             fill: currentColor;
         }
 
-        /* Bookmarks Header Button */
-        .bookmarks-toggle {
-            position: relative;
-            padding: 0.2rem;
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: color 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .bookmarks-toggle:hover {
-            color: var(--accent);
-        }
-        .bookmarks-toggle svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-        }
-        .bookmarks-toggle.has-bookmarks svg {
-            fill: var(--accent);
-            stroke: var(--accent);
-        }
-        .bookmark-count {
-            position: absolute;
-            top: -6px;
-            right: -6px;
-            background: var(--accent);
-            color: #fff;
-            font-size: 10px;
-            font-weight: 600;
-            min-width: 16px;
-            height: 16px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 4px;
-        }
-        .bookmark-count.hidden {
-            display: none;
-        }
-
         /* AI Toggle Button */
         .ai-toggle {
             position: relative;

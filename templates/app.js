@@ -530,7 +530,7 @@
         // Pagination
         const PAGE_SIZE = 20;
         let currentPage = 1;
-        const TODAY_ISO = "{today_iso}";
+        // TODAY_ISO is injected by inline script in aggregator.py
 
         function getFilteredArticles() {
             return [...document.querySelectorAll('.article:not(.hidden)')];
@@ -908,7 +908,7 @@
             }
 
             const text = bookmarks.map(b => b.title + '\n' + b.url).join('\n\n');
-            copyTextWithFallback(text, () => flashCopiedButton(document.querySelector('#sidebar-overlay .copy-btn')));
+            copyTextWithFallback(text, () => flashCopiedButton(document.querySelector('#bk-panel .bk-action-btn')));
         }
 
         function clearAllBookmarks() {
@@ -2305,31 +2305,6 @@
             syncTwitterPresetButtons();
             updateTwitterPublisherSummary();
             updateTwitterLaneSummary();
-        }
-
-        function resetTabStateForCleanView(tab) {
-            switch (tab) {
-                case 'news':
-                    resetNewsTabState();
-                    break;
-                case 'reports':
-                    resetReportsTabState();
-                    break;
-                case 'research':
-                    resetResearchTabState();
-                    break;
-                case 'papers':
-                    resetPapersTabState();
-                    break;
-                case 'youtube':
-                    resetYoutubeTabState();
-                    break;
-                case 'twitter':
-                    resetTwitterTabState();
-                    break;
-                default:
-                    break;
-            }
         }
 
         function formatReportDate(isoStr) {

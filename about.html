@@ -455,7 +455,7 @@ requestAnimationFrame(() => { requestAnimationFrame(() => { document.body.classL
 
 // Sync bookmark count from localStorage
 try {
-  var bk = JSON.parse(localStorage.getItem('fr_bookmarks') || '[]');
+  var bk = JSON.parse(localStorage.getItem('financeradar_bookmarks') || '[]');
   var countEl = document.getElementById('bk-count');
   if (countEl) countEl.textContent = bk.length;
 } catch(e) {}
@@ -463,7 +463,7 @@ try {
 // Theme — sync with homepage preference
 (function() {
   var saved = null;
-  try { saved = localStorage.getItem('fr_theme'); } catch(e) {}
+  try { saved = localStorage.getItem('theme'); } catch(e) {}
   if (saved === 'dark' || saved === 'light') {
     document.documentElement.setAttribute('data-theme', saved);
   }

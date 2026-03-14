@@ -943,6 +943,7 @@ def generate_html(
         const RESEARCH_PUBLISHERS = {research_publishers_json};
         let PAPER_ARTICLES = null;
         let NEWS_ARTICLES = null;
+        const TODAY_ISO = "{today_iso}";
 """
     html += """
     </script>
