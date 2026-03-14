@@ -1,27 +1,22 @@
         body { opacity: 0; }
         .tab-loading {
-            text-align: center;
-            padding: 3rem 1rem;
-            font-family: 'Nunito Sans', system-ui, sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            letter-spacing: 0.04em;
+            padding: 1.5rem 0;
         }
-        .tab-loading::after {
-            content: '';
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            margin-left: 8px;
-            border: 2px solid var(--border);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: tab-spin 0.6s linear infinite;
-            vertical-align: middle;
+        .tab-loading .skel {
+            height: 14px;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--border) 25%, color-mix(in srgb, var(--border) 40%, transparent) 50%, var(--border) 75%);
+            background-size: 200% 100%;
+            animation: skel-shimmer 1.2s ease-in-out infinite;
+            margin-bottom: 1.25rem;
         }
-        @keyframes tab-spin {
-            to { transform: rotate(360deg); }
+        .tab-loading .skel-wide { width: 85%; height: 16px; }
+        .tab-loading .skel-med { width: 55%; }
+        .tab-loading .skel-short { width: 30%; height: 10px; }
+        .tab-loading .skel-gap { margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.25rem; }
+        @keyframes skel-shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
         :root {
             --bg-primary: #FAF7F2;

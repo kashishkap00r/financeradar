@@ -477,6 +477,10 @@ def generate_html(
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="templates/style.css">
+    <link rel="preload" href="static/tab_news.json" as="fetch" crossorigin>
+    <link rel="preload" href="static/tab_telegram.json" as="fetch" crossorigin>
+    <link rel="preload" href="static/tab_youtube.json" as="fetch" crossorigin>
+    <link rel="preload" href="static/tab_research.json" as="fetch" crossorigin>
     <script>
     (function(){{
       if (document.fonts && document.fonts.ready) {{
@@ -610,7 +614,7 @@ def generate_html(
         </nav>
 
         <div id="tab-home" class="tab-content active">
-            <div id="home-loading" class="tab-loading">Loading...</div>
+            <div id="home-loading" class="tab-loading"><div class="skel skel-wide"></div><div class="skel skel-med"></div><div class="skel skel-short"></div><div class="skel skel-gap skel-wide"></div><div class="skel skel-med"></div><div class="skel skel-short"></div><div class="skel skel-gap skel-wide"></div><div class="skel skel-med"></div></div>
             <div id="home-newspaper"></div>
             <div class="home-no-results hidden" id="home-no-results">No results match your search.</div>
         </div><!-- /tab-home -->
@@ -666,7 +670,7 @@ def generate_html(
         </div>
 
         <div id="articles">
-            <div id="news-loading" class="tab-loading">Loading articles...</div>
+            <div id="news-loading" class="tab-loading"><div class="skel skel-wide"></div><div class="skel skel-med"></div><div class="skel skel-short"></div><div class="skel skel-gap skel-wide"></div><div class="skel skel-med"></div><div class="skel skel-short"></div><div class="skel skel-gap skel-wide"></div><div class="skel skel-med"></div></div>
             <div id="news-list"></div>
         </div>
 
