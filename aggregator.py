@@ -610,6 +610,7 @@ def generate_html(
         </nav>
 
         <div id="tab-home" class="tab-content active">
+            <div id="home-loading" class="tab-loading">Loading...</div>
             <div id="home-newspaper"></div>
             <div class="home-no-results hidden" id="home-no-results">No results match your search.</div>
         </div><!-- /tab-home -->
@@ -665,8 +666,8 @@ def generate_html(
         </div>
 
         <div id="articles">
+            <div id="news-loading" class="tab-loading">Loading articles...</div>
             <div id="news-list"></div>
-        </div>
         </div>
 
         <div id="pagination-bottom" class="pagination bottom" aria-label="Pagination"></div>

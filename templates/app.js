@@ -2171,6 +2171,8 @@
             ].filter(Boolean).join('');
 
             container.innerHTML = html || '<div class="home-no-results">No content available yet.</div>';
+            var homeLoading = document.getElementById('home-loading');
+            if (homeLoading) homeLoading.remove();
 
             // Initialize slider navigation
             initSliders();
@@ -2394,6 +2396,8 @@
 
             container.innerHTML = html;
             syncBookmarkState();
+            var newsLoading = document.getElementById('news-loading');
+            if (newsLoading) newsLoading.remove();
         }
 
         function renderMainReports() {

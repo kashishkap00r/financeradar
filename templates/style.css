@@ -1,4 +1,28 @@
         body { opacity: 0; }
+        .tab-loading {
+            text-align: center;
+            padding: 3rem 1rem;
+            font-family: 'Nunito Sans', system-ui, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+        .tab-loading::after {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-left: 8px;
+            border: 2px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: tab-spin 0.6s linear infinite;
+            vertical-align: middle;
+        }
+        @keyframes tab-spin {
+            to { transform: rotate(360deg); }
+        }
         :root {
             --bg-primary: #FAF7F2;
             --bg-secondary: #FFFFFF;
