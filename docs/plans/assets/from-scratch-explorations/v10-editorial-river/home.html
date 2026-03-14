@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V10 — Editorial River</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f9f6f1;
+  --surface: #ffffff;
+  --ink: #1a1714;
+  --muted: #8a7e72;
+  --faint: #c4bdb4;
+  --line: #ddd7ce;
+  --accent: #b84c2a;
+  --serif: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+  --display: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+[data-theme="dark"] {
+  --bg: #110f0d;
+  --surface: #1a1714;
+  --ink: #e8e0d6;
+  --muted: #8a7e72;
+  --faint: #4a4238;
+  --line: #2e2820;
+  --accent: #d4734e;
+}
+
+html { background: var(--bg); color: var(--ink); }
+body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══ Masthead ═══ */
+.masthead {
+  text-align: center;
+  padding: 40px 0 0;
+}
+.masthead .date {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.masthead h1 {
+  font-family: var(--display);
+  font-size: 48px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  margin: 6px 0 0;
+}
+.masthead-rule {
+  border: none;
+  border-top: 2.5px solid var(--ink);
+  margin: 18px 0 0;
+}
+.masthead-rule-thin {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 4px 0 0;
+}
+
+/* ═══ Nav ═══ */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 0;
+}
+nav a {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+}
+nav a:hover { color: var(--ink); }
+nav a.active { color: var(--ink); font-weight: 600; }
+nav .dot { color: var(--faint); font-size: 10px; }
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 0 0;
+}
+.actions button {
+  background: none;
+  border: none;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+}
+.actions button:hover { color: var(--ink); }
+
+/* ═══ ZONE: Hero ═══ */
+.zone-hero {
+  padding: 52px 0 44px;
+  border-bottom: 1px solid var(--line);
+  max-width: 640px;
+}
+.hero-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.zone-hero h1 {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+.zone-hero h1 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.zone-hero h1 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.hero-why {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 560px;
+}
+.hero-meta {
+  margin-top: 14px;
+}
+.signal {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border: 1px solid var(--line);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+/* ═══ ZONE: Pair (2 side-by-side) ═══ */
+.zone-pair {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--line);
+}
+.pair-rule {
+  background: var(--line);
+}
+.pair-card {
+  padding: 0 28px;
+}
+.pair-card:first-child { padding-left: 0; }
+.pair-card:last-child { padding-right: 0; }
+.pair-card h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+.pair-card h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.pair-card h3 a:hover { color: var(--accent); }
+.pair-meta {
+  margin-top: 8px;
+}
+.pair-meta .src {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pair-why {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ═══ ZONE: Compact rows ═══ */
+.zone-rows {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.row-item {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.row-item:last-child { border-bottom: none; }
+.row-num {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--faint);
+  min-width: 36px;
+  text-align: right;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.row-body {
+  flex: 1;
+}
+.row-body a {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--ink);
+  text-decoration: none;
+  display: block;
+}
+.row-body a:hover { color: var(--accent); }
+.row-src {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-top: 4px;
+}
+
+/* ═══ ZONE: Wide / Feature (pull-quote style) ═══ */
+.zone-wide {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.wide-num {
+  font-family: var(--display);
+  font-size: 80px;
+  color: var(--line);
+  position: absolute;
+  right: 0;
+  top: 32px;
+  line-height: 1;
+  pointer-events: none;
+}
+.wide-title {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.25;
+  font-style: italic;
+  max-width: 680px;
+  border: none;
+  padding: 0;
+}
+.wide-title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.wide-title a:hover {
+  color: var(--accent);
+}
+.wide-footer {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.wide-src {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.wide-signal {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.wide-why {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 580px;
+}
+
+/* ═══ ZONE: Trio (3-col cluster) ═══ */
+.zone-trio {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--line);
+}
+.trio-card {
+  padding: 0 20px;
+  border-right: 1px solid var(--line);
+}
+.trio-card:first-child { padding-left: 0; }
+.trio-card:last-child { padding-right: 0; border-right: none; }
+.trio-num {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--faint);
+  margin-bottom: 6px;
+}
+.trio-card h3 {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.trio-card h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.trio-card h3 a:hover { color: var(--accent); }
+.trio-src {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-top: 6px;
+}
+
+/* ═══ ZONE: WSW Breaker ═══ */
+.zone-wsw {
+  margin: 24px 0;
+  padding: 40px 0;
+  border-top: 2.5px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.wsw-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.wsw-title {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.wsw-summary {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+.wsw-voices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.wsw-voice {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.wsw-speaker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 6px;
+}
+.wsw-voice p {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ═══ Footer ═══ */
+footer {
+  padding: 56px 0 72px;
+  text-align: center;
+}
+footer .logo {
+  font-family: var(--display);
+  font-size: 20px;
+  font-style: italic;
+  color: var(--faint);
+  margin-bottom: 8px;
+}
+footer .count {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* ═══ Scrollbar ═══ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="date">Wednesday, 12 March 2026</div>
+  <h1>Finance Radar</h1>
+</div>
+<hr class="masthead-rule">
+<hr class="masthead-rule-thin">
+
+<nav>
+  <a class="active">Home</a><span class="dot">&middot;</span>
+  <a>News</a><span class="dot">&middot;</span>
+  <a>Telegram</a><span class="dot">&middot;</span>
+  <a>Reports</a><span class="dot">&middot;</span>
+  <a>YouTube</a><span class="dot">&middot;</span>
+  <a>Twitter</a>
+</nav>
+<div class="actions">
+  <button>AI Rankings</button>
+  <button>WSW</button>
+  <button>Bookmarks</button>
+  <button onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'">Theme</button>
+</div>
+
+<main>
+
+    <section class="zone-hero">
+      <div class="hero-kicker">The Core</div>
+      <h1><a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a></h1>
+      <p class="hero-why">Reveals the structural trade-off between retail price stability and industrial productivity in India&#x27;s energy policy during geopolitical crises.</p>
+      <div class="hero-meta">
+        <span class="signal">mechanism</span>
+      </div>
+    </section>
+
+    <section class="zone-pair">
+      
+        <div class="pair-card">
+          <h3><a href="https://t.me/stockupdate9/136170" target="_blank">45,000 Indian Containers Stranded: Export Crisis Deepens</a></h3>
+          <div class="pair-meta"><span class="src">📈</span></div>
+          <p class="pair-why">A massive logistics bottleneck threatens to derail export growth and increases costs for Indian manufacturers.
+It highlights the vulnerability of Indian trade…</p>
+        </div>
+      <div class="pair-rule"></div>
+      
+        <div class="pair-card">
+          <h3><a href="https://www.careratings.com/uploads/newsfiles/1772611151_Strait of Hormuz - The Rising Risk for India Inc..pdf" target="_blank">Strait of Hormuz: The Rising Risk for India Inc.</a></h3>
+          <div class="pair-meta"><span class="src">CareEdge</span></div>
+          <p class="pair-why">Disruptions here directly impact India&#x27;s energy security, freight costs, and the profitability of export-oriented sectors.
+It highlights the vulnerability of I…</p>
+        </div>
+    </section>
+
+    <section class="zone-rows">
+        <div class="row-item">
+          <span class="row-num">4</span>
+          <div class="row-body">
+            <a href="https://x.com/exencial_RP/status/2030895200747553046" target="_blank">🧵The sleeping giant of Indian logistics has just woken up in a completely new avatar. Allcargo Logi…</a>
+            <span class="row-src">Exencial RP</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">5</span>
+          <div class="row-body">
+            <a href="https://www.youtube.com/watch?v=c0Ne-dI2JcA" target="_blank">Flipkart Re-Domiciles To India | What It Means For Business &amp; IPO | Business News | ET Now</a>
+            <span class="row-src">ET Now</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">6</span>
+          <div class="row-body">
+            <a href="https://www.livemint.com/companies/india-electric-scooter-ather-distribution-push-ola-electric-shrinks-number-of-stores-11773046053330.html" target="_blank">Ather eyes big distribution push in FY27 adding 400 stores—in stark contrast with Ola Electric&#x27;s sh…</a>
+            <span class="row-src">Mint</span>
+          </div>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">7</div>
+      <blockquote class="wide-title">
+        <a href="https://t.me/stockupdate9/136178" target="_blank">INDIA ANTITRUST PROBE FINDS DALMIA CEMENT, SHREE DIGVIJAY COLLUDED ON BIDS OF ONGC CEMENT TENDERS FOR 12 YEARS TO 2018, DOCUMENT SHOWS - RTRS</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">📈</span>
+        <span class="wide-signal">structural-shift</span>
+      </div>
+      <p class="wide-why">Antitrust actions against major cement players signal a tightening regulatory environment for industrial cartels.
+This could lead to more transparent bidding processes for government-led infrastructu…</p>
+    </section>
+
+    <section class="zone-wsw">
+      <div class="wsw-label">Who Said What</div>
+      <h2 class="wsw-title">Trump Claims Iran War &#x27;Complete&#x27; as Oil Volatility Intensifies</h2>
+      <p class="wsw-summary"></p>
+      <div class="wsw-voices"></div>
+    </section>
+
+    <section class="zone-trio">
+        <div class="trio-card">
+          <div class="trio-num">8</div>
+          <h3><a href="https://www.crisilratings.com/content/crisilratings/en/home/newsroom/press-releases/2026/03/16th-finance-commission-proposals-long-term-positive-for-states.html" target="_blank">16th Finance Commission proposals long-term positive for states</a></h3>
+          <span class="trio-src">CRISIL</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">9</div>
+          <h3><a href="https://x.com/_prashantnair/status/2031023488883204514" target="_blank">&quot;The LPG situation in India is delicate&quot; Chat with the just retired MGL Chairma…</a></h3>
+          <span class="trio-src">Prashant Nair</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">10</div>
+          <h3><a href="https://www.youtube.com/watch?v=hJpP9oy1hbE" target="_blank">New insurance rules from April 1: What IRDAI’s big accounting shift means for y…</a></h3>
+          <span class="trio-src">Business Standard</span>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">11</div>
+      <blockquote class="wide-title">
+        <a href="https://www.livemint.com/companies/news/new-ai-teams-and-centres-are-making-way-for-gccs-11773045450557.html" target="_blank">GCCs managed to ward off AI impact on hiring—not anymore</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">Mint</span>
+        <span class="wide-signal">labour-trend</span>
+      </div>
+      <p class="wide-why">Signals that the &#x27;AI insulation&#x27; for Indian tech services is ending, potentially forcing a massive reskilling or workforce rationalization.</p>
+    </section>
+
+    <section class="zone-pair">
+      
+        <div class="pair-card">
+          <h3><a href="https://t.me/btsreports/49594" target="_blank">India’s January crude oil imports reached $10.3 billion as Russia maintained its position…</a></h3>
+          <div class="pair-meta"><span class="src">BTS Reports</span></div>
+          <p class="pair-why">The significant drop in Russian market share suggests India is diversifying its energy sources amid sanctions or pricing shifts.
+This impacts the national impo…</p>
+        </div>
+      <div class="pair-rule"></div>
+      
+        <div class="pair-card">
+          <h3><a href="https://www.hdfcsec.com/hsl.docs/Defence - Sector Thematic - HSIE-202603061206048441018.pdf" target="_blank">Defence: Electronics Powering India’s Defence Upcycle</a></h3>
+          <div class="pair-meta"><span class="src">HDFC Securities</span></div>
+          <p class="pair-why">The shift from heavy machinery to high-end electronics represents a value-chain climb for Indian manufacturers.
+It identifies a specific sub-sector driving the…</p>
+        </div>
+    </section>
+
+    <section class="zone-rows">
+        <div class="row-item">
+          <span class="row-num">14</span>
+          <div class="row-body">
+            <a href="https://x.com/MuraliSrinivasa/status/2030656664119202114" target="_blank">Our entire country&#x27;s 🇮🇳 production of bare pcb is equivalent of jlc capacity. If you take only mult…</a>
+            <span class="row-src">Murali Srinivasan</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">15</span>
+          <div class="row-body">
+            <a href="https://www.youtube.com/watch?v=YbbAMDPUt4c" target="_blank">Economics of Petrol/Diesel Tax Cut in India | US Iran War, Fuel Tax Cuts &amp; Hit to Indian Economy</a>
+            <span class="row-src">The Bond Economist</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">16</span>
+          <div class="row-body">
+            <a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxNUjJ6cUVQSzZVM2FiSjh0QXRmV3ZRNE1iMHdRREc1TDZ5V1VYY1hXX0UxY18zNjhTNGM0ck9ybkp6bTQ5QzJKdTZpM0dfZjFObDl6d2QzQjNUVHZDeWFsdl94SDlldWRlS212UktkNUFGRWpET0FBVUtheXJtLWEybHVNZ2lTMXQ5aWhqYVQ5aHU2NHRYSmtPdGxSN0tGangzMm5JSUxiemk0dVBSbEQtdTBMUVowd0V3YTYzQmJfTXdlM3BNeExza1ZDMEtqaVk1TGEtYmJXcmfSAd4BQVVfeXFMTTA3c0k1cFNsaWQ4LV9sZThwVnROcW9HREZkYW5FWVlHZGZKbUYya29qSzFfSnZBN0ZjdXJjNE44ZmVKbzc0dGtKRXFiRkNLZkZjdDZLako2UnJhTHFEaTNPcFE4eFJ5RkdtS2JKR3lUQXFIMmFzOVdCOEh1Y3hhY09id1ZPQWZyUVpQNWtwejFYNGpPN2FwZW1Wc0RHT3Rrd01feUNyN1hiVjI5Zk4teUZsN3RybFZ2ZkIxOV9vcDB0MExnZzNPc1ZhSjJkQVBJZTZoS0VVbUNFVkFxM3ZB?oc=5" target="_blank">Missing half in India&#x27;s growth puzzle: Female labour participation just 42%</a>
+            <span class="row-src">Business Standard</span>
+          </div>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">17</div>
+      <blockquote class="wide-title">
+        <a href="https://t.me/btsreports/49597" target="_blank">Househelp Apps Cross 2 Million Monthly Orders but Profitability Concerns Grow</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">BTS Reports</span>
+        <span class="wide-signal">labour-trend</span>
+      </div>
+      <p class="wide-why">The scale shows high consumer adoption, but the profitability struggle highlights the difficulty of unit economics in Indian domestic services.
+It serves as a bellwether for the sustainability of hyp…</p>
+    </section>
+
+    <section class="zone-wsw">
+      <div class="wsw-label">Who Said What</div>
+      <h2 class="wsw-title">Anthropic Sues US Government Over &#x27;Risk&#x27; Label and Federal Ban</h2>
+      <p class="wsw-summary"></p>
+      <div class="wsw-voices"></div>
+    </section>
+
+    <section class="zone-trio">
+        <div class="trio-card">
+          <div class="trio-num">18</div>
+          <h3><a href="https://www.crisil.com/content/intelligence/en/homepage/what-we-think/all-our-thinking/reports/2026/03/roti-rice-rate-march2026.html" target="_blank">RRR: Roti Rice Rate</a></h3>
+          <span class="trio-src">CRISIL</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">19</div>
+          <h3><a href="https://x.com/_prashantnair/status/2030888319207276990" target="_blank">Crude Oil Up. Refined Products Up More ! 1. Big Jumps: Diesel cracks $58, ATF c…</a></h3>
+          <span class="trio-src">Prashant Nair</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">20</div>
+          <h3><a href="https://www.youtube.com/watch?v=e0mIHDYUKM4" target="_blank">Why ₹100 Per Dollar is Now Possible: The Link Between IT Services and the Rupee…</a></h3>
+          <span class="trio-src">Marcellus Investment Managers</span>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">21</div>
+      <blockquote class="wide-title">
+        <a href="https://www.ft.com/content/926b1bc3-4810-4b81-9c88-50a4b4015295" target="_blank">Trump’s Russian oil waiver offers little relief for India</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">Financial Times</span>
+        <span class="wide-signal">supply-chain</span>
+      </div>
+      <p class="wide-why">India&#x27;s fiscal math and inflation control are heavily dependent on the continued flow of Russian oil despite Western sanctions.</p>
+    </section>
+
+    <section class="zone-pair">
+      
+        <div class="pair-card">
+          <h3><a href="https://t.me/stockupdate9/136161" target="_blank">India Data Centre Boom: 1.5-2 GW to 7-8 GW Capacity Surge</a></h3>
+          <div class="pair-meta"><span class="src">📈</span></div>
+          <p class="pair-why">This massive capacity expansion requires billions in capital expenditure and reliable power infrastructure.
+It underpins the growth of India&#x27;s digital economy,…</p>
+        </div>
+      <div class="pair-rule"></div>
+      
+        <div class="pair-card">
+          <h3><a href="https://sbi.bank.in/documents/13958/14472/09032026_West+Asia+Conflict_SBI+Report.pdf/4c6152a4-f4e4-e4c8-a8c9-11e7a7d4a1d2?t=1773034188327" target="_blank">END OF BEGINNING - Should the raging conflict in Middle East proliferate asymmetrically a…</a></h3>
+          <div class="pair-meta"><span class="src">SBI</span></div>
+          <p class="pair-why">SBI&#x27;s research offers an original thesis on why India&#x27;s domestic economy might decouple from global inflationary trends.
+It provides a high-level strategic out…</p>
+        </div>
+    </section>
+
+    <section class="zone-rows">
+        <div class="row-item">
+          <span class="row-num">24</span>
+          <div class="row-body">
+            <a href="https://x.com/TamalBandyo/status/2030857065489481983" target="_blank">Union Budget announced setting up a high level committee on banking for Viksit Bharat. Here are som…</a>
+            <span class="row-src">Tamal Bandyopadhyay</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">25</span>
+          <div class="row-body">
+            <a href="https://www.youtube.com/watch?v=KUWof3SLoIE" target="_blank">How West Asia crisis is choking India’s export | US-Iran war | Crude oil | Strait of Hormuz</a>
+            <span class="row-src">Business Standard</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">26</span>
+          <div class="row-body">
+            <a href="https://economictimes.indiatimes.com/industry/banking/finance/like-banks-leadership-rotation-rule-may-apply-to-large-nbfcs/articleshow/129353555.cms" target="_blank">Like banks, leadership rotation rule may apply to large NBFCs</a>
+            <span class="row-src">ET</span>
+          </div>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">27</div>
+      <blockquote class="wide-title">
+        <a href="https://t.me/BeatTheStreetnews/332538" target="_blank">IDBI BANK ; West Asia War Forces Govt To Re-Prioritise IDBI Bk Divestment - ETNOW</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">Beat The Street News| Latest Share Market News</span>
+        <span class="wide-signal">policy-implication</span>
+      </div>
+      <p class="wide-why">Geopolitical instability is directly influencing India&#x27;s internal economic reforms and disinvestment calendar.
+It shows how global risk appetite dictates the timing of major Indian banking sector str…</p>
+    </section>
+
+    <section class="zone-wsw">
+      <div class="wsw-label">Who Said What</div>
+      <h2 class="wsw-title">Moneyview Defies Industry Retreat to Double Down on DLG</h2>
+      <p class="wsw-summary"></p>
+      <div class="wsw-voices"></div>
+    </section>
+
+    <section class="zone-trio">
+        <div class="trio-card">
+          <div class="trio-num">28</div>
+          <h3><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOX0JGQ0Z0SUZ4SHJQUTA3WF9hb2hncUIyOXBkX3BHZmkwWks3cnkxZ0RKUUg4YzFFM0k4dDJkLWYzOWxsMnBEZUtka3dUb3ZKM1JlRl9qaHB4Yk5IY09tOXpGWWhnRndlemFrMHk3elAtczRsQk5yVXBWaGxucmFfdDBiYkZhQ1U2TkwwMjhLX1AwdVFUSlI2VUJYR3A2MGFNaER6cllKTVFVYzlsX1d30gG2AUFVX3lxTE1LSEIteDZidGc3S3Ewb0tzeHRJbHlDMWI5NFVMaGFBX3V1VHZuekdrUEpaRGhGdlAtS09OS2pjcUMzWkJ2em1BTmh4NUkwdVZDQ21NcnN0V0c2d0RTUkVXWmVablZaWXpTa1VVbzNha2wzNllPVS0tRGcxXzI4eW9jbzdzRGxSbUw5aFIzcGEtQ2VjZFFQRGxDMmtpd3FSb2Jibk53UExQNTlsOWdKZWw4LXVxdU93?oc=5" target="_blank">MeitY clears Dixon–HKC JV for display manufacturing - The Financial Express</a></h3>
+          <span class="trio-src">Financial Express</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">29</div>
+          <h3><a href="https://t.me/stockupdate9/136175" target="_blank">Durables &amp; Auto Face April Price Hikes on Conflict Costs</a></h3>
+          <span class="trio-src">📈</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">30</div>
+          <h3><a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxQSGQ3RndkMHQtbUh6QzJxb1luLTVnOVBaMldEdnh4Mm55NElrXzlPLUlqWU9BeDlueUxBazBEV204MWR5WnppZDB2dHVIZ2gwZTVQbmptb1BKR0RSUHM4LTVTcFRxcl9hMGc5VDl0ZENlSmtYbmRoV0p3QWtYd3BoYm9HOGNXX2Vqbmo2Y2NUeEVtMDBtanZPcy05UzZ6d2Q5cG1YUUpfVnZLanlxZi1Qdk03ZUt0blgwOTVGeEYtQ1VrMEhwb0JtTTJ1RFBZNjM20gHWAUFVX3lxTE9XLXhCMGFGd0J6UHlNQXhGMjg3alBOaFpRY0dpWHhUUXVKcHFNZ1phdVBqSW9oVllyVXRjbXdKWlZxVzhhQUpvZERmZ01yMWg1eThmQ0xqQVN4QS00ZERJSFMxVXQ5UmVRMm1fRTc1ZmQwWHBpNTZlbFB4eXV2VzJEeFdDN0I0aG9pVmlONm1PMEZ5c1o2bndZc2YzOXgxY0xpcHN1ZU9ES0VTU3NfVDI0dGszcTdrMnoxUGdwWk5RV2p5VkJjMXlSU2lyNVEwZ2xHN2g3UVE?oc=5" target="_blank">How India can kick the West Asian oil habit by boosting ethanol use</a></h3>
+          <span class="trio-src">Business Standard</span>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">31</div>
+      <blockquote class="wide-title">
+        <a href="https://t.me/BeatTheStreetnews/332624" target="_blank">Dixon Gets Govt Approval for Display Manufacturing JV with HKC</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">Beat The Street News| Latest Share Market News</span>
+        <span class="wide-signal">structural-shift</span>
+      </div>
+      <p class="wide-why">Moving from assembly to component manufacturing (displays) is a critical step for India&#x27;s electronics ecosystem.
+It reduces import dependency on finished display panels from China.</p>
+    </section>
+
+    <section class="zone-pair">
+      
+        <div class="pair-card">
+          <h3><a href="https://economictimes.indiatimes.com/news/economy/indicators/india-may-face-78-billion-higher-monthly-import-bill-as-crude-surges/articleshow/129342655.cms" target="_blank">India may face $7–8 billion higher monthly import bill as crude surges</a></h3>
+          <div class="pair-meta"><span class="src">ET</span></div>
+          <p class="pair-why">A sustained increase of this magnitude would pressure the Rupee and limit the RBI&#x27;s room for interest rate cuts.</p>
+        </div>
+      <div class="pair-rule"></div>
+      
+        <div class="pair-card">
+          <h3><a href="https://t.me/stockupdate9/136163" target="_blank">Indian CDMOs Ramp Capacity for Complex Drug Boom</a></h3>
+          <div class="pair-meta"><span class="src">📈</span></div>
+          <p class="pair-why">This shift attracts high-margin global business and positions India as a sophisticated R&amp;D partner.
+It signals a long-term evolution in the business model of I…</p>
+        </div>
+    </section>
+
+    <section class="zone-rows">
+        <div class="row-item">
+          <span class="row-num">34</span>
+          <div class="row-body">
+            <a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxOQ3JPcXZwTVJnZ0FfTkFYRmZnQUdMb0hMbXQwQVZOQm5xTVJQbVFtQVVJdzVMYV8yTHc3Mkh2anpEZVpfVjhKQkRpNjQ1c1pSRWtVVkNYanU1cGxETFpHbFVsN1Q3ZTN3bWU0bnl2LUlYT2VhbnVHdVg0STE5NnFhejFMS19fY1pETENTekk3N1hPNDJKQl94ZGZvV1l4UXJDeHk0TkN1YVJyVTQ5dWxiVUN0cHdVdzV6NlVkSjNxaVlwTlZfblN4Y0Z3MWpLX0RYelMxRU1VR2rSAd4BQVVfeXFMT0hMVnBjdU5mQ3AyNkZuLUhmUTJ2ekZWNXVqdzdhV2Z6b1RYc29PbWpoWHNJNnFwQWVwaW5udWhkR1dOZ1RFMEpud0xfSkUyN2VCclJPYk5oSlhCTDY4MjVLNFl5RUMwd3pKOHdQM1hPOU5QMmgzdzZMeWw5enJ1ZzBGX3lNbUo2MWNqUzhxMmV5akVwa0x0UElfblhoNVNoLXpnV0lXTjhvZFhpTUt2cXRsYjhFODdfUjNVQVJydjA5MUhXdVZMWXllNjJXdXBMQVpaVjBzcVRvWEFEMUJ3?oc=5" target="_blank">Bengaluru hotels face shutdown from March 10 amid commercial LPG shortage</a>
+            <span class="row-src">Business Standard</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">35</span>
+          <div class="row-body">
+            <a href="https://t.me/BeatTheStreetnews/332513" target="_blank">LT FOOD , KRBL, GRM ; Rice Association Says Basmati rice exports have come to a halt - CNBC-TV18</a>
+            <span class="row-src">Beat The Street News| Latest Share Market News</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">36</span>
+          <div class="row-body">
+            <a href="https://news.google.com/rss/articles/CBMi3wFBVV95cUxOeG8zY2tDWkdKTXdFcFI0UERabzhPNGJ4STNRbHQ0cVBWYVVfS3hhdkxMNHdtTU9WMXY0b1FKZ1czaXVSSEVsU1IxVktCNlp2ZGxwQ1A4Mkp1Y09hNFZlYVo5enM5cVd2NVVfMEVncXVSNUJZa1E0YzBaekVIcWEtSVVpUm1kOVFwT0J3bDcwOUo4LUJUV2pVZHUzWExFU0lsd294RFNCRmx1ZzZvQkR4Z0hfbzEwODZ4Z0lGY0ZfUkstY1p5cjdpZUtFV29uUHpwNXFDdV9TNTZtYjVZcmh30gHkAUFVX3lxTE5sM0c2dXhhc2padWlXbU40b1RKTzY4Ykdoay1vUmVqQlJiREw1ZEoxRUxDZjNCbjNHUDhhdWtPNU1Xc2xMUzlBZ0NEdnUwVV9QSmQzZHJYY29XU21OZUh3RW9sOXJLWkNWcHhjb1A4SjZGUkF6VWVPVWg4bHhuLXRLSGhUVFNuc3pIRV94NFNOdlRqN3pZcWFVUXhmOFozel9CVXdmaHUweXhJbFJTdTB1OXJuTEhnY1ltTTFNVVNYaHJWb1BNT1RMamN0WGNEU3lMQTVqZ0Q0eU43YmttZkVOM2htcQ?oc=5" target="_blank">Global fertiliser prices may strain India&#x27;s subsidy maths for next year</a>
+            <span class="row-src">Business Standard</span>
+          </div>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">37</div>
+      <blockquote class="wide-title">
+        <a href="https://t.me/BeatTheStreetnews/332619" target="_blank">Petrol and diesel prices in India are unlikely to rise unless crude oil breaches $130 per barrel, with expectations of prices stabilizing around $100, and ample stocks available, govt sources say : Reports</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">Beat The Street News| Latest Share Market News</span>
+        <span class="wide-signal">policy-implication</span>
+      </div>
+      <p class="wide-why">The government is signaling a high tolerance level, likely to manage inflation expectations and fiscal stability.
+It defines the &#x27;safety zone&#x27; for Indian macro-stability amidst the current Middle Eas…</p>
+    </section>
+
+    <section class="zone-wsw">
+      <div class="wsw-label">Who Said What</div>
+      <h2 class="wsw-title">Ather’s Physical Store Blitz vs Ola’s Digital-First Retreat</h2>
+      <p class="wsw-summary"></p>
+      <div class="wsw-voices"></div>
+    </section>
+
+    <section class="zone-trio">
+        <div class="trio-card">
+          <div class="trio-num">38</div>
+          <h3><a href="https://www.livemint.com/industry/piston-ring-norms-india-bis-engine-standards-11773050082584.html" target="_blank">After 48 years, India revises piston ring standards to curb carbon emissions</a></h3>
+          <span class="trio-src">Mint</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">39</div>
+          <h3><a href="https://t.me/BeatTheStreetnews/332599" target="_blank">Minda Corp ; Co Forms EV Technology JV with UK’s Turntide Drives</a></h3>
+          <span class="trio-src">Beat The Street News| Latest Share Market News</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">40</div>
+          <h3><a href="https://www.etnownews.com/news/major-defence-boost-indonesia-agrees-to-buy-brahmos-missiles-from-india-in-usd-200350-million-pact-article-153793085" target="_blank">Major Defence Boost: Indonesia agrees to buy BrahMos missiles from India in USD…</a></h3>
+          <span class="trio-src">ET</span>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">41</div>
+      <blockquote class="wide-title">
+        <a href="https://t.me/BeatTheStreetnews/332531" target="_blank">NASCOM Says IT Cos Evaluating Alternate Data Centre Infra - BLOOMBERG</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">Beat The Street News| Latest Share Market News</span>
+        <span class="wide-signal">structural-shift</span>
+      </div>
+      <p class="wide-why">A shift in data center strategy by IT giants could trigger a massive domestic investment cycle in sovereign cloud infra.
+It reflects a new priority on business continuity over simple cost-efficiency.</p>
+    </section>
+
+    <section class="zone-pair">
+      
+        <div class="pair-card">
+          <h3><a href="https://www.livemint.com/companies/moneyview-doubles-down-on-dlg-lending-ahead-of-ipo-11773048823463.html" target="_blank">While rivals retreat from default guarantees, Moneyview is doubling down</a></h3>
+          <div class="pair-meta"><span class="src">Mint</span></div>
+          <p class="pair-why">The success or failure of this strategy will signal the future of risk-sharing between fintechs and banks in India.</p>
+        </div>
+      <div class="pair-rule"></div>
+      
+        <div class="pair-card">
+          <h3><a href="https://t.me/BeatTheStreetnews/332533" target="_blank">IZMO: Subsidiary Enters India’s Defence Semiconductor Packaging Space</a></h3>
+          <div class="pair-meta"><span class="src">Beat The Street News| Latest Share Market News</span></div>
+          <p class="pair-why">Semiconductor packaging for defence is a high-entry-barrier niche that strengthens India&#x27;s strategic autonomy.
+It marks the entry of smaller Indian tech firms…</p>
+        </div>
+    </section>
+
+    <section class="zone-rows">
+        <div class="row-item">
+          <span class="row-num">44</span>
+          <div class="row-body">
+            <a href="https://bfsi.economictimes.indiatimes.com/articles/harnessing-ai-to-boost-womens-workforce-participation-in-india/129344161" target="_blank">AI is far more enabling than disabling, especially for economies like India: Neelkanth Mishra on wo…</a>
+            <span class="row-src">ET</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">45</span>
+          <div class="row-body">
+            <a href="https://t.me/stockupdate9/136177" target="_blank">D2C Saree Startups Ride Fashion Shift Wave</a>
+            <span class="row-src">📈</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">46</span>
+          <div class="row-body">
+            <a href="https://economictimes.indiatimes.com/industry/energy/oil-gas/india-says-no-to-ieas-call-to-release-strategic-oil-reserves/articleshow/129343096.cms" target="_blank">India says no to IEA&#x27;s call to release strategic oil reserves</a>
+            <span class="row-src">ET</span>
+          </div>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">47</div>
+      <blockquote class="wide-title">
+        <a href="https://t.me/stockupdate9/136174" target="_blank">Early Wheat Harvest Signals Bumper Rabi Crop</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">📈</span>
+        <span class="wide-signal">supply-chain</span>
+      </div>
+      <p class="wide-why">A bumper crop eases pressure on food prices and provides a boost to rural disposable income.
+It reduces the likelihood of the government needing to extend export bans or intervene aggressively in mar…</p>
+    </section>
+
+    <section class="zone-wsw">
+      <div class="wsw-label">Who Said What</div>
+      <h2 class="wsw-title">RBI Intervenes with Premium Bond Buys to Curb Yields</h2>
+      <p class="wsw-summary"></p>
+      <div class="wsw-voices"></div>
+    </section>
+
+    <section class="zone-trio">
+        <div class="trio-card">
+          <div class="trio-num">48</div>
+          <h3><a href="https://www.thehindubusinessline.com/news/mm-forgings-plans-to-deploy-up-to-150-robots-amid-manpower-shortage/article70722740.ece" target="_blank">MM Forgings plans to deploy up to 150 robots amid manpower shortage</a></h3>
+          <span class="trio-src">BusinessLine</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">49</div>
+          <h3><a href="https://t.me/BeatTheStreetnews/332614" target="_blank">FERTILIZERS STOCKS; The Iran conflict risks disrupting fertilizer production cr…</a></h3>
+          <span class="trio-src">Beat The Street News| Latest Share Market News</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">50</div>
+          <h3><a href="https://bfsi.economictimes.indiatimes.com/articles/sebi-establishes-expert-group-to-enhance-technology-in-indias-securities-market/129345297" target="_blank">SEBI sets up expert group to draw tech roadmap for securities market: Tuhin Kan…</a></h3>
+          <span class="trio-src">ET</span>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">51</div>
+      <blockquote class="wide-title">
+        <a href="https://t.me/BeatTheStreetnews/332546" target="_blank">ABB India: To Invest ~$75 Million to Expand Manufacturing &amp; R&amp;D in India</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">Beat The Street News| Latest Share Market News</span>
+        <span class="wide-signal">structural-shift</span>
+      </div>
+      <p class="wide-why">Expansion in R&amp;D indicates that India is being used for high-end engineering, not just low-cost manufacturing.
+This supports the modernization of India&#x27;s power and factory infrastructure.</p>
+    </section>
+
+    <section class="zone-pair">
+      
+        <div class="pair-card">
+          <h3><a href="https://www.thehindu.com/business/i-t-department-uncovers-408-crore-sales-underreporting-by-restaurants-across-india/article70723492.ece" target="_blank">I-T Department uncovers ₹408 crore sales underreporting by restaurants across India</a></h3>
+          <div class="pair-meta"><span class="src">The Hindu</span></div>
+          <p class="pair-why">Signals a crackdown on the &#x27;cash economy&#x27; in retail and hospitality, pushing for greater formalization.</p>
+        </div>
+      <div class="pair-rule"></div>
+      
+        <div class="pair-card">
+          <h3><a href="https://t.me/BeatTheStreetnews/332509" target="_blank">LUPIN Says Air Freight, If Available Will Be Expensive</a></h3>
+          <div class="pair-meta"><span class="src">Beat The Street News| Latest Share Market News</span></div>
+          <p class="pair-why">When sea routes are blocked, the shift to air freight creates a cost-push that can make Indian exports less competitive.
+It shows the second-order effects of g…</p>
+        </div>
+    </section>
+
+    <section class="zone-rows">
+        <div class="row-item">
+          <span class="row-num">54</span>
+          <div class="row-body">
+            <a href="https://www.bloomberg.com/news/features/2026-03-09/china-s-tariff-defying-export-boom-leaves-its-factory-workers-behind" target="_blank">Xi’s Export Juggernaut Is Leaving China’s Factory Workers Behind</a>
+            <span class="row-src">Bloomberg</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">55</span>
+          <div class="row-body">
+            <a href="https://t.me/stockupdate9/136167" target="_blank">HINDUSTAN ORGANIC CHEMICALS – LPG DISRUPTION FORCES KOCHI SHUTDOWN</a>
+            <span class="row-src">📈</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <span class="row-num">56</span>
+          <div class="row-body">
+            <a href="https://economictimes.indiatimes.com/news/economy/policy/finmin-advises-banks-to-speed-up-ibc-resolutions/articleshow/129350248.cms" target="_blank">FinMin advises banks to speed up IBC resolutions</a>
+            <span class="row-src">ET</span>
+          </div>
+        </div>
+    </section>
+
+    <section class="zone-wide">
+      <div class="wide-num">57</div>
+      <blockquote class="wide-title">
+        <a href="https://www.cnbc.com/2026/03/09/fears-of-1970s-style-stagflation-arise-with-oil-spike-to-100-how-big-a-threat-is-it.html" target="_blank">Fears of 1970s-style stagflation arise with oil spike to $100. How big a threat is it?</a>
+      </blockquote>
+      <div class="wide-footer">
+        <span class="wide-src">CNBC</span>
+        <span class="wide-signal">mechanism</span>
+      </div>
+      <p class="wide-why">Stagflation would mean high inflation and low growth, the worst-case scenario for Indian equity markets and consumers.</p>
+    </section>
+
+    <section class="zone-wsw">
+      <div class="wsw-label">Who Said What</div>
+      <h2 class="wsw-title">Sebi Chief Urges Calm as Markets Hit 10-Month Lows</h2>
+      <p class="wsw-summary"></p>
+      <div class="wsw-voices"></div>
+    </section>
+
+    <section class="zone-trio">
+        <div class="trio-card">
+          <div class="trio-num">58</div>
+          <h3><a href="https://ourworldindata.org/data-insights/the-world-has-made-huge-progress-in-reducing-extreme-poverty-could-this-be-coming-to-an-end" target="_blank">The world has made huge progress in reducing extreme poverty; could this be com…</a></h3>
+          <span class="trio-src">Our World in Data</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">59</div>
+          <h3><a href="https://www.thehindu.com/business/Economy/india-will-not-raise-petrol-prices-despite-global-crude-headwinds-government-sources/article70723329.ece" target="_blank">India will not raise petrol prices despite global crude headwinds: Government s…</a></h3>
+          <span class="trio-src">The Hindu</span>
+        </div>
+        <div class="trio-card">
+          <div class="trio-num">60</div>
+          <h3><a href="https://economictimes.indiatimes.com/industry/cons-products/fmcg/fmcg-companies-weigh-shrinking-pack-sizes-hiking-prices-to-absorb-crude-shock/articleshow/129352696.cms" target="_blank">FMCG companies weigh shrinking pack sizes, hiking prices to absorb crude shock</a></h3>
+          <span class="trio-src">ET</span>
+        </div>
+    </section>
+</main>
+
+<footer>
+  <div class="logo">Finance Radar</div>
+  <div class="count">60 AI-curated picks</div>
+</footer>
+
+</body>
+</html>

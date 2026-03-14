@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Explorations — FinanceRadar</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', -apple-system, sans-serif; background: #fafafa; color: #1a1a1a;
+    max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.02em; }
+  .subtitle { font-size: 14px; color: #666; margin-bottom: 36px; line-height: 1.5; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+  .card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e5e5e5;
+    border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s; }
+  .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-color: #ccc; transform: translateY(-2px); }
+  .card-swatch { height: 80px; display: flex; align-items: center; justify-content: center; }
+  .card-swatch span { font-size: 32px; filter: grayscale(0.3); }
+  .card-body { padding: 16px 18px 18px; }
+  .card-body h2 { font-size: 16px; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .card-body .desc { font-size: 12.5px; color: #555; line-height: 1.55; margin-bottom: 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .tag { font-size: 10px; background: #f0f0f0; color: #666; padding: 2px 8px; border-radius: 999px;
+    letter-spacing: 0.03em; }
+
+  /* Swatch backgrounds */
+  .sw-bloomberg { background: linear-gradient(135deg, #0a1628 0%, #1e293b 100%); }
+  .sw-broadsheet { background: linear-gradient(135deg, #fff1e5 0%, #ffe9d6 100%); }
+  .sw-muji { background: #ffffff; border-bottom: 1px solid #f0f0f0; }
+  .sw-notion { background: linear-gradient(135deg, #f7f7f5 0%, #efefed 100%); }
+</style>
+</head>
+<body>
+<h1>Skin Explorations</h1>
+<p class="subtitle">4 CSS-only visual skins for FinanceRadar. Same structure, same features, same data — different personality. Every tab, sidebar, filter, and keyboard shortcut works identically.</p>
+
+<div class="grid">
+  <a class="card" href="s1-bloomberg-terminal.html">
+    <div class="card-swatch sw-bloomberg"><span>📊</span></div>
+    <div class="card-body">
+      <h2>Bloomberg Terminal</h2>
+      <p class="desc">Dense, professional, monospace-driven. Zero border-radius, electric blue accent, terminal-grade information density.</p>
+      <div class="tags">
+        <span class="tag">JetBrains Mono</span>
+        <span class="tag">Inter</span>
+        <span class="tag">Dense</span>
+        <span class="tag">Dark-first</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card" href="s2-ft-broadsheet.html">
+    <div class="card-swatch sw-broadsheet"><span>📰</span></div>
+    <div class="card-body">
+      <h2>FT Broadsheet</h2>
+      <p class="desc">Financial Times salmon warmth. Serif authority, newspaper gravitas, double-rule borders, hairline card separators.</p>
+      <div class="tags">
+        <span class="tag">Newsreader</span>
+        <span class="tag">Source Serif 4</span>
+        <span class="tag">Warm</span>
+        <span class="tag">Editorial</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card" href="s3-muji-minimal.html">
+    <div class="card-swatch sw-muji"><span>🍃</span></div>
+    <div class="card-body">
+      <h2>Muji Minimal</h2>
+      <p class="desc">Japanese restraint. Maximum whitespace, invisible UI, no chromatic accent. The content is the design.</p>
+      <div class="tags">
+        <span class="tag">Noto Sans</span>
+        <span class="tag">Monochrome</span>
+        <span class="tag">Spacious</span>
+        <span class="tag">960px</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card" href="s4-notion-clean.html">
+    <div class="card-swatch sw-notion"><span>📝</span></div>
+    <div class="card-body">
+      <h2>Notion Clean</h2>
+      <p class="desc">Notion/Linear-inspired warm gray SaaS aesthetic. Friendly, rounded, pill tabs, hover-to-highlight cards.</p>
+      <div class="tags">
+        <span class="tag">DM Sans</span>
+        <span class="tag">Notion gray</span>
+        <span class="tag">Pill tabs</span>
+        <span class="tag">Friendly</span>
+      </div>
+    </div>
+  </a>
+</div>
+</body>
+</html>

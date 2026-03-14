@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V1 — Folio Split</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#fefefe;--ink:#111;--mut:#888;--ln:#e8e8e8;--acc:#111}
+[data-theme="dark"]{--bg:#0c0c0c;--ink:#f0f0f0;--mut:#666;--ln:#2a2a2a;--acc:#fff}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+.topbar{display:flex;align-items:center;padding:24px 48px;border-bottom:1px solid var(--ln)}
+.logo{font:400 22px 'Instrument Serif',serif}
+.actions{margin-left:auto;display:flex;gap:14px}
+.actions button{background:none;border:none;font:400 12px 'Space Mono',monospace;color:var(--mut);cursor:pointer}
+.actions button:hover{color:var(--ink)}
+.tabs{display:flex;gap:28px;padding:14px 48px;border-bottom:1px solid var(--ln)}
+.tabs a{font:400 15px 'DM Sans',sans-serif;color:var(--mut);text-decoration:none}
+.tabs a.active{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px}
+.folio{display:grid;grid-template-columns:1fr 1px 1fr;min-height:calc(100vh - 120px)}
+.folio-rule{background:var(--ln)}
+.folio-left{padding:64px 56px 48px}
+.folio-right{padding:48px 56px}
+.kicker{font:700 10px 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:16px}
+.hero-title{font:400 42px/1.1 'Instrument Serif',serif;margin-bottom:14px;letter-spacing:-.01em}
+.hero-title a{color:var(--ink);text-decoration:none}
+.hero-title a:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.hero-src{font:700 9px 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:16px}
+.hero-lede{font:400 15px/1.7 'DM Sans',sans-serif;color:var(--mut);max-width:420px}
+.section-head{font:700 9px 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);padding-bottom:10px;border-bottom:1px solid var(--ln);margin:32px 0 16px}
+.section-head:first-child{margin-top:0}
+.r-story{padding:14px 0;border-bottom:1px solid var(--ln)}
+.r-story a{font:400 16px/1.35 'Instrument Serif',serif;color:var(--ink);text-decoration:none;display:block}
+.r-story a:hover{color:var(--mut)}
+.r-story span{font:700 9px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);display:block;margin-top:4px}
+.wsw-quote{padding:18px 0;border-bottom:1px solid var(--ln)}
+.wsw-quote p{font:400 15px/1.55 'Instrument Serif',serif;font-style:italic;color:var(--ink)}
+.wsw-quote span{font:400 11px 'DM Sans',sans-serif;color:var(--mut);display:block;margin-top:6px}
+</style></head>
+<body data-theme="light">
+<div class="topbar">
+  <div class="logo">Finance Radar</div>
+  <div class="actions">
+    <button>AI</button><button>WSW</button><button>Bookmarks</button>
+    <button onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'">Theme</button>
+  </div>
+</div>
+<div class="tabs">
+  <a class="active">Home</a><a>News</a><a>Telegram</a><a>Reports</a><a>YouTube</a><a>Twitter</a>
+</div>
+<div class="folio">
+  <div class="folio-left">
+    <div class="kicker">SPOTLIGHT</div>
+    <div class="hero-src">The Core</div>
+    <h1 class="hero-title"><a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a></h1>
+    <div class="hero-lede">Reveals the structural trade-off between retail price stability and industrial productivity in India&#x27;s energy policy during geopolitical crises.</div>
+    <div class="section-head">VOICES</div>
+    <div class="wsw-quote">
+          <p>"Donald Trump asserts that US strikes have effectively neutralized Iran&#x27;s military capabilities, sig…"</p>
+          <span> — Trump Claims Iran War &#x27;Complete&#x27; as Oil…</span>
+        </div><div class="wsw-quote">
+          <p>"Anthropic is taking legal action against the White House after an executive order sought to remove…"</p>
+          <span> — Anthropic Sues US Government Over &#x27;Risk…</span>
+        </div>
+  </div>
+  <div class="folio-rule"></div>
+  <div class="folio-right">
+    <div class="section-head">LATEST</div>
+    <div class="r-story">
+          <a href="https://www.thehindu.com/news/international/how-iran-war-could-create-fertiliser-shock-often-ignored-global-risk-to-food-prices-farming/article70721470.ece" target="_blank">How Iran war could create ‘fertilizer shock’ – often ignored global risk t…</a>
+          <span>The Hindu — Agri Business</span>
+        </div><div class="r-story">
+          <a href="https://www.thehindubusinessline.com/companies/amrut-sees-rum-gaining-ground-as-premium-spirits-demand-spreads-beyond-metros/article70723273.ece" target="_blank">Amrut sees rum gaining ground as premium spirits demand spreads beyond met…</a>
+          <span>BusinessLine — Companies</span>
+        </div><div class="r-story">
+          <a href="https://www.thehindubusinessline.com/companies/karkhana-acquires-micron-ems-to-deepen-electronics-manufacturing-capabilities/article70722895.ece" target="_blank">Karkhana acquires Micron EMS to deepen electronics manufacturing capabilit…</a>
+          <span>BusinessLine — Companies</span>
+        </div><div class="r-story">
+          <a href="https://www.thehindubusinessline.com/info-tech/manyavar-campaign-crosses-300-million-views-in-72-hours-across-platforms/article70722655.ece" target="_blank">Manyavar campaign crosses 300 million views in 72 hours across platforms</a>
+          <span>BusinessLine — Companies</span>
+        </div><div class="r-story">
+          <a href="https://www.thehindubusinessline.com/news/mm-forgings-plans-to-deploy-up-to-150-robots-amid-manpower-shortage/article70722740.ece" target="_blank">MM Forgings plans to deploy up to 150 robots amid manpower shortage</a>
+          <span>BusinessLine — Companies</span>
+        </div>
+    <div class="section-head">REPORTS</div>
+    <div class="r-story">
+          <a href="https://think.ing.com/snaps/turkish-current-account-deficit-exceeds-expectations-amid-methodological-revision/" target="_blank">Turkish current account deficit jumps after methodological revision</a>
+          <span>ING</span>
+        </div><div class="r-story">
+          <a href="https://www.icici.bank.in/content/dam/icicibank/india/erg/daily-reports/mms-12-march-2026.pdf" target="_blank">Morning Market Starter</a>
+          <span>ICICI Bank</span>
+        </div><div class="r-story">
+          <a href="https://think.ing.com/articles/fx-daily-oil-and-equity-volatility-taking-dollar-back-up/" target="_blank">FX Daily: Oil and equity volatility taking dollar back up</a>
+          <span>ING</span>
+        </div>
+  </div>
+</div>
+</body></html>

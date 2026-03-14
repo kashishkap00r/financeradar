@@ -1,0 +1,167 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C1 — Command Center</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#f8f9fc;--sf:#fff;--ink:#1e293b;--mut:#64748b;--ln:#e2e8f0;--acc:#3b82f6}
+[data-theme="dark"]{--bg:#0a0e1a;--sf:#111827;--ink:#e2e8f0;--mut:#94a3b8;--ln:#1e293b;--acc:#60a5fa}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+.topbar{height:44px;background:var(--sf);border-bottom:1px solid var(--ln);display:flex;align-items:center;padding:0 20px;gap:16px}
+.logo{font:500 13px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.logo span{color:var(--acc)}
+.status{font:400 11px 'JetBrains Mono',monospace;color:var(--mut);margin-left:auto}
+.topbar button{background:none;border:1px solid var(--ln);color:var(--mut);padding:4px 10px;font:400 11px 'JetBrains Mono',monospace;cursor:pointer}
+.topbar button:hover{color:var(--ink)}
+.tabs{display:flex;gap:0;background:var(--sf);border-bottom:1px solid var(--ln);padding:0 20px}
+.tab{padding:10px 16px;font:500 11px 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);text-decoration:none;border-bottom:2px solid transparent;cursor:pointer}
+.tab.active{color:var(--ink);border-bottom-color:var(--acc)}
+.tab:hover{color:var(--ink)}
+.shell{display:grid;grid-template-columns:1fr 1.4fr .9fr;gap:1px;background:var(--ln);margin:0;min-height:calc(100vh - 88px)}
+.col{background:var(--bg);padding:16px}
+.col-head{font:700 10px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);padding-bottom:10px;border-bottom:1px solid var(--ln);margin-bottom:12px}
+table{width:100%;border-collapse:collapse}
+td{padding:6px 8px;font-size:12.5px;border-bottom:1px solid var(--ln);vertical-align:top}
+td.rank{font:500 11px 'JetBrains Mono',monospace;color:var(--acc);width:24px}
+td.src{font:400 10px 'JetBrains Mono',monospace;color:var(--mut);width:90px;text-align:right}
+td a{color:var(--ink);text-decoration:none}
+td a:hover{color:var(--acc)}
+.signal-row{display:grid;grid-template-columns:auto auto 1fr;gap:8px;padding:7px 0;border-bottom:1px solid var(--ln);align-items:baseline;font-size:12.5px}
+.signal-row a{color:var(--ink);text-decoration:none}
+.signal-row a:hover{color:var(--acc)}
+.ts{font:400 10px 'JetBrains Mono',monospace;color:var(--mut);white-space:nowrap}
+.src-badge{font:500 9px 'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--sf);background:var(--mut);padding:1px 5px;white-space:nowrap;max-width:100px;overflow:hidden;text-overflow:ellipsis}
+.wsw-item{padding:10px 0;border-bottom:1px solid var(--ln)}
+.wsw-title{font:600 12px 'DM Sans',sans-serif;margin-bottom:4px}
+.voice{font:400 11px 'Inter',sans-serif;color:var(--mut);line-height:1.4;margin-top:3px}
+.status-bar{position:fixed;bottom:0;left:0;right:0;height:24px;background:var(--sf);border-top:1px solid var(--ln);display:flex;align-items:center;padding:0 16px;gap:16px}
+.status-bar span{font:400 10px 'JetBrains Mono',monospace;color:var(--mut)}
+.status-bar .ok{color:#22c55e}
+</style></head>
+<body data-theme="light">
+<div class="topbar">
+  <div class="logo">FINANCE<span>.</span>RADAR</div>
+  <button>AI</button><button>WSW</button><button>Bookmarks</button>
+  <div class="status">30 articles · updated 2026-03-09</div>
+  <button onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'">THEME</button>
+</div>
+<div class="tabs">
+  <a class="tab active">Home</a><a class="tab">News</a><a class="tab">Telegram</a>
+  <a class="tab">Reports</a><a class="tab">YouTube</a><a class="tab">Twitter</a>
+</div>
+<div class="shell">
+  <div class="col">
+    <div class="col-head">PRIORITY BRIEFING</div>
+    <table><tr>
+          <td class="rank">1</td>
+          <td><a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a></td>
+          <td class="src">The Core</td>
+        </tr><tr>
+          <td class="rank">1</td>
+          <td><a href="https://t.me/stockupdate9/136170" target="_blank">45,000 Indian Containers Stranded: Export Crisis Deepens</a></td>
+          <td class="src">📈</td>
+        </tr><tr>
+          <td class="rank">1</td>
+          <td><a href="https://www.careratings.com/uploads/newsfiles/1772611151_Strait of Hormuz - The Rising Risk for India Inc..pdf" target="_blank">Strait of Hormuz: The Rising Risk for India Inc.</a></td>
+          <td class="src">CareEdge</td>
+        </tr><tr>
+          <td class="rank">1</td>
+          <td><a href="https://x.com/exencial_RP/status/2030895200747553046" target="_blank">🧵The sleeping giant of Indian logistics has just woken up in a complete…</a></td>
+          <td class="src">Exencial RP</td>
+        </tr><tr>
+          <td class="rank">1</td>
+          <td><a href="https://www.youtube.com/watch?v=c0Ne-dI2JcA" target="_blank">Flipkart Re-Domiciles To India | What It Means For Business &amp; IPO | Bus…</a></td>
+          <td class="src">ET Now</td>
+        </tr><tr>
+          <td class="rank">2</td>
+          <td><a href="https://www.livemint.com/companies/india-electric-scooter-ather-distribution-push-ola-electric-shrinks-number-of-stores-11773046053330.html" target="_blank">Ather eyes big distribution push in FY27 adding 400 stores—in stark con…</a></td>
+          <td class="src">Mint</td>
+        </tr><tr>
+          <td class="rank">2</td>
+          <td><a href="https://t.me/stockupdate9/136178" target="_blank">INDIA ANTITRUST PROBE FINDS DALMIA CEMENT, SHREE DIGVIJAY COLLUDED ON B…</a></td>
+          <td class="src">📈</td>
+        </tr><tr>
+          <td class="rank">2</td>
+          <td><a href="https://www.crisilratings.com/content/crisilratings/en/home/newsroom/press-releases/2026/03/16th-finance-commission-proposals-long-term-positive-for-states.html" target="_blank">16th Finance Commission proposals long-term positive for states</a></td>
+          <td class="src">CRISIL</td>
+        </tr></table>
+  </div>
+  <div class="col">
+    <div class="col-head">LATEST SIGNALS</div>
+    <div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">The Hindu — Agr…</span>
+          <a href="https://www.thehindu.com/news/international/how-iran-war-could-create-fertiliser-shock-often-ignored-global-risk-to-food-prices-farming/article70721470.ece" target="_blank">How Iran war could create ‘fertilizer shock’ – often ignored global r…</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/companies/amrut-sees-rum-gaining-ground-as-premium-spirits-demand-spreads-beyond-metros/article70723273.ece" target="_blank">Amrut sees rum gaining ground as premium spirits demand spreads beyon…</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/companies/karkhana-acquires-micron-ems-to-deepen-electronics-manufacturing-capabilities/article70722895.ece" target="_blank">Karkhana acquires Micron EMS to deepen electronics manufacturing capa…</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/info-tech/manyavar-campaign-crosses-300-million-views-in-72-hours-across-platforms/article70722655.ece" target="_blank">Manyavar campaign crosses 300 million views in 72 hours across platfo…</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/news/mm-forgings-plans-to-deploy-up-to-150-robots-amid-manpower-shortage/article70722740.ece" target="_blank">MM Forgings plans to deploy up to 150 robots amid manpower shortage</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/companies/abb-to-invest-75-million-in-india-to-expand-manufacturing-and-rampd/article70722833.ece" target="_blank">ABB to invest $75 million in India to expand manufacturing and R&amp;D</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/companies/tech-mahindra-denies-rumours-of-massive-layoffs/article70722810.ece" target="_blank">Tech Mahindra denies rumours of massive layoffs</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/news/saint-gobainindia-gyproc-commissions-new-plant-in-visakhapatnam/article70722863.ece" target="_blank">Saint-Gobain India -Gyproc commissions new plant in Visakhapatnam</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/companies/reliance-retail-acquires-beauty-brand-pahadi-local-to-expand-wellness-portfolio/article70722692.ece" target="_blank">Reliance Retail acquires beauty brand ‘Pahadi Local’ to expand wellne…</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/companies/versuni-to-double-airfryer-output-to-2-million-units-at-ahmedabad-facility-expands-chennai-plant/article70722263.ece" target="_blank">Versuni to double airfryer output at Ahmedabad facility to 2 million…</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/companies/flipkart-completes-reverse-flip-to-india-clears-path-for-domestic-ipo/article70722415.ece" target="_blank">Flipkart completes reverse flip to India, clears path for domestic IPO</a>
+        </div><div class="signal-row">
+          <span class="ts">2026-03-09</span>
+          <span class="src-badge">BusinessLine —…</span>
+          <a href="https://www.thehindubusinessline.com/companies/hgs-unit-signs-up-broadband-deal-to-connect-2-million-homes/article70722272.ece" target="_blank">HGS unit signs UP broadband deal to connect 2 million homes</a>
+        </div>
+    <div class="col-head" style="margin-top:20px">REPORTS</div>
+    <div class="signal-row"><span class="src-badge">ING</span><a href="https://think.ing.com/snaps/turkish-current-account-deficit-exceeds-expectations-amid-methodological-revision/" target="_blank">Turkish current account deficit jumps after methodological…</a></div><div class="signal-row"><span class="src-badge">ICICI Bank</span><a href="https://www.icici.bank.in/content/dam/icicibank/india/erg/daily-reports/mms-12-march-2026.pdf" target="_blank">Morning Market Starter</a></div><div class="signal-row"><span class="src-badge">ING</span><a href="https://think.ing.com/articles/fx-daily-oil-and-equity-volatility-taking-dollar-back-up/" target="_blank">FX Daily: Oil and equity volatility taking dollar back up</a></div><div class="signal-row"><span class="src-badge">ING</span><a href="https://think.ing.com/articles/eurozone-households-are-first-to-feel-the-pain-of-the-current-oil-price-shock/" target="_blank">Eurozone households are first to feel the pain of the curre…</a></div>
+  </div>
+  <div class="col">
+    <div class="col-head">WSW DIGEST</div>
+    <div class="wsw-item">
+          <div class="wsw-title">Trump Claims Iran War &#x27;Complete&#x27; as Oil Volatilit…</div>
+          
+        </div><div class="wsw-item">
+          <div class="wsw-title">Anthropic Sues US Government Over &#x27;Risk&#x27; Label an…</div>
+          
+        </div><div class="wsw-item">
+          <div class="wsw-title">Moneyview Defies Industry Retreat to Double Down…</div>
+          
+        </div><div class="wsw-item">
+          <div class="wsw-title">Ather’s Physical Store Blitz vs Ola’s Digital-Fir…</div>
+          
+        </div>
+  </div>
+</div>
+<div class="status-bar">
+  <span class="ok">● ALL FEEDS OK</span>
+  <span>News: 30</span>
+  <span>Reports: 10</span>
+  <span>Videos: 10</span>
+  <span>Tweets: 10</span>
+</div>
+</body></html>

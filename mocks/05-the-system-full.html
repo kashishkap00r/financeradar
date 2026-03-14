@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinanceRadar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════════════
+     THE SYSTEM v2 — Full-fledged
+     Cool pastel palette · Sidebar nav · Inter font
+     ═══════════════════════════════════════════════════ */
+
+  :root {
+    /* ── Core palette ── */
+    --accent: #6366f1;
+    --accent-soft: rgba(99,102,241,0.10);
+    --accent-med: rgba(99,102,241,0.18);
+    --accent-text: #4f46e5;
+
+    /* ── Category colors (cool pastels) ── */
+    --c-news: #60a5fa;
+    --c-news-soft: rgba(96,165,250,0.10);
+    --c-reports: #a78bfa;
+    --c-reports-soft: rgba(167,139,250,0.10);
+    --c-research: #34d399;
+    --c-research-soft: rgba(52,211,153,0.10);
+    --c-youtube: #f472b6;
+    --c-youtube-soft: rgba(244,114,182,0.10);
+    --c-twitter: #38bdf8;
+    --c-twitter-soft: rgba(56,189,248,0.10);
+    --c-papers: #a3e635;
+    --c-papers-soft: rgba(163,230,53,0.10);
+
+    /* ── Light theme ── */
+    --fg: #18181b;
+    --fg-2: #52525b;
+    --fg-3: #a1a1aa;
+    --fg-4: #d4d4d8;
+    --bg: #ffffff;
+    --bg-2: #fafafa;
+    --bg-3: #f4f4f5;
+    --bg-hover: #f4f4f5;
+    --sidebar-bg: #fafafa;
+    --sidebar-border: #f0f0f2;
+    --rule: #e4e4e7;
+    --card-bg: #ffffff;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+
+    /* ── Typography ── */
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+
+    /* ── Sizing ── */
+    --sidebar-w: 232px;
+    --content-max: 740px;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+
+  [data-theme="dark"] {
+    --fg: #f4f4f5;
+    --fg-2: #a1a1aa;
+    --fg-3: #71717a;
+    --fg-4: #3f3f46;
+    --bg: #09090b;
+    --bg-2: #111113;
+    --bg-3: #18181b;
+    --bg-hover: #1e1e22;
+    --sidebar-bg: #111113;
+    --sidebar-border: #1e1e22;
+    --rule: #27272a;
+    --card-bg: #18181b;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+    --accent-soft: rgba(99,102,241,0.14);
+    --accent-med: rgba(99,102,241,0.22);
+    --accent-text: #818cf8;
+    --c-news-soft: rgba(96,165,250,0.14);
+    --c-reports-soft: rgba(167,139,250,0.14);
+    --c-research-soft: rgba(52,211,153,0.12);
+    --c-youtube-soft: rgba(244,114,182,0.14);
+    --c-twitter-soft: rgba(56,189,248,0.14);
+    --c-papers-soft: rgba(163,230,53,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ════════════════════════════════
+     SIDEBAR
+     ════════════════════════════════ */
+  .sidebar {
+    width: var(--sidebar-w);
+    flex-shrink: 0;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 100;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .sidebar::-webkit-scrollbar { display: none; }
+
+  .sidebar-top {
+    padding: 20px 14px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--fg);
+    letter-spacing: -0.4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-mark {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .sidebar-search {
+    margin: 8px 14px 4px;
+    position: relative;
+  }
+
+  .sidebar-search-input {
+    width: 100%;
+    padding: 7px 10px 7px 30px;
+    font-family: var(--sans);
+    font-size: 13px;
+    background: var(--bg-3);
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    color: var(--fg);
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .sidebar-search-input::placeholder { color: var(--fg-3); }
+
+  .sidebar-search-input:focus {
+    border-color: var(--accent);
+    background: var(--bg);
+  }
+
+  .sidebar-search-icon {
+    position: absolute;
+    left: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--fg-3);
+    font-size: 13px;
+    pointer-events: none;
+  }
+
+  /* ── Sidebar sections ── */
+  .sidebar-section {
+    padding: 4px 8px;
+  }
+
+  .sidebar-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--fg-3);
+    padding: 12px 8px 4px;
+  }
+
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 8px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fg-2);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    text-decoration: none;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-family: var(--sans);
+  }
+
+  .sidebar-item:hover {
+    background: var(--bg-hover);
+    color: var(--fg);
+  }
+
+  .sidebar-item.active {
+    background: var(--accent-soft);
+    color: var(--accent-text);
+  }
+
+  .sidebar-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .sidebar-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  .sidebar-count {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--fg-3);
+    font-family: var(--mono);
+  }
+
+  .sidebar-item.active .sidebar-count {
+    color: var(--accent-text);
+    opacity: 0.7;
+  }
+
+  .sidebar-bottom {
+    margin-top: auto;
+    padding: 8px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 8px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fg-2);
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: var(--sans);
+    transition: background 0.12s;
+  }
+
+  .theme-btn:hover { background: var(--bg-hover); }
+
+  /* ════════════════════════════════
+     MAIN CONTENT
+     ════════════════════════════════ */
+  .main {
+    margin-left: var(--sidebar-w);
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Page header ── */
+  .page-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 32px;
+  }
+
+  .page-header-inner {
+    max-width: var(--content-max);
+    padding: 16px 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .page-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .page-title-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .page-actions {
+    display: flex;
+    gap: 6px;
+  }
+
+  .page-action-btn {
+    padding: 6px 12px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--bg-3);
+    border: none;
+    border-radius: var(--radius);
+    color: var(--fg-2);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .page-action-btn:hover {
+    background: var(--bg-hover);
+    color: var(--fg);
+  }
+
+  .page-action-btn.accent {
+    background: var(--accent-soft);
+    color: var(--accent-text);
+  }
+
+  .page-action-btn.accent:hover {
+    background: var(--accent-med);
+  }
+
+  .page-meta {
+    font-size: 12px;
+    color: var(--fg-3);
+    font-weight: 400;
+    margin-left: 4px;
+  }
+
+  /* ── Filter bar ── */
+  .filter-bar {
+    padding: 10px 32px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+    background: var(--bg);
+  }
+
+  .filter-chip {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--fg-2);
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+
+  .filter-chip:hover {
+    border-color: var(--fg-4);
+    color: var(--fg);
+  }
+
+  .filter-chip.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .filter-separator {
+    width: 1px;
+    height: 16px;
+    background: var(--rule);
+    margin: 0 4px;
+  }
+
+  .filter-chip-source {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    background: var(--bg-3);
+    color: var(--fg-2);
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+
+  .filter-chip-source:hover {
+    background: var(--bg-hover);
+    color: var(--fg);
+  }
+
+  .filter-chip-source.active {
+    background: var(--accent-soft);
+    border-color: transparent;
+    color: var(--accent-text);
+  }
+
+  /* ── Content scroll area ── */
+  .content-area {
+    padding: 0 32px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .content-inner {
+    max-width: var(--content-max);
+    padding: 0 0 48px;
+  }
+
+  /* ── Tab panels ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── Date divider ── */
+  .date-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--fg-3);
+  }
+
+  .date-divider:first-child { margin-top: 20px; }
+
+  .date-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ════════════════════════════════
+     ARTICLE CARD
+     ════════════════════════════════ */
+  .article {
+    padding: 16px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.1s;
+  }
+
+  .article-body { flex: 1; min-width: 0; }
+
+  .article-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    letter-spacing: -0.15px;
+  }
+
+  .article-title a {
+    color: var(--fg);
+    text-decoration: none;
+    transition: color 0.1s;
+  }
+
+  .article-title a:hover { color: var(--accent-text); }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--fg-3);
+  }
+
+  .source-tag {
+    font-weight: 600;
+    color: var(--fg-2);
+  }
+
+  .meta-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--fg-4);
+    flex-shrink: 0;
+  }
+
+  .article-desc {
+    margin-top: 8px;
+    font-size: 13.5px;
+    color: var(--fg-2);
+    line-height: 1.55;
+  }
+
+  .article-also {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--fg-3);
+  }
+
+  .article-also a {
+    color: var(--accent-text);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .article-also a:hover { text-decoration: underline; }
+
+  /* ── Source color bar ── */
+  .source-bar {
+    width: 3px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    align-self: stretch;
+    min-height: 24px;
+  }
+
+  /* ── Bookmark button ── */
+  .bm-btn {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    background: none;
+    border: 1px solid transparent;
+    color: var(--fg-3);
+    cursor: pointer;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.12s;
+  }
+
+  .bm-btn:hover {
+    background: var(--bg-3);
+    color: var(--fg-2);
+    border-color: var(--rule);
+  }
+
+  .bm-btn.active {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-color: transparent;
+  }
+
+  /* ════════════════════════════════
+     REPORT CARD
+     ════════════════════════════════ */
+  .report-card {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin: 10px 0;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .report-card:hover {
+    border-color: var(--fg-4);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .report-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .report-card-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .report-badge {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 100px;
+  }
+
+  .report-badge-doc {
+    background: var(--c-reports-soft);
+    color: var(--c-reports);
+  }
+
+  .report-badge-photo {
+    background: var(--c-twitter-soft);
+    color: var(--c-twitter);
+  }
+
+  .report-channel {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--fg-2);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .report-date {
+    font-size: 11px;
+    color: var(--fg-3);
+  }
+
+  .report-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+
+  .report-title a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .report-title a:hover { color: var(--accent-text); }
+
+  .report-text {
+    font-size: 13px;
+    color: var(--fg-2);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .report-doc-row {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .report-doc-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: var(--radius);
+    background: var(--bg-3);
+    color: var(--fg-2);
+    text-decoration: none;
+    transition: background 0.12s;
+  }
+
+  .report-doc-chip:hover { background: var(--bg-hover); }
+
+  /* ════════════════════════════════
+     VIDEO CARD
+     ════════════════════════════════ */
+  .video-card {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .video-thumb {
+    width: 180px;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-3);
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .video-card:hover .video-thumb-overlay { opacity: 1; }
+
+  .video-play-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #18181b;
+    font-size: 14px;
+  }
+
+  .video-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .video-channel {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-youtube);
+    margin-bottom: 4px;
+  }
+
+  .video-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .video-title a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .video-title a:hover { color: var(--accent-text); }
+
+  .video-meta {
+    font-size: 12px;
+    color: var(--fg-3);
+    margin-top: auto;
+  }
+
+  /* ════════════════════════════════
+     TWEET CARD
+     ════════════════════════════════ */
+  .tweet-card {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: 14px 16px;
+    margin: 8px 0;
+    transition: border-color 0.15s;
+  }
+
+  .tweet-card:hover { border-color: var(--fg-4); }
+
+  .tweet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .tweet-author {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--fg);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tweet-handle {
+    font-weight: 400;
+    color: var(--fg-3);
+  }
+
+  .tweet-time {
+    font-size: 11px;
+    color: var(--fg-3);
+  }
+
+  .tweet-body {
+    font-size: 14px;
+    color: var(--fg);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .tweet-body a {
+    color: var(--accent-text);
+    text-decoration: none;
+  }
+
+  .tweet-link {
+    font-size: 12px;
+    color: var(--accent-text);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .tweet-link:hover { text-decoration: underline; }
+
+  /* ════════════════════════════════
+     AI PICKS SIDEBAR (right panel)
+     ════════════════════════════════ */
+  .panel-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+
+  .panel-overlay.open { opacity: 1; visibility: visible; }
+
+  .panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 380px;
+    max-width: 90vw;
+    height: 100vh;
+    background: var(--bg);
+    border-left: 1px solid var(--rule);
+    z-index: 201;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+  }
+
+  .panel-overlay.open .panel { transform: translateX(0); }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--rule);
+    flex-shrink: 0;
+  }
+
+  .panel-title {
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .panel-close {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: var(--bg-3);
+    border-radius: var(--radius);
+    color: var(--fg-2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: background 0.12s;
+  }
+
+  .panel-close:hover { background: var(--bg-hover); color: var(--fg); }
+
+  .panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+  }
+
+  .ai-rank-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 20px;
+    transition: background 0.1s;
+    align-items: flex-start;
+  }
+
+  .ai-rank-item:hover { background: var(--bg-hover); }
+
+  .rank-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    min-width: 20px;
+    padding-top: 2px;
+  }
+
+  .rank-body { flex: 1; min-width: 0; }
+
+  .rank-title {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 2px;
+  }
+
+  .rank-title a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .rank-title a:hover { color: var(--accent-text); }
+
+  .rank-source {
+    font-size: 11px;
+    color: var(--fg-3);
+  }
+
+  /* ════════════════════════════════
+     BOOKMARKS PANEL
+     ════════════════════════════════ */
+  .bookmark-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.1s;
+  }
+
+  .bookmark-item:hover { background: var(--bg-hover); }
+
+  .bookmark-title {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .bookmark-title a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .bookmark-title a:hover { color: var(--accent-text); }
+
+  .bookmark-meta {
+    font-size: 11px;
+    color: var(--fg-3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .bookmark-remove {
+    background: none;
+    border: none;
+    color: var(--fg-3);
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px;
+  }
+
+  .bookmark-remove:hover { color: var(--fg-2); }
+
+  .panel-empty {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--fg-3);
+    font-size: 13px;
+  }
+
+  /* ════════════════════════════════
+     RESEARCH / PAPERS (list style)
+     ════════════════════════════════ */
+  .research-card {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .research-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .research-region {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 100px;
+  }
+
+  .research-region-in {
+    background: var(--c-research-soft);
+    color: var(--c-research);
+  }
+
+  .research-region-intl {
+    background: var(--c-news-soft);
+    color: var(--c-news);
+  }
+
+  .research-publisher {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--fg-2);
+  }
+
+  .research-time {
+    font-size: 11px;
+    color: var(--fg-3);
+    margin-left: auto;
+  }
+
+  .research-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .research-title a { color: var(--fg); text-decoration: none; }
+  .research-title a:hover { color: var(--accent-text); }
+
+  .research-desc {
+    font-size: 13px;
+    color: var(--fg-2);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ════════════════════════════════
+     RESPONSIVE
+     ════════════════════════════════ */
+  .mobile-header {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 12px 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile-header .logo { font-size: 15px; }
+
+  .mobile-menu-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--rule);
+    background: none;
+    border-radius: var(--radius);
+    color: var(--fg-2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .sidebar-overlay-mobile {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 99;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-overlay-mobile.open { display: block; }
+    .mobile-header { display: flex; }
+    .main { margin-left: 0; }
+    .page-header { padding: 0 16px; }
+    .filter-bar { padding: 10px 16px; }
+    .content-area { padding: 0 16px; }
+    .video-card { flex-direction: column; }
+    .video-thumb { width: 100%; }
+  }
+
+  /* ════════════════════════════════
+     SCROLLBAR
+     ════════════════════════════════ */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--fg-4);
+    border-radius: 100px;
+  }
+
+  /* ════════════════════════════════
+     EMPTY STATE
+     ════════════════════════════════ */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--fg-3);
+    font-size: 13px;
+  }
+
+  .empty-state-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    opacity: 0.4;
+  }
+
+  /* ════════════════════════════════
+     STATUS DOT (live indicator)
+     ════════════════════════════════ */
+  .live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c-research);
+    display: inline-block;
+    animation: live-pulse 2.5s infinite;
+  }
+
+  @keyframes live-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-top">
+    <div class="logo">
+      <span class="logo-mark">F</span>
+      FinanceRadar
+    </div>
+  </div>
+
+  <div class="sidebar-search">
+    <span class="sidebar-search-icon">⌕</span>
+    <input class="sidebar-search-input" type="text" placeholder="Search…">
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Feeds</div>
+    <button class="sidebar-item active" data-tab="news" onclick="switchTab('news')">
+      <span class="sidebar-dot" style="background:var(--c-news)"></span>
+      News
+      <span class="sidebar-count">142</span>
+    </button>
+    <button class="sidebar-item" data-tab="reports" onclick="switchTab('reports')">
+      <span class="sidebar-dot" style="background:var(--c-reports)"></span>
+      Telegram
+      <span class="sidebar-count">28</span>
+    </button>
+    <button class="sidebar-item" data-tab="research" onclick="switchTab('research')">
+      <span class="sidebar-dot" style="background:var(--c-research)"></span>
+      Research
+      <span class="sidebar-count">15</span>
+    </button>
+    <button class="sidebar-item" data-tab="youtube" onclick="switchTab('youtube')">
+      <span class="sidebar-dot" style="background:var(--c-youtube)"></span>
+      YouTube
+      <span class="sidebar-count">34</span>
+    </button>
+    <button class="sidebar-item" data-tab="twitter" onclick="switchTab('twitter')">
+      <span class="sidebar-dot" style="background:var(--c-twitter)"></span>
+      Twitter
+      <span class="sidebar-count">67</span>
+    </button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-label">Curated</div>
+    <button class="sidebar-item" onclick="openPanel('ai')">
+      <span class="sidebar-dot" style="background:var(--accent)"></span>
+      AI Picks
+    </button>
+    <button class="sidebar-item" onclick="openPanel('bookmarks')">
+      <span class="sidebar-dot" style="background:var(--fg-3)"></span>
+      Bookmarks
+      <span class="sidebar-count">3</span>
+    </button>
+  </div>
+
+  <div class="sidebar-bottom">
+    <button class="theme-btn" onclick="toggleTheme()">
+      <span id="theme-icon">☾</span>
+      <span id="theme-label">Dark mode</span>
+    </button>
+  </div>
+</aside>
+
+<div class="sidebar-overlay-mobile" id="sidebar-overlay" onclick="closeMobileSidebar()"></div>
+
+<!-- ══ MAIN ══ -->
+<div class="main">
+
+  <!-- Mobile header -->
+  <div class="mobile-header">
+    <div class="logo">
+      <span class="logo-mark">F</span>
+      FinanceRadar
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileSidebar()">☰</button>
+  </div>
+
+  <!-- ── NEWS TAB ── -->
+  <div class="tab-panel active" id="panel-news">
+    <div class="page-header">
+      <div class="page-header-inner">
+        <h1 class="page-title">
+          <span class="page-title-dot" style="background:var(--c-news)"></span>
+          News
+          <span class="page-meta">142 articles · <span class="live-dot"></span> Updated 12m ago</span>
+        </h1>
+        <div class="page-actions">
+          <button class="page-action-btn accent" onclick="openPanel('ai')">✦ AI Picks</button>
+          <button class="page-action-btn" onclick="openPanel('bookmarks')">☆ Saved</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-chip active">All</button>
+      <button class="filter-chip">Last 6h</button>
+      <button class="filter-chip">Last 24h</button>
+      <span class="filter-separator"></span>
+      <button class="filter-chip-source active">All sources</button>
+      <button class="filter-chip-source">LiveMint</button>
+      <button class="filter-chip-source">ET Markets</button>
+      <button class="filter-chip-source">Moneycontrol</button>
+      <button class="filter-chip-source">Reuters</button>
+      <button class="filter-chip-source">Business Standard</button>
+    </div>
+
+    <div class="content-area">
+      <div class="content-inner">
+        <div class="date-divider">Today — March 10</div>
+
+        <article class="article">
+          <div class="source-bar" style="background:var(--c-news)"></div>
+          <div class="article-body">
+            <h2 class="article-title">
+              <a href="#">RBI holds repo rate steady at 6.25% as inflation risks persist</a>
+            </h2>
+            <div class="article-meta">
+              <span class="source-tag">LiveMint</span>
+              <span class="meta-dot"></span>
+              <span>2 hours ago</span>
+            </div>
+            <p class="article-desc">
+              The central bank kept its benchmark rate unchanged for the second consecutive meeting, citing persistent food inflation and global uncertainty.
+            </p>
+            <div class="article-also">Also covered by <a href="#">ET Markets</a>, <a href="#">Moneycontrol</a></div>
+          </div>
+          <button class="bm-btn" onclick="this.classList.toggle('active')">☆</button>
+        </article>
+
+        <article class="article">
+          <div class="source-bar" style="background:var(--c-news)"></div>
+          <div class="article-body">
+            <h2 class="article-title">
+              <a href="#">Tata Motors reports 18% rise in domestic EV sales for February</a>
+            </h2>
+            <div class="article-meta">
+              <span class="source-tag">Economic Times</span>
+              <span class="meta-dot"></span>
+              <span>3 hours ago</span>
+            </div>
+            <p class="article-desc">
+              The automaker's electric vehicle segment outpaced the broader passenger vehicle market, with the Nexon EV continuing to lead sales.
+            </p>
+          </div>
+          <button class="bm-btn" onclick="this.classList.toggle('active')">☆</button>
+        </article>
+
+        <article class="article">
+          <div class="source-bar" style="background:var(--c-news)"></div>
+          <div class="article-body">
+            <h2 class="article-title">
+              <a href="#">SEBI proposes tighter norms for finfluencers promoting unregistered schemes</a>
+            </h2>
+            <div class="article-meta">
+              <span class="source-tag">Moneycontrol</span>
+              <span class="meta-dot"></span>
+              <span>4 hours ago</span>
+            </div>
+          </div>
+          <button class="bm-btn" onclick="this.classList.toggle('active')">☆</button>
+        </article>
+
+        <article class="article">
+          <div class="source-bar" style="background:var(--c-news)"></div>
+          <div class="article-body">
+            <h2 class="article-title">
+              <a href="#">Reliance Jio's tariff hike signals end of India's cheap data era</a>
+            </h2>
+            <div class="article-meta">
+              <span class="source-tag">Reuters</span>
+              <span class="meta-dot"></span>
+              <span>5 hours ago</span>
+            </div>
+            <p class="article-desc">
+              Analysts expect Bharti Airtel and Vodafone Idea to follow with similar increases within weeks, marking a structural shift in telecom pricing.
+            </p>
+            <div class="article-also">Also covered by <a href="#">LiveMint</a></div>
+          </div>
+          <button class="bm-btn active" onclick="this.classList.toggle('active')">★</button>
+        </article>
+
+        <article class="article">
+          <div class="source-bar" style="background:var(--c-news)"></div>
+          <div class="article-body">
+            <h2 class="article-title">
+              <a href="#">India's manufacturing PMI hits 14-month high on strong new orders</a>
+            </h2>
+            <div class="article-meta">
+              <span class="source-tag">Business Standard</span>
+              <span class="meta-dot"></span>
+              <span>6 hours ago</span>
+            </div>
+          </div>
+          <button class="bm-btn" onclick="this.classList.toggle('active')">☆</button>
+        </article>
+
+        <article class="article">
+          <div class="source-bar" style="background:var(--c-news)"></div>
+          <div class="article-body">
+            <h2 class="article-title">
+              <a href="#">SBI reports record quarterly profit of ₹19,400 crore, asset quality improves to decade best</a>
+            </h2>
+            <div class="article-meta">
+              <span class="source-tag">LiveMint</span>
+              <span class="meta-dot"></span>
+              <span>7 hours ago</span>
+            </div>
+            <p class="article-desc">
+              Net profit rose 28% year-on-year, beating analyst estimates. Gross NPAs fell to 2.1%, the lowest in a decade.
+            </p>
+          </div>
+          <button class="bm-btn" onclick="this.classList.toggle('active')">☆</button>
+        </article>
+
+        <div class="date-divider">Yesterday — March 9</div>
+
+        <article class="article">
+          <div class="source-bar" style="background:var(--c-news)"></div>
+          <div class="article-body">
+            <h2 class="article-title">
+              <a href="#">Adani Group completes ₹15,000 crore debt reduction ahead of schedule</a>
+            </h2>
+            <div class="article-meta">
+              <span class="source-tag">Economic Times</span>
+              <span class="meta-dot"></span>
+              <span>Yesterday</span>
+            </div>
+          </div>
+          <button class="bm-btn" onclick="this.classList.toggle('active')">☆</button>
+        </article>
+
+        <article class="article">
+          <div class="source-bar" style="background:var(--c-news)"></div>
+          <div class="article-body">
+            <h2 class="article-title">
+              <a href="#">India's forex reserves climb to $680 billion, highest since October</a>
+            </h2>
+            <div class="article-meta">
+              <span class="source-tag">Reuters</span>
+              <span class="meta-dot"></span>
+              <span>Yesterday</span>
+            </div>
+            <p class="article-desc">
+              The Reserve Bank of India has been rebuilding reserves after intervening heavily to support the rupee through the dollar rally.
+            </p>
+          </div>
+          <button class="bm-btn active" onclick="this.classList.toggle('active')">★</button>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TELEGRAM REPORTS TAB ── -->
+  <div class="tab-panel" id="panel-reports">
+    <div class="page-header">
+      <div class="page-header-inner">
+        <h1 class="page-title">
+          <span class="page-title-dot" style="background:var(--c-reports)"></span>
+          Telegram
+          <span class="page-meta">28 reports</span>
+        </h1>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-chip active">All</button>
+      <button class="filter-chip">Documents</button>
+      <button class="filter-chip">Photos</button>
+      <span class="filter-separator"></span>
+      <button class="filter-chip-source active">All channels</button>
+      <button class="filter-chip-source">Brokerage Reports</button>
+      <button class="filter-chip-source">CareEdge</button>
+    </div>
+
+    <div class="content-area">
+      <div class="content-inner">
+        <div class="date-divider">Today — March 10</div>
+
+        <div class="report-card">
+          <div class="report-card-header">
+            <div class="report-card-left">
+              <span class="report-badge report-badge-doc">PDF</span>
+              <span class="report-channel">Brokerage Reports</span>
+            </div>
+            <span class="report-date">2 hours ago</span>
+          </div>
+          <h3 class="report-title">
+            <a href="#">HDFC Securities — Tata Motors: Buy, Target ₹980 — EV segment inflection point</a>
+          </h3>
+          <p class="report-text">
+            We upgrade our target on strong EV momentum and improving JLR margins. The Nexon EV continues to dominate with 62% market share in the sub-₹20L segment.
+          </p>
+          <div class="report-doc-row">
+            <a class="report-doc-chip" href="#">📄 TataMotors_Buy_Mar2026.pdf · 2.1 MB</a>
+          </div>
+        </div>
+
+        <div class="report-card">
+          <div class="report-card-header">
+            <div class="report-card-left">
+              <span class="report-badge report-badge-photo">Image</span>
+              <span class="report-channel">CareEdge</span>
+            </div>
+            <span class="report-date">5 hours ago</span>
+          </div>
+          <h3 class="report-title">
+            <a href="#">India Credit Outlook Q1 FY27 — Banking sector NPAs at multi-year lows</a>
+          </h3>
+          <p class="report-text">
+            Credit growth remains strong at 14.2% YoY. Asset quality improvements continue with system-level GNPAs at 2.8%. Private banks leading with robust provision coverage.
+          </p>
+        </div>
+
+        <div class="report-card">
+          <div class="report-card-header">
+            <div class="report-card-left">
+              <span class="report-badge report-badge-doc">PDF</span>
+              <span class="report-channel">Brokerage Reports</span>
+            </div>
+            <span class="report-date">6 hours ago</span>
+          </div>
+          <h3 class="report-title">
+            <a href="#">Axis Direct — SEBI consultation paper: Impact on fintech distribution models</a>
+          </h3>
+          <p class="report-text">
+            The proposed regulations on finfluencers could impact distribution costs for new-age brokers. We see limited impact on established players.
+          </p>
+          <div class="report-doc-row">
+            <a class="report-doc-chip" href="#">📄 SEBI_Finfluencer_Impact.pdf · 1.4 MB</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RESEARCH TAB ── -->
+  <div class="tab-panel" id="panel-research">
+    <div class="page-header">
+      <div class="page-header-inner">
+        <h1 class="page-title">
+          <span class="page-title-dot" style="background:var(--c-research)"></span>
+          Research
+          <span class="page-meta">15 reports</span>
+        </h1>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-chip active">All</button>
+      <button class="filter-chip">Indian</button>
+      <button class="filter-chip">International</button>
+      <span class="filter-separator"></span>
+      <button class="filter-chip-source active">All publishers</button>
+      <button class="filter-chip-source">CRISIL</button>
+      <button class="filter-chip-source">Goldman Sachs</button>
+      <button class="filter-chip-source">HDFC Sec</button>
+    </div>
+
+    <div class="content-area">
+      <div class="content-inner">
+        <div class="date-divider">Today — March 10</div>
+
+        <div class="research-card">
+          <div class="research-header">
+            <span class="research-region research-region-in">Indian</span>
+            <span class="research-publisher">CRISIL</span>
+            <span class="research-time">3h ago</span>
+          </div>
+          <h3 class="research-title">
+            <a href="#">India Manufacturing Monitor: PMI signals broadening recovery across sectors</a>
+          </h3>
+          <p class="research-desc">
+            New order inflows hit 14-month high. Export orders improving for the first time in 6 months. Employment sub-index crosses 50 for third consecutive month.
+          </p>
+        </div>
+
+        <div class="research-card">
+          <div class="research-header">
+            <span class="research-region research-region-intl">International</span>
+            <span class="research-publisher">Goldman Sachs</span>
+            <span class="research-time">5h ago</span>
+          </div>
+          <h3 class="research-title">
+            <a href="#">EM Equity Strategy: India remains overweight — structural growth thesis intact</a>
+          </h3>
+          <p class="research-desc">
+            We maintain India as our top EM overweight. Domestic consumption recovery, capex cycle, and digital infrastructure investments support our 15% earnings growth forecast.
+          </p>
+        </div>
+
+        <div class="research-card">
+          <div class="research-header">
+            <span class="research-region research-region-in">Indian</span>
+            <span class="research-publisher">HDFC Securities</span>
+            <span class="research-time">8h ago</span>
+          </div>
+          <h3 class="research-title">
+            <a href="#">Telecom sector update: Tariff hike cycle to drive 200bps ARPU improvement</a>
+          </h3>
+          <p class="research-desc">
+            Jio's latest tariff revision confirms the sector-wide pricing discipline thesis. We expect Airtel and Vi to follow within 4-6 weeks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── YOUTUBE TAB ── -->
+  <div class="tab-panel" id="panel-youtube">
+    <div class="page-header">
+      <div class="page-header-inner">
+        <h1 class="page-title">
+          <span class="page-title-dot" style="background:var(--c-youtube)"></span>
+          YouTube
+          <span class="page-meta">34 videos</span>
+        </h1>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-chip active">All</button>
+      <button class="filter-chip">Last 24h</button>
+      <button class="filter-chip">This week</button>
+      <span class="filter-separator"></span>
+      <button class="filter-chip-source active">All channels</button>
+      <button class="filter-chip-source">Rachana Ranade</button>
+      <button class="filter-chip-source">Akshat Shrivastava</button>
+      <button class="filter-chip-source">Zerodha Varsity</button>
+    </div>
+
+    <div class="content-area">
+      <div class="content-inner">
+        <div class="date-divider">Today — March 10</div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--c-youtube-soft), var(--bg-3));display:flex;align-items:center;justify-content:center;color:var(--fg-3);font-size:32px">▶</div>
+            <div class="video-thumb-overlay">
+              <div class="video-play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-info">
+            <span class="video-channel">Rachana Ranade</span>
+            <h3 class="video-title">
+              <a href="#">RBI Policy Explained: Why rates stayed unchanged and what it means for your loans</a>
+            </h3>
+            <div class="video-meta">12K views · 2 hours ago</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--c-youtube-soft), var(--bg-3));display:flex;align-items:center;justify-content:center;color:var(--fg-3);font-size:32px">▶</div>
+            <div class="video-thumb-overlay">
+              <div class="video-play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-info">
+            <span class="video-channel">Akshat Shrivastava</span>
+            <h3 class="video-title">
+              <a href="#">Tata EV Sales Are Exploding — But Should You Buy The Stock?</a>
+            </h3>
+            <div class="video-meta">28K views · 4 hours ago</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--c-youtube-soft), var(--bg-3));display:flex;align-items:center;justify-content:center;color:var(--fg-3);font-size:32px">▶</div>
+            <div class="video-thumb-overlay">
+              <div class="video-play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-info">
+            <span class="video-channel">Zerodha Varsity</span>
+            <h3 class="video-title">
+              <a href="#">Understanding SEBI's new finfluencer regulations — complete breakdown</a>
+            </h3>
+            <div class="video-meta">8.5K views · 6 hours ago</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--c-youtube-soft), var(--bg-3));display:flex;align-items:center;justify-content:center;color:var(--fg-3);font-size:32px">▶</div>
+            <div class="video-thumb-overlay">
+              <div class="video-play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-info">
+            <span class="video-channel">Rachana Ranade</span>
+            <h3 class="video-title">
+              <a href="#">SBI Q3 Results Analysis — Record profit, should you invest now?</a>
+            </h3>
+            <div class="video-meta">15K views · 8 hours ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TWITTER TAB ── -->
+  <div class="tab-panel" id="panel-twitter">
+    <div class="page-header">
+      <div class="page-header-inner">
+        <h1 class="page-title">
+          <span class="page-title-dot" style="background:var(--c-twitter)"></span>
+          Twitter
+          <span class="page-meta">67 posts</span>
+        </h1>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-chip active">All</button>
+      <button class="filter-chip">Original</button>
+      <button class="filter-chip">Threads</button>
+      <span class="filter-separator"></span>
+      <button class="filter-chip-source active">All accounts</button>
+      <button class="filter-chip-source">Nithin Kamath</button>
+      <button class="filter-chip-source">Deepak Shenoy</button>
+    </div>
+
+    <div class="content-area">
+      <div class="content-inner">
+        <div class="date-divider">Today — March 10</div>
+
+        <div class="tweet-card">
+          <div class="tweet-header">
+            <span class="tweet-author">
+              Nithin Kamath
+              <span class="tweet-handle">@Nitaborade</span>
+            </span>
+            <span class="tweet-time">1h ago</span>
+          </div>
+          <p class="tweet-body">
+            RBI holding rates was expected, but the commentary around food inflation was more hawkish than markets anticipated. The bond market reaction tells the real story — 10Y yield up 4bps post-announcement.
+          </p>
+          <a class="tweet-link" href="#">View on X →</a>
+        </div>
+
+        <div class="tweet-card">
+          <div class="tweet-header">
+            <span class="tweet-author">
+              Deepak Shenoy
+              <span class="tweet-handle">@deepaborade</span>
+            </span>
+            <span class="tweet-time">3h ago</span>
+          </div>
+          <p class="tweet-body">
+            Tata Motors EV story is fascinating — 18% growth when the overall auto market grew only 4%. But the real question is margins. The Nexon EV is profitable, but the new Curvv EV launch costs will weigh on Q4 numbers. Thread 🧵
+          </p>
+          <a class="tweet-link" href="#">View on X →</a>
+        </div>
+
+        <div class="tweet-card">
+          <div class="tweet-header">
+            <span class="tweet-author">
+              Nithin Kamath
+              <span class="tweet-handle">@Nitaborade</span>
+            </span>
+            <span class="tweet-time">5h ago</span>
+          </div>
+          <p class="tweet-body">
+            Jio tariff hike is a signal that the Indian consumer internet story is entering its monetization phase. Cheap data built the user base — now comes pricing power. Good for telcos, mixed for digital businesses that relied on zero-cost distribution.
+          </p>
+          <a class="tweet-link" href="#">View on X →</a>
+        </div>
+
+        <div class="tweet-card">
+          <div class="tweet-header">
+            <span class="tweet-author">
+              Deepak Shenoy
+              <span class="tweet-handle">@deepaborade</span>
+            </span>
+            <span class="tweet-time">7h ago</span>
+          </div>
+          <p class="tweet-body">
+            SBI's results are remarkable. ₹19,400 cr quarterly profit from a PSU bank. NPA at 2.1%. The transformation of Indian PSU banking over the last 5 years deserves more recognition than it gets.
+          </p>
+          <a class="tweet-link" href="#">View on X →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ AI PICKS PANEL ══ -->
+<div class="panel-overlay" id="ai-panel" onclick="closePanel('ai')">
+  <div class="panel" onclick="event.stopPropagation()">
+    <div class="panel-header">
+      <span class="panel-title">
+        <span style="color:var(--accent)">✦</span> AI Picks
+      </span>
+      <button class="panel-close" onclick="closePanel('ai')">×</button>
+    </div>
+    <div class="panel-body">
+      <div class="ai-rank-item">
+        <span class="rank-num">01</span>
+        <div class="rank-body">
+          <div class="rank-title"><a href="#">RBI holds repo rate steady at 6.25% as inflation risks persist</a></div>
+          <span class="rank-source">LiveMint · 2h ago</span>
+        </div>
+      </div>
+      <div class="ai-rank-item">
+        <span class="rank-num">02</span>
+        <div class="rank-body">
+          <div class="rank-title"><a href="#">Reliance Jio's tariff hike signals end of India's cheap data era</a></div>
+          <span class="rank-source">Reuters · 5h ago</span>
+        </div>
+      </div>
+      <div class="ai-rank-item">
+        <span class="rank-num">03</span>
+        <div class="rank-body">
+          <div class="rank-title"><a href="#">SBI reports record quarterly profit, asset quality at decade best</a></div>
+          <span class="rank-source">LiveMint · 7h ago</span>
+        </div>
+      </div>
+      <div class="ai-rank-item">
+        <span class="rank-num">04</span>
+        <div class="rank-body">
+          <div class="rank-title"><a href="#">India's manufacturing PMI hits 14-month high on strong new orders</a></div>
+          <span class="rank-source">Business Standard · 6h ago</span>
+        </div>
+      </div>
+      <div class="ai-rank-item">
+        <span class="rank-num">05</span>
+        <div class="rank-body">
+          <div class="rank-title"><a href="#">SEBI proposes tighter norms for finfluencers</a></div>
+          <span class="rank-source">Moneycontrol · 4h ago</span>
+        </div>
+      </div>
+      <div class="ai-rank-item">
+        <span class="rank-num">06</span>
+        <div class="rank-body">
+          <div class="rank-title"><a href="#">Tata Motors reports 18% rise in domestic EV sales</a></div>
+          <span class="rank-source">Economic Times · 3h ago</span>
+        </div>
+      </div>
+      <div class="ai-rank-item">
+        <span class="rank-num">07</span>
+        <div class="rank-body">
+          <div class="rank-title"><a href="#">India's forex reserves climb to $680 billion</a></div>
+          <span class="rank-source">Reuters · Yesterday</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BOOKMARKS PANEL ══ -->
+<div class="panel-overlay" id="bookmarks-panel" onclick="closePanel('bookmarks')">
+  <div class="panel" onclick="event.stopPropagation()">
+    <div class="panel-header">
+      <span class="panel-title">☆ Bookmarks</span>
+      <button class="panel-close" onclick="closePanel('bookmarks')">×</button>
+    </div>
+    <div class="panel-body">
+      <div class="bookmark-item">
+        <div class="bookmark-title"><a href="#">Reliance Jio's tariff hike signals end of India's cheap data era</a></div>
+        <div class="bookmark-meta">
+          <span>Reuters · 5h ago</span>
+          <button class="bookmark-remove">✕</button>
+        </div>
+      </div>
+      <div class="bookmark-item">
+        <div class="bookmark-title"><a href="#">India's forex reserves climb to $680 billion, highest since October</a></div>
+        <div class="bookmark-meta">
+          <span>Reuters · Yesterday</span>
+          <button class="bookmark-remove">✕</button>
+        </div>
+      </div>
+      <div class="bookmark-item">
+        <div class="bookmark-title"><a href="#">EM Equity Strategy: India remains overweight</a></div>
+        <div class="bookmark-meta">
+          <span>Goldman Sachs · 5h ago</span>
+          <button class="bookmark-remove">✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Tab switching ──
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sidebar-item[data-tab]').forEach(i => i.classList.remove('active'));
+    const panel = document.getElementById('panel-' + tab);
+    const item = document.querySelector('.sidebar-item[data-tab="' + tab + '"]');
+    if (panel) panel.classList.add('active');
+    if (item) item.classList.add('active');
+    closeMobileSidebar();
+  }
+
+  // ── Panel open/close ──
+  function openPanel(name) {
+    document.getElementById(name + '-panel').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePanel(name) {
+    document.getElementById(name + '-panel').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Theme toggle ──
+  function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    document.getElementById('theme-icon').textContent = next === 'dark' ? '☼' : '☾';
+    document.getElementById('theme-label').textContent = next === 'dark' ? 'Light mode' : 'Dark mode';
+  }
+
+  // ── Mobile sidebar ──
+  function toggleMobileSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebar-overlay').classList.toggle('open');
+  }
+
+  function closeMobileSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebar-overlay').classList.remove('open');
+  }
+
+  // ── Filter chip toggle (visual only) ──
+  document.querySelectorAll('.filter-chip, .filter-chip-source').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const siblings = this.parentElement.querySelectorAll(
+        this.classList.contains('filter-chip') ? '.filter-chip' : '.filter-chip-source'
+      );
+      siblings.forEach(s => s.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // ── Keyboard shortcuts ──
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT') return;
+    const tabs = ['news', 'reports', 'research', 'youtube', 'twitter'];
+    if (e.key >= '1' && e.key <= '5') switchTab(tabs[e.key - 1]);
+    if (e.key === 'b') openPanel('bookmarks');
+    if (e.key === 'a') openPanel('ai');
+    if (e.key === 'Escape') {
+      closePanel('ai');
+      closePanel('bookmarks');
+    }
+  });
+</script>
+
+</body>
+</html>

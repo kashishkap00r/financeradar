@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinanceRadar — The Mono</title>
+<style>
+  /* ═══════════════════════════════════════════════
+     APPROACH 4: "THE MONO"
+     Philosophy: iA Writer meets Bloomberg.
+     Monospace accents for data, sans-serif for
+     reading. Stark, high-contrast, zero decoration.
+     Dark by default. Information-dense but airy.
+     Typography and whitespace do all the work.
+     ═══════════════════════════════════════════════ */
+
+  :root {
+    --fg: #e8e8e8;
+    --fg-2: #999;
+    --fg-3: #666;
+    --bg: #111;
+    --bg-2: #191919;
+    --bg-3: #222;
+    --rule: #2a2a2a;
+    --accent: #e8e8e8;
+    --sans: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    --mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+    --measure: 700px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .header {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 32px 24px 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: var(--fg);
+  }
+
+  .header-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg-3);
+  }
+
+  /* ── Nav ── */
+  nav {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 20px 24px 0;
+    display: flex;
+    gap: 4px;
+  }
+
+  .nav-item {
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 6px 12px;
+    background: none;
+    border: 1px solid transparent;
+    color: var(--fg-3);
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .nav-item:hover {
+    color: var(--fg-2);
+  }
+
+  .nav-item.active {
+    color: var(--fg);
+    border-color: var(--rule);
+    background: var(--bg-2);
+  }
+
+  /* ── Toolbar ── */
+  .toolbar {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 20px 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .search-input {
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--rule);
+    color: var(--fg);
+    outline: none;
+    width: 240px;
+  }
+
+  .search-input::placeholder { color: var(--fg-3); }
+  .search-input:focus { border-bottom-color: var(--fg-2); }
+
+  .toolbar-actions {
+    display: flex;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg-3);
+  }
+
+  .toolbar-btn {
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    padding: 4px 0;
+  }
+
+  .toolbar-btn:hover { color: var(--fg-2); }
+
+  /* ── Main ── */
+  main {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Date block ── */
+  .date-block {
+    margin-top: 32px;
+  }
+
+  .date-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg-3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 0;
+  }
+
+  /* ── Article ── */
+  .article {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .article-index {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg-3);
+    flex-shrink: 0;
+    width: 24px;
+    padding-top: 3px;
+    text-align: right;
+  }
+
+  .article-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .article-title {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+  }
+
+  .article-title a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .article-title a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .article-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg-3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .article-source {
+    color: var(--fg-2);
+  }
+
+  .article-desc {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--fg-2);
+    line-height: 1.5;
+  }
+
+  .article-also {
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg-3);
+  }
+
+  .article-also a {
+    color: var(--fg-2);
+    text-decoration: none;
+  }
+
+  .article-also a:hover { text-decoration: underline; }
+
+  /* ── Bookmark ── */
+  .bm {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    color: var(--fg-3);
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .bm:hover {
+    color: var(--fg-2);
+    background: var(--bg-2);
+  }
+
+  .sep {
+    color: var(--fg-3);
+    font-size: 4px;
+    vertical-align: middle;
+  }
+
+  /* ── Footer ── */
+  footer {
+    max-width: var(--measure);
+    margin: 48px auto;
+    padding: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg-3);
+    text-align: center;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .header, nav, .toolbar, main, footer { padding-left: 16px; padding-right: 16px; }
+    nav { flex-wrap: wrap; }
+    .article-index { display: none; }
+    .article { gap: 0; }
+    .article-title { font-size: 15px; }
+    .search-input { width: 100%; }
+    .toolbar { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="logo">financeradar</span>
+  <span class="header-meta">updated 12m ago</span>
+</div>
+
+<nav>
+  <button class="nav-item active">news</button>
+  <button class="nav-item">reports</button>
+  <button class="nav-item">research</button>
+  <button class="nav-item">youtube</button>
+  <button class="nav-item">twitter</button>
+</nav>
+
+<div class="toolbar">
+  <input class="search-input" type="text" placeholder="search…">
+  <div class="toolbar-actions">
+    <button class="toolbar-btn">bookmarks</button>
+    <button class="toolbar-btn">ai picks</button>
+    <button class="toolbar-btn">☼ light</button>
+  </div>
+</div>
+
+<main>
+  <div class="date-block">
+    <div class="date-label">2026-03-10 — today</div>
+
+    <article class="article">
+      <span class="article-index">01</span>
+      <div class="article-body">
+        <h2 class="article-title">
+          <a href="#">RBI holds repo rate steady at 6.25% as inflation risks persist</a>
+        </h2>
+        <div class="article-meta">
+          <span class="article-source">LiveMint</span>
+          <span class="sep">●</span>
+          <span>2h</span>
+        </div>
+        <p class="article-desc">
+          The central bank kept its benchmark rate unchanged for the second consecutive meeting, citing persistent food inflation and global uncertainty.
+        </p>
+        <div class="article-also">+2 → ET Markets, Moneycontrol</div>
+      </div>
+      <button class="bm">☆</button>
+    </article>
+
+    <article class="article">
+      <span class="article-index">02</span>
+      <div class="article-body">
+        <h2 class="article-title">
+          <a href="#">Tata Motors reports 18% rise in domestic EV sales for February</a>
+        </h2>
+        <div class="article-meta">
+          <span class="article-source">Economic Times</span>
+          <span class="sep">●</span>
+          <span>3h</span>
+        </div>
+        <p class="article-desc">
+          The automaker's electric vehicle segment outpaced the broader passenger vehicle market, with the Nexon EV continuing to lead sales.
+        </p>
+      </div>
+      <button class="bm">☆</button>
+    </article>
+
+    <article class="article">
+      <span class="article-index">03</span>
+      <div class="article-body">
+        <h2 class="article-title">
+          <a href="#">SEBI proposes tighter norms for finfluencers promoting unregistered schemes</a>
+        </h2>
+        <div class="article-meta">
+          <span class="article-source">Moneycontrol</span>
+          <span class="sep">●</span>
+          <span>4h</span>
+        </div>
+      </div>
+      <button class="bm">☆</button>
+    </article>
+
+    <article class="article">
+      <span class="article-index">04</span>
+      <div class="article-body">
+        <h2 class="article-title">
+          <a href="#">Reliance Jio's tariff hike signals end of India's cheap data era</a>
+        </h2>
+        <div class="article-meta">
+          <span class="article-source">Reuters</span>
+          <span class="sep">●</span>
+          <span>5h</span>
+        </div>
+        <p class="article-desc">
+          Analysts expect Bharti Airtel and Vodafone Idea to follow with similar increases within weeks, marking a structural shift in telecom pricing.
+        </p>
+        <div class="article-also">+1 → LiveMint</div>
+      </div>
+      <button class="bm">☆</button>
+    </article>
+
+    <article class="article">
+      <span class="article-index">05</span>
+      <div class="article-body">
+        <h2 class="article-title">
+          <a href="#">India's manufacturing PMI hits 14-month high on strong new orders</a>
+        </h2>
+        <div class="article-meta">
+          <span class="article-source">Business Standard</span>
+          <span class="sep">●</span>
+          <span>6h</span>
+        </div>
+      </div>
+      <button class="bm">☆</button>
+    </article>
+
+    <article class="article">
+      <span class="article-index">06</span>
+      <div class="article-body">
+        <h2 class="article-title">
+          <a href="#">SBI reports record quarterly profit, asset quality improves</a>
+        </h2>
+        <div class="article-meta">
+          <span class="article-source">LiveMint</span>
+          <span class="sep">●</span>
+          <span>7h</span>
+        </div>
+        <p class="article-desc">
+          Net profit rose 28% year-on-year to ₹19,400 crore, beating analyst estimates. Gross NPAs fell to 2.1%, the lowest in a decade.
+        </p>
+      </div>
+      <button class="bm">☆</button>
+    </article>
+  </div>
+
+  <div class="date-block">
+    <div class="date-label">2026-03-09 — yesterday</div>
+
+    <article class="article">
+      <span class="article-index">07</span>
+      <div class="article-body">
+        <h2 class="article-title">
+          <a href="#">Adani Group completes ₹15,000 crore debt reduction ahead of schedule</a>
+        </h2>
+        <div class="article-meta">
+          <span class="article-source">Economic Times</span>
+          <span class="sep">●</span>
+          <span>1d</span>
+        </div>
+      </div>
+      <button class="bm">☆</button>
+    </article>
+
+    <article class="article">
+      <span class="article-index">08</span>
+      <div class="article-body">
+        <h2 class="article-title">
+          <a href="#">India's forex reserves climb to $680 billion, highest since October</a>
+        </h2>
+        <div class="article-meta">
+          <span class="article-source">Reuters</span>
+          <span class="sep">●</span>
+          <span>1d</span>
+        </div>
+        <p class="article-desc">
+          The Reserve Bank of India has been rebuilding reserves after intervening heavily to support the rupee through the dollar rally.
+        </p>
+      </div>
+      <button class="bm">☆</button>
+    </article>
+  </div>
+</main>
+
+<footer>
+  financeradar — hourly updates — 142 articles from 18 sources
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V3 — Mono Journal</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#fafafa;--ink:#111;--mut:#999;--ln:#ddd;--acc:#c0392b;--rule:repeating-linear-gradient(transparent,transparent 31px,var(--ln) 31px,var(--ln) 32px)}
+[data-theme="dark"]{--bg:#0e0e0e;--ink:#ddd;--mut:#666;--ln:#2a2a2a;--acc:#e74c3c;--rule:repeating-linear-gradient(transparent,transparent 31px,var(--ln) 31px,var(--ln) 32px)}
+body{background:var(--bg);color:var(--ink);font-family:'Space Mono',monospace;-webkit-font-smoothing:antialiased}
+.topbar{display:flex;align-items:center;padding:20px 40px;border-bottom:2px solid var(--ink)}
+.logo{font:700 14px 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.logo span{color:var(--acc)}
+.right{margin-left:auto;display:flex;gap:16px}
+.right button{background:none;border:1px solid var(--ln);font:400 10px 'Space Mono',monospace;color:var(--mut);padding:4px 10px;cursor:pointer}
+.right button:hover{color:var(--ink);border-color:var(--ink)}
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--ink)}
+.tabs a{font:400 11px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);text-decoration:none;padding:10px 20px;border-right:1px solid var(--ln)}
+.tabs a.active{color:var(--ink);background:var(--bg)}
+.tabs a:hover{color:var(--ink)}
+.page{max-width:960px;margin:0 auto;padding:32px 40px 60px}
+.hero{padding:32px 0 28px;border-bottom:2px solid var(--ink);margin-bottom:32px}
+.hero-label{font:700 10px 'Space Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
+.hero h1{font:400 36px/1.12 'Instrument Serif',serif;margin-bottom:10px}
+.hero h1 a{color:var(--ink);text-decoration:none}
+.hero h1 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.hero-meta{font:400 11px 'Space Mono',monospace;color:var(--mut)}
+.hero-lede{font:400 13px/1.7 'Space Mono',monospace;color:var(--mut);margin-top:12px;max-width:560px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.col-head{font:700 10px 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);padding-bottom:8px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+.entry{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--ln)}
+.entry-num{font:700 11px 'Space Mono',monospace;color:var(--mut);padding-top:2px}
+.entry-body a{font:400 14px/1.35 'Instrument Serif',serif;color:var(--ink);text-decoration:none;display:block}
+.entry-body a:hover{color:var(--acc)}
+.entry-meta{font:400 10px 'Space Mono',monospace;color:var(--mut);margin-top:2px}
+.section{margin-top:32px}
+</style></head>
+<body data-theme="light">
+<div class="topbar">
+  <div class="logo">FINANCE<span>RADAR</span></div>
+  <div class="right">
+    <button>AI</button><button>WSW</button><button>★</button>
+    <button onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'">THEME</button>
+  </div>
+</div>
+<div class="tabs">
+  <a class="active">Home</a><a>News</a><a>Telegram</a><a>Reports</a><a>YouTube</a><a>Twitter</a>
+</div>
+<main class="page">
+  <div class="hero">
+    <div class="hero-label">SPOTLIGHT · #1</div>
+    <h1><a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a></h1>
+    <div class="hero-meta">The Core · mechanism</div>
+    <div class="hero-lede">Reveals the structural trade-off between retail price stability and industrial productivity in India&#x27;s energy policy during geopolitical crises.</div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="col-head">LATEST ENTRIES</div>
+      <div class="entry">
+          <div class="entry-num">01</div>
+          <div class="entry-body">
+            <a href="https://www.thehindu.com/news/international/how-iran-war-could-create-fertiliser-shock-often-ignored-global-risk-to-food-prices-farming/article70721470.ece" target="_blank">How Iran war could create ‘fertilizer shock’ – often ignored global risk to foo…</a>
+            <div class="entry-meta">The Hindu — Agri Business · 2026-03-09</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num">02</div>
+          <div class="entry-body">
+            <a href="https://www.thehindubusinessline.com/companies/amrut-sees-rum-gaining-ground-as-premium-spirits-demand-spreads-beyond-metros/article70723273.ece" target="_blank">Amrut sees rum gaining ground as premium spirits demand spreads beyond metros</a>
+            <div class="entry-meta">BusinessLine — Companies · 2026-03-09</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num">03</div>
+          <div class="entry-body">
+            <a href="https://www.thehindubusinessline.com/companies/karkhana-acquires-micron-ems-to-deepen-electronics-manufacturing-capabilities/article70722895.ece" target="_blank">Karkhana acquires Micron EMS to deepen electronics manufacturing capabilities</a>
+            <div class="entry-meta">BusinessLine — Companies · 2026-03-09</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num">04</div>
+          <div class="entry-body">
+            <a href="https://www.thehindubusinessline.com/info-tech/manyavar-campaign-crosses-300-million-views-in-72-hours-across-platforms/article70722655.ece" target="_blank">Manyavar campaign crosses 300 million views in 72 hours across platforms</a>
+            <div class="entry-meta">BusinessLine — Companies · 2026-03-09</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num">05</div>
+          <div class="entry-body">
+            <a href="https://www.thehindubusinessline.com/news/mm-forgings-plans-to-deploy-up-to-150-robots-amid-manpower-shortage/article70722740.ece" target="_blank">MM Forgings plans to deploy up to 150 robots amid manpower shortage</a>
+            <div class="entry-meta">BusinessLine — Companies · 2026-03-09</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num">06</div>
+          <div class="entry-body">
+            <a href="https://www.thehindubusinessline.com/companies/abb-to-invest-75-million-in-india-to-expand-manufacturing-and-rampd/article70722833.ece" target="_blank">ABB to invest $75 million in India to expand manufacturing and R&amp;D</a>
+            <div class="entry-meta">BusinessLine — Companies · 2026-03-09</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num">07</div>
+          <div class="entry-body">
+            <a href="https://www.thehindubusinessline.com/companies/tech-mahindra-denies-rumours-of-massive-layoffs/article70722810.ece" target="_blank">Tech Mahindra denies rumours of massive layoffs</a>
+            <div class="entry-meta">BusinessLine — Companies · 2026-03-09</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num">08</div>
+          <div class="entry-body">
+            <a href="https://www.thehindubusinessline.com/news/saint-gobainindia-gyproc-commissions-new-plant-in-visakhapatnam/article70722863.ece" target="_blank">Saint-Gobain India -Gyproc commissions new plant in Visakhapatnam</a>
+            <div class="entry-meta">BusinessLine — Companies · 2026-03-09</div>
+          </div>
+        </div>
+    </div>
+    <div>
+      <div class="col-head">AI PICKS</div>
+      <div class="entry">
+          <div class="entry-num" style="color:var(--acc)">01</div>
+          <div class="entry-body">
+            <a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a>
+            <div class="entry-meta">The Core · mechanism</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num" style="color:var(--acc)">01</div>
+          <div class="entry-body">
+            <a href="https://t.me/stockupdate9/136170" target="_blank">45,000 Indian Containers Stranded: Export Crisis Deepens</a>
+            <div class="entry-meta">📈 · supply-chain</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num" style="color:var(--acc)">01</div>
+          <div class="entry-body">
+            <a href="https://www.careratings.com/uploads/newsfiles/1772611151_Strait of Hormuz - The Rising Risk for India Inc..pdf" target="_blank">Strait of Hormuz: The Rising Risk for India Inc.</a>
+            <div class="entry-meta">CareEdge · supply-chain</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num" style="color:var(--acc)">01</div>
+          <div class="entry-body">
+            <a href="https://x.com/exencial_RP/status/2030895200747553046" target="_blank">🧵The sleeping giant of Indian logistics has just woken up in a completely…</a>
+            <div class="entry-meta">Exencial RP · structural-shift</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num" style="color:var(--acc)">01</div>
+          <div class="entry-body">
+            <a href="https://www.youtube.com/watch?v=c0Ne-dI2JcA" target="_blank">Flipkart Re-Domiciles To India | What It Means For Business &amp; IPO | Busine…</a>
+            <div class="entry-meta">ET Now · structural-shift</div>
+          </div>
+        </div>
+      <div class="section">
+        <div class="col-head">REPORTS</div>
+        <div class="entry">
+          <div class="entry-num">—</div>
+          <div class="entry-body">
+            <a href="https://think.ing.com/snaps/turkish-current-account-deficit-exceeds-expectations-amid-methodological-revision/" target="_blank">Turkish current account deficit jumps after methodological revision</a>
+            <div class="entry-meta">ING · International</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num">—</div>
+          <div class="entry-body">
+            <a href="https://www.icici.bank.in/content/dam/icicibank/india/erg/daily-reports/mms-12-march-2026.pdf" target="_blank">Morning Market Starter</a>
+            <div class="entry-meta">ICICI Bank · Indian</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num">—</div>
+          <div class="entry-body">
+            <a href="https://think.ing.com/articles/fx-daily-oil-and-equity-volatility-taking-dollar-back-up/" target="_blank">FX Daily: Oil and equity volatility taking dollar back up</a>
+            <div class="entry-meta">ING · International</div>
+          </div>
+        </div><div class="entry">
+          <div class="entry-num">—</div>
+          <div class="entry-body">
+            <a href="https://think.ing.com/articles/eurozone-households-are-first-to-feel-the-pain-of-the-current-oil-price-shock/" target="_blank">Eurozone households are first to feel the pain of the current oil price sh…</a>
+            <div class="entry-meta">ING · International</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body></html>

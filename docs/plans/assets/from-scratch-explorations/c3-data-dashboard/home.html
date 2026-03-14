@@ -1,0 +1,174 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C3 — Data Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#f5f5f5;--sf:#fff;--ink:#171717;--mut:#737373;--ln:#e5e5e5;--acc:#6366f1;--r:12px}
+[data-theme="dark"]{--bg:#0a0a0a;--sf:#171717;--ink:#fafafa;--mut:#a3a3a3;--ln:#262626;--acc:#818cf8}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+.layout{display:grid;grid-template-columns:200px 1fr;min-height:100vh}
+.sidebar{background:var(--sf);border-right:1px solid var(--ln);padding:16px 0}
+.sb-logo{padding:12px 16px;font:700 15px 'Inter',sans-serif}
+.sb-logo span{color:var(--acc)}
+.sb-nav{display:grid;gap:2px;padding:8px}
+.sb-item{display:flex;align-items:center;gap:10px;padding:9px 14px;font:500 13px 'Inter',sans-serif;color:var(--mut);text-decoration:none;border-radius:8px;border-left:3px solid transparent;cursor:pointer}
+.sb-item:hover{background:var(--bg)}
+.sb-item.active{color:var(--ink);background:var(--bg);border-left-color:var(--acc)}
+.sb-item .cnt{margin-left:auto;font:500 11px 'Geist Mono',monospace;color:var(--acc)}
+.main{padding:0}
+.topbar{height:52px;display:flex;align-items:center;padding:0 24px;gap:12px;border-bottom:1px solid var(--ln)}
+.search{flex:1;max-width:480px;margin:0 auto;background:var(--bg);border:1px solid var(--ln);border-radius:999px;padding:8px 16px;font:400 13px 'Inter',sans-serif;color:var(--mut)}
+.topbar button{background:var(--sf);border:1px solid var(--ln);border-radius:999px;padding:6px 12px;font:500 11px 'Inter',sans-serif;color:var(--mut);cursor:pointer}
+.topbar button:hover{color:var(--ink)}
+.content{padding:24px}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.bento-card{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);padding:20px;position:relative;overflow:hidden}
+.bento-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),transparent)}
+.bento-label{font:600 10px 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+.spot-title{font:700 20px/1.25 'Inter',sans-serif;margin-bottom:6px}
+.spot-title a{color:var(--ink);text-decoration:none}
+.spot-title a:hover{color:var(--acc)}
+.spot-src{font:400 12px 'Inter',sans-serif;color:var(--mut)}
+.rank-row{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--ln);align-items:baseline}
+.rank-num{font:500 12px 'Geist Mono',monospace;color:var(--acc);min-width:20px}
+.rank-body a{font:500 13px 'Inter',sans-serif;color:var(--ink);text-decoration:none;display:block}
+.rank-body a:hover{color:var(--acc)}
+.rank-src{font:400 11px 'Inter',sans-serif;color:var(--mut)}
+.triple{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);padding:14px}
+.card:hover{box-shadow:0 4px 12px rgba(0,0,0,.06);transform:translateY(-1px);transition:.15s}
+.card-top{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.card-src{font:500 11px 'Inter',sans-serif;color:var(--mut)}
+.card-time{margin-left:auto;font:400 10px 'Geist Mono',monospace;color:var(--mut)}
+.card-title{font:600 14px/1.35 'Inter',sans-serif;color:var(--ink);text-decoration:none;display:block}
+.card-title:hover{color:var(--acc)}
+.full-strip{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);padding:16px;display:flex;gap:16px;overflow-x:auto}
+.wsw-chip{min-width:220px;padding:12px;border:1px solid var(--ln);border-radius:8px;flex-shrink:0}
+.wsw-theme{font:600 12px 'Inter',sans-serif;margin-bottom:4px}
+.wsw-claim{font:400 11px 'Inter',sans-serif;color:var(--mut);line-height:1.4}
+.vids{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.vid-card{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);overflow:hidden}
+.vid-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.vid-info{padding:10px}
+.vid-info a{font:600 13px/1.3 'Inter',sans-serif;color:var(--ink);text-decoration:none;display:block}
+.vid-info a:hover{color:var(--acc)}
+.vid-info span{font:400 11px 'Inter',sans-serif;color:var(--mut)}
+</style></head>
+<body data-theme="light">
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sb-logo">Finance<span>Radar</span></div>
+    <div class="sb-nav">
+      <a class="sb-item active"><span>Home</span></a>
+      <a class="sb-item"><span>News</span><span class="cnt">30</span></a>
+      <a class="sb-item"><span>Telegram</span><span class="cnt">10</span></a>
+      <a class="sb-item"><span>Reports</span><span class="cnt">10</span></a>
+      <a class="sb-item"><span>YouTube</span><span class="cnt">10</span></a>
+      <a class="sb-item"><span>Twitter</span><span class="cnt">10</span></a>
+    </div>
+  </nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="search">Search articles... ⌘/</div>
+      <button>AI</button><button>WSW</button><button>★</button>
+      <button onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'">Theme</button>
+    </div>
+    <div class="content">
+      <div class="bento">
+        <div class="bento-card">
+          <div class="bento-label">SPOTLIGHT</div>
+          <div class="spot-title"><a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a></div>
+          <div class="spot-src">The Core · mechanism</div>
+        </div>
+        <div class="bento-card">
+          <div class="bento-label">AI RANKINGS</div>
+          <div class="rank-row">
+          <span class="rank-num">1</span>
+          <div class="rank-body">
+            <a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Sho…</a>
+            <span class="rank-src">The Core</span>
+          </div>
+        </div><div class="rank-row">
+          <span class="rank-num">1</span>
+          <div class="rank-body">
+            <a href="https://t.me/stockupdate9/136170" target="_blank">45,000 Indian Containers Stranded: Export Crisis Deepens</a>
+            <span class="rank-src">📈</span>
+          </div>
+        </div><div class="rank-row">
+          <span class="rank-num">1</span>
+          <div class="rank-body">
+            <a href="https://www.careratings.com/uploads/newsfiles/1772611151_Strait of Hormuz - The Rising Risk for India Inc..pdf" target="_blank">Strait of Hormuz: The Rising Risk for India Inc.</a>
+            <span class="rank-src">CareEdge</span>
+          </div>
+        </div><div class="rank-row">
+          <span class="rank-num">1</span>
+          <div class="rank-body">
+            <a href="https://x.com/exencial_RP/status/2030895200747553046" target="_blank">🧵The sleeping giant of Indian logistics has just woken up in a c…</a>
+            <span class="rank-src">Exencial RP</span>
+          </div>
+        </div><div class="rank-row">
+          <span class="rank-num">1</span>
+          <div class="rank-body">
+            <a href="https://www.youtube.com/watch?v=c0Ne-dI2JcA" target="_blank">Flipkart Re-Domiciles To India | What It Means For Business &amp; IP…</a>
+            <span class="rank-src">ET Now</span>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="triple"><div class="card">
+          <div class="card-top"><span class="dot" style="background:var(--acc)"></span><span class="card-src">The Hindu — Agri Business</span><span class="card-time">2026-03-09</span></div>
+          <a class="card-title" href="https://www.thehindu.com/news/international/how-iran-war-could-create-fertiliser-shock-often-ignored-global-risk-to-food-prices-farming/article70721470.ece" target="_blank">How Iran war could create ‘fertilizer shock’ – often ignored global risk to foo…</a>
+        </div><div class="card">
+          <div class="card-top"><span class="dot" style="background:var(--acc)"></span><span class="card-src">BusinessLine — Companies</span><span class="card-time">2026-03-09</span></div>
+          <a class="card-title" href="https://www.thehindubusinessline.com/companies/amrut-sees-rum-gaining-ground-as-premium-spirits-demand-spreads-beyond-metros/article70723273.ece" target="_blank">Amrut sees rum gaining ground as premium spirits demand spreads beyond metros</a>
+        </div><div class="card">
+          <div class="card-top"><span class="dot" style="background:var(--acc)"></span><span class="card-src">BusinessLine — Companies</span><span class="card-time">2026-03-09</span></div>
+          <a class="card-title" href="https://www.thehindubusinessline.com/companies/karkhana-acquires-micron-ems-to-deepen-electronics-manufacturing-capabilities/article70722895.ece" target="_blank">Karkhana acquires Micron EMS to deepen electronics manufacturing capabilities</a>
+        </div><div class="card">
+          <div class="card-top"><span class="dot" style="background:var(--acc)"></span><span class="card-src">BusinessLine — Companies</span><span class="card-time">2026-03-09</span></div>
+          <a class="card-title" href="https://www.thehindubusinessline.com/info-tech/manyavar-campaign-crosses-300-million-views-in-72-hours-across-platforms/article70722655.ece" target="_blank">Manyavar campaign crosses 300 million views in 72 hours across platforms</a>
+        </div><div class="card">
+          <div class="card-top"><span class="dot" style="background:var(--acc)"></span><span class="card-src">BusinessLine — Companies</span><span class="card-time">2026-03-09</span></div>
+          <a class="card-title" href="https://www.thehindubusinessline.com/news/mm-forgings-plans-to-deploy-up-to-150-robots-amid-manpower-shortage/article70722740.ece" target="_blank">MM Forgings plans to deploy up to 150 robots amid manpower shortage</a>
+        </div><div class="card">
+          <div class="card-top"><span class="dot" style="background:var(--acc)"></span><span class="card-src">BusinessLine — Companies</span><span class="card-time">2026-03-09</span></div>
+          <a class="card-title" href="https://www.thehindubusinessline.com/companies/abb-to-invest-75-million-in-india-to-expand-manufacturing-and-rampd/article70722833.ece" target="_blank">ABB to invest $75 million in India to expand manufacturing and R&amp;D</a>
+        </div></div>
+      <div class="full-strip"><div class="wsw-chip">
+          <div class="wsw-theme">Trump Claims Iran War &#x27;Complete&#x27; as Oil…</div>
+          <div class="wsw-claim">Donald Trump asserts that US strikes have effectively neutralized Iran&#x27;s milita…</div>
+        </div><div class="wsw-chip">
+          <div class="wsw-theme">Anthropic Sues US Government Over &#x27;Risk…</div>
+          <div class="wsw-claim">Anthropic is taking legal action against the White House after an executive ord…</div>
+        </div><div class="wsw-chip">
+          <div class="wsw-theme">Moneyview Defies Industry Retreat to Do…</div>
+          <div class="wsw-claim">While competitors scale back due to regulatory pressure, Moneyview is increasin…</div>
+        </div><div class="wsw-chip">
+          <div class="wsw-theme">Ather’s Physical Store Blitz vs Ola’s D…</div>
+          <div class="wsw-claim">Ather Energy is planning a massive 400-store expansion, directly contradicting…</div>
+        </div></div>
+      <div class="vids"><div class="vid-card">
+          <img src="https://i1.ytimg.com/vi/X7VsTk3QMRc/hqdefault.jpg" alt="" loading="lazy">
+          <div class="vid-info">
+            <a href="https://www.youtube.com/shorts/X7VsTk3QMRc" target="_blank">Shashi Tharoor Reacts To Indian Ship Safe Passage Thro…</a>
+            <span>ET Now</span>
+          </div>
+        </div><div class="vid-card">
+          <img src="https://i2.ytimg.com/vi/ajvY2NLvs70/hqdefault.jpg" alt="" loading="lazy">
+          <div class="vid-info">
+            <a href="https://www.youtube.com/watch?v=ajvY2NLvs70" target="_blank">Profit &amp; Palate | Trailer Part A | Where Entrepreneurs…</a>
+            <span>ET Now</span>
+          </div>
+        </div><div class="vid-card">
+          <img src="https://i1.ytimg.com/vi/8coc-HEWkN4/hqdefault.jpg" alt="" loading="lazy">
+          <div class="vid-info">
+            <a href="https://www.youtube.com/watch?v=8coc-HEWkN4" target="_blank">LPG Diversion Cannot Be Hidden Anymore: Hardeep Singh…</a>
+            <span>CNBC-TV18</span>
+          </div>
+        </div></div>
+    </div>
+  </div>
+</div>
+</body></html>

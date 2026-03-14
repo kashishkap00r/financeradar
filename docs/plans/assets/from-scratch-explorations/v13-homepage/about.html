@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Finance Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FAF7F2;
+  --ink: #2C2825;
+  --ink-muted: #6B645C;
+  --ink-faint: #9E978F;
+  --rule: #D4CBC0;
+  --accent: #C45A35;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Nunito Sans', system-ui, sans-serif;
+}
+
+::selection { background: var(--accent); color: #fff; }
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+.about-content, footer {
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+body.loaded .about-content,
+body.loaded footer {
+  opacity: 1;
+}
+
+/* ── Masthead (matches homepage) ── */
+.masthead {
+  padding: 2.5rem 0 1.25rem;
+  border-bottom: 2.5px solid var(--ink);
+}
+.masthead h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.masthead h1 a,
+.masthead-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.masthead h1 a:hover,
+.masthead-link:hover { color: var(--accent); }
+.masthead .tagline {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-muted);
+  margin-top: 0.5rem;
+}
+
+/* ── Utility bar (sticky, matches homepage) ── */
+.utility {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 2.5rem;
+  margin: 0 -2.5rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.utility-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.utility-link {
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.utility-link:hover { color: var(--accent); }
+.utility-link.active { color: var(--ink); }
+.search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0.2rem;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.search-toggle:hover { color: var(--accent); }
+.search-input {
+  width: 0;
+  padding: 0;
+  border: 1.5px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--ink);
+  outline: none;
+  opacity: 0;
+  transition: width 0.25s ease, opacity 0.2s ease, padding 0.25s ease, border-color 0.2s ease;
+}
+.search-wrap.open .search-input {
+  width: 200px;
+  padding: 0.35rem 0.7rem;
+  border-color: var(--rule);
+  opacity: 1;
+}
+.search-wrap.open .search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--ink-faint); }
+.search-wrap.open .search-toggle { color: var(--accent); }
+
+.bk-panel-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0.2rem;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.bk-panel-toggle:hover { color: var(--accent); }
+.bk-panel-toggle .bk-icon { width: 18px; height: 18px; }
+.bk-count {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 0 4px;
+  border-radius: 8px;
+  min-width: 14px;
+  height: 14px;
+  line-height: 14px;
+  text-align: center;
+}
+
+/* ── Page heading ── */
+.page-heading {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 0 1.5rem;
+}
+.page-heading h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.page-heading-rule {
+  width: 60px;
+  height: 2.5px;
+  background: var(--accent);
+  margin-top: 1rem;
+  border: 0;
+}
+
+/* ── Content sections ── */
+.about-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.about-section {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.about-section:last-of-type { border-bottom: none; }
+
+.about-section h2 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.8rem;
+  color: var(--ink);
+}
+.about-section p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--ink-muted);
+  margin-bottom: 0.8rem;
+}
+.about-section p:last-child { margin-bottom: 0; }
+.about-section a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: border-color 0.2s ease;
+}
+.about-section a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ── Stats strip ── */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1.5rem 0;
+  margin: 1rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.stat {
+  text-align: center;
+}
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.3rem;
+}
+
+/* ── CTA ── */
+.cta-block {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+.cta-block p {
+  color: var(--ink);
+  font-weight: 500;
+}
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.45rem 1rem;
+  background: var(--accent);
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.cta-link:hover { opacity: 0.85; }
+
+/* ── Footer (matches homepage) ── */
+footer {
+  padding: 2.5rem 0 3rem;
+  border-top: 1.5px solid var(--ink);
+  text-align: center;
+}
+.foot-stats {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  margin-bottom: 0.75rem;
+}
+.foot-stats strong {
+  color: var(--ink);
+}
+.foot-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+}
+.foot-nav a {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.foot-nav a:hover { color: var(--ink); }
+.foot-nav .foot-accent { color: var(--accent); }
+.foot-nav .foot-accent:hover { opacity: 0.8; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  body { padding: 0 1.25rem; }
+  .utility { padding: 0.65rem 1.25rem; margin: 0 -1.25rem; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <span>Friday, 13 March 2026</span>
+  <div class="utility-nav">
+    <a href="home.html" class="utility-link">Feed</a>
+    <a href="about.html" class="utility-link active">About</a>
+    <div class="search-wrap" id="search-wrap">
+      <button class="search-toggle" id="search-toggle" aria-label="Search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <input type="text" class="search-input" id="search-input" placeholder="Search..." onfocus="window.location.href='home.html'">
+    </div>
+    <button class="bk-panel-toggle" onclick="window.location.href='home.html'" aria-label="Bookmarks">
+      <svg class="bk-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+      <span class="bk-count" id="bk-count">0</span>
+    </button>
+  </div>
+</div>
+
+<div class="masthead">
+  <h1><a href="home.html" class="masthead-link">Finance Radar</a></h1>
+  <div class="tagline">Curated intelligence from across Indian finance</div>
+</div>
+
+<div class="about-content">
+
+<div class="page-heading">
+  <h1>About</h1>
+  <hr class="page-heading-rule">
+</div>
+
+<section class="about-section">
+  <h2>The idea</h2>
+  <p>Finance Radar started as a personal frustration with how financial news is consumed in India. Every morning, the routine was the same — open eight browser tabs, scroll through three Telegram groups, check YouTube for new takes, skim Twitter for market chatter. By the time you'd gathered your morning brief, it was lunch.</p>
+  <p>So I built the thing I wished existed: a single, calm feed that pulls from <strong>70+ sources</strong> across news desks, independent voices, institutional research, Telegram channels, YouTube, and Twitter — curated not by algorithms, but by whether I'd actually trust the source with my own portfolio decisions.</p>
+  <p>There's no engagement bait. No push notifications. No "trending" section designed to spike anxiety. Just chronological updates from sources that do real reporting, real analysis, and real thinking about Indian and global finance.</p>
+</section>
+
+<section class="about-section">
+  <h2>How it works</h2>
+  <div class="stats-strip">
+    <div class="stat">
+      <div class="stat-number">72</div>
+      <div class="stat-label">Publishers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">4,879</div>
+      <div class="stat-label">Posts</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">6</div>
+      <div class="stat-label">Categories</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">0</div>
+      <div class="stat-label">Ads</div>
+    </div>
+  </div>
+  <p>Every hour, an automated pipeline fetches RSS feeds from newspapers, blogs, research houses, YouTube channels, and Telegram groups. Articles are de-duplicated, grouped by similarity, and ranked by an AI model that prioritises explanatory journalism over breaking-news noise.</p>
+  <p>The <strong>"In Focus"</strong> badge highlights stories covered by multiple independent sources — a signal that something genuinely matters, not just that someone rewrote a press release.</p>
+  <p>Everything is presented chronologically. No algorithmic feed. No personalisation. No tracking. The same feed for everyone, every time.</p>
+</section>
+
+<section class="about-section">
+  <h2>What's in the feed</h2>
+  <p>Four desk presets organise sources by perspective:</p>
+  <p><strong>India Desk</strong> — ET, The Hindu, BusinessLine, Business Standard, Mint, ThePrint, Firstpost, Indian Express, Financial Express, and more.</p>
+  <p><strong>World Desk</strong> — BBC, CNBC, Reuters, Bloomberg, Financial Times, WSJ, The Economist, The Guardian, Techmeme.</p>
+  <p><strong>Indie Voices</strong> — Finshots, Filter Coffee, The Ken, The Morning Context, SOIC, Noah Smith, Musings on Markets, Ideas For India, and two dozen more independent writers who do original thinking.</p>
+  <p><strong>Official Channels</strong> — RBI, SEBI, ECB, ADB, FRED — for when you want the primary source, not someone's take on it.</p>
+  <p>Plus: brokerage reports via Telegram, research papers, YouTube explainers, and curated Twitter threads.</p>
+</section>
+
+<section class="about-section">
+  <h2>About the site</h2>
+  <p>Finance Radar is built entirely with Python, vanilla HTML/CSS/JS, and a healthy amount of Claude. No React. No framework. No build step. The entire frontend is a single generated HTML file served as a static page via Cloudflare Pages.</p>
+  <p>The AI ranking runs once daily using Gemini and is explicitly prompted to favour depth over speed, explanation over opinion, and data over anecdote. The ranking model sees the same feed you do — it has no inside information.</p>
+  <p>This is a personal project by <a href="#">Kashish Kapoor</a>. It's not a startup. It doesn't have funding. It doesn't need your email. It exists because I wanted a better way to read financial news, and maybe you do too.</p>
+
+  <div class="cta-block">
+    <p>Know a good source I'm missing?</p>
+    <a href="https://github.com/kashishkap00r/financeradar/issues" target="_blank" rel="noopener" class="cta-link">Open an issue on GitHub &rarr;</a>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="foot-stats">
+    <strong>4,879</strong> items &middot; last updated Mar 13, 2026, 01:42 PM UTC &middot; no ads, ever
+  </div>
+  <nav class="foot-nav">
+    <a href="home.html">Feed</a>
+    <a href="about.html">About</a>
+    <a href="https://github.com/kashishkap00r/financeradar" target="_blank" rel="noopener">GitHub</a>
+    <a href="#" class="foot-accent">RSS</a>
+  </nav>
+</footer>
+
+<script>
+// Fade-in on load — force a paint at opacity:0 before transitioning
+requestAnimationFrame(() => { requestAnimationFrame(() => { document.body.classList.add('loaded'); }); });
+
+// Sync bookmark count from localStorage
+try {
+  const bk = JSON.parse(localStorage.getItem('fr_bookmarks') || '[]');
+  const countEl = document.getElementById('bk-count');
+  if (countEl) countEl.textContent = bk.length;
+} catch(e) {}
+
+// Search toggle — expand, then redirect to feed on focus
+document.getElementById('search-toggle').addEventListener('click', () => {
+  const wrap = document.getElementById('search-wrap');
+  wrap.classList.toggle('open');
+  if (wrap.classList.contains('open')) {
+    document.getElementById('search-input').focus();
+  }
+});
+</script>
+</body>
+</html>

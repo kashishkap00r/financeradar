@@ -1,0 +1,124 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C2 — Editorial Broadsheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#faf6f1;--sf:#fff;--ink:#1a1a1a;--mut:#6b5e50;--ln:#d4cdc4;--acc:#990f3d}
+[data-theme="dark"]{--bg:#1a1610;--sf:#231f19;--ink:#e8ddd0;--mut:#9c8e7e;--ln:#342e26;--acc:#d4634a}
+body{background:var(--bg);color:var(--ink);font-family:'Source Serif 4',serif;-webkit-font-smoothing:antialiased}
+.masthead{text-align:center;padding:28px 20px 0}
+.masthead-date{font:400 11px 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+.masthead h1{font:400 48px/1 'Playfair Display',serif;font-style:italic;letter-spacing:-.02em}
+.masthead-rule{border:none;border-top:1px solid var(--ln);margin:14px auto;width:min(100%,900px)}
+.masthead-rule.double{border-top:3px double var(--ln)}
+.nav{display:flex;justify-content:center;gap:28px;padding:10px 0 14px;border-bottom:1px solid var(--ln)}
+.nav a{font:500 12px 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);text-decoration:none;font-variant:small-caps}
+.nav a.active{color:var(--ink);font-weight:700}
+.nav a:hover{color:var(--acc)}
+.actions-row{display:flex;justify-content:center;gap:16px;padding:10px 0;margin-bottom:8px}
+.actions-row button{background:none;border:1px solid var(--ln);padding:6px 14px;font:400 11px 'Inter',sans-serif;letter-spacing:.06em;color:var(--mut);cursor:pointer}
+.actions-row button:hover{color:var(--ink);border-color:var(--ink)}
+.page{max-width:1100px;margin:0 auto;padding:0 24px 40px}
+.hero{padding:32px 0;text-align:center;border-bottom:1px solid var(--ln)}
+.hero h2{font:700 36px/1.1 'Playfair Display',serif;max-width:700px;margin:0 auto 12px;letter-spacing:-.01em}
+.hero h2 a{color:var(--ink);text-decoration:none}
+.hero h2 a:hover{color:var(--acc)}
+.hero .byline{font:400 13px 'Inter',sans-serif;color:var(--mut)}
+.hero .lede{font:400 16px/1.6 'Source Serif 4',serif;color:var(--mut);max-width:600px;margin:10px auto 0}
+.three-col{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;gap:0;padding-top:24px}
+.rule-v{background:var(--ln)}
+.col{padding:0 24px}
+.col-label{font:500 11px 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);padding-bottom:8px;border-bottom:1px solid var(--ln);margin-bottom:14px;font-variant:small-caps}
+.story{padding:12px 0;border-bottom:1px solid var(--ln)}
+.story h3{font:600 17px/1.25 'Playfair Display',serif;margin-bottom:4px}
+.story h3 a{color:var(--ink);text-decoration:none}
+.story h3 a:hover{color:var(--acc)}
+.byline{font:400 11px/1.4 'Inter',sans-serif;color:var(--mut)}
+.pull-quote{padding:16px 0;border-bottom:1px solid var(--ln)}
+.quote-mark{font:400 48px/0.8 'Playfair Display',serif;color:var(--acc);margin-bottom:-4px}
+.quote-text{font:400 14px/1.5 'Source Serif 4',serif;font-style:italic;color:var(--ink)}
+.quote-attr{font:400 11px 'Inter',sans-serif;color:var(--mut);margin-top:6px}
+</style></head>
+<body data-theme="light">
+<header class="masthead">
+  <div class="masthead-date">Wednesday, 12 March 2026</div>
+  <h1>FinanceRadar</h1>
+  <hr class="masthead-rule double">
+</header>
+<nav class="nav">
+  <a class="active">Home</a><a>News</a><a>Telegram</a><a>Reports</a><a>YouTube</a><a>Twitter</a>
+</nav>
+<div class="actions-row">
+  <button>AI Rankings</button><button>Who Said What</button><button>Bookmarks</button>
+  <button onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'">Theme</button>
+</div>
+<main class="page">
+  <div class="hero">
+    <h2><a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a></h2>
+    <div class="byline">The Core</div>
+    <div class="lede">Reveals the structural trade-off between retail price stability and industrial productivity in India&#x27;s energy policy during geopolitical crises.</div>
+  </div>
+  <div class="three-col">
+    <div class="col">
+      <div class="col-label">Top Stories</div>
+      <div class="story">
+          <h3><a href="https://www.thehindu.com/news/international/how-iran-war-could-create-fertiliser-shock-often-ignored-global-risk-to-food-prices-farming/article70721470.ece" target="_blank">How Iran war could create ‘fertilizer shock’ – often ignored global risk to food prices,…</a></h3>
+          <div class="byline">The Hindu — Agri Business · 2026-03-09</div>
+        </div><div class="story">
+          <h3><a href="https://www.thehindubusinessline.com/companies/amrut-sees-rum-gaining-ground-as-premium-spirits-demand-spreads-beyond-metros/article70723273.ece" target="_blank">Amrut sees rum gaining ground as premium spirits demand spreads beyond metros</a></h3>
+          <div class="byline">BusinessLine — Companies · 2026-03-09</div>
+        </div><div class="story">
+          <h3><a href="https://www.thehindubusinessline.com/companies/karkhana-acquires-micron-ems-to-deepen-electronics-manufacturing-capabilities/article70722895.ece" target="_blank">Karkhana acquires Micron EMS to deepen electronics manufacturing capabilities</a></h3>
+          <div class="byline">BusinessLine — Companies · 2026-03-09</div>
+        </div><div class="story">
+          <h3><a href="https://www.thehindubusinessline.com/info-tech/manyavar-campaign-crosses-300-million-views-in-72-hours-across-platforms/article70722655.ece" target="_blank">Manyavar campaign crosses 300 million views in 72 hours across platforms</a></h3>
+          <div class="byline">BusinessLine — Companies · 2026-03-09</div>
+        </div><div class="story">
+          <h3><a href="https://www.thehindubusinessline.com/news/mm-forgings-plans-to-deploy-up-to-150-robots-amid-manpower-shortage/article70722740.ece" target="_blank">MM Forgings plans to deploy up to 150 robots amid manpower shortage</a></h3>
+          <div class="byline">BusinessLine — Companies · 2026-03-09</div>
+        </div><div class="story">
+          <h3><a href="https://www.thehindubusinessline.com/companies/abb-to-invest-75-million-in-india-to-expand-manufacturing-and-rampd/article70722833.ece" target="_blank">ABB to invest $75 million in India to expand manufacturing and R&amp;D</a></h3>
+          <div class="byline">BusinessLine — Companies · 2026-03-09</div>
+        </div>
+    </div>
+    <div class="rule-v"></div>
+    <div class="col">
+      <div class="col-label">Market Intelligence</div>
+      <div class="story">
+          <h3><a href="https://think.ing.com/snaps/turkish-current-account-deficit-exceeds-expectations-amid-methodological-revision/" target="_blank">Turkish current account deficit jumps after methodological revision</a></h3>
+          <div class="byline">ING · International</div>
+        </div><div class="story">
+          <h3><a href="https://www.icici.bank.in/content/dam/icicibank/india/erg/daily-reports/mms-12-march-2026.pdf" target="_blank">Morning Market Starter</a></h3>
+          <div class="byline">ICICI Bank · Indian</div>
+        </div><div class="story">
+          <h3><a href="https://think.ing.com/articles/fx-daily-oil-and-equity-volatility-taking-dollar-back-up/" target="_blank">FX Daily: Oil and equity volatility taking dollar back up</a></h3>
+          <div class="byline">ING · International</div>
+        </div><div class="story">
+          <h3><a href="https://think.ing.com/articles/eurozone-households-are-first-to-feel-the-pain-of-the-current-oil-price-shock/" target="_blank">Eurozone households are first to feel the pain of the current oil price shock</a></h3>
+          <div class="byline">ING · International</div>
+        </div><div class="story">
+          <h3><a href="https://think.ing.com/articles/the-commodities-feed-oil-release-fails-to-rein-in-prices120326/" target="_blank">The Commodities Feed: Record oil release fails to rein in prices</a></h3>
+          <div class="byline">ING · International</div>
+        </div>
+    </div>
+    <div class="rule-v"></div>
+    <div class="col">
+      <div class="col-label">Voices</div>
+      <div class="pull-quote">
+          <div class="quote-mark">"</div>
+          <div class="quote-text">Donald Trump asserts that US strikes have effectively neutralized Iran&#x27;s military capabilities, signaling an imminent e…</div>
+          <div class="quote-attr">— , on Trump Claims Iran War &#x27;Complete&#x27; as Oil…</div>
+        </div><div class="pull-quote">
+          <div class="quote-mark">"</div>
+          <div class="quote-text">Anthropic is taking legal action against the White House after an executive order sought to remove its AI from federal…</div>
+          <div class="quote-attr">— , on Anthropic Sues US Government Over &#x27;Risk…</div>
+        </div><div class="pull-quote">
+          <div class="quote-mark">"</div>
+          <div class="quote-text">While competitors scale back due to regulatory pressure, Moneyview is increasing its default guarantees to drive growth…</div>
+          <div class="quote-attr">— , on Moneyview Defies Industry Retreat to Do…</div>
+        </div>
+    </div>
+  </div>
+</main>
+</body></html>

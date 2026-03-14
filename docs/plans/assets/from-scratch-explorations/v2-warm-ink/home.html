@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V2 — Warm Ink</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#f9f6f2;--ink:#1a1714;--mut:#8a7e72;--ln:#e0d9d0;--acc:#b84c2a}
+[data-theme="dark"]{--bg:#110f0d;--ink:#e8e0d6;--mut:#7a7068;--ln:#2e2820;--acc:#d4734e}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+.topbar{display:flex;align-items:center;padding:28px 48px 20px}
+.logo{font:400 26px 'Cormorant Garamond',serif;font-style:italic}
+.topbar .right{margin-left:auto;display:flex;gap:14px}
+.topbar button{background:none;border:none;font:400 11px 'Space Mono',monospace;color:var(--mut);cursor:pointer}
+.topbar button:hover{color:var(--ink)}
+.tabs{display:flex;gap:24px;padding:0 48px 16px;border-bottom:1px solid var(--ln)}
+.tabs a{font:500 14px 'DM Sans',sans-serif;color:var(--mut);text-decoration:none}
+.tabs a.active{color:var(--acc);font-weight:600}
+.page{max-width:1080px;margin:0 auto;padding:0 48px 60px}
+.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;padding:44px 0;border-bottom:1px solid var(--ln)}
+.hero-main .kicker{font:700 10px 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+.hero-main h1{font:400 40px/1.1 'Cormorant Garamond',serif;margin-bottom:12px}
+.hero-main h1 a{color:var(--ink);text-decoration:none}
+.hero-main h1 a:hover{color:var(--acc)}
+.hero-main .lede{font:400 15px/1.65 'DM Sans',sans-serif;color:var(--mut);max-width:480px;margin-top:10px}
+.side-story{padding:16px 0;border-bottom:1px solid var(--ln)}
+.side-story h3{font:400 17px/1.3 'Cormorant Garamond',serif}
+.side-story h3 a{color:var(--ink);text-decoration:none}
+.side-story h3 a:hover{color:var(--acc)}
+.side-story span{font:700 9px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);display:block;margin-top:3px}
+.sections{display:grid;grid-template-columns:1fr 1fr;gap:40px 56px;padding:40px 0}
+.section h2{font:400 26px 'Cormorant Garamond',serif;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--ln)}
+.sec-row{padding:10px 0;border-bottom:1px solid var(--ln)}
+.sec-row a{font:400 15px/1.35 'Cormorant Garamond',serif;color:var(--ink);text-decoration:none;display:block}
+.sec-row a:hover{color:var(--acc)}
+.sec-row span{font:700 9px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);display:block;margin-top:3px}
+</style></head>
+<body data-theme="light">
+<div class="topbar">
+  <div class="logo">Finance Radar</div>
+  <div class="right">
+    <button>AI</button><button>WSW</button><button>Bookmarks</button>
+    <button onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'">Theme</button>
+  </div>
+</div>
+<div class="tabs">
+  <a class="active">Home</a><a>News</a><a>Telegram</a><a>Reports</a><a>YouTube</a><a>Twitter</a>
+</div>
+<main class="page">
+  <div class="hero-grid">
+    <div class="hero-main">
+      <div class="kicker">The Core</div>
+      <h1><a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a></h1>
+      <div class="lede">Reveals the structural trade-off between retail price stability and industrial productivity in India&#x27;s energy policy during geopolitical crises.</div>
+    </div>
+    <div class="hero-side"><div class="side-story">
+          <h3><a href="https://www.thehindu.com/news/international/how-iran-war-could-create-fertiliser-shock-often-ignored-global-risk-to-food-prices-farming/article70721470.ece" target="_blank">How Iran war could create ‘fertilizer shock’ – often ignored global ris…</a></h3>
+          <span>The Hindu — Agri Business</span>
+        </div><div class="side-story">
+          <h3><a href="https://www.thehindubusinessline.com/companies/amrut-sees-rum-gaining-ground-as-premium-spirits-demand-spreads-beyond-metros/article70723273.ece" target="_blank">Amrut sees rum gaining ground as premium spirits demand spreads beyond…</a></h3>
+          <span>BusinessLine — Companies</span>
+        </div><div class="side-story">
+          <h3><a href="https://www.thehindubusinessline.com/companies/karkhana-acquires-micron-ems-to-deepen-electronics-manufacturing-capabilities/article70722895.ece" target="_blank">Karkhana acquires Micron EMS to deepen electronics manufacturing capabi…</a></h3>
+          <span>BusinessLine — Companies</span>
+        </div><div class="side-story">
+          <h3><a href="https://www.thehindubusinessline.com/info-tech/manyavar-campaign-crosses-300-million-views-in-72-hours-across-platforms/article70722655.ece" target="_blank">Manyavar campaign crosses 300 million views in 72 hours across platforms</a></h3>
+          <span>BusinessLine — Companies</span>
+        </div></div>
+  </div>
+  <div class="sections"><div class="section"><h2>News</h2><div class="sec-row"><a href="https://www.thehindubusinessline.com/news/mm-forgings-plans-to-deploy-up-to-150-robots-amid-manpower-shortage/article70722740.ece" target="_blank">MM Forgings plans to deploy up to 150 robots amid manpower shortage</a><span>BusinessLine — Companies</span></div><div class="sec-row"><a href="https://www.thehindubusinessline.com/companies/abb-to-invest-75-million-in-india-to-expand-manufacturing-and-rampd/article70722833.ece" target="_blank">ABB to invest $75 million in India to expand manufacturing and R&amp;D</a><span>BusinessLine — Companies</span></div><div class="sec-row"><a href="https://www.thehindubusinessline.com/companies/tech-mahindra-denies-rumours-of-massive-layoffs/article70722810.ece" target="_blank">Tech Mahindra denies rumours of massive layoffs</a><span>BusinessLine — Companies</span></div></div><div class="section"><h2>Reports</h2><div class="sec-row"><a href="https://think.ing.com/snaps/turkish-current-account-deficit-exceeds-expectations-amid-methodological-revision/" target="_blank">Turkish current account deficit jumps after methodological revision</a><span>ING</span></div><div class="sec-row"><a href="https://www.icici.bank.in/content/dam/icicibank/india/erg/daily-reports/mms-12-march-2026.pdf" target="_blank">Morning Market Starter</a><span>ICICI Bank</span></div><div class="sec-row"><a href="https://think.ing.com/articles/fx-daily-oil-and-equity-volatility-taking-dollar-back-up/" target="_blank">FX Daily: Oil and equity volatility taking dollar back up</a><span>ING</span></div></div><div class="section"><h2>Videos</h2><div class="sec-row"><a href="https://www.youtube.com/shorts/X7VsTk3QMRc" target="_blank">Shashi Tharoor Reacts To Indian Ship Safe Passage Through Strait Of…</a><span>ET Now</span></div><div class="sec-row"><a href="https://www.youtube.com/watch?v=ajvY2NLvs70" target="_blank">Profit &amp; Palate | Trailer Part A | Where Entrepreneurship Meets Foo…</a><span>ET Now</span></div><div class="sec-row"><a href="https://www.youtube.com/watch?v=8coc-HEWkN4" target="_blank">LPG Diversion Cannot Be Hidden Anymore: Hardeep Singh Puri | N18 |…</a><span>CNBC-TV18</span></div></div><div class="section"><h2>Twitter</h2><div class="sec-row"><a href="https://x.com/REDBOXINDIA/status/2032041870059241812" target="_blank">INDIA CPI (YOY) (FEB) ACTUAL: 3.21% VS 2.75% PREVIOUS; EST 3.14%</a><span>Redbox India</span></div><div class="sec-row"><a href="https://x.com/REDBOXINDIA/status/2031998489463554163" target="_blank">GOVT IS CONSIDERING A 12 - 16% INCENTIVE ON LARGE INVESTMENTS TO BO…</a><span>Redbox India</span></div><div class="sec-row"><a href="https://x.com/unseenvalue/status/2031992470293074426" target="_blank">Almost every chapter in these books offers deeper insights for inve…</a><span>Unseen Value</span></div></div></div>
+</main>
+</body></html>

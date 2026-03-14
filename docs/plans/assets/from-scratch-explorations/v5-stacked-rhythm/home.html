@@ -1,0 +1,138 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V5 — Stacked Rhythm</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#fdfdfc;--ink:#111;--mut:#888;--ln:#e6e4e0;--acc:#111}
+[data-theme="dark"]{--bg:#0b0b0a;--ink:#eae8e4;--mut:#6a6864;--ln:#282624;--acc:#eae8e4}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+.topbar{display:flex;align-items:baseline;padding:28px 0 20px;max-width:720px;margin:0 auto}
+.logo{font:400 22px 'Instrument Serif',serif}
+.right{margin-left:auto;display:flex;gap:14px}
+.right button{background:none;border:none;font:400 11px 'Space Mono',monospace;color:var(--mut);cursor:pointer}
+.right button:hover{color:var(--ink)}
+.tabs{max-width:720px;margin:0 auto;display:flex;gap:24px;padding-bottom:16px;border-bottom:1px solid var(--ln)}
+.tabs a{font:400 14px 'DM Sans',sans-serif;color:var(--mut);text-decoration:none}
+.tabs a.active{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px}
+.page{max-width:720px;margin:0 auto;padding:0 0 80px}
+.hero{padding:56px 0 40px;border-bottom:1px solid var(--ln)}
+.hero-kicker{font:700 9px 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+.hero h1{font:400 42px/1.08 'Instrument Serif',serif;margin-bottom:12px}
+.hero h1 a{color:var(--ink);text-decoration:none}
+.hero h1 a:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.hero .lede{font:400 15px/1.7 'DM Sans',sans-serif;color:var(--mut);max-width:540px}
+.section-divider{font:700 9px 'Space Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding:36px 0 12px;border-bottom:1px solid var(--ln)}
+.story-lg{padding:24px 0;border-bottom:1px solid var(--ln)}
+.story-lg a{font:400 24px/1.2 'Instrument Serif',serif;color:var(--ink);text-decoration:none;display:block;margin-bottom:6px}
+.story-lg a:hover{color:var(--mut)}
+.story-sm{padding:16px 0;border-bottom:1px solid var(--ln)}
+.story-sm a{font:400 17px/1.3 'Instrument Serif',serif;color:var(--ink);text-decoration:none;display:block;margin-bottom:4px}
+.story-sm a:hover{color:var(--mut)}
+.story-lg span,.story-sm span{font:700 9px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.ai-scroll{display:flex;gap:16px;overflow-x:auto;padding:20px 0;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ai-scroll::-webkit-scrollbar{display:none}
+.ai-card{min-width:200px;flex-shrink:0;padding:16px;border:1px solid var(--ln)}
+.ai-rank{font:700 20px 'Space Mono',monospace;color:var(--ln);margin-bottom:8px}
+.ai-card a{font:400 14px/1.3 'Instrument Serif',serif;color:var(--ink);text-decoration:none;display:block;margin-bottom:4px}
+.ai-card a:hover{color:var(--mut)}
+.ai-card span{font:400 10px 'Space Mono',monospace;color:var(--mut);letter-spacing:.06em;text-transform:uppercase}
+.rpt-row{padding:12px 0;border-bottom:1px solid var(--ln)}
+.rpt-row a{font:400 16px/1.35 'Instrument Serif',serif;color:var(--ink);text-decoration:none;display:block}
+.rpt-row a:hover{color:var(--mut)}
+.rpt-row span{font:700 9px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);display:block;margin-top:3px}
+.wsw-block{padding:20px 0;border-bottom:1px solid var(--ln)}
+.wsw-block h3{font:400 18px 'Instrument Serif',serif;margin-bottom:6px}
+.wsw-block p{font:400 14px/1.55 'Instrument Serif',serif;font-style:italic;color:var(--mut)}
+.wsw-block span{font:400 11px 'DM Sans',sans-serif;color:var(--mut);display:block;margin-top:4px}
+</style></head>
+<body data-theme="light">
+<div class="topbar">
+  <div class="logo">Finance Radar</div>
+  <div class="right">
+    <button>AI</button><button>WSW</button><button>★</button>
+    <button onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'">Theme</button>
+  </div>
+</div>
+<div class="tabs">
+  <a class="active">Home</a><a>News</a><a>Telegram</a><a>Reports</a><a>YouTube</a><a>Twitter</a>
+</div>
+<main class="page">
+  <div class="hero">
+    <div class="hero-kicker">The Core</div>
+    <h1><a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a></h1>
+    <div class="lede">Reveals the structural trade-off between retail price stability and industrial productivity in India&#x27;s energy policy during geopolitical crises.</div>
+  </div>
+  <div class="section-divider">AI PICKS</div>
+  <div class="ai-scroll"><div class="ai-card">
+          <div class="ai-rank">1</div>
+          <a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears…</a>
+          <span>The Core</span>
+        </div><div class="ai-card">
+          <div class="ai-rank">1</div>
+          <a href="https://t.me/stockupdate9/136170" target="_blank">45,000 Indian Containers Stranded: Export Crisis Deepe…</a>
+          <span>📈</span>
+        </div><div class="ai-card">
+          <div class="ai-rank">1</div>
+          <a href="https://www.careratings.com/uploads/newsfiles/1772611151_Strait of Hormuz - The Rising Risk for India Inc..pdf" target="_blank">Strait of Hormuz: The Rising Risk for India Inc.</a>
+          <span>CareEdge</span>
+        </div><div class="ai-card">
+          <div class="ai-rank">1</div>
+          <a href="https://x.com/exencial_RP/status/2030895200747553046" target="_blank">🧵The sleeping giant of Indian logistics has just woken…</a>
+          <span>Exencial RP</span>
+        </div><div class="ai-card">
+          <div class="ai-rank">1</div>
+          <a href="https://www.youtube.com/watch?v=c0Ne-dI2JcA" target="_blank">Flipkart Re-Domiciles To India | What It Means For Bus…</a>
+          <span>ET Now</span>
+        </div><div class="ai-card">
+          <div class="ai-rank">2</div>
+          <a href="https://www.livemint.com/companies/india-electric-scooter-ather-distribution-push-ola-electric-shrinks-number-of-stores-11773046053330.html" target="_blank">Ather eyes big distribution push in FY27 adding 400 st…</a>
+          <span>Mint</span>
+        </div></div>
+  <div class="section-divider">LATEST</div>
+  <div class="story-lg">
+          <a href="https://www.thehindu.com/news/international/how-iran-war-could-create-fertiliser-shock-often-ignored-global-risk-to-food-prices-farming/article70721470.ece" target="_blank">How Iran war could create ‘fertilizer shock’ – often ignored global risk to food prices, farming</a>
+          <span>The Hindu — Agri Business · 2026-03-09</span>
+        </div><div class="story-sm">
+          <a href="https://www.thehindubusinessline.com/companies/amrut-sees-rum-gaining-ground-as-premium-spirits-demand-spreads-beyond-metros/article70723273.ece" target="_blank">Amrut sees rum gaining ground as premium spirits demand spreads beyond met…</a>
+          <span>BusinessLine — Companies · 2026-03-09</span>
+        </div><div class="story-sm">
+          <a href="https://www.thehindubusinessline.com/companies/karkhana-acquires-micron-ems-to-deepen-electronics-manufacturing-capabilities/article70722895.ece" target="_blank">Karkhana acquires Micron EMS to deepen electronics manufacturing capabilit…</a>
+          <span>BusinessLine — Companies · 2026-03-09</span>
+        </div><div class="story-sm">
+          <a href="https://www.thehindubusinessline.com/info-tech/manyavar-campaign-crosses-300-million-views-in-72-hours-across-platforms/article70722655.ece" target="_blank">Manyavar campaign crosses 300 million views in 72 hours across platforms</a>
+          <span>BusinessLine — Companies · 2026-03-09</span>
+        </div><div class="story-lg">
+          <a href="https://www.thehindubusinessline.com/news/mm-forgings-plans-to-deploy-up-to-150-robots-amid-manpower-shortage/article70722740.ece" target="_blank">MM Forgings plans to deploy up to 150 robots amid manpower shortage</a>
+          <span>BusinessLine — Companies · 2026-03-09</span>
+        </div><div class="story-sm">
+          <a href="https://www.thehindubusinessline.com/companies/abb-to-invest-75-million-in-india-to-expand-manufacturing-and-rampd/article70722833.ece" target="_blank">ABB to invest $75 million in India to expand manufacturing and R&amp;D</a>
+          <span>BusinessLine — Companies · 2026-03-09</span>
+        </div>
+  <div class="section-divider">REPORTS</div>
+  <div class="rpt-row">
+          <a href="https://think.ing.com/snaps/turkish-current-account-deficit-exceeds-expectations-amid-methodological-revision/" target="_blank">Turkish current account deficit jumps after methodological revision</a>
+          <span>ING</span>
+        </div><div class="rpt-row">
+          <a href="https://www.icici.bank.in/content/dam/icicibank/india/erg/daily-reports/mms-12-march-2026.pdf" target="_blank">Morning Market Starter</a>
+          <span>ICICI Bank</span>
+        </div><div class="rpt-row">
+          <a href="https://think.ing.com/articles/fx-daily-oil-and-equity-volatility-taking-dollar-back-up/" target="_blank">FX Daily: Oil and equity volatility taking dollar back up</a>
+          <span>ING</span>
+        </div>
+  <div class="section-divider">VOICES</div>
+  <div class="wsw-block">
+          <h3>Trump Claims Iran War &#x27;Complete&#x27; as Oil Volatilit…</h3>
+          <p>"Donald Trump asserts that US strikes have effectively neutralized Iran&#x27;s military capabilities, sig…"</p>
+          <span></span>
+        </div><div class="wsw-block">
+          <h3>Anthropic Sues US Government Over &#x27;Risk&#x27; Label an…</h3>
+          <p>"Anthropic is taking legal action against the White House after an executive order sought to remove…"</p>
+          <span></span>
+        </div><div class="wsw-block">
+          <h3>Moneyview Defies Industry Retreat to Double Down…</h3>
+          <p>"While competitors scale back due to regulatory pressure, Moneyview is increasing its default guaran…"</p>
+          <span></span>
+        </div>
+</main>
+</body></html>

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinanceRadar</title>
+<style>
+  :root {
+    --text:    #171717;
+    --text-2:  #525252;
+    --text-3:  #a3a3a3;
+    --text-4:  #d4d4d4;
+    --surface: #ffffff;
+    --wash:    #f7f7f7;
+    --hover:   #f0f0f0;
+    --line:    rgba(0,0,0,.055);
+    --ink:     #3b3b3b;
+    --accent:  #5856d6;
+    --accent-wash: rgba(88,86,214,.05);
+
+    --f: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --mono: ui-monospace, 'SF Mono', 'Cascadia Mono', 'Consolas', monospace;
+
+    --side: 192px;
+    --col: 720px;
+    --speed: .2s;
+    --curve: cubic-bezier(.4,0,.2,1);
+  }
+
+  [data-theme="dark"] {
+    --text:    #ebebeb;
+    --text-2:  #8c8c8c;
+    --text-3:  #525252;
+    --text-4:  #2e2e2e;
+    --surface: #0d0d0d;
+    --wash:    #151515;
+    --hover:   #1a1a1a;
+    --line:    rgba(255,255,255,.055);
+    --ink:     #d4d4d4;
+    --accent:  #8583f0;
+    --accent-wash: rgba(133,131,240,.06);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  ::selection { background: var(--accent); color: #fff; }
+
+  body {
+    font-family: var(--f);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar { width: 0; }
+  * { scrollbar-width: none; }
+
+  /*  ╭─────────────────────────╮
+      │       S I D E B A R     │
+      ╰─────────────────────────╯ */
+  .side {
+    width: var(--side);
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border-right: 1px solid var(--line);
+    z-index: 100;
+    padding: 28px 0 16px;
+    overflow-y: auto;
+  }
+
+  .brand {
+    padding: 0 20px 36px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -.03em;
+    color: var(--text);
+    opacity: .85;
+  }
+
+  .nav-group {
+    padding: 0 8px;
+    margin-bottom: 4px;
+  }
+
+  .nav-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    padding: 16px 12px 5px;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 420;
+    color: var(--text-2);
+    cursor: pointer;
+    transition: all var(--speed) var(--curve);
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-family: var(--f);
+  }
+
+  .nav-link:hover { background: var(--hover); color: var(--text); }
+
+  .nav-link.on {
+    background: var(--accent-wash);
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .nav-n {
+    margin-left: auto;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+    opacity: .45;
+  }
+
+  .nav-link.on .nav-n { color: var(--accent); }
+
+  .side-foot {
+    margin-top: auto;
+    padding: 8px 8px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  /*  ╭─────────────────────────╮
+      │        M A I N          │
+      ╰─────────────────────────╯ */
+  .main {
+    margin-left: var(--side);
+    flex: 1;
+    min-width: 0;
+  }
+
+  .top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .top-in {
+    max-width: var(--col);
+    padding: 28px 48px 0;
+  }
+
+  .top-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  .top h1 {
+    font-family: var(--f);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -.03em;
+    color: var(--text);
+  }
+
+  .top-actions {
+    display: flex;
+    gap: 20px;
+  }
+
+  .top-btn {
+    background: none;
+    border: none;
+    font-family: var(--f);
+    font-size: 12px;
+    font-weight: 450;
+    color: var(--text-3);
+    cursor: pointer;
+    transition: color var(--speed) var(--curve);
+    padding: 0;
+  }
+
+  .top-btn:hover { color: var(--text-2); }
+
+  .top-meta {
+    font-size: 12px;
+    color: var(--text-3);
+    font-weight: 400;
+  }
+
+  /* ── filter row ── */
+  .filters {
+    display: flex;
+    gap: 1px;
+    padding-bottom: 12px;
+    max-width: var(--col);
+    padding-left: 48px;
+    padding-right: 48px;
+    overflow-x: auto;
+  }
+
+  .fi {
+    font-family: var(--f);
+    font-size: 12px;
+    font-weight: 420;
+    padding: 3px 9px;
+    border-radius: 5px;
+    border: none;
+    background: none;
+    color: var(--text-3);
+    cursor: pointer;
+    transition: all .15s var(--curve);
+    white-space: nowrap;
+  }
+
+  .fi:hover { color: var(--text-2); }
+
+  .fi.on {
+    color: var(--text);
+    background: var(--wash);
+    font-weight: 480;
+  }
+
+  .fi-sep {
+    width: 1px;
+    height: 12px;
+    background: var(--line);
+    margin: auto 8px;
+    flex-shrink: 0;
+  }
+
+  /*  ╭─────────────────────────╮
+      │      C O N T E N T      │
+      ╰─────────────────────────╯ */
+  .col {
+    max-width: var(--col);
+    padding: 0 48px 120px;
+  }
+
+  .pane { display: none; }
+  .pane.on { display: block; }
+
+  .day-label {
+    padding: 36px 0 14px;
+    font-size: 11px;
+    font-weight: 550;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .day-label:first-child { padding-top: 28px; }
+
+  /* ── article ── */
+  .entry {
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .entry-title {
+    font-family: var(--f);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.38;
+    letter-spacing: -.015em;
+    margin-bottom: 6px;
+  }
+
+  .entry-title a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color .15s var(--curve);
+  }
+
+  .entry-title a:hover { color: var(--accent); }
+
+  .entry-meta {
+    font-size: 12px;
+    color: var(--text-3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+  }
+
+  .entry-src {
+    color: var(--text-2);
+    font-weight: 520;
+    letter-spacing: -.005em;
+  }
+
+  .entry-dot {
+    width: 2px; height: 2px;
+    border-radius: 50%;
+    background: var(--text-4);
+  }
+
+  .entry-body {
+    margin-top: 10px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--text-2);
+    font-weight: 370;
+  }
+
+  .entry-also {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-3);
+    font-weight: 400;
+  }
+
+  .entry-also b {
+    font-weight: 500;
+    color: var(--text-2);
+    cursor: pointer;
+  }
+
+  .entry-also b:hover { color: var(--accent); }
+
+  /* ── report (telegram) ── */
+  .rpt {
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .rpt-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--text-3);
+    margin-bottom: 8px;
+  }
+
+  .rpt-ch {
+    font-weight: 650;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--text-2);
+    font-size: 10.5px;
+  }
+
+  .rpt-title {
+    font-family: var(--f);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.38;
+    letter-spacing: -.015em;
+    margin-bottom: 6px;
+  }
+
+  .rpt-title a { color: var(--text); text-decoration: none; }
+  .rpt-title a:hover { color: var(--accent); }
+
+  .rpt-desc {
+    font-size: 14.5px;
+    color: var(--text-2);
+    line-height: 1.65;
+    font-weight: 370;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .rpt-file {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 6px 12px;
+    background: var(--wash);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 450;
+    color: var(--text-2);
+    text-decoration: none;
+    transition: background .15s var(--curve);
+  }
+
+  .rpt-file:hover { background: var(--hover); }
+  .rpt-file em { font-style: normal; color: var(--text-3); font-weight: 400; }
+
+  /* ── research ── */
+  .res {
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .res-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--text-3);
+    margin-bottom: 8px;
+  }
+
+  .res-pub { font-weight: 650; color: var(--text-2); font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; }
+
+  .res-title {
+    font-family: var(--f);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.38;
+    letter-spacing: -.015em;
+    margin-bottom: 6px;
+  }
+
+  .res-title a { color: var(--text); text-decoration: none; }
+  .res-title a:hover { color: var(--accent); }
+
+  .res-desc {
+    font-size: 14.5px;
+    color: var(--text-2);
+    line-height: 1.65;
+    font-weight: 370;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ── video ── */
+  .vid {
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 18px;
+  }
+
+  .vid-img {
+    width: 172px;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    background: var(--wash);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-4);
+    font-size: 18px;
+    overflow: hidden;
+    transition: opacity .2s var(--curve);
+  }
+
+  .vid:hover .vid-img { opacity: .8; }
+
+  .vid-body { flex: 1; min-width: 0; padding-top: 2px; }
+
+  .vid-ch {
+    font-size: 10.5px;
+    font-weight: 650;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-bottom: 6px;
+  }
+
+  .vid-title {
+    font-family: var(--f);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.38;
+    letter-spacing: -.015em;
+    margin-bottom: 6px;
+  }
+
+  .vid-title a { color: var(--text); text-decoration: none; }
+  .vid-title a:hover { color: var(--accent); }
+
+  .vid-meta { font-size: 12px; color: var(--text-3); }
+
+  /* ── tweet ── */
+  .twt {
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .twt-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .twt-who {
+    font-size: 14px;
+    font-weight: 550;
+    letter-spacing: -.01em;
+  }
+
+  .twt-h {
+    font-weight: 370;
+    color: var(--text-3);
+    margin-left: 5px;
+    font-size: 13px;
+  }
+
+  .twt-time { font-size: 12px; color: var(--text-3); }
+
+  .twt-body {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text);
+    font-weight: 370;
+    margin-bottom: 12px;
+  }
+
+  .twt-link {
+    font-size: 12px;
+    color: var(--text-3);
+    text-decoration: none;
+    font-weight: 450;
+    letter-spacing: -.005em;
+    transition: color .15s var(--curve);
+  }
+
+  .twt-link:hover { color: var(--accent); }
+
+  /*  ╭─────────────────────────╮
+      │      P A N E L S        │
+      ╰─────────────────────────╯ */
+  .ov {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.12);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .25s var(--curve);
+  }
+
+  [data-theme="dark"] .ov { background: rgba(0,0,0,.45); }
+  .ov.on { opacity: 1; visibility: visible; }
+
+  .pn {
+    position: fixed;
+    top: 0; right: 0;
+    width: 340px;
+    max-width: 85vw;
+    height: 100vh;
+    background: var(--surface);
+    border-left: 1px solid var(--line);
+    z-index: 201;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform .3s var(--curve);
+  }
+
+  .ov.on .pn { transform: translateX(0); }
+
+  .pn-h {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pn-t {
+    font-family: var(--f);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .pn-x {
+    width: 24px; height: 24px;
+    border: none; background: none;
+    color: var(--text-3);
+    cursor: pointer; font-size: 18px;
+    transition: color .15s var(--curve);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .pn-x:hover { color: var(--text); }
+
+  .pn-body { flex: 1; overflow-y: auto; }
+
+  .ai-r {
+    display: flex;
+    gap: 16px;
+    padding: 14px 24px;
+    align-items: flex-start;
+    transition: background .12s var(--curve);
+  }
+
+  .ai-r:hover { background: var(--wash); }
+
+  .ai-n {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    font-weight: 450;
+    color: var(--text-4);
+    min-width: 14px;
+    padding-top: 2px;
+  }
+
+  .ai-body { flex: 1; min-width: 0; }
+
+  .ai-t {
+    font-family: var(--f);
+    font-size: 14px;
+    font-weight: 450;
+    line-height: 1.4;
+    margin-bottom: 3px;
+  }
+
+  .ai-t a { color: var(--text); text-decoration: none; }
+  .ai-t a:hover { color: var(--accent); }
+
+  .ai-s { font-size: 11px; color: var(--text-3); }
+
+  .bm-r {
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--line);
+    transition: background .12s var(--curve);
+  }
+
+  .bm-r:hover { background: var(--wash); }
+
+  .bm-t {
+    font-family: var(--f);
+    font-size: 14px;
+    font-weight: 450;
+    line-height: 1.4;
+    margin-bottom: 3px;
+  }
+
+  .bm-t a { color: var(--text); text-decoration: none; }
+  .bm-t a:hover { color: var(--accent); }
+
+  .bm-s { font-size: 11px; color: var(--text-3); }
+
+  /*  ╭─────────────────────────╮
+      │      M O B I L E        │
+      ╰─────────────────────────╯ */
+  .mbar {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mbar-logo { font-size: 13px; font-weight: 600; letter-spacing: -.03em; }
+
+  .mbar-btn {
+    width: 32px; height: 32px;
+    background: none; border: 1px solid var(--line);
+    border-radius: 8px; color: var(--text-2);
+    cursor: pointer; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .shade {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.25);
+    z-index: 99;
+  }
+
+  @media (max-width: 768px) {
+    .side { transform: translateX(-100%); transition: transform .3s var(--curve); }
+    .side.open { transform: translateX(0); }
+    .shade.open { display: block; }
+    .mbar { display: flex; }
+    .main { margin-left: 0; }
+    .top-in, .filters, .col { padding-left: 24px; padding-right: 24px; }
+    .vid { flex-direction: column; }
+    .vid-img { width: 100%; }
+    .top h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<aside class="side" id="side">
+  <div class="brand">FinanceRadar</div>
+  <div class="nav-group">
+    <div class="nav-label">Feeds</div>
+    <button class="nav-link on" data-t="news" onclick="go('news')">News<span class="nav-n">142</span></button>
+    <button class="nav-link" data-t="tg" onclick="go('tg')">Telegram<span class="nav-n">28</span></button>
+    <button class="nav-link" data-t="res" onclick="go('res')">Research<span class="nav-n">15</span></button>
+    <button class="nav-link" data-t="yt" onclick="go('yt')">YouTube<span class="nav-n">34</span></button>
+    <button class="nav-link" data-t="tw" onclick="go('tw')">Twitter<span class="nav-n">67</span></button>
+  </div>
+  <div class="nav-group">
+    <div class="nav-label">Curated</div>
+    <button class="nav-link" onclick="pop('ai')">AI Picks</button>
+    <button class="nav-link" onclick="pop('bm')">Bookmarks<span class="nav-n">3</span></button>
+  </div>
+  <div class="side-foot">
+    <button class="nav-link" onclick="flip()"><span id="ti">◐</span>&ensp;<span id="tl">Dark</span></button>
+  </div>
+</aside>
+<div class="shade" id="shade" onclick="cs()"></div>
+
+<div class="main">
+  <div class="mbar">
+    <span class="mbar-logo">FinanceRadar</span>
+    <button class="mbar-btn" onclick="os()">☰</button>
+  </div>
+
+  <!-- NEWS -->
+  <div class="pane on" id="p-news">
+    <div class="top"><div class="top-in">
+      <div class="top-row">
+        <h1>News</h1>
+        <div class="top-actions">
+          <span class="top-meta">12 min ago</span>
+          <button class="top-btn" onclick="pop('ai')">AI Picks</button>
+          <button class="top-btn" onclick="pop('bm')">Saved</button>
+        </div>
+      </div>
+      <div class="filters">
+        <button class="fi on">All</button><button class="fi">6h</button><button class="fi">24h</button>
+        <span class="fi-sep"></span>
+        <button class="fi on">All sources</button><button class="fi">LiveMint</button><button class="fi">ET Markets</button><button class="fi">Moneycontrol</button><button class="fi">Reuters</button>
+      </div>
+    </div></div>
+    <div class="col">
+      <div class="day-label">Today, March 10</div>
+      <div class="entry">
+        <h2 class="entry-title"><a href="#">RBI holds repo rate steady at 6.25% as inflation risks persist</a></h2>
+        <div class="entry-meta"><span class="entry-src">LiveMint</span><span class="entry-dot"></span>2 hours ago</div>
+        <p class="entry-body">The central bank kept its benchmark rate unchanged for the second consecutive meeting, citing persistent food inflation and global uncertainty.</p>
+        <div class="entry-also">Also: <b>ET Markets</b>, <b>Moneycontrol</b></div>
+      </div>
+      <div class="entry">
+        <h2 class="entry-title"><a href="#">Tata Motors reports 18% rise in domestic EV sales for February</a></h2>
+        <div class="entry-meta"><span class="entry-src">Economic Times</span><span class="entry-dot"></span>3 hours ago</div>
+        <p class="entry-body">The automaker's electric vehicle segment outpaced the broader passenger vehicle market, with the Nexon EV continuing to lead sales.</p>
+      </div>
+      <div class="entry">
+        <h2 class="entry-title"><a href="#">SEBI proposes tighter norms for finfluencers promoting unregistered schemes</a></h2>
+        <div class="entry-meta"><span class="entry-src">Moneycontrol</span><span class="entry-dot"></span>4 hours ago</div>
+      </div>
+      <div class="entry">
+        <h2 class="entry-title"><a href="#">Reliance Jio's tariff hike signals end of India's cheap data era</a></h2>
+        <div class="entry-meta"><span class="entry-src">Reuters</span><span class="entry-dot"></span>5 hours ago</div>
+        <p class="entry-body">Analysts expect Bharti Airtel and Vodafone Idea to follow with similar increases within weeks, marking a structural shift in telecom pricing.</p>
+        <div class="entry-also">Also: <b>LiveMint</b></div>
+      </div>
+      <div class="entry">
+        <h2 class="entry-title"><a href="#">India's manufacturing PMI hits 14-month high on strong new orders</a></h2>
+        <div class="entry-meta"><span class="entry-src">Business Standard</span><span class="entry-dot"></span>6 hours ago</div>
+      </div>
+      <div class="entry">
+        <h2 class="entry-title"><a href="#">SBI reports record quarterly profit of ₹19,400 crore, asset quality at decade best</a></h2>
+        <div class="entry-meta"><span class="entry-src">LiveMint</span><span class="entry-dot"></span>7 hours ago</div>
+        <p class="entry-body">Net profit rose 28% year-on-year, beating analyst estimates. Gross NPAs fell to 2.1%, the lowest in a decade.</p>
+      </div>
+      <div class="day-label">Yesterday, March 9</div>
+      <div class="entry">
+        <h2 class="entry-title"><a href="#">Adani Group completes ₹15,000 crore debt reduction ahead of schedule</a></h2>
+        <div class="entry-meta"><span class="entry-src">Economic Times</span><span class="entry-dot"></span>Yesterday</div>
+      </div>
+      <div class="entry">
+        <h2 class="entry-title"><a href="#">India's forex reserves climb to $680 billion, highest since October</a></h2>
+        <div class="entry-meta"><span class="entry-src">Reuters</span><span class="entry-dot"></span>Yesterday</div>
+        <p class="entry-body">The Reserve Bank of India has been rebuilding reserves after intervening heavily to support the rupee through the dollar rally.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELEGRAM -->
+  <div class="pane" id="p-tg">
+    <div class="top"><div class="top-in">
+      <div class="top-row"><h1>Telegram</h1><div class="top-actions"><span class="top-meta">28 reports</span></div></div>
+      <div class="filters">
+        <button class="fi on">All</button><button class="fi">Documents</button><button class="fi">Photos</button>
+        <span class="fi-sep"></span>
+        <button class="fi on">All channels</button><button class="fi">Brokerage Reports</button><button class="fi">CareEdge</button>
+      </div>
+    </div></div>
+    <div class="col">
+      <div class="day-label">Today, March 10</div>
+      <div class="rpt">
+        <div class="rpt-head"><span class="rpt-ch">Brokerage Reports</span><span class="entry-dot"></span>PDF<span class="entry-dot"></span>2h ago</div>
+        <h3 class="rpt-title"><a href="#">HDFC Securities — Tata Motors: Buy, Target ₹980 — EV segment inflection point</a></h3>
+        <p class="rpt-desc">We upgrade our target on strong EV momentum and improving JLR margins. The Nexon EV continues to dominate with 62% market share.</p>
+        <a class="rpt-file" href="#">📄 TataMotors_Buy_Mar2026.pdf <em>· 2.1 MB</em></a>
+      </div>
+      <div class="rpt">
+        <div class="rpt-head"><span class="rpt-ch">CareEdge</span><span class="entry-dot"></span>Image<span class="entry-dot"></span>5h ago</div>
+        <h3 class="rpt-title"><a href="#">India Credit Outlook Q1 FY27 — Banking sector NPAs at multi-year lows</a></h3>
+        <p class="rpt-desc">Credit growth remains strong at 14.2% YoY. Asset quality improvements continue with system-level GNPAs at 2.8%.</p>
+      </div>
+      <div class="rpt">
+        <div class="rpt-head"><span class="rpt-ch">Brokerage Reports</span><span class="entry-dot"></span>PDF<span class="entry-dot"></span>6h ago</div>
+        <h3 class="rpt-title"><a href="#">Axis Direct — SEBI consultation paper: Impact on fintech distribution models</a></h3>
+        <p class="rpt-desc">The proposed regulations on finfluencers could impact distribution costs for new-age brokers.</p>
+        <a class="rpt-file" href="#">📄 SEBI_Finfluencer_Impact.pdf <em>· 1.4 MB</em></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <div class="pane" id="p-res">
+    <div class="top"><div class="top-in">
+      <div class="top-row"><h1>Research</h1><div class="top-actions"><span class="top-meta">15 reports</span></div></div>
+      <div class="filters">
+        <button class="fi on">All</button><button class="fi">Indian</button><button class="fi">International</button>
+        <span class="fi-sep"></span>
+        <button class="fi on">All publishers</button><button class="fi">CRISIL</button><button class="fi">Goldman Sachs</button><button class="fi">HDFC Securities</button>
+      </div>
+    </div></div>
+    <div class="col">
+      <div class="day-label">Today, March 10</div>
+      <div class="res">
+        <div class="res-head"><span class="res-pub">CRISIL</span><span class="entry-dot"></span>Indian<span class="entry-dot"></span><span>3h ago</span></div>
+        <h3 class="res-title"><a href="#">India Manufacturing Monitor: PMI signals broadening recovery across sectors</a></h3>
+        <p class="res-desc">New order inflows hit 14-month high. Export orders improving for the first time in 6 months.</p>
+      </div>
+      <div class="res">
+        <div class="res-head"><span class="res-pub">Goldman Sachs</span><span class="entry-dot"></span>International<span class="entry-dot"></span><span>5h ago</span></div>
+        <h3 class="res-title"><a href="#">EM Equity Strategy: India remains overweight — structural growth thesis intact</a></h3>
+        <p class="res-desc">We maintain India as our top EM overweight. Domestic consumption recovery and capex cycle support 15% earnings growth.</p>
+      </div>
+      <div class="res">
+        <div class="res-head"><span class="res-pub">HDFC Securities</span><span class="entry-dot"></span>Indian<span class="entry-dot"></span><span>8h ago</span></div>
+        <h3 class="res-title"><a href="#">Telecom sector update: Tariff hike cycle to drive 200bps ARPU improvement</a></h3>
+        <p class="res-desc">Jio's latest tariff revision confirms the sector-wide pricing discipline thesis.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOUTUBE -->
+  <div class="pane" id="p-yt">
+    <div class="top"><div class="top-in">
+      <div class="top-row"><h1>YouTube</h1><div class="top-actions"><span class="top-meta">34 videos</span></div></div>
+      <div class="filters">
+        <button class="fi on">All</button><button class="fi">24h</button><button class="fi">This week</button>
+        <span class="fi-sep"></span>
+        <button class="fi on">All channels</button><button class="fi">Rachana Ranade</button><button class="fi">Akshat Shrivastava</button><button class="fi">Zerodha Varsity</button>
+      </div>
+    </div></div>
+    <div class="col">
+      <div class="day-label">Today, March 10</div>
+      <div class="vid">
+        <div class="vid-img">▶</div>
+        <div class="vid-body">
+          <div class="vid-ch">Rachana Ranade</div>
+          <h3 class="vid-title"><a href="#">RBI Policy Explained: Why rates stayed unchanged and what it means for your loans</a></h3>
+          <div class="vid-meta">12K views · 2 hours ago</div>
+        </div>
+      </div>
+      <div class="vid">
+        <div class="vid-img">▶</div>
+        <div class="vid-body">
+          <div class="vid-ch">Akshat Shrivastava</div>
+          <h3 class="vid-title"><a href="#">Tata EV Sales Are Exploding — But Should You Buy The Stock?</a></h3>
+          <div class="vid-meta">28K views · 4 hours ago</div>
+        </div>
+      </div>
+      <div class="vid">
+        <div class="vid-img">▶</div>
+        <div class="vid-body">
+          <div class="vid-ch">Zerodha Varsity</div>
+          <h3 class="vid-title"><a href="#">Understanding SEBI's new finfluencer regulations — complete breakdown</a></h3>
+          <div class="vid-meta">8.5K views · 6 hours ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TWITTER -->
+  <div class="pane" id="p-tw">
+    <div class="top"><div class="top-in">
+      <div class="top-row"><h1>Twitter</h1><div class="top-actions"><span class="top-meta">67 posts</span></div></div>
+      <div class="filters">
+        <button class="fi on">All</button><button class="fi">Original</button><button class="fi">Threads</button>
+        <span class="fi-sep"></span>
+        <button class="fi on">All accounts</button><button class="fi">Nithin Kamath</button><button class="fi">Deepak Shenoy</button>
+      </div>
+    </div></div>
+    <div class="col">
+      <div class="day-label">Today, March 10</div>
+      <div class="twt">
+        <div class="twt-top"><span class="twt-who">Nithin Kamath<span class="twt-h">@Nitaborade</span></span><span class="twt-time">1h ago</span></div>
+        <p class="twt-body">RBI holding rates was expected, but the commentary around food inflation was more hawkish than markets anticipated. The bond market reaction tells the real story — 10Y yield up 4bps post-announcement.</p>
+        <a class="twt-link" href="#">View on X →</a>
+      </div>
+      <div class="twt">
+        <div class="twt-top"><span class="twt-who">Deepak Shenoy<span class="twt-h">@deepaborade</span></span><span class="twt-time">3h ago</span></div>
+        <p class="twt-body">Tata Motors EV story is fascinating — 18% growth when the overall auto market grew only 4%. But the real question is margins. The Nexon EV is profitable, but the Curvv EV launch costs will weigh on Q4 numbers.</p>
+        <a class="twt-link" href="#">View on X →</a>
+      </div>
+      <div class="twt">
+        <div class="twt-top"><span class="twt-who">Nithin Kamath<span class="twt-h">@Nitaborade</span></span><span class="twt-time">5h ago</span></div>
+        <p class="twt-body">Jio tariff hike is a signal that the Indian consumer internet story is entering its monetization phase. Cheap data built the user base — now comes pricing power.</p>
+        <a class="twt-link" href="#">View on X →</a>
+      </div>
+      <div class="twt">
+        <div class="twt-top"><span class="twt-who">Deepak Shenoy<span class="twt-h">@deepaborade</span></span><span class="twt-time">7h ago</span></div>
+        <p class="twt-body">SBI's results are remarkable. ₹19,400 cr quarterly profit from a PSU bank. NPA at 2.1%. The transformation of Indian PSU banking over the last 5 years deserves more recognition than it gets.</p>
+        <a class="twt-link" href="#">View on X →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AI PANEL -->
+<div class="ov" id="o-ai" onclick="shut('ai')"><div class="pn" onclick="event.stopPropagation()">
+  <div class="pn-h"><span class="pn-t">AI Picks</span><button class="pn-x" onclick="shut('ai')">×</button></div>
+  <div class="pn-body">
+    <div class="ai-r"><span class="ai-n">1</span><div class="ai-body"><div class="ai-t"><a href="#">RBI holds repo rate steady at 6.25%</a></div><div class="ai-s">LiveMint · 2h ago</div></div></div>
+    <div class="ai-r"><span class="ai-n">2</span><div class="ai-body"><div class="ai-t"><a href="#">Jio's tariff hike signals end of cheap data</a></div><div class="ai-s">Reuters · 5h ago</div></div></div>
+    <div class="ai-r"><span class="ai-n">3</span><div class="ai-body"><div class="ai-t"><a href="#">SBI reports record quarterly profit</a></div><div class="ai-s">LiveMint · 7h ago</div></div></div>
+    <div class="ai-r"><span class="ai-n">4</span><div class="ai-body"><div class="ai-t"><a href="#">Manufacturing PMI hits 14-month high</a></div><div class="ai-s">Business Standard · 6h ago</div></div></div>
+    <div class="ai-r"><span class="ai-n">5</span><div class="ai-body"><div class="ai-t"><a href="#">SEBI proposes tighter finfluencer norms</a></div><div class="ai-s">Moneycontrol · 4h ago</div></div></div>
+    <div class="ai-r"><span class="ai-n">6</span><div class="ai-body"><div class="ai-t"><a href="#">Tata Motors domestic EV sales up 18%</a></div><div class="ai-s">Economic Times · 3h ago</div></div></div>
+    <div class="ai-r"><span class="ai-n">7</span><div class="ai-body"><div class="ai-t"><a href="#">Forex reserves climb to $680 billion</a></div><div class="ai-s">Reuters · Yesterday</div></div></div>
+  </div>
+</div></div>
+
+<!-- BOOKMARKS PANEL -->
+<div class="ov" id="o-bm" onclick="shut('bm')"><div class="pn" onclick="event.stopPropagation()">
+  <div class="pn-h"><span class="pn-t">Bookmarks</span><button class="pn-x" onclick="shut('bm')">×</button></div>
+  <div class="pn-body">
+    <div class="bm-r"><div class="bm-t"><a href="#">Reliance Jio's tariff hike signals end of India's cheap data era</a></div><div class="bm-s">Reuters · 5h ago</div></div>
+    <div class="bm-r"><div class="bm-t"><a href="#">India's forex reserves climb to $680 billion</a></div><div class="bm-s">Reuters · Yesterday</div></div>
+    <div class="bm-r"><div class="bm-t"><a href="#">EM Equity Strategy: India remains overweight</a></div><div class="bm-s">Goldman Sachs · 5h ago</div></div>
+  </div>
+</div></div>
+
+<script>
+function go(t){document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.nav-link[data-t]').forEach(l=>l.classList.remove('on'));var p=document.getElementById('p-'+t),l=document.querySelector('.nav-link[data-t="'+t+'"]');if(p)p.classList.add('on');if(l)l.classList.add('on');cs();}
+function pop(n){document.getElementById('o-'+n).classList.add('on');document.body.style.overflow='hidden';}
+function shut(n){document.getElementById('o-'+n).classList.remove('on');document.body.style.overflow='';}
+function flip(){var h=document.documentElement,n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);document.getElementById('ti').textContent=n==='dark'?'◑':'◐';document.getElementById('tl').textContent=n==='dark'?'Light':'Dark';}
+function os(){document.getElementById('side').classList.add('open');document.getElementById('shade').classList.add('open');}
+function cs(){document.getElementById('side').classList.remove('open');document.getElementById('shade').classList.remove('open');}
+document.querySelectorAll('.filters').forEach(function(g){var seps=[];var groups=[[],[]];var gi=0;Array.from(g.children).forEach(function(c){if(c.classList.contains('fi-sep')){gi=1;return;}if(c.classList.contains('fi'))groups[gi].push(c);});groups.forEach(function(arr){arr.forEach(function(b){b.addEventListener('click',function(){arr.forEach(function(s){s.classList.remove('on')});b.classList.add('on');});});});});
+document.addEventListener('keydown',function(e){if(e.target.tagName==='INPUT')return;var m={1:'news',2:'tg',3:'res',4:'yt',5:'tw'};if(m[e.key])go(m[e.key]);if(e.key==='a')pop('ai');if(e.key==='b')pop('bm');if(e.key==='Escape'){shut('ai');shut('bm');}});
+</script>
+</body>
+</html>

@@ -2130,6 +2130,8 @@
         // ==================== RENDER HOME TAB (Newspaper) ====================
         function renderHomeTab() {
             if (!HOME_LIMITS || !HOME_PAIR_MAX) return;
+            // Don't render until ALL data sources are loaded
+            if (!NEWS_ARTICLES || !TELEGRAM_REPORTS || !YOUTUBE_VIDEOS || !RESEARCH_REPORTS || !TWITTER_ARTICLES || !PAPER_ARTICLES) return;
             const container = document.getElementById('home-newspaper');
             if (!container) return;
 

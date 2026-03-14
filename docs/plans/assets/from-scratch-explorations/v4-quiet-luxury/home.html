@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V4 — Quiet Luxury</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#fff;--ink:#111;--mut:#999;--ln:#eee;--acc:#1a3a5c}
+[data-theme="dark"]{--bg:#090d11;--ink:#e8ecf0;--mut:#607080;--ln:#1e2a36;--acc:#6fa3d4}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+.topbar{display:flex;align-items:center;padding:32px 56px 24px}
+.logo{font:400 24px 'Instrument Serif',serif;color:var(--acc)}
+.right{margin-left:auto;display:flex;gap:16px;align-items:center}
+.right button{background:none;border:none;font:400 12px 'Inter',sans-serif;color:var(--mut);cursor:pointer;padding:4px 8px}
+.right button:hover{color:var(--ink)}
+.tabs{display:flex;gap:32px;padding:0 56px 20px}
+.tabs a{font:500 14px 'Inter',sans-serif;color:var(--mut);text-decoration:none}
+.tabs a.active{color:var(--acc)}
+.tabs a:hover{color:var(--ink)}
+.divider{height:1px;background:var(--ln);margin:0 56px}
+.page{max-width:1100px;margin:0 auto;padding:0 56px 64px}
+.hero-section{padding:56px 0 48px;display:grid;grid-template-columns:1fr;gap:12px;max-width:640px}
+.hero-kicker{font:500 11px 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.hero-section h1{font:400 44px/1.08 'Instrument Serif',serif;letter-spacing:-.01em}
+.hero-section h1 a{color:var(--ink);text-decoration:none}
+.hero-section h1 a:hover{opacity:.7}
+.hero-section .lede{font:400 15px/1.7 'Inter',sans-serif;color:var(--mut);max-width:520px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:32px 0;border-top:1px solid var(--ln)}
+.card{padding:20px 0}
+.card a{font:400 17px/1.3 'Instrument Serif',serif;color:var(--ink);text-decoration:none;display:block;margin-bottom:6px}
+.card a:hover{color:var(--acc)}
+.card span{font:400 10px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.section-label{font:500 10px 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;padding-top:40px}
+.picks{display:grid;gap:0;border-top:1px solid var(--ln)}
+.pick{display:grid;grid-template-columns:28px 1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--ln);align-items:baseline}
+.pick-rank{font:500 12px 'Space Mono',monospace;color:var(--acc)}
+.pick a{font:400 15px/1.35 'Instrument Serif',serif;color:var(--ink);text-decoration:none}
+.pick a:hover{color:var(--acc)}
+.pick-src{font:400 10px 'Space Mono',monospace;color:var(--mut);letter-spacing:.06em;text-transform:uppercase}
+.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:40px 0;border-top:1px solid var(--ln)}
+.wsw-item h3{font:400 18px/1.3 'Instrument Serif',serif;margin-bottom:6px}
+.wsw-item p{font:400 13px/1.6 'Inter',sans-serif;color:var(--mut)}
+.wsw-item{margin-bottom:20px}
+</style></head>
+<body data-theme="light">
+<div class="topbar">
+  <div class="logo">Finance Radar</div>
+  <div class="right">
+    <button>AI</button><button>Voices</button><button>Bookmarks</button>
+    <button onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'">Theme</button>
+  </div>
+</div>
+<div class="tabs">
+  <a class="active">Home</a><a>News</a><a>Telegram</a><a>Reports</a><a>YouTube</a><a>Twitter</a>
+</div>
+<div class="divider"></div>
+<main class="page">
+  <div class="hero-section">
+    <div class="hero-kicker">The Core</div>
+    <h1><a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a></h1>
+    <div class="lede">Reveals the structural trade-off between retail price stability and industrial productivity in India&#x27;s energy policy during geopolitical crises.</div>
+  </div>
+  <div class="grid-3"><div class="card">
+          <a href="https://www.thehindu.com/news/international/how-iran-war-could-create-fertiliser-shock-often-ignored-global-risk-to-food-prices-farming/article70721470.ece" target="_blank">How Iran war could create ‘fertilizer shock’ – often ignored global r…</a>
+          <span>The Hindu — Agri Business</span>
+        </div><div class="card">
+          <a href="https://www.thehindubusinessline.com/companies/amrut-sees-rum-gaining-ground-as-premium-spirits-demand-spreads-beyond-metros/article70723273.ece" target="_blank">Amrut sees rum gaining ground as premium spirits demand spreads beyon…</a>
+          <span>BusinessLine — Companies</span>
+        </div><div class="card">
+          <a href="https://www.thehindubusinessline.com/companies/karkhana-acquires-micron-ems-to-deepen-electronics-manufacturing-capabilities/article70722895.ece" target="_blank">Karkhana acquires Micron EMS to deepen electronics manufacturing capa…</a>
+          <span>BusinessLine — Companies</span>
+        </div></div>
+  <div class="section-label">AI PICKS</div>
+  <div class="picks"><div class="pick">
+          <span class="pick-rank">1</span>
+          <a href="https://t.me/stockupdate9/136170" target="_blank">45,000 Indian Containers Stranded: Export Crisis Deepens</a>
+          <span class="pick-src">📈</span>
+        </div><div class="pick">
+          <span class="pick-rank">1</span>
+          <a href="https://www.careratings.com/uploads/newsfiles/1772611151_Strait of Hormuz - The Rising Risk for India Inc..pdf" target="_blank">Strait of Hormuz: The Rising Risk for India Inc.</a>
+          <span class="pick-src">CareEdge</span>
+        </div><div class="pick">
+          <span class="pick-rank">1</span>
+          <a href="https://x.com/exencial_RP/status/2030895200747553046" target="_blank">🧵The sleeping giant of Indian logistics has just woken up in a c…</a>
+          <span class="pick-src">Exencial RP</span>
+        </div><div class="pick">
+          <span class="pick-rank">1</span>
+          <a href="https://www.youtube.com/watch?v=c0Ne-dI2JcA" target="_blank">Flipkart Re-Domiciles To India | What It Means For Business &amp; IP…</a>
+          <span class="pick-src">ET Now</span>
+        </div><div class="pick">
+          <span class="pick-rank">2</span>
+          <a href="https://www.livemint.com/companies/india-electric-scooter-ather-distribution-push-ola-electric-shrinks-number-of-stores-11773046053330.html" target="_blank">Ather eyes big distribution push in FY27 adding 400 stores—in st…</a>
+          <span class="pick-src">Mint</span>
+        </div></div>
+  <div class="bottom-grid">
+    <div>
+      <div class="section-label" style="padding-top:0">REPORTS</div>
+      <div class="card">
+          <a href="https://think.ing.com/snaps/turkish-current-account-deficit-exceeds-expectations-amid-methodological-revision/" target="_blank">Turkish current account deficit jumps after methodological revision</a>
+          <span>ING</span>
+        </div><div class="card">
+          <a href="https://www.icici.bank.in/content/dam/icicibank/india/erg/daily-reports/mms-12-march-2026.pdf" target="_blank">Morning Market Starter</a>
+          <span>ICICI Bank</span>
+        </div><div class="card">
+          <a href="https://think.ing.com/articles/fx-daily-oil-and-equity-volatility-taking-dollar-back-up/" target="_blank">FX Daily: Oil and equity volatility taking dollar back up</a>
+          <span>ING</span>
+        </div>
+    </div>
+    <div>
+      <div class="section-label" style="padding-top:0">VOICES</div>
+      <div class="wsw-item">
+          <h3>Trump Claims Iran War &#x27;Complete&#x27; as Oil Volatilit…</h3>
+          <p>Donald Trump asserts that US strikes have effectively neutralized Iran&#x27;s military capabilities, signaling an…</p>
+        </div><div class="wsw-item">
+          <h3>Anthropic Sues US Government Over &#x27;Risk&#x27; Label an…</h3>
+          <p>Anthropic is taking legal action against the White House after an executive order sought to remove its AI fro…</p>
+        </div>
+    </div>
+  </div>
+</main>
+</body></html>

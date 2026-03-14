@@ -1,0 +1,926 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V8 — Full Crazy River</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#faf9f7;--ink:#111;--mut:#888;--ln:#e4e2de;--acc:#111;
+  --card:#fff;--tw:#f0ede6;--tg:#eaf0f6;--rpt:#f4f1ea;
+  --yt-accent:#ff0033;--tw-accent:#1a8cd8;--tg-accent:#229ed9;--rpt-accent:#8b6914;
+}
+[data-theme="dark"]{
+  --bg:#0b0b0a;--ink:#e8e6e0;--mut:#706e68;--ln:#262420;--acc:#e8e6e0;
+  --card:#151413;--tw:#181714;--tg:#121820;--rpt:#181610;
+  --yt-accent:#ff4455;--tw-accent:#4aa3e0;--tg-accent:#44b4e8;--rpt-accent:#c4a040;
+}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+
+.topbar{display:flex;align-items:baseline;padding:20px 40px 14px;max-width:1280px;margin:0 auto}
+.logo{font:400 22px 'Instrument Serif',serif}
+.right{margin-left:auto;display:flex;gap:12px}
+.right button{background:none;border:none;font:400 11px 'Space Mono',monospace;color:var(--mut);cursor:pointer}
+.right button:hover{color:var(--ink)}
+.tabs{max-width:1280px;margin:0 auto;display:flex;gap:22px;padding:0 40px 12px;border-bottom:1px solid var(--ln)}
+.tabs a{font:400 14px 'DM Sans',sans-serif;color:var(--mut);text-decoration:none}
+.tabs a.active{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px}
+
+/* ── RIVER GRID ── */
+.river{
+  max-width:1280px;margin:0 auto;padding:24px 40px 80px;
+  display:grid;grid-template-columns:repeat(12,1fr);gap:16px;align-items:start;
+}
+
+/* ── Shared card bits ── */
+.c{background:var(--card);position:relative;overflow:hidden}
+h2,h3{font-family:'Instrument Serif',serif;font-weight:400}
+h3{font-size:17px;line-height:1.3}
+h3 a,.c h2 a{color:var(--ink);text-decoration:none}
+h3 a:hover,.c h2 a:hover{color:var(--mut)}
+.meta{font:700 9px 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);display:block;margin-top:4px}
+.why{font:400 13px/1.6 'DM Sans',sans-serif;color:var(--mut);margin-top:8px}
+
+/* ══════════════════════════════════════════
+   NEWS CARDS
+   ══════════════════════════════════════════ */
+.c-hero{
+  grid-column:span 8;padding:48px 44px;
+  border:none;border-bottom:3px solid var(--ink);
+}
+.hero-rank{font:700 72px 'Space Mono',monospace;color:var(--ln);position:absolute;top:24px;right:32px;line-height:1}
+.hero-signal{font:700 10px 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
+.c-hero h2{font-size:36px;line-height:1.1;margin-bottom:10px;max-width:680px}
+.hero-why{font:400 15px/1.65 'DM Sans',sans-serif;color:var(--mut);margin-top:12px;max-width:600px}
+
+.c-news-wide{
+  grid-column:span 8;display:grid;grid-template-columns:1fr 1fr;
+  border:1px solid var(--ln);
+}
+.nw-left{padding:24px;border-right:1px solid var(--ln)}
+.nw-right{padding:24px;display:flex;flex-direction:column;justify-content:center}
+.nw-badge,.ns-badge{font:700 9px 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+.nw-signal,.ns-signal{display:inline-block;font:400 10px 'Space Mono',monospace;border:1px solid var(--ln);padding:2px 8px;margin-top:8px;color:var(--mut)}
+.nw-left h3{font-size:20px}
+
+.c-news-std{
+  grid-column:span 4;padding:24px;border:1px solid var(--ln);
+}
+.ns-rank{font:700 36px 'Space Mono',monospace;color:var(--ln);position:absolute;top:16px;right:18px;line-height:1}
+
+/* ══════════════════════════════════════════
+   YOUTUBE CARDS
+   ══════════════════════════════════════════ */
+.c-yt{border:none;overflow:hidden}
+.c-yt-wide{
+  grid-column:span 8;display:grid;grid-template-columns:1.2fr 1fr;
+}
+.c-yt-stack{grid-column:span 4}
+.yt-thumb{display:block;position:relative;background:#000}
+.yt-thumb img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.yt-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:64px;height:64px;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:22px;padding-left:4px;
+}
+.yt-badge{
+  position:absolute;top:12px;left:12px;
+  font:700 9px 'Space Mono',monospace;letter-spacing:.1em;
+  background:var(--yt-accent);color:#fff;padding:4px 10px;
+}
+.yt-dur{
+  position:absolute;bottom:12px;right:12px;
+  font:700 11px 'Space Mono',monospace;
+  background:rgba(0,0,0,.75);color:#fff;padding:3px 8px;
+}
+.yt-body{padding:20px 24px 24px;background:var(--card);border:1px solid var(--ln);border-top:none}
+.yt-badge-sm{font:700 9px 'Space Mono',monospace;letter-spacing:.1em;color:var(--yt-accent);margin-bottom:6px}
+
+/* ══════════════════════════════════════════
+   TWEET CARDS
+   ══════════════════════════════════════════ */
+.c-tw{grid-column:span 4;background:var(--tw);display:flex;overflow:visible}
+.tw-bar{width:4px;background:var(--tw-accent);flex-shrink:0}
+.tw-inner{padding:24px;flex:1}
+.tw-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.tw-avi{
+  width:36px;height:36px;border-radius:50%;background:var(--tw-accent);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font:700 14px 'DM Sans',sans-serif;flex-shrink:0;
+}
+.tw-name{font:600 13px 'DM Sans',sans-serif}
+.tw-handle{font:400 11px 'Space Mono',monospace;color:var(--mut)}
+.tw-badge{font:700 9px 'Space Mono',monospace;letter-spacing:.08em;color:var(--tw-accent);margin-left:auto}
+.c-tw blockquote{font:400 17px/1.45 'Instrument Serif',serif;font-style:italic;border:none;margin:0}
+.c-tw blockquote a{color:var(--ink);text-decoration:none}
+.c-tw blockquote a:hover{color:var(--mut)}
+
+/* ══════════════════════════════════════════
+   TELEGRAM CARDS
+   ══════════════════════════════════════════ */
+.c-tg{grid-column:span 4;background:var(--tg);position:relative}
+.tg-stripe{position:absolute;top:0;left:0;right:0;height:4px;background:var(--tg-accent)}
+.tg-hero{width:100%;max-height:200px;object-fit:cover;display:block}
+.tg-body{padding:20px}
+.tg-top{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.tg-icon{font:700 9px 'Space Mono',monospace;letter-spacing:.06em;background:var(--tg-accent);color:#fff;padding:3px 7px}
+.tg-ch{font:500 11px 'Space Mono',monospace;color:var(--mut)}
+.tg-views{font:400 10px 'Space Mono',monospace;color:var(--mut)}
+.tg-rank{margin-left:auto;font:700 10px 'Space Mono',monospace;color:var(--tg-accent)}
+
+/* ══════════════════════════════════════════
+   REPORT CARDS
+   ══════════════════════════════════════════ */
+.c-rpt{
+  grid-column:span 6;display:grid;grid-template-columns:80px 1fr;
+  background:var(--rpt);border:1px solid var(--ln);
+}
+.rpt-left{
+  padding:20px 0;display:flex;flex-direction:column;align-items:center;gap:12px;
+  border-right:1px solid var(--ln);
+}
+.rpt-doc{
+  width:48px;height:60px;border:1.5px solid var(--rpt-accent);position:relative;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;padding:8px;
+}
+.rpt-lines div{width:28px;height:2px;background:var(--rpt-accent);opacity:.3}
+.rpt-label{
+  position:absolute;bottom:-1px;right:-1px;
+  font:700 8px 'Space Mono',monospace;letter-spacing:.1em;
+  background:var(--rpt-accent);color:#fff;padding:2px 5px;
+}
+.rpt-rank{font:700 11px 'Space Mono',monospace;color:var(--rpt-accent)}
+.rpt-right{padding:20px 24px}
+.rpt-badge{font:700 9px 'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--rpt-accent);margin-bottom:8px}
+.c-rpt h3{font-size:19px}
+
+/* ══════════════════════════════════════════
+   WSW BREAKERS
+   ══════════════════════════════════════════ */
+.breaker{
+  grid-column:1/-1;padding:48px 0;
+  border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+  margin:8px 0;
+}
+.breaker-top{display:flex;align-items:baseline;gap:16px;margin-bottom:12px}
+.breaker-tag{font:700 10px 'Space Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.breaker-theme{font:400 12px 'DM Sans',sans-serif;color:var(--mut)}
+.breaker h2{font:400 30px/1.15 'Instrument Serif',serif;margin-bottom:10px;max-width:700px}
+.breaker-claim{font:400 16px/1.55 'Instrument Serif',serif;font-style:italic;color:var(--mut);max-width:650px}
+.wsw-voices{display:flex;gap:20px;margin-top:20px;overflow-x:auto;padding-bottom:4px}
+.wsw-voice{min-width:200px;padding:16px;border:1px solid var(--ln);background:var(--card);flex-shrink:0}
+.wsw-v-name{font:600 12px 'DM Sans',sans-serif}
+.wsw-v-role{font:400 10px 'Space Mono',monospace;color:var(--mut);margin-bottom:6px}
+.wsw-v-claim{font:400 13px/1.5 'Instrument Serif',serif;font-style:italic;color:var(--mut)}
+
+/* ── Responsive ── */
+@media(max-width:1000px){
+  .river{grid-template-columns:repeat(6,1fr);padding:16px 20px 60px}
+  .c-hero,.c-news-wide,.c-yt-wide,.c-rpt{grid-column:span 6}
+  .c-news-std,.c-tw,.c-tg,.c-yt-stack{grid-column:span 3}
+}
+@media(max-width:640px){
+  .river{grid-template-columns:1fr}
+  .c,.c-hero,.c-news-wide,.c-news-std,.c-yt-wide,.c-yt-stack,.c-tw,.c-tg,.c-rpt{grid-column:span 1}
+  .c-yt-wide{grid-template-columns:1fr}
+  .c-news-wide{grid-template-columns:1fr}
+  .c-rpt{grid-template-columns:60px 1fr}
+}
+</style></head>
+<body data-theme="light">
+<div class="topbar">
+  <div class="logo">Finance Radar</div>
+  <div class="right">
+    <button>Bookmarks</button>
+    <button onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'">Theme</button>
+  </div>
+</div>
+<div class="tabs">
+  <a class="active">Home</a><a>News</a><a>Telegram</a><a>Reports</a><a>YouTube</a><a>Twitter</a>
+</div>
+<div class="river">
+<article class="c c-news c-hero">
+              <div class="hero-rank">1</div>
+              <div class="hero-signal">mechanism</div>
+              <h2><a href="https://www.thecore.in/economy/cooking-gas-india-homes-west-asia-lpg-price-859770" target="_blank">India Shields Homes From Gas Crisis As Industry Bears Hormuz Shock</a></h2>
+              <span class="meta">The Core</span>
+              <p class="hero-why">Reveals the structural trade-off between retail price stability and industrial productivity in India&#x27;s energy policy during geopolitical crises.</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">📈</span>
+              <span class="tg-views">2.3K views</span>
+              <span class="tg-rank">#1</span>
+            </div>
+            <h3><a href="https://t.me/stockupdate9/136170" target="_blank">45,000 Indian Containers Stranded: Export Crisis Deepens</a></h3>
+            <p class="why">A massive logistics bottleneck threatens to derail export growth and increases costs for Indian manufacturers.
+It highlights the vulnerabil…</p>
+          </div>
+        </article><article class="c c-rpt">
+          <div class="rpt-left">
+            <div class="rpt-doc">
+              <div class="rpt-lines"><div></div><div></div><div></div><div></div><div></div></div>
+              <div class="rpt-label">PDF</div>
+            </div>
+            <div class="rpt-rank">#1</div>
+          </div>
+          <div class="rpt-right">
+            <div class="rpt-badge">REPORT</div>
+            <h3><a href="https://www.careratings.com/uploads/newsfiles/1772611151_Strait of Hormuz - The Rising Risk for India Inc..pdf" target="_blank">Strait of Hormuz: The Rising Risk for India Inc.</a></h3>
+            <span class="meta">CareEdge</span>
+            <p class="why">Disruptions here directly impact India&#x27;s energy security, freight costs, and the profitability of export-oriented sectors.
+It highlights the vulnerability of I…</p>
+          </div>
+        </article><article class="c c-tw">
+          <div class="tw-bar"></div>
+          <div class="tw-inner">
+            <div class="tw-top">
+              <div class="tw-avi">E</div>
+              <div>
+                <div class="tw-name">Exencial RP</div>
+                <div class="tw-handle">@ExencialRP</div>
+              </div>
+              <div class="tw-badge">TWEET · #1</div>
+            </div>
+            <blockquote><a href="https://x.com/exencial_RP/status/2030895200747553046" target="_blank">🧵The sleeping giant of Indian logistics has just woken up in a completely new avatar. Allcargo Logistics has finished a massive structural demerger as of Nov 2025. It’s no longer just a &quot;shipping company&quot; it’s now a pur…</a></blockquote>
+            <p class="why">The demerger signals a move away from global freight volatility toward India&#x27;s internal supply chain growth.
+It represe…</p>
+          </div>
+        </article><article class="c c-yt c-yt-wide">
+              <a href="https://www.youtube.com/watch?v=c0Ne-dI2JcA" target="_blank" class="yt-thumb">
+                <img src="" alt="" loading="lazy">
+                <div class="yt-play">&#9654;</div>
+                <div class="yt-badge">YOUTUBE</div>
+                <div class="yt-dur">#1</div>
+              </a>
+              <div class="yt-body">
+                <h3><a href="https://www.youtube.com/watch?v=c0Ne-dI2JcA" target="_blank">Flipkart Re-Domiciles To India | What It Means For Business &amp; IPO | Business News | ET Now</a></h3>
+                <span class="meta">ET Now</span>
+                <p class="why">Re-domiciling involves complex tax implications and sets a precedent for other &#x27;reverse flipping&#x27; startups eyeing Indian markets.
+It reflec…</p>
+              </div>
+            </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">2</div>
+              <h3><a href="https://www.livemint.com/companies/india-electric-scooter-ather-distribution-push-ola-electric-shrinks-number-of-stores-11773046053330.html" target="_blank">Ather eyes big distribution push in FY27 adding 400 stores—in stark contrast with Ol…</a></h3>
+              <span class="meta">Mint</span>
+              <div class="ns-signal">structural-shift</div>
+              <p class="why">The shift from digital-first to physical-heavy distribution could determine the long-term winner in India&#x27;s EV adoption…</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">📈</span>
+              <span class="tg-views">2.75K views</span>
+              <span class="tg-rank">#2</span>
+            </div>
+            <h3><a href="https://t.me/stockupdate9/136178" target="_blank">INDIA ANTITRUST PROBE FINDS DALMIA CEMENT, SHREE DIGVIJAY COLLUDED ON BIDS OF ONGC CEMENT TENDERS FOR 12 YEARS TO 2018, DOCUMENT…</a></h3>
+            <p class="why">Antitrust actions against major cement players signal a tightening regulatory environment for industrial cartels.
+This could lead to more t…</p>
+          </div>
+        </article><article class="c c-rpt">
+          <div class="rpt-left">
+            <div class="rpt-doc">
+              <div class="rpt-lines"><div></div><div></div><div></div><div></div><div></div></div>
+              <div class="rpt-label">PDF</div>
+            </div>
+            <div class="rpt-rank">#2</div>
+          </div>
+          <div class="rpt-right">
+            <div class="rpt-badge">REPORT</div>
+            <h3><a href="https://www.crisilratings.com/content/crisilratings/en/home/newsroom/press-releases/2026/03/16th-finance-commission-proposals-long-term-positive-for-states.html" target="_blank">16th Finance Commission proposals long-term positive for states</a></h3>
+            <span class="meta">CRISIL</span>
+            <p class="why">These proposals dictate the fiscal health of Indian states and their capacity for infrastructure and social spending.
+It signals a structural shift in federal…</p>
+          </div>
+        </article><article class="c c-tw">
+          <div class="tw-bar"></div>
+          <div class="tw-inner">
+            <div class="tw-top">
+              <div class="tw-avi">P</div>
+              <div>
+                <div class="tw-name">Prashant Nair</div>
+                <div class="tw-handle">@PrashantNair</div>
+              </div>
+              <div class="tw-badge">TWEET · #2</div>
+            </div>
+            <blockquote><a href="https://x.com/_prashantnair/status/2031023488883204514" target="_blank">&quot;The LPG situation in India is delicate&quot; Chat with the just retired MGL Chairman, Sandeep Kumar Gupta. On LPG - India imports 65% of the LPG it uses - Out of this 90% comes from Middle East On Gas Supplies - India consu…</a></blockquote>
+            <p class="why">With 65% of LPG imported and 90% of that from the Middle East, any regional conflict creates a direct supply shock.
+Thi…</p>
+          </div>
+        </article><article class="c c-yt c-yt-stack">
+              <a href="https://www.youtube.com/watch?v=hJpP9oy1hbE" target="_blank" class="yt-thumb">
+                <img src="" alt="" loading="lazy">
+                <div class="yt-play">&#9654;</div>
+              </a>
+              <div class="yt-body">
+                <div class="yt-badge-sm">YT · #2</div>
+                <h3><a href="https://www.youtube.com/watch?v=hJpP9oy1hbE" target="_blank">New insurance rules from April 1: What IRDAI’s big accounting shift means for y…</a></h3>
+                <span class="meta">Business Standard</span>
+              </div>
+            </article><div class="breaker">
+      <div class="breaker-top">
+        <div class="breaker-tag">WHO SAID WHAT</div>
+        <div class="breaker-theme">geopolitics</div>
+      </div>
+      <h2>Trump Claims Iran War &#x27;Complete&#x27; as Oil Volatility Intensifies</h2>
+      <p class="breaker-claim">"Donald Trump asserts that US strikes have effectively neutralized Iran&#x27;s military capabilities, signaling an imminent end to the conflict."</p>
+      <div class="wsw-voices"></div>
+    </div><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">3</div>
+              <h3><a href="https://www.livemint.com/companies/news/new-ai-teams-and-centres-are-making-way-for-gccs-11773045450557.html" target="_blank">GCCs managed to ward off AI impact on hiring—not anymore</a></h3>
+              <span class="meta">Mint</span>
+              <div class="ns-signal">labour-trend</div>
+              <p class="why">Signals that the &#x27;AI insulation&#x27; for Indian tech services is ending, potentially forcing a massive reskilling or workfo…</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          <img class="tg-hero" src="https://cdn5.telesco.pe/file/R0TU0UdOXn4yORJ8bgolR-OJvaQdYWHW5jhuqaTPj8hBh72D6yAo0uxYq8oQpJDUE679uqNiJQGpLIITU9zuVWP5iYnDQ6inDbkTOhLdSGyHwFzH8iThsRGaqNravRoXH9FHVnXQ4Cqtv2XbbbhhXLLonNMGqrhAOTRXVa4KlKcdsxzHxZ6HXnqlXsZJ4_hshyPpL8_OgCIkKV8BJfguMg9aluISGwiVBvGLVlCShX_25_I1YbClQgz5rphCJeoLoJDVSXeMvygLaVePyqIr_mwna6c84T1fYuqTKADlAib8DI0hrjRx3K_GCBHoHrrN28-d-ZBv5NDymDGuzjEnPg.jpg" alt="" loading="lazy">
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">BTS Reports</span>
+              <span class="tg-views">1031 views</span>
+              <span class="tg-rank">#3</span>
+            </div>
+            <h3><a href="https://t.me/btsreports/49594" target="_blank">India’s January crude oil imports reached $10.3 billion as Russia maintained its position as the top supplier at 19.3%, despite a…</a></h3>
+            <p class="why">The significant drop in Russian market share suggests India is diversifying its energy sources amid sanctions or pricing shifts.
+This impac…</p>
+          </div>
+        </article><article class="c c-rpt">
+          <div class="rpt-left">
+            <div class="rpt-doc">
+              <div class="rpt-lines"><div></div><div></div><div></div><div></div><div></div></div>
+              <div class="rpt-label">PDF</div>
+            </div>
+            <div class="rpt-rank">#3</div>
+          </div>
+          <div class="rpt-right">
+            <div class="rpt-badge">REPORT</div>
+            <h3><a href="https://www.hdfcsec.com/hsl.docs/Defence - Sector Thematic - HSIE-202603061206048441018.pdf" target="_blank">Defence: Electronics Powering India’s Defence Upcycle</a></h3>
+            <span class="meta">HDFC Securities</span>
+            <p class="why">The shift from heavy machinery to high-end electronics represents a value-chain climb for Indian manufacturers.
+It identifies a specific sub-sector driving the…</p>
+          </div>
+        </article><article class="c c-tw">
+          <div class="tw-bar"></div>
+          <div class="tw-inner">
+            <div class="tw-top">
+              <div class="tw-avi">M</div>
+              <div>
+                <div class="tw-name">Murali Srinivasan</div>
+                <div class="tw-handle">@MuraliSrinivasan</div>
+              </div>
+              <div class="tw-badge">TWEET · #3</div>
+            </div>
+            <blockquote><a href="https://x.com/MuraliSrinivasa/status/2030656664119202114" target="_blank">Our entire country&#x27;s 🇮🇳 production of bare pcb is equivalent of jlc capacity. If you take only multilayer, than its worse than this. Jlc is not even in the top 50 in 🇨🇳. Let that sink in... China was closed for 15days l…</a></blockquote>
+            <p class="why">Despite &#x27;Make in India&#x27; tailwinds, the scale gap in critical components like PCBs remains a massive bottleneck.
+This ex…</p>
+          </div>
+        </article><article class="c c-yt c-yt-wide">
+              <a href="https://www.youtube.com/watch?v=YbbAMDPUt4c" target="_blank" class="yt-thumb">
+                <img src="https://i2.ytimg.com/vi/YbbAMDPUt4c/hqdefault.jpg" alt="" loading="lazy">
+                <div class="yt-play">&#9654;</div>
+                <div class="yt-badge">YOUTUBE</div>
+                <div class="yt-dur">#3</div>
+              </a>
+              <div class="yt-body">
+                <h3><a href="https://www.youtube.com/watch?v=YbbAMDPUt4c" target="_blank">Economics of Petrol/Diesel Tax Cut in India | US Iran War, Fuel Tax Cuts &amp; Hit to Indian Economy</a></h3>
+                <span class="meta">The Bond Economist</span>
+                <p class="why">Understanding the oil-tax-inflation trilemma is crucial for predicting India&#x27;s fiscal deficit and interest rate trajectory.
+It explains why…</p>
+              </div>
+            </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">4</div>
+              <h3><a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxNUjJ6cUVQSzZVM2FiSjh0QXRmV3ZRNE1iMHdRREc1TDZ5V1VYY1hXX0UxY18zNjhTNGM0ck9ybkp6bTQ5QzJKdTZpM0dfZjFObDl6d2QzQjNUVHZDeWFsdl94SDlldWRlS212UktkNUFGRWpET0FBVUtheXJtLWEybHVNZ2lTMXQ5aWhqYVQ5aHU2NHRYSmtPdGxSN0tGangzMm5JSUxiemk0dVBSbEQtdTBMUVowd0V3YTYzQmJfTXdlM3BNeExza1ZDMEtqaVk1TGEtYmJXcmfSAd4BQVVfeXFMTTA3c0k1cFNsaWQ4LV9sZThwVnROcW9HREZkYW5FWVlHZGZKbUYya29qSzFfSnZBN0ZjdXJjNE44ZmVKbzc0dGtKRXFiRkNLZkZjdDZLako2UnJhTHFEaTNPcFE4eFJ5RkdtS2JKR3lUQXFIMmFzOVdCOEh1Y3hhY09id1ZPQWZyUVpQNWtwejFYNGpPN2FwZW1Wc0RHT3Rrd01feUNyN1hiVjI5Zk4teUZsN3RybFZ2ZkIxOV9vcDB0MExnZzNPc1ZhSjJkQVBJZTZoS0VVbUNFVkFxM3ZB?oc=5" target="_blank">Missing half in India&#x27;s growth puzzle: Female labour participation just 42%</a></h3>
+              <span class="meta">Business Standard</span>
+              <div class="ns-signal">labour-trend</div>
+              <p class="why">Addressing the gender gap in the workforce is critical for India to transition from a middle-income to a high-income ec…</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          <img class="tg-hero" src="https://cdn5.telesco.pe/file/vj0e5gvolfWOaXwl_UzU-O7VJHc-cERHTzXrLIQlHoEs0mUxNOv05ICksrZ9vdVXhGQh07Vbibb3eFXc2j_Q9yoytOTxbv1PjrY_ReF3JCZ3raiRQ-hV4RZ5PSLu3Prd6LdjGtNTUWm2QCEQozy6WeLcGjHCR-K_zj9zcriSurGO94u8Pzc2bwZz5TADEdJCoMnKNhAwV21HUQqhTShgYNueRx2nP23_kn4CFGyVpH7kjxdIIHSWlYzXXs1bX0ATHOOhz8J3EL1xNMXOJTaukRnzunOTM3s00IFG-hvZt2w2ySVwz9239CAEWDc6JbddFwGM63i5qA4cwY7NfonSVA.jpg" alt="" loading="lazy">
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">BTS Reports</span>
+              <span class="tg-views">989 views</span>
+              <span class="tg-rank">#4</span>
+            </div>
+            <h3><a href="https://t.me/btsreports/49597" target="_blank">Househelp Apps Cross 2 Million Monthly Orders but Profitability Concerns Grow</a></h3>
+            <p class="why">The scale shows high consumer adoption, but the profitability struggle highlights the difficulty of unit economics in Indian domestic servi…</p>
+          </div>
+        </article><article class="c c-rpt">
+          <div class="rpt-left">
+            <div class="rpt-doc">
+              <div class="rpt-lines"><div></div><div></div><div></div><div></div><div></div></div>
+              <div class="rpt-label">PDF</div>
+            </div>
+            <div class="rpt-rank">#4</div>
+          </div>
+          <div class="rpt-right">
+            <div class="rpt-badge">REPORT</div>
+            <h3><a href="https://www.crisil.com/content/intelligence/en/homepage/what-we-think/all-our-thinking/reports/2026/03/roti-rice-rate-march2026.html" target="_blank">RRR: Roti Rice Rate</a></h3>
+            <span class="meta">CRISIL</span>
+            <p class="why">Food inflation is the primary driver of rural consumption patterns and interest rate decisions by the RBI.
+It provides a mechanism to understand how price vola…</p>
+          </div>
+        </article><article class="c c-tw">
+          <div class="tw-bar"></div>
+          <div class="tw-inner">
+            <div class="tw-top">
+              <div class="tw-avi">P</div>
+              <div>
+                <div class="tw-name">Prashant Nair</div>
+                <div class="tw-handle">@PrashantNair</div>
+              </div>
+              <div class="tw-badge">TWEET · #4</div>
+            </div>
+            <blockquote><a href="https://x.com/_prashantnair/status/2030888319207276990" target="_blank">Crude Oil Up. Refined Products Up More ! 1. Big Jumps: Diesel cracks $58, ATF cracks $106 2. Refined product prices sharply outpace crude rally 3. Refined products lack buffers of Strategic Reserves 4. #StraitOfHormuz :…</a></blockquote>
+            <p class="why">The story explains the mechanism where refined products (diesel/jet fuel) spike faster than crude due to lack of strate…</p>
+          </div>
+        </article><article class="c c-yt c-yt-stack">
+              <a href="https://www.youtube.com/watch?v=e0mIHDYUKM4" target="_blank" class="yt-thumb">
+                <img src="https://i2.ytimg.com/vi/e0mIHDYUKM4/hqdefault.jpg" alt="" loading="lazy">
+                <div class="yt-play">&#9654;</div>
+              </a>
+              <div class="yt-body">
+                <div class="yt-badge-sm">YT · #4</div>
+                <h3><a href="https://www.youtube.com/watch?v=e0mIHDYUKM4" target="_blank">Why ₹100 Per Dollar is Now Possible: The Link Between IT Services and the Rupee…</a></h3>
+                <span class="meta">Marcellus Investment Managers</span>
+              </div>
+            </article><div class="breaker">
+      <div class="breaker-top">
+        <div class="breaker-tag">WHO SAID WHAT</div>
+        <div class="breaker-theme">tech</div>
+      </div>
+      <h2>Anthropic Sues US Government Over &#x27;Risk&#x27; Label and Federal Ban</h2>
+      <p class="breaker-claim">"Anthropic is taking legal action against the White House after an executive order sought to remove its AI from federal systems."</p>
+      <div class="wsw-voices"></div>
+    </div><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">5</div>
+              <h3><a href="https://www.ft.com/content/926b1bc3-4810-4b81-9c88-50a4b4015295" target="_blank">Trump’s Russian oil waiver offers little relief for India</a></h3>
+              <span class="meta">Financial Times</span>
+              <div class="ns-signal">supply-chain</div>
+              <p class="why">India&#x27;s fiscal math and inflation control are heavily dependent on the continued flow of Russian oil despite Western sa…</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">📈</span>
+              <span class="tg-views">2.17K views</span>
+              <span class="tg-rank">#5</span>
+            </div>
+            <h3><a href="https://t.me/stockupdate9/136161" target="_blank">India Data Centre Boom: 1.5-2 GW to 7-8 GW Capacity Surge</a></h3>
+            <p class="why">This massive capacity expansion requires billions in capital expenditure and reliable power infrastructure.
+It underpins the growth of Indi…</p>
+          </div>
+        </article><article class="c c-rpt">
+          <div class="rpt-left">
+            <div class="rpt-doc">
+              <div class="rpt-lines"><div></div><div></div><div></div><div></div><div></div></div>
+              <div class="rpt-label">PDF</div>
+            </div>
+            <div class="rpt-rank">#5</div>
+          </div>
+          <div class="rpt-right">
+            <div class="rpt-badge">REPORT</div>
+            <h3><a href="https://sbi.bank.in/documents/13958/14472/09032026_West+Asia+Conflict_SBI+Report.pdf/4c6152a4-f4e4-e4c8-a8c9-11e7a7d4a1d2?t=1773034188327" target="_blank">END OF BEGINNING - Should the raging conflict in Middle East proliferate asymmetrically across juri…</a></h3>
+            <span class="meta">SBI</span>
+            <p class="why">SBI&#x27;s research offers an original thesis on why India&#x27;s domestic economy might decouple from global inflationary trends.
+It provides a high-level strategic out…</p>
+          </div>
+        </article><article class="c c-tw">
+          <div class="tw-bar"></div>
+          <div class="tw-inner">
+            <div class="tw-top">
+              <div class="tw-avi">T</div>
+              <div>
+                <div class="tw-name">Tamal Bandyopadhyay</div>
+                <div class="tw-handle">@TamalBandyopadhyay</div>
+              </div>
+              <div class="tw-badge">TWEET · #5</div>
+            </div>
+            <blockquote><a href="https://x.com/TamalBandyo/status/2030857065489481983" target="_blank">Union Budget announced setting up a high level committee on banking for Viksit Bharat. Here are some ideas this committee can look into. Latest #BankersTrust in @bsindia @FinMinIndia @RBI @ChairmanIba</a></blockquote>
+            <p class="why">The high-level committee will likely dictate the next decade of banking reforms, including privatization and digital in…</p>
+          </div>
+        </article><article class="c c-yt c-yt-wide">
+              <a href="https://www.youtube.com/watch?v=KUWof3SLoIE" target="_blank" class="yt-thumb">
+                <img src="" alt="" loading="lazy">
+                <div class="yt-play">&#9654;</div>
+                <div class="yt-badge">YOUTUBE</div>
+                <div class="yt-dur">#5</div>
+              </a>
+              <div class="yt-body">
+                <h3><a href="https://www.youtube.com/watch?v=KUWof3SLoIE" target="_blank">How West Asia crisis is choking India’s export | US-Iran war | Crude oil | Strait of Hormuz</a></h3>
+                <span class="meta">Business Standard</span>
+                <p class="why">India&#x27;s export-led growth is vulnerable to maritime disruptions that increase freight rates and insurance premiums.
+This highlights the sec…</p>
+              </div>
+            </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">6</div>
+              <h3><a href="https://economictimes.indiatimes.com/industry/banking/finance/like-banks-leadership-rotation-rule-may-apply-to-large-nbfcs/articleshow/129353555.cms" target="_blank">Like banks, leadership rotation rule may apply to large NBFCs</a></h3>
+              <span class="meta">ET</span>
+              <div class="ns-signal">structural-shift</div>
+              <p class="why">Stricter governance norms for NBFCs aim to prevent systemic failures but could disrupt long-term management stability i…</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">Beat The Street News| Latest Share Market News</span>
+              <span class="tg-views">1.66K views</span>
+              <span class="tg-rank">#6</span>
+            </div>
+            <h3><a href="https://t.me/BeatTheStreetnews/332538" target="_blank">IDBI BANK ; West Asia War Forces Govt To Re-Prioritise IDBI Bk Divestment - ETNOW</a></h3>
+            <p class="why">Geopolitical instability is directly influencing India&#x27;s internal economic reforms and disinvestment calendar.
+It shows how global risk app…</p>
+          </div>
+        </article><article class="c c-news c-news-wide">
+              <div class="nw-left">
+                <div class="nw-badge">NEWS · #7</div>
+                <h3><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOX0JGQ0Z0SUZ4SHJQUTA3WF9hb2hncUIyOXBkX3BHZmkwWks3cnkxZ0RKUUg4YzFFM0k4dDJkLWYzOWxsMnBEZUtka3dUb3ZKM1JlRl9qaHB4Yk5IY09tOXpGWWhnRndlemFrMHk3elAtczRsQk5yVXBWaGxucmFfdDBiYkZhQ1U2TkwwMjhLX1AwdVFUSlI2VUJYR3A2MGFNaER6cllKTVFVYzlsX1d30gG2AUFVX3lxTE1LSEIteDZidGc3S3Ewb0tzeHRJbHlDMWI5NFVMaGFBX3V1VHZuekdrUEpaRGhGdlAtS09OS2pjcUMzWkJ2em1BTmh4NUkwdVZDQ21NcnN0V0c2d0RTUkVXWmVablZaWXpTa1VVbzNha2wzNllPVS0tRGcxXzI4eW9jbzdzRGxSbUw5aFIzcGEtQ2VjZFFQRGxDMmtpd3FSb2Jibk53UExQNTlsOWdKZWw4LXVxdU93?oc=5" target="_blank">MeitY clears Dixon–HKC JV for display manufacturing - The Financial Express</a></h3>
+                <span class="meta">Financial Express</span>
+              </div>
+              <div class="nw-right">
+                <p class="why">Moving from assembly to component manufacturing like displays is essential for India to capture more value in the global electronics supply chain.</p>
+                <div class="nw-signal">structural-shift</div>
+              </div>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">📈</span>
+              <span class="tg-views">2.29K views</span>
+              <span class="tg-rank">#7</span>
+            </div>
+            <h3><a href="https://t.me/stockupdate9/136175" target="_blank">Durables &amp; Auto Face April Price Hikes on Conflict Costs</a></h3>
+            <p class="why">Rising input costs from global conflicts are being passed to the Indian consumer, potentially slowing down volume growth.
+It illustrates th…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">8</div>
+              <h3><a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxQSGQ3RndkMHQtbUh6QzJxb1luLTVnOVBaMldEdnh4Mm55NElrXzlPLUlqWU9BeDlueUxBazBEV204MWR5WnppZDB2dHVIZ2gwZTVQbmptb1BKR0RSUHM4LTVTcFRxcl9hMGc5VDl0ZENlSmtYbmRoV0p3QWtYd3BoYm9HOGNXX2Vqbmo2Y2NUeEVtMDBtanZPcy05UzZ6d2Q5cG1YUUpfVnZLanlxZi1Qdk03ZUt0blgwOTVGeEYtQ1VrMEhwb0JtTTJ1RFBZNjM20gHWAUFVX3lxTE9XLXhCMGFGd0J6UHlNQXhGMjg3alBOaFpRY0dpWHhUUXVKcHFNZ1phdVBqSW9oVllyVXRjbXdKWlZxVzhhQUpvZERmZ01yMWg1eThmQ0xqQVN4QS00ZERJSFMxVXQ5UmVRMm1fRTc1ZmQwWHBpNTZlbFB4eXV2VzJEeFdDN0I0aG9pVmlONm1PMEZ5c1o2bndZc2YzOXgxY0xpcHN1ZU9ES0VTU3NfVDI0dGszcTdrMnoxUGdwWk5RV2p5VkJjMXlSU2lyNVEwZ2xHN2g3UVE?oc=5" target="_blank">How India can kick the West Asian oil habit by boosting ethanol use</a></h3>
+              <span class="meta">Business Standard</span>
+              <div class="ns-signal">structural-shift</div>
+              <p class="why">Ethanol blending is not just an environmental move but a strategic necessity to reduce the current account deficit.</p>
+            </article><div class="breaker">
+      <div class="breaker-top">
+        <div class="breaker-tag">WHO SAID WHAT</div>
+        <div class="breaker-theme">corporate</div>
+      </div>
+      <h2>Moneyview Defies Industry Retreat to Double Down on DLG</h2>
+      <p class="breaker-claim">"While competitors scale back due to regulatory pressure, Moneyview is increasing its default guarantees to drive growth ahead of its IPO."</p>
+      <div class="wsw-voices"></div>
+    </div><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">Beat The Street News| Latest Share Market News</span>
+              <span class="tg-views">1.51K views</span>
+              <span class="tg-rank">#8</span>
+            </div>
+            <h3><a href="https://t.me/BeatTheStreetnews/332624" target="_blank">Dixon Gets Govt Approval for Display Manufacturing JV with HKC</a></h3>
+            <p class="why">Moving from assembly to component manufacturing (displays) is a critical step for India&#x27;s electronics ecosystem.
+It reduces import dependen…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">9</div>
+              <h3><a href="https://economictimes.indiatimes.com/news/economy/indicators/india-may-face-78-billion-higher-monthly-import-bill-as-crude-surges/articleshow/129342655.cms" target="_blank">India may face $7–8 billion higher monthly import bill as crude surges</a></h3>
+              <span class="meta">ET</span>
+              <div class="ns-signal">mechanism</div>
+              <p class="why">A sustained increase of this magnitude would pressure the Rupee and limit the RBI&#x27;s room for interest rate cuts.</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">📈</span>
+              <span class="tg-views">2.08K views</span>
+              <span class="tg-rank">#9</span>
+            </div>
+            <h3><a href="https://t.me/stockupdate9/136163" target="_blank">Indian CDMOs Ramp Capacity for Complex Drug Boom</a></h3>
+            <p class="why">This shift attracts high-margin global business and positions India as a sophisticated R&amp;D partner.
+It signals a long-term evolution in the…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">10</div>
+              <h3><a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxOQ3JPcXZwTVJnZ0FfTkFYRmZnQUdMb0hMbXQwQVZOQm5xTVJQbVFtQVVJdzVMYV8yTHc3Mkh2anpEZVpfVjhKQkRpNjQ1c1pSRWtVVkNYanU1cGxETFpHbFVsN1Q3ZTN3bWU0bnl2LUlYT2VhbnVHdVg0STE5NnFhejFMS19fY1pETENTekk3N1hPNDJKQl94ZGZvV1l4UXJDeHk0TkN1YVJyVTQ5dWxiVUN0cHdVdzV6NlVkSjNxaVlwTlZfblN4Y0Z3MWpLX0RYelMxRU1VR2rSAd4BQVVfeXFMT0hMVnBjdU5mQ3AyNkZuLUhmUTJ2ekZWNXVqdzdhV2Z6b1RYc29PbWpoWHNJNnFwQWVwaW5udWhkR1dOZ1RFMEpud0xfSkUyN2VCclJPYk5oSlhCTDY4MjVLNFl5RUMwd3pKOHdQM1hPOU5QMmgzdzZMeWw5enJ1ZzBGX3lNbUo2MWNqUzhxMmV5akVwa0x0UElfblhoNVNoLXpnV0lXTjhvZFhpTUt2cXRsYjhFODdfUjNVQVJydjA5MUhXdVZMWXllNjJXdXBMQVpaVjBzcVRvWEFEMUJ3?oc=5" target="_blank">Bengaluru hotels face shutdown from March 10 amid commercial LPG shortage</a></h3>
+              <span class="meta">Business Standard</span>
+              <div class="ns-signal">supply-chain</div>
+              <p class="why">Demonstrates how global energy shocks translate into local business disruptions and potential job losses in the hospita…</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">Beat The Street News| Latest Share Market News</span>
+              <span class="tg-views">1.41K views</span>
+              <span class="tg-rank">#10</span>
+            </div>
+            <h3><a href="https://t.me/BeatTheStreetnews/332513" target="_blank">LT FOOD , KRBL, GRM ; Rice Association Says Basmati rice exports have come to a halt - CNBC-TV18</a></h3>
+            <p class="why">Logistics or policy hurdles in rice exports create inventory pile-ups and price volatility in the domestic market.
+It highlights the fragil…</p>
+          </div>
+        </article><article class="c c-news c-news-wide">
+              <div class="nw-left">
+                <div class="nw-badge">NEWS · #11</div>
+                <h3><a href="https://news.google.com/rss/articles/CBMi3wFBVV95cUxOeG8zY2tDWkdKTXdFcFI0UERabzhPNGJ4STNRbHQ0cVBWYVVfS3hhdkxMNHdtTU9WMXY0b1FKZ1czaXVSSEVsU1IxVktCNlp2ZGxwQ1A4Mkp1Y09hNFZlYVo5enM5cVd2NVVfMEVncXVSNUJZa1E0YzBaekVIcWEtSVVpUm1kOVFwT0J3bDcwOUo4LUJUV2pVZHUzWExFU0lsd294RFNCRmx1ZzZvQkR4Z0hfbzEwODZ4Z0lGY0ZfUkstY1p5cjdpZUtFV29uUHpwNXFDdV9TNTZtYjVZcmh30gHkAUFVX3lxTE5sM0c2dXhhc2padWlXbU40b1RKTzY4Ykdoay1vUmVqQlJiREw1ZEoxRUxDZjNCbjNHUDhhdWtPNU1Xc2xMUzlBZ0NEdnUwVV9QSmQzZHJYY29XU21OZUh3RW9sOXJLWkNWcHhjb1A4SjZGUkF6VWVPVWg4bHhuLXRLSGhUVFNuc3pIRV94NFNOdlRqN3pZcWFVUXhmOFozel9CVXdmaHUweXhJbFJTdTB1OXJuTEhnY1ltTTFNVVNYaHJWb1BNT1RMamN0WGNEU3lMQTVqZ0Q0eU43YmttZkVOM2htcQ?oc=5" target="_blank">Global fertiliser prices may strain India&#x27;s subsidy maths for next year</a></h3>
+                <span class="meta">Business Standard</span>
+              </div>
+              <div class="nw-right">
+                <p class="why">Higher subsidies strain the budget, while lower subsidies risk farmer distress and food inflation ahead of planting seasons.</p>
+                <div class="nw-signal">policy-implication</div>
+              </div>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">Beat The Street News| Latest Share Market News</span>
+              <span class="tg-views">1.95K views</span>
+              <span class="tg-rank">#11</span>
+            </div>
+            <h3><a href="https://t.me/BeatTheStreetnews/332619" target="_blank">Petrol and diesel prices in India are unlikely to rise unless crude oil breaches $130 per barrel, with expectations of prices sta…</a></h3>
+            <p class="why">The government is signaling a high tolerance level, likely to manage inflation expectations and fiscal stability.
+It defines the &#x27;safety zo…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">12</div>
+              <h3><a href="https://www.livemint.com/industry/piston-ring-norms-india-bis-engine-standards-11773050082584.html" target="_blank">After 48 years, India revises piston ring standards to curb carbon emissions</a></h3>
+              <span class="meta">Mint</span>
+              <div class="ns-signal">structural-shift</div>
+              <p class="why">Shows the government using granular technical standards to drive the green transition in traditional manufacturing.</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">Beat The Street News| Latest Share Market News</span>
+              <span class="tg-views">1.11K views</span>
+              <span class="tg-rank">#12</span>
+            </div>
+            <h3><a href="https://t.me/BeatTheStreetnews/332599" target="_blank">Minda Corp ; Co Forms EV Technology JV with UK’s Turntide Drives</a></h3>
+            <p class="why">JVs with global tech firms are essential for Indian Tier-1 suppliers to transition away from internal combustion engine parts.
+It secures f…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">13</div>
+              <h3><a href="https://www.etnownews.com/news/major-defence-boost-indonesia-agrees-to-buy-brahmos-missiles-from-india-in-usd-200350-million-pact-article-153793085" target="_blank">Major Defence Boost: Indonesia agrees to buy BrahMos missiles from India in USD 200–…</a></h3>
+              <span class="meta">ET</span>
+              <div class="ns-signal">supply-chain</div>
+              <p class="why">Defense exports are a key pillar of India&#x27;s strategic autonomy and a new source of high-value manufacturing growth.</p>
+            </article><div class="breaker">
+      <div class="breaker-top">
+        <div class="breaker-tag">WHO SAID WHAT</div>
+        <div class="breaker-theme">corporate</div>
+      </div>
+      <h2>Ather’s Physical Store Blitz vs Ola’s Digital-First Retreat</h2>
+      <p class="breaker-claim">"Ather Energy is planning a massive 400-store expansion, directly contradicting the cost-cutting store closures seen at market leader Ola Electric."</p>
+      <div class="wsw-voices"></div>
+    </div><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">Beat The Street News| Latest Share Market News</span>
+              <span class="tg-views">1.59K views</span>
+              <span class="tg-rank">#13</span>
+            </div>
+            <h3><a href="https://t.me/BeatTheStreetnews/332531" target="_blank">NASCOM Says IT Cos Evaluating Alternate Data Centre Infra - BLOOMBERG</a></h3>
+            <p class="why">A shift in data center strategy by IT giants could trigger a massive domestic investment cycle in sovereign cloud infra.
+It reflects a new…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">14</div>
+              <h3><a href="https://www.livemint.com/companies/moneyview-doubles-down-on-dlg-lending-ahead-of-ipo-11773048823463.html" target="_blank">While rivals retreat from default guarantees, Moneyview is doubling down</a></h3>
+              <span class="meta">Mint</span>
+              <div class="ns-signal">structural-shift</div>
+              <p class="why">The success or failure of this strategy will signal the future of risk-sharing between fintechs and banks in India.</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">Beat The Street News| Latest Share Market News</span>
+              <span class="tg-views">1.73K views</span>
+              <span class="tg-rank">#14</span>
+            </div>
+            <h3><a href="https://t.me/BeatTheStreetnews/332533" target="_blank">IZMO: Subsidiary Enters India’s Defence Semiconductor Packaging Space</a></h3>
+            <p class="why">Semiconductor packaging for defence is a high-entry-barrier niche that strengthens India&#x27;s strategic autonomy.
+It marks the entry of smalle…</p>
+          </div>
+        </article><article class="c c-news c-news-wide">
+              <div class="nw-left">
+                <div class="nw-badge">NEWS · #15</div>
+                <h3><a href="https://bfsi.economictimes.indiatimes.com/articles/harnessing-ai-to-boost-womens-workforce-participation-in-india/129344161" target="_blank">AI is far more enabling than disabling, especially for economies like India: Neelkanth Mishra on wo…</a></h3>
+                <span class="meta">ET</span>
+              </div>
+              <div class="nw-right">
+                <p class="why">Offers a counter-narrative to the &#x27;AI will kill jobs&#x27; trope, focusing on productivity gains for the Indian context.</p>
+                <div class="nw-signal">credible-opinion</div>
+              </div>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">📈</span>
+              <span class="tg-views">2.61K views</span>
+              <span class="tg-rank">#15</span>
+            </div>
+            <h3><a href="https://t.me/stockupdate9/136177" target="_blank">D2C Saree Startups Ride Fashion Shift Wave</a></h3>
+            <p class="why">The saree market is being disrupted by D2C players, changing how artisanal products are branded and sold.
+It reflects a broader trend of &#x27;p…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">16</div>
+              <h3><a href="https://economictimes.indiatimes.com/industry/energy/oil-gas/india-says-no-to-ieas-call-to-release-strategic-oil-reserves/articleshow/129343096.cms" target="_blank">India says no to IEA&#x27;s call to release strategic oil reserves</a></h3>
+              <span class="meta">ET</span>
+              <div class="ns-signal">policy-implication</div>
+              <p class="why">Indicates that India expects the crisis to be prolonged and prefers to keep its &#x27;insurance&#x27; oil rather than cool global…</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">📈</span>
+              <span class="tg-views">2.29K views</span>
+              <span class="tg-rank">#16</span>
+            </div>
+            <h3><a href="https://t.me/stockupdate9/136174" target="_blank">Early Wheat Harvest Signals Bumper Rabi Crop</a></h3>
+            <p class="why">A bumper crop eases pressure on food prices and provides a boost to rural disposable income.
+It reduces the likelihood of the government ne…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">17</div>
+              <h3><a href="https://www.thehindubusinessline.com/news/mm-forgings-plans-to-deploy-up-to-150-robots-amid-manpower-shortage/article70722740.ece" target="_blank">MM Forgings plans to deploy up to 150 robots amid manpower shortage</a></h3>
+              <span class="meta">BusinessLine</span>
+              <div class="ns-signal">labour-trend</div>
+              <p class="why">Challenges the notion of India as a labour-surplus economy and shows the accelerating pace of industrial robotics.</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">Beat The Street News| Latest Share Market News</span>
+              <span class="tg-views">1.94K views</span>
+              <span class="tg-rank">#17</span>
+            </div>
+            <h3><a href="https://t.me/BeatTheStreetnews/332614" target="_blank">FERTILIZERS STOCKS; The Iran conflict risks disrupting fertilizer production critical to global food, as the Middle East hosts ma…</a></h3>
+            <p class="why">Any disruption in fertilizer supply directly threatens Indian agricultural productivity and increases the government&#x27;s subsidy bill.
+It for…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">18</div>
+              <h3><a href="https://bfsi.economictimes.indiatimes.com/articles/sebi-establishes-expert-group-to-enhance-technology-in-indias-securities-market/129345297" target="_blank">SEBI sets up expert group to draw tech roadmap for securities market: Tuhin Kanta Pa…</a></h3>
+              <span class="meta">ET</span>
+              <div class="ns-signal">policy-implication</div>
+              <p class="why">Future-proofing market tech is vital for maintaining investor trust and handling the massive surge in retail participat…</p>
+            </article><div class="breaker">
+      <div class="breaker-top">
+        <div class="breaker-tag">WHO SAID WHAT</div>
+        <div class="breaker-theme">macro</div>
+      </div>
+      <h2>RBI Intervenes with Premium Bond Buys to Curb Yields</h2>
+      <p class="breaker-claim">"The Reserve Bank of India is aggressively buying sovereign bonds at a premium to prevent global volatility from spiking domestic interest rates."</p>
+      <div class="wsw-voices"></div>
+    </div><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">Beat The Street News| Latest Share Market News</span>
+              <span class="tg-views">1.7K views</span>
+              <span class="tg-rank">#18</span>
+            </div>
+            <h3><a href="https://t.me/BeatTheStreetnews/332546" target="_blank">ABB India: To Invest ~$75 Million to Expand Manufacturing &amp; R&amp;D in India</a></h3>
+            <p class="why">Expansion in R&amp;D indicates that India is being used for high-end engineering, not just low-cost manufacturing.
+This supports the modernizat…</p>
+          </div>
+        </article><article class="c c-news c-news-wide">
+              <div class="nw-left">
+                <div class="nw-badge">NEWS · #19</div>
+                <h3><a href="https://www.thehindu.com/business/i-t-department-uncovers-408-crore-sales-underreporting-by-restaurants-across-india/article70723492.ece" target="_blank">I-T Department uncovers ₹408 crore sales underreporting by restaurants across India</a></h3>
+                <span class="meta">The Hindu</span>
+              </div>
+              <div class="nw-right">
+                <p class="why">Signals a crackdown on the &#x27;cash economy&#x27; in retail and hospitality, pushing for greater formalization.</p>
+                <div class="nw-signal">structural-shift</div>
+              </div>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">Beat The Street News| Latest Share Market News</span>
+              <span class="tg-views">1.28K views</span>
+              <span class="tg-rank">#19</span>
+            </div>
+            <h3><a href="https://t.me/BeatTheStreetnews/332509" target="_blank">LUPIN Says Air Freight, If Available Will Be Expensive</a></h3>
+            <p class="why">When sea routes are blocked, the shift to air freight creates a cost-push that can make Indian exports less competitive.
+It shows the secon…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">20</div>
+              <h3><a href="https://www.bloomberg.com/news/features/2026-03-09/china-s-tariff-defying-export-boom-leaves-its-factory-workers-behind" target="_blank">Xi’s Export Juggernaut Is Leaving China’s Factory Workers Behind</a></h3>
+              <span class="meta">Bloomberg</span>
+              <div class="ns-signal">labour-trend</div>
+              <p class="why">China&#x27;s focus on exports over domestic consumption creates a competitive &#x27;dumping&#x27; risk for Indian manufacturers.</p>
+            </article><article class="c c-tg">
+          <div class="tg-stripe"></div>
+          
+          <div class="tg-body">
+            <div class="tg-top">
+              <span class="tg-icon">TG</span>
+              <span class="tg-ch">📈</span>
+              <span class="tg-views">2.05K views</span>
+              <span class="tg-rank">#20</span>
+            </div>
+            <h3><a href="https://t.me/stockupdate9/136167" target="_blank">HINDUSTAN ORGANIC CHEMICALS – LPG DISRUPTION FORCES KOCHI SHUTDOWN</a></h3>
+            <p class="why">It demonstrates the &#x27;just-in-time&#x27; vulnerability of Indian chemical manufacturing to fuel supply shocks.
+Plant shutdowns lead to domestic s…</p>
+          </div>
+        </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">21</div>
+              <h3><a href="https://economictimes.indiatimes.com/news/economy/policy/finmin-advises-banks-to-speed-up-ibc-resolutions/articleshow/129350248.cms" target="_blank">FinMin advises banks to speed up IBC resolutions</a></h3>
+              <span class="meta">ET</span>
+              <div class="ns-signal">policy-implication</div>
+              <p class="why">Faster capital recycling from failed businesses is essential for the health of the Indian banking system and credit gro…</p>
+            </article><article class="c c-news c-hero">
+              <div class="hero-rank">22</div>
+              <div class="hero-signal">mechanism</div>
+              <h2><a href="https://www.cnbc.com/2026/03/09/fears-of-1970s-style-stagflation-arise-with-oil-spike-to-100-how-big-a-threat-is-it.html" target="_blank">Fears of 1970s-style stagflation arise with oil spike to $100. How big a threat is it?</a></h2>
+              <span class="meta">CNBC</span>
+              <p class="hero-why">Stagflation would mean high inflation and low growth, the worst-case scenario for Indian equity markets and consumers.</p>
+            </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">23</div>
+              <h3><a href="https://ourworldindata.org/data-insights/the-world-has-made-huge-progress-in-reducing-extreme-poverty-could-this-be-coming-to-an-end" target="_blank">The world has made huge progress in reducing extreme poverty; could this be coming t…</a></h3>
+              <span class="meta">Our World in Data</span>
+              <div class="ns-signal">labour-trend</div>
+              <p class="why">Highlights the risk that global shocks (war, climate) could stall the upward mobility of millions of Indians.</p>
+            </article><article class="c c-news c-news-std">
+              <div class="ns-badge">NEWS</div>
+              <div class="ns-rank">24</div>
+              <h3><a href="https://www.thehindu.com/business/Economy/india-will-not-raise-petrol-prices-despite-global-crude-headwinds-government-sources/article70723329.ece" target="_blank">India will not raise petrol prices despite global crude headwinds: Government sources</a></h3>
+              <span class="meta">The Hindu</span>
+              <div class="ns-signal">policy-implication</div>
+              <p class="why">Protects consumers from inflation but worsens the under-recoveries and balance sheets of public sector oil firms.</p>
+            </article><article class="c c-news c-news-wide">
+              <div class="nw-left">
+                <div class="nw-badge">NEWS · #25</div>
+                <h3><a href="https://economictimes.indiatimes.com/industry/cons-products/fmcg/fmcg-companies-weigh-shrinking-pack-sizes-hiking-prices-to-absorb-crude-shock/articleshow/129352696.cms" target="_blank">FMCG companies weigh shrinking pack sizes, hiking prices to absorb crude shock</a></h3>
+                <span class="meta">ET</span>
+              </div>
+              <div class="nw-right">
+                <p class="why">Shows how crude prices trickle down to the cost of soap, biscuits, and daily essentials, impacting rural consumption.</p>
+                <div class="nw-signal">mechanism</div>
+              </div>
+            </article><div class="breaker">
+      <div class="breaker-top">
+        <div class="breaker-tag">WHO SAID WHAT</div>
+        <div class="breaker-theme">markets</div>
+      </div>
+      <h2>Sebi Chief Urges Calm as Markets Hit 10-Month Lows</h2>
+      <p class="breaker-claim">"Despite a 9% fall in the Nifty and crude oil crossing $100, the Sebi chief maintains that India&#x27;s market fundamentals remain robust."</p>
+      <div class="wsw-voices"></div>
+    </div>
+</div>
+</body></html>
