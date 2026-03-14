@@ -220,9 +220,9 @@
         .bk-panel {
             position: fixed;
             top: 0;
+            bottom: 0;
             right: -380px;
             width: 360px;
-            height: 100vh;
             background: var(--bg-primary);
             border-left: 1.5px solid var(--border);
             z-index: 200;
@@ -2980,7 +2980,6 @@
             .bk-panel {
                 width: 100vw;
                 right: -100vw;
-                height: 100dvh;
             }
             .bk-panel-footer {
                 padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
