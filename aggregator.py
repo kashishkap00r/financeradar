@@ -414,6 +414,22 @@ def generate_html(
         )
     )
 
+    # Write tab data to separate JSON files for lazy loading
+    static_dir = os.path.join(SCRIPT_DIR, "static")
+    _tab_data = {
+        "tab_telegram.json": json.loads(telegram_reports_json),
+        "tab_youtube.json": json.loads(video_articles_json),
+        "tab_twitter.json": json.loads(twitter_articles_json),
+        "tab_twitter_hs.json": json.loads(twitter_high_signal_json),
+        "tab_research.json": json.loads(research_reports_json),
+        "tab_papers.json": json.loads(paper_articles_json),
+        "tab_ai_rankings.json": json.loads(ai_rankings_bootstrap_json) if ai_rankings_bootstrap_json != "null" else None,
+    }
+    for fname, data in _tab_data.items():
+        fpath = os.path.join(static_dir, fname)
+        with open(fpath, "w", encoding="utf-8") as f:
+            json.dump(data, f, separators=(",", ":"))
+
     # Count in-focus articles (covered by multiple sources)
     in_focus_count = sum(1 for g in sorted_groups if g["related_sources"])
 
@@ -951,21 +967,21 @@ def generate_html(
     # Inject publisher data as JSON
     html += f"""        const ALL_PUBLISHERS = {all_publishers_json};
         const PUBLISHER_PRESETS = {publisher_presets_json};
-        const TELEGRAM_REPORTS = {telegram_reports_json};
+        let TELEGRAM_REPORTS = null;
         const TELEGRAM_GENERATED_AT = "{telegram_generated_at}";
         const TELEGRAM_WARNINGS = {json.dumps(telegram_warnings)};
-        const AI_RANKINGS_BOOTSTRAP = {ai_rankings_bootstrap_json};
-        const YOUTUBE_VIDEOS = {video_articles_json};
+        let AI_RANKINGS_BOOTSTRAP = null;
+        let YOUTUBE_VIDEOS = null;
         const YOUTUBE_PUBLISHERS = {youtube_publishers_json};
         const YOUTUBE_BUCKETS = {youtube_buckets_json};
-        const TWITTER_ARTICLES = {twitter_articles_json};
-        const TWITTER_HIGH_SIGNAL = {twitter_high_signal_json};
+        let TWITTER_ARTICLES = null;
+        let TWITTER_HIGH_SIGNAL = {twitter_high_signal_json};
         const TWITTER_LANE_META = {twitter_lane_meta_json};
         const TWITTER_PUBLISHERS = {twitter_publishers_json};
         const TWITTER_PRESETS = {twitter_presets_json};
-        const RESEARCH_REPORTS = {research_reports_json};
+        let RESEARCH_REPORTS = null;
         const RESEARCH_PUBLISHERS = {research_publishers_json};
-        const PAPER_ARTICLES = {paper_articles_json};
+        let PAPER_ARTICLES = null;
 """
     # Read JS from external file
     js_path = os.path.join(SCRIPT_DIR, "templates", "app.js")

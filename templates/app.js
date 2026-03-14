@@ -8,6 +8,46 @@
             }
         };
         const MOBILE_BREAKPOINT = 640;
+
+        // Lazy-load tab data from JSON files
+        var _tabDataCache = {};
+        function loadTabData(key, url) {
+            if (_tabDataCache[key]) return _tabDataCache[key];
+            var p = fetch(url).then(function(r) { return r.json(); });
+            _tabDataCache[key] = p;
+            return p;
+        }
+        function ensureTabData(tab, callback) {
+            var loads = [];
+            if (tab === 'reports' && !TELEGRAM_REPORTS) {
+                loads.push(loadTabData('telegram', 'static/tab_telegram.json').then(function(d) { TELEGRAM_REPORTS = d; }));
+            }
+            if (tab === 'youtube' && !YOUTUBE_VIDEOS) {
+                loads.push(loadTabData('youtube', 'static/tab_youtube.json').then(function(d) { YOUTUBE_VIDEOS = d; }));
+            }
+            if ((tab === 'twitter') && !TWITTER_ARTICLES) {
+                loads.push(loadTabData('twitter', 'static/tab_twitter.json').then(function(d) { TWITTER_ARTICLES = d; }));
+            }
+            if (tab === 'research' && !RESEARCH_REPORTS) {
+                loads.push(loadTabData('research', 'static/tab_research.json').then(function(d) { RESEARCH_REPORTS = d; }));
+            }
+            if (tab === 'papers' && !PAPER_ARTICLES) {
+                loads.push(loadTabData('papers', 'static/tab_papers.json').then(function(d) { PAPER_ARTICLES = d; }));
+            }
+            if (tab === 'home') {
+                if (!TELEGRAM_REPORTS) loads.push(loadTabData('telegram', 'static/tab_telegram.json').then(function(d) { TELEGRAM_REPORTS = d; }));
+                if (!YOUTUBE_VIDEOS) loads.push(loadTabData('youtube', 'static/tab_youtube.json').then(function(d) { YOUTUBE_VIDEOS = d; }));
+                if (!RESEARCH_REPORTS) loads.push(loadTabData('research', 'static/tab_research.json').then(function(d) { RESEARCH_REPORTS = d; }));
+                if (!TWITTER_ARTICLES) loads.push(loadTabData('twitter', 'static/tab_twitter.json').then(function(d) { TWITTER_ARTICLES = d; }));
+                if (!PAPER_ARTICLES) loads.push(loadTabData('papers', 'static/tab_papers.json').then(function(d) { PAPER_ARTICLES = d; }));
+            }
+            if (!AI_RANKINGS_BOOTSTRAP) {
+                loads.push(loadTabData('ai', 'static/tab_ai_rankings.json').then(function(d) { AI_RANKINGS_BOOTSTRAP = d; }));
+            }
+            if (loads.length === 0) { callback(); return; }
+            Promise.all(loads).then(callback);
+        }
+
         let bodyScrollLockDepth = 0;
         let bodyScrollLockY = 0;
         let inFocusOnly = false;
@@ -1658,45 +1698,48 @@
             });
             const searchEl = document.getElementById('search-input');
             if (searchEl) searchEl.placeholder = 'Search...';
-            if (tab === 'home') {
-                renderHomeTab();
-                homeRendered = true;
-            } else if (tab === 'reports') {
-                if (!reportsRendered) {
-                    renderMainReports();
-                    reportsRendered = true;
+            var _doRender = function() {
+                if (tab === 'home') {
+                    renderHomeTab();
+                    homeRendered = true;
+                } else if (tab === 'reports') {
+                    if (!reportsRendered) {
+                        renderMainReports();
+                        reportsRendered = true;
+                    }
+                    filterReports();
+                } else if (tab === 'research') {
+                    if (!researchRendered) {
+                        renderMainResearch();
+                        researchRendered = true;
+                    }
+                    filterResearch();
+                } else if (tab === 'papers') {
+                    if (!papersRendered) {
+                        renderMainPapers();
+                        papersRendered = true;
+                    }
+                    if (previousTab !== 'papers') {
+                        reshufflePaperSession();
+                    }
+                    filterPapers();
+                } else if (tab === 'youtube') {
+                    if (!youtubeRendered) {
+                        renderMainYoutube();
+                        youtubeRendered = true;
+                    }
+                    filterYoutube();
+                } else if (tab === 'twitter') {
+                    if (!twitterRendered) {
+                        renderMainTwitter();
+                        twitterRendered = true;
+                    }
+                    filterTwitter();
+                } else {
+                    filterArticles();
                 }
-                filterReports();
-            } else if (tab === 'research') {
-                if (!researchRendered) {
-                    renderMainResearch();
-                    researchRendered = true;
-                }
-                filterResearch();
-            } else if (tab === 'papers') {
-                if (!papersRendered) {
-                    renderMainPapers();
-                    papersRendered = true;
-                }
-                if (previousTab !== 'papers') {
-                    reshufflePaperSession();
-                }
-                filterPapers();
-            } else if (tab === 'youtube') {
-                if (!youtubeRendered) {
-                    renderMainYoutube();
-                    youtubeRendered = true;
-                }
-                filterYoutube();
-            } else if (tab === 'twitter') {
-                if (!twitterRendered) {
-                    renderMainTwitter();
-                    twitterRendered = true;
-                }
-                filterTwitter();
-            } else {
-                filterArticles();
-            }
+            };
+            ensureTabData(tab, _doRender);
             activeTab = tab;
             applyFilterCollapseForTab(tab);
             const activeTabButton = document.querySelector('.tab-pill.tab-active');
@@ -1779,6 +1822,7 @@
         }
 
         function getHomeTelegramItems(limit) {
+            if (!TELEGRAM_REPORTS) return [];
             const items = [];
             TELEGRAM_REPORTS.forEach(report => {
                 if (items.length >= limit) return;
@@ -1802,15 +1846,15 @@
         }
 
         function getHomeResearchItems(limit) {
-            return RESEARCH_REPORTS.slice(0, limit);
+            return RESEARCH_REPORTS ? RESEARCH_REPORTS.slice(0, limit) : [];
         }
 
         function getHomeYoutubeItems(limit) {
-            return YOUTUBE_VIDEOS.slice(0, limit);
+            return YOUTUBE_VIDEOS ? YOUTUBE_VIDEOS.slice(0, limit) : [];
         }
 
         function getHomeTwitterItems(limit) {
-            return TWITTER_HIGH_SIGNAL.slice(0, limit);
+            return TWITTER_HIGH_SIGNAL ? TWITTER_HIGH_SIGNAL.slice(0, limit) : [];
         }
 
         function getYoutubeVideoIdFromUrl(url) {
@@ -2068,7 +2112,7 @@
             const researchItems = getHomeResearchItems(15);
             const youtubeItems = getHomeYoutubeItems(12);
             const twitterItems = getHomeTwitterItems(12);
-            const papersItems = (typeof PAPER_ARTICLES !== 'undefined' ? PAPER_ARTICLES : []).slice(0, 12);
+            const papersItems = (PAPER_ARTICLES || []).slice(0, 12);
 
             // Tag items with bucket for category dots
             newsItems.forEach(function(it) { it._bucket = 'news'; });
