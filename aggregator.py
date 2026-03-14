@@ -468,8 +468,8 @@ def generate_html(
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>try{{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light')}}catch(e){{}}</script>
-    <script>try{{var t=localStorage.getItem('financeradar_active_tab')||'news';if(localStorage.getItem('financeradar_filters_collapsed_'+t)!=='false')document.documentElement.classList.add('filters-collapsed')}}catch(e){{}}</script>
+    <script data-cfasync="false">try{{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light')}}catch(e){{}}</script>
+    <script data-cfasync="false">try{{var t=localStorage.getItem('financeradar_active_tab')||'news';if(localStorage.getItem('financeradar_filters_collapsed_'+t)!=='false')document.documentElement.classList.add('filters-collapsed')}}catch(e){{}}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance Radar</title>
     <link rel="icon" href="static/favicon.svg">
@@ -481,7 +481,7 @@ def generate_html(
     <link rel="preload" href="static/tab_telegram.json" as="fetch" crossorigin>
     <link rel="preload" href="static/tab_youtube.json" as="fetch" crossorigin>
     <link rel="preload" href="static/tab_research.json" as="fetch" crossorigin>
-    <script>
+    <script data-cfasync="false">
     window.__preloaded={{}};
     ['tab_news','tab_telegram','tab_youtube','tab_research','tab_papers','tab_twitter','tab_twitter_hs','tab_ai_rankings'].forEach(function(k){{
       window.__preloaded[k]=fetch('static/'+k+'.json').then(function(r){{return r.json()}});
@@ -922,32 +922,33 @@ def generate_html(
         <kbd>H</kbd> home &middot; <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> <kbd>6</kbd> tabs &middot; <kbd>J</kbd> <kbd>K</kbd> navigate &middot; <kbd>/</kbd> search
     </div>
 
-    <script>
+    <script data-cfasync="false">
 """
-    # Inject publisher data as JSON
-    html += f"""        const ALL_PUBLISHERS = {all_publishers_json};
-        const PUBLISHER_PRESETS = {publisher_presets_json};
-        let TELEGRAM_REPORTS = null;
-        const TELEGRAM_GENERATED_AT = "{telegram_generated_at}";
-        const TELEGRAM_WARNINGS = {json.dumps(telegram_warnings)};
-        let AI_RANKINGS_BOOTSTRAP = null;
-        let YOUTUBE_VIDEOS = null;
-        const YOUTUBE_PUBLISHERS = {youtube_publishers_json};
-        const YOUTUBE_BUCKETS = {youtube_buckets_json};
-        let TWITTER_ARTICLES = null;
-        let TWITTER_HIGH_SIGNAL = {twitter_high_signal_json};
-        const TWITTER_LANE_META = {twitter_lane_meta_json};
-        const TWITTER_PUBLISHERS = {twitter_publishers_json};
-        const TWITTER_PRESETS = {twitter_presets_json};
-        let RESEARCH_REPORTS = null;
-        const RESEARCH_PUBLISHERS = {research_publishers_json};
-        let PAPER_ARTICLES = null;
-        let NEWS_ARTICLES = null;
-        const TODAY_ISO = "{today_iso}";
+    # Inject publisher data as JSON — use var (not let/const) so variables become
+    # window properties, surviving Cloudflare Rocket Loader's eval()-based re-execution
+    html += f"""        var ALL_PUBLISHERS = {all_publishers_json};
+        var PUBLISHER_PRESETS = {publisher_presets_json};
+        var TELEGRAM_REPORTS = null;
+        var TELEGRAM_GENERATED_AT = "{telegram_generated_at}";
+        var TELEGRAM_WARNINGS = {json.dumps(telegram_warnings)};
+        var AI_RANKINGS_BOOTSTRAP = null;
+        var YOUTUBE_VIDEOS = null;
+        var YOUTUBE_PUBLISHERS = {youtube_publishers_json};
+        var YOUTUBE_BUCKETS = {youtube_buckets_json};
+        var TWITTER_ARTICLES = null;
+        var TWITTER_HIGH_SIGNAL = {twitter_high_signal_json};
+        var TWITTER_LANE_META = {twitter_lane_meta_json};
+        var TWITTER_PUBLISHERS = {twitter_publishers_json};
+        var TWITTER_PRESETS = {twitter_presets_json};
+        var RESEARCH_REPORTS = null;
+        var RESEARCH_PUBLISHERS = {research_publishers_json};
+        var PAPER_ARTICLES = null;
+        var NEWS_ARTICLES = null;
+        var TODAY_ISO = "{today_iso}";
 """
     html += """
     </script>
-    <script src="templates/app.js" defer></script>
+    <script data-cfasync="false" src="templates/app.js" defer></script>
 </body>
 </html>
 """

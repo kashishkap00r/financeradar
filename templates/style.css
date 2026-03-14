@@ -1,4 +1,5 @@
-        body { opacity: 0; }
+        body { opacity: 0; animation: css-reveal 0s 4s forwards; }
+        @keyframes css-reveal { to { opacity: 1; } }
         .tab-loading {
             padding: 1.5rem 0;
         }
