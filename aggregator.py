@@ -416,7 +416,29 @@ def generate_html(
 
     # Write tab data to separate JSON files for lazy loading
     static_dir = os.path.join(SCRIPT_DIR, "static")
+    # Build news tab data with all fields needed for client rendering
+    _news_items = []
+    for group in sorted_groups:
+        article = group["primary"]
+        local_dt = to_local_datetime(article["date"])
+        _news_items.append({
+            "title": article["title"],
+            "link": article["link"],
+            "source": article["source"],
+            "source_url": article.get("source_url", ""),
+            "description": article.get("description", ""),
+            "publisher": article.get("publisher", ""),
+            "date": local_dt.isoformat() if local_dt else None,
+            "time": local_dt.strftime("%I:%M %p").lstrip("0") if local_dt else "",
+            "in_focus": bool(group["related_sources"]),
+            "related_sources": [
+                {"name": rs["name"], "link": rs["link"]}
+                for rs in (group["related_sources"] or [])[:5]
+            ],
+        })
+
     _tab_data = {
+        "tab_news.json": _news_items,
         "tab_telegram.json": json.loads(telegram_reports_json),
         "tab_youtube.json": json.loads(video_articles_json),
         "tab_twitter.json": json.loads(twitter_articles_json),
@@ -643,72 +665,9 @@ def generate_html(
         </div>
 
         <div id="articles">
-"""
-
-    current_date = None
-
-    for group in sorted_groups:
-        article = group["primary"]
-        related_sources = group["related_sources"]
-
-        # Convert to local time for display
-        local_dt = to_local_datetime(article["date"])
-
-        # Add date header if new date
-        if local_dt:
-            article_date = local_dt.date()
-            if article_date != current_date:
-                current_date = article_date
-                if article_date == today:
-                    date_label = "Today"
-                elif article_date == yesterday:
-                    date_label = "Yesterday"
-                else:
-                    date_label = article_date.strftime("%A, %B %d")
-                html += f'            <h2 class="date-header">{date_label}</h2>\n'
-
-        title = escape(clean_html(article["title"]))
-        link = escape(sanitize_url(article["link"]))
-        source = escape(article["source"])
-        source_url = escape(sanitize_url(article["source_url"]))
-        description = escape(clean_html(article["description"]))
-        time_str = local_dt.strftime("%I:%M %p").lstrip("0") if local_dt else ""
-        article_date_iso = local_dt.date().isoformat() if local_dt else ""
-
-        # Truncate long source names for display
-        source_display = source[:35] + "..." if len(source) > 35 else source
-
-        # Build "Also covered by" HTML and source badge if there are related sources
-        also_covered_html = ""
-        source_badge_html = ""
-        is_in_focus = "true" if related_sources else "false"
-        if related_sources:
-            total_sources = len(related_sources) + 1  # +1 for the primary source
-            source_badge_html = f'<span class="source-badge">{total_sources} sources</span>'
-            source_links = []
-            for rs in related_sources[:5]:  # Limit to 5 additional sources
-                rs_name = escape(rs["name"])
-                rs_link = escape(sanitize_url(rs["link"]))
-                # Truncate source name for display
-                rs_display = rs_name[:25] + "..." if len(rs_name) > 25 else rs_name
-                source_links.append(f'<a href="{rs_link}" target="_blank" rel="noopener" title="{rs_name}">{rs_display}</a>')
-            also_covered_html = f'\n                <div class="also-covered">Also covered by: {", ".join(source_links)}</div>'
-
-        publisher = escape(article.get("publisher", ""))
-        html += f"""            <article class="article" data-source="{source.lower()}" data-date="{article_date_iso}" data-url="{link}" data-title="{title}" data-in-focus="{is_in_focus}" data-publisher="{publisher}">
-                <h3 class="article-title"><a href="{link}" target="_blank" rel="noopener">{title}</a>{source_badge_html}</h3>
-                <div class="article-meta">
-                    <a href="{source_url}" target="_blank" class="source-tag" title="{source}">{source_display}</a>
-                    {f'<span class="meta-dot">·</span><span class="article-time">{time_str}</span>' if time_str else ''}
-                    <span class="meta-dot">·</span>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>{also_covered_html}
-            </article>
-"""
-
-    html += f"""        </div>
+            <div id="news-list"></div>
+        </div>
+        </div>
 
         <div id="pagination-bottom" class="pagination bottom" aria-label="Pagination"></div>
         </div><!-- /tab-news -->
@@ -975,6 +934,7 @@ def generate_html(
         let RESEARCH_REPORTS = null;
         const RESEARCH_PUBLISHERS = {research_publishers_json};
         let PAPER_ARTICLES = null;
+        let NEWS_ARTICLES = null;
 """
     html += """
     </script>

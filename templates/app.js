@@ -34,6 +34,9 @@
             if (tab === 'papers' && !PAPER_ARTICLES) {
                 loads.push(loadTabData('papers', 'static/tab_papers.json').then(function(d) { PAPER_ARTICLES = d; }));
             }
+            if ((tab === 'news' || tab === 'home') && !NEWS_ARTICLES) {
+                loads.push(loadTabData('news', 'static/tab_news.json').then(function(d) { NEWS_ARTICLES = d; }));
+            }
             if (tab === 'home') {
                 if (!TELEGRAM_REPORTS) loads.push(loadTabData('telegram', 'static/tab_telegram.json').then(function(d) { TELEGRAM_REPORTS = d; }));
                 if (!YOUTUBE_VIDEOS) loads.push(loadTabData('youtube', 'static/tab_youtube.json').then(function(d) { YOUTUBE_VIDEOS = d; }));
@@ -1642,6 +1645,7 @@
 
         // ==================== TWITTER TAB (vars) ====================
         let twitterRendered = false;
+        let newsRendered = false;
         let filteredTwitter = [];
         let twitterPage = 1;
         const TWITTER_PAGE_SIZE = 30;
@@ -1736,6 +1740,10 @@
                     }
                     filterTwitter();
                 } else {
+                    if (!newsRendered) {
+                        renderNewsFromJSON();
+                        newsRendered = true;
+                    }
                     filterArticles();
                 }
             };
@@ -2324,6 +2332,68 @@
             if (diffDays === 0) return 'Today';
             if (diffDays === 1) return 'Yesterday';
             return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+        }
+
+        function renderNewsFromJSON() {
+            if (!NEWS_ARTICLES) return;
+            var container = document.getElementById('news-list');
+            if (!container) return;
+            var html = '';
+            var lastDateLabel = '';
+            var now = new Date();
+            var todayStr = now.toISOString().slice(0, 10);
+            var yest = new Date(now);
+            yest.setDate(yest.getDate() - 1);
+            var yesterdayStr = yest.toISOString().slice(0, 10);
+
+            NEWS_ARTICLES.forEach(function(a) {
+                var dateStr = a.date ? a.date.slice(0, 10) : '';
+                var dateLabel = '';
+                if (dateStr === todayStr) dateLabel = 'Today';
+                else if (dateStr === yesterdayStr) dateLabel = 'Yesterday';
+                else if (a.date) {
+                    var d = new Date(a.date);
+                    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+                    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+                    dateLabel = days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + String(d.getDate()).padStart(2, '0');
+                }
+                if (dateLabel && dateLabel !== lastDateLabel) {
+                    html += '<h2 class="date-header">' + escapeHtml(dateLabel) + '</h2>\n';
+                    lastDateLabel = dateLabel;
+                }
+
+                var sourceBadge = '';
+                var alsoCovered = '';
+                if (a.in_focus && a.related_sources && a.related_sources.length) {
+                    var total = a.related_sources.length + 1;
+                    sourceBadge = '<span class="source-badge">' + total + ' sources</span>';
+                    var links = a.related_sources.map(function(rs) {
+                        var name = escapeHtml(rs.name);
+                        var display = name.length > 25 ? name.slice(0, 25) + '...' : name;
+                        return '<a href="' + escapeForAttr(rs.link) + '" target="_blank" rel="noopener" title="' + name + '">' + display + '</a>';
+                    });
+                    alsoCovered = '<div class="also-covered">Also covered by: ' + links.join(', ') + '</div>';
+                }
+
+                var sourceDisplay = a.source.length > 35 ? escapeHtml(a.source.slice(0, 35)) + '...' : escapeHtml(a.source);
+                var timeHtml = a.time ? '<span class="meta-dot">\u00b7</span><span class="article-time">' + escapeHtml(a.time) + '</span>' : '';
+
+                html += '<article class="article" data-source="' + escapeForAttr(a.source.toLowerCase()) + '" data-date="' + escapeForAttr(dateStr) + '" data-url="' + escapeForAttr(a.link) + '" data-title="' + escapeForAttr(a.title) + '" data-in-focus="' + (a.in_focus ? 'true' : 'false') + '" data-publisher="' + escapeForAttr(a.publisher) + '">'
+                    + '<h3 class="article-title"><a href="' + escapeForAttr(a.link) + '" target="_blank" rel="noopener">' + escapeHtml(a.title) + '</a>' + sourceBadge + '</h3>'
+                    + '<div class="article-meta">'
+                    + '<a href="' + escapeForAttr(a.source_url) + '" target="_blank" class="source-tag" title="' + escapeForAttr(a.source) + '">' + sourceDisplay + '</a>'
+                    + timeHtml
+                    + '<span class="meta-dot">\u00b7</span>'
+                    + '<button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">'
+                    + '<svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>'
+                    + '</button>'
+                    + '</div>'
+                    + alsoCovered
+                    + '</article>\n';
+            });
+
+            container.innerHTML = html;
+            syncBookmarkState();
         }
 
         function renderMainReports() {
