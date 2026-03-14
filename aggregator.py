@@ -482,20 +482,17 @@ def generate_html(
     <link rel="preload" href="static/tab_youtube.json" as="fetch" crossorigin>
     <link rel="preload" href="static/tab_research.json" as="fetch" crossorigin>
     <script>
-    (function(){{
-      if (document.fonts && document.fonts.ready) {{
-        document.fonts.ready.then(function(){{ document.body.style.opacity='1'; }});
-      }} else {{
-        window.addEventListener('load', function(){{ document.body.style.opacity='1'; }});
-      }}
-      setTimeout(function(){{ document.body.style.opacity='1'; }}, 500);
-    }})();
-    </script>
-    <script>
     window.__preloaded={{}};
     ['tab_news','tab_telegram','tab_youtube','tab_research','tab_papers','tab_twitter','tab_twitter_hs','tab_ai_rankings'].forEach(function(k){{
       window.__preloaded[k]=fetch('static/'+k+'.json').then(function(r){{return r.json()}});
     }});
+    // Reveal body only after data + fonts ready — app.js calls window.__reveal()
+    window.__reveal = function(){{
+      document.body.style.transition='opacity 0.3s ease';
+      document.body.style.opacity='1';
+    }};
+    // Safety timeout: reveal after 4s no matter what
+    setTimeout(function(){{ window.__reveal(); }}, 4000);
     </script>
 </head>
 <body>

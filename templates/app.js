@@ -2195,6 +2195,9 @@
 
             // Initialize slider navigation
             initSliders();
+
+            // Reveal page — all content is now rendered
+            if (window.__reveal) window.__reveal();
         }
 
         function getWswBreakers() {

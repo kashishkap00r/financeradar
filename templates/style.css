@@ -2980,6 +2980,10 @@
             .bk-panel {
                 width: 100vw;
                 right: -100vw;
+                height: 100dvh;
+            }
+            .bk-panel-footer {
+                padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
             }
             .tweet-card-body {
                 font-size: 14px;
