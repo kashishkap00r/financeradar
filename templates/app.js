@@ -13,48 +13,53 @@
         var _tabDataCache = {};
         function loadTabData(key, url) {
             if (_tabDataCache[key]) return _tabDataCache[key];
-            // Use pre-started fetch from inline script if available
             var preKey = key === 'ai' ? 'tab_ai_rankings' : 'tab_' + key;
             if (window.__preloaded && window.__preloaded[preKey]) {
-                _tabDataCache[key] = window.__preloaded[preKey];
+                _tabDataCache[key] = window.__preloaded[preKey].catch(function() { return null; });
                 return _tabDataCache[key];
             }
-            var p = fetch(url).then(function(r) { return r.json(); });
+            var p = fetch(url).then(function(r) {
+                if (!r.ok) return null;
+                return r.json();
+            }).catch(function() { return null; });
             _tabDataCache[key] = p;
             return p;
+        }
+        function _safeLoad(key, url, assignFn) {
+            return loadTabData(key, url).then(function(d) { if (d) assignFn(d); });
         }
         function ensureTabData(tab, callback) {
             var loads = [];
             if (tab === 'reports' && !TELEGRAM_REPORTS) {
-                loads.push(loadTabData('telegram', 'static/tab_telegram.json').then(function(d) { TELEGRAM_REPORTS = d; }));
+                loads.push(_safeLoad('telegram', 'static/tab_telegram.json', function(d) { TELEGRAM_REPORTS = d; }));
             }
             if (tab === 'youtube' && !YOUTUBE_VIDEOS) {
-                loads.push(loadTabData('youtube', 'static/tab_youtube.json').then(function(d) { YOUTUBE_VIDEOS = d; }));
+                loads.push(_safeLoad('youtube', 'static/tab_youtube.json', function(d) { YOUTUBE_VIDEOS = d; }));
             }
             if ((tab === 'twitter') && !TWITTER_ARTICLES) {
-                loads.push(loadTabData('twitter', 'static/tab_twitter.json').then(function(d) { TWITTER_ARTICLES = d; }));
+                loads.push(_safeLoad('twitter', 'static/tab_twitter.json', function(d) { TWITTER_ARTICLES = d; }));
             }
             if (tab === 'research' && !RESEARCH_REPORTS) {
-                loads.push(loadTabData('research', 'static/tab_research.json').then(function(d) { RESEARCH_REPORTS = d; }));
+                loads.push(_safeLoad('research', 'static/tab_research.json', function(d) { RESEARCH_REPORTS = d; }));
             }
             if (tab === 'papers' && !PAPER_ARTICLES) {
-                loads.push(loadTabData('papers', 'static/tab_papers.json').then(function(d) { PAPER_ARTICLES = d; }));
+                loads.push(_safeLoad('papers', 'static/tab_papers.json', function(d) { PAPER_ARTICLES = d; }));
             }
             if ((tab === 'news' || tab === 'home') && !NEWS_ARTICLES) {
-                loads.push(loadTabData('news', 'static/tab_news.json').then(function(d) { NEWS_ARTICLES = d; }));
+                loads.push(_safeLoad('news', 'static/tab_news.json', function(d) { NEWS_ARTICLES = d; }));
             }
             if (tab === 'home') {
-                if (!TELEGRAM_REPORTS) loads.push(loadTabData('telegram', 'static/tab_telegram.json').then(function(d) { TELEGRAM_REPORTS = d; }));
-                if (!YOUTUBE_VIDEOS) loads.push(loadTabData('youtube', 'static/tab_youtube.json').then(function(d) { YOUTUBE_VIDEOS = d; }));
-                if (!RESEARCH_REPORTS) loads.push(loadTabData('research', 'static/tab_research.json').then(function(d) { RESEARCH_REPORTS = d; }));
-                if (!TWITTER_ARTICLES) loads.push(loadTabData('twitter', 'static/tab_twitter.json').then(function(d) { TWITTER_ARTICLES = d; }));
-                if (!PAPER_ARTICLES) loads.push(loadTabData('papers', 'static/tab_papers.json').then(function(d) { PAPER_ARTICLES = d; }));
+                if (!TELEGRAM_REPORTS) loads.push(_safeLoad('telegram', 'static/tab_telegram.json', function(d) { TELEGRAM_REPORTS = d; }));
+                if (!YOUTUBE_VIDEOS) loads.push(_safeLoad('youtube', 'static/tab_youtube.json', function(d) { YOUTUBE_VIDEOS = d; }));
+                if (!RESEARCH_REPORTS) loads.push(_safeLoad('research', 'static/tab_research.json', function(d) { RESEARCH_REPORTS = d; }));
+                if (!TWITTER_ARTICLES) loads.push(_safeLoad('twitter', 'static/tab_twitter.json', function(d) { TWITTER_ARTICLES = d; }));
+                if (!PAPER_ARTICLES) loads.push(_safeLoad('papers', 'static/tab_papers.json', function(d) { PAPER_ARTICLES = d; }));
             }
             if (!AI_RANKINGS_BOOTSTRAP) {
-                loads.push(loadTabData('ai', 'static/tab_ai_rankings.json').then(function(d) { AI_RANKINGS_BOOTSTRAP = d; }));
+                loads.push(_safeLoad('ai', 'static/tab_ai_rankings.json', function(d) { AI_RANKINGS_BOOTSTRAP = d; }));
             }
             if (loads.length === 0) { callback(); return; }
-            Promise.all(loads).then(callback);
+            Promise.all(loads).then(callback).catch(function() { callback(); });
         }
 
         let bodyScrollLockDepth = 0;
@@ -2130,8 +2135,6 @@
         // ==================== RENDER HOME TAB (Newspaper) ====================
         function renderHomeTab() {
             if (!HOME_LIMITS || !HOME_PAIR_MAX) return;
-            // Don't render until ALL data sources are loaded
-            if (!NEWS_ARTICLES || !TELEGRAM_REPORTS || !YOUTUBE_VIDEOS || !RESEARCH_REPORTS || !TWITTER_ARTICLES || !PAPER_ARTICLES) return;
             const container = document.getElementById('home-newspaper');
             if (!container) return;
 
