@@ -2826,7 +2826,15 @@
         @media (max-width: 768px) {
             .container { padding: 0 1.25rem; }
             .utility { padding: 0.65rem 1.25rem; margin: 0 -1.25rem; }
-            .search-wrap.open .search-input { width: 140px; }
+            .utility.search-active > span { display: none; }
+            .utility.search-active .utility-nav { flex: 1; }
+            .utility.search-active .utility-link { display: none; }
+            .utility.search-active .bk-panel-toggle { display: none; }
+            .utility.search-active .search-wrap { flex: 1; }
+            .utility.search-active .search-wrap.open .search-input {
+                width: 100%;
+                flex: 1;
+            }
             .foot-nav { flex-wrap: wrap; gap: 1rem; }
 
             .filter-head {

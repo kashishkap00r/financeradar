@@ -82,28 +82,41 @@
         var searchToggle = document.getElementById('search-toggle');
         var globalSearch = document.getElementById('search-input');
 
-        if (searchToggle) searchToggle.addEventListener('click', function() {
-            if (searchWrap) searchWrap.classList.toggle('open');
-            if (searchWrap && searchWrap.classList.contains('open')) {
-                if (globalSearch) globalSearch.focus();
-            } else if (globalSearch) {
+        var utilityBar = document.querySelector('.utility');
+
+        function openSearch() {
+            if (searchWrap) searchWrap.classList.add('open');
+            if (utilityBar) utilityBar.classList.add('search-active');
+            if (globalSearch) globalSearch.focus();
+        }
+
+        function closeSearch() {
+            if (searchWrap) searchWrap.classList.remove('open');
+            if (utilityBar) utilityBar.classList.remove('search-active');
+            if (globalSearch) {
                 globalSearch.value = '';
                 globalSearch.dispatchEvent(new Event('input'));
+                globalSearch.blur();
+            }
+        }
+
+        if (searchToggle) searchToggle.addEventListener('click', function() {
+            if (searchWrap && searchWrap.classList.contains('open')) {
+                closeSearch();
+            } else {
+                openSearch();
             }
         });
 
         if (globalSearch) globalSearch.addEventListener('blur', function() {
-            if (!globalSearch.value && searchWrap) {
-                searchWrap.classList.remove('open');
+            if (!globalSearch.value) {
+                closeSearch();
             }
         });
 
         if (globalSearch) globalSearch.addEventListener('keydown', function(ev) {
             if (ev.key === 'Escape') {
-                globalSearch.value = '';
-                globalSearch.dispatchEvent(new Event('input'));
-                if (searchWrap) searchWrap.classList.remove('open');
-                globalSearch.blur();
+                closeSearch();
             }
         });
 
