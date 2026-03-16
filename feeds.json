@@ -1029,6 +1029,33 @@
     "publisher": "ING"
   },
   {
+    "id": "piie-blogs",
+    "name": "PIIE — Blogs",
+    "url": "https://www.piie.com/blogs",
+    "feed": "https://news.google.com/rss/search?q=site:piie.com/blogs&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "PIIE"
+  },
+  {
+    "id": "piie-publications",
+    "name": "PIIE — Publications",
+    "url": "https://www.piie.com/research/publications",
+    "feed": "https://news.google.com/rss/search?q=site:piie.com/research/publications&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "PIIE"
+  },
+  {
+    "id": "piie-commentary",
+    "name": "PIIE — Commentary",
+    "url": "https://www.piie.com/research/commentary",
+    "feed": "https://news.google.com/rss/search?q=site:piie.com/research/commentary&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "PIIE"
+  },
+  {
     "id": "goldman-sachs-reports",
     "name": "Goldman Sachs — Insights",
     "url": "https://www.goldmansachs.com/insights",
