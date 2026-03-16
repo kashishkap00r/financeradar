@@ -1048,16 +1048,34 @@
     "id": "piie-blogs",
     "name": "PIIE — Blogs",
     "url": "https://www.piie.com/blogs",
-    "feed": "https://news.google.com/rss/search?q=site:piie.com/blogs&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "piie:blogs",
     "category": "Reports",
     "region": "International",
     "publisher": "PIIE"
   },
   {
-    "id": "piie-publications",
-    "name": "PIIE — Publications",
-    "url": "https://www.piie.com/research/publications",
-    "feed": "https://news.google.com/rss/search?q=site:piie.com/research/publications&hl=en-IN&gl=IN&ceid=IN:en",
+    "id": "piie-working-papers",
+    "name": "PIIE — Working Papers",
+    "url": "https://www.piie.com/publications/working-papers",
+    "feed": "piie:working-papers",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "PIIE"
+  },
+  {
+    "id": "piie-policy-briefs",
+    "name": "PIIE — Policy Briefs",
+    "url": "https://www.piie.com/publications/policy-briefs",
+    "feed": "piie:policy-briefs",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "PIIE"
+  },
+  {
+    "id": "piie-briefings",
+    "name": "PIIE — Briefings",
+    "url": "https://www.piie.com/publications/piie-briefings",
+    "feed": "piie:briefings",
     "category": "Reports",
     "region": "International",
     "publisher": "PIIE"
@@ -1066,7 +1084,7 @@
     "id": "piie-commentary",
     "name": "PIIE — Commentary",
     "url": "https://www.piie.com/research/commentary",
-    "feed": "https://news.google.com/rss/search?q=site:piie.com/research/commentary&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "piie:commentary",
     "category": "Reports",
     "region": "International",
     "publisher": "PIIE"

@@ -8,6 +8,7 @@ compatible with the standard article format used by fetch_feed() / fetch_carerat
 import functools
 import html
 import json
+import os
 import re
 import ssl
 import socket
@@ -1173,6 +1174,49 @@ def fetch_crisil_reports(feed_config):
     return articles
 
 
+# ── PIIE (Playwright cache) ───────────────────────────────────────────
+
+_PIIE_CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "piie_cache.json")
+_PIIE_CACHE_MAX_AGE_HOURS = 48  # PIIE publishes infrequently; generous staleness window
+
+
+@scraper
+def fetch_piie_cache(feed_config):
+    """Read PIIE articles from locally-generated Playwright cache."""
+    try:
+        with open(_PIIE_CACHE_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+    # Check freshness
+    generated = data.get("generated_at", "")
+    try:
+        gen_dt = datetime.fromisoformat(generated)
+        if gen_dt.tzinfo is None:
+            gen_dt = gen_dt.replace(tzinfo=timezone.utc)
+        age_hours = (datetime.now(timezone.utc) - gen_dt).total_seconds() / 3600
+    except Exception:
+        age_hours = 999
+    if age_hours > _PIIE_CACHE_MAX_AGE_HOURS:
+        return []
+
+    feed_id = feed_config.get("id", "")
+    articles = []
+    for item in data.get("items", []):
+        if item.get("feed_id") != feed_id:
+            continue
+        title = item.get("title", "").strip()
+        link = item.get("link", "").strip()
+        if not title or not link:
+            continue
+        dt = _parse_date_flexible(item.get("date", ""))
+        if not _is_fresh(dt):
+            continue
+        articles.append(_make_article(title, link, dt, "", feed_config))
+    return articles
+
+
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
@@ -1193,6 +1237,7 @@ REPORT_FETCHERS = {
     "ubs:": fetch_ubs,
     "ssga:": fetch_ssga_insights,
     "kpler:": fetch_kpler,
+    "piie:": fetch_piie_cache,
 }
 
 
