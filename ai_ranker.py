@@ -12,7 +12,6 @@ Builds source-separated AI rankings for the sidebar:
 import json
 import urllib.request
 import os
-import ssl
 import re
 import sys
 import tempfile
@@ -27,11 +26,11 @@ from config import (
     AI_RANKER_TARGET_COUNT,
     AI_RANKER_OPENROUTER_TIMEOUT,
     AI_RANKER_GEMINI_TIMEOUT,
+    SSL_CONTEXT,
 )
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
-SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 

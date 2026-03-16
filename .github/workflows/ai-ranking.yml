@@ -10,6 +10,10 @@ name: AI News Ranking
     - cron: "0 18 * * *"
   workflow_dispatch:
 
+concurrency:
+  group: financeradar-ai-ranking
+  cancel-in-progress: true
+
 permissions:
   contents: write
 

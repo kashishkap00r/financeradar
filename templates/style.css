@@ -34,21 +34,6 @@
             --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
             --danger: #B5422A;
         }
-        [data-theme="light"] {
-            --bg-primary: #FAF7F2;
-            --bg-secondary: #FFFFFF;
-            --bg-hover: #F2EDE6;
-            --text-primary: #2C2825;
-            --text-secondary: #6B645C;
-            --text-muted: #9E978F;
-            --accent: #C45A35;
-            --accent-hover: #A84A2B;
-            --accent-soft: rgba(196, 90, 53, 0.1);
-            --border: #D4CBC0;
-            --border-light: #E2DCD3;
-            --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
-            --danger: #B5422A;
-        }
         [data-theme="dark"] {
             --bg-primary: #1A1614;
             --bg-secondary: #221E1B;
@@ -446,7 +431,8 @@
             display: block;
         }
         html.filters-collapsed .filter-toggle svg { transform: rotate(-90deg); }
-        .preset-btn {
+        /* Shared control-button base (preset, view, chip, desk buttons) */
+        .preset-btn, .tg-view-btn, .tg-chip, .tv-desk-btn {
             padding: 0.35rem 0.7rem;
             border: 1.5px solid var(--border);
             border-radius: 3px;
@@ -457,22 +443,23 @@
             color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.2s ease;
-            white-space: nowrap;
         }
-        .preset-btn:hover {
+        .preset-btn:hover, .tg-view-btn:hover, .tg-chip:hover, .tv-desk-btn:hover {
             border-color: var(--text-secondary);
             color: var(--text-primary);
         }
-        .preset-btn.active {
+        .preset-btn.active, .tg-view-btn.active, .tg-chip.active, .tv-desk-btn.active {
             background: var(--text-primary);
             color: var(--bg-primary);
             border-color: var(--text-primary);
         }
-        .preset-btn.partial {
+        .preset-btn.partial, .tv-desk-btn.partial {
             border-color: var(--text-secondary);
             color: var(--text-primary);
             border-style: dashed;
         }
+        .preset-btn, .tg-view-btn, .tg-chip { white-space: nowrap; }
+        .tg-chip { flex-shrink: 0; }
 
         /* Publisher Dropdown */
         .publisher-dropdown {
@@ -1697,7 +1684,10 @@
             font-size: 20px;
         }
         .report-images-fallback::after {
-            content: 'Tap to view image';
+            content: 'View image';
+        }
+        .report-images-fallback .report-images-badge {
+            display: none;
         }
         .report-meta {
             display: flex;
@@ -2547,13 +2537,6 @@
             width: 5px;
             height: 5px;
         }
-        .cat-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            display: inline-block;
-            flex-shrink: 0;
-        }
         .tab-count {
             font-size: 0.6rem;
             font-weight: 400;
@@ -2582,69 +2565,6 @@
             gap: 0.4rem;
             flex-wrap: wrap;
             max-width: 100%;
-        }
-        .tg-view-btn {
-            padding: 0.35rem 0.7rem;
-            border: 1.5px solid var(--border);
-            border-radius: 3px;
-            background: transparent;
-            font-family: 'Nunito Sans', system-ui, sans-serif;
-            font-size: 0.68rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-        .tg-view-btn:hover { border-color: var(--text-secondary); color: var(--text-primary); }
-        .tg-view-btn.active {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            border-color: var(--text-primary);
-        }
-        .tg-chip {
-            font-family: 'Nunito Sans', system-ui, sans-serif;
-            font-size: 0.68rem;
-            font-weight: 600;
-            padding: 0.35rem 0.7rem;
-            border-radius: 3px;
-            border: 1.5px solid var(--border);
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        .tg-chip:hover { border-color: var(--text-secondary); color: var(--text-primary); }
-        .tg-chip.active {
-            background: var(--text-primary);
-            border-color: var(--text-primary);
-            color: var(--bg-primary);
-        }
-        /* News Desk Buttons (additive toggles, 3 states) */
-        .tv-desk-btn {
-            padding: 0.35rem 0.7rem;
-            border: 1.5px solid var(--border);
-            border-radius: 3px;
-            background: transparent;
-            font-family: 'Nunito Sans', system-ui, sans-serif;
-            font-size: 0.68rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .tv-desk-btn:hover { border-color: var(--text-secondary); color: var(--text-primary); }
-        .tv-desk-btn.active {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            border-color: var(--text-primary);
-        }
-        .tv-desk-btn.partial {
-            border-color: var(--text-secondary);
-            color: var(--text-primary);
-            border-style: dashed;
         }
         /* content-type badge */
         .report-type-badge {

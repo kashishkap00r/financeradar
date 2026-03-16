@@ -180,7 +180,11 @@
             }
         });
 
-        if (globalSearch) globalSearch.addEventListener('input', onSearchInput);
+        function debounce(fn, ms) {
+            let timer;
+            return function() { clearTimeout(timer); timer = setTimeout(fn, ms); };
+        }
+        if (globalSearch) globalSearch.addEventListener('input', debounce(onSearchInput, 200));
 
         const FILTER_COLLAPSE_KEY_PREFIX = 'financeradar_filters_collapsed_';
 
@@ -199,16 +203,7 @@
 
         // Filter collapse toggle (per-tab memory)
         function toggleFilterCollapse() {
-            var dd = document.getElementById('publisher-dropdown');
-            if (dd && dd.classList.contains('open')) closeDropdown();
-            var tdd = document.getElementById('twitter-publisher-dropdown');
-            if (tdd && tdd.classList.contains('open')) closeTwitterDropdown();
-            var ydd = document.getElementById('youtube-publisher-dropdown');
-            if (ydd && ydd.classList.contains('open')) closeYoutubeDropdown();
-            var rgdd = document.getElementById('tg-channel-dropdown');
-            if (rgdd && rgdd.classList.contains('open')) closeTgDropdown();
-            var rsdd = document.getElementById('research-publisher-dropdown');
-            if (rsdd && rsdd.classList.contains('open')) closeResearchDropdown();
+            closeAllDropdowns();
             var active = getActiveTab();
             var nextCollapsed = !document.documentElement.classList.contains('filters-collapsed');
             document.documentElement.classList.toggle('filters-collapsed', nextCollapsed);
@@ -253,20 +248,37 @@
             }
         }
 
-        function closeDropdown() {
-            const dd = document.getElementById('publisher-dropdown');
-            if (dd) dd.classList.remove('open');
-            const search = document.getElementById('dropdown-search');
-            if (search) { search.value = ''; filterPublisherList(); }
-        }
+        // ── Generic dropdown utilities ──────────────────────────────
+        const DROPDOWN_CONFIG = [
+            { ddId: 'publisher-dropdown', searchId: 'dropdown-search', listId: 'dropdown-list' },
+            { ddId: 'tg-channel-dropdown', searchId: 'tg-dropdown-search', listId: 'tg-dropdown-list' },
+            { ddId: 'research-publisher-dropdown', searchId: 'research-dropdown-search', listId: 'research-dropdown-list' },
+            { ddId: 'youtube-publisher-dropdown', searchId: 'youtube-dropdown-search', listId: 'youtube-dropdown-list' },
+            { ddId: 'twitter-publisher-dropdown', searchId: 'twitter-dropdown-search', listId: 'twitter-dropdown-list' },
+        ];
 
-        function filterPublisherList() {
-            const query = document.getElementById('dropdown-search').value.toLowerCase();
-            document.querySelectorAll('#dropdown-list .dropdown-item').forEach(item => {
-                const pub = item.dataset.publisher.toLowerCase();
-                item.classList.toggle('hidden', query && !pub.includes(query));
+        function filterDropdownList(searchInputId, listId) {
+            const query = document.getElementById(searchInputId).value.toLowerCase();
+            document.querySelectorAll('#' + listId + ' .dropdown-item').forEach(item => {
+                item.classList.toggle('hidden', query && !item.dataset.publisher.toLowerCase().includes(query));
             });
         }
+
+        function closeDropdownById(ddId, searchId, listId) {
+            const dd = document.getElementById(ddId);
+            if (!dd || !dd.classList.contains('open')) return;
+            dd.classList.remove('open');
+            const search = document.getElementById(searchId);
+            if (search) { search.value = ''; filterDropdownList(searchId, listId); }
+        }
+
+        function closeAllDropdowns() {
+            DROPDOWN_CONFIG.forEach(d => closeDropdownById(d.ddId, d.searchId, d.listId));
+        }
+        // ────────────────────────────────────────────────────────────
+
+        function closeDropdown() { closeDropdownById('publisher-dropdown', 'dropdown-search', 'dropdown-list'); }
+        function filterPublisherList() { filterDropdownList('dropdown-search', 'dropdown-list'); }
 
         function selectAllPublishers() {
             selectedPublishers.clear();
@@ -470,60 +482,24 @@
 
         // Close dropdown on outside click
         document.addEventListener('click', (e) => {
-            const dd = document.getElementById('publisher-dropdown');
-            if (dd.classList.contains('open') && !dd.contains(e.target)) {
-                closeDropdown();
-            }
-            const tdd = document.getElementById('twitter-publisher-dropdown');
-            if (tdd && tdd.classList.contains('open') && !tdd.contains(e.target)) {
-                closeTwitterDropdown();
-            }
-            const ydd = document.getElementById('youtube-publisher-dropdown');
-            if (ydd && ydd.classList.contains('open') && !ydd.contains(e.target)) {
-                closeYoutubeDropdown();
-            }
-            const rgdd = document.getElementById('tg-channel-dropdown');
-            if (rgdd && rgdd.classList.contains('open') && !rgdd.contains(e.target)) {
-                closeTgDropdown();
-            }
-            const rsdd = document.getElementById('research-publisher-dropdown');
-            if (rsdd && rsdd.classList.contains('open') && !rsdd.contains(e.target)) {
-                closeResearchDropdown();
-            }
+            DROPDOWN_CONFIG.forEach(d => {
+                const dd = document.getElementById(d.ddId);
+                if (dd && dd.classList.contains('open') && !dd.contains(e.target)) {
+                    closeDropdownById(d.ddId, d.searchId, d.listId);
+                }
+            });
         });
 
         // Close dropdown on Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                const dd = document.getElementById('publisher-dropdown');
-                if (dd.classList.contains('open')) {
-                    closeDropdown();
-                    e.stopImmediatePropagation();
-                    return;
-                }
-                const tdd = document.getElementById('twitter-publisher-dropdown');
-                if (tdd && tdd.classList.contains('open')) {
-                    closeTwitterDropdown();
-                    e.stopImmediatePropagation();
-                    return;
-                }
-                const ydd = document.getElementById('youtube-publisher-dropdown');
-                if (ydd && ydd.classList.contains('open')) {
-                    closeYoutubeDropdown();
-                    e.stopImmediatePropagation();
-                    return;
-                }
-                const rgdd = document.getElementById('tg-channel-dropdown');
-                if (rgdd && rgdd.classList.contains('open')) {
-                    closeTgDropdown();
-                    e.stopImmediatePropagation();
-                    return;
-                }
-                const rsdd = document.getElementById('research-publisher-dropdown');
-                if (rsdd && rsdd.classList.contains('open')) {
-                    closeResearchDropdown();
-                    e.stopImmediatePropagation();
-                    return;
+                for (const d of DROPDOWN_CONFIG) {
+                    const dd = document.getElementById(d.ddId);
+                    if (dd && dd.classList.contains('open')) {
+                        closeDropdownById(d.ddId, d.searchId, d.listId);
+                        e.stopImmediatePropagation();
+                        return;
+                    }
                 }
             }
         });
@@ -541,75 +517,64 @@
             return [...document.querySelectorAll('.article:not(.hidden)')];
         }
 
-        function renderPagination(totalPages) {
-            const bottom = document.getElementById('pagination-bottom');
-            bottom.innerHTML = '';
+        // ── Generic pagination builder ──────────────────────────────
+        function buildPagination(containerId, activePage, totalPages, onPageChange) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            container.innerHTML = '';
+            if (totalPages <= 1) return;
 
-            if (totalPages <= 1) {
-                return;
-            }
             const makeBtn = (label, page, isActive = false, isDisabled = false) => {
                 const btn = document.createElement('button');
                 btn.className = 'page-btn' + (isActive ? ' active' : '');
                 btn.textContent = label;
                 if (isDisabled) {
                     btn.disabled = true;
-                } else {
-                    btn.addEventListener('click', () => {
-                        currentPage = page;
-                        applyPagination(true);
-                    });
+                } else if (!isActive) {
+                    btn.addEventListener('click', () => onPageChange(page));
                 }
                 return btn;
             };
             const makeEllipsis = () => {
                 const span = document.createElement('span');
                 span.className = 'page-ellipsis';
-                span.textContent = '…';
+                span.textContent = '\u2026';
                 return span;
             };
             const windowSize = 7;
             const half = Math.floor(windowSize / 2);
-            let start = Math.max(1, currentPage - half);
-            let end = Math.min(totalPages, currentPage + half);
-
+            let start = Math.max(1, activePage - half);
+            let end = Math.min(totalPages, activePage + half);
             if (end - start + 1 < windowSize) {
-                if (start === 1) {
-                    end = Math.min(totalPages, start + windowSize - 1);
-                } else if (end === totalPages) {
-                    start = Math.max(1, end - windowSize + 1);
-                }
+                if (start === 1) end = Math.min(totalPages, start + windowSize - 1);
+                else if (end === totalPages) start = Math.max(1, end - windowSize + 1);
             }
 
-            const build = (container) => {
-                const prevBtn = makeBtn('← Prev', Math.max(1, currentPage - 1), false, currentPage === 1);
-                prevBtn.classList.add('nav', 'prev');
-                container.appendChild(prevBtn);
+            const prevBtn = makeBtn('\u2190 Prev', Math.max(1, activePage - 1), false, activePage === 1);
+            prevBtn.classList.add('nav', 'prev');
+            container.appendChild(prevBtn);
+            if (start > 1) {
+                container.appendChild(makeBtn('1', 1, activePage === 1));
+                if (start > 2) container.appendChild(makeEllipsis());
+            }
+            for (let i = start; i <= end; i++) {
+                container.appendChild(makeBtn(String(i), i, i === activePage));
+            }
+            if (end < totalPages) {
+                if (end < totalPages - 1) container.appendChild(makeEllipsis());
+                container.appendChild(makeBtn(String(totalPages), totalPages, activePage === totalPages));
+            }
+            const nextBtn = makeBtn('Next \u2192', Math.min(totalPages, activePage + 1), false, activePage === totalPages);
+            nextBtn.classList.add('nav', 'next');
+            container.appendChild(nextBtn);
+        }
+        // ────────────────────────────────────────────────────────────
 
-                if (start > 1) {
-                    container.appendChild(makeBtn('1', 1, currentPage === 1));
-                    if (start > 2) {
-                        container.appendChild(makeEllipsis());
-                    }
-                }
-
-                for (let i = start; i <= end; i++) {
-                    container.appendChild(makeBtn(String(i), i, i === currentPage));
-                }
-
-                if (end < totalPages) {
-                    if (end < totalPages - 1) {
-                        container.appendChild(makeEllipsis());
-                    }
-                    container.appendChild(makeBtn(String(totalPages), totalPages, currentPage === totalPages));
-                }
-
-                const nextBtn = makeBtn('Next →', Math.min(totalPages, currentPage + 1), false, currentPage === totalPages);
-                nextBtn.classList.add('nav', 'next');
-                container.appendChild(nextBtn);
-            };
-
-            build(bottom);
+        function renderPagination(totalPages) {
+            buildPagination('pagination-bottom', currentPage, totalPages, (page) => {
+                currentPage = page;
+                applyPagination(true);
+            });
         }
 
         function applyPagination(shouldScroll = false) {
@@ -2448,12 +2413,7 @@
                 document.getElementById('tg-dropdown-search').focus();
             }
         }
-        function filterTgChannelList() {
-            const query = document.getElementById('tg-dropdown-search').value.toLowerCase();
-            document.querySelectorAll('#tg-dropdown-list .dropdown-item').forEach(item => {
-                item.classList.toggle('hidden', query && !item.dataset.publisher.toLowerCase().includes(query));
-            });
-        }
+        function filterTgChannelList() { filterDropdownList('tg-dropdown-search', 'tg-dropdown-list'); }
         function selectAllTgChannels() {
             selectedTgChannels.clear();
             syncTgCheckboxes();
@@ -2484,12 +2444,7 @@
             else if (n === 1) { el.textContent = [...selectedTgChannels][0]; }
             else { el.textContent = n + ' channels'; }
         }
-        function closeTgDropdown() {
-            const dd = document.getElementById('tg-channel-dropdown');
-            if (dd) dd.classList.remove('open');
-            const search = document.getElementById('tg-dropdown-search');
-            if (search) { search.value = ''; filterTgChannelList(); }
-        }
+        function closeTgDropdown() { closeDropdownById('tg-channel-dropdown', 'tg-dropdown-search', 'tg-dropdown-list'); }
 
         function parseReportImageList(raw) {
             if (!raw) return [];
@@ -2845,62 +2800,11 @@
         }
 
         function renderReportsPagination(totalPages) {
-            const bottom = document.getElementById('reports-pagination-bottom');
-            bottom.innerHTML = '';
-
-            if (totalPages <= 1) return;
-
-            const makeBtn = (label, page, isActive = false, isDisabled = false) => {
-                const btn = document.createElement('button');
-                btn.className = 'page-btn' + (isActive ? ' active' : '');
-                btn.textContent = label;
-                if (isDisabled) {
-                    btn.disabled = true;
-                } else {
-                    btn.addEventListener('click', () => {
-                        reportsPage = page;
-                        applyReportsPagination();
-                        window.scrollTo({top: 0, behavior: 'smooth'});
-                    });
-                }
-                return btn;
-            };
-            const makeEllipsis = () => {
-                const span = document.createElement('span');
-                span.className = 'page-ellipsis';
-                span.textContent = '…';
-                return span;
-            };
-            const windowSize = 7;
-            const half = Math.floor(windowSize / 2);
-            let startP = Math.max(1, reportsPage - half);
-            let endP = Math.min(totalPages, reportsPage + half);
-            if (endP - startP + 1 < windowSize) {
-                if (startP === 1) endP = Math.min(totalPages, startP + windowSize - 1);
-                else if (endP === totalPages) startP = Math.max(1, endP - windowSize + 1);
-            }
-
-            const build = (container) => {
-                const prevBtn = makeBtn('← Prev', Math.max(1, reportsPage - 1), false, reportsPage === 1);
-                prevBtn.classList.add('nav', 'prev');
-                container.appendChild(prevBtn);
-                if (startP > 1) {
-                    container.appendChild(makeBtn('1', 1, reportsPage === 1));
-                    if (startP > 2) container.appendChild(makeEllipsis());
-                }
-                for (let i = startP; i <= endP; i++) {
-                    container.appendChild(makeBtn(String(i), i, i === reportsPage));
-                }
-                if (endP < totalPages) {
-                    if (endP < totalPages - 1) container.appendChild(makeEllipsis());
-                    container.appendChild(makeBtn(String(totalPages), totalPages, reportsPage === totalPages));
-                }
-                const nextBtn = makeBtn('Next →', Math.min(totalPages, reportsPage + 1), false, reportsPage === totalPages);
-                nextBtn.classList.add('nav', 'next');
-                container.appendChild(nextBtn);
-            };
-
-            build(bottom);
+            buildPagination('reports-pagination-bottom', reportsPage, totalPages, (page) => {
+                reportsPage = page;
+                applyReportsPagination();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
         }
 
         function toggleReportExpand(btn) {
@@ -3057,49 +2961,11 @@
         }
 
         function renderResearchPagination(totalPages) {
-            const bottom = document.getElementById('research-pagination-bottom');
-            if (!bottom || totalPages <= 1) {
-                if (bottom) bottom.innerHTML = '';
-                return;
-            }
-
-            const build = (container) => {
-                container.innerHTML = '';
-                const makeBtn = (text, page, isActive, isDisabled) => {
-                    const btn = document.createElement('button');
-                    btn.className = 'page-btn' + (isActive ? ' active' : '');
-                    btn.textContent = text;
-                    btn.disabled = isDisabled;
-                    if (!isDisabled && !isActive) btn.onclick = () => { researchPage = page; applyResearchPagination(); window.scrollTo({top: 0, behavior: 'smooth'}); };
-                    return btn;
-                };
-
-                const prevBtn = makeBtn('← Prev', researchPage - 1, false, researchPage === 1);
-                prevBtn.classList.add('nav', 'prev');
-                container.appendChild(prevBtn);
-
-                const nums = document.createElement('span');
-                nums.className = 'page-numbers';
-                const addPage = (p) => nums.appendChild(makeBtn(String(p), p, p === researchPage, false));
-                const addEllipsis = () => { const s = document.createElement('span'); s.className = 'page-ellipsis'; s.textContent = '…'; nums.appendChild(s); };
-
-                if (totalPages <= 7) {
-                    for (let i = 1; i <= totalPages; i++) addPage(i);
-                } else {
-                    addPage(1);
-                    if (researchPage > 3) addEllipsis();
-                    for (let i = Math.max(2, researchPage - 1); i <= Math.min(totalPages - 1, researchPage + 1); i++) addPage(i);
-                    if (researchPage < totalPages - 2) addEllipsis();
-                    addPage(totalPages);
-                }
-                container.appendChild(nums);
-
-                const nextBtn = makeBtn('Next →', researchPage + 1, false, researchPage === totalPages);
-                nextBtn.classList.add('nav', 'next');
-                container.appendChild(nextBtn);
-            };
-
-            build(bottom);
+            buildPagination('research-pagination-bottom', researchPage, totalPages, (page) => {
+                researchPage = page;
+                applyResearchPagination();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
         }
 
         // Research publisher dropdown
@@ -3165,20 +3031,8 @@
             }
         }
 
-        function closeResearchDropdown() {
-            const dd = document.getElementById('research-publisher-dropdown');
-            if (dd) dd.classList.remove('open');
-            const search = document.getElementById('research-dropdown-search');
-            if (search) { search.value = ''; filterResearchPublisherList(); }
-        }
-
-        function filterResearchPublisherList() {
-            const query = document.getElementById('research-dropdown-search').value.toLowerCase();
-            document.querySelectorAll('#research-dropdown-list .dropdown-item').forEach(item => {
-                const pub = item.dataset.publisher.toLowerCase();
-                item.classList.toggle('hidden', query && !pub.includes(query));
-            });
-        }
+        function closeResearchDropdown() { closeDropdownById('research-publisher-dropdown', 'research-dropdown-search', 'research-dropdown-list'); }
+        function filterResearchPublisherList() { filterDropdownList('research-dropdown-search', 'research-dropdown-list'); }
 
         function syncResearchCheckboxes() {
             document.querySelectorAll('#research-dropdown-list input[type="checkbox"]').forEach(cb => {
@@ -3322,49 +3176,11 @@
         }
 
         function renderPapersPagination(totalPages) {
-            const bottom = document.getElementById('papers-pagination-bottom');
-            if (!bottom || totalPages <= 1) {
-                if (bottom) bottom.innerHTML = '';
-                return;
-            }
-
-            const build = (container) => {
-                container.innerHTML = '';
-                const makeBtn = (text, page, isActive, isDisabled) => {
-                    const btn = document.createElement('button');
-                    btn.className = 'page-btn' + (isActive ? ' active' : '');
-                    btn.textContent = text;
-                    btn.disabled = isDisabled;
-                    if (!isDisabled && !isActive) btn.onclick = () => { papersPage = page; applyPapersPagination(); window.scrollTo({top: 0, behavior: 'smooth'}); };
-                    return btn;
-                };
-
-                const prevBtn = makeBtn('← Prev', papersPage - 1, false, papersPage === 1);
-                prevBtn.classList.add('nav', 'prev');
-                container.appendChild(prevBtn);
-
-                const nums = document.createElement('span');
-                nums.className = 'page-numbers';
-                const addPage = (p) => nums.appendChild(makeBtn(String(p), p, p === papersPage, false));
-                const addEllipsis = () => { const s = document.createElement('span'); s.className = 'page-ellipsis'; s.textContent = '…'; nums.appendChild(s); };
-
-                if (totalPages <= 7) {
-                    for (let i = 1; i <= totalPages; i++) addPage(i);
-                } else {
-                    addPage(1);
-                    if (papersPage > 3) addEllipsis();
-                    for (let i = Math.max(2, papersPage - 1); i <= Math.min(totalPages - 1, papersPage + 1); i++) addPage(i);
-                    if (papersPage < totalPages - 2) addEllipsis();
-                    addPage(totalPages);
-                }
-                container.appendChild(nums);
-
-                const nextBtn = makeBtn('Next →', papersPage + 1, false, papersPage === totalPages);
-                nextBtn.classList.add('nav', 'next');
-                container.appendChild(nextBtn);
-            };
-
-            build(bottom);
+            buildPagination('papers-pagination-bottom', papersPage, totalPages, (page) => {
+                papersPage = page;
+                applyPapersPagination();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
         }
 
         // ==================== YOUTUBE TAB (functions) ====================
@@ -3443,13 +3259,7 @@
             }
         }
 
-        function filterYoutubePublisherList() {
-            const query = document.getElementById('youtube-dropdown-search').value.toLowerCase();
-            document.querySelectorAll('#youtube-dropdown-list .dropdown-item').forEach(item => {
-                const pub = item.dataset.publisher.toLowerCase();
-                item.classList.toggle('hidden', query && !pub.includes(query));
-            });
-        }
+        function filterYoutubePublisherList() { filterDropdownList('youtube-dropdown-search', 'youtube-dropdown-list'); }
 
         function selectAllYoutubePublishers() {
             selectedYoutubePublishers.clear();
@@ -3505,12 +3315,7 @@
             }
         }
 
-        function closeYoutubeDropdown() {
-            const dd = document.getElementById('youtube-publisher-dropdown');
-            if (dd) dd.classList.remove('open');
-            const search = document.getElementById('youtube-dropdown-search');
-            if (search) { search.value = ''; filterYoutubePublisherList(); }
-        }
+        function closeYoutubeDropdown() { closeDropdownById('youtube-publisher-dropdown', 'youtube-dropdown-search', 'youtube-dropdown-list'); }
 
         function formatYoutubeDate(isoStr) {
             if (!isoStr) return '';
@@ -3611,48 +3416,11 @@
         }
 
         function renderYoutubePagination(totalPages) {
-            const bottom = document.getElementById('youtube-pagination-bottom');
-            if (!bottom || totalPages <= 1) {
-                if (bottom) bottom.innerHTML = '';
-                return;
-            }
-
-            const build = (container) => {
-                container.innerHTML = '';
-                const makeBtn = (text, page, isActive, isDisabled) => {
-                    const btn = document.createElement('button');
-                    btn.className = 'page-btn' + (isActive ? ' active' : '');
-                    btn.textContent = text;
-                    btn.disabled = isDisabled;
-                    if (!isDisabled && !isActive) btn.onclick = () => { youtubePage = page; applyYoutubePagination(); window.scrollTo({top: 0, behavior: 'smooth'}); };
-                    return btn;
-                };
-                const prevBtn = makeBtn('← Prev', Math.max(1, youtubePage - 1), false, youtubePage === 1);
-                prevBtn.classList.add('nav', 'prev');
-                container.appendChild(prevBtn);
-
-                const nums = document.createElement('div');
-                nums.className = 'page-numbers';
-                const addPage = (p) => nums.appendChild(makeBtn(String(p), p, p === youtubePage, false));
-                const addEllipsis = () => { const el = document.createElement('span'); el.className = 'page-ellipsis'; el.textContent = '...'; nums.appendChild(el); };
-
-                if (totalPages <= 7) {
-                    for (let i = 1; i <= totalPages; i++) addPage(i);
-                } else {
-                    addPage(1);
-                    if (youtubePage > 3) addEllipsis();
-                    for (let i = Math.max(2, youtubePage - 1); i <= Math.min(totalPages - 1, youtubePage + 1); i++) addPage(i);
-                    if (youtubePage < totalPages - 2) addEllipsis();
-                    addPage(totalPages);
-                }
-                container.appendChild(nums);
-
-                const nextBtn = makeBtn('Next →', Math.min(totalPages, youtubePage + 1), false, youtubePage === totalPages);
-                nextBtn.classList.add('nav', 'next');
-                container.appendChild(nextBtn);
-            };
-
-            build(bottom);
+            buildPagination('youtube-pagination-bottom', youtubePage, totalPages, (page) => {
+                youtubePage = page;
+                applyYoutubePagination();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
         }
 
         // ==================== TWITTER TAB (helpers) ====================
@@ -3783,13 +3551,7 @@
             }
         }
 
-        function filterTwitterPublisherList() {
-            const query = document.getElementById('twitter-dropdown-search').value.toLowerCase();
-            document.querySelectorAll('#twitter-dropdown-list .dropdown-item').forEach(item => {
-                const pub = item.dataset.publisher.toLowerCase();
-                item.classList.toggle('hidden', query && !pub.includes(query));
-            });
-        }
+        function filterTwitterPublisherList() { filterDropdownList('twitter-dropdown-search', 'twitter-dropdown-list'); }
 
         function selectAllTwitterPublishers() {
             selectedTwitterPublishers.clear();
@@ -3880,12 +3642,7 @@
             }
         }
 
-        function closeTwitterDropdown() {
-            const dd = document.getElementById('twitter-publisher-dropdown');
-            if (dd) dd.classList.remove('open');
-            const search = document.getElementById('twitter-dropdown-search');
-            if (search) { search.value = ''; filterTwitterPublisherList(); }
-        }
+        function closeTwitterDropdown() { closeDropdownById('twitter-publisher-dropdown', 'twitter-dropdown-search', 'twitter-dropdown-list'); }
 
         function formatTwitterDate(isoStr) {
             if (!isoStr) return '';
@@ -3998,48 +3755,11 @@
         }
 
         function renderTwitterPagination(totalPages) {
-            const bottom = document.getElementById('twitter-pagination-bottom');
-            if (!bottom || totalPages <= 1) {
-                if (bottom) bottom.innerHTML = '';
-                return;
-            }
-
-            const build = (container) => {
-                container.innerHTML = '';
-                const makeBtn = (text, page, isActive, isDisabled) => {
-                    const btn = document.createElement('button');
-                    btn.className = 'page-btn' + (isActive ? ' active' : '');
-                    btn.textContent = text;
-                    btn.disabled = isDisabled;
-                    if (!isDisabled && !isActive) btn.onclick = () => { twitterPage = page; applyTwitterPagination(); window.scrollTo({top: 0, behavior: 'smooth'}); };
-                    return btn;
-                };
-                const prevBtn = makeBtn('← Prev', Math.max(1, twitterPage - 1), false, twitterPage === 1);
-                prevBtn.classList.add('nav', 'prev');
-                container.appendChild(prevBtn);
-
-                const nums = document.createElement('div');
-                nums.className = 'page-numbers';
-                const addPage = (p) => nums.appendChild(makeBtn(String(p), p, p === twitterPage, false));
-                const addEllipsis = () => { const el = document.createElement('span'); el.className = 'page-ellipsis'; el.textContent = '...'; nums.appendChild(el); };
-
-                if (totalPages <= 7) {
-                    for (let i = 1; i <= totalPages; i++) addPage(i);
-                } else {
-                    addPage(1);
-                    if (twitterPage > 3) addEllipsis();
-                    for (let i = Math.max(2, twitterPage - 1); i <= Math.min(totalPages - 1, twitterPage + 1); i++) addPage(i);
-                    if (twitterPage < totalPages - 2) addEllipsis();
-                    addPage(totalPages);
-                }
-                container.appendChild(nums);
-
-                const nextBtn = makeBtn('Next →', Math.min(totalPages, twitterPage + 1), false, twitterPage === totalPages);
-                nextBtn.classList.add('nav', 'next');
-                container.appendChild(nextBtn);
-            };
-
-            build(bottom);
+            buildPagination('twitter-pagination-bottom', twitterPage, totalPages, (page) => {
+                twitterPage = page;
+                applyTwitterPagination();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
         }
 
         // Update relative time for all timestamped elements

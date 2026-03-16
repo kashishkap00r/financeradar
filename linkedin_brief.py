@@ -12,14 +12,14 @@ Usage:
 """
 import json
 import os
-import ssl
 import sys
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
+from config import SSL_CONTEXT
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
-SSL_CONTEXT = ssl.create_default_context()
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_MODEL = "gemini-3-flash-preview"

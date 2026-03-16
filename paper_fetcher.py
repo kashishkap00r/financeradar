@@ -9,15 +9,12 @@ import urllib.request
 from datetime import datetime
 
 from articles import IST_TZ
+from config import DEFAULT_USER_AGENT
 
 
 PAPER_AGGREGATOR_URL = "https://paper-aggregator-india.netlify.app/"
 PAPER_FEED_ID = "paper-aggregator-india"
-UA = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/120.0.0.0 Safari/537.36"
-)
+UA = DEFAULT_USER_AGENT
 
 _ARTICLE_RE = re.compile(
     r'(<article\s+class="paper"[^>]*>)(.*?)</article>',

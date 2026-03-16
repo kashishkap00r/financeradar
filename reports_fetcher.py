@@ -9,8 +9,8 @@ import functools
 import html
 import json
 import re
-import socket
 import ssl
+import socket
 import time
 import urllib.parse
 import urllib.request
@@ -19,9 +19,9 @@ import subprocess
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 
-from feeds import SSL_CONTEXT, SSL_CONTEXT_NOVERIFY
 from articles import IST_TZ
 from config import (
+    DEFAULT_USER_AGENT,
     FEED_CURL_TIMEOUT,
     SCRAPER_MAX_ARTICLES,
     SCRAPER_FRESHNESS_CUTOFF,
@@ -30,11 +30,12 @@ from config import (
     SCRAPER_RETRY_BACKOFF,
     SCRAPER_TIMEOUT_OVERRIDES,
     SCRAPER_RETRY_OVERRIDES,
+    SSL_CONTEXT,
+    SSL_CONTEXT_NOVERIFY,
 )
 
 
-# Shared User-Agent header
-UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+UA = DEFAULT_USER_AGENT
 
 # 30-day freshness guard — applied per-scraper to avoid fetching stale items
 _FRESHNESS_CUTOFF = SCRAPER_FRESHNESS_CUTOFF

@@ -6,6 +6,7 @@ and CareRatings JSON API fetching.
 """
 
 import json
+import ssl
 import urllib.request
 import urllib.error
 import urllib.parse
@@ -13,7 +14,6 @@ import xml.etree.ElementTree as ET
 import base64
 from datetime import datetime, timedelta, timezone
 import re
-import ssl
 import os
 import subprocess
 import html
@@ -21,23 +21,20 @@ import socket
 
 from articles import IST_TZ
 from config import (
+    DEFAULT_USER_AGENT,
     FEED_CURL_TIMEOUT,
     FEED_FETCH_TIMEOUT,
     RSS_PROXY_ALLOWED_CATEGORIES,
     RSS_PROXY_ENV_VAR,
     RSS_PROXY_RETRY_HTTP_CODES,
     RSS_PROXY_TIMEOUT,
+    SSL_CONTEXT,
+    SSL_CONTEXT_NOVERIFY,
 )
 
 # Get script directory
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 FEEDS_FILE = os.path.join(SCRIPT_DIR, "feeds.json")
-
-# TLS verification: use verified context by default, fallback for broken certs
-SSL_CONTEXT = ssl.create_default_context()  # Verified (default)
-SSL_CONTEXT_NOVERIFY = ssl.create_default_context()
-SSL_CONTEXT_NOVERIFY.check_hostname = False
-SSL_CONTEXT_NOVERIFY.verify_mode = ssl.CERT_NONE
 
 INVIDIOUS_INSTANCES = ["inv.nadeko.net", "yewtu.be", "iv.datura.network"]
 DC_NS = "http://purl.org/dc/elements/1.1/"
@@ -165,7 +162,7 @@ THE_KEN_GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q=site:the-ken.com
 def _fetch_url_bytes(url, timeout=15):
     """Fetch raw bytes from URL with SSL and 403 curl fallback."""
     req_headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "User-Agent": DEFAULT_USER_AGENT,
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
     }
@@ -778,7 +775,7 @@ def fetch_careratings(feed_config):
         api_url = f"https://www.careratings.com/insightspagedata?PageId={page_id}&SectionId={section_id}&YearID={year}&MonthID=0"
 
         req = urllib.request.Request(api_url, headers={
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+            "User-Agent": DEFAULT_USER_AGENT,
             "Accept": "application/json"
         })
         try:
@@ -787,7 +784,7 @@ def fetch_careratings(feed_config):
         except ssl.SSLCertVerificationError:
             print(f"  [WARN] TLS verification failed for {api_url}, falling back to unverified")
             req = urllib.request.Request(api_url, headers={
-                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+                "User-Agent": DEFAULT_USER_AGENT,
                 "Accept": "application/json"
             })
             with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT_NOVERIFY) as response:

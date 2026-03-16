@@ -5,7 +5,21 @@ All magic numbers and tunable parameters in one place.
 Import from here instead of hardcoding values across modules.
 """
 
+import ssl
 from datetime import timedelta
+
+# ── Shared SSL contexts ──────────────────────────────────────────────
+SSL_CONTEXT = ssl.create_default_context()
+SSL_CONTEXT_NOVERIFY = ssl.create_default_context()
+SSL_CONTEXT_NOVERIFY.check_hostname = False
+SSL_CONTEXT_NOVERIFY.verify_mode = ssl.CERT_NONE
+
+# ── Default User-Agent ───────────────────────────────────────────────
+DEFAULT_USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/120.0.0.0 Safari/537.36"
+)
 
 # ── Feed fetching ─────────────────────────────────────────────────────
 FEED_FETCH_TIMEOUT = 15          # seconds, per-feed HTTP timeout

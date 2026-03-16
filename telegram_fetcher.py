@@ -8,10 +8,10 @@ channels via Telethon MTProto client.
 import json
 import os
 import re
+import ssl
 import tempfile
 import urllib.request
 import urllib.error
-import ssl
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 import asyncio
@@ -25,16 +25,17 @@ try:
 except ImportError:
     TELETHON_AVAILABLE = False
 
-from config import TELEGRAM_MAX_PAGES, TELEGRAM_MAX_AGE_DAYS, TELEGRAM_FETCH_TIMEOUT
+from config import (
+    SSL_CONTEXT,
+    SSL_CONTEXT_NOVERIFY,
+    TELEGRAM_MAX_PAGES,
+    TELEGRAM_MAX_AGE_DAYS,
+    TELEGRAM_FETCH_TIMEOUT,
+)
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CHANNELS_FILE = os.path.join(SCRIPT_DIR, "telegram_channels.json")
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "static", "telegram_reports.json")
-
-SSL_CONTEXT = ssl.create_default_context()  # Verified
-SSL_CONTEXT_NOVERIFY = ssl.create_default_context()
-SSL_CONTEXT_NOVERIFY.check_hostname = False
-SSL_CONTEXT_NOVERIFY.verify_mode = ssl.CERT_NONE
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "

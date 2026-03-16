@@ -1794,14 +1794,6 @@
     "publisher": "PIIE"
   },
   {
-    "id": "x-carbon-brief",
-    "name": "Carbon Brief (X)",
-    "url": "https://x.com/CarbonBrief",
-    "feed": "https://news.google.com/rss/search?q=site:x.com/CarbonBrief/status&hl=en-IN&gl=IN&ceid=IN:en",
-    "category": "Twitter",
-    "publisher": "Carbon Brief"
-  },
-  {
     "id": "powerline-magazine",
     "name": "Power Line Magazine",
     "url": "https://powerline.net.in/category/news/",

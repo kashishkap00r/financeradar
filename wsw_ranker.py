@@ -7,18 +7,16 @@ and calls AI to surface notable quotes with India relevance.
 import json
 import urllib.request
 import os
-import ssl
 import re
 import sys
 import tempfile
 import time
 from datetime import datetime, timedelta, timezone
 
-from config import WSW_LOOKBACK_DAYS, WSW_API_TIMEOUT
+from config import SSL_CONTEXT, WSW_LOOKBACK_DAYS, WSW_API_TIMEOUT
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
-SSL_CONTEXT = ssl.create_default_context()
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_MODEL = "gemini-3-flash-preview"
