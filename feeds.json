@@ -792,6 +792,14 @@
     "publisher": "Swarajya"
   },
   {
+    "id": "swarajya-business",
+    "name": "Swarajya — Business",
+    "url": "https://swarajyamag.com/section/business",
+    "feed": "https://news.google.com/rss/search?q=site:swarajyamag.com/business&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "Swarajya"
+  },
+  {
     "id": "thecore-economy",
     "name": "The Core — Economy",
     "url": "https://www.thecore.in/economy",
