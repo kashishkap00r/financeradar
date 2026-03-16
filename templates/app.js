@@ -2799,7 +2799,7 @@
                     imgHtml = `<button type="button" class="report-images" onclick="openReportImageLightboxFromButton(this)"
                         data-report-images='${encodedImages}' data-start-index="0" aria-label="Open report image in fullscreen">
                         <img src="${escapeForAttr(images[0])}" alt="Report image" loading="lazy"
-                             onerror="this.closest('.report-images').style.display='none'">
+                             onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('report-images-fallback')">
                         ${badge}</button>`;
                 }
 
