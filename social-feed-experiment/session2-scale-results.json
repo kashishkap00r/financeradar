@@ -1,0 +1,501 @@
+{
+  "timestamp": "2026-03-16T18:34:07.406994",
+  "total_handles": 49,
+  "success": 49,
+  "rate_limited": 0,
+  "errors": 0,
+  "total_items": 739,
+  "total_time_s": 249.8,
+  "results": [
+    {
+      "handle": "michaelxpettis",
+      "status": 200,
+      "items": 14,
+      "rts": 4,
+      "originals": 10,
+      "time_s": 0.04,
+      "newest_age_h": 18.5,
+      "error": null
+    },
+    {
+      "handle": "menakadoshi",
+      "status": 200,
+      "items": 20,
+      "rts": 8,
+      "originals": 12,
+      "time_s": 1.62,
+      "newest_age_h": 0.3,
+      "error": null
+    },
+    {
+      "handle": "ishmohit1",
+      "status": 200,
+      "items": 14,
+      "rts": 6,
+      "originals": 8,
+      "time_s": 1.82,
+      "newest_age_h": 3.3,
+      "error": null
+    },
+    {
+      "handle": "contrarianEPS",
+      "status": 200,
+      "items": 20,
+      "rts": 1,
+      "originals": 19,
+      "time_s": 0.01,
+      "newest_age_h": 28.7,
+      "error": null
+    },
+    {
+      "handle": "down2earthindia",
+      "status": 200,
+      "items": 16,
+      "rts": 2,
+      "originals": 14,
+      "time_s": 1.33,
+      "newest_age_h": 0.5,
+      "error": null
+    },
+    {
+      "handle": "soicfinance",
+      "status": 200,
+      "items": 17,
+      "rts": 3,
+      "originals": 14,
+      "time_s": 1.49,
+      "newest_age_h": 7.3,
+      "error": null
+    },
+    {
+      "handle": "Finstor85",
+      "status": 200,
+      "items": 20,
+      "rts": 3,
+      "originals": 17,
+      "time_s": 1.45,
+      "newest_age_h": 18.6,
+      "error": null
+    },
+    {
+      "handle": "unseenvalue",
+      "status": 200,
+      "items": 16,
+      "rts": 0,
+      "originals": 16,
+      "time_s": 1.65,
+      "newest_age_h": 2.2,
+      "error": null
+    },
+    {
+      "handle": "MuraliSrinivasa",
+      "status": 200,
+      "items": 18,
+      "rts": 10,
+      "originals": 8,
+      "time_s": 1.58,
+      "newest_age_h": 144.9,
+      "error": null
+    },
+    {
+      "handle": "CNBCTV18Live",
+      "status": 200,
+      "items": 17,
+      "rts": 1,
+      "originals": 16,
+      "time_s": 1.65,
+      "newest_age_h": 0.1,
+      "error": null
+    },
+    {
+      "handle": "ETMarkets",
+      "status": 200,
+      "items": 20,
+      "rts": 0,
+      "originals": 20,
+      "time_s": 1.36,
+      "newest_age_h": 1.4,
+      "error": null
+    },
+    {
+      "handle": "yatinmota",
+      "status": 200,
+      "items": 19,
+      "rts": 0,
+      "originals": 19,
+      "time_s": 1.56,
+      "newest_age_h": 4.7,
+      "error": null
+    },
+    {
+      "handle": "SamitVartak",
+      "status": 200,
+      "items": 17,
+      "rts": 9,
+      "originals": 8,
+      "time_s": 1.54,
+      "newest_age_h": 289.9,
+      "error": null
+    },
+    {
+      "handle": "itsTarH",
+      "status": 200,
+      "items": 13,
+      "rts": 3,
+      "originals": 10,
+      "time_s": 1.37,
+      "newest_age_h": 31.4,
+      "error": null
+    },
+    {
+      "handle": "aditya_kondawar",
+      "status": 200,
+      "items": 19,
+      "rts": 2,
+      "originals": 17,
+      "time_s": 1.88,
+      "newest_age_h": 1.1,
+      "error": null
+    },
+    {
+      "handle": "dataforin",
+      "status": 200,
+      "items": 18,
+      "rts": 0,
+      "originals": 18,
+      "time_s": 1.3,
+      "newest_age_h": 81.5,
+      "error": null
+    },
+    {
+      "handle": "abhymurarka",
+      "status": 200,
+      "items": 11,
+      "rts": 3,
+      "originals": 8,
+      "time_s": 1.51,
+      "newest_age_h": 1.5,
+      "error": null
+    },
+    {
+      "handle": "sanjeevsanyal",
+      "status": 200,
+      "items": 20,
+      "rts": 20,
+      "originals": 0,
+      "time_s": 1.1,
+      "newest_age_h": 4.0,
+      "error": null
+    },
+    {
+      "handle": "ResearchSOIC",
+      "status": 200,
+      "items": 8,
+      "rts": 6,
+      "originals": 2,
+      "time_s": 1.34,
+      "newest_age_h": 28.6,
+      "error": null
+    },
+    {
+      "handle": "CarbonBrief",
+      "status": 200,
+      "items": 17,
+      "rts": 0,
+      "originals": 17,
+      "time_s": 1.4,
+      "newest_age_h": 0.8,
+      "error": null
+    },
+    {
+      "handle": "ember_energy",
+      "status": 200,
+      "items": 12,
+      "rts": 1,
+      "originals": 11,
+      "time_s": 1.28,
+      "newest_age_h": 6.0,
+      "error": null
+    },
+    {
+      "handle": "OurWorldInData",
+      "status": 200,
+      "items": 2,
+      "rts": 1,
+      "originals": 1,
+      "time_s": 1.53,
+      "newest_age_h": 236.5,
+      "error": null
+    },
+    {
+      "handle": "pranaykotas",
+      "status": 200,
+      "items": 12,
+      "rts": 7,
+      "originals": 5,
+      "time_s": 1.52,
+      "newest_age_h": 29.7,
+      "error": null
+    },
+    {
+      "handle": "IndiaSpend",
+      "status": 200,
+      "items": 20,
+      "rts": 0,
+      "originals": 20,
+      "time_s": 1.41,
+      "newest_age_h": 35.5,
+      "error": null
+    },
+    {
+      "handle": "IlaPatnaik",
+      "status": 200,
+      "items": 20,
+      "rts": 17,
+      "originals": 3,
+      "time_s": 1.72,
+      "newest_age_h": 6988.0,
+      "error": null
+    },
+    {
+      "handle": "Ideas4India",
+      "status": 200,
+      "items": 13,
+      "rts": 3,
+      "originals": 10,
+      "time_s": 1.45,
+      "newest_age_h": 8.0,
+      "error": null
+    },
+    {
+      "handle": "srajagopalan",
+      "status": 200,
+      "items": 20,
+      "rts": 18,
+      "originals": 2,
+      "time_s": 1.8,
+      "newest_age_h": 10.6,
+      "error": null
+    },
+    {
+      "handle": "Nigel__DSouza",
+      "status": 200,
+      "items": 20,
+      "rts": 2,
+      "originals": 18,
+      "time_s": 1.46,
+      "newest_age_h": 3.6,
+      "error": null
+    },
+    {
+      "handle": "deepakshenoy",
+      "status": 200,
+      "items": 17,
+      "rts": 9,
+      "originals": 8,
+      "time_s": 0.98,
+      "newest_age_h": 0.7,
+      "error": null
+    },
+    {
+      "handle": "CareEdge_Group",
+      "status": 200,
+      "items": 11,
+      "rts": 4,
+      "originals": 7,
+      "time_s": 1.41,
+      "newest_age_h": 2.3,
+      "error": null
+    },
+    {
+      "handle": "JavierBlas",
+      "status": 200,
+      "items": 17,
+      "rts": 7,
+      "originals": 10,
+      "time_s": 1.43,
+      "newest_age_h": 1.0,
+      "error": null
+    },
+    {
+      "handle": "ftenergy",
+      "status": 200,
+      "items": 20,
+      "rts": 0,
+      "originals": 20,
+      "time_s": 1.35,
+      "newest_age_h": 2.0,
+      "error": null
+    },
+    {
+      "handle": "IndiaDataHub",
+      "status": 200,
+      "items": 11,
+      "rts": 0,
+      "originals": 11,
+      "time_s": 1.41,
+      "newest_age_h": 979.6,
+      "error": null
+    },
+    {
+      "handle": "KobeissiLetter",
+      "status": 200,
+      "items": 19,
+      "rts": 0,
+      "originals": 19,
+      "time_s": 0.71,
+      "newest_age_h": 0.2,
+      "error": null
+    },
+    {
+      "handle": "_prashantnair",
+      "status": 200,
+      "items": 20,
+      "rts": 5,
+      "originals": 15,
+      "time_s": 1.67,
+      "newest_age_h": 4.1,
+      "error": null
+    },
+    {
+      "handle": "ShashankUdupa1",
+      "status": 200,
+      "items": 20,
+      "rts": 2,
+      "originals": 18,
+      "time_s": 1.87,
+      "newest_age_h": 3.6,
+      "error": null
+    },
+    {
+      "handle": "_RituSingh",
+      "status": 200,
+      "items": 18,
+      "rts": 12,
+      "originals": 6,
+      "time_s": 1.69,
+      "newest_age_h": 3.6,
+      "error": null
+    },
+    {
+      "handle": "EquityValueIn",
+      "status": 200,
+      "items": 19,
+      "rts": 4,
+      "originals": 15,
+      "time_s": 1.46,
+      "newest_age_h": 0.0,
+      "error": null
+    },
+    {
+      "handle": "BeatTheStreet10",
+      "status": 200,
+      "items": 9,
+      "rts": 0,
+      "originals": 9,
+      "time_s": 1.52,
+      "newest_age_h": 242.1,
+      "error": null
+    },
+    {
+      "handle": "EquityInsightss",
+      "status": 200,
+      "items": 11,
+      "rts": 1,
+      "originals": 10,
+      "time_s": 1.57,
+      "newest_age_h": 0.3,
+      "error": null
+    },
+    {
+      "handle": "dhirendra_vr",
+      "status": 200,
+      "items": 20,
+      "rts": 18,
+      "originals": 2,
+      "time_s": 1.66,
+      "newest_age_h": 55.5,
+      "error": null
+    },
+    {
+      "handle": "andymukherjee70",
+      "status": 200,
+      "items": 20,
+      "rts": 15,
+      "originals": 5,
+      "time_s": 1.78,
+      "newest_age_h": 7.1,
+      "error": null
+    },
+    {
+      "handle": "dugalira",
+      "status": 200,
+      "items": 19,
+      "rts": 8,
+      "originals": 11,
+      "time_s": 1.48,
+      "newest_age_h": 69.9,
+      "error": null
+    },
+    {
+      "handle": "Tijori1",
+      "status": 200,
+      "items": 15,
+      "rts": 2,
+      "originals": 13,
+      "time_s": 1.41,
+      "newest_age_h": 91.6,
+      "error": null
+    },
+    {
+      "handle": "REDBOXINDIA",
+      "status": 200,
+      "items": 20,
+      "rts": 0,
+      "originals": 20,
+      "time_s": 1.45,
+      "newest_age_h": 0.1,
+      "error": null
+    },
+    {
+      "handle": "exencial_RP",
+      "status": 200,
+      "items": 0,
+      "rts": 0,
+      "originals": 0,
+      "time_s": 1.26,
+      "newest_age_h": null,
+      "error": null
+    },
+    {
+      "handle": "TamalBandyo",
+      "status": 200,
+      "items": 0,
+      "rts": 0,
+      "originals": 0,
+      "time_s": 45.84,
+      "newest_age_h": null,
+      "error": null
+    },
+    {
+      "handle": "madhavchanchani",
+      "status": 200,
+      "items": 0,
+      "rts": 0,
+      "originals": 0,
+      "time_s": 42.94,
+      "newest_age_h": null,
+      "error": null
+    },
+    {
+      "handle": "PIIE",
+      "status": 200,
+      "items": 0,
+      "rts": 0,
+      "originals": 0,
+      "time_s": 46.67,
+      "newest_age_h": null,
+      "error": null
+    }
+  ]
+}
