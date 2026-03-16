@@ -1,26 +1,116 @@
 {
-  "generated_at": "2026-03-17T00:50:41.222945+05:30",
+  "generated_at": "2026-03-17T01:22:17.382695+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 49,
       "feeds_failed": 0,
-      "items_raw": 1251,
-      "resolve_attempted": 1251,
-      "resolve_resolved": 1251,
-      "resolve_cache_hits": 1245
+      "items_raw": 1254,
+      "resolve_attempted": 1254,
+      "resolve_resolved": 1254,
+      "resolve_cache_hits": 1242
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.9,
-      "items": 746,
-      "handles_ok": 46
+      "age_hours": 0.4,
+      "items": 725,
+      "handles_ok": 44
     },
     "warning": "",
-    "generated_at": "2026-03-17T00:50:41.222857+05:30"
+    "generated_at": "2026-03-17T01:22:17.382648+05:30"
   },
   "items": [
+    {
+      "title": "Cboe plans close to 24-hr trading; Dow up 400 pts, Nasdaq, S&P 1% #ETMarkets https://economictimes.indiatimes.com/markets/us-stocks/news/us-stock-mark...",
+      "link": "https://x.com/ETMarkets/status/2033625281353945365",
+      "date": "2026-03-16T19:23:44+00:00",
+      "tweet_id": "2033625281353945365",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Cboe plans close to 24-hr trading; Dow up 400 pts, Nasdaq, S&amp;P 1%<br><br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stock-market-live-dow-jones-sp-500-nasdaq-trump-us-iran-israel-war-crude-brent-oil-meta-google-mu-stock-price-news/liveblog/129610253.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: US tariff revenue fell -4% MoM in February, to $27 billion. This marks the 4th consecutive monthly decline since October's peak of $31 billi...",
+      "link": "https://x.com/KobeissiLetter/status/2033619782646317060",
+      "date": "2026-03-16T19:01:53+00:00",
+      "tweet_id": "2033619782646317060",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HDiX6F_XcAAf3rn?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: US tariff revenue fell -4% MoM in February, to $27 billion.<br><br>This marks the 4th consecutive monthly decline since October's peak of $31 billion.<br><br>However, this is still +250% above the levels seen before reciprocal tariffs were announced in April 2025.<br><br>As a result, the US government has now collected a record a $308 billion in customs duties over the last 12 months.<br><br>This marks a +276% increase compared to the prior 12-month period of $83 billion.<br><br>So far in Fiscal Year 2026, which began on October 1st, the government has collected $144 billion in tariff revenue.<br><br>The US is collecting more in tariffs than at any point in modern history.<br><img width=\"881\" height=\"675\" style=\"\" src=\"https://pbs.twimg.com/media/HDiX6F_XcAAf3rn?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "I believe this is the first sucessull Iranian attack against an **oil / gas field** since the war started (previous strikes against oil facilities inv...",
+      "link": "https://x.com/JavierBlas/status/2033618034972082252",
+      "date": "2026-03-16T18:54:56+00:00",
+      "tweet_id": "2033618034972082252",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "I believe this is the first sucessull Iranian attack against an **oil / gas field** since the war started (previous strikes against oil facilities involved refineries, terminals, and storage tanks). <br><br>(Althought the tweet calls it an oil field, it likely refers to a gas field)<div class=\"rsshub-quote\"><br><br>\u0645\u0643\u062a\u0628 \u0623\u0628\u0648\u0638\u0628\u064a \u0627\u0644\u0625\u0639\u0644\u0627\u0645\u064a:\u2002Abu Dhabi authorities are responding to a fire at the Shah oil field, caused by a drone strike. No injuries have been reported, and further updates will be provided in due course.<br><br>The public is advised to obtain information only from official sources and to avoid spreading<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Never stop reading and learning \ud83d\udcda",
+      "link": "https://x.com/unseenvalue/status/2033616802027094274",
+      "date": "2026-03-16T18:50:03+00:00",
+      "tweet_id": "2033616802027094274",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HDjbs8ibEAAyMR9?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Never stop reading and learning \ud83d\udcda<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HDjbs8ibEAAyMR9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "US market regulator SEC's plans to tighten rules may hit small shareholders #ETMarkets https://economictimes.indiatimes.com/markets/us-stocks/news/sma...",
+      "link": "https://x.com/ETMarkets/status/2033614772747583597",
+      "date": "2026-03-16T18:41:59+00:00",
+      "tweet_id": "2033614772747583597",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US market regulator SEC's plans to tighten rules may hit small shareholders<br><br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/small-investors-fear-us-sec-will-drive-corporate-gadflies-to-extinction/articleshow/129617039.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "While all the attention is (naturally) on Iran, don't lose sight of Cuba. The Caribean island has just suffered a country-wide blackout as it struggle...",
+      "link": "https://x.com/JavierBlas/status/2033612084135485743",
+      "date": "2026-03-16T18:31:18+00:00",
+      "tweet_id": "2033612084135485743",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "While all the attention is (naturally) on Iran, don't lose sight of Cuba.<br><br>The Caribean island has just suffered a country-wide blackout as it struggles under a de facto US oil embargo. Nightime protest have erupted in several Cuban cities in recent days.",
+      "category": "Twitter"
+    },
     {
       "title": "Trump\u2019s coalition of the unwilling https://ft.trib.al/Rjw3F8l",
       "link": "https://x.com/ftenergy/status/2033609393468563561",
@@ -292,21 +382,6 @@
       "category": "Twitter"
     },
     {
-      "title": "TAMILNADU PETROPRODUCTS: MOPNG DIRECTIVE AMID MIDDLE EAST TENSIONS HALTS PROPYLENE SUPPLY, FORCING TEMPORARY SHUTDOWN OF CO\u2019S PO PLANT AT MANALI; IMP...",
-      "link": "https://x.com/REDBOXINDIA/status/2033580609160036465",
-      "date": "2026-03-16T16:26:13+00:00",
-      "tweet_id": "2033580609160036465",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "TAMILNADU PETROPRODUCTS: MOPNG DIRECTIVE AMID MIDDLE EAST TENSIONS HALTS PROPYLENE SUPPLY, FORCING TEMPORARY SHUTDOWN OF CO\u2019S PO PLANT AT MANALI; IMPACT YET TO BE QUANTIFIED",
-      "category": "Twitter"
-    },
-    {
       "title": "Another one that rarely gets covered, is Sphere Entertainment Covered this too in one of our weekly meets in Sep 2025 Sphere runs the popular giant vi...",
       "link": "https://x.com/itsTarH/status/2033580519653540299",
       "date": "2026-03-16T16:25:52+00:00",
@@ -349,81 +424,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "This too now has doubled<div class=\"rsshub-quote\"><br><br>Tar \u26a1:\u2002Presented on a growing cloud company available at 16x PE in #TheWrap\ud83c\udf2f two weeks ago<br><br>It's up 20% in pre market alone today after beating earnings and raising guidance for a 3rd time this year<br><br>https://thewrap.investkaroindia.in<br>$DOCN<br><br><img width=\"1080\" height=\"602\" style=\"\" src=\"https://pbs.twimg.com/media/G4_4a4iawAEN_O3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1080\" height=\"595\" style=\"\" src=\"https://pbs.twimg.com/media/G4_4a4dbsAA3JXF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1080\" height=\"602\" style=\"\" src=\"https://pbs.twimg.com/media/G4_4a6AaMAAvNgG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1080\" height=\"583\" style=\"\" src=\"https://pbs.twimg.com/media/G4_4a6jaYAA5T6C?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "Trading has been halted in all contracts on the London Metal Exchange, with dealers unable to place orders in markets ranging from aluminum to zinc as...",
-      "link": "https://x.com/REDBOXINDIA/status/2033579450391232926",
-      "date": "2026-03-16T16:21:37+00:00",
-      "tweet_id": "2033579450391232926",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Trading has been halted in all contracts on the London Metal Exchange, with dealers unable to place orders in markets ranging from aluminum to zinc as they awaited further information on the cause of the outage.",
-      "category": "Twitter"
-    },
-    {
-      "title": "TRUMP ON IRAN WAR: CONTINUED IN FULL FORCE OVER PAST FEW DAYS",
-      "link": "https://x.com/REDBOXINDIA/status/2033579397073240490",
-      "date": "2026-03-16T16:21:24+00:00",
-      "tweet_id": "2033579397073240490",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "TRUMP ON IRAN WAR: CONTINUED IN FULL FORCE OVER PAST FEW DAYS",
-      "category": "Twitter"
-    },
-    {
-      "title": "TRUMP: ACHIEVED 95% REDUCTION IN IRAN DRONE ATTACKS",
-      "link": "https://x.com/REDBOXINDIA/status/2033579311429796113",
-      "date": "2026-03-16T16:21:04+00:00",
-      "tweet_id": "2033579311429796113",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "TRUMP: ACHIEVED 95% REDUCTION IN IRAN DRONE ATTACKS",
-      "category": "Twitter"
-    },
-    {
-      "title": "TRUMP ON STRAIT OF HORMUZ: HAVE DESTROYED 30 MINE-LAYING SHIPS || NOT SURE IF ANY MINES HAVE BEEN DROPPED IN",
-      "link": "https://x.com/REDBOXINDIA/status/2033579207692046643",
-      "date": "2026-03-16T16:20:39+00:00",
-      "tweet_id": "2033579207692046643",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "TRUMP ON STRAIT OF HORMUZ: HAVE DESTROYED 30 MINE-LAYING SHIPS || NOT SURE IF ANY MINES HAVE BEEN DROPPED IN",
-      "category": "Twitter"
-    },
-    {
-      "title": "IRGC: We will target American factories in the region in the coming hours",
-      "link": "https://x.com/REDBOXINDIA/status/2033579018273120296",
-      "date": "2026-03-16T16:19:54+00:00",
-      "tweet_id": "2033579018273120296",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "IRGC: We will target American factories in the region in the coming hours",
       "category": "Twitter"
     },
     {
@@ -484,21 +484,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Covered SanDisk as part of this webinar<br>Its up ~3x in last 3 months<br><br>Others are also anywhere between 50% to 150%<br><br>SanDisk was covered in our weekly #TheWrap\ud83c\udf2f meets even before this webinar<br><br>Up ~6x since<br><br>Sometimes market just reward you immensely for just catching the right theme<div class=\"rsshub-quote\"><br><br>Tar \u26a1:\u2002Recording for this now available on #TheWrap\ud83c\udf2f website<br><br>Covered State of AI Industry today<br>Demand for Data Centers<br>Proxies for Power<br>Entire Memory Chip Industry (HBM, NAND, HBF, DRAM, HDD, Components, Testing)<br><br>Memory is the cheapest proxy today for AI<br><br><img width=\"1200\" height=\"657\" style=\"\" src=\"https://pbs.twimg.com/media/G4xOu3_aQAA4BKC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "OBEROI REALTY: CO SIGNS DEVELOPMENT AGREEMENT WITH MAHARASHTRA HOUSING AND AREA DEVELOPMENT AUTHORITY FOR VERSOVA, ANDHERI (W) LAND; EXPECTS ~17.18 LA...",
-      "link": "https://x.com/REDBOXINDIA/status/2033572915720114202",
-      "date": "2026-03-16T15:55:39+00:00",
-      "tweet_id": "2033572915720114202",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "OBEROI REALTY: CO SIGNS DEVELOPMENT AGREEMENT WITH MAHARASHTRA HOUSING AND AREA DEVELOPMENT AUTHORITY FOR VERSOVA, ANDHERI (W) LAND; EXPECTS ~17.18 LAKH SQ FT FREE-SALE AREA FROM PROJECT",
       "category": "Twitter"
     },
     {
@@ -607,36 +592,6 @@
       "category": "Twitter"
     },
     {
-      "title": "PROZONE REALTY: CO APPROVES ACQUISITION OF 38.5% STAKE IN HAGWOOD COMMERCIAL DEVELOPERS PRIVATE LIMITED; ARM KRUTI REALTORS AND DEVELOPERS PRIVATE LIM...",
-      "link": "https://x.com/REDBOXINDIA/status/2033566237561958769",
-      "date": "2026-03-16T15:29:07+00:00",
-      "tweet_id": "2033566237561958769",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "PROZONE REALTY: CO APPROVES ACQUISITION OF 38.5% STAKE IN HAGWOOD COMMERCIAL DEVELOPERS PRIVATE LIMITED; ARM KRUTI REALTORS AND DEVELOPERS PRIVATE LIMITED TO BUY 38.5% IN ALLIANCE MALL DEVELOPERS CO. PVT. LTD. AND 65.29% IN EMPIRE MALL PRIVATE LIMITED",
-      "category": "Twitter"
-    },
-    {
-      "title": "WAAREE ENERGIES: INTIMATION FROM INTERNATIONAL COURT OF ARBITRATION || ARBITRATION REQUEST FILED BY ENEL GREEN POWER || ARBITRATION NOTICE CONTAINS MO...",
-      "link": "https://x.com/REDBOXINDIA/status/2033565402345939240",
-      "date": "2026-03-16T15:25:48+00:00",
-      "tweet_id": "2033565402345939240",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "WAAREE ENERGIES: INTIMATION FROM INTERNATIONAL COURT OF ARBITRATION || ARBITRATION REQUEST FILED BY ENEL GREEN POWER || ARBITRATION NOTICE CONTAINS MONETARY CLAIMS; CO EVALUATING RESPONSE",
-      "category": "Twitter"
-    },
-    {
       "title": "On \u201cFinding Alpha\u201d, Bernstein\u2019s Nikhil Nigania analyzed on India\u2019s Power Sector \u26a1 India power capacity: ~525 GW; additions led by renewables Indi...",
       "link": "https://x.com/Nigel__DSouza/status/2033565188776145218",
       "date": "2026-03-16T15:24:57+00:00",
@@ -682,21 +637,6 @@
       "category": "Twitter"
     },
     {
-      "title": "EMERALD FINANCE: CO PARTNERS WITH EBIX SMARTCLASS EDUCATIONAL SERVICES PVT LTD TO LAUNCH EARLY-WAGE-ACCESS PROGRAM OFFERING SALARY ADVANCE FACILITY TO...",
-      "link": "https://x.com/REDBOXINDIA/status/2033563254732341758",
-      "date": "2026-03-16T15:17:16+00:00",
-      "tweet_id": "2033563254732341758",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "EMERALD FINANCE: CO PARTNERS WITH EBIX SMARTCLASS EDUCATIONAL SERVICES PVT LTD TO LAUNCH EARLY-WAGE-ACCESS PROGRAM OFFERING SALARY ADVANCE FACILITY TO EMPLOYEES",
-      "category": "Twitter"
-    },
-    {
       "title": "Race for fusion intensifies as UK opens flagship project to investors https://ft.trib.al/9zEi1OV",
       "link": "https://x.com/ftenergy/status/2033562386657845501",
       "date": "2026-03-16T15:13:49+00:00",
@@ -712,36 +652,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Kruti Shah: Salzgitter AG is the most enigmatic industrial behemoth in Europe. It didn't just build a factory\u2014it architected an entire city of 100...",
-      "link": "https://x.com/exencial_RP/status/2033565045398069666",
-      "date": "2026-03-16T15:12:15+00:00",
-      "tweet_id": "2033565045398069666",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDibdb3bsAASOw6?format=png&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Kruti Shah<br>Salzgitter AG is the most enigmatic industrial behemoth in Europe. It didn't just build a factory\u2014it architected an entire city of 100,000 people to serve its blast furnaces.<br><br>Today, it is a diversified empire undergoing a green renaissance. Here is the breakdown of Germany\u2019s steel titan.\ud83e\uddf5 <br><br>1/12<br><img width=\"900\" height=\"500\" style=\"\" src=\"https://pbs.twimg.com/media/HDibdb3bsAASOw6?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "DUCON INFRATECHNOLOGIES: CO EXECUTIVE DIRECTOR HARISH SHETTY RESIGNS EFFECTIVE MAR 25, 2026 CITING PROFESSIONAL COMMITMENTS; TO CONTINUE AS CFO",
-      "link": "https://x.com/REDBOXINDIA/status/2033560920220373426",
-      "date": "2026-03-16T15:07:59+00:00",
-      "tweet_id": "2033560920220373426",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "DUCON INFRATECHNOLOGIES: CO EXECUTIVE DIRECTOR HARISH SHETTY RESIGNS EFFECTIVE MAR 25, 2026 CITING PROFESSIONAL COMMITMENTS; TO CONTINUE AS CFO",
-      "category": "Twitter"
-    },
-    {
       "title": "Data for 16-Mar-2026 \ud83d\udc47 A) Cash Market \ud83d\udc4d DII net bought \u20b912593 cr \ud83d\udc4e FII net sold \u20b99366 cr B) FII In FNO Market FII On Index Futures \ud83d\udc49 Add...",
       "link": "https://x.com/Nigel__DSouza/status/2033560853765935530",
       "date": "2026-03-16T15:07:43+00:00",
@@ -754,36 +664,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Data for 16-Mar-2026 \ud83d\udc47<br><br>A) Cash Market<br>\ud83d\udc4d DII net bought \u20b912593 cr<br>\ud83d\udc4e FII net sold \u20b99366 cr<br><br>B) FII In FNO Market<br><br>FII On Index Futures<br>\ud83d\udc49 Added 6.2k Longs<br>\ud83d\udc49 Covered 5.6k Shorts<br><br>\ud83d\udea8 FII Long: Short at 12%:88% \ud83d\udea8<br><br>@CNBCTV18Live <br><br>#StockMarket #Nifty",
-      "category": "Twitter"
-    },
-    {
-      "title": "REDINGTON: GULF FZE OPERATIONS IN GULF REGION RESTRICTED DUE TO GEOPOLITICAL TENSIONS || FINANCIAL IMPACT CANNOT BE RELIABLY QUANTIFIED AT THIS STAGE ...",
-      "link": "https://x.com/REDBOXINDIA/status/2033559195019292718",
-      "date": "2026-03-16T15:01:08+00:00",
-      "tweet_id": "2033559195019292718",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "REDINGTON: GULF FZE OPERATIONS IN GULF REGION RESTRICTED DUE TO GEOPOLITICAL TENSIONS || FINANCIAL IMPACT CANNOT BE RELIABLY QUANTIFIED AT THIS STAGE || IMPLEMENTS ENHANCED SAFETY PROTOCOLS AND BUSINESS CONTINUITY PLANS || WAR RISK COVERAGE REVOKED BY INSURERS; ALTERNATIVES BEING EVALUATED",
-      "category": "Twitter"
-    },
-    {
-      "title": "ZYDUS LIFESCIENCES: SENTYNL THERAPEUTICS ENTERS INTO AGREEMENT WITH PRG S&T || AGREEMENT TO LICENSE MOLECULE FOR HUTCHINSONGILFORD PROGERIA SYNDROME",
-      "link": "https://x.com/REDBOXINDIA/status/2033558698279436296",
-      "date": "2026-03-16T14:59:10+00:00",
-      "tweet_id": "2033558698279436296",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "ZYDUS LIFESCIENCES: SENTYNL THERAPEUTICS ENTERS INTO AGREEMENT WITH PRG S&amp;T || AGREEMENT TO LICENSE MOLECULE FOR HUTCHINSONGILFORD PROGERIA SYNDROME",
       "category": "Twitter"
     },
     {
@@ -892,21 +772,6 @@
       "category": "Twitter"
     },
     {
-      "title": "AXISCADES TECHNOLOGIES: CO APPROVES ACQUISITION OF REMAINING 24% STAKE IN CADES STUDEC TECHNOLOGIES || $1.5M FOR ACQUIRING 24% STAKE IN CSTI",
-      "link": "https://x.com/REDBOXINDIA/status/2033553206140432627",
-      "date": "2026-03-16T14:37:20+00:00",
-      "tweet_id": "2033553206140432627",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "AXISCADES TECHNOLOGIES: CO APPROVES ACQUISITION OF REMAINING 24% STAKE IN CADES STUDEC TECHNOLOGIES || $1.5M FOR ACQUIRING 24% STAKE IN CSTI",
-      "category": "Twitter"
-    },
-    {
       "title": "#Ammonia crunch hits #AlkylAmines; co halts methylamines, ethylamines production in 3 plants @jpullokaran https://www.cnbctv18.com/market/stocks/alkyl...",
       "link": "https://x.com/CNBCTV18Live/status/2033552061489635356",
       "date": "2026-03-16T14:32:47+00:00",
@@ -919,6 +784,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Ammonia crunch hits #AlkylAmines; co halts methylamines, ethylamines production in 3 plants<br><br>@jpullokaran <br><br>https://www.cnbctv18.com/market/stocks/alkyl-amines-share-price-halts-methylamines-ethylamines-production-ammonia-shortage-west-asia-crisis-ws-l-19869508.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "US Stock Market Today Live: Dow surges 500 pts, S&P, Nasdaq jump 1% as Mideast war hurts oil prices #ETMarkets https://economictimes.indiatimes.com/ma...",
+      "link": "https://x.com/ETMarkets/status/2033551538002739662",
+      "date": "2026-03-16T14:30:42+00:00",
+      "tweet_id": "2033551538002739662",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US Stock Market Today Live: Dow surges 500 pts, S&amp;P, Nasdaq jump 1% as Mideast war hurts oil prices<br><br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stock-market-live-dow-jones-sp-500-nasdaq-trump-us-iran-israel-war-crude-brent-oil-meta-google-mu-stock-price-news/liveblog/129610253.cms",
       "category": "Twitter"
     },
     {
@@ -949,21 +829,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Valuation Check: 9 mid-cap stocks trading well above their industry P/E<br><br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/valuation-check-9-mid-cap-stocks-trading-well-above-their-industry-p/e/high-pe-stocks/slideshow/129611536.cms",
-      "category": "Twitter"
-    },
-    {
-      "title": "MAKEMYTRIP: CO REAFFIRMS ITS STRATEGIC PRIORITIES TO FURTHER STRENGTHEN ITS CATEGORY LEADERSHIP IN THE INDIAN MARKET || EVALUATING A POTENTIAL LISTING...",
-      "link": "https://x.com/REDBOXINDIA/status/2033550943346983207",
-      "date": "2026-03-16T14:28:21+00:00",
-      "tweet_id": "2033550943346983207",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "MAKEMYTRIP: CO REAFFIRMS ITS STRATEGIC PRIORITIES TO FURTHER STRENGTHEN ITS CATEGORY LEADERSHIP IN THE INDIAN MARKET || EVALUATING A POTENTIAL LISTING OF MAKEMYTRIP INDIA ININDIA, WHICH COULD PROVIDE AN ADDITIONAL AVENUE TO ACCESS CAPITAL",
       "category": "Twitter"
     },
     {
@@ -1012,66 +877,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BAJAJ ELECTRICALS: CO EXECUTES DEAL TO BUY TRADE MARKS, GOODWILL,DOMAIN NAMES OF MORPHY RICHARDS BRAND IN TERRITORIES || TOTAL CONSIDERATION COST FOR ...",
-      "link": "https://x.com/REDBOXINDIA/status/2033547337394704889",
-      "date": "2026-03-16T14:14:01+00:00",
-      "tweet_id": "2033547337394704889",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BAJAJ ELECTRICALS: CO EXECUTES DEAL TO BUY TRADE MARKS, GOODWILL,DOMAIN NAMES OF MORPHY RICHARDS BRAND IN TERRITORIES || TOTAL CONSIDERATION COST FOR ACQUISITION IS 1.68B RUPEES || ACQUISITION APPLIES TO INDIA, NEPAL, SRI LANKA, BANGLADESH, MALDIVES, BHUTAN",
-      "category": "Twitter"
-    },
-    {
-      "title": "BREAKING: Iran FM Slams US \u2014 \u201cThey Demanded Our Unconditional Surrender, Now Begging to Reopen Strait of Hormuz\u201d",
-      "link": "https://x.com/REDBOXINDIA/status/2033545681315700773",
-      "date": "2026-03-16T14:07:26+00:00",
-      "tweet_id": "2033545681315700773",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: Iran FM Slams US \u2014 \u201cThey Demanded Our Unconditional Surrender, Now Begging to Reopen Strait of Hormuz\u201d",
-      "category": "Twitter"
-    },
-    {
-      "title": "BAJAJ ELECTRICALS: CO ACQUIRES MORPHY RICHARDS BRAND RIGHTS IN INDIA AND NEIGHBOURING MARKETS FOR \u20b9141.4 CRORES",
-      "link": "https://x.com/REDBOXINDIA/status/2033544914865422489",
-      "date": "2026-03-16T14:04:23+00:00",
-      "tweet_id": "2033544914865422489",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BAJAJ ELECTRICALS: CO ACQUIRES MORPHY RICHARDS BRAND RIGHTS IN INDIA AND NEIGHBOURING MARKETS FOR \u20b9141.4 CRORES",
-      "category": "Twitter"
-    },
-    {
-      "title": "RELIANCE INDUSTRIES: CO SIGNS LANDMARK GREEN AMMONIA BINDING LONG-TERM OFFTAKE AGREEMENT WITH SAMSUNG C&T || DEAL FOR SUPPLY OF GREEN AMMONIA OVER A 1...",
-      "link": "https://x.com/REDBOXINDIA/status/2033544205465985035",
-      "date": "2026-03-16T14:01:34+00:00",
-      "tweet_id": "2033544205465985035",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RELIANCE INDUSTRIES: CO SIGNS LANDMARK GREEN AMMONIA BINDING LONG-TERM OFFTAKE AGREEMENT WITH SAMSUNG C&amp;T || DEAL FOR SUPPLY OF GREEN AMMONIA OVER A 15-YEAR PERIOD COMMENCING IN SECOND HALF OF FY2029 || SPA, VALUED AT MORE THAN US$3B",
-      "category": "Twitter"
-    },
-    {
       "title": "#Electronics, rare earths among sectors to get faster FDI approvals under amended #PressNote3: #MeitY https://www.cnbctv18.com/videos/economy/india-fd...",
       "link": "https://x.com/CNBCTV18Live/status/2033542949838127304",
       "date": "2026-03-16T13:56:35+00:00",
@@ -1099,21 +904,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BREAKING: US rent prices fell -1.5% YoY in February, to an average of $1,357, the 2nd-lowest since February 2022 and largest annual decline since the 2020 pandemic.<br><br>Since the August 2022 peak, the national median rent price has fallen -5.9%, or -$85 per month.<br><br>Despite the pullback, rent prices remain +18% higher than at the start of 2021.<br><br>This comes as units are now taking an average of 40 days to get leased, +4 days longer than a year ago and more than double the pace seen in mid-2021.<br><br>Meanwhile, MoM, prices rose +0.2% last month, the first increase since July.<br><br>Looking ahead, seasonal patterns suggest rents will continue rising into the summer as moving activity picks up.<br><br>Rents are falling, but affordability is still nowhere near pre-pandemic levels.<br><img width=\"974\" height=\"693\" style=\"\" src=\"https://pbs.twimg.com/media/HDiXFOyXYAAfwFC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "FII/DII Data",
-      "link": "https://x.com/REDBOXINDIA/status/2033540893618344264",
-      "date": "2026-03-16T13:48:25+00:00",
-      "tweet_id": "2033540893618344264",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDiWoGeb0AA4s64?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "FII/DII Data<br><img width=\"1439\" height=\"1317\" style=\"\" src=\"https://pbs.twimg.com/media/HDiWoGeb0AA4s64?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -1972,21 +1762,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Sensex ends 3-day losing streak, settles 939 pts higher, Nifty above 23,400 #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/sensex...",
-      "link": "https://x.com/ETMarkets/status/2033494736137490561",
-      "date": "2026-03-16T10:45:00+00:00",
-      "tweet_id": "2033494736137490561",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Sensex ends 3-day losing streak, settles 939 pts higher, Nifty above 23,400<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/sensex-ends-3-day-losing-streak-settles-939-pts-higher-nifty-above-23400/articleshow/129606767.cms",
-      "category": "Twitter"
-    },
-    {
       "title": "Oil prices surged past $106 a barrel, as tensions in West Asia escalated, intensifying fears of a prolonged global supply shock. This has impacted glo...",
       "link": "https://x.com/down2earthindia/status/2033490962089947619",
       "date": "2026-03-16T10:30:00+00:00",
@@ -2062,21 +1837,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#Rupee averts record low on state-run banks' dollar sales; #oil worries persist #ETMarkets https://economictimes.indiatimes.com/markets/forex/forex-ne...",
-      "link": "https://x.com/ETMarkets/status/2033489418808631327",
-      "date": "2026-03-16T10:23:52+00:00",
-      "tweet_id": "2033489418808631327",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Rupee averts record low on state-run banks' dollar sales; #oil worries persist<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/forex/forex-news/rupee-averts-record-low-on-state-run-banks-dollar-sales-oil-worries-persist/articleshow/129606748.cms",
-      "category": "Twitter"
-    },
-    {
       "title": "Critical Mineral outlook in India , lot of dependence from outside India",
       "link": "https://x.com/EquityValueIn/status/2033489381705789747",
       "date": "2026-03-16T10:23:43+00:00",
@@ -2089,21 +1849,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Critical Mineral outlook in India , lot of dependence from outside India<br><img width=\"637\" height=\"331\" style=\"\" src=\"https://pbs.twimg.com/media/HDhnmj3bAAEBM15?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"659\" height=\"187\" style=\"\" src=\"https://pbs.twimg.com/media/HDhnphJboAAUZh7?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "#Paytm shares jumps 4% after rival #PhonePe halts #IPO plans #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/paytm-shares-soar-nea...",
-      "link": "https://x.com/ETMarkets/status/2033488444648013982",
-      "date": "2026-03-16T10:20:00+00:00",
-      "tweet_id": "2033488444648013982",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Paytm shares jumps 4% after rival #PhonePe halts #IPO plans<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/paytm-shares-soar-nearly-4-after-rival-phonepe-halts-ipo-plans/articleshow/129606058.cms",
       "category": "Twitter"
     },
     {
@@ -3397,21 +3142,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: Bitcoin rises above $73,000 as US stock market futures turn green.",
-      "link": "https://x.com/KobeissiLetter/status/2033321536543768937",
-      "date": "2026-03-15T23:16:46+00:00",
-      "tweet_id": "2033321536543768937",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDfPHh9W0AANaWK?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: Bitcoin rises above $73,000 as US stock market futures turn green.<br><img width=\"908\" height=\"1264\" style=\"\" src=\"https://pbs.twimg.com/media/HDfPHh9W0AANaWK?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Trump warns Nato faces \u2018very bad future\u2019 if allies fail to help US in Iran https://ft.trib.al/lbs75Vj",
       "link": "https://x.com/ftenergy/status/2033318985643569291",
       "date": "2026-03-15T23:06:38+00:00",
@@ -3562,21 +3292,6 @@
       "category": "Twitter"
     },
     {
-      "title": "MAP OF THE DAY: While the Strait of Hormuz remains largely closed (other than a few tankers, notably from India), the Red Sea is witnessing the arriva...",
-      "link": "https://x.com/JavierBlas/status/2033253899335807423",
-      "date": "2026-03-15T18:48:00+00:00",
-      "tweet_id": "2033253899335807423",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDeQxEracAAhCv4?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "MAP OF THE DAY: While the Strait of Hormuz remains largely closed (other than a few tankers, notably from India), the Red Sea is witnessing the arrival of an oil tanker armada to the Saudi terminals there. <br><br>(Tracking via @TheTerminal)<br>(Blue arrows are oil tankers DWT &gt;120,000)<br><img width=\"954\" height=\"766\" style=\"\" src=\"https://pbs.twimg.com/media/HDeQxEracAAhCv4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT The Khel India: \ud83d\udea8 GULVEER SINGH CREATES HISTORY! \ud83e\udd29 He becomes the First Ever Indian to complete the Half Marathon under 1 hour time! \ud83d\udd25 Clo...",
       "link": "https://x.com/sanjeevsanyal/status/2033601948021362829",
       "date": "2026-03-15T18:36:56+00:00",
@@ -3589,21 +3304,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002The Khel India<br>\ud83d\udea8 GULVEER SINGH CREATES HISTORY! \ud83e\udd29<br><br>He becomes the First Ever Indian to complete the Half Marathon under 1 hour time! \ud83d\udd25<br><br>Clocked 59:42 &amp; finished 3rd  at NYC Half Marathon! <br><br>INCREDIBLE STUFF FROM GULVEER! \ud83c\uddee\ud83c\uddf3\u2764\ufe0f<br><video width=\"1280\" height=\"592\" src=\"https://video.twimg.com/ext_tw_video/2033166372788994048/pu/vid/avc1/1280x592/WUs4RBuJ-V8tQ6ye.mp4?tag=19\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2033166372788994048/pu/img/KmtCZF6MRtD-ByLG.jpg\"></video>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Jack McClendon: Looking to hedge this Monday. Back of the curve is way way way up.",
-      "link": "https://x.com/JavierBlas/status/2033250978552594541",
-      "date": "2026-03-15T18:34:35+00:00",
-      "tweet_id": "2033250978552594541",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Jack McClendon<br>Looking to hedge this Monday. Back of the curve is way way way up.",
       "category": "Twitter"
     },
     {
@@ -3634,6 +3334,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Mayank Kapur<br>Re @Finstor85 I am still exploring but found It pretty awesome!<br><br>Thank you Ameya sir<br><img width=\"1606\" height=\"1334\" style=\"\" src=\"https://pbs.twimg.com/media/HDeMTqrbMAAnkA_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Anisha: This Kerala styled Temple in Delhi NCR is so gorgeous \ud83e\udeb7\ud83e\udd9a",
+      "link": "https://x.com/sanjeevsanyal/status/2033611486044819878",
+      "date": "2026-03-15T17:58:02+00:00",
+      "tweet_id": "2033611486044819878",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2033241133900607488/img/gCfYRzn4pEvo7OB_.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Anisha<br>This Kerala styled Temple in Delhi NCR is so gorgeous \ud83e\udeb7\ud83e\udd9a<br><video width=\"720\" height=\"1112\" src=\"https://video.twimg.com/amplify_video/2033241133900607488/vid/avc1/720x1112/XMtKQFD7-a4T4pe8.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2033241133900607488/img/gCfYRzn4pEvo7OB_.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -4162,21 +3877,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Javier Blas: COLUMN: While the price of Brent and WTI crudes remain well below their record high, the cost of fuel oil has surged above the 2022 an...",
-      "link": "https://x.com/JavierBlas/status/2033230579617972572",
-      "date": "2026-03-15T09:26:02+00:00",
-      "tweet_id": "2033230579617972572",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDcOBqTXcAA3MNY?format=png&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Javier Blas<br>COLUMN: While the price of Brent and WTI crudes remain well below their record high, the cost of fuel oil has surged above the 2022 and 2008 peaks.<br><br>The surge is a big problem for the workhorse of globalisation: the container ship.<br><br>My @Opinion column: https://www.bloomberg.com/opinion/articles/2026-03-15/iran-war-the-biggest-oil-risk-is-at-the-bottom-of-the-barrel?utm_source=website&amp;utm_medium=share&amp;utm_campaign=twitter<br><img width=\"657\" height=\"456\" style=\"\" src=\"https://pbs.twimg.com/media/HDcOBqTXcAA3MNY?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Global solar generation surpassed 2,000 TWh in 2024, enough to power ALL of India and avoiding emissions equivalent to the US power sector \u2600\ufe0f Find o...",
       "link": "https://x.com/ember_energy/status/2033106012526219424",
       "date": "2026-03-15T09:00:21+00:00",
@@ -4564,21 +4264,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "It's such a pleasure to listen to @hirenved every single time. Calm, composed, full of wisdom. One of the better fund managers &amp; a one to always look up to. Great listen. <br><br>https://youtu.be/Rsflbs_Zp5M?is=tcG_nsUTXb4wZsKq",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Deepak Bopanna: A Bengaluru based start up founded by the alumni of Nitte Meenakshi Institute of Technology is developing what could become India's...",
-      "link": "https://x.com/sanjeevsanyal/status/2033086266338853184",
-      "date": "2026-03-14T17:59:23+00:00",
-      "tweet_id": "2033086266338853184",
-      "source": "Sanjeev Sanyal",
-      "publisher": "Sanjeev Sanyal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2032878327409897472/pu/img/g31o__D37WFv-VNn.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Deepak Bopanna<br>A Bengaluru based start up founded by the alumni of Nitte Meenakshi Institute of Technology is developing what could become India's first amphibious drones, capable of operating both in the air and underwater.<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/ext_tw_video/2032878327409897472/pu/vid/avc1/1920x1080/3CAcFT9RvN6SrZ21.mp4?tag=19\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2032878327409897472/pu/img/g31o__D37WFv-VNn.jpg\"></video>",
       "category": "Twitter"
     },
     {
