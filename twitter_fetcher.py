@@ -1,9 +1,12 @@
 """
-Google-only Twitter/X ingestion pipeline.
+Dual-source Twitter/X ingestion pipeline.
 
-This module fetches configured Twitter handles via Google RSS feeds,
-normalizes and filters tweets, and serves a cached clean snapshot when
-live fetch returns no usable results.
+Merges two independent sources:
+  1. RSSHub (local) — freshest tweets, direct x.com links, rich content.
+     Populated by running rsshub_local_fetch.py on your machine.
+  2. Google RSS — zero-auth fallback, always available from GH Actions.
+
+Falls back to a clean snapshot cache when both sources return nothing.
 """
 
 import json
@@ -17,6 +20,8 @@ from datetime import datetime, timezone
 from articles import IST_TZ, clean_twitter_title
 from config import (
     FEED_THREAD_WORKERS,
+    RSSHUB_CACHE_FILE,
+    RSSHUB_CACHE_MAX_AGE_HOURS,
     TWITTER_CACHE_FILE,
     TWITTER_GOOGLE_MAX_ITEMS_PER_HANDLE,
     TWITTER_RESOLVE_WORKERS,
@@ -127,12 +132,53 @@ def _extract_handle(feed_config):
     return query_match.group(1).strip() if query_match else ""
 
 
-def _build_fetch_meta(source_mode, google_stats=None, warning=""):
+def _build_fetch_meta(source_mode, google_stats=None, rsshub_stats=None, warning=""):
     return {
         "source_mode": source_mode,
         "google_stats": google_stats or {},
+        "rsshub_stats": rsshub_stats or {},
         "warning": warning,
         "generated_at": datetime.now(IST_TZ).isoformat(),
+    }
+
+
+def load_rsshub_cache(cache_file=None, max_age_hours=RSSHUB_CACHE_MAX_AGE_HOURS):
+    """Load locally-generated RSSHub cache if fresh enough."""
+    path = os.path.join(SCRIPT_DIR, cache_file or RSSHUB_CACHE_FILE)
+    data = _load_json_file(path, {})
+    if not isinstance(data, dict) or not data.get("items"):
+        return [], {"status": "missing"}
+
+    generated = data.get("generated_at", "")
+    try:
+        gen_dt = datetime.fromisoformat(generated)
+        if gen_dt.tzinfo is None:
+            gen_dt = gen_dt.replace(tzinfo=timezone.utc)
+        age_hours = (datetime.now(timezone.utc) - gen_dt).total_seconds() / 3600
+    except Exception:
+        age_hours = 999
+
+    if age_hours > max_age_hours:
+        return [], {"status": "stale", "age_hours": round(age_hours, 1)}
+
+    items = []
+    for raw in data.get("items", []):
+        if not isinstance(raw, dict):
+            continue
+        article = dict(raw)
+        article["date"] = _to_aware_datetime(article.get("date"))
+        article["category"] = "Twitter"
+        article["source_mode"] = "rsshub"
+        article["is_retweet"] = article.get("is_retweet", False)
+        article["is_reply"] = article.get("is_reply", False)
+        items.append(article)
+
+    meta = data.get("meta", {})
+    return items, {
+        "status": "loaded",
+        "age_hours": round(age_hours, 1),
+        "items": len(items),
+        "handles_ok": meta.get("handles_ok", 0),
     }
 
 
@@ -225,7 +271,7 @@ def fetch_twitter_google(twitter_feeds, logger=None):
 
 
 def fetch_twitter_articles(twitter_feeds, logger=None):
-    """Run Google-only Twitter ingestion with cache fallback."""
+    """Dual-source Twitter ingestion: RSSHub cache + Google RSS + snapshot fallback."""
     feeds = [f for f in twitter_feeds if (f.get("category") or "") == "Twitter"]
     handles = sorted({h.lower() for h in (_extract_handle(feed) for feed in feeds) if h})
 
@@ -235,17 +281,63 @@ def fetch_twitter_articles(twitter_feeds, logger=None):
         meta = _build_fetch_meta(source_mode="snapshot", warning="no_twitter_handles_configured")
         return cached, meta
 
+    # --- Source 1: RSSHub local cache (populated by rsshub_local_fetch.py) ---
+    rsshub_items, rsshub_stats = load_rsshub_cache()
+    if logger and rsshub_stats.get("status") == "loaded":
+        logger.info(f"RSSHub cache: {rsshub_stats['items']} items, {rsshub_stats['age_hours']}h old")
+    elif logger:
+        logger.info(f"RSSHub cache: {rsshub_stats.get('status', 'unavailable')}")
+
+    # --- Source 2: Google RSS (always runs as fallback) ---
     google_items, google_stats = fetch_twitter_google(feeds, logger=logger)
-    cleaned = normalize_and_filter_tweets(google_items, allow_retweets=True, allow_replies=False)
+
+    # --- Merge: combine both sources, deduplicate by tweet_id ---
+    # RSSHub items get priority (fresher, direct links, richer content)
+    merged = []
+    seen_ids = set()
+
+    for item in rsshub_items:
+        tid = (item.get("tweet_id") or "").strip()
+        if tid and tid not in seen_ids:
+            seen_ids.add(tid)
+            merged.append(item)
+
+    for item in google_items:
+        tid = (item.get("tweet_id") or "").strip()
+        if tid and tid not in seen_ids:
+            seen_ids.add(tid)
+            merged.append(item)
+
+    cleaned = normalize_and_filter_tweets(merged, allow_retweets=True, allow_replies=False)
+
+    # --- Source tracking ---
+    rsshub_count = sum(1 for c in cleaned if c.get("source_mode") == "rsshub")
+    google_count = sum(1 for c in cleaned if c.get("source_mode") == "google")
+
     if cleaned:
-        meta = _build_fetch_meta(source_mode="google", google_stats=google_stats)
+        source_mode = "rsshub+google" if rsshub_count and google_count else (
+            "rsshub" if rsshub_count else "google"
+        )
+        meta = _build_fetch_meta(
+            source_mode=source_mode,
+            google_stats=google_stats,
+            rsshub_stats=rsshub_stats,
+        )
+        # Log source distribution
+        if logger:
+            logger.info(f"Twitter sources: rsshub={rsshub_count}, google={google_count}, total={len(cleaned)}")
+            if rsshub_stats.get("status") == "loaded" and rsshub_count == 0:
+                logger.warning("RSSHub cache was loaded but 0 items survived merge — may be stale or all duplicates")
+
         save_twitter_snapshot({"meta": meta, "items": cleaned})
         return cleaned, meta
 
+    # --- Fallback: snapshot cache ---
     cached = normalize_and_filter_tweets(snapshot.get("items", []), allow_retweets=True, allow_replies=False)
     meta = _build_fetch_meta(
         source_mode="snapshot",
         google_stats=google_stats,
-        warning="google_empty_using_snapshot",
+        rsshub_stats=rsshub_stats,
+        warning="all_sources_empty_using_snapshot",
     )
     return cached, meta

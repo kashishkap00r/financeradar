@@ -43,6 +43,9 @@ TWITTER_RESOLVE_WORKERS = 8      # concurrent Google->X resolve workers
 # ── Twitter/X ingestion ───────────────────────────────────────────────
 TWITTER_GOOGLE_MAX_ITEMS_PER_HANDLE = 30  # max fetched per handle in Google mode
 TWITTER_CACHE_FILE = "static/twitter_clean_cache.json"  # clean fallback snapshot
+RSSHUB_CACHE_FILE = "static/rsshub_twitter_cache.json"  # RSSHub local fetch cache
+RSSHUB_CACHE_MAX_AGE_HOURS = 6  # treat RSSHub cache as stale after this
+RSSHUB_BASE_URL = "http://localhost:1200"  # local RSSHub instance
 
 # ── Report scrapers ───────────────────────────────────────────────────
 SCRAPER_MAX_ARTICLES = 30        # max articles per scraper invocation
