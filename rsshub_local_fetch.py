@@ -34,6 +34,9 @@ CACHE_PATH = os.path.join(SCRIPT_DIR, RSSHUB_CACHE_FILE)
 
 RETWEET_RE = re.compile(r"^RT\s+", re.IGNORECASE)
 X_STATUS_RE = re.compile(r"https?://(?:x|twitter)\.com/([^/]+)/status/(\d+)")
+IMG_SRC_RE = re.compile(r'<img[^>]+src="([^"]+pbs\.twimg\.com/[^"]+)"', re.IGNORECASE)
+VIDEO_POSTER_RE = re.compile(r'<video[^>]+poster="([^"]+pbs\.twimg\.com/[^"]+)"', re.IGNORECASE)
+QUOTE_DIV_RE = re.compile(r'class="rsshub-quote"', re.IGNORECASE)
 
 
 def load_twitter_handles():
@@ -93,6 +96,19 @@ def fetch_rsshub_feed(handle, base_url=RSSHUB_BASE_URL, timeout=60):
         if not tweet_id or not link:
             continue
 
+        # Extract first tweet image from description HTML (fallback to video poster)
+        image = ""
+        img_match = IMG_SRC_RE.search(desc)
+        if img_match:
+            image = img_match.group(1).replace("&amp;", "&")
+        else:
+            vid_match = VIDEO_POSTER_RE.search(desc)
+            if vid_match:
+                image = vid_match.group(1).replace("&amp;", "&")
+
+        # Detect quote tweets (RSSHub wraps them in rsshub-quote div)
+        is_quote = bool(QUOTE_DIV_RE.search(desc))
+
         articles.append({
             "title": title,
             "link": link,
@@ -101,7 +117,9 @@ def fetch_rsshub_feed(handle, base_url=RSSHUB_BASE_URL, timeout=60):
             "source": author or handle,
             "publisher": "",  # filled by caller
             "source_mode": "rsshub",
+            "image": image,
             "is_retweet": bool(RETWEET_RE.match(title)),
+            "is_quote": is_quote,
             "is_reply": title.startswith("@"),
             "description_html": desc,
         })

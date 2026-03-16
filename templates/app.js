@@ -3424,10 +3424,12 @@
         }
 
         // ==================== TWITTER TAB (helpers) ====================
-        function getTweetBadges(title) {
+        function getTweetBadges(title, tweet) {
             const badges = [];
-            if (title.startsWith('”') || title.startsWith('\u201c')) badges.push({label: 'Quote', cls: 'tweet-badge-quote'});
-            else if (title.startsWith('RT @')) badges.push({label: 'Retweet', cls: 'tweet-badge-retweet'});
+            const isRt = (tweet && tweet.is_retweet) || title.startsWith('RT @') || title.startsWith('RT ');
+            const isQuote = (tweet && tweet.is_quote) || title.startsWith('”') || title.startsWith('\u201c');
+            if (isQuote) badges.push({label: 'Quote', cls: 'tweet-badge-quote'});
+            else if (isRt) badges.push({label: 'Retweet', cls: 'tweet-badge-retweet'});
             if (title.includes('\ud83e\uddf5')) badges.push({label: 'Thread', cls: 'tweet-badge-thread'});
             return badges;
         }
@@ -3506,7 +3508,7 @@
             filteredTwitter = pool.filter(t => {
                 const matchesSearch = !query || (t.title + ' ' + t.source + ' ' + (t.publisher || '')).toLowerCase().includes(query);
                 const pub = t.publisher || t.source;
-                const matchesPublisher = selectedTwitterPublishers.size === 0 || selectedTwitterPublishers.has(pub);
+                const matchesPublisher = selectedTwitterPublishers.size === 0 || selectedTwitterPublishers.size === TWITTER_PUBLISHERS.length || selectedTwitterPublishers.has(pub);
                 return matchesSearch && matchesPublisher;
             });
             twitterPage = 1;
@@ -3554,7 +3556,7 @@
         function filterTwitterPublisherList() { filterDropdownList('twitter-dropdown-search', 'twitter-dropdown-list'); }
 
         function selectAllTwitterPublishers() {
-            selectedTwitterPublishers.clear();
+            TWITTER_PUBLISHERS.forEach(pub => selectedTwitterPublishers.add(pub));
             syncTwitterCheckboxes();
             syncTwitterPresetButtons();
             updateTwitterPublisherSummary();
@@ -3711,7 +3713,7 @@
                 const publisherHtml = sourceUrl
                     ? `<a href="${escapeForAttr(sourceUrl)}" target="_blank" rel="noopener" class="tweet-card-publisher card-source-link">${publisher}</a>`
                     : `<span class="tweet-card-publisher">${publisher}</span>`;
-                const badges = getTweetBadges(t.title);
+                const badges = getTweetBadges(t.title, t);
                 const threadCollapsed = Number(t.thread_collapsed_count || 0);
                 if (twitterLane === 'high-signal') {
                     badges.push({

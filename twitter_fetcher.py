@@ -169,7 +169,9 @@ def load_rsshub_cache(cache_file=None, max_age_hours=RSSHUB_CACHE_MAX_AGE_HOURS)
         article["date"] = _to_aware_datetime(article.get("date"))
         article["category"] = "Twitter"
         article["source_mode"] = "rsshub"
+        article["image"] = article.get("image", "")
         article["is_retweet"] = article.get("is_retweet", False)
+        article["is_quote"] = article.get("is_quote", False)
         article["is_reply"] = article.get("is_reply", False)
         items.append(article)
 
