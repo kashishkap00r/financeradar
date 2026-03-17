@@ -55,16 +55,19 @@ class TwitterFetcherTests(unittest.TestCase):
         self.assertTrue(cleaned[0]["is_retweet"])
 
     @patch.object(twitter_fetcher, "save_twitter_snapshot")
+    @patch.object(twitter_fetcher, "load_rsshub_cache")
     @patch.object(twitter_fetcher, "fetch_twitter_google")
     @patch.object(twitter_fetcher, "load_twitter_snapshot")
     def test_orchestrator_uses_google_when_available(
         self,
         snapshot_mock,
         google_mock,
+        rsshub_mock,
         save_snapshot_mock,
     ):
         now = datetime.now(timezone.utc)
         snapshot_mock.return_value = {"meta": {}, "items": []}
+        rsshub_mock.return_value = ([], {"status": "missing"})
         google_mock.return_value = (
             [
                 {
@@ -87,12 +90,14 @@ class TwitterFetcherTests(unittest.TestCase):
         google_mock.assert_called_once()
         save_snapshot_mock.assert_called_once()
 
+    @patch.object(twitter_fetcher, "load_rsshub_cache")
     @patch.object(twitter_fetcher, "fetch_twitter_google")
     @patch.object(twitter_fetcher, "load_twitter_snapshot")
     def test_orchestrator_uses_snapshot_when_google_empty(
         self,
         snapshot_mock,
         google_mock,
+        rsshub_mock,
     ):
         now = datetime.now(timezone.utc)
         snapshot_mock.return_value = {
@@ -109,13 +114,14 @@ class TwitterFetcherTests(unittest.TestCase):
                 }
             ],
         }
+        rsshub_mock.return_value = ([], {"status": "missing"})
         google_mock.return_value = ([], {"feeds_ok": 0})
 
         items, meta = twitter_fetcher.fetch_twitter_articles([self._feed()])
         self.assertEqual(meta["source_mode"], "snapshot")
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]["tweet_id"], "1010")
-        self.assertIn("google_empty_using_snapshot", meta["warning"])
+        self.assertIn("all_sources_empty_using_snapshot", meta["warning"])
 
     @patch.object(twitter_fetcher, "load_twitter_snapshot")
     def test_orchestrator_uses_snapshot_when_no_handles(self, snapshot_mock):

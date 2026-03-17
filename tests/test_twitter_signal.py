@@ -1,7 +1,9 @@
 import unittest
 from datetime import datetime, timedelta
+from unittest.mock import patch
 
 from articles import IST_TZ
+import twitter_signal
 from twitter_signal import build_twitter_lanes, canonicalize_tweet_url, extract_tweet_parts
 
 
@@ -18,7 +20,8 @@ class TwitterSignalTests(unittest.TestCase):
         self.assertEqual(handle, "alpha")
         self.assertEqual(tweet_id, "987654321")
 
-    def test_build_twitter_lanes_excludes_retweets_and_collapses_threads(self):
+    @patch.object(twitter_signal, "_ai_rank_high_signal", return_value=None)
+    def test_build_twitter_lanes_excludes_retweets_and_collapses_threads(self, _ai_mock):
         now = datetime.now(IST_TZ)
         items = [
             {
