@@ -1297,13 +1297,7 @@
         .sidebar-overlay.open .ai-sidebar {
             transform: translateX(0);
         }
-        .ai-source-switch {
-            padding: 10px 20px 8px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
+        /* (ai-source-switch removed — AI sidebar no longer exists) */
         .wsw-view-switch {
             padding: 10px 20px 8px;
             border-bottom: 1px solid var(--border);
@@ -1342,31 +1336,7 @@
             display: flex;
             gap: 8px;
         }
-        .ai-source-pill {
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            font-size: 11px;
-            font-weight: 600;
-            line-height: 1;
-            padding: 7px 10px;
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-        .ai-source-pill:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .ai-source-pill.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
-        }
-        .ai-source-pill.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+        /* (ai-source-pill, ai-rank-item, rank-* styles removed — AI sidebar no longer exists) */
         .ai-provider-select {
             padding: 12px 20px;
             border-bottom: 1px solid var(--border);
@@ -1388,70 +1358,6 @@
             font-family: inherit;
             font-size: 13px;
         }
-        .ai-rank-item {
-            display: flex;
-            gap: 12px;
-            padding: 10px 20px;
-            border-bottom: 1px solid var(--border);
-            align-items: flex-start;
-        }
-        .ai-rank-item:hover {
-            background: var(--bg-hover);
-        }
-        .rank-num {
-            font-weight: 600;
-            color: var(--accent);
-            min-width: 20px;
-            font-size: 13px;
-        }
-        .rank-content {
-            flex: 1;
-            min-width: 0;
-        }
-        .rank-content a {
-            display: block;
-            font-family: 'Fraunces', Georgia, serif;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-        .rank-content a:hover {
-            color: var(--accent);
-        }
-        .rank-title-nolink {
-            display: block;
-            font-family: 'Fraunces', Georgia, serif;
-            color: var(--text-muted);
-            font-size: 13px;
-            line-height: 1.4;
-        }
-        .rank-meta {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 2px;
-            flex-wrap: wrap;
-        }
-        .rank-source {
-            display: inline;
-            font-size: 10px;
-            color: var(--text-muted);
-            opacity: 0.7;
-        }
-        .rank-source-type {
-            display: inline-flex;
-            align-items: center;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 0.35px;
-            text-transform: uppercase;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1px 6px;
-            color: var(--text-secondary);
-            background: var(--bg-secondary);
-        }
         .ai-updated-time {
             font-size: 11px;
             color: var(--text-muted);
@@ -1465,36 +1371,7 @@
             font-weight: 600;
             margin-bottom: 8px;
         }
-        .ai-bookmark-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-muted);
-            padding: 12px;
-            margin: -8px -8px -8px 0;
-            flex-shrink: 0;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-            position: relative;
-            z-index: 1;
-        }
-        .ai-bookmark-btn:hover {
-            color: var(--accent);
-        }
-        .ai-bookmark-btn.bookmarked {
-            color: var(--accent);
-        }
-        .ai-bookmark-btn svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-            pointer-events: none;
-        }
-        .ai-bookmark-btn.bookmarked svg {
-            fill: var(--accent);
-        }
+        /* (ai-bookmark-btn styles removed — AI sidebar no longer exists) */
 
         .reports-warning {
             background: var(--danger, #e14b4b);
@@ -2035,6 +1912,53 @@
             margin-top: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.06em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .hero-why {
+            font-family: 'Source Sans Pro', -apple-system, sans-serif;
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        .hero-signal-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 2px 8px;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            vertical-align: middle;
+        }
+        .hero-consensus {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            vertical-align: middle;
+        }
+        .home-ai-empty {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+        .home-ai-empty h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .home-ai-empty p {
+            font-size: 0.9rem;
         }
         .card-hero > .btn-bk {
             position: absolute;

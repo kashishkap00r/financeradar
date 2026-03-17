@@ -54,9 +54,9 @@ BUCKET_ORDER = ["news", "telegram", "reports", "twitter", "youtube"]
 BUCKET_TARGETS = {
     "news": AI_RANKER_TARGET_COUNT,
     "telegram": 20,
-    "reports": 5,
-    "twitter": 5,
-    "youtube": 5,
+    "reports": 10,
+    "twitter": 10,
+    "youtube": 10,
 }
 SOURCE_WINDOWS = {
     "news": timedelta(hours=AI_RANKER_ARTICLE_WINDOW_HOURS),

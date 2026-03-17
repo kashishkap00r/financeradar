@@ -511,37 +511,6 @@ def generate_html(
         </div>
     </aside>
 
-    <!-- AI Rankings Sidebar -->
-    <div id="ai-sidebar-overlay" class="sidebar-overlay">
-        <div class="ai-sidebar">
-            <div class="sidebar-header">
-                <div class="sidebar-title"><span style="font-size: 18px;">🤖</span> AI Picks</div>
-                <button class="sidebar-close" onclick="closeAiSidebar()" aria-label="Close sidebar">
-                    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-            </div>
-            <div class="ai-source-switch" id="ai-source-switch">
-                <button type="button" class="ai-source-pill active" data-ai-bucket="news" onclick="switchAiBucket('news')">News</button>
-                <button type="button" class="ai-source-pill" data-ai-bucket="telegram" onclick="switchAiBucket('telegram')">Telegram</button>
-                <button type="button" class="ai-source-pill" data-ai-bucket="reports" onclick="switchAiBucket('reports')">Reports</button>
-                <button type="button" class="ai-source-pill" data-ai-bucket="twitter" onclick="switchAiBucket('twitter')">Twitter</button>
-                <button type="button" class="ai-source-pill" data-ai-bucket="youtube" onclick="switchAiBucket('youtube')">YouTube</button>
-            </div>
-            <div class="ai-provider-select">
-                <label for="ai-provider">Model:</label>
-                <select id="ai-provider" onchange="switchAiProvider()">
-                    <option value="">Loading...</option>
-                </select>
-            </div>
-            <div id="ai-rankings-content" class="sidebar-content">
-                <div class="sidebar-empty">Loading AI rankings...</div>
-            </div>
-            <div class="sidebar-footer">
-                <span id="ai-updated" class="ai-updated-time">Updated: --</span>
-            </div>
-        </div>
-    </div>
-
     <!-- WSW Sidebar -->
     <div id="wsw-sidebar-overlay" class="sidebar-overlay">
       <div class="ai-sidebar">

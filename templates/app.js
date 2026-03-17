@@ -45,16 +45,10 @@
             if (tab === 'papers' && !PAPER_ARTICLES) {
                 loads.push(_safeLoad('papers', 'static/tab_papers.json', function(d) { PAPER_ARTICLES = d; }));
             }
-            if ((tab === 'news' || tab === 'home') && !NEWS_ARTICLES) {
+            if ((tab === 'news') && !NEWS_ARTICLES) {
                 loads.push(_safeLoad('news', 'static/tab_news.json', function(d) { NEWS_ARTICLES = d; }));
             }
-            if (tab === 'home') {
-                if (!TELEGRAM_REPORTS) loads.push(_safeLoad('telegram', 'static/tab_telegram.json', function(d) { TELEGRAM_REPORTS = d; }));
-                if (!YOUTUBE_VIDEOS) loads.push(_safeLoad('youtube', 'static/tab_youtube.json', function(d) { YOUTUBE_VIDEOS = d; }));
-                if (!RESEARCH_REPORTS) loads.push(_safeLoad('research', 'static/tab_research.json', function(d) { RESEARCH_REPORTS = d; }));
-                if (!TWITTER_ARTICLES) loads.push(_safeLoad('twitter', 'static/tab_twitter.json', function(d) { TWITTER_ARTICLES = d; }));
-                if (!PAPER_ARTICLES) loads.push(_safeLoad('papers', 'static/tab_papers.json', function(d) { PAPER_ARTICLES = d; }));
-            }
+            // Home tab only needs ai_rankings.json (loaded below) — no tab JSON fetches
             if (!AI_RANKINGS_BOOTSTRAP) {
                 loads.push(_safeLoad('ai', 'static/tab_ai_rankings.json', function(d) { AI_RANKINGS_BOOTSTRAP = d; }));
             }
@@ -919,17 +913,8 @@
 
         // ==================== AI RANKINGS SIDEBAR ====================
         let aiRankings = null;
-        let currentAiProvider = 'deepseek-v3';
-        let currentAiBucket = safeStorage.get('financeradar_ai_bucket') || 'news';
         const AI_REFRESH_INTERVAL_MS = 3 * 60 * 60 * 1000;
         const AI_BUCKET_ORDER = ['news', 'telegram', 'reports', 'twitter', 'youtube'];
-        const AI_BUCKET_LABELS = {
-            news: 'News',
-            telegram: 'Telegram',
-            reports: 'Reports',
-            twitter: 'Twitter',
-            youtube: 'YouTube'
-        };
 
         function normalizeAiRankingsPayload(payload) {
             if (!payload || typeof payload !== 'object') return { providers: {} };
@@ -972,13 +957,93 @@
             });
         }
 
-        function updateAiBucketPillState() {
-            document.querySelectorAll('.ai-source-pill').forEach(btn => {
-                const bucket = btn.dataset.aiBucket;
-                const hasProviders = getAvailableProvidersForBucket(bucket).length > 0;
-                btn.classList.toggle('active', bucket === currentAiBucket);
-                btn.classList.toggle('disabled', !hasProviders);
+        // (updateAiBucketPillState removed — AI sidebar no longer exists)
+
+        // ==================== AI MERGE (cross-provider consensus) ====================
+        function normalizeAiTitle(title) {
+            var t = String(title || '').replace(/"/g, "'").replace(/\n/g, ' ').replace(/\r/g, ' ').trim();
+            t = t.replace(/\u2014/g, '-').replace(/\u2013/g, '-').replace(/\u2012/g, '-').replace(/\u2212/g, '-');
+            t = t.replace(/\u2018/g, "'").replace(/\u2019/g, "'").replace(/\u02bc/g, "'");
+            t = t.replace(/\u201c/g, '"').replace(/\u201d/g, '"');
+            t = t.replace(/\u2026/g, '...');
+            t = t.replace(/\s+/g, ' ').trim();
+            return t.toLowerCase();
+        }
+
+        function getMergedAiRankings(bucket) {
+            if (!aiRankings || !aiRankings.providers) return [];
+            var providerEntries = Object.entries(aiRankings.providers).filter(function(entry) {
+                var p = entry[1];
+                if (!p || typeof p !== 'object') return false;
+                var status = p.status || 'ok';
+                return (status === 'ok' || status === 'partial') && getProviderBucketRankings(p, bucket).length > 0;
             });
+            if (!providerEntries.length) return [];
+
+            // Collect items per provider with rank positions
+            var urlMap = {};   // lowercased url → merge entry
+            var titleMap = {}; // normalizeAiTitle → merge entry (fallback)
+
+            providerEntries.forEach(function(entry, pIdx) {
+                var items = getProviderBucketRankings(entry[1], bucket);
+                items.forEach(function(item, rank) {
+                    var url = String(item.url || '').toLowerCase().trim();
+                    var normTitle = normalizeAiTitle(item.title);
+                    var existing = null;
+
+                    // Match by URL first, then by normalized title
+                    if (url && urlMap[url]) {
+                        existing = urlMap[url];
+                    } else if (normTitle && titleMap[normTitle]) {
+                        existing = titleMap[normTitle];
+                    }
+
+                    if (existing) {
+                        existing._ranks.push(rank);
+                        existing._providerCount++;
+                        // Keep richer metadata (prefer items with why_it_matters)
+                        if (item.why_it_matters && !existing.why_it_matters) {
+                            existing.why_it_matters = item.why_it_matters;
+                        }
+                        if (item.signal_type && !existing.signal_type) {
+                            existing.signal_type = item.signal_type;
+                        }
+                    } else {
+                        var merged = {
+                            title: item.title,
+                            url: item.url || '',
+                            source: item.source || '',
+                            source_type: item.source_type || bucket,
+                            why_it_matters: item.why_it_matters || '',
+                            signal_type: item.signal_type || '',
+                            confidence: item.confidence || '',
+                            _ranks: [rank],
+                            _providerCount: 1
+                        };
+                        if (url) urlMap[url] = merged;
+                        if (normTitle) titleMap[normTitle] = merged;
+                    }
+                });
+            });
+
+            // Deduplicate: collect unique entries from urlMap and titleMap
+            var seen = new Set();
+            var all = [];
+            [urlMap, titleMap].forEach(function(map) {
+                Object.values(map).forEach(function(entry) {
+                    // Use object identity to deduplicate
+                    if (seen.has(entry)) return;
+                    seen.add(entry);
+                    var avgRank = entry._ranks.reduce(function(a, b) { return a + b; }, 0) / entry._ranks.length;
+                    var penalty = entry._providerCount >= 2 ? 0 : 50;
+                    entry._consensus = entry._providerCount >= 2;
+                    entry._mergedRank = avgRank + penalty;
+                    all.push(entry);
+                });
+            });
+
+            all.sort(function(a, b) { return a._mergedRank - b._mergedRank; });
+            return all;
         }
 
         function hasAiRankingsBootstrap() {
@@ -992,11 +1057,6 @@
             const normalized = normalizeAiRankingsPayload(payload);
             if (!normalized.providers || typeof normalized.providers !== 'object') return false;
             aiRankings = normalized;
-            if (!AI_BUCKET_ORDER.includes(currentAiBucket)) {
-                currentAiBucket = 'news';
-            }
-            populateProviderDropdown();
-            renderAiRankings();
             renderHomeTab();
             return true;
         }
@@ -1018,167 +1078,21 @@
                     applyAiRankingsPayload(AI_RANKINGS_BOOTSTRAP);
                     return;
                 }
-                document.getElementById('ai-rankings-content').innerHTML =
-                    '<div class="ai-error"><div class="ai-error-title">AI Rankings Unavailable</div><div>Run ai_ranker.py to generate rankings</div></div>';
+                // No AI data available — renderHomeTab will show empty state
                 renderHomeTab();
             }
         }
 
-        function populateProviderDropdown() {
-            const select = document.getElementById('ai-provider');
-            select.innerHTML = '';
-            if (!aiRankings || !aiRankings.providers) {
-                updateAiBucketPillState();
-                return;
-            }
-
-            const providers = getAvailableProvidersForBucket(currentAiBucket);
-            if (!providers.length) {
-                const opt = document.createElement('option');
-                opt.value = '';
-                opt.textContent = 'No model available';
-                select.appendChild(opt);
-                currentAiProvider = '';
-                updateAiBucketPillState();
-                return;
-            }
-
-            const providerKeys = providers.map(([key]) => key);
-            if (!providerKeys.includes(currentAiProvider)) {
-                currentAiProvider = providers[0][0];
-            }
-
-            providers.forEach(([key, p]) => {
-                const opt = document.createElement('option');
-                opt.value = key;
-                const rankingsCount = getProviderBucketRankings(p, currentAiBucket).length;
-                opt.textContent = `${p.name} (${rankingsCount})`;
-                if (key === currentAiProvider) opt.selected = true;
-                select.appendChild(opt);
-            });
-            select.value = currentAiProvider;
-            updateAiBucketPillState();
-        }
-
-        function switchAiProvider() {
-            currentAiProvider = document.getElementById('ai-provider').value;
-            renderAiRankings();
-            if (homeRendered) renderHomeTab();
-        }
-
-        function switchAiBucket(bucket) {
-            if (!AI_BUCKET_ORDER.includes(bucket)) return;
-            currentAiBucket = bucket;
-            safeStorage.set('financeradar_ai_bucket', bucket);
-            populateProviderDropdown();
-            renderAiRankings();
-            if (homeRendered) renderHomeTab();
-        }
-
-        function renderAiRankings() {
-            if (!aiRankings || !aiRankings.providers) return;
-            const container = document.getElementById('ai-rankings-content');
-            const available = getAvailableProvidersForBucket(currentAiBucket);
-
-            if (!available.length) {
-                container.innerHTML = `<div class="ai-error"><div class="ai-error-title">${AI_BUCKET_LABELS[currentAiBucket]} Rankings Unavailable</div><div style="margin-top:8px;font-size:12px;color:var(--text-muted)">No provider returned valid ${AI_BUCKET_LABELS[currentAiBucket].toLowerCase()} picks yet.</div></div>`;
-                return;
-            }
-
-            if (!currentAiProvider || !available.some(([key]) => key === currentAiProvider)) {
-                currentAiProvider = available[0][0];
-                const select = document.getElementById('ai-provider');
-                if (select) select.value = currentAiProvider;
-            }
-
-            const provider = aiRankings.providers[currentAiProvider];
-            const rankings = getProviderBucketRankings(provider, currentAiBucket);
-
-            container.innerHTML = rankings.map((r, i) => `
-                <div class="ai-rank-item">
-                    <span class="rank-num">${r.rank || i + 1}</span>
-                    <div class="rank-content">
-                        ${sanitizeUrl(r.url)
-                            ? `<a href="${escapeHtml(sanitizeUrl(r.url))}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>`
-                            : `<span class="rank-title-nolink">${escapeHtml(r.title)}</span>`
-                        }
-                        <div class="rank-meta">
-                            <span class="rank-source">${escapeHtml(r.source)}</span>
-                            ${(r.source_type || currentAiBucket)
-                                ? `<span class="rank-source-type">${escapeHtml(String(r.source_type || currentAiBucket).toUpperCase())}</span>`
-                                : ''
-                            }
-                        </div>
-                    </div>
-                    <button class="ai-bookmark-btn ${isBookmarked(r.url) ? 'bookmarked' : ''}"
-                            data-url="${escapeForAttr(r.url)}" data-title="${escapeForAttr(r.title)}" data-source="${escapeForAttr(r.source)}" title="Bookmark">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
-                </div>
-            `).join('');
-            const aiEl = document.getElementById('ai-updated');
-            aiEl.setAttribute('data-time', aiRankings.generated_at);
-            const aiD = Math.floor((new Date() - new Date(aiRankings.generated_at)) / 60000);
-            aiEl.textContent = 'Updated ' + (aiD < 1 ? 'just now' : aiD < 60 ? aiD + ' min ago' : aiD < 1440 ? Math.floor(aiD / 60) + ' hr ago' : Math.floor(aiD / 1440) + ' day ago');
-        }
+        // (AI sidebar functions removed — homepage now uses merged AI rankings directly)
 
         function isBookmarked(url) {
             if (!url) return false;
             return getBookmarks().some(b => b.url === url);
         }
 
-        function toggleAiBookmark(btn, url, title, source) {
-            if (!url) return;
-            let bookmarks = getBookmarks();
-            const exists = bookmarks.some(b => b.url === url);
-            if (exists) {
-                bookmarks = bookmarks.filter(b => b.url !== url);
-                btn.classList.remove('bookmarked');
-            } else {
-                bookmarks.push({ url, title, source, date: new Date().toISOString() });
-                btn.classList.add('bookmarked');
-            }
-            saveBookmarks(bookmarks);
-            updateBookmarkCount();
-            syncBookmarkState();
-        }
-
-        function openAiSidebar() {
-            const overlay = document.getElementById('ai-sidebar-overlay');
-            if (!overlay || overlay.classList.contains('open')) return;
-            overlay.classList.add('open');
-            lockBodyScroll();
-            updateAiBucketPillState();
-        }
-
-        function closeAiSidebar() {
-            const overlay = document.getElementById('ai-sidebar-overlay');
-            if (!overlay || !overlay.classList.contains('open')) return;
-            overlay.classList.remove('open');
-            unlockBodyScroll();
-        }
-
-        document.getElementById('ai-sidebar-overlay').addEventListener('click', (e) => {
-            if (e.target.id === 'ai-sidebar-overlay') closeAiSidebar();
-        });
-
-        // Event delegation for AI sidebar bookmark buttons (mobile fix)
-        document.getElementById('ai-rankings-content').addEventListener('click', (e) => {
-            const btn = e.target.closest('.ai-bookmark-btn');
-            if (btn) {
-                e.preventDefault();
-                e.stopPropagation();
-                const url = btn.getAttribute('data-url');
-                const title = btn.getAttribute('data-title');
-                const source = btn.getAttribute('data-source');
-                if (url) toggleAiBookmark(btn, url, title, source);
-            }
-        });
+        // (toggleAiBookmark removed — AI sidebar no longer exists)
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.getElementById('ai-sidebar-overlay').classList.contains('open')) {
-                closeAiSidebar();
-            }
             if (e.key === 'Escape' && document.getElementById('wsw-sidebar-overlay').classList.contains('open')) {
                 closeWswSidebar();
             }
@@ -1564,19 +1478,6 @@
             twitter: 'Twitter', youtube: 'YouTube', papers: 'Papers'
         };
         var homeRendered = false;
-        var HOME_LIMITS = {
-            hero: 7,
-            news: 12,
-            telegram: 12,
-            research: 12,
-            youtube: 9,
-            twitter: 9
-        };
-        var HOME_PAIR_MAX = {
-            topRow: 18,
-            bottomRow: 14
-        };
-        // (SPOTLIGHT_PLAN and HOME_FALLBACK_TABS removed — newspaper layout uses direct data access)
 
         // ==================== REPORTS TAB ====================
         let reportsRendered = false;
@@ -1790,68 +1691,71 @@
 
         // (Old bento-grid home builders removed — replaced by newspaper layout)
 
-        function getHomeNewsItems(limit) {
-            if (!NEWS_ARTICLES) return [];
-            const items = [];
-            const seen = new Set();
-            NEWS_ARTICLES.forEach(function(a) {
-                if (items.length >= limit) return;
-                var url = a.link || '';
-                var title = a.title || '';
-                if (!title || (url && seen.has(url))) return;
-                if (url) seen.add(url);
-                var source = a.source || 'News';
+        function getHomeAiItems() {
+            if (!aiRankings || !aiRankings.providers) return { feed: [], youtube: [], reports: [], twitter: [], isEmpty: true };
+            var newsMerged = getMergedAiRankings('news');
+            var telegramMerged = getMergedAiRankings('telegram');
+            var reportsMerged = getMergedAiRankings('reports');
+            var twitterMerged = getMergedAiRankings('twitter');
+            var youtubeMerged = getMergedAiRankings('youtube');
+
+            if (!newsMerged.length && !telegramMerged.length && !reportsMerged.length
+                && !twitterMerged.length && !youtubeMerged.length) {
+                return { feed: [], youtube: [], reports: [], twitter: [], isEmpty: true };
+            }
+
+            // Convert merged AI items to homepage card format
+            function toCard(item, bucket) {
+                var source = item.source || '';
                 if (source.length > 35) source = source.slice(0, 35) + '...';
-                items.push({
-                    title: cleanHomeTitle(title),
-                    url: url,
+                return {
+                    title: cleanHomeTitle(item.title),
+                    url: item.url || '',
                     meta: source,
-                    fallbackTab: 'news',
-                    date: a.date || null,
-                    in_focus: a.in_focus || false,
-                    related_sources: a.related_sources || [],
-                    source_url: a.source_url || '',
-                    time: a.time || '',
-                    publisher: a.publisher || ''
-                });
-            });
-            return items;
-        }
+                    _bucket: bucket,
+                    why_it_matters: item.why_it_matters || '',
+                    signal_type: item.signal_type || '',
+                    confidence: item.confidence || '',
+                    _consensus: item._consensus || false,
+                    _mergedRank: item._mergedRank || 0
+                };
+            }
 
-        function getHomeTelegramItems(limit) {
-            if (!TELEGRAM_REPORTS) return [];
-            const items = [];
-            TELEGRAM_REPORTS.forEach(report => {
-                if (items.length >= limit) return;
-                const lines = String(report.text || '').split('\n').map(line => line.trim()).filter(Boolean);
-                const docs = getTelegramReportDocuments(report);
-                const firstDocWithUrl = docs.find(doc => sanitizeUrl(doc && doc.url ? doc.url : ''));
-                const hasText = lines.length > 0;
-                const hasDocs = docs.length > 0;
-                if (!hasText && !hasDocs) return;
+            // Convert to slider-compatible format (matching what buildYtSlider/buildRpSlider/buildTwSlider expect)
+            function toSliderItem(item) {
+                return {
+                    title: item.title,
+                    link: item.url || '',
+                    source_url: item.url || '',
+                    source: item.source || '',
+                    publisher: item.source || '',
+                    thumbnail: '',
+                    region: ''
+                };
+            }
 
-                const title = cleanHomeTitle(lines[0] || (firstDocWithUrl && firstDocWithUrl.title) || (docs[0] && docs[0].title) || 'Telegram update');
-                const channel = report.channel || 'Telegram';
-                items.push({
-                    title,
-                    url: sanitizeUrl(report.url || (firstDocWithUrl && firstDocWithUrl.url) || ''),
-                    meta: channel,
-                    fallbackTab: 'reports'
-                });
-            });
-            return items;
-        }
+            var newsCards = newsMerged.map(function(it) { return toCard(it, 'news'); });
+            var telegramCards = telegramMerged.map(function(it) { return toCard(it, 'telegram'); });
 
-        function getHomeResearchItems(limit) {
-            return RESEARCH_REPORTS ? RESEARCH_REPORTS.slice(0, limit) : [];
-        }
+            // Interleave news + telegram: 3 news, 1 telegram, repeat
+            var feed = [];
+            var ni = 0, ti = 0;
+            while (ni < newsCards.length || ti < telegramCards.length) {
+                for (var k = 0; k < 3 && ni < newsCards.length; k++) {
+                    feed.push(newsCards[ni++]);
+                }
+                if (ti < telegramCards.length) {
+                    feed.push(telegramCards[ti++]);
+                }
+            }
 
-        function getHomeYoutubeItems(limit) {
-            return YOUTUBE_VIDEOS ? YOUTUBE_VIDEOS.slice(0, limit) : [];
-        }
-
-        function getHomeTwitterItems(limit) {
-            return TWITTER_HIGH_SIGNAL ? TWITTER_HIGH_SIGNAL.slice(0, limit) : [];
+            return {
+                feed: feed,
+                youtube: youtubeMerged.map(toSliderItem),
+                reports: reportsMerged.map(toSliderItem),
+                twitter: twitterMerged.map(toSliderItem),
+                isEmpty: false
+            };
         }
 
         function getYoutubeVideoIdFromUrl(url) {
@@ -1893,6 +1797,9 @@
             const url = sanitizeUrl(item.url || '');
             const source = escapeHtml(item.meta || 'News');
             const desc = item.description ? '<p class="hero-desc">' + escapeHtml(item.description) + '</p>' : '';
+            const why = item.why_it_matters ? '<p class="hero-why">' + escapeHtml(item.why_it_matters) + '</p>' : '';
+            const signal = item.signal_type ? '<span class="hero-signal-badge">' + escapeHtml(item.signal_type) + '</span>' : '';
+            const consensus = item._consensus ? '<span class="hero-consensus" title="Picked by multiple AI models"></span>' : '';
             const bk = npBookmarkBtn(url, title, item.meta);
             const titleHtml = url
                 ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
@@ -1900,8 +1807,8 @@
             return '<div class="card-hero">'
                 + catMeta(item) + bk
                 + '<h2 class="hero-title">' + titleHtml + '</h2>'
-                + desc
-                + '<div class="hero-source">' + source + '</div></div>';
+                + desc + why
+                + '<div class="hero-source">' + source + signal + consensus + '</div></div>';
         }
 
         function cardMedium(item) {
@@ -2097,36 +2004,23 @@
             });
         }
 
-        // ==================== RENDER HOME TAB (Newspaper) ====================
+        // ==================== RENDER HOME TAB (Newspaper — AI-curated) ====================
         function renderHomeTab() {
-            if (!HOME_LIMITS || !HOME_PAIR_MAX) return;
             const container = document.getElementById('home-newspaper');
             if (!container) return;
 
-            // Gather items from all data sources
-            const newsItems = getHomeNewsItems(40);
-            const telegramItems = getHomeTelegramItems(20);
-            const researchItems = getHomeResearchItems(15);
-            const youtubeItems = getHomeYoutubeItems(12);
-            const twitterItems = getHomeTwitterItems(12);
-            const papersItems = (PAPER_ARTICLES || []).slice(0, 12);
-
-            // Tag items with bucket for category dots
-            newsItems.forEach(function(it) { it._bucket = 'news'; });
-            telegramItems.forEach(function(it) { it._bucket = 'telegram'; });
-
-            // Merge news + telegram for the newspaper feed (interleave)
-            const feed = [];
-            let ni = 0, ti = 0;
-            // Pattern: 3 news, 1 telegram, repeat
-            while (feed.length < 60 && (ni < newsItems.length || ti < telegramItems.length)) {
-                for (let k = 0; k < 3 && ni < newsItems.length; k++) {
-                    feed.push(newsItems[ni++]);
-                }
-                if (ti < telegramItems.length) {
-                    feed.push(telegramItems[ti++]);
-                }
+            const result = getHomeAiItems();
+            if (result.isEmpty) {
+                container.innerHTML = '<div class="home-ai-empty">'
+                    + '<h3>AI-curated picks are being generated</h3>'
+                    + '<p>Check individual tabs for the latest content.</p></div>';
+                var homeLoading = document.getElementById('home-loading');
+                if (homeLoading) homeLoading.remove();
+                if (window.__reveal) window.__reveal();
+                return;
             }
+
+            var feed = result.feed;
 
             // Split feed across 4 pattern sections
             const s1 = feed.slice(0, 15);
@@ -2141,22 +2035,21 @@
                 breakers.push(wswClusters[i] ? buildWswBreaker(wswClusters[i]) : '');
             }
 
-            // Build the full newspaper layout
+            // Build the full newspaper layout with AI-curated sliders
             const html = [
                 renderPatternA(s1),
                 breakers[0],
-                buildYtSlider(youtubeItems),
+                buildYtSlider(result.youtube),
                 breakers[1],
                 renderPatternB(s3),
                 breakers[2],
-                buildRpSlider(researchItems),
+                buildRpSlider(result.reports),
                 breakers[3],
                 renderPatternC(s5),
                 breakers[4],
-                buildTwSlider(twitterItems),
+                buildTwSlider(result.twitter),
                 breakers[5],
-                renderPatternD(s7),
-                buildPpSlider(papersItems)
+                renderPatternD(s7)
             ].filter(Boolean).join('');
 
             container.innerHTML = html || '<div class="home-no-results">No content available yet.</div>';
@@ -2172,9 +2065,14 @@
 
         function getWswBreakers() {
             if (!wswData || !wswData.providers) return [];
-            const provider = wswData.providers[currentWswProvider];
-            if (!provider || !provider.clusters) return [];
-            return provider.clusters.slice(0, 6);
+            // Pick the provider with the most clusters for homepage breakers
+            var best = null;
+            Object.values(wswData.providers).forEach(function(p) {
+                if (!p || p.status !== 'ok' || !Array.isArray(p.clusters)) return;
+                if (!best || p.clusters.length > best.clusters.length) best = p;
+            });
+            if (!best) return [];
+            return best.clusters.slice(0, 6);
         }
 
         function filterHomeCards() {
