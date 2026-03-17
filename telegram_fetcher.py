@@ -8,6 +8,7 @@ channels via Telethon MTProto client.
 import json
 import os
 import re
+import sys
 import ssl
 import tempfile
 import urllib.request
@@ -573,6 +574,10 @@ def main():
 
     print(f"\nTotal reports: {len(all_messages)}")
     print(f"Output: {OUTPUT_FILE}")
+
+    if len(channels) > 0 and len(all_messages) == 0:
+        print("\n*** WARNING: All channels returned 0 messages — output may be stale ***", file=sys.stderr)
+
     print("=" * 50)
 
 

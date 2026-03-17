@@ -1064,7 +1064,9 @@ def main():
     logger.info(f"Total articles collected: {len(all_articles)}")
     logger.info(f"Feed results: {logger._ok}/{total_feeds} succeeded, {logger._fail} failed")
     if total_feeds > 0 and logger._fail / total_feeds > FEED_FAILURE_ALERT_THRESHOLD:
-        logger.warn("aggregator", f"High failure rate: {logger._fail}/{total_feeds} feeds failed ({logger._fail*100//total_feeds}%)")
+        msg = f"High failure rate: {logger._fail}/{total_feeds} feeds failed ({logger._fail*100//total_feeds}%)"
+        logger.warn("aggregator", msg)
+        print(f"\n*** PIPELINE WARNING: {msg} — output may be incomplete ***", file=sys.stderr)
 
     # Invidious fallback: retry failed YouTube channel_id feeds
     video_feed_ids_fetched = set(
