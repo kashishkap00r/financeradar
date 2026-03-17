@@ -190,13 +190,21 @@ def main():
 
     if args.push:
         print("\nCommitting and pushing...")
+        # Pull first to avoid diverging from GH Actions commits
+        subprocess.run(
+            ["git", "pull", "--no-rebase", "--no-edit", "origin", "main"],
+            cwd=SCRIPT_DIR,
+        )
         subprocess.run(["git", "add", CACHE_PATH], cwd=SCRIPT_DIR)
         subprocess.run(
             ["git", "commit", "-m", f"chore: update RSSHub twitter cache ({len(all_items)} items)"],
             cwd=SCRIPT_DIR,
         )
-        subprocess.run(["git", "push"], cwd=SCRIPT_DIR)
-        print("Pushed to remote.")
+        result = subprocess.run(["git", "push"], cwd=SCRIPT_DIR)
+        if result.returncode == 0:
+            print("Pushed to remote.")
+        else:
+            print("WARNING: git push failed — will retry next cycle.")
 
 
 if __name__ == "__main__":
