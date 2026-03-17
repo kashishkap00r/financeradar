@@ -870,6 +870,7 @@ def fetch_ubs(feed_config):
             "offset": 0,
             "useLanguageFallback": True,
             "includePaths": [
+                "/content/sites/global/en/investment-bank/insights-and-data/2026",
                 "/content/sites/global/en/investment-bank/insights-and-data/2025",
                 "/content/sites/global/en/investment-bank/insights-and-data/articles",
             ],
