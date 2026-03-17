@@ -1,0 +1,132 @@
+name: Fix Broken Scrapers
+
+on:
+  schedule:
+    # Run weekly on Monday at 06:00 UTC (11:30 IST)
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: fix-scrapers
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose-and-fix:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Test all scrapers and collect results
+        id: test-scrapers
+        run: |
+          python3 -c "
+          import json, sys
+          from reports_fetcher import REPORT_FETCHERS, get_report_fetcher
+
+          feeds = json.load(open('feeds.json'))
+          report_feeds = [f for f in feeds if f.get('category') == 'Reports']
+
+          broken = []
+          working = []
+          for feed in report_feeds:
+              feed_field = feed.get('feed', '')
+              fetcher = get_report_fetcher(feed_field)
+              if not fetcher:
+                  continue
+              try:
+                  results = fetcher(feed)
+                  count = len(results)
+                  if count == 0:
+                      broken.append({'id': feed['id'], 'name': feed['name'], 'url': feed.get('url', ''), 'feed': feed_field})
+                      print(f'BROKEN: {feed[\"name\"]} → 0 articles')
+                  else:
+                      working.append(feed['id'])
+                      print(f'OK: {feed[\"name\"]} → {count} articles')
+              except Exception as e:
+                  broken.append({'id': feed['id'], 'name': feed['name'], 'url': feed.get('url', ''), 'feed': feed_field, 'error': str(e)[:200]})
+                  print(f'ERROR: {feed[\"name\"]} → {e}')
+
+          print(f'\n--- Summary: {len(working)} working, {len(broken)} broken ---')
+          with open('scraper_report.json', 'w') as f:
+              json.dump({'working': len(working), 'broken': broken}, f, indent=2)
+
+          if broken:
+              print('\n::warning::Broken scrapers detected: ' + ', '.join(b['name'] for b in broken))
+          " 2>&1 | tee scraper_test_output.txt
+
+      - name: Install Claude Code
+        if: hashFiles('scraper_report.json') != ''
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Fix broken scrapers with Claude
+        if: hashFiles('scraper_report.json') != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          BROKEN_COUNT=$(python3 -c "import json; d=json.load(open('scraper_report.json')); print(len(d['broken']))")
+          if [ "$BROKEN_COUNT" = "0" ]; then
+            echo "All scrapers healthy — nothing to fix."
+            exit 0
+          fi
+
+          BROKEN_NAMES=$(python3 -c "import json; d=json.load(open('scraper_report.json')); print(', '.join(b['name'] for b in d['broken']))")
+          echo "Attempting to fix $BROKEN_COUNT broken scrapers: $BROKEN_NAMES"
+
+          claude -p "$(cat <<'PROMPT'
+          You are fixing broken report scrapers in FinanceRadar.
+
+          Read scraper_report.json to see which scrapers are broken and why.
+          Read scraper_test_output.txt for the full test output.
+
+          For each broken scraper:
+          1. Read the scraper function in reports_fetcher.py
+          2. Test the target URL with curl to check if the site is up and what HTML it returns
+          3. Compare the HTML structure against what the scraper expects (selectors, regex patterns)
+          4. Fix the scraper — common issues: changed URLs, updated CSS/HTML selectors, WAF blocks needing different headers, JSON API format changes
+          5. Test the fix by running the scraper function
+
+          If a site is completely down or behind an unsolvable WAF, note it but don't delete the scraper.
+
+          After fixing, run: python3 -m unittest discover -s tests
+          to make sure nothing else broke.
+          PROMPT
+          )" --allowedTools "Read,Edit,Bash,Grep,Glob" --max-turns 30
+
+      - name: Commit fixes if any
+        run: |
+          if [ -n "$(git status --porcelain reports_fetcher.py feeds.json config.py 2>/dev/null)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add reports_fetcher.py feeds.json config.py
+            git commit -m "fix: auto-repair broken report scrapers ($(date +%Y-%m-%d))"
+            git pull --no-rebase origin main
+            git push
+            echo "::notice::Scraper fixes committed and pushed."
+          else
+            echo "No scraper changes needed or Claude couldn't fix them."
+          fi
+
+      - name: Upload diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper-diagnostic
+          path: |
+            scraper_report.json
+            scraper_test_output.txt
+          retention-days: 14

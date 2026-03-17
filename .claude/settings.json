@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "postToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "command": "cd '/home/kashish.kapoor/vibecoding projects/financeradar' && for f in $(git diff --name-only --diff-filter=M 2>/dev/null); do case \"$f\" in *.py) python3 -m py_compile \"$f\" 2>&1 || echo \"HOOK WARNING: Python syntax error in $f\" ;; templates/app.js) node --check templates/app.js 2>&1 || echo \"HOOK WARNING: JS syntax error in templates/app.js\" ;; esac; done"
+      }
+    ]
+  }
+}
