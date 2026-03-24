@@ -3014,8 +3014,8 @@
             white-space: nowrap;
             opacity: 0.8;
         }
-        .cluster-sub-hidden {
-            display: none;
+        .cluster-sub.cluster-sub-hidden {
+            display: none !important;
         }
         .cluster-show-more {
             background: none;
