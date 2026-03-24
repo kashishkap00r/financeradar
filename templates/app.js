@@ -905,23 +905,46 @@
             var bookmarks = getBookmarks();
             if (storyBookmarks.length === 0 && bookmarks.length === 0) return;
 
-            var parts = [];
+            var lines = [];
+            var hasStories = storyBookmarks.length > 0;
+            var hasIndividual = bookmarks.length > 0;
 
-            // Story bundles first
-            storyBookmarks.forEach(function(s) {
-                var bundle = '--- ' + s.storyLabel + ' ---';
-                (s.articles || []).forEach(function(a) {
-                    bundle += '\n' + a.title + (a.angle ? ' (' + a.angle + ')' : '') + '\n' + a.url;
+            // Story bundles
+            if (hasStories) {
+                storyBookmarks.forEach(function(s, si) {
+                    lines.push('📌 ' + s.storyLabel);
+                    lines.push('');
+                    (s.articles || []).forEach(function(a, i) {
+                        var entry = '  ' + (i + 1) + '. ' + a.title;
+                        if (a.angle) entry += '  —  ' + a.angle;
+                        lines.push(entry);
+                        lines.push('     ' + a.url);
+                        lines.push('');
+                    });
+                    // Spacer between clusters (but not after the last one if individual follows)
+                    if (si < storyBookmarks.length - 1) {
+                        lines.push('');
+                    }
                 });
-                parts.push(bundle);
-            });
+            }
 
             // Individual bookmarks
-            bookmarks.forEach(function(b) {
-                parts.push(b.title + '\n' + b.url);
-            });
+            if (hasIndividual) {
+                if (hasStories) {
+                    lines.push('');
+                    lines.push('━━━━━━━━━━━━━━━━━━━━━');
+                    lines.push('');
+                }
+                lines.push('🔖 Saved Articles');
+                lines.push('');
+                bookmarks.forEach(function(b, i) {
+                    lines.push('  ' + (i + 1) + '. ' + b.title);
+                    lines.push('     ' + b.url);
+                    lines.push('');
+                });
+            }
 
-            var text = parts.join('\n\n');
+            var text = lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
             copyTextWithFallback(text, () => flashCopiedButton(document.querySelector('#bk-panel .bk-action-btn')));
         }
 
@@ -2338,7 +2361,7 @@
                 var aSource = escapeHtml(a.source || '');
                 var aType = a.source_type || 'news';
                 var aDotColor = SOURCE_TYPE_DOTS[aType] || '#6B645C';
-                var aAngle = a.angle ? '<span class="cluster-sub-angle">&middot; ' + escapeHtml(a.angle) + '</span>' : '';
+                // angle is now rendered inside cluster-sub-meta below
                 var aBk = aUrl ? '<button class="btn-bk btn-bk-sub bookmark-btn' + (isBookmarked(aUrl) ? ' bookmarked' : '') + '" type="button"'
                     + ' data-url="' + escapeForAttr(aUrl) + '"'
                     + ' data-title="' + escapeForAttr(aTitle) + '"'
@@ -2348,12 +2371,15 @@
                 var aLinkHtml = aUrl
                     ? '<a class="cluster-sub-link" href="' + escapeForAttr(aUrl) + '" target="_blank" rel="noopener">' + aTitle + '</a>'
                     : '<span class="cluster-sub-link">' + aTitle + '</span>';
+                var aAngleTag = a.angle ? '<span class="cluster-sub-angle">' + escapeHtml(a.angle) + '</span>' : '';
                 var hiddenCls = (needsCollapse && idx >= CLUSTER_VISIBLE) ? ' cluster-sub-hidden' : '';
                 return '<div class="cluster-sub' + hiddenCls + '">'
                     + '<span class="cluster-sub-dot" style="background:' + aDotColor + '"></span>'
+                    + '<div class="cluster-sub-content">'
                     + aLinkHtml
-                    + '<span class="cluster-sub-source">&mdash; ' + aSource + '</span>'
-                    + aAngle + aBk + '</div>';
+                    + '<div class="cluster-sub-meta"><span class="cluster-sub-source">' + aSource + '</span>' + aAngleTag + '</div>'
+                    + '</div>'
+                    + aBk + '</div>';
             }).join('')
             + (needsCollapse ? '<button class="cluster-show-more" type="button" onclick="toggleClusterExpand(this)">+ '
                 + (articles.length - CLUSTER_VISIBLE) + ' more sources</button>' : '')
