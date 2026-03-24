@@ -74,6 +74,9 @@ AI_RANKER_MAX_ARTICLES = 200          # max articles sent to AI
 AI_RANKER_TARGET_COUNT = 25           # ranked stories shown in AI sidebar
 AI_RANKER_OPENROUTER_TIMEOUT = 60     # seconds
 AI_RANKER_GEMINI_TIMEOUT = 120        # seconds
+AI_RANKER_MAX_CLUSTERS = 7            # max story clusters per ranking run
+AI_RANKER_MIN_CLUSTER_SIZE = 2        # minimum articles to form a cluster
+AI_RANKER_CLUSTER_TIMEOUT = 60        # seconds for clustering API call
 WSW_LOOKBACK_DAYS = 7                 # WSW 7-day rolling window
 WSW_API_TIMEOUT = 90                  # seconds
 

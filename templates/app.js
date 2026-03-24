@@ -722,7 +722,10 @@
         }
 
         function updateBookmarkCount() {
-            const count = getBookmarks().length;
+            var storyArticleCount = getStoryBookmarks().reduce(function(sum, s) {
+                return sum + (s.articles ? s.articles.length : 0);
+            }, 0);
+            const count = getBookmarks().length + storyArticleCount;
             var badge = document.getElementById('bk-count');
             if (badge) badge.textContent = count;
         }
@@ -789,16 +792,40 @@
         function renderSidebarContent() {
             var container = document.getElementById('bk-list');
             if (!container) return;
+            var storyBookmarks = getStoryBookmarks();
             var bookmarks = getBookmarks();
 
-            if (bookmarks.length === 0) {
+            if (storyBookmarks.length === 0 && bookmarks.length === 0) {
                 container.innerHTML = '<p class="bk-empty">No bookmarks yet. Click the bookmark icon on any article to save it.</p>';
                 return;
             }
 
-            container.innerHTML = bookmarks.map(function(b) {
-                return '<div class="bk-saved-item"><div><a href="' + escapeHtml(b.url) + '" target="_blank" rel="noopener">' + escapeHtml(b.title) + '</a><span class="bk-saved-src">' + escapeHtml(b.source) + '</span></div><button class="bk-remove" onclick="removeBookmark(\'' + escapeForAttr(b.url) + '\')" title="Remove">&times;</button></div>';
-            }).join('');
+            var html = '';
+
+            // Story bookmarks (bundles) first
+            if (storyBookmarks.length > 0) {
+                html += storyBookmarks.map(function(s) {
+                    var articleItems = (s.articles || []).map(function(a) {
+                        var dotColor = BUCKET_COLORS[a.source_type] || '#6B645C';
+                        return '<div class="bk-story-sub"><span class="cat-dot" style="background:' + dotColor + '"></span>'
+                            + '<a href="' + escapeHtml(a.url) + '" target="_blank" rel="noopener">' + escapeHtml(a.title) + '</a>'
+                            + '<span class="bk-saved-src">' + escapeHtml(a.source) + '</span></div>';
+                    }).join('');
+                    return '<div class="bk-story-bundle">'
+                        + '<div class="bk-story-header"><span class="bk-story-label">' + escapeHtml(s.storyLabel) + '</span>'
+                        + '<button class="bk-remove" onclick="removeStoryBookmark(\'' + escapeForAttr(s.storyId) + '\')" title="Remove">&times;</button></div>'
+                        + articleItems + '</div>';
+                }).join('');
+            }
+
+            // Individual bookmarks
+            if (bookmarks.length > 0) {
+                html += bookmarks.map(function(b) {
+                    return '<div class="bk-saved-item"><div><a href="' + escapeHtml(b.url) + '" target="_blank" rel="noopener">' + escapeHtml(b.title) + '</a><span class="bk-saved-src">' + escapeHtml(b.source) + '</span></div><button class="bk-remove" onclick="removeBookmark(\'' + escapeForAttr(b.url) + '\')" title="Remove">&times;</button></div>';
+                }).join('');
+            }
+
+            container.innerHTML = html;
         }
 
         function escapeHtml(text) {
@@ -865,24 +892,103 @@
             renderSidebarContent();
         }
 
-        function copyBookmarks() {
-            const bookmarks = getBookmarks();
-            if (bookmarks.length === 0) {
-                return;
-            }
+        function removeStoryBookmark(storyId) {
+            var storyBookmarks = getStoryBookmarks().filter(function(s) { return s.storyId !== storyId; });
+            saveStoryBookmarks(storyBookmarks);
+            updateBookmarkCount();
+            syncStoryBookmarkState();
+            renderSidebarContent();
+        }
 
-            const text = bookmarks.map(b => b.title + '\n' + b.url).join('\n\n');
+        function copyBookmarks() {
+            var storyBookmarks = getStoryBookmarks();
+            var bookmarks = getBookmarks();
+            if (storyBookmarks.length === 0 && bookmarks.length === 0) return;
+
+            var parts = [];
+
+            // Story bundles first
+            storyBookmarks.forEach(function(s) {
+                var bundle = '--- ' + s.storyLabel + ' ---';
+                (s.articles || []).forEach(function(a) {
+                    bundle += '\n' + a.title + (a.angle ? ' (' + a.angle + ')' : '') + '\n' + a.url;
+                });
+                parts.push(bundle);
+            });
+
+            // Individual bookmarks
+            bookmarks.forEach(function(b) {
+                parts.push(b.title + '\n' + b.url);
+            });
+
+            var text = parts.join('\n\n');
             copyTextWithFallback(text, () => flashCopiedButton(document.querySelector('#bk-panel .bk-action-btn')));
         }
 
         function clearAllBookmarks() {
             if (!confirm('Are you sure you want to clear all bookmarks?')) return;
             saveBookmarks([]);
+            saveStoryBookmarks([]);
             document.querySelectorAll('.bookmark-btn.bookmarked').forEach(btn => {
                 btn.classList.remove('bookmarked');
             });
             updateBookmarkCount();
             renderSidebarContent();
+        }
+
+        // ==================== STORY BOOKMARKS ====================
+        function getStoryBookmarks() {
+            try {
+                var data = localStorage.getItem(STORY_BOOKMARKS_KEY);
+                var parsed = data ? JSON.parse(data) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (e) { return []; }
+        }
+
+        function saveStoryBookmarks(bookmarks) {
+            try { localStorage.setItem(STORY_BOOKMARKS_KEY, JSON.stringify(bookmarks)); } catch (e) { /* no-op */ }
+        }
+
+        function isStoryBookmarked(storyId) {
+            if (!storyId) return false;
+            return getStoryBookmarks().some(function(s) { return s.storyId === storyId; });
+        }
+
+        function toggleStoryBookmark(btn) {
+            var storyId = btn.dataset.storyId;
+            if (!storyId) return;
+
+            var storyBookmarks = getStoryBookmarks();
+            var idx = storyBookmarks.findIndex(function(s) { return s.storyId === storyId; });
+
+            if (idx >= 0) {
+                storyBookmarks.splice(idx, 1);
+                btn.classList.remove('bookmarked');
+            } else {
+                var clusters = getMergedClusters();
+                var cluster = clusters.find(function(c) { return c.story_id === storyId; });
+                if (!cluster) return;
+
+                storyBookmarks.unshift({
+                    storyId: storyId,
+                    storyLabel: cluster.story_label || '',
+                    articles: getClusterArticles(cluster),
+                    addedAt: Date.now()
+                });
+                btn.classList.add('bookmarked');
+            }
+
+            saveStoryBookmarks(storyBookmarks);
+            updateBookmarkCount();
+            renderSidebarContent();
+        }
+
+        function syncStoryBookmarkState() {
+            var bookmarks = getStoryBookmarks();
+            var ids = new Set(bookmarks.map(function(s) { return s.storyId; }));
+            document.querySelectorAll('.btn-bk-story[data-story-id]').forEach(function(btn) {
+                btn.classList.toggle('bookmarked', ids.has(btn.dataset.storyId));
+            });
         }
 
         // Bookmark panel toggle
@@ -1044,6 +1150,109 @@
 
             all.sort(function(a, b) { return a._mergedRank - b._mergedRank; });
             return all;
+        }
+
+        // ==================== CLUSTER MERGE (cross-provider) ====================
+        var STORY_BOOKMARKS_KEY = 'financeradar_story_bookmarks';
+
+        function getMergedClusters() {
+            if (!aiRankings || !aiRankings.providers) return [];
+            var providerClusters = [];
+            Object.values(aiRankings.providers).forEach(function(p) {
+                if (!p || typeof p !== 'object') return;
+                var status = p.status || 'ok';
+                if (status !== 'ok' && status !== 'partial') return;
+                if (Array.isArray(p.clusters) && p.clusters.length > 0) {
+                    providerClusters.push(p.clusters);
+                }
+            });
+            if (!providerClusters.length) return [];
+
+            // If only one provider has clusters, return them directly
+            if (providerClusters.length === 1) {
+                return providerClusters[0].map(function(c) {
+                    c._consensus = false;
+                    return c;
+                });
+            }
+
+            // Merge clusters across providers by ANY shared URL (not just lead)
+            var merged = [];
+
+            function getClusterUrls(cluster) {
+                var urls = new Set();
+                if (cluster.lead && cluster.lead.url) urls.add(String(cluster.lead.url).toLowerCase().trim());
+                (cluster.related || []).forEach(function(r) {
+                    if (r.url) urls.add(String(r.url).toLowerCase().trim());
+                });
+                return urls;
+            }
+
+            function findOverlapping(urls) {
+                for (var i = 0; i < merged.length; i++) {
+                    var existingUrls = getClusterUrls(merged[i]);
+                    var overlap = false;
+                    urls.forEach(function(u) { if (existingUrls.has(u)) overlap = true; });
+                    if (overlap) return i;
+                }
+                return -1;
+            }
+
+            providerClusters.forEach(function(clusters) {
+                clusters.forEach(function(cluster) {
+                    if (!cluster || !cluster.lead) return;
+                    var clusterUrls = getClusterUrls(cluster);
+                    if (!clusterUrls.size) return;
+                    var idx = findOverlapping(clusterUrls);
+
+                    if (idx >= 0) {
+                        // Merge into existing: add new articles, dedup by URL
+                        var existing = merged[idx];
+                        existing._providerCount++;
+                        var seenUrls = getClusterUrls(existing);
+                        // Add lead as related if it's a different article
+                        var leadUrl = String(cluster.lead.url || '').toLowerCase().trim();
+                        if (leadUrl && !seenUrls.has(leadUrl)) {
+                            existing.related.push(cluster.lead);
+                            seenUrls.add(leadUrl);
+                        }
+                        (cluster.related || []).forEach(function(r) {
+                            var rUrl = String(r.url || '').toLowerCase().trim();
+                            if (rUrl && !seenUrls.has(rUrl)) {
+                                seenUrls.add(rUrl);
+                                existing.related.push(r);
+                            }
+                        });
+                    } else {
+                        merged.push({
+                            story_id: cluster.story_id || '',
+                            story_label: cluster.story_label || '',
+                            lead: cluster.lead,
+                            related: (cluster.related || []).slice(),
+                            _providerCount: 1
+                        });
+                    }
+                });
+            });
+
+            // Sort: consensus (2+ providers) first
+            merged.forEach(function(c) { c._consensus = c._providerCount >= 2; });
+            merged.sort(function(a, b) {
+                if (a._consensus !== b._consensus) return a._consensus ? -1 : 1;
+                return 0;
+            });
+            return merged;
+        }
+
+        function getClusteredUrls(clusters) {
+            var urls = new Set();
+            clusters.forEach(function(c) {
+                if (c.lead && c.lead.url) urls.add(String(c.lead.url).toLowerCase().trim());
+                (c.related || []).forEach(function(r) {
+                    if (r.url) urls.add(String(r.url).toLowerCase().trim());
+                });
+            });
+            return urls;
         }
 
         function hasAiRankingsBootstrap() {
@@ -1692,7 +1901,12 @@
         // (Old bento-grid home builders removed — replaced by newspaper layout)
 
         function getHomeAiItems() {
-            if (!aiRankings || !aiRankings.providers) return { feed: [], youtube: [], reports: [], twitter: [], isEmpty: true };
+            if (!aiRankings || !aiRankings.providers) return { clusters: [], feed: [], youtube: [], reports: [], twitter: [], isEmpty: true };
+
+            // Get clusters first, then exclude clustered URLs from feeds
+            var clusters = getMergedClusters();
+            var clusteredUrls = getClusteredUrls(clusters);
+
             var newsMerged = getMergedAiRankings('news');
             var telegramMerged = getMergedAiRankings('telegram');
             var reportsMerged = getMergedAiRankings('reports');
@@ -1700,9 +1914,20 @@
             var youtubeMerged = getMergedAiRankings('youtube');
 
             if (!newsMerged.length && !telegramMerged.length && !reportsMerged.length
-                && !twitterMerged.length && !youtubeMerged.length) {
-                return { feed: [], youtube: [], reports: [], twitter: [], isEmpty: true };
+                && !twitterMerged.length && !youtubeMerged.length && !clusters.length) {
+                return { clusters: [], feed: [], youtube: [], reports: [], twitter: [], isEmpty: true };
             }
+
+            // Filter out clustered items from all buckets
+            function notClustered(item) {
+                var url = String(item.url || '').toLowerCase().trim();
+                return !url || !clusteredUrls.has(url);
+            }
+            newsMerged = newsMerged.filter(notClustered);
+            telegramMerged = telegramMerged.filter(notClustered);
+            reportsMerged = reportsMerged.filter(notClustered);
+            twitterMerged = twitterMerged.filter(notClustered);
+            youtubeMerged = youtubeMerged.filter(notClustered);
 
             // Convert merged AI items to homepage card format
             function toCard(item, bucket) {
@@ -1750,6 +1975,7 @@
             }
 
             return {
+                clusters: clusters,
                 feed: feed,
                 youtube: youtubeMerged.map(toSliderItem),
                 reports: reportsMerged.map(toSliderItem),
@@ -2004,6 +2230,95 @@
             });
         }
 
+        // ==================== CLUSTER RENDERING ====================
+        var SOURCE_TYPE_DOTS = {
+            news: '#4A8F7A', telegram: '#5E6A96', reports: '#9A8345',
+            twitter: '#4A8A9A', youtube: '#A86565'
+        };
+
+        function getClusterArticles(cluster) {
+            // Flatten lead + related into one list of articles
+            var articles = [];
+            if (cluster.lead) {
+                articles.push({
+                    title: cluster.lead.title || '',
+                    url: cluster.lead.url || '',
+                    source: cluster.lead.source || '',
+                    source_type: cluster.lead.source_type || 'news',
+                    angle: cluster.lead.angle || ''
+                });
+            }
+            (cluster.related || []).forEach(function(r) {
+                articles.push({
+                    title: r.title || '',
+                    url: r.url || '',
+                    source: r.source || '',
+                    source_type: r.source_type || 'news',
+                    angle: r.angle || ''
+                });
+            });
+            return articles;
+        }
+
+        function renderClusterCard(cluster) {
+            if (!cluster) return '';
+            var storyId = escapeForAttr(cluster.story_id || '');
+            var storyLabel = escapeHtml(cluster.story_label || '');
+            var articles = getClusterArticles(cluster);
+            if (!articles.length) return '';
+
+            // Master bookmark — "save story" label on hover
+            var storyBkCls = 'btn-bk-story bookmark-btn' + (isStoryBookmarked(cluster.story_id) ? ' bookmarked' : '');
+            var storyBk = '<span class="cluster-bk">'
+                + '<span class="cluster-bk-label">save story</span>'
+                + '<button class="' + storyBkCls + '" type="button"'
+                + ' data-story-id="' + storyId + '"'
+                + ' onclick="toggleStoryBookmark(this)" aria-label="Save all stories"'
+                + ' title="Bookmark all stories">'
+                + BOOKMARK_SVG + '</button></span>';
+
+            // Cluster title (AI-generated)
+            var headerHtml = '<h2 class="cluster-title">' + storyLabel + '</h2>';
+
+            // All articles — newspaper sub-item style
+            var articlesHtml = '<div class="cluster-articles">' + articles.map(function(a) {
+                var aTitle = escapeHtml(cleanHomeTitle(a.title));
+                var aUrl = sanitizeUrl(a.url || '');
+                var aSource = escapeHtml(a.source || '');
+                var aType = a.source_type || 'news';
+                var aDotColor = SOURCE_TYPE_DOTS[aType] || '#6B645C';
+                var aAngle = a.angle ? '<span class="cluster-sub-angle">&middot; ' + escapeHtml(a.angle) + '</span>' : '';
+                var aBk = aUrl ? '<button class="btn-bk btn-bk-sub bookmark-btn' + (isBookmarked(aUrl) ? ' bookmarked' : '') + '" type="button"'
+                    + ' data-url="' + escapeForAttr(aUrl) + '"'
+                    + ' data-title="' + escapeForAttr(aTitle) + '"'
+                    + ' data-source="' + escapeForAttr(a.source || 'Home') + '"'
+                    + ' onclick="toggleGenericBookmark(this)" aria-label="Bookmark">'
+                    + BOOKMARK_SVG + '</button>' : '';
+                var aLinkHtml = aUrl
+                    ? '<a class="cluster-sub-link" href="' + escapeForAttr(aUrl) + '" target="_blank" rel="noopener">' + aTitle + '</a>'
+                    : '<span class="cluster-sub-link">' + aTitle + '</span>';
+                return '<div class="cluster-sub">'
+                    + '<span class="cluster-sub-dot" style="background:' + aDotColor + '"></span>'
+                    + aLinkHtml
+                    + '<span class="cluster-sub-source">&mdash; ' + aSource + '</span>'
+                    + aAngle + aBk + '</div>';
+            }).join('') + '</div>';
+
+            return '<div class="cluster-card">' + storyBk + headerHtml + articlesHtml + '</div>';
+        }
+
+        function renderBigStories(clusters) {
+            if (!clusters || !clusters.length) return '';
+            return '<div class="section-divider"><span class="section-label">The Big Stories</span><span class="section-rule"></span></div>'
+                + '<section class="big-stories-section">'
+                + clusters.map(renderClusterCard).join('')
+                + '</section>';
+        }
+
+        function renderSectionLabel(text) {
+            return '<div class="section-divider"><span class="section-label">' + escapeHtml(text) + '</span><span class="section-rule"></span></div>';
+        }
+
         // ==================== RENDER HOME TAB (Newspaper — AI-curated) ====================
         function renderHomeTab() {
             const container = document.getElementById('home-newspaper');
@@ -2021,6 +2336,7 @@
             }
 
             var feed = result.feed;
+            var clusters = result.clusters || [];
 
             // Split feed across 4 pattern sections
             const s1 = feed.slice(0, 15);
@@ -2036,7 +2352,15 @@
             }
 
             // Build the full newspaper layout with AI-curated sliders
-            const html = [
+            const parts = [];
+
+            // Insert cluster section at the top if clusters exist
+            if (clusters.length > 0) {
+                parts.push(renderBigStories(clusters));
+                parts.push(renderSectionLabel('From The Feed'));
+            }
+
+            parts.push(
                 renderPatternA(s1),
                 breakers[0],
                 buildYtSlider(result.youtube),
@@ -2050,7 +2374,8 @@
                 buildTwSlider(result.twitter),
                 breakers[5],
                 renderPatternD(s7)
-            ].filter(Boolean).join('');
+            );
+            const html = parts.filter(Boolean).join('');
 
             container.innerHTML = html || '<div class="home-no-results">No content available yet.</div>';
             var homeLoading = document.getElementById('home-loading');
@@ -2082,7 +2407,7 @@
             if (!container) return;
 
             if (!query) {
-                container.querySelectorAll('.feed-section, .slider-section, .wsw-breaker').forEach(el => {
+                container.querySelectorAll('.feed-section, .slider-section, .wsw-breaker, .big-stories-section, .section-divider').forEach(el => {
                     el.classList.remove('hidden');
                 });
                 if (empty) empty.classList.add('hidden');
@@ -2090,10 +2415,19 @@
             }
 
             let visible = 0;
-            container.querySelectorAll('.feed-section, .slider-section, .wsw-breaker').forEach(el => {
+            container.querySelectorAll('.feed-section, .slider-section, .wsw-breaker, .big-stories-section').forEach(el => {
                 const match = el.textContent.toLowerCase().includes(query);
                 el.classList.toggle('hidden', !match);
                 if (match) visible++;
+            });
+            // Hide section labels when their section is hidden
+            container.querySelectorAll('.section-divider').forEach(el => {
+                const next = el.nextElementSibling;
+                if (next && next.classList.contains('hidden')) {
+                    el.classList.add('hidden');
+                } else {
+                    el.classList.remove('hidden');
+                }
             });
             if (empty) empty.classList.toggle('hidden', visible > 0);
         }

@@ -26,6 +26,8 @@ from config import (
     AI_RANKER_TARGET_COUNT,
     AI_RANKER_OPENROUTER_TIMEOUT,
     AI_RANKER_GEMINI_TIMEOUT,
+    AI_RANKER_MAX_CLUSTERS,
+    AI_RANKER_CLUSTER_TIMEOUT,
     SSL_CONTEXT,
 )
 
@@ -640,6 +642,187 @@ def call_provider(model_config, prompt):
     return call_openrouter(prompt, model_config["id"])
 
 
+def build_clustering_prompt(items, max_clusters=AI_RANKER_MAX_CLUSTERS):
+    """Build the LLM prompt for cross-bucket story clustering.
+
+    For large item lists (>50), uses titles-only mode to save tokens.
+    For smaller lists, includes why_it_matters context when available.
+    """
+    titles_only = len(items) > 50
+    lines = []
+    for i, item in enumerate(items):
+        headline = sanitize_headline(item.get("title", ""))
+        src = item.get("source", "")
+        stype = item.get("source_type", "news").upper()
+        line = f"{i+1}. {headline} [{src} | {stype}]"
+        if not titles_only:
+            wim = (item.get("why_it_matters") or "").strip()
+            if wim:
+                line += f" — {wim[:120]}"
+        lines.append(line)
+    numbered = "\n".join(lines)
+    return f"""You are the editor of an Indian finance newsletter. You've already ranked these articles.
+
+Now identify CLUSTERS: groups of 2+ articles covering the SAME underlying story or event, regardless of source type (news, Telegram reports, YouTube videos, tweets, research reports).
+
+CLUSTERING RULES:
+- Only cluster if articles cover the SAME specific event or development — not merely the same broad sector or topic.
+  - YES: Three articles about RBI's March 2026 rate cut → same event
+  - NO: Two unrelated banking articles (HDFC results + SBI NPA) → same sector, different stories
+- Each article in a cluster must contribute genuinely different information, analysis, or format. If an article just restates what another already says, don't include it.
+- Cross-type clusters are valuable: a YouTube explainer + a Telegram research note + a news report on the same event is a great cluster.
+- Minimum 2, maximum {max_clusters} clusters. Prefer fewer, tighter clusters over many loose ones. If no natural clusters exist, return empty array.
+
+STORY LABEL — this is the editorial headline readers see. Make it:
+- Sharp, specific, and informative — a reader should understand the story from the label alone
+- Written like a newsletter section title, not a generic news headline
+- BAD: "West Asia Conflict Triggers Massive Surge in Indian Oil Costs" (vague, wordy)
+- GOOD: "Hormuz Blockade Chokes India's Oil & LPG Supply Lines" (specific, punchy)
+- BAD: "India Struggles with Widening Jobs Gap for Educated Youth" (generic)
+- GOOD: "Graduate Unemployment Hits Record Despite India's GDP Growth" (tells you the tension)
+
+ANGLE — this is a 3-6 word tag shown next to each article. It must tell the reader what THIS article adds that others in the cluster don't.
+- BAD angles: "news report on topic", "analysis of sector", "overview of situation" (these say nothing)
+- GOOD angles: "1.7M tonnes stranded", "Iraq's Turkey workaround", "50-60% price forecast", "CRISIL curtailment data"
+- The angle should make a reader think "oh, I should read this one too" — it's a reason to click, not a category label.
+
+## Items
+{numbered}
+
+OUTPUT: Valid JSON array only. No markdown, no commentary.
+Each object:
+- story_id: string (kebab-case, 3-5 words)
+- story_label: string (max 10 words, sharp editorial headline)
+- articles: array of objects (2+ items), each with:
+  - index: integer (1-based index from Items list)
+  - angle: string (what THIS article uniquely adds, 3-6 words)"""
+
+
+def resolve_cluster_indices(raw_clusters, items):
+    """Resolve 1-based indices from LLM output to actual article data.
+
+    Supports two formats:
+    - New: flat "articles" array with index + angle for every item
+    - Legacy: "lead_index" + "related" array
+
+    Returns list of fully resolved clusters, silently dropping any cluster
+    with invalid index references or fewer than 2 total articles.
+    """
+    resolved = []
+    for cluster in raw_clusters:
+        if not isinstance(cluster, dict):
+            continue
+
+        # Collect raw article references (support both formats)
+        raw_articles = cluster.get("articles", [])
+        if not isinstance(raw_articles, list) or not raw_articles:
+            # Legacy format: lead_index + related
+            lead_idx = cluster.get("lead_index")
+            if not isinstance(lead_idx, int) or lead_idx < 1 or lead_idx > len(items):
+                continue
+            raw_articles = [{"index": lead_idx, "angle": ""}]
+            for rel in (cluster.get("related") or []):
+                if isinstance(rel, dict):
+                    raw_articles.append(rel)
+
+        # Resolve all articles
+        articles = []
+        seen_urls = set()
+        for entry in raw_articles:
+            if not isinstance(entry, dict):
+                continue
+            idx = entry.get("index")
+            if not isinstance(idx, int) or idx < 1 or idx > len(items):
+                continue
+            art_item = items[idx - 1]
+            art_url = (art_item.get("url") or "").lower()
+            if art_url and art_url in seen_urls:
+                continue
+            seen_urls.add(art_url)
+            articles.append({
+                "title": art_item.get("title", ""),
+                "url": art_item.get("url", ""),
+                "source": art_item.get("source", ""),
+                "source_type": normalize_source_type(art_item.get("source_type", "")),
+                "angle": str(entry.get("angle", ""))[:60],
+            })
+
+        if len(articles) < 2:
+            continue
+
+        # For backward compatibility, first article is "lead", rest are "related"
+        lead = dict(articles[0])
+        lead["why_it_matters"] = items[0].get("why_it_matters", "") if articles else ""
+        lead["signal_type"] = items[0].get("signal_type", "") if articles else ""
+
+        resolved.append({
+            "story_id": str(cluster.get("story_id", ""))[:50],
+            "story_label": str(cluster.get("story_label", ""))[:100],
+            "lead": lead,
+            "related": articles[1:],
+        })
+    return resolved
+
+
+def enrich_clusters_from_rankings(clusters, ranked_buckets):
+    """Attach why_it_matters and signal_type from ranked items to cluster articles.
+
+    Cluster articles come from the full candidate pool and may lack ranking
+    metadata.  This matches by URL against ranked items to fill in the gaps.
+    """
+    # Build URL → ranked-item lookup across all buckets
+    ranked_by_url = {}
+    for items in ranked_buckets.values():
+        for item in items:
+            url = (item.get("url") or "").lower().strip()
+            if url:
+                ranked_by_url[url] = item
+
+    for cluster in clusters:
+        for art in [cluster.get("lead", {})] + cluster.get("related", []):
+            url = (art.get("url") or "").lower().strip()
+            ranked = ranked_by_url.get(url)
+            if ranked:
+                if not art.get("why_it_matters"):
+                    art["why_it_matters"] = ranked.get("why_it_matters", "")
+                if not art.get("signal_type"):
+                    art["signal_type"] = ranked.get("signal_type", "")
+    return clusters
+
+
+def cluster_ranked_items(all_items, model_config, max_clusters=AI_RANKER_MAX_CLUSTERS):
+    """Post-ranking step: cluster items across all buckets by underlying story.
+
+    Accepts the full candidate pool (titles-only mode for large sets).
+    Returns list of resolved cluster dicts. On any failure, returns empty list
+    so that per-bucket rankings are unaffected.
+    """
+    if not all_items or len(all_items) < 2:
+        return []
+
+    prompt = build_clustering_prompt(all_items, max_clusters=max_clusters)
+
+    try:
+        if model_config.get("provider") == "gemini":
+            raw = call_gemini(prompt, model_config["id"])
+        else:
+            raw = call_openrouter(prompt, model_config["id"])
+
+        if isinstance(raw, dict):
+            raw = raw.get("clusters", raw.get("items", []))
+        if not isinstance(raw, list):
+            print("    [WARN] Clustering returned non-list, skipping")
+            return []
+
+        clusters = resolve_cluster_indices(raw, all_items)
+        return clusters[:max_clusters]
+
+    except Exception as err:
+        safe_err = sanitize_error(str(err))
+        print(f"  [WARN] Clustering failed ({safe_err}), continuing without clusters")
+        return []
+
+
 def main():
     print("=" * 50)
     print("AI News Ranker")
@@ -708,6 +891,20 @@ def main():
             time.sleep(1)
 
         if provider_buckets:
+            # Cross-bucket clustering: run on ALL candidates for wider pattern detection
+            all_candidates = []
+            for bucket in BUCKET_ORDER:
+                all_candidates.extend(candidates_by_bucket.get(bucket, []))
+
+            clusters = cluster_ranked_items(all_candidates, model_config, max_clusters=7)
+            # Enrich cluster articles with metadata from ranked items
+            clusters = enrich_clusters_from_rankings(clusters, provider_buckets)
+            n_items = sum(1 + len(c.get("related", [])) for c in clusters)
+            if clusters:
+                print(f"  [OK] clusters: {len(clusters)} stories ({n_items} articles from {len(all_candidates)} candidates)")
+            else:
+                print(f"  [OK] clusters: none found")
+
             status = "ok" if len(provider_buckets) == len(available_buckets) else "partial"
             payload = {
                 "name": model_name,
@@ -716,6 +913,7 @@ def main():
                 "available_buckets": [b for b in BUCKET_ORDER if b in provider_buckets],
                 "bucket_counts": {b: len(provider_buckets.get(b, [])) for b in BUCKET_ORDER},
                 "buckets": provider_buckets,
+                "clusters": clusters,
             }
             # Backward compatibility for older frontend versions.
             if provider_buckets.get("news"):

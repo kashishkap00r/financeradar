@@ -17,6 +17,8 @@ from ai_ranker import (
     enforce_source_coverage_and_size,
     enforce_bucket_size,
     call_gemini,
+    resolve_cluster_indices,
+    cluster_ranked_items,
 )
 
 
@@ -213,6 +215,108 @@ class TestGeminiGuards(unittest.TestCase):
         ):
             with self.assertRaises(ValueError):
                 call_gemini("test prompt", "gemini-3-flash-preview")
+
+
+class TestClusterResolution(unittest.TestCase):
+    """Tests for cross-bucket story clustering."""
+
+    def _make_items(self):
+        return [
+            {"title": "Iran strikes push crude past $95", "url": "https://et.com/1", "source": "ET", "source_type": "news", "why_it_matters": "Oil shock", "signal_type": "supply-chain"},
+            {"title": "Shipping costs triple on Hormuz", "url": "https://ft.com/1", "source": "FT", "source_type": "news"},
+            {"title": "CLSA: India crude exposure", "url": "https://t.me/1", "source": "CLSA", "source_type": "telegram"},
+            {"title": "RBI holds rates steady", "url": "https://rbi.com/1", "source": "Mint", "source_type": "news"},
+            {"title": "The Real Cost of Hormuz", "url": "https://yt.com/1", "source": "Rachana", "source_type": "youtube"},
+        ]
+
+    def test_valid_cluster_resolved(self):
+        items = self._make_items()
+        raw = [{
+            "story_id": "iran-oil-tensions",
+            "story_label": "Iran-Oil Tensions Roil Indian Energy",
+            "lead_index": 1,
+            "related": [
+                {"index": 2, "angle": "insurance impact"},
+                {"index": 3, "angle": "institutional analysis"},
+                {"index": 5, "angle": "explainer video"},
+            ]
+        }]
+        clusters = resolve_cluster_indices(raw, items)
+        self.assertEqual(len(clusters), 1)
+        c = clusters[0]
+        self.assertEqual(c["story_id"], "iran-oil-tensions")
+        self.assertEqual(c["lead"]["source"], "ET")
+        self.assertEqual(c["lead"]["source_type"], "news")
+        self.assertEqual(len(c["related"]), 3)
+        source_types = {r["source_type"] for r in c["related"]}
+        self.assertEqual(source_types, {"news", "telegram", "youtube"})
+
+    def test_out_of_range_index_drops_cluster(self):
+        items = self._make_items()
+        raw = [{"story_id": "bad", "story_label": "Bad", "lead_index": 99, "related": [{"index": 1, "angle": "x"}]}]
+        clusters = resolve_cluster_indices(raw, items)
+        self.assertEqual(len(clusters), 0)
+
+    def test_invalid_related_index_skipped(self):
+        items = self._make_items()
+        raw = [{
+            "story_id": "partial",
+            "story_label": "Partial",
+            "lead_index": 1,
+            "related": [
+                {"index": 2, "angle": "ok"},
+                {"index": 999, "angle": "bad"},
+            ]
+        }]
+        clusters = resolve_cluster_indices(raw, items)
+        self.assertEqual(len(clusters), 1)
+        self.assertEqual(len(clusters[0]["related"]), 1)
+
+    def test_self_referencing_related_skipped(self):
+        items = self._make_items()
+        raw = [{
+            "story_id": "self-ref",
+            "story_label": "Self Ref",
+            "lead_index": 1,
+            "related": [
+                {"index": 1, "angle": "self"},
+                {"index": 2, "angle": "ok"},
+            ]
+        }]
+        clusters = resolve_cluster_indices(raw, items)
+        self.assertEqual(len(clusters), 1)
+        self.assertEqual(len(clusters[0]["related"]), 1)
+
+    def test_empty_raw_returns_empty(self):
+        items = self._make_items()
+        self.assertEqual(resolve_cluster_indices([], items), [])
+
+    def test_malformed_cluster_skipped(self):
+        items = self._make_items()
+        raw = ["not a dict", None, 42]
+        self.assertEqual(resolve_cluster_indices(raw, items), [])
+
+    def test_single_related_item_is_valid(self):
+        """A cluster with lead + 1 related (2 total) is valid."""
+        items = self._make_items()
+        raw = [{"story_id": "min", "story_label": "Min", "lead_index": 4, "related": [{"index": 1, "angle": "related"}]}]
+        clusters = resolve_cluster_indices(raw, items)
+        self.assertEqual(len(clusters), 1)
+
+    def test_cluster_ranked_items_returns_empty_on_failure(self):
+        """cluster_ranked_items returns [] if API call fails."""
+        items = self._make_items()
+        model_config = {"id": "test-model", "provider": "gemini"}
+        with patch("ai_ranker.GEMINI_API_KEY", "test-key"), patch(
+            "ai_ranker.call_gemini", side_effect=Exception("API down")
+        ):
+            result = cluster_ranked_items(items, model_config)
+        self.assertEqual(result, [])
+
+    def test_cluster_ranked_items_returns_empty_for_tiny_input(self):
+        """Fewer than 2 items → no clustering attempted."""
+        result = cluster_ranked_items([{"title": "Solo"}], {"id": "x", "provider": "gemini"})
+        self.assertEqual(result, [])
 
 
 if __name__ == "__main__":

@@ -190,11 +190,23 @@ def main():
 
     if args.push:
         print("\nCommitting and pushing...")
-        # Pull first to avoid diverging from GH Actions commits
+        # Stash any local dev changes so pull doesn't fail on dirty tree
+        stash_result = subprocess.run(
+            ["git", "stash", "--include-untracked", "-m", "rsshub-fetch auto-stash"],
+            cwd=SCRIPT_DIR, capture_output=True, text=True,
+        )
+        stashed = "No local changes" not in stash_result.stdout
+
+        # Pull to stay in sync with GH Actions commits
         subprocess.run(
             ["git", "pull", "--no-rebase", "--no-edit", "origin", "main"],
             cwd=SCRIPT_DIR,
         )
+
+        # Pop stash before committing (so cache file is on top of latest remote)
+        if stashed:
+            subprocess.run(["git", "stash", "pop"], cwd=SCRIPT_DIR)
+
         subprocess.run(["git", "add", CACHE_PATH], cwd=SCRIPT_DIR)
         subprocess.run(
             ["git", "commit", "-m", f"chore: update RSSHub twitter cache ({len(all_items)} items)"],

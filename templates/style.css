@@ -2882,3 +2882,212 @@
                 right: 2px;
             }
         }
+
+        /* ═══ Story Clusters ═══ */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.75rem 0 1rem;
+        }
+        .section-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+        .section-rule {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .big-stories-section {
+            margin-bottom: 0;
+        }
+
+        .cluster-card {
+            padding: 1.75rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .cluster-card:first-child {
+            padding-top: 0.5rem;
+        }
+        .cluster-card:last-child {
+            border-bottom: none;
+        }
+
+        .cluster-title {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(1.15rem, 2vw, 1.4rem);
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 0.85rem;
+            padding-right: 2.5rem;
+        }
+
+        /* Master bookmark — top-right, "save story" on hover */
+        .cluster-bk {
+            position: absolute;
+            top: 1.75rem;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .cluster-card:first-child .cluster-bk {
+            top: 0.5rem;
+        }
+        .cluster-bk-label {
+            font-size: 0.58rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .cluster-card:hover .cluster-bk-label {
+            opacity: 1;
+        }
+
+        /* Articles list */
+        .cluster-articles {
+            padding-left: 0;
+        }
+        .cluster-sub {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.35rem 0;
+            line-height: 1.4;
+        }
+        .cluster-sub-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.45em;
+            align-self: flex-start;
+        }
+        .cluster-sub-link {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 0.85rem;
+            font-weight: 400;
+            line-height: 1.35;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            flex: 1;
+            min-width: 0;
+        }
+        .cluster-sub-link:hover {
+            color: var(--accent);
+        }
+        .cluster-sub-source {
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .cluster-sub-angle {
+            font-size: 0.62rem;
+            color: var(--accent);
+            font-style: italic;
+            white-space: nowrap;
+            opacity: 0.8;
+        }
+        .btn-bk-sub {
+            opacity: 0;
+            transition: opacity 0.2s;
+            flex-shrink: 0;
+        }
+        .btn-bk-sub svg {
+            width: 11px;
+            height: 11px;
+        }
+        .cluster-sub:hover .btn-bk-sub {
+            opacity: 1;
+        }
+
+        /* Story bookmark sidebar bundles */
+        .bk-story-bundle {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .bk-story-bundle:last-child {
+            border-bottom: none;
+        }
+        .bk-story-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .bk-story-label {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+        .bk-story-sub {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            padding: 3px 0 3px 14px;
+            font-size: 0.78rem;
+        }
+        .bk-story-sub a {
+            color: var(--text-primary);
+            text-decoration: none;
+            flex: 1;
+            min-width: 0;
+        }
+        .bk-story-sub a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 640px) {
+            .cluster-sub {
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0 0.4rem;
+                padding: 0.5rem 0 0.5rem 0.9rem;
+                align-items: baseline;
+            }
+            .cluster-sub-dot {
+                position: absolute;
+                left: 0;
+                top: 0.85rem;
+            }
+            .cluster-sub-link {
+                flex: 1 1 calc(100% - 2rem);
+                font-size: 0.82rem;
+            }
+            .btn-bk-sub {
+                opacity: 1;
+                flex-shrink: 0;
+            }
+            .cluster-sub-source {
+                font-size: 0.58rem;
+                white-space: normal;
+            }
+            .cluster-sub-angle {
+                font-size: 0.58rem;
+            }
+            .cluster-title {
+                font-size: 1.1rem;
+                padding-right: 2rem;
+            }
+            .cluster-bk-label {
+                display: none;
+            }
+        }
