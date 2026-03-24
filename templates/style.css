@@ -1891,6 +1891,8 @@
             font-weight: 500;
             line-height: 1.15;
             letter-spacing: -0.02em;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
         .hero-title a {
             color: var(--text-primary);
@@ -1979,6 +1981,8 @@
             font-size: 1.05rem;
             font-weight: 500;
             line-height: 1.3;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
         .medium-title a {
             color: var(--text-primary);
@@ -2022,6 +2026,8 @@
             line-height: 1.3;
             color: var(--text-primary);
             text-decoration: none;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
         .compact-link:hover { color: var(--accent); }
         .compact-src {
@@ -2375,8 +2381,14 @@
             line-height: 1.45;
             color: var(--text-primary);
             text-decoration: none;
-            display: block;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            max-height: calc(1.45em * 2);
             margin-top: 0.4rem;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
         .tw-text:hover { color: var(--accent); }
 
@@ -3001,6 +3013,26 @@
             font-style: italic;
             white-space: nowrap;
             opacity: 0.8;
+        }
+        .cluster-sub-hidden {
+            display: none;
+        }
+        .cluster-show-more {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.4rem 0 0.2rem;
+            letter-spacing: 0.02em;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+        .cluster-show-more:hover {
+            opacity: 1;
+            text-decoration: underline;
         }
         .btn-bk-sub {
             opacity: 0;

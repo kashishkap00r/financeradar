@@ -97,7 +97,7 @@ class TestCandidateLoading(unittest.TestCase):
             ],
             "twitter": [
                 {"title": "Tweet recent", "url": "https://x/1", "publisher": "X", "published_at": (now - timedelta(hours=47)).isoformat()},
-                {"title": "Tweet stale", "url": "https://x/2", "publisher": "X", "published_at": (now - timedelta(hours=49)).isoformat()},
+                {"title": "Tweet stale", "url": "https://x/2", "publisher": "X", "published_at": (now - timedelta(hours=97)).isoformat()},
             ],
             "telegram": [
                 {"title": "Telegram no date", "url": "https://t/1", "publisher": "TG"},

@@ -954,6 +954,19 @@
             return getStoryBookmarks().some(function(s) { return s.storyId === storyId; });
         }
 
+        function toggleClusterExpand(btn) {
+            var container = btn.parentElement;
+            var hidden = container.querySelectorAll('.cluster-sub-hidden');
+            if (hidden.length) {
+                hidden.forEach(function(el) { el.classList.remove('cluster-sub-hidden'); });
+                btn.textContent = 'show fewer';
+            } else {
+                var subs = container.querySelectorAll('.cluster-sub');
+                for (var i = 3; i < subs.length; i++) { subs[i].classList.add('cluster-sub-hidden'); }
+                btn.textContent = '+ ' + (subs.length - 3) + ' more sources';
+            }
+        }
+
         function toggleStoryBookmark(btn) {
             var storyId = btn.dataset.storyId;
             if (!storyId) return;
@@ -1179,6 +1192,21 @@
             // Merge clusters across providers by ANY shared URL (not just lead)
             var merged = [];
 
+            var _mergeStopWords = new Set('a an the is are was were be been being have has had do does did will would shall should may might can could of in on at to for with by from as into and or but not no nor so yet if then than that this these those it its says said report reports india indian market markets stock stocks news via rt the new after how'.split(' '));
+            function _titleWords(t) {
+                var words = new Set();
+                String(t || '').toLowerCase().replace(/[^\w\s]/g, ' ').split(/\s+/).forEach(function(w) {
+                    if (w.length > 1 && !_mergeStopWords.has(w)) words.add(w);
+                });
+                return words;
+            }
+            function _titleSimilar(a, b) {
+                var wa = _titleWords(a), wb = _titleWords(b);
+                if (!wa.size || !wb.size) return false;
+                var inter = 0; wa.forEach(function(w) { if (wb.has(w)) inter++; });
+                return inter / Math.min(wa.size, wb.size) >= 0.5;
+            }
+
             function getClusterUrls(cluster) {
                 var urls = new Set();
                 if (cluster.lead && cluster.lead.url) urls.add(String(cluster.lead.url).toLowerCase().trim());
@@ -1206,20 +1234,32 @@
                     var idx = findOverlapping(clusterUrls);
 
                     if (idx >= 0) {
-                        // Merge into existing: add new articles, dedup by URL
+                        // Merge into existing: add new articles, dedup by URL + title similarity
                         var existing = merged[idx];
                         existing._providerCount++;
                         var seenUrls = getClusterUrls(existing);
-                        // Add lead as related if it's a different article
-                        var leadUrl = String(cluster.lead.url || '').toLowerCase().trim();
-                        if (leadUrl && !seenUrls.has(leadUrl)) {
+                        var existingTitles = [existing.lead.title || ''];
+                        (existing.related || []).forEach(function(r) { existingTitles.push(r.title || ''); });
+
+                        function isNewArticle(art) {
+                            var url = String(art.url || '').toLowerCase().trim();
+                            if (url && seenUrls.has(url)) return false;
+                            var title = art.title || '';
+                            for (var t = 0; t < existingTitles.length; t++) {
+                                if (_titleSimilar(title, existingTitles[t])) return false;
+                            }
+                            return true;
+                        }
+                        // Add lead as related if it's genuinely new
+                        if (cluster.lead && isNewArticle(cluster.lead)) {
                             existing.related.push(cluster.lead);
-                            seenUrls.add(leadUrl);
+                            seenUrls.add(String(cluster.lead.url || '').toLowerCase().trim());
+                            existingTitles.push(cluster.lead.title || '');
                         }
                         (cluster.related || []).forEach(function(r) {
-                            var rUrl = String(r.url || '').toLowerCase().trim();
-                            if (rUrl && !seenUrls.has(rUrl)) {
-                                seenUrls.add(rUrl);
+                            if (isNewArticle(r)) {
+                                seenUrls.add(String(r.url || '').toLowerCase().trim());
+                                existingTitles.push(r.title || '');
                                 existing.related.push(r);
                             }
                         });
@@ -1886,10 +1926,17 @@
         }
 
         function cleanHomeTitle(rawTitle) {
-            return String(rawTitle || '')
+            var t = String(rawTitle || '')
                 .replace(/[*_`~#>\[\]\(\)]/g, ' ')
                 .replace(/\s+/g, ' ')
                 .trim() || 'Untitled';
+            if (/^https?:\/\//.test(t) && t.length > 80) {
+                try {
+                    var u = new URL(t);
+                    t = u.hostname.replace(/^www\./, '') + '/\u2026';
+                } catch (e) { /* keep original */ }
+            }
+            return t;
         }
 
         function getTelegramReportDocuments(report) {
@@ -2280,8 +2327,10 @@
             // Cluster title (AI-generated)
             var headerHtml = '<h2 class="cluster-title">' + storyLabel + '</h2>';
 
-            // All articles — newspaper sub-item style
-            var articlesHtml = '<div class="cluster-articles">' + articles.map(function(a) {
+            // All articles — newspaper sub-item style, collapse after 3
+            var CLUSTER_VISIBLE = 3;
+            var needsCollapse = articles.length > CLUSTER_VISIBLE;
+            var articlesHtml = '<div class="cluster-articles">' + articles.map(function(a, idx) {
                 var aTitle = escapeHtml(cleanHomeTitle(a.title));
                 var aUrl = sanitizeUrl(a.url || '');
                 var aSource = escapeHtml(a.source || '');
@@ -2297,12 +2346,16 @@
                 var aLinkHtml = aUrl
                     ? '<a class="cluster-sub-link" href="' + escapeForAttr(aUrl) + '" target="_blank" rel="noopener">' + aTitle + '</a>'
                     : '<span class="cluster-sub-link">' + aTitle + '</span>';
-                return '<div class="cluster-sub">'
+                var hiddenCls = (needsCollapse && idx >= CLUSTER_VISIBLE) ? ' cluster-sub-hidden' : '';
+                return '<div class="cluster-sub' + hiddenCls + '">'
                     + '<span class="cluster-sub-dot" style="background:' + aDotColor + '"></span>'
                     + aLinkHtml
                     + '<span class="cluster-sub-source">&mdash; ' + aSource + '</span>'
                     + aAngle + aBk + '</div>';
-            }).join('') + '</div>';
+            }).join('')
+            + (needsCollapse ? '<button class="cluster-show-more" type="button" onclick="toggleClusterExpand(this)">+ '
+                + (articles.length - CLUSTER_VISIBLE) + ' more sources</button>' : '')
+            + '</div>';
 
             return '<div class="cluster-card">' + storyBk + headerHtml + articlesHtml + '</div>';
         }

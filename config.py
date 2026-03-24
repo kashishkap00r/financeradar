@@ -68,7 +68,8 @@ TELEGRAM_MAX_AGE_DAYS = 5        # default message age cutoff
 TELEGRAM_FETCH_TIMEOUT = 30      # seconds
 
 # ── AI rankers ────────────────────────────────────────────────────────
-AI_RANKER_ARTICLE_WINDOW_HOURS = 48   # look-back window for articles
+AI_RANKER_ARTICLE_WINDOW_HOURS = 48   # look-back window for news articles
+AI_RANKER_TWITTER_WINDOW_HOURS = 96   # look-back window for tweets (slower-moving than news)
 AI_RANKER_EXTENDED_WINDOW_DAYS = 7    # look-back window for slower sources (reports/youtube/telegram)
 AI_RANKER_MAX_ARTICLES = 200          # max articles sent to AI
 AI_RANKER_TARGET_COUNT = 25           # ranked stories shown in AI sidebar

@@ -190,33 +190,58 @@ def main():
 
     if args.push:
         print("\nCommitting and pushing...")
-        # Stash any local dev changes so pull doesn't fail on dirty tree
-        stash_result = subprocess.run(
-            ["git", "stash", "--include-untracked", "-m", "rsshub-fetch auto-stash"],
+        # Generated files that GH Actions also updates — safe to take remote on conflict
+        GENERATED_GLOBS = [
+            "index.html", "static/tab_*.json", "static/articles.json",
+            "static/published_snapshot.json", "static/ai_rankings.json",
+            "static/reports_cache.json", "static/papers_cache.json",
+            "static/youtube_cache.json", "static/twitter_clean_cache.json",
+            "static/twitter_url_cache.json", "static/tab_ai_rankings.json",
+        ]
+
+        # 1. Commit the cache file immediately (works even if behind remote)
+        subprocess.run(["git", "add", CACHE_PATH], cwd=SCRIPT_DIR)
+        commit_result = subprocess.run(
+            ["git", "commit", "-m", f"chore: update RSSHub twitter cache ({len(all_items)} items)"],
             cwd=SCRIPT_DIR, capture_output=True, text=True,
         )
-        stashed = "No local changes" not in stash_result.stdout
-
-        # Pull to stay in sync with GH Actions commits
-        subprocess.run(
-            ["git", "pull", "--no-rebase", "--no-edit", "origin", "main"],
-            cwd=SCRIPT_DIR,
-        )
-
-        # Pop stash before committing (so cache file is on top of latest remote)
-        if stashed:
-            subprocess.run(["git", "stash", "pop"], cwd=SCRIPT_DIR)
-
-        subprocess.run(["git", "add", CACHE_PATH], cwd=SCRIPT_DIR)
-        subprocess.run(
-            ["git", "commit", "-m", f"chore: update RSSHub twitter cache ({len(all_items)} items)"],
-            cwd=SCRIPT_DIR,
-        )
-        result = subprocess.run(["git", "push"], cwd=SCRIPT_DIR)
-        if result.returncode == 0:
-            print("Pushed to remote.")
+        if commit_result.returncode != 0 and "nothing to commit" in commit_result.stdout:
+            print("Cache unchanged, skipping push.")
         else:
-            print("WARNING: git push failed — will retry next cycle.")
+            # 2. Pull with --autostash so uncommitted dev work (e.g. clustering
+            #    changes in ai_ranker.py, app.js) doesn't block the pull.
+            #    Dev changes are in source files, remote updates only generated
+            #    files, so stash pop succeeds cleanly.
+            pull_result = subprocess.run(
+                ["git", "pull", "--no-rebase", "--no-edit", "--autostash", "origin", "main"],
+                cwd=SCRIPT_DIR, capture_output=True, text=True,
+            )
+            if pull_result.returncode == 0:
+                print(f"Pull OK: {pull_result.stdout.strip().splitlines()[-1] if pull_result.stdout.strip() else 'up to date'}")
+            else:
+                # Pull failed — likely generated file merge conflicts
+                import glob as _glob
+                conflicted = []
+                for pattern in GENERATED_GLOBS:
+                    conflicted.extend(_glob.glob(os.path.join(SCRIPT_DIR, pattern)))
+                if conflicted:
+                    print(f"Auto-resolving {len(conflicted)} generated file conflicts (--theirs)...")
+                    subprocess.run(["git", "checkout", "--theirs"] + conflicted, cwd=SCRIPT_DIR)
+                    subprocess.run(["git", "add"] + conflicted, cwd=SCRIPT_DIR)
+                    subprocess.run(
+                        ["git", "commit", "--no-edit"],
+                        cwd=SCRIPT_DIR, capture_output=True, text=True,
+                    )
+                else:
+                    print("WARNING: git pull failed with non-generated conflicts — manual resolution needed")
+                    print(f"  stderr: {pull_result.stderr.strip()[:200]}")
+
+            # 3. Push
+            result = subprocess.run(["git", "push"], cwd=SCRIPT_DIR)
+            if result.returncode == 0:
+                print("Pushed to remote.")
+            else:
+                print("WARNING: git push failed — will retry next cycle.")
 
 
 if __name__ == "__main__":

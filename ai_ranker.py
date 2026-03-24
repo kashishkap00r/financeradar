@@ -21,6 +21,7 @@ from datetime import datetime, timedelta, timezone
 
 from config import (
     AI_RANKER_ARTICLE_WINDOW_HOURS,
+    AI_RANKER_TWITTER_WINDOW_HOURS,
     AI_RANKER_EXTENDED_WINDOW_DAYS,
     AI_RANKER_MAX_ARTICLES,
     AI_RANKER_TARGET_COUNT,
@@ -62,7 +63,7 @@ BUCKET_TARGETS = {
 }
 SOURCE_WINDOWS = {
     "news": timedelta(hours=AI_RANKER_ARTICLE_WINDOW_HOURS),
-    "twitter": timedelta(hours=AI_RANKER_ARTICLE_WINDOW_HOURS),
+    "twitter": timedelta(hours=AI_RANKER_TWITTER_WINDOW_HOURS),
     "telegram": timedelta(days=AI_RANKER_EXTENDED_WINDOW_DAYS),
     "reports": timedelta(days=AI_RANKER_EXTENDED_WINDOW_DAYS),
     "youtube": timedelta(days=AI_RANKER_EXTENDED_WINDOW_DAYS),
@@ -669,9 +670,10 @@ CLUSTERING RULES:
 - Only cluster if articles cover the SAME specific event or development — not merely the same broad sector or topic.
   - YES: Three articles about RBI's March 2026 rate cut → same event
   - NO: Two unrelated banking articles (HDFC results + SBI NPA) → same sector, different stories
-- Each article in a cluster must contribute genuinely different information, analysis, or format. If an article just restates what another already says, don't include it.
-- Cross-type clusters are valuable: a YouTube explainer + a Telegram research note + a news report on the same event is a great cluster.
+- CRITICAL: Do NOT include multiple articles that report the same facts. If ET, Mint, and Bloomberg all say "Fed holds rates steady", pick the ONE best version. Only include an article if it adds a genuinely NEW fact, number, angle, or format (e.g. a YouTube explainer, a research report with data, a tweet with insider context).
+- Cross-type clusters are valuable: a YouTube explainer + a Telegram research note + a news report on the same event is a great cluster. Prefer diversity of source types over quantity.
 - Minimum 2, maximum {max_clusters} clusters. Prefer fewer, tighter clusters over many loose ones. If no natural clusters exist, return empty array.
+- Return clusters in ORDER OF IMPORTANCE — the biggest, most impactful story first.
 
 STORY LABEL — this is the editorial headline readers see. Make it:
 - Sharp, specific, and informative — a reader should understand the story from the label alone
@@ -764,6 +766,121 @@ def resolve_cluster_indices(raw_clusters, items):
     return resolved
 
 
+import re as _re
+
+# Patterns for market-movement noise — these add no signal in clusters
+_CLUSTER_NOISE_PATTERNS = [
+    _re.compile(r"sensex\s*(closes?|ends?|opens?|gains?|loses?|falls?|rises?|at\b|surges?|zooms?|jumps?|soars?|rallies?|tanks?|plunges?|crashes?|tumbles?|slumps?|bleeds?|sheds?|down|up|today)", _re.I),
+    _re.compile(r"nifty\s*(closes?|ends?|opens?|gains?|loses?|falls?|rises?|at\b|surges?|zooms?|jumps?|soars?|rallies?|tanks?|plunges?|crashes?|tumbles?|slumps?|bleeds?|prediction|today|may\s*fall|below)", _re.I),
+    _re.compile(r"\b(stock|share)\s*market\s*(crash|tumbl|fall|drop|plunge|tank|bleed|sink)", _re.I),
+    _re.compile(r"\bmarkets?\s*(tumbl|crash|plunge|tank|bleed|sink)", _re.I),
+    _re.compile(r"\b(asian|global|indian)\s*(stocks?|markets?)\s*(to\s*)?(fall|drop|tumbl|plunge|crash|sink|slide)", _re.I),
+    _re.compile(r"\bFPI\w*\s*(dump|sell|pull|withdraw|outflow)", _re.I),
+]
+
+
+def _is_market_noise(title):
+    """Check if a title is primarily about market index movements."""
+    t = title or ""
+    return any(p.search(t) for p in _CLUSTER_NOISE_PATTERNS)
+
+
+def filter_cluster_noise(clusters):
+    """Remove market-movement noise from clusters.
+
+    - Drop entire clusters whose label is about market indices
+    - Strip individual noise articles from within clusters
+    - Drop clusters that fall below 2 articles after stripping
+    """
+    filtered = []
+    for cluster in clusters:
+        # Skip entire cluster if the story_label is about market movements
+        label = cluster.get("story_label", "")
+        if _is_market_noise(label):
+            continue
+
+        # Strip noise articles from within the cluster
+        lead = cluster.get("lead", {})
+        related = cluster.get("related", [])
+        all_arts = [lead] + related
+        clean = [a for a in all_arts if not _is_market_noise(a.get("title", ""))]
+
+        if len(clean) < 2:
+            continue
+
+        cluster["lead"] = clean[0]
+        cluster["related"] = clean[1:]
+        filtered.append(cluster)
+    return filtered
+
+
+_STOP_WORDS = frozenset(
+    "a an the is are was were be been being have has had do does did will would "
+    "shall should may might can could of in on at to for with by from as into "
+    "and or but not no nor so yet if then than that this these those it its "
+    "about after all also am among any both each every how i me my our ours "
+    "says said report reports india indian market markets stock stocks news "
+    "via rt the new".split()
+)
+
+
+def _title_words(title):
+    """Extract significant words from a title for similarity comparison."""
+    import re
+    words = re.sub(r"[^\w\s]", " ", title.lower()).split()
+    return set(w for w in words if w not in _STOP_WORDS and len(w) > 1)
+
+
+def dedup_cluster_articles(clusters):
+    """Remove near-duplicate articles within each cluster.
+
+    Uses Jaccard similarity on significant title words.
+    - Same source_type: 0.4 threshold (stricter — wire rewrites use different words)
+    - Different source_type: 0.6 threshold (cross-type dupes are rarer)
+    Clusters that shrink below 2 articles are removed entirely.
+    """
+    deduped = []
+    for cluster in clusters:
+        all_arts = [cluster.get("lead", {})] + cluster.get("related", [])
+        keep = []
+        kept_word_sets = []
+        kept_types = []
+        for art in all_arts:
+            words = _title_words(art.get("title", ""))
+            stype = art.get("source_type", "")
+            if not words:
+                keep.append(art)
+                kept_word_sets.append(words)
+                kept_types.append(stype)
+                continue
+
+            is_dup = False
+            for i, kw in enumerate(kept_word_sets):
+                if not kw:
+                    continue
+                intersection = words & kw
+                union = words | kw
+                similarity = len(intersection) / len(union) if union else 0
+                # Stricter threshold for same source type (wire rewrites)
+                threshold = 0.4 if stype == kept_types[i] else 0.6
+                if similarity >= threshold:
+                    is_dup = True
+                    break
+
+            if not is_dup:
+                keep.append(art)
+                kept_word_sets.append(words)
+                kept_types.append(stype)
+
+        if len(keep) < 2:
+            continue
+
+        cluster["lead"] = keep[0]
+        cluster["related"] = keep[1:]
+        deduped.append(cluster)
+    return deduped
+
+
 def enrich_clusters_from_rankings(clusters, ranked_buckets):
     """Attach why_it_matters and signal_type from ranked items to cluster articles.
 
@@ -815,6 +932,8 @@ def cluster_ranked_items(all_items, model_config, max_clusters=AI_RANKER_MAX_CLU
             return []
 
         clusters = resolve_cluster_indices(raw, all_items)
+        clusters = dedup_cluster_articles(clusters)
+        clusters = filter_cluster_noise(clusters)
         return clusters[:max_clusters]
 
     except Exception as err:
@@ -895,6 +1014,8 @@ def main():
             all_candidates = []
             for bucket in BUCKET_ORDER:
                 all_candidates.extend(candidates_by_bucket.get(bucket, []))
+            # Pre-filter market-movement noise from clustering input
+            all_candidates = [c for c in all_candidates if not _is_market_noise(c.get("title", ""))]
 
             clusters = cluster_ranked_items(all_candidates, model_config, max_clusters=7)
             # Enrich cluster articles with metadata from ranked items

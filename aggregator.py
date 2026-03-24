@@ -9,6 +9,7 @@ from datetime import datetime, timedelta, timezone
 from html import escape
 import os
 import re
+from urllib.parse import urlparse
 
 
 def sanitize_url(url):
@@ -70,10 +71,24 @@ def _telegram_title_from_text(text):
     """Extract a compact title from Telegram message text."""
     if not text:
         return "Untitled Telegram post"
+    first_url = None
     for line in text.splitlines():
         line = line.strip()
-        if line:
-            return line[:220]
+        if not line:
+            continue
+        # Skip bare URLs — prefer actual text content as the title
+        if re.match(r"^https?://", line):
+            if first_url is None:
+                first_url = line
+            continue
+        return line[:220]
+    # All lines were URLs or empty — show domain from the first URL
+    if first_url:
+        try:
+            domain = urlparse(first_url).netloc.replace("www.", "")
+            return f"Link: {domain}"
+        except Exception:
+            pass
     cleaned = text.strip()
     return cleaned[:220] if cleaned else "Untitled Telegram post"
 
