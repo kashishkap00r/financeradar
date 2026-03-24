@@ -2001,7 +2001,7 @@
                     source_url: item.url || '',
                     source: item.source || '',
                     publisher: item.source || '',
-                    thumbnail: '',
+                    thumbnail: item.thumbnail || '',
                     region: ''
                 };
             }
@@ -2040,6 +2040,8 @@
             if (watch && watch[1]) return watch[1];
             const embed = raw.match(/\/embed\/([a-zA-Z0-9_-]{6,})/);
             if (embed && embed[1]) return embed[1];
+            const shorts = raw.match(/\/shorts\/([a-zA-Z0-9_-]{6,})/);
+            if (shorts && shorts[1]) return shorts[1];
             return '';
         }
 
