@@ -59,6 +59,7 @@ PROCESSING
 RANKING (separate crons, needs API keys)
 ├─ ai_ranker.py: dual-LLM ranking → static/ai_rankings.json
 │   Buckets: news=25, telegram=20, reports=10, twitter=10, youtube=10
+│   Post-ranking: cross-bucket clustering (all candidates → LLM → story clusters)
 └─ wsw_ranker.py: debate clusters from 7-day window → static/wsw_clusters.json
 
 OUTPUT
@@ -75,6 +76,23 @@ The homepage **exclusively shows AI-ranked content** from `static/ai_rankings.js
 - News + Telegram interleave in the newspaper feed (3:1 ratio); YouTube, Reports, Twitter render in dedicated slider sections
 - WSW breakers auto-select the provider with the most clusters
 - If AI data is unavailable, homepage shows an empty-state message directing users to tabs
+
+### Semantic Story Clustering
+
+A post-ranking step in `ai_ranker.py` clusters articles **across all content types** (news, telegram, youtube, twitter, reports) by underlying story. This is additive — per-bucket rankings are unchanged.
+
+**Backend (`ai_ranker.py`):**
+- `cluster_ranked_items()` sends all ~830 candidates (titles only) to the LLM in a single clustering call
+- `dedup_cluster_articles()` removes near-duplicate articles via Jaccard title similarity (0.4 same-type, 0.6 cross-type)
+- `filter_cluster_noise()` strips Sensex/Nifty market-movement articles from clusters
+- `enrich_clusters_from_rankings()` attaches `why_it_matters` and `signal_type` from ranked items
+- Clustering failure → `clusters: []`, no crash, page looks like normal
+
+**Frontend (`app.js`):**
+- `getMergedClusters()` merges clusters across providers using any-URL overlap (not just lead URL)
+- "The Big Stories" section renders at the top of the homepage; clustered items are removed from the feed/sliders below (no duplicates)
+- Only 3 sub-headlines visible per cluster; rest behind "+ N more sources" toggle
+- Rendered as accent border cards (left rust border, cream bg)
 
 ### Category Routing
 
@@ -118,8 +136,8 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 
 - Source: `templates/app.js` (vanilla JS, ~3700 lines) + `templates/style.css` (~2900 lines)
 - Loaded by `index.html` as external files (`<script src>` / `<link href>`) — **never edit `index.html` directly**, edit `templates/*`, then run `python3 aggregator.py`
-- Theme: Fraunces headings, Source Sans Pro body, burnt orange accent (#C45A35), warm dark mode
-- All state in localStorage (theme, active tab, bookmarks, page number)
+- Theme: Fraunces headings, Nunito Sans body, burnt orange accent (#C45A35), light-only (no dark mode)
+- All state in localStorage (active tab, bookmarks, page number)
 - Keyboard nav: J/K (next/prev), / (search), Esc (clear), 1-6 (tab shortcuts)
 - Homepage loads only `ai_rankings.json`; individual tabs lazy-load their own `tab_*.json` on first visit
 
@@ -136,18 +154,18 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 | `filters.py` (356L) | 126 title regex + 24 URL patterns | aggregator.py |
 | `twitter_fetcher.py` (345L) | Dual-source Twitter (RSSHub + Google RSS) | aggregator.py |
 | `twitter_signal.py` (659L) | URL resolution, noise filters, High Signal lane | twitter_fetcher.py |
-| `ai_ranker.py` (758L) | Dual-LLM article ranking (Gemini + DeepSeek) | ai-ranking.yml |
+| `ai_ranker.py` (~1080L) | Dual-LLM ranking + cross-bucket clustering | ai-ranking.yml |
 | `wsw_ranker.py` (418L) | "Who Said What" debate clusters | ai-ranking.yml (after ai_ranker) |
 | `telegram_fetcher.py` (580L) | HTML scraping + Telethon MTProto | Standalone / hourly.yml |
 | `piie_local_fetch.py` (210L) | Playwright scraper → `static/piie_cache.json` | Local only (manual) |
 | `config.py` (86L) | All magic numbers and tunables | Imported by most modules |
 
-Frontend: `templates/app.js` (3690L) + `templates/style.css` (2884L). Tests: 18 modules in `tests/`.
+Frontend: `templates/app.js` (~4080L) + `templates/style.css` (~3100L). Tests: 18 modules in `tests/`.
 
 ## Key Rules
 
 ### Generated Files — Do Not Hand-Edit
-All files in `static/` and `index.html` are auto-generated. Edit source scripts or `templates/*` instead, then regenerate.
+All files in `static/` and `index.html` are auto-generated. Edit source scripts or `templates/*` instead, then regenerate. Note: `about.html` is **not** generated — it's a standalone hand-edited page.
 
 ### F-String Brace Escaping
 When editing HTML/CSS/JS templates inside `aggregator.py` (which uses Python f-strings), escape literal braces: `{{` and `}}`. The `templates/` files use normal braces.
@@ -177,6 +195,7 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 - Test mobile (≤640px) before committing — filters collapse by default on mobile, sidebars use body scroll lock.
 - Make changes incrementally. Never introduce a rendering gate that can blank the page.
 - Hero cards on the homepage support `why_it_matters`, `signal_type` badges, and consensus indicators from AI rankings.
+- No dark mode. The site is light-only — do not add dark theme variables, toggle buttons, or theme-switching JS.
 
 ## GitHub Actions Workflows
 
@@ -201,9 +220,9 @@ RSSHub runs locally as a systemd user service for Twitter feed enrichment:
 
 ## Config (config.py)
 
-Key constants: `FEED_FETCH_TIMEOUT=15`, `FEED_THREAD_WORKERS=10`, `NEWS_FRESHNESS_DAYS=5`, `REPORTS_FRESHNESS_DAYS=30`, `RSSHUB_CACHE_MAX_AGE_HOURS=6`, `TWITTER_HIGH_SIGNAL_TARGET=25`, `AI_RANKER_TARGET_COUNT=25`. Per-scraper timeout/retry overrides via `SCRAPER_TIMEOUT_OVERRIDES` and `SCRAPER_RETRY_OVERRIDES` dicts.
+Key constants: `FEED_FETCH_TIMEOUT=15`, `FEED_THREAD_WORKERS=10`, `NEWS_FRESHNESS_DAYS=5`, `REPORTS_FRESHNESS_DAYS=30`, `RSSHUB_CACHE_MAX_AGE_HOURS=6`, `TWITTER_HIGH_SIGNAL_TARGET=25`, `AI_RANKER_TARGET_COUNT=25`, `AI_RANKER_MAX_CLUSTERS=7`. Per-scraper timeout/retry overrides via `SCRAPER_TIMEOUT_OVERRIDES` and `SCRAPER_RETRY_OVERRIDES` dicts.
 
-AI ranker bucket targets are in `ai_ranker.py:BUCKET_TARGETS` (news=25, telegram=20, reports=10, twitter=10, youtube=10).
+AI ranker bucket targets are in `ai_ranker.py:BUCKET_TARGETS` (news=25, telegram=20, reports=10, twitter=10, youtube=10). Clustering constants: `AI_RANKER_MAX_CLUSTERS`, `AI_RANKER_MIN_CLUSTER_SIZE`, `AI_RANKER_CLUSTER_TIMEOUT`.
 
 ## API Integration
 - Always verify the correct Gemini model IDs before making API calls. Use `gemini-1.5-flash` or `gemini-1.5-pro` (not legacy names). Test API calls with a simple request before integrating.

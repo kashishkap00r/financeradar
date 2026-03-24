@@ -120,6 +120,106 @@ class TestPoliticalKeywordFiltering(unittest.TestCase):
             self.assertFalse(should_filter_political({"title": title}))
 
 
+class TestOfficialSourceFiltering(unittest.TestCase):
+    """Tests for official source blacklist+whitelist filtering."""
+
+    def _official(self, title):
+        return {"title": title, "link": "", "source_tier": "official"}
+
+    def _media(self, title):
+        return {"title": title, "link": ""}
+
+    # --- Blacklist: always dropped ---
+    def test_official_recovery_certificate_filtered(self):
+        self.assertTrue(should_filter_article(self._official(
+            "Completion of Recovery Certificate No. 123/2025")))
+
+    def test_official_monetary_penalty_filtered(self):
+        self.assertTrue(should_filter_article(self._official(
+            "RBI imposes monetary penalty on ABC Bank")))
+
+    def test_official_penalty_imposed_filtered(self):
+        self.assertTrue(should_filter_article(self._official(
+            "Penalty imposed on XYZ Co-operative Bank for non-compliance")))
+
+    def test_official_weekly_supplement_filtered(self):
+        self.assertTrue(should_filter_article(self._official(
+            "Weekly Statistical Supplement")))
+
+    def test_official_auction_result_filtered(self):
+        self.assertTrue(should_filter_article(self._official(
+            "Auction Result for Treasury Bills dated March 25")))
+
+    def test_official_sebi_adjudication_filtered(self):
+        self.assertTrue(should_filter_article(self._official(
+            "Adjudication order in the matter of ABC Ltd")))
+
+    def test_official_tender_filtered(self):
+        self.assertTrue(should_filter_article(self._official(
+            "Tender Invitation for IT Services")))
+
+    # --- Whitelist: high-signal passes ---
+    def test_official_rbi_rate_decision_passes(self):
+        self.assertFalse(should_filter_article(self._official(
+            "RBI keeps repo rate unchanged at 6.5%")))
+
+    def test_official_mpc_decision_passes(self):
+        self.assertFalse(should_filter_article(self._official(
+            "Monetary Policy Committee decision: status quo on rates")))
+
+    def test_official_sebi_new_norms_passes(self):
+        self.assertFalse(should_filter_article(self._official(
+            "SEBI issues new disclosure norms for AIFs")))
+
+    def test_official_gdp_data_passes(self):
+        self.assertFalse(should_filter_article(self._official(
+            "India's GDP growth at 6.7% in Q3 FY26")))
+
+    def test_official_cpi_inflation_passes(self):
+        self.assertFalse(should_filter_article(self._official(
+            "India's CPI inflation eases to 3.61% in February 2026")))
+
+    def test_official_cabinet_approval_passes(self):
+        self.assertFalse(should_filter_article(self._official(
+            "Cabinet approves Production-Linked Incentive scheme for toys")))
+
+    def test_official_governor_speech_passes(self):
+        self.assertFalse(should_filter_article(self._official(
+            "Governor's statement on developmental and regulatory policies")))
+
+    def test_official_forex_reserves_passes(self):
+        self.assertFalse(should_filter_article(self._official(
+            "India's forex reserves rise to $640 billion")))
+
+    def test_official_fpi_norms_passes(self):
+        self.assertFalse(should_filter_article(self._official(
+            "New FPI investment norms for debt markets")))
+
+    def test_official_ecb_rate_passes(self):
+        self.assertFalse(should_filter_article(self._official(
+            "ECB cuts deposit facility rate to 2.50%")))
+
+    # --- Whitelist miss: generic official content dropped ---
+    def test_official_generic_notification_filtered(self):
+        self.assertTrue(should_filter_article(self._official(
+            "Notification regarding office timings")))
+
+    def test_official_appointment_letter_filtered(self):
+        self.assertTrue(should_filter_article(self._official(
+            "Appointment of new deputy secretary")))
+
+    # --- Media source unchanged by official filters ---
+    def test_media_source_still_uses_blacklist(self):
+        # This title matches media blacklist patterns
+        self.assertTrue(should_filter_article(self._media(
+            "Sensex closes at 75000, Nifty at 22500")))
+
+    def test_media_source_not_affected_by_official_whitelist(self):
+        # Normal media article should pass (not subject to whitelist)
+        self.assertFalse(should_filter_article(self._media(
+            "India's trade deficit narrows in February")))
+
+
 class TestVideoFilterPatterns(unittest.TestCase):
     """Tests for title-only video filtering patterns."""
 

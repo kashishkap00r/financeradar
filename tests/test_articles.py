@@ -122,6 +122,30 @@ class TestGroupSimilarArticles(unittest.TestCase):
         groups = group_similar_articles([])
         self.assertEqual(groups, [])
 
+    def test_official_source_becomes_primary(self):
+        """When an official source article is grouped with media, it should be primary."""
+        articles = [
+            self._make_article("RBI keeps repo rate unchanged at 6.5%", "ET"),
+            {
+                **self._make_article("RBI keeps repo rate unchanged at 6.5%", "RBI"),
+                "source_tier": "official",
+            },
+            self._make_article("RBI keeps repo rate unchanged at 6.5%", "Mint"),
+        ]
+        groups = group_similar_articles(articles)
+        self.assertEqual(len(groups), 1)
+        self.assertEqual(groups[0]["primary"]["source"], "RBI")
+        self.assertEqual(groups[0]["primary"].get("source_tier"), "official")
+
+    def test_media_only_group_keeps_first_as_primary(self):
+        articles = [
+            self._make_article("India GDP grows 6.7% in Q3", "ET"),
+            self._make_article("India GDP grows 6.7% in Q3", "Mint"),
+        ]
+        groups = group_similar_articles(articles)
+        self.assertEqual(len(groups), 1)
+        self.assertEqual(groups[0]["primary"]["source"], "ET")
+
 
 if __name__ == "__main__":
     unittest.main()

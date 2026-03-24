@@ -96,10 +96,14 @@ RANKING PRIORITY (highest to lowest)
 5. High-quality opinion/insider analysis with an original thesis from credible voices
 6. Labour/employment/social-economy trends (gig economy, rural consumption, jobs transitions)
 
+PRIMARY SOURCE RULE
+When an official source (RBI, SEBI, PIB, ECB, FRED, MoSPI) publishes original content — press release, policy statement, data release, speech, bulletin — ALWAYS prefer it over media rewrites of the same announcement. The original is more authoritative.
+If both an RBI press release and 3 newspaper rewrites appear, pick the RBI original.
+
 HARD SKIPS (never include)
 - Earnings/quarterly results coverage
 - Wire-style breaking updates with no analysis
-- Routine regulatory filings
+- Routine regulatory filings (exception: major policy announcements from RBI/SEBI/PIB)
 - Market noise (intraday moves, FII/DII flows, broker upgrades, stock tips)
 - Crypto price movement stories
 - Celebrity CEO personality fluff
@@ -184,6 +188,7 @@ def build_candidates_for_source(snapshot_data, source_type, now=None, max_articl
             "source": source,
             "date": date_str,
             "source_type": source_type,
+            "source_tier": item.get("source_tier", ""),
             "_parsed_date": parsed_date or datetime.min.replace(tzinfo=IST_TZ),
         })
 
@@ -616,6 +621,7 @@ def enrich_bucket_rankings(rankings, candidates, source_type, target_count):
             "url": article["url"] if article else "",
             "source": article["source"] if article else "",
             "source_type": normalize_source_type(article.get("source_type", "")) if article else (tagged_source_type or source_type),
+            "source_tier": article.get("source_tier", "") if article else "",
             "india_relevance": item.get("india_relevance", ""),
             "signal_type": item.get("signal_type", ""),
             "why_it_matters": item.get("why_it_matters", ""),
@@ -655,7 +661,8 @@ def build_clustering_prompt(items, max_clusters=AI_RANKER_MAX_CLUSTERS):
         headline = sanitize_headline(item.get("title", ""))
         src = item.get("source", "")
         stype = item.get("source_type", "news").upper()
-        line = f"{i+1}. {headline} [{src} | {stype}]"
+        official_tag = " [OFFICIAL]" if item.get("source_tier") == "official" else ""
+        line = f"{i+1}. {headline} [{src} | {stype}]{official_tag}"
         if not titles_only:
             wim = (item.get("why_it_matters") or "").strip()
             if wim:
@@ -674,6 +681,7 @@ CLUSTERING RULES:
 - Cross-type clusters are valuable: a YouTube explainer + a Telegram research note + a news report on the same event is a great cluster. Prefer diversity of source types over quantity.
 - Minimum 2, maximum {max_clusters} clusters. Prefer fewer, tighter clusters over many loose ones. If no natural clusters exist, return empty array.
 - Return clusters in ORDER OF IMPORTANCE — the biggest, most impactful story first.
+- When a cluster includes an [OFFICIAL] source article (RBI, SEBI, PIB, ECB, etc.), prefer it as the FIRST article in the articles array — it's the primary source.
 
 STORY LABEL — this is the editorial headline readers see. Make it:
 - Sharp, specific, and informative — a reader should understand the story from the label alone
@@ -746,11 +754,20 @@ def resolve_cluster_indices(raw_clusters, items):
                 "url": art_item.get("url", ""),
                 "source": art_item.get("source", ""),
                 "source_type": normalize_source_type(art_item.get("source_type", "")),
+                "source_tier": art_item.get("source_tier", ""),
                 "angle": str(entry.get("angle", ""))[:60],
             })
 
         if len(articles) < 2:
             continue
+
+        # Prefer official source as cluster lead
+        official_idx = next(
+            (i for i, a in enumerate(articles) if a.get("source_tier") == "official"),
+            0,
+        )
+        if official_idx > 0:
+            articles.insert(0, articles.pop(official_idx))
 
         # For backward compatibility, first article is "lead", rest are "related"
         lead = dict(articles[0])
@@ -904,6 +921,8 @@ def enrich_clusters_from_rankings(clusters, ranked_buckets):
                     art["why_it_matters"] = ranked.get("why_it_matters", "")
                 if not art.get("signal_type"):
                     art["signal_type"] = ranked.get("signal_type", "")
+                if not art.get("source_tier"):
+                    art["source_tier"] = ranked.get("source_tier", "")
     return clusters
 
 

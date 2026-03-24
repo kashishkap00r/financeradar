@@ -296,10 +296,133 @@ FILTER_URL_PATTERNS = [
     "/multimedia/audio/",
 ]
 
+# =============================================================================
+# OFFICIAL SOURCE FILTERS — blacklist (drop immediately) + whitelist (must match)
+# Official sources are very noisy. Two-pass filter:
+#   1. Blacklist: drop routine administrative junk
+#   2. Whitelist: only keep high-signal content that matches these patterns
+# =============================================================================
+
+# Blacklist: always drop these from official sources (checked first)
+OFFICIAL_BLACKLIST_PATTERNS = [
+    # RBI routine / administrative
+    r"completion of recovery certificate",
+    r"notice of demand under recovery certificate",
+    r"rbi imposes monetary penalty",
+    r"monetary penalty.*imposed",
+    r"penalty.*imposed on",
+    r"appointment of director",
+    r"nomination of director",
+    r"change in director",
+    r"opening of representative office",
+    r"application for.*banking licence",
+    r"weekly statistical supplement",
+    r"money market operations as on",
+    r"auction of.*treasury bills",
+    r"auction of state government securities",
+    r"auction result",
+    r"lending and deposit rates of scheduled commercial banks",
+    r"directions under section 35a",
+    r"cancellation of.*certificate of registration",
+    r"withdrawal of.*certificate of registration",
+    r"reserve bank of india.*holiday",
+    r"transfer of.*government securities",
+    r"operationalisation of.*branch",
+
+    # SEBI routine / administrative
+    r"informal guidance",
+    r"settlement.*order.*sebi",
+    r"consent order",
+    r"adjudication order",
+    r"impounding.*proceeds",
+    r"debarment order",
+    r"disposal of show cause notice",
+    r"interim.*order.*trading",
+    r"ex-?parte.*order",
+
+    # General government noise
+    r"tender.*invit",
+    r"vacancy.*notification",
+    r"recruitment.*notification",
+    r"empanelment",
+    r"corrigendum",
+    r"extension of.*deadline",
+    r"extension of.*timeline",
+    r"amended.*schedule",
+]
+
+# Whitelist: official source articles must match at least one of these to survive
+OFFICIAL_WHITELIST_PATTERNS = [
+    # Monetary policy
+    r"(repo|reverse repo|bank) rate",
+    r"monetary policy",
+    r"policy rate",
+    r"(basis|bps) points",
+    r"(CRR|SLR|MSF).*(change|cut|hike|raise|reduce)",
+
+    # Major regulatory actions
+    r"(new|draft|final|revised|proposed) .{0,30}(regulation|framework|guideline|norms|circular|rules)",
+    r"(ban|restrict|suspend|revoke|cancel).*(license|registration|permission|trading)",
+    r"(capital adequacy|provisioning|NPA).*(norms|change|revision)",
+    r"master direction",
+
+    # Governor/Chairman/leadership communications
+    r"(governor|chairman|chairperson|deputy governor).*(speech|address|statement|press conference)",
+    r"(MPC|monetary policy committee).*(decision|minutes|resolution|statement)",
+
+    # Significant government policy
+    r"(cabinet|government|union).*(approv|clear|sanction|decision)",
+    r"(FDI|PLI|incentive|subsidy|disinvestment).*(scheme|policy|approv|launch)",
+    r"(trade|tariff|duty|import|export).*(policy|change|revision|hike|cut)",
+    r"(budget|fiscal|expenditure|revenue).*(estimate|target|deficit|surplus)",
+    r"(tax|GST|income tax|customs).*(change|amend|revise|reform|rate|slab)",
+
+    # Macro data releases
+    r"(GDP|inflation|CPI|WPI|IIP|PMI|fiscal deficit|current account)",
+    r"(forex|foreign exchange) reserves",
+    r"(trade deficit|trade surplus|balance of payment)",
+    r"(unemployment|employment).*(rate|data|survey|report)",
+    r"(national accounts|economic survey)",
+
+    # Major institutional actions
+    r"(interest rate|lending rate|deposit rate).*(change|cut|hike|revision)",
+    r"(FEMA|FCRA|banking regulation act).*(amend|notif|circular)",
+    r"(digital payment|UPI|RTGS|NEFT).*(data|record|change|launch)",
+    r"(financial stability|systemic risk)",
+    r"(insurance|pension).*(regulation|reform|guideline|framework)",
+
+    # Market structure changes
+    r"(listing|delisting|IPO).*(regulation|framework|norms)",
+    r"(derivatives|futures|options).*(regulation|framework|margin|lot size)",
+    r"(mutual fund|AIF|PMS).*(regulation|framework|norms|circular)",
+    r"(foreign portfolio|FPI|FII).*(regulation|limit|investment|norms)",
+
+    # ECB specific
+    r"(ECB|european central bank).*(rate|decision|press conference|meeting|statement)",
+    r"euro area.*(GDP|inflation|growth|unemployment)",
+]
+
 # Compile regex patterns for performance
 COMPILED_TITLE_PATTERNS = [re.compile(p, re.IGNORECASE) for p in FILTER_TITLE_PATTERNS]
 COMPILED_VIDEO_TITLE_PATTERNS = [re.compile(p, re.IGNORECASE) for p in FILTER_VIDEO_TITLE_PATTERNS]
 COMPILED_POLITICAL_PATTERNS = [re.compile(p, re.IGNORECASE) for p in FILTER_POLITICAL_KEYWORD_PATTERNS]
+COMPILED_OFFICIAL_BLACKLIST = [re.compile(p, re.IGNORECASE) for p in OFFICIAL_BLACKLIST_PATTERNS]
+COMPILED_OFFICIAL_WHITELIST = [re.compile(p, re.IGNORECASE) for p in OFFICIAL_WHITELIST_PATTERNS]
+
+
+def _should_filter_official(title):
+    """Two-pass filter for official sources: blacklist first, then whitelist.
+    Returns True if article should be filtered OUT."""
+    # Pass 1: blacklist — drop junk immediately
+    for pattern in COMPILED_OFFICIAL_BLACKLIST:
+        if pattern.search(title):
+            return True
+    # Pass 2: whitelist — must match at least one high-signal pattern
+    for pattern in COMPILED_OFFICIAL_WHITELIST:
+        if pattern.search(title):
+            return False
+    # No whitelist match — drop it
+    return True
 
 
 def should_filter_political(article):
@@ -319,6 +442,11 @@ def should_filter_article(article):
     if should_filter_political(article):
         return True
 
+    # Official sources use dedicated blacklist+whitelist (stricter than media)
+    if article.get("source_tier") == "official":
+        return _should_filter_official(title)
+
+    # Media sources use existing blacklist
     # Check URL patterns
     for pattern in FILTER_URL_PATTERNS:
         if pattern.lower() in link:

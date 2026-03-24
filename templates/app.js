@@ -326,7 +326,7 @@
             'india-desk': ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express"],
             'world-desk': ["BBC", "CNBC", "WSJ", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World", "Techmeme"],
             'indie-voices': ["Finshots", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data", "Noah Smith", "Ideas For India", "The India Forum", "Neel Chhabra", "Ember"],
-            'official-channels': ["RBI", "SEBI", "ECB", "ADB", "FRED"]
+            'official-channels': ["RBI", "SEBI", "ECB", "ADB", "FRED", "PIB", "MoSPI"]
         };
 
         function resolveDeskPubs(deskKey) {
@@ -1988,7 +1988,8 @@
                     signal_type: item.signal_type || '',
                     confidence: item.confidence || '',
                     _consensus: item._consensus || false,
-                    _mergedRank: item._mergedRank || 0
+                    _mergedRank: item._mergedRank || 0,
+                    source_tier: item.source_tier || ''
                 };
             }
 
@@ -2020,9 +2021,21 @@
                 }
             }
 
+            // Extract official source items for "From The Source" section
+            var officialItems = [];
+            var regularFeed = [];
+            for (var fi = 0; fi < feed.length; fi++) {
+                if (feed[fi].source_tier === 'official') {
+                    officialItems.push(feed[fi]);
+                } else {
+                    regularFeed.push(feed[fi]);
+                }
+            }
+
             return {
                 clusters: clusters,
-                feed: feed,
+                feed: regularFeed,
+                officialItems: officialItems,
                 youtube: youtubeMerged.map(toSliderItem),
                 reports: reportsMerged.map(toSliderItem),
                 twitter: twitterMerged.map(toSliderItem),
@@ -2348,12 +2361,13 @@
                     ? '<a class="cluster-sub-link" href="' + escapeForAttr(aUrl) + '" target="_blank" rel="noopener">' + aTitle + '</a>'
                     : '<span class="cluster-sub-link">' + aTitle + '</span>';
                 var aAngleTag = a.angle ? '<span class="cluster-sub-angle">' + escapeHtml(a.angle) + '</span>' : '';
+                var aOfficialBadge = a.source_tier === 'official' ? '<span class="official-badge">Primary Source</span>' : '';
                 var hiddenCls = (needsCollapse && idx >= CLUSTER_VISIBLE) ? ' cluster-sub-hidden' : '';
                 return '<div class="cluster-sub' + hiddenCls + '">'
                     + '<span class="cluster-sub-dot" style="background:' + aDotColor + '"></span>'
                     + '<div class="cluster-sub-content">'
                     + aLinkHtml
-                    + '<div class="cluster-sub-meta"><span class="cluster-sub-source">' + aSource + '</span>' + aAngleTag + '</div>'
+                    + '<div class="cluster-sub-meta"><span class="cluster-sub-source">' + aSource + '</span>' + aOfficialBadge + aAngleTag + '</div>'
                     + '</div>'
                     + aBk + '</div>';
             }).join('')
@@ -2376,6 +2390,31 @@
             return '<div class="section-divider"><span class="section-label">' + escapeHtml(text) + '</span><span class="section-rule"></span></div>';
         }
 
+        function renderFromTheSource(items) {
+            if (!items || !items.length) return '';
+            var html = '<div class="section-divider"><span class="section-label">From The Source</span><span class="section-rule"></span></div>'
+                + '<section class="from-source-section">';
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                var bkId = 'fts-bk-' + i;
+                var bkBtn = '<button class="from-source-bk" id="' + bkId + '" aria-label="Bookmark"'
+                    + ' onclick="toggleBookmark(\'' + escapeAttr(item.url) + '\', \'' + escapeAttr(item.title) + '\', this)">'
+                    + '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
+                    + '<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>';
+                html += '<div class="from-source-item">'
+                    + '<span class="from-source-icon">\u25C6</span>'
+                    + '<div class="from-source-body">'
+                    + '<div class="from-source-title"><a href="' + escapeAttr(item.url) + '" target="_blank" rel="noopener">'
+                    + escapeHtml(item.title) + '</a></div>'
+                    + '<div class="from-source-meta">'
+                    + '<span class="from-source-publisher">' + escapeHtml(item.meta) + '</span>'
+                    + '<span class="official-badge">Primary Source</span>'
+                    + '</div></div>' + bkBtn + '</div>';
+            }
+            html += '</section>';
+            return html;
+        }
+
         // ==================== RENDER HOME TAB (Newspaper — AI-curated) ====================
         function renderHomeTab() {
             const container = document.getElementById('home-newspaper');
@@ -2394,6 +2433,7 @@
 
             var feed = result.feed;
             var clusters = result.clusters || [];
+            var officialItems = result.officialItems || [];
 
             // Split feed across 4 pattern sections
             const s1 = feed.slice(0, 15);
@@ -2414,6 +2454,12 @@
             // Insert cluster section at the top if clusters exist
             if (clusters.length > 0) {
                 parts.push(renderBigStories(clusters));
+            }
+            // Insert official source section between clusters and feed
+            if (officialItems.length > 0) {
+                parts.push(renderFromTheSource(officialItems));
+            }
+            if (clusters.length > 0 || officialItems.length > 0) {
                 parts.push(renderSectionLabel('From The Feed'));
             }
 

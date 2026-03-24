@@ -117,7 +117,8 @@
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/statpress.html",
     "category": "News",
-    "publisher": "ECB"
+    "publisher": "ECB",
+    "source_tier": "official"
   },
   {
     "id": "ecb-wppub",
@@ -125,7 +126,8 @@
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/wppub.html",
     "category": "News",
-    "publisher": "ECB"
+    "publisher": "ECB",
+    "source_tier": "official"
   },
   {
     "id": "ecb-blog",
@@ -133,7 +135,8 @@
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/blog.html",
     "category": "News",
-    "publisher": "ECB"
+    "publisher": "ECB",
+    "source_tier": "official"
   },
   {
     "id": "ecb-press",
@@ -141,7 +144,8 @@
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/press.html",
     "category": "News",
-    "publisher": "ECB"
+    "publisher": "ECB",
+    "source_tier": "official"
   },
   {
     "id": "ecb-rbu",
@@ -149,7 +153,8 @@
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/rbu.html",
     "category": "News",
-    "publisher": "ECB"
+    "publisher": "ECB",
+    "source_tier": "official"
   },
   {
     "id": "ecb-pub",
@@ -157,7 +162,8 @@
     "url": "https://www.ecb.europa.eu/",
     "feed": "https://www.ecb.europa.eu/rss/pub.html",
     "category": "News",
-    "publisher": "ECB"
+    "publisher": "ECB",
+    "source_tier": "official"
   },
   {
     "id": "economic-times-default",
@@ -453,7 +459,8 @@
     "url": "https://www.sebi.gov.in/sebirss.xml",
     "feed": "https://www.sebi.gov.in/sebirss.xml",
     "category": "News",
-    "publisher": "SEBI"
+    "publisher": "SEBI",
+    "source_tier": "official"
   },
   {
     "id": "the-hindu-markets",
@@ -493,7 +500,8 @@
     "url": "https://fredblog.stlouisfed.org",
     "feed": "http://fredblog.stlouisfed.org/feed/",
     "category": "News",
-    "publisher": "FRED"
+    "publisher": "FRED",
+    "source_tier": "official"
   },
   {
     "id": "musings-on-markets-substack",
@@ -547,9 +555,10 @@
     "id": "rbi-press-releases",
     "name": "RBI — Press Releases",
     "url": "http://www.rbi.org.in",
-    "feed": "https://www.rbi.org.in/pressreleases_rss.xml",
+    "feed": "rbi-scraper:press-releases",
     "category": "News",
-    "publisher": "RBI"
+    "publisher": "RBI",
+    "source_tier": "official"
   },
   {
     "id": "rbi-notifications",
@@ -557,7 +566,8 @@
     "url": "http://www.rbi.org.in",
     "feed": "https://rbi.org.in/notifications_rss.xml",
     "category": "News",
-    "publisher": "RBI"
+    "publisher": "RBI",
+    "source_tier": "official"
   },
   {
     "id": "rbi-speeches",
@@ -565,7 +575,8 @@
     "url": "http://www.rbi.org.in",
     "feed": "https://rbi.org.in/speeches_rss.xml",
     "category": "News",
-    "publisher": "RBI"
+    "publisher": "RBI",
+    "source_tier": "official"
   },
   {
     "id": "rbi-publications",
@@ -573,7 +584,44 @@
     "url": "http://www.rbi.org.in",
     "feed": "https://rbi.org.in/Publication_rss.xml",
     "category": "News",
-    "publisher": "RBI"
+    "publisher": "RBI",
+    "source_tier": "official"
+  },
+  {
+    "id": "pib-finance",
+    "name": "PIB — Ministry of Finance",
+    "url": "https://pib.gov.in/",
+    "feed": "https://news.google.com/rss/search?q=site:pib.gov.in+ministry+of+finance&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "PIB",
+    "source_tier": "official"
+  },
+  {
+    "id": "pib-commerce",
+    "name": "PIB — Ministry of Commerce",
+    "url": "https://pib.gov.in/",
+    "feed": "https://news.google.com/rss/search?q=site:pib.gov.in+ministry+of+commerce&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "PIB",
+    "source_tier": "official"
+  },
+  {
+    "id": "pib-cabinet",
+    "name": "PIB — Cabinet Decisions",
+    "url": "https://pib.gov.in/",
+    "feed": "https://news.google.com/rss/search?q=site:pib.gov.in+cabinet+approves&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "PIB",
+    "source_tier": "official"
+  },
+  {
+    "id": "mospi-data",
+    "name": "MoSPI — Data Releases",
+    "url": "https://mospi.gov.in/",
+    "feed": "https://news.google.com/rss/search?q=site:mospi.gov.in+OR+%22ministry+of+statistics%22+GDP+OR+CPI+OR+IIP+OR+%22national+accounts%22&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "MoSPI",
+    "source_tier": "official"
   },
   {
     "id": "techmeme",

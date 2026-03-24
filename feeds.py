@@ -308,6 +308,7 @@ def _parse_feed_content(content, feed_config):
                 "region": feed_config.get("region", "Indian"),
                 "publisher": feed_config.get("publisher", ""),
                 "youtube_bucket": feed_config.get("youtube_bucket", ""),
+                "source_tier": feed_config.get("source_tier", ""),
                 "feed_id": feed_config["id"],
                 "guid": guid.text.strip() if guid is not None and guid.text else "",
             }
@@ -369,6 +370,7 @@ def _parse_feed_content(content, feed_config):
                 "region": feed_config.get("region", "Indian"),
                 "publisher": feed_config.get("publisher", ""),
                 "youtube_bucket": feed_config.get("youtube_bucket", ""),
+                "source_tier": feed_config.get("source_tier", ""),
                 "image": image_url,
                 "feed_id": feed_config["id"],
                 "guid": guid.text.strip() if guid is not None and guid.text else "",
@@ -602,6 +604,7 @@ def _extract_the_ken_html_articles(content, feed_config):
                 "source_url": feed_config["url"],
                 "category": feed_config.get("category", "News"),
                 "publisher": feed_config.get("publisher", ""),
+                "source_tier": feed_config.get("source_tier", ""),
                 "feed_id": feed_config["id"],
             })
 
@@ -648,6 +651,7 @@ def _extract_the_ken_html_articles(content, feed_config):
             "source_url": feed_config["url"],
             "category": feed_config.get("category", "News"),
             "publisher": feed_config.get("publisher", ""),
+            "source_tier": feed_config.get("source_tier", ""),
             "feed_id": feed_config["id"],
         })
 
@@ -707,6 +711,81 @@ def fetch_feed(feed_config):
 
     return articles
 
+
+def fetch_rbi_press_releases(feed_config):
+    """Scrape RBI press releases from the HTML page.
+
+    The RSS feed (pressreleases_rss.xml) only keeps ~10 items and rotates out
+    important content within hours. This scraper fetches 50+ items from the HTML
+    listing page, which retains several days of press releases.
+    """
+    feed_name = feed_config["name"]
+    source_url = feed_config["url"]
+    articles = []
+
+    try:
+        url = "https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx"
+        req = urllib.request.Request(url, headers={
+            "User-Agent": DEFAULT_USER_AGENT,
+            "Accept": "text/html",
+            "Accept-Language": "en-US,en;q=0.9",
+        })
+        with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT) as response:
+            content = response.read().decode("utf-8", errors="replace")
+
+        # Structure: date header rows followed by article rows
+        # Date: <td class="tableheader"...><b>Mar 24, 2026<b></td>
+        # Article: <a class='link2' href=BS_PressReleaseDisplay.aspx?prid=XXXXX>Title</a>
+        current_date = None
+
+        date_pattern = re.compile(
+            r'class="tableheader"[^>]*><b>([A-Z][a-z]{2,8}\s+\d{1,2},?\s+\d{4})', re.I
+        )
+        article_pattern = re.compile(
+            r'href=BS_PressReleaseDisplay\.aspx\?prid=(\d+)>([^<]+)</a>', re.I
+        )
+
+        for line in content.split('<tr>'):
+            dm = date_pattern.search(line)
+            if dm:
+                date_str = dm.group(1).strip()
+                try:
+                    current_date = datetime.strptime(date_str, "%b %d, %Y").replace(tzinfo=IST_TZ)
+                except ValueError:
+                    try:
+                        current_date = datetime.strptime(date_str, "%B %d, %Y").replace(tzinfo=IST_TZ)
+                    except ValueError:
+                        pass
+
+            am = article_pattern.search(line)
+            if am:
+                prid = am.group(1)
+                title = am.group(2).strip()
+                title = title.replace("&amp;", "&").replace("&#8211;", "\u2013").replace("&#8212;", "\u2014")
+                title = title.replace("&ndash;", "\u2013").replace("&mdash;", "\u2014")
+                if not title:
+                    continue
+                link = f"https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid={prid}"
+                articles.append({
+                    "title": title,
+                    "link": link,
+                    "date": current_date,
+                    "description": "",
+                    "source": feed_name,
+                    "source_url": source_url,
+                    "category": feed_config.get("category", "News"),
+                    "region": feed_config.get("region", "Indian"),
+                    "publisher": feed_config.get("publisher", ""),
+                    "source_tier": feed_config.get("source_tier", ""),
+                    "feed_id": feed_config["id"],
+                })
+
+        print(f"  [OK] {feed_name}: {len(articles)} articles (scraper)")
+
+    except Exception as e:
+        print(f"  [FAIL] {feed_name}: {str(e)[:50]}")
+
+    return articles
 
 def fetch_the_ken(feed_config):
     """Fetch The Ken with resilient fallback: RSS -> HTML -> Google News RSS."""
@@ -818,7 +897,8 @@ def fetch_careratings(feed_config):
                 "source": feed_name,
                 "source_url": source_url,
                 "category": feed_config.get("category", "News"),
-                "publisher": feed_config.get("publisher", "")
+                "publisher": feed_config.get("publisher", ""),
+                "source_tier": feed_config.get("source_tier", ""),
             })
 
         print(f"  [OK] {feed_name}: {len(articles)} articles")

@@ -40,7 +40,7 @@ from articles import (group_similar_articles, clean_html, get_sort_timestamp,
 
 # Feed loading and fetching
 from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
-                   INVIDIOUS_INSTANCES, YOUTUBE_BUCKETS)
+                   fetch_rbi_press_releases, INVIDIOUS_INSTANCES, YOUTUBE_BUCKETS)
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher
@@ -124,6 +124,7 @@ def export_published_snapshot(article_groups, video_articles, twitter_articles, 
             "source_id": article.get("feed_id", ""),
             "source_name": article.get("source", ""),
             "publisher": article.get("publisher", ""),
+            "source_tier": article.get("source_tier", ""),
             "title": article.get("title", ""),
             "url": article.get("link", ""),
             "source_url": article.get("source_url", ""),
@@ -443,6 +444,7 @@ def generate_html(
             "source_url": article.get("source_url", ""),
             "description": article.get("description", ""),
             "publisher": article.get("publisher", ""),
+            "source_tier": article.get("source_tier", ""),
             "date": local_dt.isoformat() if local_dt else None,
             "time": local_dt.strftime("%I:%M %p").lstrip("0") if local_dt else "",
             "in_focus": bool(group["related_sources"]),
@@ -1016,6 +1018,8 @@ def main():
                 futures[executor.submit(fetch_the_ken, feed)] = feed
             elif feed_field.startswith("careratings:"):
                 futures[executor.submit(fetch_careratings, feed)] = feed
+            elif feed_field.startswith("rbi-scraper:"):
+                futures[executor.submit(fetch_rbi_press_releases, feed)] = feed
             else:
                 report_fetcher = get_report_fetcher(feed_field)
                 if report_fetcher:

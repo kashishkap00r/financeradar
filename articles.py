@@ -145,6 +145,19 @@ def group_similar_articles(articles):
                     group["all_articles"].append(other)
                     used.add(j)
 
+            # Prefer official source as group primary
+            official = next(
+                (a for a in group["all_articles"] if a.get("source_tier") == "official"),
+                None,
+            )
+            if official and official is not group["primary"]:
+                group["primary"] = official
+                group["related_sources"] = [
+                    {"name": a["source"], "url": a.get("source_url", ""), "link": a["link"]}
+                    for a in group["all_articles"]
+                    if a is not official
+                ]
+
             groups.append(group)
 
     return groups
