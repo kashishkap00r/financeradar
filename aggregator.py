@@ -483,7 +483,6 @@ def generate_html(
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script data-cfasync="false">try{{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light')}}catch(e){{}}</script>
     <script data-cfasync="false">try{{var t=localStorage.getItem('financeradar_active_tab')||'news';if(localStorage.getItem('financeradar_filters_collapsed_'+t)!=='false')document.documentElement.classList.add('filters-collapsed')}}catch(e){{}}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance Radar</title>
@@ -893,7 +892,7 @@ def generate_html(
             <nav class="foot-nav">
                 <a href="/">Feed</a>
                 <a href="about.html">About</a>
-                <a href="https://github.com/kashishkap00r/financeradar" target="_blank" rel="noopener">GitHub</a>
+                <a href="mailto:kashish.kapoor@zerodha.com">Contact</a>
             </nav>
         </footer>
     </div>

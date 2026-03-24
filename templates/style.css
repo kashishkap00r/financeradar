@@ -35,22 +35,6 @@
             --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
             --danger: #B5422A;
         }
-        [data-theme="dark"] {
-            --bg-primary: #1A1614;
-            --bg-secondary: #221E1B;
-            --card-bg: #252019;
-            --bg-hover: #2A2522;
-            --text-primary: #E8E2DA;
-            --text-secondary: #B0A89E;
-            --text-muted: #7D756B;
-            --accent: #D4703F;
-            --accent-hover: #E8854F;
-            --accent-soft: rgba(212, 112, 63, 0.18);
-            --border: #3A3430;
-            --border-light: #4A433E;
-            --card-shadow: 0 1px 3px rgba(0,0,0,0.25);
-            --danger: #E8854F;
-        }
 
         * {
             box-sizing: border-box;
@@ -2532,17 +2516,9 @@
             background: rgba(46,125,50,0.12);
             color: #2e7d32;
         }
-        [data-theme="dark"] .research-region-badge.indian {
-            background: rgba(76,175,130,0.15);
-            color: #4caf82;
-        }
         .research-region-badge.international {
             background: rgba(21,101,192,0.12);
             color: #1565c0;
-        }
-        [data-theme="dark"] .research-region-badge.international {
-            background: rgba(59,130,246,0.15);
-            color: #5b9cf6;
         }
 
         /* Research card description */

@@ -20,15 +20,6 @@
   --accent: #C45A35;
 }
 
-[data-theme="dark"] {
-  --bg-primary: #1A1614;
-  --text-primary: #E8E2DA;
-  --text-secondary: #B0A89E;
-  --text-muted: #7D756B;
-  --border: #3A3430;
-  --accent: #D4703F;
-}
-
 ::selection { background: var(--accent); color: #fff; }
 
 html {
@@ -377,7 +368,7 @@ footer {
 <section class="about-section">
   <h2>The idea</h2>
   <p>Finance Radar started as a personal frustration with how financial news is consumed in India. Every morning, the routine was the same — open eight browser tabs, scroll through three Telegram groups, check YouTube for new takes, skim Twitter for market chatter. By the time you'd gathered your morning brief, it was lunch.</p>
-  <p>So I built the thing I wished existed: a single, calm feed that pulls from <strong>70+ sources</strong> across news desks, independent voices, institutional research, Telegram channels, YouTube, and Twitter — curated not by algorithms, but by whether I'd actually trust the source with my own portfolio decisions.</p>
+  <p>So I built the thing I wished existed: a single, calm feed that pulls from <strong>220+ sources</strong> across news desks, independent voices, institutional research, Telegram channels, YouTube, and Twitter — curated not by algorithms, but by whether I'd actually trust the source with my own portfolio decisions.</p>
   <p>There's no engagement bait. No push notifications. No "trending" section designed to spike anxiety. Just chronological updates from sources that do real reporting, real analysis, and real thinking about Indian and global finance.</p>
 </section>
 
@@ -385,46 +376,48 @@ footer {
   <h2>How it works</h2>
   <div class="stats-strip">
     <div class="stat">
-      <div class="stat-number">72</div>
-      <div class="stat-label">Publishers</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">4,879</div>
-      <div class="stat-label">Posts</div>
+      <div class="stat-number">220+</div>
+      <div class="stat-label">Sources</div>
     </div>
     <div class="stat">
       <div class="stat-number">6</div>
       <div class="stat-label">Categories</div>
     </div>
     <div class="stat">
+      <div class="stat-number">24</div>
+      <div class="stat-label">Refreshes / Day</div>
+    </div>
+    <div class="stat">
       <div class="stat-number">0</div>
       <div class="stat-label">Ads</div>
     </div>
   </div>
-  <p>Every hour, an automated pipeline fetches RSS feeds from newspapers, blogs, research houses, YouTube channels, and Telegram groups. Articles are de-duplicated, grouped by similarity, and ranked by an AI model that prioritises explanatory journalism over breaking-news noise.</p>
-  <p>The <strong>"In Focus"</strong> badge highlights stories covered by multiple independent sources — a signal that something genuinely matters, not just that someone rewrote a press release.</p>
-  <p>Everything is presented chronologically. No algorithmic feed. No personalisation. No tracking. The same feed for everyone, every time.</p>
+  <p>Every hour, an automated pipeline fetches RSS feeds from newspapers, blogs, research houses, YouTube channels, and Telegram groups. Articles are de-duplicated, grouped by similarity, and filtered through 150+ noise patterns to strip out clickbait, market-movement filler, and rewrites.</p>
+  <p>Four times a day, two independent AI models (Gemini and DeepSeek) rank the feed. Articles picked by both models rise to the top — a consensus signal that something genuinely matters, not just that someone rewrote a press release.</p>
+  <p>The homepage also clusters related articles into <strong>"The Big Stories"</strong> — grouping news, Telegram reports, YouTube explainers, tweets, and research papers that cover the same underlying event. You see the best take as the lead, with genuinely different angles underneath. No duplicates, no rewrites — just coverage variety.</p>
+  <p>No personalisation. No tracking. The same feed for everyone, every time.</p>
 </section>
 
 <section class="about-section">
   <h2>What's in the feed</h2>
-  <p>Four desk presets organise sources by perspective:</p>
+  <p>Six tabs organise sources by type, plus four desk presets that filter by perspective:</p>
   <p><strong>India Desk</strong> — ET, The Hindu, BusinessLine, Business Standard, Mint, ThePrint, Firstpost, Indian Express, Financial Express, and more.</p>
   <p><strong>World Desk</strong> — BBC, CNBC, Reuters, Bloomberg, Financial Times, WSJ, The Economist, The Guardian, Techmeme.</p>
   <p><strong>Indie Voices</strong> — Finshots, Filter Coffee, The Ken, The Morning Context, SOIC, Noah Smith, Musings on Markets, Ideas For India, and two dozen more independent writers who do original thinking.</p>
   <p><strong>Official Channels</strong> — RBI, SEBI, ECB, ADB, FRED — for when you want the primary source, not someone's take on it.</p>
-  <p>Plus: brokerage reports via Telegram, research papers, YouTube explainers, and curated Twitter threads.</p>
+  <p>Plus dedicated tabs for: <strong>Reports</strong> (brokerage research via Telegram and institutional scrapers), <strong>YouTube</strong> (finance explainers and market commentary), <strong>Twitter</strong> (curated threads with a High Signal lane for the best takes), and <strong>Papers</strong> (academic research from RBI, NBER, and policy institutes).</p>
 </section>
 
 <section class="about-section">
   <h2>About the site</h2>
   <p>Finance Radar is built entirely with Python, vanilla HTML/CSS/JS, and a healthy amount of Claude. No React. No framework. No build step. The entire frontend is a single generated HTML file served as a static page via Cloudflare Pages.</p>
-  <p>The AI ranking runs once daily using Gemini and is explicitly prompted to favour depth over speed, explanation over opinion, and data over anecdote. The ranking model sees the same feed you do — it has no inside information.</p>
+  <p>The AI ranking runs four times daily using two independent models (Gemini and DeepSeek), explicitly prompted to favour depth over speed, explanation over opinion, and data over anecdote. The ranking models see the same feed you do — they have no inside information.</p>
+  <p>A few things you might like: <strong>bookmarks</strong> (save individual articles or entire story clusters, copy them as a formatted list) and <strong>keyboard shortcuts</strong> (J/K to navigate, / to search, 1–6 for tabs).</p>
   <p>This is a personal project by <a href="#">Kashish Kapoor</a>. It's not a startup. It doesn't have funding. It doesn't need your email. It exists because I wanted a better way to read financial news, and maybe you do too.</p>
 
   <div class="cta-block">
-    <p>Know a good source I'm missing?</p>
-    <a href="https://github.com/kashishkap00r/financeradar/issues" target="_blank" rel="noopener" class="cta-link">Open an issue on GitHub &rarr;</a>
+    <p>Know a good source I'm missing? Have feedback or suggestions?</p>
+    <a href="mailto:kashish.kapoor@zerodha.com" class="cta-link">Drop me an email &rarr;</a>
   </div>
 </section>
 
@@ -437,7 +430,7 @@ footer {
   <nav class="foot-nav">
     <a href="/">Feed</a>
     <a href="about.html">About</a>
-    <a href="https://github.com/kashishkap00r/financeradar" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:kashish.kapoor@zerodha.com">Contact</a>
   </nav>
 </footer>
 
@@ -460,15 +453,6 @@ try {
   var countEl = document.getElementById('bk-count');
   if (countEl) countEl.textContent = bk.length;
 } catch(e) {}
-
-// Theme — sync with homepage preference
-(function() {
-  var saved = null;
-  try { saved = localStorage.getItem('theme'); } catch(e) {}
-  if (saved === 'dark' || saved === 'light') {
-    document.documentElement.setAttribute('data-theme', saved);
-  }
-})();
 
 // Search toggle
 document.getElementById('search-toggle').addEventListener('click', function() {

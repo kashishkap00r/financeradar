@@ -101,30 +101,6 @@
             }
         }
 
-        const setTheme = (theme) => {
-            document.documentElement.setAttribute('data-theme', theme);
-            document.body.setAttribute('data-theme', theme);
-            safeStorage.set('theme', theme);
-            const btn = document.getElementById('theme-toggle');
-            if (btn) {
-                btn.setAttribute('data-theme', theme);
-                btn.setAttribute('aria-pressed', theme === 'light' ? 'false' : 'true');
-            }
-        };
-        function toggleTheme() {
-            const current = document.documentElement.getAttribute('data-theme') || 'dark';
-            setTheme(current === 'light' ? 'dark' : 'light');
-        }
-        const initTheme = () => {
-            const saved = safeStorage.get('theme');
-            const theme = saved || 'light';
-            setTheme(theme);
-        };
-        initTheme();
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        if (themeToggleBtn) {
-            themeToggleBtn.addEventListener('click', toggleTheme);
-        }
         // Expandable search
         var searchWrap = document.getElementById('search-wrap');
         var searchToggle = document.getElementById('search-toggle');
