@@ -387,6 +387,9 @@ def generate_html(
     twitter_lane_meta_json = json.dumps(twitter_lane_meta)
     twitter_count = len(twitter_articles)
     twitter_high_signal_count = len(twitter_high_signal)
+    # Use latest tweet date for "Updated" timestamp (not pipeline run time)
+    _tw_dates = [t["date"] for t in twitter_articles if t.get("date")]
+    twitter_latest_time = max(_tw_dates).isoformat() if _tw_dates else now_ist.isoformat()
     twitter_publishers = sorted(set(t.get("publisher", t.get("source", "")) for t in twitter_articles if t.get("publisher") or t.get("source")))
     twitter_publishers_json = json.dumps(twitter_publishers)
 
@@ -849,7 +852,7 @@ def generate_html(
                         <span class="stat-truncate" id="twitter-publisher-count-label"></span>
                     </div>
                     <div class="filter-head-actions">
-                        <span class="update-time" id="twitter-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
+                        <span class="update-time" id="twitter-update-time" data-time="{twitter_latest_time}">Updated</span>
                         <script>
                         (function(){{
                             var el=document.getElementById('twitter-update-time'),t=el&&el.getAttribute('data-time');
