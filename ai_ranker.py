@@ -678,6 +678,7 @@ CLUSTERING RULES:
 - Only cluster if articles cover the SAME specific event or development — not merely the same broad sector or topic.
   - YES: Three articles about RBI's March 2026 rate cut → same event
   - NO: Two unrelated banking articles (HDFC results + SBI NPA) → same sector, different stories
+  - CRITICAL: Multiple government decisions announced on the same day are SEPARATE stories. "Cabinet approves UDAN scheme" and "Cabinet approves climate targets" are different stories even though both are cabinet decisions. Do NOT group different policy announcements together just because they share "Cabinet approves" or similar phrasing.
 - CRITICAL: Do NOT include multiple articles that report the same facts. If ET, Mint, and Bloomberg all say "Fed holds rates steady", pick the ONE best version. Only include an article if it adds a genuinely NEW fact, number, angle, or format (e.g. a YouTube explainer, a research report with data, a tweet with insider context).
 - Cross-type clusters are valuable: a YouTube explainer + a Telegram research note + a news report on the same event is a great cluster. Prefer diversity of source types over quantity.
 - Minimum 2, maximum {max_clusters} clusters. Prefer fewer, tighter clusters over many loose ones. If no natural clusters exist, return empty array.
@@ -762,13 +763,18 @@ def resolve_cluster_indices(raw_clusters, items):
         if len(articles) < 2:
             continue
 
-        # Prefer official source as cluster lead
+        # Prefer official source as cluster lead — but only if its title is
+        # relevant to the cluster (guards against misclustered official articles)
         official_idx = next(
             (i for i, a in enumerate(articles) if a.get("source_tier") == "official"),
             0,
         )
         if official_idx > 0:
-            articles.insert(0, articles.pop(official_idx))
+            lead_title = articles[0].get("title", "").lower()
+            official_title = articles[official_idx].get("title", "").lower()
+            sim = SequenceMatcher(None, lead_title, official_title).ratio()
+            if sim >= 0.30:
+                articles.insert(0, articles.pop(official_idx))
 
         # For backward compatibility, first article is "lead", rest are "related"
         lead = dict(articles[0])
