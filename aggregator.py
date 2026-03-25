@@ -31,7 +31,7 @@ PAPERS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "papers_cache.json")
 PUBLISHED_SNAPSHOT_FILE = os.path.join(SCRIPT_DIR, "static", "published_snapshot.json")
 
 # Filters extracted to filters.py for independent editing and testing
-from filters import should_filter_article, should_filter_video, should_filter_political
+from filters import should_filter_article, should_filter_video, should_filter_political, is_high_signal_official
 
 # Article processing utilities
 from articles import (group_similar_articles, clean_html, get_sort_timestamp,
@@ -448,6 +448,7 @@ def generate_html(
             "description": article.get("description", ""),
             "publisher": article.get("publisher", ""),
             "source_tier": article.get("source_tier", ""),
+            "high_signal": is_high_signal_official(article.get("title", "")) if article.get("source_tier") == "official" else False,
             "date": local_dt.isoformat() if local_dt else None,
             "time": local_dt.strftime("%I:%M %p").lstrip("0") if local_dt else "",
             "in_focus": bool(group["related_sources"]),

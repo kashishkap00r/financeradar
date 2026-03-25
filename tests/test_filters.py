@@ -6,7 +6,7 @@ import unittest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from filters import should_filter_article, should_filter_video, should_filter_political
+from filters import should_filter_article, should_filter_video, should_filter_political, is_high_signal_official
 
 
 class TestShouldFilterArticle(unittest.TestCase):
@@ -199,14 +199,28 @@ class TestOfficialSourceFiltering(unittest.TestCase):
         self.assertFalse(should_filter_article(self._official(
             "ECB cuts deposit facility rate to 2.50%")))
 
-    # --- Whitelist miss: generic official content dropped ---
-    def test_official_generic_notification_filtered(self):
-        self.assertTrue(should_filter_article(self._official(
+    # --- Non-blacklisted official content passes News tab filter ---
+    def test_official_generic_notification_passes_news_tab(self):
+        # Generic content not in blacklist passes to News tab
+        self.assertFalse(should_filter_article(self._official(
             "Notification regarding office timings")))
 
-    def test_official_appointment_letter_filtered(self):
-        self.assertTrue(should_filter_article(self._official(
-            "Appointment of new deputy secretary")))
+    def test_official_working_paper_passes_news_tab(self):
+        self.assertFalse(should_filter_article(self._official(
+            "RBI WPS: State-Level Inflation Forecasts for India")))
+
+    # --- Whitelist (is_high_signal_official) for "From The Source" section ---
+    def test_whitelist_rbi_rate_is_high_signal(self):
+        self.assertTrue(is_high_signal_official("RBI keeps repo rate unchanged at 6.5%"))
+
+    def test_whitelist_gdp_is_high_signal(self):
+        self.assertTrue(is_high_signal_official("India's GDP growth at 6.7% in Q3 FY26"))
+
+    def test_whitelist_generic_not_high_signal(self):
+        self.assertFalse(is_high_signal_official("Notification regarding office timings"))
+
+    def test_whitelist_blacklisted_not_high_signal(self):
+        self.assertFalse(is_high_signal_official("RBI imposes monetary penalty on ABC Bank"))
 
     # --- Media source unchanged by official filters ---
     def test_media_source_still_uses_blacklist(self):

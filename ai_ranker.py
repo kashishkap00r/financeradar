@@ -622,6 +622,7 @@ def enrich_bucket_rankings(rankings, candidates, source_type, target_count):
             "source": article["source"] if article else "",
             "source_type": normalize_source_type(article.get("source_type", "")) if article else (tagged_source_type or source_type),
             "source_tier": article.get("source_tier", "") if article else "",
+            "high_signal": bool(article and article.get("source_tier") == "official"),
             "india_relevance": item.get("india_relevance", ""),
             "signal_type": item.get("signal_type", ""),
             "why_it_matters": item.get("why_it_matters", ""),

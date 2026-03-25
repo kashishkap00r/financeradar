@@ -1989,7 +1989,8 @@
                     confidence: item.confidence || '',
                     _consensus: item._consensus || false,
                     _mergedRank: item._mergedRank || 0,
-                    source_tier: item.source_tier || ''
+                    source_tier: item.source_tier || '',
+                    high_signal: item.high_signal || false
                 };
             }
 
@@ -2021,11 +2022,11 @@
                 }
             }
 
-            // Extract official source items for "From The Source" section
+            // Extract high-signal official items for "From The Source" section
             var officialItems = [];
             var regularFeed = [];
             for (var fi = 0; fi < feed.length; fi++) {
-                if (feed[fi].source_tier === 'official') {
+                if (feed[fi].source_tier === 'official' && feed[fi].high_signal) {
                     officialItems.push(feed[fi]);
                 } else {
                     regularFeed.push(feed[fi]);

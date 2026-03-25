@@ -411,18 +411,31 @@ COMPILED_OFFICIAL_WHITELIST = [re.compile(p, re.IGNORECASE) for p in OFFICIAL_WH
 
 
 def _should_filter_official(title):
-    """Two-pass filter for official sources: blacklist first, then whitelist.
-    Returns True if article should be filtered OUT."""
-    # Pass 1: blacklist — drop junk immediately
+    """Blacklist filter for official sources in the News tab.
+    Returns True if article should be filtered OUT.
+    Uses the official-specific blacklist (stricter than media) but does NOT
+    require a whitelist match — that's only for the "From The Source" homepage section.
+    """
     for pattern in COMPILED_OFFICIAL_BLACKLIST:
         if pattern.search(title):
             return True
-    # Pass 2: whitelist — must match at least one high-signal pattern
-    for pattern in COMPILED_OFFICIAL_WHITELIST:
-        if pattern.search(title):
+    return False
+
+
+def is_high_signal_official(title):
+    """Check if an official source title matches high-signal whitelist patterns.
+    Used by the frontend to decide what goes in "From The Source" section.
+    Returns True if article is high-signal."""
+    title_lower = (title or "").lower()
+    # Must not match blacklist
+    for pattern in COMPILED_OFFICIAL_BLACKLIST:
+        if pattern.search(title_lower):
             return False
-    # No whitelist match — drop it
-    return True
+    # Must match whitelist
+    for pattern in COMPILED_OFFICIAL_WHITELIST:
+        if pattern.search(title_lower):
+            return True
+    return False
 
 
 def should_filter_political(article):
