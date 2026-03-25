@@ -1,26 +1,281 @@
 {
-  "generated_at": "2026-03-25T18:26:02.461773+05:30",
+  "generated_at": "2026-03-25T19:47:49.221581+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 48,
       "feeds_failed": 1,
-      "items_raw": 1237,
-      "resolve_attempted": 1237,
-      "resolve_resolved": 1226,
-      "resolve_cache_hits": 1229
+      "items_raw": 1236,
+      "resolve_attempted": 1236,
+      "resolve_resolved": 1225,
+      "resolve_cache_hits": 1227
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.1,
-      "items": 794,
-      "handles_ok": 48
+      "age_hours": 0.5,
+      "items": 814,
+      "handles_ok": 49
     },
     "warning": "",
-    "generated_at": "2026-03-25T18:26:02.461715+05:30"
+    "generated_at": "2026-03-25T19:47:49.221527+05:30"
   },
   "items": [
+    {
+      "title": "BREAKING: Oman's oil prices extend losses to -46% from their peak, now down -$80/barrel in just 9 days. Markets are pricing-in an end to the Iran War.",
+      "link": "https://x.com/KobeissiLetter/status/2036801967205351884",
+      "date": "2026-03-25T13:46:45+00:00",
+      "tweet_id": "2036801967205351884",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEQsdAYXQAAiOW5?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: Oman's oil prices extend losses to -46% from their peak, now down -$80/barrel in just 9 days.<br><br>Markets are pricing-in an end to the Iran War.<br><img width=\"914\" height=\"1174\" style=\"\" src=\"https://pbs.twimg.com/media/HEQsdAYXQAAiOW5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "CHOLAMANDALAM INVESTMENT AND FINANCE: CO AWARDS WORKS CONTRACT FOR CORPORATE OFFICE BUILDING FOR 5.40B RUPEES",
+      "link": "https://x.com/REDBOXINDIA/status/2036801179955642763",
+      "date": "2026-03-25T13:43:37+00:00",
+      "tweet_id": "2036801179955642763",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "CHOLAMANDALAM INVESTMENT AND FINANCE: CO AWARDS WORKS CONTRACT FOR CORPORATE OFFICE BUILDING FOR 5.40B RUPEES",
+      "category": "Twitter"
+    },
+    {
+      "title": "Daily Briefing: High prices to \u2018outlast\u2019 war | India gas shortage | Chinese EVs in demand \u27a1\ufe0f Read today's briefing here: https://buff.ly/LpmD7Ew ...",
+      "link": "https://x.com/CarbonBrief/status/2036799395404902665",
+      "date": "2026-03-25T13:36:32+00:00",
+      "tweet_id": "2036799395404902665",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/tweet_video_thumb/HEQqI6PXgAAQYSF.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Daily Briefing: High prices to \u2018outlast\u2019 war | India gas shortage | Chinese EVs in demand<br><br>\u27a1\ufe0f Read today's briefing here: https://buff.ly/LpmD7Ew<br><br>\u27a1\ufe0f Sign up to our email briefings: https://buff.ly/3kFciAO<br><video width=\"800\" height=\"450\" src=\"https://video.twimg.com/tweet_video/HEQqI6PXgAAQYSF.mp4\" autoplay=\"\" loop=\"\" muted=\"\" webkit-playsinline=\"\" playsinline=\"\" controls=\"controls\" poster=\"https://pbs.twimg.com/tweet_video_thumb/HEQqI6PXgAAQYSF.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "#FundFlow | FIIs Net Sell \u20b91,805.37 Cr While DIIs Net Buy \u20b95,429.78 Cr In Equities Today (Provisional)",
+      "link": "https://x.com/CNBCTV18Live/status/2036798568938586203",
+      "date": "2026-03-25T13:33:15+00:00",
+      "tweet_id": "2036798568938586203",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEQpXqhaUAAmGEX?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#FundFlow | FIIs Net Sell \u20b91,805.37 Cr While DIIs Net Buy \u20b95,429.78 Cr In Equities Today (Provisional)<br><img width=\"1385\" height=\"776\" style=\"\" src=\"https://pbs.twimg.com/media/HEQpXqhaUAAmGEX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "GRE RENEW ENERTECH: CO SECURES \u20b912.95 CR EPC ORDER FROM AJITA SIL-CHEM FOR 4 MW GRID-CONNECTED SOLAR PLANT",
+      "link": "https://x.com/REDBOXINDIA/status/2036798300368814208",
+      "date": "2026-03-25T13:32:11+00:00",
+      "tweet_id": "2036798300368814208",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "GRE RENEW ENERTECH: CO SECURES \u20b912.95 CR EPC ORDER FROM AJITA SIL-CHEM FOR 4 MW GRID-CONNECTED SOLAR PLANT",
+      "category": "Twitter"
+    },
+    {
+      "title": "Hotter world, hungrier futures: India among most vulnerable large economies to food insecurity as global temperatures rise A new study warns rising he...",
+      "link": "https://x.com/down2earthindia/status/2036797753049624769",
+      "date": "2026-03-25T13:30:00+00:00",
+      "tweet_id": "2036797753049624769",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Hotter world, hungrier futures: India among most vulnerable large economies to food insecurity as global temperatures rise<br><br>A new study warns rising heat could deepen food insecurity, with falling scores, fragile food systems and widening inequality putting millions at risk.<br><br>\ud83d\udd8b\ufe0f @shagun__k  https://www.downtoearth.org.in/food/hotter-world-hungrier-futures-india-among-most-vulnerable-large-economies-to-food-insecurity-as-global-temperatures-rise",
+      "category": "Twitter"
+    },
+    {
+      "title": "3 in 4 TB tests in India in 2023 were sputum smear\u2014a method that misses half of all cases. Later data yet to be released. #TBMuktBharatAbhiyan now ca...",
+      "link": "https://x.com/IndiaSpend/status/2036797750457635218",
+      "date": "2026-03-25T13:30:00+00:00",
+      "tweet_id": "2036797750457635218",
+      "source": "IndiaSpend",
+      "publisher": "IndiaSpend",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "3 in 4 TB tests in India in 2023 were sputum smear\u2014a method that misses half of all cases. Later data yet to be released. #TBMuktBharatAbhiyan now calls for 100% molecular tests for presumptive cases. What\u2019s happening on the ground? Our report  https://www.indiaspend.com/health/four-times-over-target-indias-tb-elimination-problem-982394",
+      "category": "Twitter"
+    },
+    {
+      "title": "Crazy if this happens!",
+      "link": "https://x.com/ShashankUdupa1/status/2036795499152654806",
+      "date": "2026-03-25T13:21:03+00:00",
+      "tweet_id": "2036795499152654806",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEQmdMMa8AAUPet?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Crazy if this happens!<br><img width=\"1171\" height=\"1057\" style=\"\" src=\"https://pbs.twimg.com/media/HEQmdMMa8AAUPet?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "SCOTUS may have disarmed the highwayman, but it did not free his victims from agreements struck at gunpoint, Marcus Noland writes. For Japan, South Ko...",
+      "link": "https://x.com/PIIE/status/2036794984704147646",
+      "date": "2026-03-25T13:19:00+00:00",
+      "tweet_id": "2036794984704147646",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "SCOTUS may have disarmed the highwayman, but it did not free his victims from agreements struck at gunpoint, Marcus Noland writes. For Japan, South Korea, &amp; Taiwan, pressure to comply remains, even if Trump must now enforce deals with different legal tools.https://eastasiaforum.org/2026/03/23/highwayman-trump-disarmed-but-not-defeated/",
+      "category": "Twitter"
+    },
+    {
+      "title": "JSW CEMENT: CO INCORPORATES 100% WHOLLY-OWNED SUBSIDIARY IN UAE WITH AED 1 LAKH SHARE CAPITAL",
+      "link": "https://x.com/REDBOXINDIA/status/2036792401625547261",
+      "date": "2026-03-25T13:08:44+00:00",
+      "tweet_id": "2036792401625547261",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "JSW CEMENT: CO INCORPORATES 100% WHOLLY-OWNED SUBSIDIARY IN UAE WITH AED 1 LAKH SHARE CAPITAL",
+      "category": "Twitter"
+    },
+    {
+      "title": "CONCORD CONTROL SYSTEMS: CO GETS ORDER WORTH 846.8M RUPEES",
+      "link": "https://x.com/REDBOXINDIA/status/2036791747058225311",
+      "date": "2026-03-25T13:06:08+00:00",
+      "tweet_id": "2036791747058225311",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "CONCORD CONTROL SYSTEMS: CO GETS ORDER WORTH 846.8M RUPEES",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: President Trump is set to appoint Mark Zuckerberg, Larry Ellison, and Jensen Huang to a new \"technology council,\" per WSJ. This council coul...",
+      "link": "https://x.com/KobeissiLetter/status/2036791627587432769",
+      "date": "2026-03-25T13:05:40+00:00",
+      "tweet_id": "2036791627587432769",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: President Trump is set to appoint Mark Zuckerberg, Larry Ellison, and Jensen Huang to a new \"technology council,\" per WSJ.<br><br>This council could include 24 people, will be co-chaired by David Sacks, and will be focused on AI policy.",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Gregory Brew: Iran response to the US diplomatic push is mostly suspicious, cautious, defiant. Do they want the war to end? Yes But on their terms....",
+      "link": "https://x.com/JavierBlas/status/2036796262960304625",
+      "date": "2026-03-25T13:04:36+00:00",
+      "tweet_id": "2036796262960304625",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Gregory Brew<br>Iran response to the US diplomatic push is mostly suspicious, cautious, defiant. <br><br>Do they want the war to end? Yes<br><br>But on their terms. And not in a way that leaves the door open to more US or Israeli attacks.",
+      "category": "Twitter"
+    },
+    {
+      "title": "GLEN INDUSTRIES: CO PROMOTER GROUP BOOSTS STAKE TO 73.42% THROUGH ACQUISITION OF 10,800 SHARES AT \u20b973.26 EACH",
+      "link": "https://x.com/REDBOXINDIA/status/2036791098899939567",
+      "date": "2026-03-25T13:03:34+00:00",
+      "tweet_id": "2036791098899939567",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "GLEN INDUSTRIES: CO PROMOTER GROUP BOOSTS STAKE TO 73.42% THROUGH ACQUISITION OF 10,800 SHARES AT \u20b973.26 EACH",
+      "category": "Twitter"
+    },
+    {
+      "title": "POLYPLEX CORP: CO APPROVES INVESTMENT IN BECIS SOLAR 1 FOR OPEX-BASED SOLAR PROJECTS AT KHATIMA & BAZPUR PLANTS",
+      "link": "https://x.com/REDBOXINDIA/status/2036789428015001847",
+      "date": "2026-03-25T12:56:56+00:00",
+      "tweet_id": "2036789428015001847",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "POLYPLEX CORP: CO APPROVES INVESTMENT IN BECIS SOLAR 1 FOR OPEX-BASED SOLAR PROJECTS AT KHATIMA &amp; BAZPUR PLANTS",
+      "category": "Twitter"
+    },
+    {
+      "title": "#HFCL board approves \u20b9580 crore preform manufacturing facility through subsidiary @jpullokaran https://www.cnbctv18.com/market/stocks/hfcl-share-pric...",
+      "link": "https://x.com/CNBCTV18Live/status/2036788951386935728",
+      "date": "2026-03-25T12:55:02+00:00",
+      "tweet_id": "2036788951386935728",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#HFCL board approves \u20b9580 crore preform manufacturing facility through subsidiary<br><br>@jpullokaran <br><br>https://www.cnbctv18.com/market/stocks/hfcl-share-price-board-approves-rs-580-crore-preform-manufacturing-facility-through-subsidiary-ws-l-19875343.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "In Mumbai today",
+      "link": "https://x.com/EquityValueIn/status/2036788833766056300",
+      "date": "2026-03-25T12:54:34+00:00",
+      "tweet_id": "2036788833766056300",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEQgo-VbgAA_ePg?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "In Mumbai today<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HEQgo-VbgAA_ePg?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
     {
       "title": "SULA VINEYARDS: CO TO ACQUIRE CHANDON\u2019S 19-ACRE NASHIK ESTATE; EXPANDS WINE PRODUCTION & TOURISM PLATFORM",
       "link": "https://x.com/REDBOXINDIA/status/2036785968259461336",
@@ -109,6 +364,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Brad Setser<br>Re @avs_IND @dugalira @kalrajs23 i track forward adjusted fx reserves.  so my general preference is reserves ex gold",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT CNBC-TV18: #WestAsiaWar | 'Now is not the time to panic when it comes to investing,' says Harish Krishnan (@hktg13), Of Aditya Birla Sun Life AMC. ...",
+      "link": "https://x.com/Nigel__DSouza/status/2036790184038334809",
+      "date": "2026-03-25T12:32:12+00:00",
+      "tweet_id": "2036790184038334809",
+      "source": "Nigel D'Souza",
+      "publisher": "Nigel D'Souza",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2036783101700132864/img/biTDyjFDwmyzlPn_.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>#WestAsiaWar | 'Now is not the time to panic when it comes to investing,' says Harish Krishnan (@hktg13), Of Aditya Birla Sun Life AMC. He tells @_prashantnair that, the building sector is likely to see greater formalisation and #MiddleEast will see massive capex come through to rebuild infra soon.<br><br>#Investing #Capex #Trade @Nigel__DSouza<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2036783101700132864/vid/avc1/1920x1080/ic0FJofU8wYSP_3x.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2036783101700132864/img/biTDyjFDwmyzlPn_.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -289,6 +559,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The ever-changing tune of BlackRock\u2019s Larry Fink https://ft.trib.al/nKh2z19",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Stephen Stapczynski: The world's biggest LNG plant in Qatar wont be able to quickly restart even after the Iran war ends\ud83c\uddf6\ud83c\udde6\u26a0\ufe0f Two of the pla...",
+      "link": "https://x.com/menakadoshi/status/2036792420680257769",
+      "date": "2026-03-25T12:05:20+00:00",
+      "tweet_id": "2036792420680257769",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEQVDATa0AAL3Fk?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Stephen Stapczynski<br>The world's biggest LNG plant in Qatar wont be able to quickly restart even after the Iran war ends\ud83c\uddf6\ud83c\udde6\u26a0\ufe0f<br><br>Two of the plant's trains were damaged, and need new gas turbines to power LNG refrigeration compressors. Delivery will take 2-4 years due to a massive backlog, Rystad says<br><img width=\"1070\" height=\"967\" style=\"\" src=\"https://pbs.twimg.com/media/HEQVDATa0AAL3Fk?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -592,21 +877,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BORANA WEAVES: CO COMMISSIONS 3.5 MW SOLAR PLANT; FULL ROLLOUT OF 160 LOOMS BOOSTS CAPACITY & MARGINS",
-      "link": "https://x.com/REDBOXINDIA/status/2036765167166558559",
-      "date": "2026-03-25T11:20:31+00:00",
-      "tweet_id": "2036765167166558559",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BORANA WEAVES: CO COMMISSIONS 3.5 MW SOLAR PLANT; FULL ROLLOUT OF 160 LOOMS BOOSTS CAPACITY &amp; MARGINS",
-      "category": "Twitter"
-    },
-    {
       "title": "BREAKING: Pakistan says it has received President Trump's \"15-point peace plan\" and shared it with Iran, per Al Jazeera.",
       "link": "https://x.com/KobeissiLetter/status/2036764812860850482",
       "date": "2026-03-25T11:19:07+00:00",
@@ -619,21 +889,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BREAKING: Pakistan says it has received President Trump's \"15-point peace plan\" and shared it with Iran, per Al Jazeera.",
-      "category": "Twitter"
-    },
-    {
-      "title": "SEBI SAYS GOOGLE WILL NOW LABEL AS VERIFIED REGISTERED TRADING AND INTERMEDIARIES APPS",
-      "link": "https://x.com/REDBOXINDIA/status/2036764266041389371",
-      "date": "2026-03-25T11:16:56+00:00",
-      "tweet_id": "2036764266041389371",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SEBI SAYS GOOGLE WILL NOW LABEL AS VERIFIED REGISTERED TRADING AND INTERMEDIARIES APPS",
       "category": "Twitter"
     },
     {
@@ -697,21 +952,6 @@
       "category": "Twitter"
     },
     {
-      "title": "AVRO INDIA: CO APPROVES STOCK SPLIT IN 1:10 RATIO",
-      "link": "https://x.com/REDBOXINDIA/status/2036760400411443498",
-      "date": "2026-03-25T11:01:35+00:00",
-      "tweet_id": "2036760400411443498",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "AVRO INDIA: CO APPROVES STOCK SPLIT IN 1:10 RATIO",
-      "category": "Twitter"
-    },
-    {
       "title": "India has bought ~60 million barrels of Russian oil in March, and already booked a similar amount for delivery in April. The purchases are at a premiu...",
       "link": "https://x.com/JavierBlas/status/2036759832997331202",
       "date": "2026-03-25T10:59:20+00:00",
@@ -727,21 +967,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RRP DEFENSE: CO SIGNS STRATEGIC MOU WITH BEL TO BOOST SEMICONDUCTOR & UNMANNED SYSTEMS COLLABORATION",
-      "link": "https://x.com/REDBOXINDIA/status/2036759505573392751",
-      "date": "2026-03-25T10:58:01+00:00",
-      "tweet_id": "2036759505573392751",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RRP DEFENSE: CO SIGNS STRATEGIC MOU WITH BEL TO BOOST SEMICONDUCTOR &amp; UNMANNED SYSTEMS COLLABORATION",
-      "category": "Twitter"
-    },
-    {
       "title": "#UBS downgrades Indian stocks to Neutral as Iran war raises energy supply risks #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/ub...",
       "link": "https://x.com/ETMarkets/status/2036757934278086881",
       "date": "2026-03-25T10:51:47+00:00",
@@ -754,21 +979,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#UBS downgrades Indian stocks to Neutral as Iran war raises energy supply risks<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/ubs-downgrades-indian-stocks-to-neutral-as-iran-war-raises-energy-supply-risks/articleshow/129797766.cms",
-      "category": "Twitter"
-    },
-    {
-      "title": "KRANTI INDUSTRIES: CO PRECISO METALL PRIVATE LIMITED TO CEASE AS SUBSIDIARY AFTER DISINVESTMENT",
-      "link": "https://x.com/REDBOXINDIA/status/2036757696914059339",
-      "date": "2026-03-25T10:50:50+00:00",
-      "tweet_id": "2036757696914059339",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "KRANTI INDUSTRIES: CO PRECISO METALL PRIVATE LIMITED TO CEASE AS SUBSIDIARY AFTER DISINVESTMENT",
       "category": "Twitter"
     },
     {
@@ -799,21 +1009,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Al videos are getting realistic, but these signs reveal #fakes <br><br>#DeepFake<br><br>https://www.cnbctv18.com/webstories/technology/ai-videos-are-getting-realistic-but-these-signs-reveal-fakes-22944.htm",
-      "category": "Twitter"
-    },
-    {
-      "title": "INDIA INFORMATION MINISTER SAYS CABINET APPROVED REGIONAL AIR CONNECTIVITY SCHEME WORTH 288.40 B RUPEES",
-      "link": "https://x.com/REDBOXINDIA/status/2036756064725844181",
-      "date": "2026-03-25T10:44:21+00:00",
-      "tweet_id": "2036756064725844181",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "INDIA INFORMATION MINISTER SAYS CABINET APPROVED REGIONAL AIR CONNECTIVITY SCHEME WORTH 288.40 B RUPEES",
       "category": "Twitter"
     },
     {
@@ -859,6 +1054,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "\u25aa\ufe0fNGT casts doubt on Himachal's zero waste treatment gap claim.<br>\u25aa\ufe0fNBA seeks two years for invasive species guidelines.<br>\u25aa\ufe0fGNCTD reports Yamuna 1-in-100-year floodplain demarcation progress. https://www.downtoearth.org.in/environment/daily-court-digest-major-environment-orders-march-24-2026",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Dr. Vikram Sampath, FRHistS: To be part of the cohort in the coming year from September 2026, do apply to the Sir Jadunath Sarkar Fellowships which...",
+      "link": "https://x.com/sanjeevsanyal/status/2036752097971147050",
+      "date": "2026-03-25T10:24:00+00:00",
+      "tweet_id": "2036752097971147050",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEP8sa8asAAPsyT?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Dr. Vikram Sampath, FRHistS<br>To be part of the cohort in the coming year from September 2026, do apply to the Sir Jadunath Sarkar Fellowships which are open till 31 March 2026:<br>https://fihcr.com/sir-jadunath-sarkar-fellowship-for-indian-history/<div class=\"rsshub-quote\"><br><br>Dr. Vikram Sampath, FRHistS:\u2002Glimpses from @fihcr_info Sir Jadunath Sarkar Fellowships mid term presentations that were held for our Fellows sharing their work so far &amp; roadmap ahead, at @bitspilaniindia <br>@saamaanyafreaky @HindolSengupta @jha_srishti @GaneshPuthur <br>@historiakayasth @athawale_adwait<br><br><img width=\"1280\" height=\"960\" style=\"\" src=\"https://pbs.twimg.com/media/HEP8sa8asAAPsyT?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1280\" height=\"960\" style=\"\" src=\"https://pbs.twimg.com/media/HEP8sdebIAAB4zV?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1280\" height=\"960\" style=\"\" src=\"https://pbs.twimg.com/media/HEP8sfraMAIfnPG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1280\" height=\"960\" style=\"\" src=\"https://pbs.twimg.com/media/HEP8shPa8AAolfb?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -1177,21 +1387,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#JustIn | #KotakMahBank\u2019s internal estimate of discrepancy significantly lower than \u20b9150 cr. Final amount to be determined post reconciliation: Sour...",
-      "link": "https://x.com/CNBCTV18Live/status/2036732878629798222",
-      "date": "2026-03-25T09:12:13+00:00",
-      "tweet_id": "2036732878629798222",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HEPtNoTbQAAqfWP?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#JustIn | #KotakMahBank\u2019s internal estimate of discrepancy significantly lower than \u20b9150 cr. Final amount to be determined post reconciliation: Sources to @_RituSingh <br><br>#RBI looped in, does not view this as a \u2018Bank-level Fraud'. Both Kotak Bank &amp; #IDFCFirstBank cases linked to accounts of #HaryanaGovt<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HEPtNoTbQAAqfWP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT CNBC-TV18: #JustIn | #KotakMahBank\u2019s internal estimate of discrepancy significantly lower than \u20b9150 cr. Final amount to be determined post reconc...",
       "link": "https://x.com/_RituSingh/status/2036733779134579156",
       "date": "2026-03-25T09:12:13+00:00",
@@ -1219,21 +1414,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Bernstein warns #rupee could breach 98/USD, cuts Nifty target on Iran conflict risks<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/bernstein-warns-rupee-could-breach-98/usd-cuts-nifty-target-on-iran-conflict-risks/articleshow/129795994.cms",
-      "category": "Twitter"
-    },
-    {
-      "title": "#JustIn | #LGElectronics signs solar power purchase agmts with Hinduja Renewables & Sunsure Energy",
-      "link": "https://x.com/CNBCTV18Live/status/2036731089809739855",
-      "date": "2026-03-25T09:05:07+00:00",
-      "tweet_id": "2036731089809739855",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HEPsINWaMAAWvek?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#JustIn | #LGElectronics signs solar power purchase agmts with Hinduja Renewables &amp; Sunsure Energy<br><img width=\"612\" height=\"340\" style=\"\" src=\"https://pbs.twimg.com/media/HEPsINWaMAAWvek?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2227,21 +2407,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Beavers can engineer riverbeds into promising ways to prevent carbon dioxide release into the air, according to a new international study led by resea...",
-      "link": "https://x.com/down2earthindia/status/2036663693468189013",
-      "date": "2026-03-25T04:37:18+00:00",
-      "tweet_id": "2036663693468189013",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HEOu0j9b0AADv4N?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Beavers can engineer riverbeds into promising ways to prevent carbon dioxide release into the air, according to a new international study led by researchers at the University of Birmingham<br><br>https://www.downtoearth.org.in/wildlife-biodiversity/beavers-can-turn-riverbeds-into-powerful-carbon-sinks-study<br><img width=\"767\" height=\"461\" style=\"\" src=\"https://pbs.twimg.com/media/HEOu0j9b0AADv4N?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "BREAKING: Iranian officials have told mediators that they have now been tricked twice by President Trump and \"we don't want to be fooled again,\" per A...",
       "link": "https://x.com/KobeissiLetter/status/2036663590246097230",
       "date": "2026-03-25T04:36:53+00:00",
@@ -2272,6 +2437,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Saw #Dhurandhar2\u200cTheRevenge and looks like my cousin Ajay is doing a fine job.....",
+      "link": "https://x.com/sanjeevsanyal/status/2036660614379327881",
+      "date": "2026-03-25T04:25:04+00:00",
+      "tweet_id": "2036660614379327881",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Saw #Dhurandhar2\u200cTheRevenge and looks like my cousin Ajay is doing a fine job.....",
+      "category": "Twitter"
+    },
+    {
       "title": "RCB Deal - big stock market beneficiary seems to be RPSG ventures, stock is up ~+16%",
       "link": "https://x.com/Tijori1/status/2036657115809681573",
       "date": "2026-03-25T04:11:10+00:00",
@@ -2299,6 +2479,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Unthinkable rate hike is now thinkable\u2026<br><img width=\"987\" height=\"1205\" style=\"\" src=\"https://pbs.twimg.com/media/HEOm6vNbUAApYIg?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Aashish Chandorkar: Gujarat passes Uniform Civil Code bill, second state after Uttarakhand https://www.thehindubusinessline.com/news/national/gujar...",
+      "link": "https://x.com/sanjeevsanyal/status/2036654369148633251",
+      "date": "2026-03-25T04:00:00+00:00",
+      "tweet_id": "2036654369148633251",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Aashish Chandorkar<br>Gujarat passes Uniform Civil Code bill, second state after Uttarakhand<br><br>https://www.thehindubusinessline.com/news/national/gujarat-passes-uniform-civil-code-bill-second-state-after-uttarakhand/article70781301.ece",
       "category": "Twitter"
     },
     {
@@ -2962,36 +3157,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: THE US IS SEEKING A ONE-MONTH CEASEFIRE WITH IRAN TO HOLD TALKS, PER ISRAELI MEDIA.",
-      "link": "https://x.com/KobeissiLetter/status/2036544975647707191",
-      "date": "2026-03-24T20:45:34+00:00",
-      "tweet_id": "2036544975647707191",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: THE US IS SEEKING A ONE-MONTH CEASEFIRE WITH IRAN TO HOLD TALKS, PER ISRAELI MEDIA.",
-      "category": "Twitter"
-    },
-    {
-      "title": "BREAKING: The US is preparing options for military escalation in Iran, including potential boots on the ground in the case peace talks fail, per Axios...",
-      "link": "https://x.com/KobeissiLetter/status/2036539582989434933",
-      "date": "2026-03-24T20:24:08+00:00",
-      "tweet_id": "2036539582989434933",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: The US is preparing options for military escalation in Iran, including potential boots on the ground in the case peace talks fail, per Axios.<br><br>A White House official says the situation is \"fluid\" and Trump wants to see if Iran will make a deal, but \"if not we will go back to bombing them.\"",
-      "category": "Twitter"
-    },
-    {
       "title": "Damn! Have to give it to the product management team. Need an AI to keep updated with AI. \ud83d\ude35\u200d\ud83d\udcab",
       "link": "https://x.com/Finstor85/status/2036536321620189465",
       "date": "2026-03-24T20:11:10+00:00",
@@ -3157,6 +3322,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT DD News: #Decode | Amid Iran conflict, Trump dials PM Modi for urgent talks PM Modi\u2013Trump dialogue focuses on securing Strait of Hormuz Watch Full...",
+      "link": "https://x.com/sanjeevsanyal/status/2036507528474010060",
+      "date": "2026-03-24T18:10:59+00:00",
+      "tweet_id": "2036507528474010060",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2036504941968388096/img/J2JLZ0di5DE5h0UG.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002DD News<br>#Decode | Amid Iran conflict, Trump dials PM Modi for urgent talks<br><br>PM Modi\u2013Trump dialogue focuses on securing Strait of Hormuz<br><br>Watch Full Show : https://youtube.com/live/n3uj6Oc_XlE<br><br>@sudhirchaudhary<br>@WAVES_OTT<br><br>#Decode #DecodeWithSudhirChaudhary #SudhirChaudhary <br>#IranWar #StraitOfHormuz #Hormuz #USIranCeasefire #IranIsraelWar #USIranWar #MiddleEastConflict #WestAsia #WarNews #WorldNews #Geopolitics #OilCrisis #CrudeOil #OilPrices #HormuzStrait #HindiNews #DDNews<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2036504941968388096/vid/avc1/1920x1080/K7WIEaZGvYvjxVYS.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2036504941968388096/img/J2JLZ0di5DE5h0UG.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
       "title": "Today IPL deals \ud83d\udcb0 Rajasthan Royals sold for \u20b915k cr to Kal Somani \ud83d\udcb0 RCB sold to a consortium for \u20b916.7k cr Recall presenting a piece on Chenna...",
       "link": "https://x.com/Nigel__DSouza/status/2036498936400322983",
       "date": "2026-03-24T17:42:37+00:00",
@@ -3304,6 +3484,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Prashant Nair<br>Re Good points, Shankar.<br><br>Sure - the US &amp; Israel are also under duress. <br><br>But think about it - for all practical purposes Iran has shown up the limits to American power in a clear way. They could go on with the fighting - but going on also means enormous losses for them. Basically quit while you are ahead ! <br><br>As I said, let\u2019s see.",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Tarique Rahman: March 25, 1971 is observed as Genocide Day. On the occasion of Genocide Day, 1 pay my deepest respect to all the martyrs. In the hi...",
+      "link": "https://x.com/sanjeevsanyal/status/2036655549690126428",
+      "date": "2026-03-24T16:49:23+00:00",
+      "tweet_id": "2036655549690126428",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEMFzJqWcAAndsI?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Tarique Rahman<br>March 25, 1971 is observed as Genocide Day. On the occasion of Genocide Day, 1 pay my deepest respect to all the martyrs.<br><br>In the history of freedom-loving Bangladesh, 25 March 1971 remains one of the most disgraceful and brutal days. On that dark night, the Pakistani occupation forces carried out one of the most heinous genocides in history against the unarmed people of Bangladesh in the name of 'Operation Searchlight\".<br><br>They indiscriminately opened fire on teachers, intellectuals and innocent civilians at various places, including Dhaka University, Pilkhana and Rajarb\u0101gh Police Lines, killing many people.<br><br>The genocide of 25 March was a pre-planned massacre. Why this organised killing spree could not be resisted remains a matter of historical research regarding the visible role of the political leadership of that time.<br><br>However, on the night of 25 March, the 8th East Bengal Regiment in Chattogram formally initiated armed resistance against the genocide by declaring 'We Revolt'. Through this resistance to genocide, the long nine-month armed Liberation War began.<br><br>To convey the value and significance of independence to the present and future generations, it is essential to know about the genocide of 25 March as well. Let us all strive to honour the sacrifices of the martyrs by establishing in the state and society the spirit of the great Liberation War - equality, human dignity and social justice.<br><br>Let us work together to build a just, developed, prosperous, self-reliant and democratic Bangladesh.<br><br>I pray to the Almighty Allah to grant forgiveness and eternal peace to the departed souls of all the martyrs.<br><br>On the occasion of Genocide Day on 25 March. I wish every success to all the programmes organised to observe the day.<br><img width=\"1080\" height=\"1397\" style=\"\" src=\"https://pbs.twimg.com/media/HEMFzJqWcAAndsI?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Anura Kumara Dissanayake: This evening (24), I held a telephone conversation with Indian Prime Minister @narendramodi regarding the escalating situ...",
+      "link": "https://x.com/sanjeevsanyal/status/2036515209842663730",
+      "date": "2026-03-24T16:20:18+00:00",
+      "tweet_id": "2036515209842663730",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Anura Kumara Dissanayake<br>This evening (24), I held a telephone conversation with Indian Prime Minister @narendramodi regarding the escalating situation in the Middle East. We discussed its impact on regional and global supply chains, as well as energy cooperation and regional security between our two nations.",
       "category": "Twitter"
     },
     {
@@ -3892,6 +4102,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT EAC-PM: Hon'ble Member @sanjeevsanyal & Joint Director, Satvik Dev, opined in the @FinancialXpress , \"One Nation, One Election\" would save a net 28...",
+      "link": "https://x.com/sanjeevsanyal/status/2036402555551723928",
+      "date": "2026-03-24T11:15:53+00:00",
+      "tweet_id": "2036402555551723928",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HELAPk8aIAMNEr1?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002EAC-PM<br>Hon'ble Member @sanjeevsanyal  &amp; Joint Director, Satvik Dev, opined in the @FinancialXpress ,&nbsp;\"One Nation, One Election\" would save a net 28% in polling personnel deployments (equivalent to a 1.04 crore personnel days) over a 5-year cycle.<br>https://www.financialexpress.com/opinion/the-impact-of-simultaneous-elections/4180669/<br><img width=\"975\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HELAPk8aIAMNEr1?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT PIB India: Refineries are operating at high capacity with adequate crude and sufficient petrol, diesel and #LPG supplies, with all retail outlets f...",
       "link": "https://x.com/abhymurarka/status/2036434627754414381",
       "date": "2026-03-24T11:15:14+00:00",
@@ -4387,6 +4612,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Aditya Raj Kaul: Direct Hit in Tel Aviv as Iran Fires New Missile Barrage, Multiple Impact Sites Reported in Israel. Israel\u2019s Magen David Adom rep...",
+      "link": "https://x.com/sanjeevsanyal/status/2036352244539658434",
+      "date": "2026-03-24T07:31:07+00:00",
+      "tweet_id": "2036352244539658434",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2036344977526239232/img/6pvE_7Vv3RtxAH7v.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Aditya Raj Kaul<br>Direct Hit in Tel Aviv as Iran Fires New Missile Barrage, Multiple Impact Sites Reported in Israel.<br><br>Israel\u2019s Magen David Adom reported that at least six people were wounded across four separate impact sites in the city. Dramatic footage from the scene shows heavy damage to a building, multiple vehicles destroyed, and thick smoke rising over parts of Tel Aviv.<br><br>Authorities believe it could be a new variant of a medium range ballistic missile or a cluster style warhead, dispersing 3 to 4 large explosives weighing approximately 100 kilograms each across central Israel.<br><video width=\"480\" height=\"880\" src=\"https://video.twimg.com/amplify_video/2036344977526239232/vid/avc1/480x880/XKZfbe60bbBO7no9.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2036344977526239232/img/6pvE_7Vv3RtxAH7v.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
       "title": "India's private sector growth hits 3-year low as Middle East war saps demand https://www.reuters.com/world/india/indias-private-sector-growth-hits-3-y...",
       "link": "https://x.com/dugalira/status/2036341609080705053",
       "date": "2026-03-24T07:17:27+00:00",
@@ -4717,6 +4957,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Just curious why the Oxbridge tutorial system, or widespread system of PhD guides have not impaired critical thinking.",
+      "link": "https://x.com/sanjeevsanyal/status/2036305006979326453",
+      "date": "2026-03-24T04:52:01+00:00",
+      "tweet_id": "2036305006979326453",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEF58hOakAAnU6A?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Just curious why the Oxbridge tutorial system, or widespread system of PhD guides have not impaired critical thinking.<div class=\"rsshub-quote\"><br><br>Scroll.in:\u2002\"The guru-disciple relationship is founded on a permanent imbalance of power. What is striking is that this imbalance is not merely tolerated: it is celebrated,\" wrote musician TM Krishna in an article.<br><br>https://scroll.in/article/1090081/how-the-traditional-guru-shishya-system-undermined-critical-thinking-in-india<br><br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HEF58hOakAAnU6A?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Reuters Asia: India's HDFC Bank taps external counsel to review ex-chairman's resignation https://www.reuters.com/world/india/indias-hdfc-bank-hire...",
       "link": "https://x.com/dugalira/status/2036339935947661694",
       "date": "2026-03-24T04:45:07+00:00",
@@ -4924,6 +5179,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "HDFC BANK: BANK APPOINTS EXTERNAL LAW FIRMS TO REVIEW CHAIRMAN CHAKRABORTY'S RESIGNATION",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Reuters Business: Australia and the European Union signed a trade deal that was eight years in the making, removing tariffs for almost all European...",
+      "link": "https://x.com/sanjeevsanyal/status/2036334242343616660",
+      "date": "2026-03-24T02:48:56+00:00",
+      "tweet_id": "2036334242343616660",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Reuters Business<br>Australia and the European Union signed a trade deal that was eight years in the making, removing tariffs for almost all European goods and for nearly all exports of Australian critical minerals. More here: https://reut.rs/3PuC7D8",
       "category": "Twitter"
     },
     {
@@ -5152,6 +5422,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Padmaja Joshi: 2 more tankers, carrying more than 92,000 tons of LPG, sail through Hormuz\u2026expected to reach ports in India between March 26-28. Th...",
+      "link": "https://x.com/sanjeevsanyal/status/2036140710207033409",
+      "date": "2026-03-23T17:52:24+00:00",
+      "tweet_id": "2036140710207033409",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Padmaja Joshi<br>2 more tankers, carrying more than 92,000 tons of LPG, sail through Hormuz\u2026expected to reach ports in India between March 26-28. The two India-flagged tankers loaded at anchorages in Kuwait and the UAE<br><br>https://www.reuters.com/business/energy/gas-tankers-sail-through-hormuz-india-most-ships-still-stuck-data-shows-2026-03-23/",
+      "category": "Twitter"
+    },
+    {
       "title": "US to pay Total $1bn to switch from wind to oil and gas development https://ft.trib.al/2P7K7Wg",
       "link": "https://x.com/ftenergy/status/2036138390270144894",
       "date": "2026-03-23T17:49:56+00:00",
@@ -5212,21 +5497,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Gregg Carlstrom: My sense of things from a few conversations (an incomplete picture at best, of course): - messages exchanged via intermediaries, n...",
-      "link": "https://x.com/JavierBlas/status/2036159477427150965",
-      "date": "2026-03-23T17:37:41+00:00",
-      "tweet_id": "2036159477427150965",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Gregg Carlstrom<br>My sense of things from a few conversations (an incomplete picture at best, of course):<br><br>- messages exchanged via intermediaries, no proper negotiations yet (contra Trump)<br><br>- Trump acting as if Iran has already made major concessions, no one believes that is the case<br><br>- little optimism amongst regional officials that talks will succeed, given the enormous gap between the two sides<br><br>- Iran has previously conveyed to intermediaries that it doesn't want to deal with Witkoff again, given past experience; hence the talk of Vance<br><br>- if the talks don't happen or flop, Trump bought himself a few days to move military assets to the region, and perhaps a calmer stretch in oil markets",
-      "category": "Twitter"
-    },
-    {
       "title": "Analysis: Why clean energy will cut UK gas imports by more than North Sea drilling | @daisydunnesci @Josh_Gabbatiss @DrSimEvans Read here: https://buf...",
       "link": "https://x.com/CarbonBrief/status/2036133640564863390",
       "date": "2026-03-23T17:31:04+00:00",
@@ -5284,6 +5554,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002UN Special Procedures<br>In Gaza, #WestBank &amp; East Jerusalem, Palestinians are subjected to a continuum of suffering - @FranceskAlbs denounces torture of Palestinians, says it extends beyond Israeli prison walls. \u201cThere is no refuge. No safe place to exist.\u201d @UN_HRC #HRC61<br>https://www.ohchr.org/en/press-releases/2026/03/un-expert-warns-torture-has-become-state-doctrine-israel-making-prisons<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2036114410641686528/vid/avc1/1080x1920/VT-uUVJC5vBhsfIc.mp4?tag=16\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2036114410641686528/img/fFoGtCfhQzvimL9_.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Pareekh Jain: If you like your work, it shows. Clean cable management. Credit: Unknown, ViaWeb",
+      "link": "https://x.com/sanjeevsanyal/status/2036131588602470900",
+      "date": "2026-03-23T16:57:49+00:00",
+      "tweet_id": "2036131588602470900",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2036125204544655360/img/O6Z3w7TQAxqkBdN8.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Pareekh Jain<br>If you like your work, it shows. <br><br>Clean cable management.<br><br>Credit: Unknown, ViaWeb<br><video width=\"480\" height=\"854\" src=\"https://video.twimg.com/amplify_video/2036125204544655360/vid/avc1/480x854/9HJbmyjfDlrg03x4.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2036125204544655360/img/O6Z3w7TQAxqkBdN8.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Reuters: Gas tankers sail through Hormuz to India, most ships still stuck, data shows http://reut.rs/4lNMK02 http://reut.rs/4lNMK02",
+      "link": "https://x.com/sanjeevsanyal/status/2036133545182425449",
+      "date": "2026-03-23T16:50:14+00:00",
+      "tweet_id": "2036133545182425449",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Reuters<br>Gas tankers sail through Hormuz to India, most ships still stuck, data shows http://reut.rs/4lNMK02 http://reut.rs/4lNMK02",
       "category": "Twitter"
     },
     {
@@ -5359,6 +5659,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Reposting for my audience here. Translate to English and read.<div class=\"rsshub-quote\"><br><br>Manjeetkaur:\u2002\ud83c\udde8\ud83c\uddf3 \u092a\u094d\u0930\u094b\u092b\u0947\u0938\u0930 \u091c\u093f\u092f\u093e\u0902\u0917 \"\u0926\u0941\u0928\u093f\u092f\u093e \u0915\u0947 \u0938\u092c\u0938\u0947 \u0916\u0924\u0930\u0928\u093e\u0915 \u092d\u0942-\u0930\u093e\u091c\u0928\u0940\u0924\u093f\u0915 \u0935\u093f\u091a\u093e\u0930\u0915\u094b\u0902 \u0938\u0947 \u090f\u0915\" \u0915\u093e \u091f\u0915\u0930 \u0915\u093e\u0930\u094d\u0932\u0938\u0928 \u0938\u0947 \u0935\u093e\u0930\u094d\u0924\u093e\u0932\u093e\u092a \ud83d\udc47<br><br>\u0908\u0930\u093e\u0928  \u092f\u0941\u0926\u094d\u0927 \ud83d\udd25\ud83d\udd25\ud83d\udd25<br>\u26a0\ufe0f\u0905\u092e\u0947\u0930\u093f\u0915\u093e \u0915\u0947 \u0932\u093f\u090f \u090f\u0915 \u0910\u0938\u093e \u0926\u0932\u0926\u0932 \u0939\u0948 \u091c\u093f\u0938\u0915\u093e \u0915\u094b\u0908 \u0905\u0902\u0924 \u0928\u0939\u0940\u0902..<br>\u26a0\ufe0f\u091a\u0940\u0928 \u0938\u092c\u0938\u0947 \u092c\u0921\u093c\u093e \u0926\u0940\u0930\u094d\u0918\u0915\u093e\u0932\u093f\u0915 \u0928\u0941\u0915\u0938\u093e\u0928 \u091d\u0947\u0932\u0928\u0947 \u0935\u093e\u0932\u093e \u0926\u0947\u0936  \u0939\u0948 <br>\u26a0\ufe0f \u0938\u0902\u092f\u0941\u0915\u094d\u0924 \u0905\u0930\u092c \u0905\u092e\u0940\u0930\u093e\u0924 \u092a\u0930 \u0907\u0938\u0915\u093e \u0910\u0938\u093e \u092a\u094d\u0930\u092d\u093e\u0935 \u092a\u0921\u093c\u0947\u0917\u093e<br><br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HEFjWZLagAAG5b_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Akashvani \u0906\u0915\u093e\u0936\u0935\u093e\u0923\u0940: Full Podcast out now!! Dive into the incredible journey of #INSVKaundinya, narrated by the man behind the mission, Shri...",
+      "link": "https://x.com/sanjeevsanyal/status/2036112503730831398",
+      "date": "2026-03-23T16:06:38+00:00",
+      "tweet_id": "2036112503730831398",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEG5bt9aYAABPCD?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Akashvani \u0906\u0915\u093e\u0936\u0935\u093e\u0923\u0940<br>Full Podcast out now!!<br><br>Dive into the incredible journey of #INSVKaundinya, narrated by the man behind the mission, Shri @sanjeevsanyal.<br><br>Click to watch the podcast -  https://youtu.be/AExiKkWdsUU?si=MSdKvY4mg-5d9FNm<br><br>#TAP #TheAkashvaniPodcast<br><br>@indiannavy @INSVKaundinya @MIB_India @MinOfCultureGoI<br><img width=\"1280\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HEG5bt9aYAABPCD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -5662,21 +5977,6 @@
       "category": "Twitter"
     },
     {
-      "title": ".@ChadBown explores a path for the US & China to \u201ccooperate\u201d over how they reduce their dependence on each other in technology & critical minerals, ...",
-      "link": "https://x.com/PIIE/status/2036079527579845043",
-      "date": "2026-03-23T13:56:02+00:00",
-      "tweet_id": "2036079527579845043",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": ".@ChadBown explores a path for the US &amp; China to \u201ccooperate\u201d over how they reduce their dependence on each other in technology &amp; critical minerals, with the aim of limiting future escalation risks &amp; avoiding unnecessary costs.<br>https://www.piie.com/publications/working-papers/2026/negotiating-win-win-end-lose-lose-us-china-trade-war-over",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Shereen Bhan: #Breaking Trump on #IranTalks Had Strong Talks With Iran, We Will See Where They Lead US talked to Iranian top respected leader Had M...",
       "link": "https://x.com/Nigel__DSouza/status/2036078714354851964",
       "date": "2026-03-23T13:48:40+00:00",
@@ -5902,21 +6202,6 @@
       "category": "Twitter"
     },
     {
-      "title": "\ud83d\ude03 , some relief here!",
-      "link": "https://x.com/EquityValueIn/status/2036049492580204787",
-      "date": "2026-03-23T11:56:41+00:00",
-      "tweet_id": "2036049492580204787",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDBpeW6aMAAjxtO?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "\ud83d\ude03 , some relief here!<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Iran problem should cool off soon , most likely with trump self declaring victory on objectives achieved , so major event will be behind us , and US may routinely do strikes as they used to do before <br><br>I am not a macro expert , but I understand odds<br><br><img width=\"990\" height=\"512\" style=\"\" src=\"https://pbs.twimg.com/media/HDBpeW6aMAAjxtO?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "This is the real reason behind TACO If it moves up, there is panic in the White House",
       "link": "https://x.com/EquityInsightss/status/2036048988592640052",
       "date": "2026-03-23T11:54:41+00:00",
@@ -5944,6 +6229,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Happy Trump TACO Day - to those who celebrate.",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Aditya Raj Kaul: #BREAKING: US President Donald Trump announces ceasefire for five days, all Military attacks against Iranian power plants and ener...",
+      "link": "https://x.com/sanjeevsanyal/status/2036046325155086576",
+      "date": "2026-03-23T11:40:49+00:00",
+      "tweet_id": "2036046325155086576",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEF8ksjbYAA-Hup?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Aditya Raj Kaul<br>#BREAKING: US President Donald Trump announces ceasefire for five days, all Military attacks against Iranian power plants and energy infrastructure postponed. Trump confirms back channel negotiations with Iran over last two days to end hostilities.<br><img width=\"778\" height=\"1024\" style=\"\" src=\"https://pbs.twimg.com/media/HEF8ksjbYAA-Hup?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -6247,6 +6547,21 @@
       "category": "Twitter"
     },
     {
+      "title": "As silver prices correct, big relief for the global kaju katli industry",
+      "link": "https://x.com/sanjeevsanyal/status/2035999484141060437",
+      "date": "2026-03-23T08:37:58+00:00",
+      "tweet_id": "2035999484141060437",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEFShEka8AACfUx?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "As silver prices correct, big relief for the global kaju katli industry<br><img width=\"1566\" height=\"988\" style=\"\" src=\"https://pbs.twimg.com/media/HEFShEka8AACfUx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Mrinal Pande: British household staff in Raj years liked to buy fresh produce from kiosks in an informal market. When Mems asked where they got suc...",
       "link": "https://x.com/andymukherjee70/status/2036038829719875613",
       "date": "2026-03-23T08:33:24+00:00",
@@ -6292,6 +6607,21 @@
       "category": "Twitter"
     },
     {
+      "title": "The crash in global gold prices.....",
+      "link": "https://x.com/sanjeevsanyal/status/2035996995161301241",
+      "date": "2026-03-23T08:28:05+00:00",
+      "tweet_id": "2035996995161301241",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEFQTDOb0AEamKc?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The crash in global gold prices.....<br><img width=\"1552\" height=\"992\" style=\"\" src=\"https://pbs.twimg.com/media/HEFQTDOb0AEamKc?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Reuters Asia: Investors brace for turbulent India equity derivatives expiry as Trump ultimatum looms https://www.reuters.com/world/india/investors-...",
       "link": "https://x.com/dugalira/status/2036078709313286325",
       "date": "2026-03-23T08:15:06+00:00",
@@ -6304,6 +6634,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Reuters Asia<br>Investors brace for turbulent India equity derivatives expiry as Trump ultimatum looms https://www.reuters.com/world/india/investors-brace-turbulent-india-equity-derivatives-expiry-trump-ultimatum-looms-2026-03-23/?taid=69c0f68acd159b00018d5563&amp;utm_campaign=trueAnthem%3A+Trending+Content&amp;utm_medium=trueAnthem&amp;utm_source=twitter",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT @ASSOCHAM4India: From ancient trade routes to emerging blue economy ambitions, the oceans continue to shape India\u2019s economic and geopoli\u2026",
+      "link": "https://x.com/sanjeevsanyal/status/2035990462348345809",
+      "date": "2026-03-23T08:02:07+00:00",
+      "tweet_id": "2035990462348345809",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT @ASSOCHAM4India: From ancient trade routes to emerging blue economy ambitions, the oceans continue to shape India\u2019s economic and geopoli\u2026",
       "category": "Twitter"
     },
     {
@@ -6682,21 +7027,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Good Morning \ud83d\ude03 Weak start for Global Equities but hope is there could be some descalation as 10 year yield spiked which could force Trump to pull b...",
-      "link": "https://x.com/Nigel__DSouza/status/2035925412841402523",
-      "date": "2026-03-23T03:43:38+00:00",
-      "tweet_id": "2035925412841402523",
-      "source": "Nigel D'Souza",
-      "publisher": "Nigel D'Souza",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2035922852076228608/img/tETXVnXJ7A2JmDUK.jpg",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Good Morning \ud83d\ude03<br><br>Weak start for Global Equities but hope is there could be some descalation as 10 year yield spiked which could force Trump to pull back, similar to what happened in April 2025.<br><br>On 23rd March 2020, nifty made a low &amp; bounced from there though as we know hope is not a data point.<br><br>My gut feel is something has to give this week!<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002#GIFTNifty down 390 points.<br><br>#FII selling in March 2026 on course to breach record outflows.<br><br>#Nifty day support around 22,700.<br><br> #StocksInFocus: Reliance Industries<br><br>@Nigel__DSouza with the cues.<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2035922852076228608/vid/avc1/1920x1080/kP45-lcCAL78_1DE.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2035922852076228608/img/tETXVnXJ7A2JmDUK.jpg\"></video></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "By population, energy resources, and military size, Iran ranks among the region\u2019s largest players, yet it falls behind wealthier states on economic o...",
       "link": "https://x.com/TamalBandyo/status/2035924795427353020",
       "date": "2026-03-23T03:41:11+00:00",
@@ -6742,6 +7072,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Breaking911: \ud83d\udea8 BREAKING: Major antisemitic arson attack in Golders Green, London destroys all ambulances (at least 4) of Hatzola Northwest \u2014 a ...",
+      "link": "https://x.com/sanjeevsanyal/status/2036070110235111588",
+      "date": "2026-03-23T02:21:32+00:00",
+      "tweet_id": "2036070110235111588",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2035904558598340608/img/_rAOi8fVifCWNt7h.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Breaking911<br>\ud83d\udea8 BREAKING: Major antisemitic arson attack in Golders Green, London destroys all ambulances (at least 4) of Hatzola Northwest \u2014 a volunteer Jewish emergency service providing 24/7 medical aid. @Breaking911 has seen footage of the attackers.<br><video width=\"480\" height=\"848\" src=\"https://video.twimg.com/amplify_video/2035904558598340608/vid/avc1/480x848/dOpdZbe-jc-S07gQ.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2035904558598340608/img/_rAOi8fVifCWNt7h.jpg\"></video><br><video width=\"476\" height=\"848\" src=\"https://video.twimg.com/amplify_video/2035904558610931712/vid/avc1/476x848/6YrD8DImJHdTbOae.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2035904558610931712/img/iOlarHYCtcCEwxe7.jpg\"></video><br><video width=\"464\" height=\"832\" src=\"https://video.twimg.com/amplify_video/2035904558442885120/vid/avc1/464x832/QqWuL0LVawwUwb4g.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2035904558442885120/img/ku-0Xl1IIR8aufUN.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
       "title": "Nephrocare Health, an end-to-end dialysis care company, calls its patients guests and not patients for this reason \u2013 The Founder Kamal Shah says this...",
       "link": "https://x.com/aditya_kondawar/status/2035897213092835822",
       "date": "2026-03-23T01:51:35+00:00",
@@ -6754,6 +7099,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Nephrocare Health, an end-to-end dialysis care company, calls its patients guests and not patients for this reason \u2013<br><br>The Founder Kamal Shah says this, - <br><br>\"What sets NephroPlus apart from the others. I am a dialysis patient, and I have been on dialysis for more than 28 years now. I lead a completely normal life. I work full-time, exercise every morning, and travel extensively. I have been through all modalities that a patient with kidney failure undergoes. <br><br>Now, a kidney transplant is the ideal solution for kidney failure. Unfortunately, worldwide, there is an acute shortage of organs, and very few people actually end up getting a kidney transplant. The rest have to undergo dialysis. Recognizing this profound need and the significant gap between supply and the need for good quality care, Vikram and I founded NephroPlus, a truly patient-centric dialysis network where patients are placed at the center of our universe. <br><br>In India and much of the world, there is a misconception that once somebody gets on dialysis, it is pretty much the end of life as they know it. Life gets reduced to going for dialysis, returning home, and lying on the bed until the next dialysis session. Our belief is somewhat different. If we could deliver high-quality dialysis consistently and with empathy, our patients could get their lives back. They would be able to lead normal lives, that is, work, exercise, travel, and have fun. <br><br>One of the most important decisions we made at that point was to stop calling the people we treat as patients and instead call them guests. The word patient we felt had a negative connotation. When you hear the word patient, the image that probably comes to your mind is one of a bedridden sick individual. But dialysis patients need not be like that. <br><br>We wanted a more positive word to be brought in, and the word guest tied in beautifully to our Indian culture of Atithi Devo Bhava. When we opened our first center in 2010, the response from our guests was overwhelmingly positive. They felt cared for, respected, and supported, and they deeply appreciated the quality of care we provided and continue to provide. Over the years, NephroPlus has grown and evolved to become Asia\u2019s largest dialysis service provider, and we will continue to grow. Yet, one thing remains unchanged and will never change, and that is our guest-centric approach.\"<br><br>The importance of empathy in a sensitive sector like healthcare, I loved it!<br><br>Src \u2013 Q3 Concall, no stock reco",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Anand Ranganathan: This day back in 2003, in Nadimarg, Kashmir, Pakistani Zia Mustafa lined up 23 Kashmiri Hindus and shot them point blank. As Zia...",
+      "link": "https://x.com/sanjeevsanyal/status/2036131909823283351",
+      "date": "2026-03-22T18:37:00+00:00",
+      "tweet_id": "2036131909823283351",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HECSPxObAAAbQjc?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Anand Ranganathan<br>This day back in 2003, in Nadimarg, Kashmir, Pakistani Zia Mustafa lined up 23 Kashmiri Hindus and shot them point blank. As Zia was fleeing he heard a baby cry. \"Ye karnawun chupe\" ordered his friend. The baby became the 24th victim. <br><br>To forgive Pakistanis is to forget Indians.<br><img width=\"816\" height=\"1213\" style=\"\" src=\"https://pbs.twimg.com/media/HECSPxObAAAbQjc?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -7189,21 +7549,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "AI was supposed to kill consultants, it's not happening. <br>https://fortune.com/2026/03/17/ai-death-of-management-consulting-not-happening-capgemini-fernando-alvarez-says/?utm_campaign",
-      "category": "Twitter"
-    },
-    {
-      "title": "Recommended read: Mongabay mapped the potential threat that oil extraction poses to Venezuela\u2019s ecosystems, including the Amazon rainforest and its c...",
-      "link": "https://x.com/CarbonBrief/status/2035441817001324840",
-      "date": "2026-03-21T19:42:00+00:00",
-      "tweet_id": "2035441817001324840",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Recommended read: Mongabay mapped the potential threat that oil extraction poses to Venezuela\u2019s ecosystems, including the Amazon rainforest and its coral reefs. <br><br>https://buff.ly/TLSMSaN",
       "category": "Twitter"
     },
     {
@@ -7834,36 +8179,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "US tired of winning ! I hope we don't win like this\ud83d\ude02<br><img width=\"1054\" height=\"944\" style=\"\" src=\"https://pbs.twimg.com/media/HD3lcLcasAAoaEx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "The judge seems more worried about the police than the victim. \"Aise matter ko sensationalise nahin kiya jaana chahiye. Police ke upar dekhiye kitna b...",
-      "link": "https://x.com/menakadoshi/status/2035029285531250814",
-      "date": "2026-03-20T16:22:45+00:00",
-      "tweet_id": "2035029285531250814",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "The judge seems more worried about the police than the victim. <br><br>\"Aise matter ko sensationalise nahin kiya jaana chahiye. Police ke upar dekhiye kitna burden hai, 3 FIRs ko investigate karna hai, law and order bhi maintain karna hai...unhe blame karna easy hai lekin unka burden samajhiye. You do not understand the burden on the police, as they have 50-50 investigations and less manpower. Har ek ko investigation mein trust repose karna chahiye\", the bench orally remarked.<div class=\"rsshub-quote\"><br><br>Live Law:\u2002#UttarakhandHighCourt Refuses To Quash FIR Against 'Mohammad' Deepak, Restrains Him From Posting On Social Media | @ISparshUpadhyay <br><br>https://www.livelaw.in/high-court/uttarakhand-high-court/uttarakhand-high-court-refuses-quash-fir-mohammad-deepak-restrains-posting-social-media-527181/<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "As of 2022-23, AP\u2019s Paderu Agency area had ~218,000 coffee farmers cultivating ~227,000 acres, per @andhra_gcc data.. That year, they grew ~71,000 to...",
-      "link": "https://x.com/IndiaSpend/status/2035023562881347797",
-      "date": "2026-03-20T16:00:00+00:00",
-      "tweet_id": "2035023562881347797",
-      "source": "IndiaSpend",
-      "publisher": "IndiaSpend",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "As of 2022-23, AP\u2019s Paderu Agency area had ~218,000 coffee farmers cultivating ~227,000 acres, per @andhra_gcc data.. That year, they grew ~71,000 tonnes of coffee fruit. Of this, about 5% had been procured from 1% farmers. Read on: https://www.indiaspend.com/agriculture/how-arakus-coffee-farmers-are-tackling-climate-change-982220",
       "category": "Twitter"
     },
     {
@@ -9859,21 +10174,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Very Interesting Profit Turnaround happening in Physicswallah. They are going aggresive on offline centers with retention being a strong moat. Interesting to watch out<br><br>Disc - not invested<br><img width=\"1870\" height=\"825\" style=\"\" src=\"https://pbs.twimg.com/media/HDDTVaFaMAMdpmH?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "3x Jump",
-      "link": "https://x.com/ShashankUdupa1/status/2032442037094789232",
-      "date": "2026-03-13T13:01:57+00:00",
-      "tweet_id": "2032442037094789232",
-      "source": "Shashank Udupa - SEBI RA",
-      "publisher": "Shashank Udupa",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDSvPfCaUAAIkxB?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "3x Jump<br><img width=\"1738\" height=\"757\" style=\"\" src=\"https://pbs.twimg.com/media/HDSvPfCaUAAIkxB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
