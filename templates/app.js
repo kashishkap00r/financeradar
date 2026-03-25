@@ -4103,12 +4103,13 @@
         // Update relative time for all timestamped elements
         function formatTimeAgo(el) {
             if (!el || !el.dataset.time) return;
-            const diff = Math.floor((new Date() - new Date(el.dataset.time)) / 1000);
-            let text;
-            if (diff < 60) text = 'Updated just now';
-            else if (diff < 3600) text = `Updated ${Math.floor(diff / 60)} min ago`;
-            else if (diff < 86400) text = `Updated ${Math.floor(diff / 3600)} hr ago`;
-            else text = `Updated ${Math.floor(diff / 86400)} day ago`;
+            var diff = Math.floor((new Date() - new Date(el.dataset.time)) / 1000);
+            var prefix = el.id === 'twitter-update-time' ? 'Latest tweet' : 'Updated';
+            var text;
+            if (diff < 60) text = prefix + ' just now';
+            else if (diff < 3600) text = prefix + ' ' + Math.floor(diff / 60) + ' min ago';
+            else if (diff < 86400) text = prefix + ' ' + Math.floor(diff / 3600) + ' hr ago';
+            else text = prefix + ' ' + Math.floor(diff / 86400) + ' day ago';
             el.textContent = text;
         }
         function updateRelativeTime() {

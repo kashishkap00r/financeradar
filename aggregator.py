@@ -387,8 +387,10 @@ def generate_html(
     twitter_lane_meta_json = json.dumps(twitter_lane_meta)
     twitter_count = len(twitter_articles)
     twitter_high_signal_count = len(twitter_high_signal)
-    # Use latest tweet date for "Updated" timestamp (not pipeline run time)
-    _tw_dates = [t["date"] for t in twitter_articles if t.get("date")]
+    # Use latest RSSHub tweet date (actual post time), not Google RSS dates (indexing timestamps)
+    _tw_rsshub_dates = [t["date"] for t in twitter_articles if t.get("date") and t.get("source_mode") == "rsshub"]
+    _tw_all_dates = [t["date"] for t in twitter_articles if t.get("date")]
+    _tw_dates = _tw_rsshub_dates or _tw_all_dates
     twitter_latest_time = max(_tw_dates).isoformat() if _tw_dates else now_ist.isoformat()
     twitter_publishers = sorted(set(t.get("publisher", t.get("source", "")) for t in twitter_articles if t.get("publisher") or t.get("source")))
     twitter_publishers_json = json.dumps(twitter_publishers)
@@ -853,13 +855,13 @@ def generate_html(
                         <span class="stat-truncate" id="twitter-publisher-count-label"></span>
                     </div>
                     <div class="filter-head-actions">
-                        <span class="update-time" id="twitter-update-time" data-time="{twitter_latest_time}">Updated</span>
+                        <span class="update-time" id="twitter-update-time" data-time="{twitter_latest_time}">Latest tweet</span>
                         <script>
                         (function(){{
                             var el=document.getElementById('twitter-update-time'),t=el&&el.getAttribute('data-time');
                             if(!t)return;
                             var d=Math.floor((new Date()-new Date(t))/60000);
-                            el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
+                            el.textContent='Latest tweet '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
                         }})();
                         </script>
                         <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
