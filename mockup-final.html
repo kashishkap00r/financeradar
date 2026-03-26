@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinanceRadar — Cluster Design Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #C45A35;
+    --accent-light: rgba(196,90,53,0.07);
+    --bg: #FAF7F2;
+    --text: #2C2825;
+    --text-muted: #6B645C;
+    --card-bg: #F5F0EA;
+    --border: #E8E0D6;
+    --dn: #C45A35; --dt: #6B8E5A; --dw: #5A7E8E; --dy: #8E5A5A; --dr: #8E7E5A;
+    --gallery-bg: #151312;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background: var(--gallery-bg); font-family: 'Nunito Sans', sans-serif; color: #ccc; }
+
+  /* ── Gallery chrome ── */
+  .gallery-header {
+    max-width: 1200px; margin: 0 auto; padding: 3rem 2rem 1rem;
+  }
+  .gallery-header h1 {
+    font-family: 'Fraunces', serif; font-size: 2.2rem; color: #fff;
+    margin-bottom: 0.3rem;
+  }
+  .gallery-header p { color: #777; font-size: 0.85rem; max-width: 600px; line-height: 1.5; }
+
+  .design-section {
+    max-width: 1200px; margin: 0 auto 1rem; padding: 0 2rem;
+  }
+  .design-header {
+    display: flex; align-items: baseline; gap: 1rem;
+    padding: 2rem 0 0.5rem; border-top: 1px solid #2a2725;
+    margin-top: 2rem;
+  }
+  .design-number {
+    font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 800;
+    color: var(--accent); opacity: 0.6;
+  }
+  .design-name {
+    font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 600; color: #fff;
+  }
+  .design-desc {
+    color: #666; font-size: 0.78rem; line-height: 1.5;
+    padding: 0.3rem 0 1rem; max-width: 700px;
+  }
+
+  /* ── Desktop + Mobile side by side ── */
+  .preview-row {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+  }
+  .preview-desktop {
+    flex: 1; background: var(--bg); border-radius: 10px;
+    padding: 1.5rem; overflow: hidden; min-width: 0;
+  }
+  .preview-mobile-wrap {
+    width: 200px; flex-shrink: 0;
+  }
+  .preview-mobile-label {
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #555; margin-bottom: 0.5rem; text-align: center;
+  }
+  .preview-mobile-frame {
+    width: 200px; height: 420px; overflow-y: auto; overflow-x: hidden;
+    border-radius: 16px; border: 2px solid #333;
+    background: var(--bg); position: relative;
+  }
+  .preview-mobile-frame .mobile-inner {
+    width: 375px; transform: scale(0.533); transform-origin: top left;
+    padding: 1rem;
+  }
+
+  /* ── Shared article primitives ── */
+  .dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; margin-top:0.4rem; display:inline-block; }
+  .headline {
+    font-family:'Fraunces',serif; font-weight:400; font-size:0.88rem;
+    line-height:1.35; color:var(--text); text-decoration:none; cursor:pointer;
+  }
+  .headline:hover { color: var(--accent); }
+  .tag {
+    font-size:0.58rem; color:var(--accent); font-style:italic;
+    background:var(--accent-light); padding:0.1rem 0.38rem;
+    border-radius:3px; white-space:nowrap; display:inline-block;
+  }
+  .src {
+    font-size:0.6rem; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.03em; color:var(--text-muted); white-space:nowrap;
+  }
+  .more-btn {
+    color:var(--accent); font-size:0.72rem; font-weight:600;
+    background:none; border:none; cursor:pointer; padding:0.4rem 0 0;
+    font-family:'Nunito Sans',sans-serif;
+  }
+  .more-btn:hover { text-decoration:underline; }
+  .hidden-art { display:none; }
+  .section-divider {
+    font-size:0.6rem; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.15em; color:var(--text-muted);
+    display:flex; align-items:center; gap:0.8rem; margin-bottom:1.2rem;
+  }
+  .section-divider::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  /* ── Design A: Accent Border ── */
+  .da-card {
+    border-left:3px solid var(--accent); background:var(--card-bg);
+    padding:1.1rem 1.3rem; margin-bottom:1rem; border-radius:0 6px 6px 0;
+  }
+  .da-title {
+    font-family:'Fraunces',serif; font-size:1.2rem; font-weight:600;
+    line-height:1.3; margin-bottom:0.8rem;
+  }
+  .da-art { display:flex; align-items:baseline; gap:0.5rem; padding:0.35rem 0; }
+  .da-art .da-meta { display:flex; align-items:baseline; gap:0.4rem; margin-top:0.15rem; }
+
+  /* ── Design C: Numbered + Pills ── */
+  .dc-card {
+    display:grid; grid-template-columns:2.2rem 1fr; gap:0 0.7rem;
+    padding:1.2rem 0; border-bottom:1px solid var(--border);
+  }
+  .dc-num {
+    font-family:'Fraunces',serif; font-size:1.8rem; font-weight:800;
+    color:var(--accent); opacity:0.2; line-height:1; text-align:center;
+  }
+  .dc-title {
+    font-family:'Fraunces',serif; font-size:1.15rem; font-weight:600;
+    line-height:1.3; margin-bottom:0.7rem;
+  }
+  .dc-art {
+    display:flex; align-items:baseline; gap:0.45rem; padding:0.3rem 0; flex-wrap:wrap;
+  }
+
+  /* ── Design V1: Hero + Compact ── */
+  .v1-hero { border-top:3px solid var(--accent); padding:1.3rem 0 1.5rem; margin-bottom:1.2rem; }
+  .v1-hero-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.8rem; }
+  .v1-hero-num {
+    font-family:'Fraunces',serif; font-size:2.5rem; font-weight:800;
+    color:var(--accent); opacity:0.15; line-height:1;
+  }
+  .v1-hero-title { font-family:'Fraunces',serif; font-size:1.3rem; font-weight:700; line-height:1.25; }
+  .v1-hero-arts { padding-left:3.2rem; }
+  .v1-art { display:flex; align-items:baseline; gap:0.45rem; padding:0.35rem 0; flex-wrap:wrap; }
+  .v1-pair { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+  .v1-compact {
+    background:var(--card-bg); border-radius:6px; padding:0.9rem 1rem; position:relative;
+  }
+  .v1-compact-num {
+    font-family:'Fraunces',serif; font-size:0.9rem; font-weight:700;
+    color:var(--accent); opacity:0.35; position:absolute; top:0.7rem; right:0.8rem;
+  }
+  .v1-compact-title {
+    font-family:'Fraunces',serif; font-size:0.95rem; font-weight:600;
+    line-height:1.3; margin-bottom:0.6rem; padding-right:1.6rem;
+  }
+  .v1-compact-art { display:flex; align-items:baseline; gap:0.4rem; padding:0.25rem 0; flex-wrap:wrap; }
+  .v1-compact-art .headline { font-size:0.8rem; }
+  .v1-compact-art .tag { font-size:0.52rem; }
+  .v1-full {
+    background:var(--card-bg); border-radius:6px; padding:0.9rem 1rem;
+    margin-bottom:1rem; position:relative;
+  }
+
+  /* ── Design V3: Alternating Blocks ── */
+  .v3-card { padding:1.2rem 1.3rem; margin-bottom:0.8rem; border-radius:6px; position:relative; overflow:hidden; }
+  .v3-odd { background:var(--card-bg); border-left:3px solid var(--accent); border-radius:0 6px 6px 0; }
+  .v3-even { background:#fff; border-bottom:2px solid var(--accent); }
+  .v3-wm {
+    position:absolute; font-family:'Fraunces',serif; font-size:4.5rem;
+    font-weight:800; color:var(--accent); opacity:0.04; line-height:1; pointer-events:none;
+  }
+  .v3-odd .v3-wm { top:-0.2rem; right:0.4rem; }
+  .v3-even .v3-wm { top:-0.2rem; left:0.4rem; }
+  .v3-title {
+    font-family:'Fraunces',serif; font-size:1.15rem; font-weight:600;
+    line-height:1.3; margin-bottom:0.7rem; position:relative;
+  }
+  .v3-art { display:flex; align-items:baseline; gap:0.45rem; padding:0.3rem 0; flex-wrap:wrap; position:relative; }
+
+  @media (max-width:768px) {
+    .preview-row { flex-direction:column; }
+    .preview-mobile-wrap { display:none; }
+    .gallery-header, .design-section { padding: 0 1rem; }
+    .v1-pair { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="gallery-header">
+  <h1>Cluster Designs</h1>
+  <p>5 design options. Each section shows desktop (left) and mobile (right). All "show more" buttons work — click them. Pick one.</p>
+</div>
+
+<!-- ════════════════════════════════════════════
+     DESIGN A: Accent Border Cards
+     ════════════════════════════════════════════ -->
+<div class="design-section">
+  <div class="design-header">
+    <span class="design-number">A</span>
+    <span class="design-name">Accent Border Cards</span>
+  </div>
+  <div class="design-desc">Left rust border + cream background. Angle text as a second line below headline. Simple visual grouping.</div>
+
+  <div class="preview-row">
+    <div class="preview-desktop" id="da-desktop">
+      <div class="section-divider">The Big Stories</div>
+
+      <div class="da-card">
+        <div class="da-title">HDFC Bank's Governance Storm: Law Firms Probe Chairman's Exit</div>
+        <div class="da-art"><span class="dot" style="background:var(--dn)"></span><div><a class="headline">HDFC Bank appoints external law firms to review Atanu Chakraborty's resignation</a><div class="da-meta"><span class="src">ET</span><span class="tag">Law firms review resignation</span></div></div></div>
+        <div class="da-art"><span class="dot" style="background:var(--dn)"></span><div><a class="headline">Credit Suisse's AT1 bond crash fueled HDFC leadership crisis</a><div class="da-meta"><span class="src">BusinessLine</span><span class="tag">AT1 bond crash connection</span></div></div></div>
+        <div class="da-art"><span class="dot" style="background:var(--dn)"></span><div><a class="headline">HDFC Bank may appoint Wadia Ghandy, Trilegal to study board meeting minutes</a><div class="da-meta"><span class="src">Mint</span><span class="tag">Wadia Ghandy, Trilegal appointed</span></div></div></div>
+        <div class="da-art hidden-art"><span class="dot" style="background:var(--dt)"></span><div><a class="headline">EMKAY ON HDFC BANK: Maintain Buy, governance overhang temporary</a><div class="da-meta"><span class="src">BTS News</span><span class="tag">Emkay maintains Buy</span></div></div></div>
+        <div class="da-art hidden-art"><span class="dot" style="background:var(--dy)"></span><div><a class="headline">Atanu Chakraborty's First Statement To NDTV Profit</a><div class="da-meta"><span class="src">NDTV Profit</span><span class="tag">First video statement</span></div></div></div>
+        <button class="more-btn" onclick="toggleMore(this)">+ 2 more sources</button>
+      </div>
+
+      <div class="da-card">
+        <div class="da-title">India's Private Sector Growth Hits 3-Year Low on War Fears</div>
+        <div class="da-art"><span class="dot" style="background:var(--dn)"></span><div><a class="headline">India Flash PMI slips to 56.5 in March, weakest expansion since 2022</a><div class="da-meta"><span class="src">Biz Std</span><span class="tag">Weakest expansion since 2022</span></div></div></div>
+        <div class="da-art"><span class="dot" style="background:var(--dn)"></span><div><a class="headline">India's private sector growth hits 3-year low as West Asia war saps demand</a><div class="da-meta"><span class="src">BusinessLine</span><span class="tag">War-linked demand destruction</span></div></div></div>
+        <div class="da-art"><span class="dot" style="background:var(--dt)"></span><div><a class="headline">HSBC India March Mfg PMI At 53.8 Vs 56.9 MOM</a><div class="da-meta"><span class="src">📈</span><span class="tag">Manufacturing slips to 53.8</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="preview-mobile-wrap">
+      <div class="preview-mobile-label">Mobile 375px</div>
+      <div class="preview-mobile-frame">
+        <div class="mobile-inner">
+          <div class="section-divider">The Big Stories</div>
+          <div class="da-card">
+            <div class="da-title" style="font-size:1.05rem;">HDFC Bank's Governance Storm: Law Firms Probe Chairman's Exit</div>
+            <div class="da-art"><span class="dot" style="background:var(--dn)"></span><div><a class="headline">HDFC Bank appoints external law firms to review resignation</a><div class="da-meta"><span class="src">ET</span><span class="tag">Law firms review</span></div></div></div>
+            <div class="da-art"><span class="dot" style="background:var(--dn)"></span><div><a class="headline">Credit Suisse's AT1 bond crash fueled leadership crisis</a><div class="da-meta"><span class="src">BusinessLine</span><span class="tag">AT1 bond crash</span></div></div></div>
+            <div class="da-art"><span class="dot" style="background:var(--dn)"></span><div><a class="headline">HDFC may appoint Wadia Ghandy, Trilegal to study board minutes</a><div class="da-meta"><span class="src">Mint</span><span class="tag">Wadia, Trilegal</span></div></div></div>
+            <div class="da-art hidden-art"><span class="dot" style="background:var(--dt)"></span><div><a class="headline">EMKAY maintains Buy on HDFC Bank</a><div class="da-meta"><span class="src">BTS</span><span class="tag">Emkay Buy</span></div></div></div>
+            <button class="more-btn" onclick="toggleMore(this)">+ 1 more</button>
+          </div>
+          <div class="da-card">
+            <div class="da-title" style="font-size:1.05rem;">India's PMI Hits 3-Year Low on War Fears</div>
+            <div class="da-art"><span class="dot" style="background:var(--dn)"></span><div><a class="headline">Flash PMI slips to 56.5, weakest since 2022</a><div class="da-meta"><span class="src">Biz Std</span><span class="tag">Weakest since 2022</span></div></div></div>
+            <div class="da-art"><span class="dot" style="background:var(--dn)"></span><div><a class="headline">Private sector growth hits 3-year low</a><div class="da-meta"><span class="src">BizLine</span><span class="tag">War-linked</span></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     DESIGN C: Numbered + Pill Angles
+     ════════════════════════════════════════════ -->
+<div class="design-section">
+  <div class="design-header">
+    <span class="design-number">C</span>
+    <span class="design-name">Numbered Cards + Pill Angles</span>
+  </div>
+  <div class="design-desc">Large faded numbers signal priority. Angle text in small pill tags inline. Editorial/newsletter feel. You liked this one.</div>
+
+  <div class="preview-row">
+    <div class="preview-desktop">
+      <div class="section-divider">The Big Stories</div>
+
+      <div class="dc-card">
+        <span class="dc-num">01</span>
+        <div>
+          <div class="dc-title">HDFC Bank's Governance Storm: Law Firms Probe Chairman's Exit</div>
+          <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">HDFC Bank appoints external law firms to review Atanu Chakraborty's resignation</a><span class="tag">Law firms review resignation</span><span class="src">ET</span></div>
+          <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Credit Suisse's AT1 bond crash fueled HDFC leadership crisis</a><span class="tag">AT1 bond crash connection</span><span class="src">BusinessLine</span></div>
+          <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">HDFC Bank may appoint Wadia Ghandy, Trilegal to study board meeting minutes</a><span class="tag">Wadia Ghandy, Trilegal</span><span class="src">Mint</span></div>
+          <div class="dc-art hidden-art"><span class="dot" style="background:var(--dt)"></span><a class="headline">EMKAY ON HDFC BANK: Maintain Buy, governance overhang temporary</a><span class="tag">Emkay maintains Buy</span><span class="src">BTS News</span></div>
+          <div class="dc-art hidden-art"><span class="dot" style="background:var(--dy)"></span><a class="headline">Atanu Chakraborty's First Statement To NDTV Profit</a><span class="tag">First video statement</span><span class="src">NDTV</span></div>
+          <button class="more-btn" onclick="toggleMore(this)">+ 2 more sources</button>
+        </div>
+      </div>
+
+      <div class="dc-card">
+        <span class="dc-num">02</span>
+        <div>
+          <div class="dc-title">India's Private Sector Growth Hits 3-Year Low on War Fears</div>
+          <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">India Flash PMI slips to 56.5 in March, weakest expansion since 2022</a><span class="tag">Weakest since 2022</span><span class="src">Biz Std</span></div>
+          <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">India's private sector growth hits 3-year low as West Asia war saps demand</a><span class="tag">War-linked demand drop</span><span class="src">BusinessLine</span></div>
+          <div class="dc-art"><span class="dot" style="background:var(--dt)"></span><a class="headline">HSBC India March Mfg PMI At 53.8 Vs 56.9 MOM</a><span class="tag">Mfg slips to 53.8</span><span class="src">📈</span></div>
+        </div>
+      </div>
+
+      <div class="dc-card">
+        <span class="dc-num">03</span>
+        <div>
+          <div class="dc-title">The 'Magic Pill' Crackdown: India Regulates Generic Weight-Loss Drugs</div>
+          <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">India tightens grip on GLP-1 supply chain amid misuse concerns</a><span class="tag">Supply chain monitoring</span><span class="src">ET</span></div>
+          <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">India is launching cheap weight-loss drugs — but Novo Nordisk bets brands will stay on top</a><span class="tag">Novo vs generic rivals</span><span class="src">CNBC</span></div>
+          <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Why does everyone want to sell cheaper Ozempic?</a><span class="tag">The 'cheap Ozempic' race</span><span class="src">Filter Coffee</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-mobile-wrap">
+      <div class="preview-mobile-label">Mobile 375px</div>
+      <div class="preview-mobile-frame">
+        <div class="mobile-inner">
+          <div class="section-divider">The Big Stories</div>
+          <div class="dc-card">
+            <span class="dc-num" style="font-size:1.3rem;">01</span>
+            <div>
+              <div class="dc-title" style="font-size:1rem;">HDFC Bank's Governance Storm</div>
+              <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">HDFC appoints law firms to review resignation</a><span class="tag">Law firms</span></div>
+              <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">AT1 bond crash fueled leadership crisis</a><span class="tag">AT1 crash</span></div>
+              <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">Wadia Ghandy, Trilegal to study board minutes</a><span class="tag">Trilegal</span></div>
+              <div class="dc-art hidden-art"><span class="dot" style="background:var(--dt)"></span><a class="headline" style="font-size:0.8rem;">EMKAY maintains Buy</a><span class="tag">Buy</span></div>
+              <button class="more-btn" onclick="toggleMore(this)">+ 1 more</button>
+            </div>
+          </div>
+          <div class="dc-card">
+            <span class="dc-num" style="font-size:1.3rem;">02</span>
+            <div>
+              <div class="dc-title" style="font-size:1rem;">PMI Hits 3-Year Low on War</div>
+              <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">Flash PMI at 56.5, weakest since 2022</a><span class="tag">Weakest</span></div>
+              <div class="dc-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">Growth hits 3-year low</a><span class="tag">War-linked</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     DESIGN V1: Hero + Compact Grid
+     ════════════════════════════════════════════ -->
+<div class="design-section">
+  <div class="design-header">
+    <span class="design-number">V1</span>
+    <span class="design-name">Hero #1 + Compact Grid</span>
+  </div>
+  <div class="design-desc">Top story gets hero treatment (big number, full width). #2 and #3 sit side-by-side as compact cards. #4 goes full width again. Magazine rhythm. You liked this one too.</div>
+
+  <div class="preview-row">
+    <div class="preview-desktop">
+      <div class="section-divider">The Big Stories</div>
+
+      <div class="v1-hero">
+        <div class="v1-hero-head">
+          <span class="v1-hero-num">01</span>
+          <div class="v1-hero-title">HDFC Bank's Governance Storm: Law Firms Probe Chairman's Exit</div>
+        </div>
+        <div class="v1-hero-arts">
+          <div class="v1-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">HDFC Bank appoints external law firms to review Atanu Chakraborty's resignation</a><span class="tag">Law firms review resignation</span><span class="src">ET</span></div>
+          <div class="v1-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Credit Suisse's AT1 bond crash fueled HDFC leadership crisis</a><span class="tag">AT1 bond crash connection</span><span class="src">BusinessLine</span></div>
+          <div class="v1-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">HDFC Bank may appoint Wadia Ghandy, Trilegal to study board meeting minutes</a><span class="tag">Wadia Ghandy, Trilegal</span><span class="src">Mint</span></div>
+          <div class="v1-art hidden-art"><span class="dot" style="background:var(--dt)"></span><a class="headline">EMKAY ON HDFC BANK: Maintain Buy, governance overhang temporary</a><span class="tag">Emkay Buy</span><span class="src">BTS News</span></div>
+          <div class="v1-art hidden-art"><span class="dot" style="background:var(--dy)"></span><a class="headline">Atanu Chakraborty's First Statement To NDTV Profit</a><span class="tag">First statement video</span><span class="src">NDTV</span></div>
+          <button class="more-btn" onclick="toggleMore(this)">+ 2 more sources</button>
+        </div>
+      </div>
+
+      <div class="v1-pair">
+        <div class="v1-compact">
+          <span class="v1-compact-num">02</span>
+          <div class="v1-compact-title">India's PMI Hits 3-Year Low on War Fears</div>
+          <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Flash PMI slips to 56.5, weakest since 2022</a><span class="tag">Weakest since 2022</span></div>
+          <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Private sector growth hits 3-year low</a><span class="tag">War-linked drop</span></div>
+          <div class="v1-compact-art"><span class="dot" style="background:var(--dt)"></span><a class="headline">HSBC Mfg PMI At 53.8 Vs 56.9</a><span class="tag">Mfg slips</span></div>
+        </div>
+        <div class="v1-compact">
+          <span class="v1-compact-num">03</span>
+          <div class="v1-compact-title">Generic Weight-Loss Drug Crackdown</div>
+          <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">India tightens grip on GLP-1 supply chain</a><span class="tag">Supply chain</span></div>
+          <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Novo Nordisk bets brands beat generics</a><span class="tag">Novo vs generics</span></div>
+          <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Why does everyone want cheaper Ozempic?</a><span class="tag">Ozempic race</span></div>
+        </div>
+      </div>
+
+      <div class="v1-full">
+        <span class="v1-compact-num">04</span>
+        <div class="v1-compact-title">Crude Shock Hits Consumers: Asian Paints Leads Price Hikes</div>
+        <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Asian Paints, Berger hike prices 3-5% as crude oil costs surge</a><span class="tag">Paint prices up 3-5%</span><span class="src">ET</span></div>
+        <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">FMCG firms brace for margin squeeze as crude hits $110</a><span class="tag">FMCG margin squeeze</span><span class="src">Mint</span></div>
+        <div class="v1-compact-art hidden-art"><span class="dot" style="background:var(--dw)"></span><a class="headline">Oil at $150? What it means for your grocery bill</a><span class="tag">Consumer impact explainer</span><span class="src">Kobeissi</span></div>
+        <button class="more-btn" onclick="toggleMore(this)">+ 1 more source</button>
+      </div>
+    </div>
+
+    <div class="preview-mobile-wrap">
+      <div class="preview-mobile-label">Mobile 375px</div>
+      <div class="preview-mobile-frame">
+        <div class="mobile-inner">
+          <div class="section-divider">The Big Stories</div>
+          <div class="v1-hero" style="padding:1rem 0;">
+            <div class="v1-hero-head"><span class="v1-hero-num" style="font-size:1.8rem;">01</span><div class="v1-hero-title" style="font-size:1.1rem;">HDFC Governance Storm</div></div>
+            <div>
+              <div class="v1-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">Law firms review resignation</a><span class="tag">Law firms</span></div>
+              <div class="v1-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">AT1 bond crash fueled crisis</a><span class="tag">AT1 crash</span></div>
+              <div class="v1-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">Wadia Ghandy to study minutes</a><span class="tag">Trilegal</span></div>
+              <div class="v1-art hidden-art"><span class="dot" style="background:var(--dt)"></span><a class="headline" style="font-size:0.8rem;">EMKAY maintains Buy</a><span class="tag">Buy</span></div>
+              <button class="more-btn" onclick="toggleMore(this)">+ 1 more</button>
+            </div>
+          </div>
+          <!-- Mobile: pairs stack to single column -->
+          <div class="v1-compact" style="margin-bottom:0.8rem;">
+            <span class="v1-compact-num">02</span>
+            <div class="v1-compact-title" style="font-size:0.9rem;">PMI Hits 3-Year Low</div>
+            <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">PMI at 56.5, weakest since 2022</a><span class="tag">Weakest</span></div>
+            <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Growth hits 3-year low</a><span class="tag">War-linked</span></div>
+          </div>
+          <div class="v1-compact" style="margin-bottom:0.8rem;">
+            <span class="v1-compact-num">03</span>
+            <div class="v1-compact-title" style="font-size:0.9rem;">Weight-Loss Drug Crackdown</div>
+            <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">GLP-1 supply chain tightened</a><span class="tag">Supply</span></div>
+            <div class="v1-compact-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Novo vs generics battle</a><span class="tag">Novo</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     DESIGN V3: Alternating Accent Blocks
+     ════════════════════════════════════════════ -->
+<div class="design-section">
+  <div class="design-header">
+    <span class="design-number">V3</span>
+    <span class="design-name">Alternating Accent Blocks</span>
+  </div>
+  <div class="design-desc">Odd clusters: cream bg + left border. Even clusters: white bg + bottom border. Watermark numbers behind. Subtle variety without chaos.</div>
+
+  <div class="preview-row">
+    <div class="preview-desktop">
+      <div class="section-divider">The Big Stories</div>
+
+      <div class="v3-card v3-odd">
+        <span class="v3-wm">01</span>
+        <div class="v3-title">HDFC Bank's Governance Storm: Law Firms Probe Chairman's Exit</div>
+        <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">HDFC Bank appoints external law firms to review resignation</a><span class="tag">Law firms review</span><span class="src">ET</span></div>
+        <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Credit Suisse's AT1 bond crash fueled leadership crisis</a><span class="tag">AT1 bond crash</span><span class="src">BusinessLine</span></div>
+        <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Wadia Ghandy, Trilegal to study board meeting minutes</a><span class="tag">Wadia, Trilegal</span><span class="src">Mint</span></div>
+        <div class="v3-art hidden-art"><span class="dot" style="background:var(--dy)"></span><a class="headline">Chakraborty's First Statement To NDTV Profit</a><span class="tag">First statement</span><span class="src">NDTV</span></div>
+        <button class="more-btn" onclick="toggleMore(this)">+ 1 more source</button>
+      </div>
+
+      <div class="v3-card v3-even">
+        <span class="v3-wm">02</span>
+        <div class="v3-title">India's Private Sector Growth Hits 3-Year Low on War Fears</div>
+        <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">India Flash PMI slips to 56.5 in March, weakest expansion since 2022</a><span class="tag">Weakest since 2022</span><span class="src">Biz Std</span></div>
+        <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Private sector growth hits 3-year low as West Asia war saps demand</a><span class="tag">War-linked demand drop</span><span class="src">BusinessLine</span></div>
+        <div class="v3-art"><span class="dot" style="background:var(--dt)"></span><a class="headline">HSBC India March Mfg PMI At 53.8 Vs 56.9 MOM</a><span class="tag">Mfg slips to 53.8</span><span class="src">📈</span></div>
+      </div>
+
+      <div class="v3-card v3-odd">
+        <span class="v3-wm">03</span>
+        <div class="v3-title">The 'Magic Pill' Crackdown: India Regulates Generic Weight-Loss Drugs</div>
+        <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">India tightens grip on GLP-1 supply chain amid misuse concerns</a><span class="tag">Supply chain monitoring</span><span class="src">ET</span></div>
+        <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Novo Nordisk bets brands will stay on top despite Indian generics</a><span class="tag">Novo vs generics</span><span class="src">CNBC</span></div>
+        <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline">Why does everyone want to sell cheaper Ozempic?</a><span class="tag">Cheap Ozempic race</span><span class="src">Filter Coffee</span></div>
+      </div>
+    </div>
+
+    <div class="preview-mobile-wrap">
+      <div class="preview-mobile-label">Mobile 375px</div>
+      <div class="preview-mobile-frame">
+        <div class="mobile-inner">
+          <div class="section-divider">The Big Stories</div>
+          <div class="v3-card v3-odd">
+            <span class="v3-wm" style="font-size:3rem;">01</span>
+            <div class="v3-title" style="font-size:1rem;">HDFC Governance Storm</div>
+            <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">Law firms review resignation</a><span class="tag">Law firms</span></div>
+            <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">AT1 bond crash connection</a><span class="tag">AT1</span></div>
+            <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">Trilegal to study minutes</a><span class="tag">Trilegal</span></div>
+          </div>
+          <div class="v3-card v3-even">
+            <span class="v3-wm" style="font-size:3rem;">02</span>
+            <div class="v3-title" style="font-size:1rem;">PMI Hits 3-Year Low</div>
+            <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">Flash PMI at 56.5</a><span class="tag">Weakest</span></div>
+            <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">Growth 3-year low</a><span class="tag">War</span></div>
+          </div>
+          <div class="v3-card v3-odd">
+            <span class="v3-wm" style="font-size:3rem;">03</span>
+            <div class="v3-title" style="font-size:1rem;">Weight-Loss Drug Crackdown</div>
+            <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">GLP-1 supply tightened</a><span class="tag">GLP-1</span></div>
+            <div class="v3-art"><span class="dot" style="background:var(--dn)"></span><a class="headline" style="font-size:0.8rem;">Novo vs generics</a><span class="tag">Novo</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     CURRENT: What's Live Now
+     ════════════════════════════════════════════ -->
+<div class="design-section" style="padding-bottom:3rem;">
+  <div class="design-header">
+    <span class="design-number" style="opacity:0.3;">—</span>
+    <span class="design-name">Current Live Site</span>
+  </div>
+  <div class="design-desc">What's shipped right now. Simple bullet list under "THE BIG STORIES" section header. No visual grouping, no cards.</div>
+
+  <div class="preview-row">
+    <div class="preview-desktop" style="padding:0;overflow:hidden;border-radius:10px;">
+      <iframe src="/" style="width:100%;height:650px;border:none;"></iframe>
+    </div>
+    <div class="preview-mobile-wrap">
+      <div class="preview-mobile-label">Mobile 375px</div>
+      <div class="preview-mobile-frame" style="height:500px;">
+        <iframe src="/" style="width:375px;height:940px;border:none;transform:scale(0.533);transform-origin:top left;"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleMore(btn) {
+  var container = btn.parentElement;
+  var hidden = container.querySelectorAll('.hidden-art');
+  var showing = hidden.length && hidden[0].style.display === 'flex';
+
+  if (showing) {
+    hidden.forEach(function(el) { el.style.display = 'none'; });
+    var count = hidden.length;
+    btn.textContent = '+ ' + count + ' more source' + (count > 1 ? 's' : '');
+  } else {
+    hidden.forEach(function(el) { el.style.display = 'flex'; });
+    btn.textContent = 'show fewer';
+  }
+}
+</script>
+
+</body>
+</html>

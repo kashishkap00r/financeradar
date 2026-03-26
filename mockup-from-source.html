@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup — From The Source</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg-primary: #FAF7F2;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #2C2825;
+    --text-secondary: #6B645C;
+    --text-muted: #9E978F;
+    --accent: #C45A35;
+    --border: #D4CBC0;
+    --border-light: #E2DCD3;
+    --card-bg: #F5F0EA;
+}
+
+html {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+/* ── Section dividers (matches live site) ── */
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 1.8rem 0 1rem;
+}
+.section-label {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+}
+.section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+/* ── Cluster cards (existing accent border style) ── */
+.cluster-card {
+    border-left: 3px solid var(--accent);
+    background: var(--card-bg);
+    padding: 1.2rem 1.4rem;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 0.75rem;
+}
+.cluster-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+}
+.cluster-sub {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+}
+.cluster-sub-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+}
+.cluster-sub-content { flex: 1; min-width: 0; }
+.cluster-sub a {
+    font-size: 0.82rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    line-height: 1.35;
+}
+.cluster-sub a:hover { color: var(--accent); }
+.cluster-sub-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.15rem;
+}
+.cluster-sub-source {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.cluster-sub-angle {
+    font-size: 0.58rem;
+    color: var(--accent);
+    background: rgba(196,90,53,0.07);
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* ── Official badge ── */
+.official-badge {
+    font-size: 0.52rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #2e7d32;
+    background: rgba(46, 125, 50, 0.08);
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════
+   FROM THE SOURCE — new section
+   ══════════════════════════════════════════════ */
+.from-source-section {
+    margin-bottom: 0.5rem;
+}
+.from-source-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+.from-source-item:last-child { border-bottom: none; }
+.from-source-icon {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    position: relative;
+    top: 1px;
+}
+.from-source-body { flex: 1; min-width: 0; }
+.from-source-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+.from-source-title a {
+    color: inherit;
+    text-decoration: none;
+}
+.from-source-title a:hover { color: var(--accent); }
+.from-source-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.2rem;
+}
+.from-source-publisher {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.from-source-date {
+    font-size: 0.62rem;
+    color: var(--text-muted);
+}
+.from-source-bk {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.15rem;
+    transition: color 0.2s;
+}
+.from-source-bk:hover { color: var(--accent); }
+
+/* ── Feed items (simplified for mockup) ── */
+.feed-item {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+.feed-item:last-child { border-bottom: none; }
+.feed-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--text-primary);
+}
+.feed-title a { color: inherit; text-decoration: none; }
+.feed-title a:hover { color: var(--accent); }
+.feed-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.2rem;
+}
+.feed-source {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.feed-time {
+    font-size: 0.62rem;
+    color: var(--text-muted);
+}
+.feed-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-top: 0.3rem;
+    line-height: 1.5;
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+    body { padding: 1.5rem 1rem 3rem; }
+    .cluster-card { padding: 0.9rem 1rem; }
+    .from-source-title { font-size: 0.85rem; }
+    .feed-title { font-size: 0.88rem; }
+}
+
+/* ── Mockup chrome ── */
+.mockup-label {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background: var(--accent);
+    padding: 3px 10px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+.mockup-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.8rem;
+    border-left: 2px solid var(--border);
+}
+</style>
+</head>
+<body>
+
+<span class="mockup-label">Homepage Mockup — Primary Source Priority</span>
+
+<!-- ═══════════════════════════════════════
+     SECTION 1: THE BIG STORIES (existing)
+     ═══════════════════════════════════════ -->
+
+<div class="section-divider">
+    <span class="section-label">The Big Stories</span>
+    <span class="section-rule"></span>
+</div>
+
+<div class="cluster-card">
+    <div class="cluster-title">RBI Holds Repo Rate at 6.5%, Signals Growth Focus</div>
+    <div class="cluster-sub">
+        <span class="cluster-sub-dot" style="background:#C45A35"></span>
+        <div class="cluster-sub-content">
+            <a href="#">Monetary Policy Statement, 2025-26 — Resolution of the MPC</a>
+            <div class="cluster-sub-meta">
+                <span class="cluster-sub-source">RBI</span>
+                <span class="official-badge">Primary Source</span>
+                <span class="cluster-sub-angle">Full resolution text</span>
+            </div>
+        </div>
+    </div>
+    <div class="cluster-sub">
+        <span class="cluster-sub-dot" style="background:#6B645C"></span>
+        <div class="cluster-sub-content">
+            <a href="#">RBI keeps rate unchanged, Das says inflation outlook 'favourable'</a>
+            <div class="cluster-sub-meta">
+                <span class="cluster-sub-source">Economic Times</span>
+                <span class="cluster-sub-angle">Key quotes + reaction</span>
+            </div>
+        </div>
+    </div>
+    <div class="cluster-sub">
+        <span class="cluster-sub-dot" style="background:#6B645C"></span>
+        <div class="cluster-sub-content">
+            <a href="#">Why RBI held rates: the growth-inflation trade-off explained</a>
+            <div class="cluster-sub-meta">
+                <span class="cluster-sub-source">Finshots</span>
+                <span class="cluster-sub-angle">Explainer</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cluster-card">
+    <div class="cluster-title">SEBI Tightens Derivatives Rules for Retail Traders</div>
+    <div class="cluster-sub">
+        <span class="cluster-sub-dot" style="background:#C45A35"></span>
+        <div class="cluster-sub-content">
+            <a href="#">Circular on measures to strengthen the equity derivatives framework</a>
+            <div class="cluster-sub-meta">
+                <span class="cluster-sub-source">SEBI</span>
+                <span class="official-badge">Primary Source</span>
+                <span class="cluster-sub-angle">Full circular</span>
+            </div>
+        </div>
+    </div>
+    <div class="cluster-sub">
+        <span class="cluster-sub-dot" style="background:#6B645C"></span>
+        <div class="cluster-sub-content">
+            <a href="#">SEBI's F&O crackdown: what changes for retail options traders</a>
+            <div class="cluster-sub-meta">
+                <span class="cluster-sub-source">Mint</span>
+                <span class="cluster-sub-angle">Impact analysis</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p class="mockup-note">↑ Notice: RBI and SEBI articles are cluster leads (not ET/Mint), with the green "Primary Source" badge</p>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 2: FROM THE SOURCE (★ NEW SECTION ★)
+     ═══════════════════════════════════════════════ -->
+
+<div class="section-divider">
+    <span class="section-label">From The Source</span>
+    <span class="section-rule"></span>
+</div>
+
+<section class="from-source-section">
+
+    <div class="from-source-item">
+        <span class="from-source-icon">◆</span>
+        <div class="from-source-body">
+            <div class="from-source-title">
+                <a href="#">Governor's Statement: Developmental and Regulatory Policies</a>
+            </div>
+            <div class="from-source-meta">
+                <span class="from-source-publisher">RBI</span>
+                <span class="official-badge">Primary Source</span>
+                <span class="from-source-date">2 hours ago</span>
+            </div>
+        </div>
+        <button class="from-source-bk" aria-label="Bookmark">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+    </div>
+
+    <div class="from-source-item">
+        <span class="from-source-icon">◆</span>
+        <div class="from-source-body">
+            <div class="from-source-title">
+                <a href="#">Cabinet approves Production-Linked Incentive scheme for toys and sporting goods</a>
+            </div>
+            <div class="from-source-meta">
+                <span class="from-source-publisher">PIB</span>
+                <span class="official-badge">Primary Source</span>
+                <span class="from-source-date">4 hours ago</span>
+            </div>
+        </div>
+        <button class="from-source-bk" aria-label="Bookmark">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+    </div>
+
+    <div class="from-source-item">
+        <span class="from-source-icon">◆</span>
+        <div class="from-source-body">
+            <div class="from-source-title">
+                <a href="#">India's CPI inflation eases to 3.61% in February 2026</a>
+            </div>
+            <div class="from-source-meta">
+                <span class="from-source-publisher">PIB</span>
+                <span class="official-badge">Primary Source</span>
+                <span class="from-source-date">6 hours ago</span>
+            </div>
+        </div>
+        <button class="from-source-bk" aria-label="Bookmark">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+    </div>
+
+    <div class="from-source-item">
+        <span class="from-source-icon">◆</span>
+        <div class="from-source-body">
+            <div class="from-source-title">
+                <a href="#">ECB cuts deposit facility rate to 2.50%, signals cautious easing path</a>
+            </div>
+            <div class="from-source-meta">
+                <span class="from-source-publisher">ECB</span>
+                <span class="official-badge">Primary Source</span>
+                <span class="from-source-date">8 hours ago</span>
+            </div>
+        </div>
+        <button class="from-source-bk" aria-label="Bookmark">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+    </div>
+
+</section>
+
+<p class="mockup-note">↑ NEW: Only whitelist-surviving official articles. Compact list — no descriptions, no images. Items here are removed from the feed below. Section hidden when empty (no official articles pass whitelist that day).</p>
+
+<!-- ═══════════════════════════════════════
+     SECTION 3: FROM THE FEED (existing)
+     ═══════════════════════════════════════ -->
+
+<div class="section-divider">
+    <span class="section-label">From The Feed</span>
+    <span class="section-rule"></span>
+</div>
+
+<div class="feed-item">
+    <div class="feed-title"><a href="#">India's goods trade deficit narrows to $15.6 billion in February as exports rise 10%</a></div>
+    <div class="feed-meta">
+        <span class="feed-source">Business Standard</span>
+        <span class="feed-time">1 hour ago</span>
+    </div>
+    <div class="feed-desc">Merchandise exports rose to $36.9 billion, driven by engineering goods and pharmaceuticals, while imports moderated on lower crude prices.</div>
+</div>
+
+<div class="feed-item">
+    <div class="feed-title"><a href="#">Adani Group plans $2B data centre push across four Indian cities</a></div>
+    <div class="feed-meta">
+        <span class="feed-source">Reuters</span>
+        <span class="feed-time">2 hours ago</span>
+    </div>
+    <div class="feed-desc">The conglomerate is in talks with hyperscalers for anchor tenancy, sources say, as India's cloud infrastructure demand doubles annually.</div>
+</div>
+
+<div class="feed-item">
+    <div class="feed-title"><a href="#">Why India's insurance regulator wants to rethink how motor premiums are set</a></div>
+    <div class="feed-meta">
+        <span class="feed-source">The Ken</span>
+        <span class="feed-time">3 hours ago</span>
+    </div>
+</div>
+
+<div class="feed-item">
+    <div class="feed-title"><a href="#">Japan's spring wage negotiations deliver 5.2% hikes — what it means for the yen carry trade</a></div>
+    <div class="feed-meta">
+        <span class="feed-source">Financial Times</span>
+        <span class="feed-time">4 hours ago</span>
+    </div>
+</div>
+
+<p class="mockup-note">↑ Existing feed — unchanged. No official source articles here (they're in "From The Source" above).</p>
+
+</body>
+</html>

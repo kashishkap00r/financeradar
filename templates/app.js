@@ -2393,7 +2393,7 @@
 
         function renderFromTheSource(items) {
             if (!items || !items.length) return '';
-            var html = '<div class="section-divider"><span class="section-label">From The Source</span><span class="section-rule"></span></div>'
+            var html = '<div class="section-divider"><span class="section-label">From The Official Source</span><span class="section-rule"></span></div>'
                 + '<section class="from-source-section">';
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
