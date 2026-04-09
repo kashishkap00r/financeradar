@@ -1,39 +1,114 @@
 {
-  "generated_at": "2026-04-09T15:19:49.194896+05:30",
+  "generated_at": "2026-04-09T15:38:54.693535+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 48,
       "feeds_failed": 1,
-      "items_raw": 1212,
-      "resolve_attempted": 1212,
-      "resolve_resolved": 1205,
-      "resolve_cache_hits": 1197
+      "items_raw": 1214,
+      "resolve_attempted": 1214,
+      "resolve_resolved": 1207,
+      "resolve_cache_hits": 1208
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.0,
-      "items": 764,
-      "handles_ok": 47
+      "age_hours": 0.1,
+      "items": 774,
+      "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-04-09T15:19:49.194850+05:30"
+    "generated_at": "2026-04-09T15:38:54.693492+05:30"
   },
   "items": [
     {
-      "title": "RT CSEINDIA: India must balance wildlife protection with farmers\u2019 livelihoods: @sunitanar Watch full video on @down2earthindia: https://youtu.be/zE5K...",
-      "link": "https://x.com/down2earthindia/status/2042175928948928585",
-      "date": "2026-04-09T09:39:26+00:00",
-      "tweet_id": "2042175928948928585",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
+      "title": "\u20b9598 crore shock: #Ajmer dhobi receives income tax notice, probe points to #PAN misuse @TimsyJaipuria https://www.cnbctv18.com/india/ajmer-clothes-pr...",
+      "link": "https://x.com/CNBCTV18Live/status/2042181438750257255",
+      "date": "2026-04-09T10:02:51+00:00",
+      "tweet_id": "2042181438750257255",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2042174598293417984/img/IwtTPXqJsjUFlqmr.jpg",
-      "is_retweet": true,
+      "image": "",
+      "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "RT\u2002CSEINDIA<br>India must balance wildlife protection with farmers\u2019 livelihoods: @sunitanar <br><br>Watch full video on @down2earthindia: https://youtu.be/zE5KvTvrXmQ<br><video width=\"720\" height=\"1280\" src=\"https://video.twimg.com/amplify_video/2042174598293417984/vid/avc1/720x1280/X9Pjty_bFXzZOvOJ.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2042174598293417984/img/IwtTPXqJsjUFlqmr.jpg\"></video>",
+      "description_html": "\u20b9598 crore shock: #Ajmer dhobi receives income tax notice, probe points to #PAN misuse<br><br>@TimsyJaipuria <br><br>https://www.cnbctv18.com/india/ajmer-clothes-presser-tax-notice-pan-misuse-identity-theft-diamond-trade-investigation-ws-el-19883912.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "#Zerodha CEO #NithinKamath took to X to flag the valuation gaps between hospitals and brokerages, with the one saving lives enjoying a much less marke...",
+      "link": "https://x.com/ETMarkets/status/2042180725232029784",
+      "date": "2026-04-09T10:00:01+00:00",
+      "tweet_id": "2042180725232029784",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Zerodha CEO #NithinKamath took to X to flag the valuation gaps between hospitals and brokerages, with the one saving lives enjoying a much less market value than the one helping investors to buy and sell stocks.<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/a-strange-world-nithin-kamath-says-hospitals-saving-lives-are-valued-less-than-brokerages/articleshow/130137396.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst",
+      "category": "Twitter"
+    },
+    {
+      "title": "Why the standoff between nations over the next IPCC reports matters | \u270d\ufe0f Cecilia Keating with comment from Dr Bill Hare, Matti Goldberg, Kari De Pry...",
+      "link": "https://x.com/CarbonBrief/status/2042180222808690975",
+      "date": "2026-04-09T09:58:01+00:00",
+      "tweet_id": "2042180222808690975",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFdIFyyXwAA1z-Z?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Why the standoff between nations over the next IPCC reports matters | <br><br>\u270d\ufe0f Cecilia Keating with comment from Dr Bill Hare, Matti Goldberg, Kari De Pryck and Yao Zhe <br><br>Read here: https://buff.ly/724WiVn<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HFdIFyyXwAA1z-Z?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "ASHIANA HOUSING LTD: CO. ACQUIRES 28.55 ACRES OF LAND IN PUNE FOR SENIOR LIVING PROJECT; SALEABLE AREA OF 20 LAKHS SQ. FT. WITH POTENTIAL SALES VALUE ...",
+      "link": "https://x.com/REDBOXINDIA/status/2042179683396300814",
+      "date": "2026-04-09T09:55:53+00:00",
+      "tweet_id": "2042179683396300814",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "ASHIANA HOUSING LTD: CO. ACQUIRES 28.55 ACRES OF LAND IN PUNE FOR SENIOR LIVING PROJECT; SALEABLE AREA OF 20 LAKHS SQ. FT. WITH POTENTIAL SALES VALUE OF INR 1,800 CRORES. || MCAP 3,000 CR",
+      "category": "Twitter"
+    },
+    {
+      "title": "#Oil gains 4% as fragile ceasefire, #Hormuz restrictions keep supply risks elevated #ETMarkets https://economictimes.indiatimes.com/markets/commoditie...",
+      "link": "https://x.com/ETMarkets/status/2042178203586793522",
+      "date": "2026-04-09T09:50:00+00:00",
+      "tweet_id": "2042178203586793522",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Oil gains 4% as fragile ceasefire, #Hormuz restrictions keep supply risks elevated<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/commodities/news/oil-gains-4-as-fragile-ceasefire-hormuz-restrictions-keep-supply-risks-elevated/articleshow/130136563.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "#BharatForge shares fall after board approves \u20ac30 million financing for restructuring @sudarshankr @ShlokaBadkar https://www.cnbctv18.com/market/bhar...",
+      "link": "https://x.com/CNBCTV18Live/status/2042177447865864371",
+      "date": "2026-04-09T09:47:00+00:00",
+      "tweet_id": "2042177447865864371",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#BharatForge shares fall after board approves \u20ac30 million financing for restructuring<br><br>@sudarshankr @ShlokaBadkar <br><br>https://www.cnbctv18.com/market/bharat-forge-share-price-restructuring-proposal-30-million-euros-bfcdp-cost-challenges-ws-l-19883826.htm",
       "category": "Twitter"
     },
     {
@@ -847,21 +922,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#JustIn | #PNGRB has told #CGDs to give 30,000 new #PNG connections by June, CGDs are trying to meet this aim. Lot of households with PNG connections ...",
-      "link": "https://x.com/CNBCTV18Live/status/2042144340185903575",
-      "date": "2026-04-09T07:35:26+00:00",
-      "tweet_id": "2042144340185903575",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HFcm-x7a8AQWpIN?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#JustIn | #PNGRB has told #CGDs to give 30,000 new #PNG connections by June, CGDs are trying to meet this aim. Lot of households with PNG connections still have #LPG connections, #IGL does not expect a steep increase in PNG, CNG prices. Taxes on gas should be made specific in the current scenario from add valorem, says IGL<br><img width=\"669\" height=\"670\" style=\"\" src=\"https://pbs.twimg.com/media/HFcm-x7a8AQWpIN?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Analysis: UK is \u2018halving\u2019 its climate finance for developing countries \u270d\ufe0f By @Josh_Gabbatiss Read here: https://buff.ly/s8M5a7l",
       "link": "https://x.com/CarbonBrief/status/2042143983841796237",
       "date": "2026-04-09T07:34:01+00:00",
@@ -1447,36 +1507,6 @@
       "category": "Twitter"
     },
     {
-      "title": "IRAN'S AMBASSADOR TO PAKISTAN: WE WILL HOLD \"SERIOUS TALKS\" REGARDING THE 10 POINTS PROPOSED BY IRAN",
-      "link": "https://x.com/REDBOXINDIA/status/2042111769662083356",
-      "date": "2026-04-09T05:26:01+00:00",
-      "tweet_id": "2042111769662083356",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "IRAN'S AMBASSADOR TO PAKISTAN: WE WILL HOLD \"SERIOUS TALKS\" REGARDING THE 10 POINTS PROPOSED BY IRAN",
-      "category": "Twitter"
-    },
-    {
-      "title": "THE AMBASSADOR OF THE ISLAMIC REPUBLIC IN PAKISTAN ANNOUNCED THAT THE IRANIAN DELEGATION WILL ARRIVE IN ISLAMABAD ON THURSDAY NIGHT FOR TALKS WITH THE...",
-      "link": "https://x.com/REDBOXINDIA/status/2042110998547697872",
-      "date": "2026-04-09T05:22:57+00:00",
-      "tweet_id": "2042110998547697872",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "THE AMBASSADOR OF THE ISLAMIC REPUBLIC IN PAKISTAN ANNOUNCED THAT THE IRANIAN DELEGATION WILL ARRIVE IN ISLAMABAD ON THURSDAY NIGHT FOR TALKS WITH THE AMERICAN DELEGATION.",
-      "category": "Twitter"
-    },
-    {
       "title": "Getting there Q-Day. Harvest now decrypt later events are already so massively underway for years!",
       "link": "https://x.com/Finstor85/status/2042109359417917867",
       "date": "2026-04-09T05:16:26+00:00",
@@ -1522,21 +1552,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#KECInternational shares surge 9% after securing orders worth Rs 2,518 crore #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/kec-i...",
-      "link": "https://x.com/ETMarkets/status/2042106480950693895",
-      "date": "2026-04-09T05:05:00+00:00",
-      "tweet_id": "2042106480950693895",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#KECInternational shares surge 9% after securing orders worth Rs 2,518 crore<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/kec-international-shares-surge-9-after-securing-orders-worth-rs-2518-crore/articleshow/130129438.cms",
-      "category": "Twitter"
-    },
-    {
       "title": "Initial signs Small cap index doing better than Nifty 50",
       "link": "https://x.com/ishmohit1/status/2042106154923520248",
       "date": "2026-04-09T05:03:42+00:00",
@@ -1567,18 +1582,18 @@
       "category": "Twitter"
     },
     {
-      "title": "#HonasaConsumer shares rocket 11% on strong Q4 business update. Here\u2019s everything you need to know #ETMarkets https://economictimes.indiatimes.com/ma...",
-      "link": "https://x.com/ETMarkets/status/2042103533454131588",
-      "date": "2026-04-09T04:53:17+00:00",
-      "tweet_id": "2042103533454131588",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
+      "title": "RT CNBC-TV18: #QuarterSeQuarterTak | What To Expect From #Banks In Q4FY26? Factors To Watch \ud83d\udc47 - Net interest margin of large caps to contract 2-15 ...",
+      "link": "https://x.com/_RituSingh/status/2042141434971865226",
+      "date": "2026-04-09T04:58:04+00:00",
+      "tweet_id": "2042141434971865226",
+      "source": "Ritu Singh",
+      "publisher": "Ritu Singh",
       "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2042104608005484547/img/I5Aw4DA_mNpJQ9sG.jpg",
+      "is_retweet": true,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#HonasaConsumer shares rocket 11% on strong Q4 business update. Here\u2019s everything you need to know<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/honasa-consumer-shares-rocket-11-on-strong-q4-business-update-heres-everything-you-need-to-know/articleshow/130129684.cms",
+      "description_html": "RT\u2002CNBC-TV18<br>#QuarterSeQuarterTak | What To Expect From #Banks In Q4FY26?<br><br>Factors To Watch \ud83d\udc47<br>- Net interest margin of large caps to contract 2-15 bps QoQ<br>- Stress in personal loans, credit cards, MFIs seen moderating<br>- West Asia war adds risk for export MSMEs, Commercial Vehicles operators<br><br>@_RituSingh #CNBCTV18Market #Q4FY26<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2042104608005484547/vid/avc1/1920x1080/aMDQ3eDpbYsT0XQL.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2042104608005484547/img/I5Aw4DA_mNpJQ9sG.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -4432,6 +4447,21 @@
       "category": "Twitter"
     },
     {
+      "title": "The Artemis II mission tested NASA\u2019s new Science Evaluation Room and showcased intensive geology training that turned field lessons in Canada and Ice...",
+      "link": "https://x.com/down2earthindia/status/2041758461281591334",
+      "date": "2026-04-08T06:02:05+00:00",
+      "tweet_id": "2041758461281591334",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The Artemis II mission tested NASA\u2019s new Science Evaluation Room and showcased intensive geology training that turned field lessons in Canada and Iceland into real-time lunar observations. https://www.downtoearth.org.in/science-technology/how-the-artemis-ii-crew-trained-to-observe-and-photograph-the-moon-a-nasa-science-team-geologist-explains",
+      "category": "Twitter"
+    },
+    {
       "title": "In the 1999 AGM, Buffett and Munger were criticized for not investing in technology stocks. One year henceforth, when the AGM was held again, they wer...",
       "link": "https://x.com/aditya_kondawar/status/2041758240355315719",
       "date": "2026-04-08T06:01:13+00:00",
@@ -4609,6 +4639,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Assuming this is the end of this Middle East war, what is the road ahead for markets ?<br><br>Chat with Sunil Singhania, Abakkus.<br><br>@SunilBSinghania #IranWar\u200c #Nifty #BankNifty<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002\"Markets will watch if ceasefire holds &amp; normalcy in Strait of Hormuz\"<br>&nbsp;<br>@SunilBSinghania will watch stance of FIIs now given the scale of India's underperformance vs other EMs.<br>&nbsp;<br>He likes consumer discretionary stocks. Believes that banking, infra, realty get a relief leg up.<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2041723728036605952/vid/avc1/1920x1080/MBp7Q6TpvZNqA7r8.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2041723728036605952/img/ejWFqUZ_rwPYrcid.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT @CNBCTV18Live: #RBIPolicy | #Q1FY27 GDP growth estimate revised to 6.8% from 6.9% earlier, #RBI revises #Q2FY27 GDP growth to 6.7% from\u2026",
+      "link": "https://x.com/_RituSingh/status/2041743374479454513",
+      "date": "2026-04-08T05:02:08+00:00",
+      "tweet_id": "2041743374479454513",
+      "source": "Ritu Singh",
+      "publisher": "Ritu Singh",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT @CNBCTV18Live: #RBIPolicy | #Q1FY27 GDP growth estimate revised to 6.8% from 6.9% earlier, #RBI revises #Q2FY27 GDP growth to 6.7% from\u2026",
       "category": "Twitter"
     },
     {
@@ -4852,6 +4897,21 @@
       "category": "Twitter"
     },
     {
+      "title": "\ud83d\ude4c",
+      "link": "https://x.com/_RituSingh/status/2041719202495787343",
+      "date": "2026-04-08T03:26:05+00:00",
+      "tweet_id": "2041719202495787343",
+      "source": "Ritu Singh",
+      "publisher": "Ritu Singh",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2041564602954027008/img/SvUMOMfmg9HYlgQS.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "\ud83d\ude4c<div class=\"rsshub-quote\"><br><br>Google:\u2002Too many @GoogleChrome tabs open? Try vertical tabs, rolling out now. <br><br>Just right-click any Chrome window and select \u201cShow Tabs Vertically\u201d to move your tabs to the side of the browser window, making it easier to read page titles and manage tab groups.<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2041564602954027008/vid/avc1/1920x1080/0WJSCGbuBvu_LaZ6.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2041564602954027008/img/SvUMOMfmg9HYlgQS.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "Digital lending platform Kreditbee's valuation has doubled to $1.5 billion, compared to $700 million during its last funding round. The co has raised ...",
       "link": "https://x.com/madhavchanchani/status/2041717635797414133",
       "date": "2026-04-08T03:19:52+00:00",
@@ -5032,6 +5092,36 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Shehbaz Sharif: With the greatest humility, I am pleased to announce that the Islamic Republic of Iran and the United States of America, along with...",
+      "link": "https://x.com/_RituSingh/status/2041681888415531446",
+      "date": "2026-04-07T23:50:53+00:00",
+      "tweet_id": "2041681888415531446",
+      "source": "Ritu Singh",
+      "publisher": "Ritu Singh",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Shehbaz Sharif<br>With the greatest humility, I am pleased to announce that the Islamic Republic of Iran and the United States of America, along with their allies, have agreed to an immediate ceasefire everywhere including Lebanon and elsewhere, EFFECTIVE IMMEDIATELY. <br>I warmly welcome the sagacious gesture and extend deepest gratitude to the leadership of both the countries and invite their delegations to Islamabad on Friday, 10th April 2026, to further negotiate for a conclusive agreement to settle all disputes. <br>Both parties have displayed remarkable wisdom and understanding and have remained constructively engaged in furthering the cause of peace and stability. We earnestly hope, that the \u2018Islamabad Talks\u2019 succeed in achieving sustainable peace and wish to share more good news in coming days!<br><br>@realDonaldTrump<br>@JDVance<br>@SecRubio<br>@SteveWitkoff<br>@SEPeaceMissions<br>@drpezeshkian<br>@mb_ghalibaf<br>@araghchi",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT The White House: OFFICIAL STATEMENT OF IRAN:",
+      "link": "https://x.com/_RituSingh/status/2041682166934073518",
+      "date": "2026-04-07T23:45:16+00:00",
+      "tweet_id": "2041682166934073518",
+      "source": "Ritu Singh",
+      "publisher": "Ritu Singh",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFVyQEjXwAA5iD0?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002The White House<br>OFFICIAL STATEMENT OF IRAN:<br><img width=\"1206\" height=\"2027\" style=\"\" src=\"https://pbs.twimg.com/media/HFVyQEjXwAA5iD0?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Brad Setser: The kind of chart that the IMF could have produced if it wanted to make the case that coordinated action is needed immediately to reso...",
       "link": "https://x.com/michaelxpettis/status/2041727163716575280",
       "date": "2026-04-07T23:30:33+00:00",
@@ -5059,6 +5149,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Joe Kent<br>To ensure the ceasefire is successful we must first ensure that we restrain the Israelis.<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2041657376789467136/vid/avc1/1920x1080/gpvjjpjKJYuM3A0J.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2041657376789467136/img/doDEd_wje0aK97Q5.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT The White House: \ud83d\udea8 President Donald J. Trump makes a statement on Iran:",
+      "link": "https://x.com/_RituSingh/status/2041681911018615104",
+      "date": "2026-04-07T22:47:26+00:00",
+      "tweet_id": "2041681911018615104",
+      "source": "Ritu Singh",
+      "publisher": "Ritu Singh",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFVlAoub0AAE9iS?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002The White House<br>\ud83d\udea8 President Donald J. Trump makes a statement on Iran:<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HFVlAoub0AAE9iS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -5362,6 +5467,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT CNBC-TV18: IVCA names new leadership for 2026\u201328. Srini Sriniwasan of Kotak Alternates takes over as Chair, Gopal Jain of Gaja Capital as Vice-Cha...",
+      "link": "https://x.com/_RituSingh/status/2041558026835128598",
+      "date": "2026-04-07T15:53:19+00:00",
+      "tweet_id": "2041558026835128598",
+      "source": "Ritu Singh",
+      "publisher": "Ritu Singh",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2041544716198846464/img/OPvqQeaflC42pQT6.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>IVCA names new leadership for 2026\u201328. Srini Sriniwasan of Kotak Alternates takes over as Chair, Gopal Jain of Gaja Capital as Vice-Chair, Pratibha Jain of Everstone joins the Executive Committee.<br><br>@_RituSingh speaks to them as India\u2019s private capital ecosystem scales up: AIF commitments up 16x to \u20b913.49 Trn, domestic capital now over 50%, and PE/VC activity at ~$207 Bn over last 5 years.<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2041544716198846464/vid/avc1/1920x1080/Yqum1tOj_ZplVWPd.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2041544716198846464/img/OPvqQeaflC42pQT6.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
       "title": "India\u2019s afforestation programme allows companies to buy \u201ccredits\u201d to divert forest land in lieu of plantations on \u201cdegraded\u201d forest land. Yet int...",
       "link": "https://x.com/IndiaSpend/status/2041542766862496229",
       "date": "2026-04-07T15:45:00+00:00",
@@ -5527,6 +5647,21 @@
       "category": "Twitter"
     },
     {
+      "title": "#IranWar | Trump now threating \"a whole civilisation will die tonight.\" Unimaginable words from from the President of the world's largest economy, a d...",
+      "link": "https://x.com/_RituSingh/status/2041496639509307451",
+      "date": "2026-04-07T12:41:42+00:00",
+      "tweet_id": "2041496639509307451",
+      "source": "Ritu Singh",
+      "publisher": "Ritu Singh",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFTUJpIbEAE_fNs?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "#IranWar | Trump now threating \"a whole civilisation will die tonight.\" <br><br>Unimaginable words from from the President of the world's largest economy, a democratically elected leader. <br><br>Every time you think it cannot get any worse...<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002#WestAsiaWar | A whole civilization will die tonight, never to be brought back again. I don't want that to happen, but it probably will.<br><br>However, now that we have complete and total regime change\u2014where different, smarter, and less radicalized minds prevail\u2014maybe something<br><br><img width=\"570\" height=\"455\" style=\"\" src=\"https://pbs.twimg.com/media/HFTUJpIbEAE_fNs?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "Assam\u2019s villagers face eviction drives, while tribal communities in Gujarat fear losing land over which they await titles. Does India\u2019s Green Credit...",
       "link": "https://x.com/IndiaSpend/status/2041493697582215526",
       "date": "2026-04-07T12:30:01+00:00",
@@ -5539,6 +5674,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Assam\u2019s villagers face eviction drives, while tribal communities in Gujarat fear losing land over which they await titles. Does India\u2019s Green Credit Programme put afforestation over human lives &amp; livelihoods? Read story by @sukriti_vats https://www.indiaspend.com/forest-rights/whats-ailing-indias-green-credit-programme-982904",
+      "category": "Twitter"
+    },
+    {
+      "title": "#IndianTravellers | Flight ticket prices on @airindia to rise effective April 8, as the airline has revised its fuel surcharge on both domestic & inte...",
+      "link": "https://x.com/_RituSingh/status/2041492395016303028",
+      "date": "2026-04-07T12:24:50+00:00",
+      "tweet_id": "2041492395016303028",
+      "source": "Ritu Singh",
+      "publisher": "Ritu Singh",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFTVkSgbUAA-0w6?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#IndianTravellers | Flight ticket prices on @airindia to rise effective April 8, as the airline has revised its fuel surcharge on both domestic &amp; international routes. <br><br>Move after the sharp rise in global jet fuel prices amid the ongoing #IranWar\u200c.<br><img width=\"1127\" height=\"616\" style=\"\" src=\"https://pbs.twimg.com/media/HFTVkSgbUAA-0w6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1136\" height=\"691\" style=\"\" src=\"https://pbs.twimg.com/media/HFTVp20asAAGLi7?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
