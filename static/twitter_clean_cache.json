@@ -1,26 +1,266 @@
 {
-  "generated_at": "2026-04-10T18:26:39.253503+05:30",
+  "generated_at": "2026-04-10T19:46:00.058144+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 48,
       "feeds_failed": 1,
-      "items_raw": 1224,
-      "resolve_attempted": 1224,
-      "resolve_resolved": 1218,
-      "resolve_cache_hits": 1219
+      "items_raw": 1221,
+      "resolve_attempted": 1221,
+      "resolve_resolved": 1215,
+      "resolve_cache_hits": 1198
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.1,
-      "items": 707,
-      "handles_ok": 45
+      "age_hours": 0.5,
+      "items": 729,
+      "handles_ok": 46
     },
     "warning": "",
-    "generated_at": "2026-04-10T18:26:39.253457+05:30"
+    "generated_at": "2026-04-10T19:46:00.058095+05:30"
   },
   "items": [
+    {
+      "title": "2025 was *a year*\u2014check out our 2025 Annual Report for highlights from one of our busiest years ever: https://www.piie.com/microsites/2026/annual-rep...",
+      "link": "https://x.com/PIIE/status/2042599002663739458",
+      "date": "2026-04-10T13:42:06+00:00",
+      "tweet_id": "2042599002663739458",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFjE88qWQAAFFEk?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "2025 was *a year*\u2014check out our 2025 Annual Report for highlights from one of our busiest years ever: https://www.piie.com/microsites/2026/annual-report-2025<br><img width=\"2048\" height=\"1153\" style=\"\" src=\"https://pbs.twimg.com/media/HFjE88qWQAAFFEk?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "LARSEN & TOUBRO: CO ACQUIRES 100% STAKE IN INTERNATIONAL GREEN SCAPES LIMITED (IGSL) FOR \u20b91,123 CR VIA WHOLLY OWNED SUBSIDIARY L&T RPL",
+      "link": "https://x.com/REDBOXINDIA/status/2042595144189513972",
+      "date": "2026-04-10T13:26:46+00:00",
+      "tweet_id": "2042595144189513972",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "LARSEN &amp; TOUBRO: CO ACQUIRES 100% STAKE IN INTERNATIONAL GREEN SCAPES LIMITED (IGSL) FOR \u20b91,123 CR VIA WHOLLY OWNED SUBSIDIARY L&amp;T RPL",
+      "category": "Twitter"
+    },
+    {
+      "title": "IPCC: \u2018Frustrating and disappointing\u2019 meeting leaves AR7 timeline in deadlock \u270d\ufe0f @AyeshaTandon Cecilia Keating @daisydunnesci Read here: https://b...",
+      "link": "https://x.com/CarbonBrief/status/2042594716626063776",
+      "date": "2026-04-10T13:25:04+00:00",
+      "tweet_id": "2042594716626063776",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFjBEg0XAAAqQaN?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "IPCC: \u2018Frustrating and disappointing\u2019 meeting leaves AR7 timeline in deadlock <br><br>\u270d\ufe0f @AyeshaTandon Cecilia Keating @daisydunnesci<br><br>Read here: https://buff.ly/U8GS4w1<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HFjBEg0XAAAqQaN?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "HASSETT: HORMUZ CAN BE OPENED WITHIN TWO MONTHS",
+      "link": "https://x.com/REDBOXINDIA/status/2042594281899368958",
+      "date": "2026-04-10T13:23:21+00:00",
+      "tweet_id": "2042594281899368958",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "HASSETT: HORMUZ CAN BE OPENED WITHIN TWO MONTHS",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: US gas prices officially post their largest monthly jump in CPI inflation data since 1967.",
+      "link": "https://x.com/KobeissiLetter/status/2042593194907447808",
+      "date": "2026-04-10T13:19:01+00:00",
+      "tweet_id": "2042593194907447808",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: US gas prices officially post their largest monthly jump in CPI inflation data since 1967.",
+      "category": "Twitter"
+    },
+    {
+      "title": "EMERALD LEISURES: CO RECEIVES LOI FOR DEVELOPMENT OF PLOT AT SWASTIK PARK CHEMBUR || THE PROPOSED RESIDENTIAL REDEVELOPMENT IS EXPECTED TO OFFER A REV...",
+      "link": "https://x.com/REDBOXINDIA/status/2042592643239285146",
+      "date": "2026-04-10T13:16:50+00:00",
+      "tweet_id": "2042592643239285146",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "EMERALD LEISURES: CO RECEIVES LOI FOR DEVELOPMENT OF PLOT AT SWASTIK PARK CHEMBUR || THE PROPOSED RESIDENTIAL REDEVELOPMENT IS EXPECTED TO OFFER A REVENUE POTENTIAL OF APPROXIMATELY RUPEES 600CR",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Ideas of India: In the latest episode, Shruti Rajagopalan (@srajagopalan) speaks with Devesh Kapur (@SAISHopkins) and Arvind Subramanian (@arvindsu...",
+      "link": "https://x.com/srajagopalan/status/2042594575114449182",
+      "date": "2026-04-10T13:16:44+00:00",
+      "tweet_id": "2042594575114449182",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Ideas of India<br>In the latest episode, Shruti Rajagopalan (@srajagopalan) speaks with Devesh Kapur (@SAISHopkins) and Arvind Subramanian (@arvindsubraman) of @PIIE about their book A Sixth of Humanity, India\u2019s precocious democracy and development trajectory, how redistribution and state capacity shaped outcomes, why growth diverged across states, how socialism created a scarcity economy, and what this reveals about India\u2019s political economy and future growth path.<br>https://www.youtube.com/watch?v=rN_NDCxRqXg&amp;list=PLS8aEHTqDvpJ4uhsaHFtfaLY2dlZOyXgY&amp;index=1",
+      "category": "Twitter"
+    },
+    {
+      "title": "APOLLO HOSPITALS: CO COMPLETES 100% TAKEOVER OF APOLLO HEALTH AND LIFESTYLE (AHLL) || ACQUIRES FINAL MINORITY STAKE FOR \u20b918.69 CRORE AT \u20b9241 PER SHA...",
+      "link": "https://x.com/REDBOXINDIA/status/2042590498649706955",
+      "date": "2026-04-10T13:08:19+00:00",
+      "tweet_id": "2042590498649706955",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "APOLLO HOSPITALS: CO COMPLETES 100% TAKEOVER OF APOLLO HEALTH AND LIFESTYLE (AHLL) || ACQUIRES FINAL MINORITY STAKE FOR \u20b918.69 CRORE AT \u20b9241 PER SHARE",
+      "category": "Twitter"
+    },
+    {
+      "title": "\ud83c\udf38APRIL 15: A special episode of Trade Winds with @MalmstromEU LIVE from DC! @ChadBown, Mary Lovely, Mari Elka Pangestu, @AdamPosen, & @arvindsubram...",
+      "link": "https://x.com/PIIE/status/2042589942518272319",
+      "date": "2026-04-10T13:06:06+00:00",
+      "tweet_id": "2042589942518272319",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFi8tkZW4AAlbW_?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\ud83c\udf38APRIL 15: A special episode of Trade Winds with @MalmstromEU LIVE from DC! @ChadBown, Mary Lovely, Mari Elka Pangestu, @AdamPosen, &amp; @arvindsubraman explore: what is the true state of trade around the world today?<br><br>Info &amp; register to watch: https://www.piie.com/events/2026/trade-360-degrees-trade-winds-live-dc<br><img width=\"1200\" height=\"628\" style=\"\" src=\"https://pbs.twimg.com/media/HFi8tkZW4AAlbW_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Data for 10-Apr-2026 Finally FIIs turn positive as hinted by @nimeshscnbc Is it a fling or will it be the start of a long \u2764\ufe0f story with Indian stock...",
+      "link": "https://x.com/Nigel__DSouza/status/2042589709332033745",
+      "date": "2026-04-10T13:05:10+00:00",
+      "tweet_id": "2042589709332033745",
+      "source": "Nigel D'Souza",
+      "publisher": "Nigel D'Souza",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Data for 10-Apr-2026<br><br>Finally FIIs turn positive as hinted by @nimeshscnbc <br><br>Is it a fling or will it be the start of a long \u2764\ufe0f story with Indian stock markets<br><br>Cash Market <br>\ud83d\udc4d FII net bought \u20b9672 cr<br>\ud83d\udc4d DII net bought \u20b9410 cr<br><br>@CNBCTV18Live @CNBCTV18News",
+      "category": "Twitter"
+    },
+    {
+      "title": "WEBINAR | Join us to explore the trends driving changes in the power sector in 2025 \ud83d\uddd3\ufe0f21 April \u23f0Asia-Pacific: 7am London \u23f0Europe & Americas: 2pm...",
+      "link": "https://x.com/ember_energy/status/2042588714472186020",
+      "date": "2026-04-10T13:01:13+00:00",
+      "tweet_id": "2042588714472186020",
+      "source": "Ember",
+      "publisher": "Ember Energy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFi7m9LXEAAiEr_?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "WEBINAR | Join us to explore the trends driving changes in the power sector in 2025<br><br>\ud83d\uddd3\ufe0f21 April<br>\u23f0Asia-Pacific: 7am London<br>\u23f0Europe &amp; Americas: 2pm London<br><br>https://ember-energy.org/latest-updates/launch-of-the-global-electricity-review-2026/<br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HFi7m9LXEAAiEr_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HFi7nGrWMAA12rG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "INDIA MINES SECY SAYS IN TALKS TO INCLUDE DEDICATED CHAPTERS ON CRITICAL MINERALS IN FREE TRADE PACT TALKS WITH PERU, CHILE",
+      "link": "https://x.com/REDBOXINDIA/status/2042588118793228367",
+      "date": "2026-04-10T12:58:51+00:00",
+      "tweet_id": "2042588118793228367",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "INDIA MINES SECY SAYS IN TALKS TO INCLUDE DEDICATED CHAPTERS ON CRITICAL MINERALS IN FREE TRADE PACT TALKS WITH PERU, CHILE",
+      "category": "Twitter"
+    },
+    {
+      "title": "Swiggy's Nandan Reddy, who stepped down today, on his co-founder and CEO, Sriharsha Majety, in an email sent to the employees. For context, Reddy and ...",
+      "link": "https://x.com/madhavchanchani/status/2042587425101480216",
+      "date": "2026-04-10T12:56:06+00:00",
+      "tweet_id": "2042587425101480216",
+      "source": "Madhav Chanchani",
+      "publisher": "Madhav Chanchani",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFi47plakAQSmvY?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Swiggy's Nandan Reddy, who stepped down today, on his co-founder and CEO, Sriharsha Majety, in an email sent to the employees. <br><br>For context, Reddy and Majety were batchmates from BITS Pilani and started the company together in 2013.<br><img width=\"780\" height=\"410\" style=\"\" src=\"https://pbs.twimg.com/media/HFi47plakAQSmvY?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Madhav Chanchani:\u2002Swiggy's co-founder and head of innovation Nandan Reddy is leaving the company. He is also stepping down from the board. <br><br>Swiggy is bringing in CFO Rahul Bothra and co-founder Phani Kishan to the board as additional directors.<br><br><img width=\"1148\" height=\"1085\" style=\"\" src=\"https://pbs.twimg.com/media/HFimtEjaEAALDMn?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "How George Fernandes (even if he didn\u2019t intend to) became the father of the Indian Stock market? Mr Ashok Damani says that George Fernandes had state...",
+      "link": "https://x.com/aditya_kondawar/status/2042586890361278916",
+      "date": "2026-04-10T12:53:58+00:00",
+      "tweet_id": "2042586890361278916",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "How George Fernandes (even if he didn\u2019t intend to) became the father of the Indian Stock market?<br><br>Mr Ashok Damani says that George Fernandes had stated in one of his speeches that all MNCs in India would have to dilute their stake to less than 50% if they wanted to continue operating in India. <br><br>Some companies, like Coca-Cola, packed their bags and left India for 30 years. But many other MNCs like Nestle, Colgate, and Glaxo decided to stay and got listed in India. <br><br>As a result, the investible universe suddenly expanded. People like the Late Chandrakant Sampat and my father, Ramesh Damani, who understood the value of these franchises, flocked to these stocks. <br><br>Till 1992, when liberation happened, this was the pool of stocks that we had. This also created a pool of investors who knew how to judge good stocks and what to look for in the years to come. <br><br>So when the economic reforms happened in 1992, we were ready. The investing public was ready for the big boom. In many ways, George Fernandes (even if he didn\u2019t intend to) became the father of the Indian Stock market - what we call the law of unintended consequences! <br><br>His forcing companies to dilute their stake created an investible universe, which created a set of smart investors, which helped us in 1992.<br><br>From the Book Masterclass with Super Investors; no stock reco",
+      "category": "Twitter"
+    },
+    {
+      "title": "Summer is getting longer, hotter & arriving sooner \ud83d\udd8a\ufe0f@himanshujourno https://www.downtoearth.org.in/climate-change/summer-is-getting-longer-hotter...",
+      "link": "https://x.com/down2earthindia/status/2042585887364517962",
+      "date": "2026-04-10T12:49:59+00:00",
+      "tweet_id": "2042585887364517962",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Summer is getting longer, hotter &amp; arriving sooner \ud83d\udd8a\ufe0f@himanshujourno https://www.downtoearth.org.in/climate-change/summer-is-getting-longer-hotter-arriving-sooner",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Stephen Stapczynski: India is delaying maintenance on its coal power plants because of a gas supply crunch \ud83c\uddee\ud83c\uddf3 \u26a0\ufe0f India\u2019s LNG imports have ...",
+      "link": "https://x.com/JavierBlas/status/2042587769336131996",
+      "date": "2026-04-10T12:37:03+00:00",
+      "tweet_id": "2042587769336131996",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Stephen Stapczynski<br>India is delaying maintenance on its coal power plants because of a gas supply crunch \ud83c\uddee\ud83c\uddf3 \u26a0\ufe0f <br><br>India\u2019s LNG imports have dropped because of the war in the Middle East<br><br>And with hot summer weather coming fast, India needs more coal to meet power demand<br><br>https://www.bloomberg.com/news/articles/2026-04-10/india-puts-off-coal-power-plant-maintenance-citing-gas-crunch",
+      "category": "Twitter"
+    },
     {
       "title": ".@TomBollyky joined @ChadBown on @Trade__Talks to explain problems facing the US pharma market, the Trump admin\u2019s new tariffs & pricing deal with the...",
       "link": "https://x.com/PIIE/status/2042582622052679744",
@@ -379,81 +619,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RBI: IT IS NOW PROPOSED TO CONSIDER ELIGIBLE GOVERNMENT OWNED NBFCS ALSO FOR INCLUSION IN THE LIST OF UPPER LAYER NBFCS",
-      "category": "Twitter"
-    },
-    {
-      "title": "RBI: UPPER LAYER NBFC WILL BE UNDER ENHANCED REGULATION TILL IT DOES NOT MEET THE CRITERIA FOR CLASSIFICATION FOR FIVE CONSECUTIVE YEARS || UPPER LAYE...",
-      "link": "https://x.com/REDBOXINDIA/status/2042570738700554670",
-      "date": "2026-04-10T11:49:47+00:00",
-      "tweet_id": "2042570738700554670",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RBI: UPPER LAYER NBFC WILL BE UNDER ENHANCED REGULATION TILL IT DOES NOT MEET THE CRITERIA FOR CLASSIFICATION FOR FIVE CONSECUTIVE YEARS || UPPER LAYER NBFC CAN MOVE OUT OF THE ENHANCED REGULATION ON ACCOUNT OF VOLUNTARY STRATEGIC MOVE TO READJUST OPERATIONS",
-      "category": "Twitter"
-    },
-    {
-      "title": "MAHINDRA & MAHINDRA: CO DIVESTS 99.04% STAKE IN ERKUNT FOUNDRY (TURKEY) TO HISARLAR MAKINA FOR TRY 1,00,000 | \u20b9256 CR INFUSED TO EXTINGUISH DEBT PRE-...",
-      "link": "https://x.com/REDBOXINDIA/status/2042570417693708788",
-      "date": "2026-04-10T11:48:31+00:00",
-      "tweet_id": "2042570417693708788",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "MAHINDRA &amp; MAHINDRA: CO DIVESTS 99.04% STAKE IN ERKUNT FOUNDRY (TURKEY) TO HISARLAR MAKINA FOR TRY 1,00,000 | \u20b9256 CR INFUSED TO EXTINGUISH DEBT PRE-CLOSURE | EXIT ALIGNS WITH CAPITAL ALLOCATION FRAMEWORK",
-      "category": "Twitter"
-    },
-    {
-      "title": "RBI: NBFCS CATEGORISED AS UPPER LAYER WILL BE DETERMINED BASED ON QUANTITATIVE AND QUALITATIVE PARAMETERS / SUPERVISORY JUDGMENT",
-      "link": "https://x.com/REDBOXINDIA/status/2042569319935332569",
-      "date": "2026-04-10T11:44:09+00:00",
-      "tweet_id": "2042569319935332569",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RBI: NBFCS CATEGORISED AS UPPER LAYER WILL BE DETERMINED BASED ON QUANTITATIVE AND QUALITATIVE PARAMETERS / SUPERVISORY JUDGMENT",
-      "category": "Twitter"
-    },
-    {
-      "title": "PARTH ELECTRICALS & ENGINEERING: CO BAGS ORDER FROM TATA POWER CENTRAL ODISHA DISTRIBUTION FOR 11KV COMPACT SUBSTATIONS \u20b99.23 CR | FIRST ORDER WIN OF...",
-      "link": "https://x.com/REDBOXINDIA/status/2042568717842944034",
-      "date": "2026-04-10T11:41:46+00:00",
-      "tweet_id": "2042568717842944034",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "PARTH ELECTRICALS &amp; ENGINEERING: CO BAGS ORDER FROM TATA POWER CENTRAL ODISHA DISTRIBUTION FOR 11KV COMPACT SUBSTATIONS \u20b99.23 CR | FIRST ORDER WIN OF FY27",
-      "category": "Twitter"
-    },
-    {
-      "title": "INDIA FX RESERVES, USD ACTUAL: 697.12B VS 688.06B PREVIOUS",
-      "link": "https://x.com/REDBOXINDIA/status/2042568053955919965",
-      "date": "2026-04-10T11:39:07+00:00",
-      "tweet_id": "2042568053955919965",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "INDIA FX RESERVES, USD ACTUAL: 697.12B VS 688.06B PREVIOUS",
       "category": "Twitter"
     },
     {
@@ -1837,21 +2002,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Kidney disease is rising fast in Africa. A major genomic study of over 100,000 people of African ancestry identifies new genetic risk factors, shows w...",
-      "link": "https://x.com/down2earthindia/status/2042475184729284959",
-      "date": "2026-04-10T05:30:06+00:00",
-      "tweet_id": "2042475184729284959",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Kidney disease is rising fast in Africa. A major genomic study of over 100,000 people of African ancestry identifies new genetic risk factors, shows why African-specific data improves risk prediction, and calls for better screening, care and inclusion in global clinical trials. https://www.downtoearth.org.in/africa/kidney-disease-is-growing-in-africa-big-new-study-casts-light-on-genetic-risk-factors",
-      "category": "Twitter"
-    },
-    {
       "title": "Reminder to Maintain equilibrium in the market , last 3 days have been very rewarding but we are not chasing , I have bought almost major weakness in ...",
       "link": "https://x.com/EquityValueIn/status/2042472785247944786",
       "date": "2026-04-10T05:20:33+00:00",
@@ -1864,6 +2014,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Reminder to Maintain equilibrium in the market , last 3 days have been very rewarding but we are not chasing , I have bought almost major weakness in march but not bought in the last 3 days <br><br>Do not Chase , take it slow , and don\u2019t go over board , maintain equilibrium",
+      "category": "Twitter"
+    },
+    {
+      "title": "Filtering out EY, Deloitte, KPMG, but also Fractal, Gnani AI and Haptik, not ok! https://economictimes.indiatimes.com/tech/technology/tcs-and-five-oth...",
+      "link": "https://x.com/Finstor85/status/2042472774686687743",
+      "date": "2026-04-10T05:20:31+00:00",
+      "tweet_id": "2042472774686687743",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Filtering out EY, Deloitte, KPMG, but also Fractal, Gnani AI and Haptik, not ok! <br>https://economictimes.indiatimes.com/tech/technology/tcs-and-five-other-firms-empanelled-to-build-run-ai-for-govt-departments/articleshow/130149934.cms",
       "category": "Twitter"
     },
     {
@@ -1924,6 +2089,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Chemicals Value Chain and mapping out the players and cycle sensitivity    <br><br>source: Internal research<br><img width=\"643\" height=\"714\" style=\"\" src=\"https://pbs.twimg.com/media/HFhN-hzbQAM8eUp?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"637\" height=\"583\" style=\"\" src=\"https://pbs.twimg.com/media/HFhOAB6bQAEmYON?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Great way to optimise your costs! Use Opus for complex reasoning, leave rest to Sonnet/Haiku. All this distills into \"how to price\" in AI world. You c...",
+      "link": "https://x.com/Finstor85/status/2042465070689714396",
+      "date": "2026-04-10T04:49:54+00:00",
+      "tweet_id": "2042465070689714396",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFe1a_PWUAACcm3?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Great way to optimise your costs! Use Opus for complex reasoning, leave rest to Sonnet/Haiku. All this distills into \"how to price\" in AI world. You can build a super cool solution but if burns tokens at a galactic speed, it's worthless.<div class=\"rsshub-quote\"><br><br>Claude:\u2002We're bringing the advisor strategy to the Claude Platform.<br><br>Pair Opus as an advisor with Sonnet or Haiku as an executor, and get near Opus-level intelligence in your agents at a fraction of the cost.<br><br><img width=\"2048\" height=\"1152\" style=\"\" src=\"https://pbs.twimg.com/media/HFe1a_PWUAACcm3?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -2134,21 +2314,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Kevin Gallagher and Rebecca Ray: \"Given that financing from the World Bank and its counterparts has remained stagnant since the 1990s, China has helped fill widening infrastructure gaps across the Global South. That\u2019s the good news. The bad news is that China has pulled back on sovereign lending to low-income countries at the same time as private lenders have also retreated.\"<br>https://www.thewirechina.com/2026/04/05/why-china-should-boost-its-lending-to-developing-countries/",
-      "category": "Twitter"
-    },
-    {
-      "title": "The rise of mobile phones powered access to the internet in India. In the ten years from 2014 to 2024, India added 30 million wired internet connectio...",
-      "link": "https://x.com/dataforin/status/2042444991348556055",
-      "date": "2026-04-10T03:30:07+00:00",
-      "tweet_id": "2042444991348556055",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HFg447PbQAE0vyh?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The rise of mobile phones powered access to the internet in India. In the ten years from 2014 to 2024, India added 30 million wired internet connections. In the same time, India added nearly 900 million mobile broadband connections.<br><br>Household surveys point to a similar expansion of household-level internet access; only 2% of homes in India had internet access in 2009, but once mobile broadband entered the space, the pace of access accelerated. By 2023, this had increased to 76% of households.<br><br>Alongside household access, the usage of the internet has grown too. As of 2023, nearly six in ten Indians had used the internet at least once in the last three months, according to a nationally representative survey.<br><br>Internet usage is higher among more urban, better educated and richer Indians, and more among men than women. Internet usage is also rising steadily - the share of Indian teenagers using the internet is double that of Indians above the age of 60 using it.<br><br>How does internet access in India look across different income and education levels? Read @akwaghmare\u2019s analysis to find out: https://www.dataforindia.com/comm-tech/?utm_source=twitter&amp;utm_medium=post <br><br>#Mobile #Phone #Internet #India #DataForIndia<br><img width=\"1639\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HFg447PbQAE0vyh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2737,6 +2902,21 @@
       "category": "Twitter"
     },
     {
+      "title": "There is so much more to TCS result than what we can read through numbers. First ever YoY revenue decline since IPO but last 3 quarters it showed a gr...",
+      "link": "https://x.com/Finstor85/status/2042306764985778438",
+      "date": "2026-04-09T18:20:51+00:00",
+      "tweet_id": "2042306764985778438",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "There is so much more to TCS result than what we can read through numbers. First ever YoY revenue decline since IPO but last 3 quarters it showed a great come back. However, one thing is crystal clear nobody's prepared to solve the IP gap. The age old pyramid mode, in which Jr. Employees delivered margin gains, is no longer relevant. And, almost none of the incumbents have managed to find that margin anywhere else. When you don't have solutions for complicated problems, we all know what companies resort to. Cut the slack.",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Bloomberg: The game has changed now that Iran says it will accept payments from ships crossing the Strait of Hormuz in cryptocurrencies, or the yua...",
       "link": "https://x.com/andymukherjee70/status/2042303332690378910",
       "date": "2026-04-09T18:05:10+00:00",
@@ -3277,21 +3457,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Very good short note from my colleague @alexlongley1 about why the price of what he rightly calls \"ASAP\" oil barrels is going throughout the roof http...",
-      "link": "https://x.com/JavierBlas/status/2042232521467834738",
-      "date": "2026-04-09T13:25:50+00:00",
-      "tweet_id": "2042232521467834738",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Very good short note from my colleague @alexlongley1 about why the price of what he rightly calls \"ASAP\" oil barrels is going throughout the roof <br><br>https://www.bloomberg.com/news/newsletters/2026-04-09/oil-chaos-is-clearest-in-the-hunt-for-asap-barrels?sref=5dj0X2VO",
-      "category": "Twitter"
-    },
-    {
       "title": "Guest post: Why the global area for regrowing trees is 71% smaller than thought | Dr Susan Cook-Patton and Kurt Fesenmyer Read here: https://buff.ly/y...",
       "link": "https://x.com/CarbonBrief/status/2042232320011141358",
       "date": "2026-04-09T13:25:02+00:00",
@@ -3424,21 +3589,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": ".@TomBollyky joined @ChadBown on @Trade__Talks to explain problems facing the US pharma market, the Trump admin\u2019s new tariffs &amp; pricing deal with the UK, &amp; the impact on American drug prices &amp; supply chain security.<br>Here or wherever you get podcasts: https://tradetalkspodcast.com/podcast/209-will-trumps-pharmaceutical-tariffs-lower-prices-and-secure-supply-chains/",
-      "category": "Twitter"
-    },
-    {
-      "title": "BREAKING: US GDP growth falls from 4.4% to 0.5% in Q4 2025, well below the initially expected +2.8% growth.",
-      "link": "https://x.com/KobeissiLetter/status/2042219787690844598",
-      "date": "2026-04-09T12:35:14+00:00",
-      "tweet_id": "2042219787690844598",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: US GDP growth falls from 4.4% to 0.5% in Q4 2025, well below the initially expected +2.8% growth.",
       "category": "Twitter"
     },
     {
@@ -3682,6 +3832,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Power companies and Grid better get ready!",
+      "link": "https://x.com/ShashankUdupa1/status/2042196002908836040",
+      "date": "2026-04-09T11:00:43+00:00",
+      "tweet_id": "2042196002908836040",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Power companies and Grid better get ready!<div class=\"rsshub-quote\"><br><br>First Squawk:\u2002Meteorologists Warn About Super El Nino Event<br></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Arash Azizi \u0622\u0631\u0634 \u0639\u0632\u06cc\u0632\u06cc: Let me make a prediction: Iran will show up in Islamabad tomorrow. I don\u2019t believe the hype to the contrary",
       "link": "https://x.com/JavierBlas/status/2042250312090521974",
       "date": "2026-04-09T10:58:49+00:00",
@@ -3739,21 +3904,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Alex Crawford<br>The saddest advisory: after at least 100 Israeli airstrikes in Lebanon, advice should you come across a parentless child. It says stay calm and reassure them, take them to the nearest rescue centre, call the authorities<br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HFdSm_IX0AATDwP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Analysis: How \u2018plug-in solar\u2019 can save UK homes \u00a31,100 on energy bills | Ho Woo Nam Read here: https://buff.ly/tzsbtWT",
-      "link": "https://x.com/CarbonBrief/status/2042190795122299343",
-      "date": "2026-04-09T10:40:02+00:00",
-      "tweet_id": "2042190795122299343",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HFdRtLHWgAA5bhp?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Analysis: How \u2018plug-in solar\u2019 can save UK homes \u00a31,100 on energy bills | Ho Woo Nam <br><br>Read here: https://buff.ly/tzsbtWT<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HFdRtLHWgAA5bhp?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -4237,6 +4387,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Getting there Q-Day. Harvest now decrypt later events are already so massively underway for years!",
+      "link": "https://x.com/Finstor85/status/2042109359417917867",
+      "date": "2026-04-09T05:16:26+00:00",
+      "tweet_id": "2042109359417917867",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFa70_AXAAAGLIj?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Getting there Q-Day. Harvest now decrypt later events are already so massively underway for years!<div class=\"rsshub-quote\"><br><br>BRICS News:\u2002JUST IN: \ud83c\udde8\ud83c\uddf3 Hacker breaches Chinese state-run supercomputer, steals bomb and missile renderings along with defense data, CNN reports.<br><br><img width=\"1022\" height=\"1534\" style=\"\" src=\"https://pbs.twimg.com/media/HFa70_AXAAAGLIj?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1912\" height=\"1329\" style=\"\" src=\"https://pbs.twimg.com/media/HFa70_AWMAAUcEp?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "Initial signs Small cap index doing better than Nifty 50",
       "link": "https://x.com/ishmohit1/status/2042106154923520248",
       "date": "2026-04-09T05:03:42+00:00",
@@ -4429,6 +4594,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Good morning, folks !<br><br>Israel/US contradict Iran\u2019s claim that ceasefire includes Lebanon... The Strait remains largely shut..<br><br>With Nifty @ 24K, we have already recovered around 70% of the war led -12% fall.<br><br>Views/levels\ud83d\udc47<br><br>#GIFTNIFTY #IranWar #Trump #Nifty #BankNifty<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002Oil +$7 from low!<br> <br>Lebanon part of ceasefire? Iran says YES. US says NO.<br> <br>#StraitofHormuz still largely blocked.<br> <br>FII daily selling at Rs 2,800 cr vs Rs 8,000 cr avg recently.<br> <br>FIIs cut net short positions by 32,000 contracts.<br> <br>Nifty support at 23,820. Resistance at 24,300.<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2042072368294801408/vid/avc1/1920x1080/Lar7lhVnt1i-hue-.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2042072368294801408/img/XEQqyQFKMDIUcl-e.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "It was always about the big tech & helping them keep their dominance. That's why sovereignty at least at some places is so important.",
+      "link": "https://x.com/Finstor85/status/2042082773780066768",
+      "date": "2026-04-09T03:30:47+00:00",
+      "tweet_id": "2042082773780066768",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "It was always about the big tech &amp; helping them keep their dominance. That's why sovereignty at least at some places is so important.",
       "category": "Twitter"
     },
     {
@@ -4687,36 +4867,6 @@
       "category": "Twitter"
     },
     {
-      "title": "\ud83c\udf38APRIL 14: @ojblanchard1 joins a special Spring Meetings episode of PIIE Insider LIVE to explain why he's optimistic about Europe's future. Subscri...",
-      "link": "https://x.com/PIIE/status/2041978663827034581",
-      "date": "2026-04-08T20:37:06+00:00",
-      "tweet_id": "2041978663827034581",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HFaQwebXkAAt2Yw?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\ud83c\udf38APRIL 14: @ojblanchard1 joins a special Spring Meetings episode of PIIE Insider LIVE to explain why he's optimistic about Europe's future.<br>Subscribe wherever you get podcasts &amp; register to watch live here: https://www.piie.com/events/2026/olivier-blanchard-eurobonds-and-optimism-europes-future<br><img width=\"1200\" height=\"628\" style=\"\" src=\"https://pbs.twimg.com/media/HFaQwebXkAAt2Yw?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "South America has spent decades exporting raw materials to whoever would buy them. The EU-Mercosur agreement is a bet that it can do more with what li...",
-      "link": "https://x.com/PIIE/status/2041961808282386867",
-      "date": "2026-04-08T19:30:07+00:00",
-      "tweet_id": "2041961808282386867",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "South America has spent decades exporting raw materials to whoever would buy them. The EU-Mercosur agreement is a bet that it can do more with what lies beneath its soil than ship it to China. https://www.piie.com/blogs/realtime-economics/2026/eu-mercosur-agreement-could-tap-new-source-critical-minerals-west",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Shereen Bhan: #IranWar White House announces that VP Vance, Jared Kushner and Steve Witkoff will attend talks with Iranian negotiators in #Islamaba...",
       "link": "https://x.com/Nigel__DSouza/status/2042056735700271380",
       "date": "2026-04-08T18:07:37+00:00",
@@ -4789,6 +4939,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Market is already pricing immense optimism. Which leaves a lot of room for negative surprises - some stuff already cropping up !<br><br>A few things already -<br><br>- divergence over whether Lebanon is included ?<br>- Possible Saudi E-W pipeline attack ?<br>- Iran stating vessels need approval to transit<br>- unexpected nuances/ tolling charges for sure<br>- Iran &amp; US haven't softened stance on core demands<br><br>A ceasefire as the name suggests is by definition fragile ! So lets see &amp; hope for the best !<div class=\"rsshub-quote\"><br><br>Prashant Nair:\u2002With Nifty climbing to 24,000 today, we have recovered around 70% of the war-induced -12% fall.<br><br>Pre war 25,200<br>Low 22,180<br>CMP 24,000<br><br>#Nifty #BankNifty #Trump #IranWar\u200c<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "The Great Islamabad Peace accord lasted less than 1 day \ud83d\ude02\ud83e\udd23",
+      "link": "https://x.com/ShashankUdupa1/status/2041896738290810908",
+      "date": "2026-04-08T15:11:33+00:00",
+      "tweet_id": "2041896738290810908",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "The Great Islamabad Peace accord lasted less than 1 day \ud83d\ude02\ud83e\udd23<div class=\"rsshub-quote\"><br><br>The Hormuz Letter:\u2002BREAKING: Iran has halted oil tanker passage through the Strait of Hormuz, citing Israel's \"ceasefire violation,\" per Fars news agency.<br><br>The \"complete, immediate, and safe opening\" of Hormuz was the entire premise of Trump's two-week ceasefire.<br></div>",
       "category": "Twitter"
     },
     {
@@ -4969,6 +5134,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Nithin Kamath<br>I recently had dinner with Dr Devi Shetty, the founder of Narayana Hospitals. For those who don't know him, he's the guy who figured out how to do open heart surgery for a few hundred dollars when the same procedure costs a bomb in the US. Narayana has 18,000 beds across India, and if you ask most middle-class people in Bangalore about it, they'll speak highly of it.<br><br>There was one thing I kept thinking about over and over again after meeting him.<br><br>Narayana's market cap is around \u20b938,000 crore. Now compare that to pretty much any half-decent financial services business in India, and it'll be valued more than that, including Zerodha. A brokerage, worth more than a hospital chain, that has probably saved hundreds of thousands of lives.<br><br>I get the arguments. If you're a fund manager/analyst, you can immediately explain it away using margins, capex, asset-light vs asset-heavy, and all that, and I'm not saying the market is wrong.<br><br>But it's still a strange world we've built, where the businesses closest to money get valued the highest, and the ones doing the hard and essential things get priced like boring utilities. A hospital carries physical infrastructure, enormous liability, thin margins and the actual weight of keeping people alive. And somehow that's worth less than a platform for buying and selling stocks.<br><br>I don't have a clean take on this. All of this just felt odd.<br><br>Ps: Nothing here is investment advice. For that, go to @zerodhavarsity<br><img width=\"761\" height=\"761\" style=\"\" src=\"https://pbs.twimg.com/media/HFY3Blka8AU-WjE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "So at the end of the day this whole War had no Outcome! Iran will just hide and work better on the nuclear program \ud83d\ude02",
+      "link": "https://x.com/ShashankUdupa1/status/2041879265378193872",
+      "date": "2026-04-08T14:02:07+00:00",
+      "tweet_id": "2041879265378193872",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "So at the end of the day this whole War had no Outcome! Iran will just hide and work better on the nuclear program \ud83d\ude02<div class=\"rsshub-quote\"><br><br>RedboxGlobal India:\u2002Trump on Truth Social<br><br>The United States will work closely with Iran, which we have determined has gone through what will be a very productive Regime Change! There will be no enrichment of Uranium, and the United States will, working with Iran, dig up and remove all of the deeply<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Every War is a wake up call. After Op Sindoor India Doubled down on Defence localisation After this war! Now time to fix our energy import dependency!...",
+      "link": "https://x.com/ShashankUdupa1/status/2041877374107840671",
+      "date": "2026-04-08T13:54:36+00:00",
+      "tweet_id": "2041877374107840671",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Every War is a wake up call. After Op Sindoor India Doubled down on Defence localisation <br><br>After this war! Now time to fix our energy import dependency! <br><br>Might see a big and faster push by Govt into renewable ecosystem",
       "category": "Twitter"
     },
     {
@@ -5167,21 +5362,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Cash Market Data for 08-Apr-2026 \ud83d\udc4e FII net sold \u20b92812 cr \ud83d\udc4d DII net bought \u20b94168 cr What's good? 1\u20e3 FII sell figure is lowest in 6 sessions & ...",
-      "link": "https://x.com/Nigel__DSouza/status/2041866639457841279",
-      "date": "2026-04-08T13:11:57+00:00",
-      "tweet_id": "2041866639457841279",
-      "source": "Nigel D'Souza",
-      "publisher": "Nigel D'Souza",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Cash Market Data for 08-Apr-2026<br>\ud83d\udc4e FII net sold \u20b92812 cr<br>\ud83d\udc4d DII net bought \u20b94168 cr<br><br>What's good?<br>1\u20e3 FII sell figure is lowest in 6 sessions &amp; 1/3 rd of past 6 day average<br>2\u20e3 Net institutional (FII+DII) daily figure is finally positive in FY27<br><br>@CNBCTV18Live @CNBCTV18News",
-      "category": "Twitter"
-    },
-    {
       "title": "Trump says US and Iran will \u2018dig up and remove\u2019 nuclear material. Trump says the US will work with Iran to \u201cdig up and remove\u201d the country\u2019s nucl...",
       "link": "https://x.com/TamalBandyo/status/2041857438350242187",
       "date": "2026-04-08T12:35:23+00:00",
@@ -5302,6 +5482,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Spharaka Networks: Introducing the world\u2019s first Autonomous Cyber Defence Platform; Spharaka Sphere\u2122. Built for the speed of modern threats, Spha...",
+      "link": "https://x.com/Finstor85/status/2041906792578580889",
+      "date": "2026-04-08T09:30:18+00:00",
+      "tweet_id": "2041906792578580889",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFX32ysa8AcstR2?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Spharaka Networks<br>Introducing the world\u2019s first Autonomous Cyber Defence Platform; Spharaka Sphere\u2122.<br><br>Built for the speed of modern threats, Spharaka Sphere doesn\u2019t wait, escalate, or rely on manual intervention.<br><br>#AutonomousCyberDefence #CyberSecurity #AI #SpharakaSphere #NextGenSecurity #AIvsAI<br><img width=\"1200\" height=\"627\" style=\"\" src=\"https://pbs.twimg.com/media/HFX32ysa8AcstR2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Six months on, and the next book is coming together beautifully: easier, more accessible, and more fun to read than ever. Walk the talk ... \ud83d\udc47",
       "link": "https://x.com/unseenvalue/status/2041802202419748899",
       "date": "2026-04-08T08:55:54+00:00",
@@ -5404,6 +5599,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Crazy rally across many stocks lately <br><br>Many stocks are already up 15-40% from recent lows<br>April so far has been solid for broader markets<br><br>A large part of the earlier selling pressure was mainly expiry &amp; tax loss harvesting related<br><br>Rebound has clearly been beyond expectations, as markets surprise on both sides<br><br>Twice this month already the portfolio moved \ud83d\udd3c 5% in a single day<br><br>Those who survived the March carnage are now reaping the gains<br><br>Momentum is improving across pockets &amp; participation is widening \ud83d\udc9a",
+      "category": "Twitter"
+    },
+    {
+      "title": "After the war, will people now Invest more in Indian Real estate than abroad?",
+      "link": "https://x.com/ShashankUdupa1/status/2041789210412318990",
+      "date": "2026-04-08T08:04:17+00:00",
+      "tweet_id": "2041789210412318990",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "After the war, will people now Invest more in Indian Real estate than abroad?",
       "category": "Twitter"
     },
     {
@@ -5647,6 +5857,21 @@
       "category": "Twitter"
     },
     {
+      "title": "The AGI won't be only through progress in technology but also humans getting dumber. The pace of AI racing to human intellect is relatively steady but...",
+      "link": "https://x.com/Finstor85/status/2041745072774054030",
+      "date": "2026-04-08T05:08:53+00:00",
+      "tweet_id": "2041745072774054030",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The AGI won't be only through progress in technology but also humans getting dumber. The pace of AI racing to human intellect is relatively steady but pace at which we're outsourcing things to AI is just too high. <br>https://www.anthropic.com/glasswing",
+      "category": "Twitter"
+    },
+    {
       "title": "Assuming this is the end of this Middle East war, what is the road ahead for markets ? Chat with Sunil Singhania, Abakkus. @SunilBSinghania #IranWar\u200c...",
       "link": "https://x.com/_prashantnair/status/2041743888772428193",
       "date": "2026-04-08T05:04:11+00:00",
@@ -5734,6 +5959,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#RBIPolicy:  MPC leaves Policy Repo Rate unchanged at 5.15%. Decision Unanimous. Stance remains neutral. On expected line",
+      "category": "Twitter"
+    },
+    {
+      "title": "I think he needs a small vacation! There should be rest time before the next adventure \ud83d\ude02",
+      "link": "https://x.com/ShashankUdupa1/status/2041736279285731682",
+      "date": "2026-04-08T04:33:57+00:00",
+      "tweet_id": "2041736279285731682",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "I think he needs a small vacation! There should be rest time before the next adventure \ud83d\ude02<div class=\"rsshub-quote\"><br><br>Spencer Hakimian:\u2002\ud83d\udea8BREAKING: US CONSIDERING DEPLOYING TROOPS TO ECUADOR<br></div>",
       "category": "Twitter"
     },
     {
@@ -5959,6 +6199,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Trump every night in India (day time in US):<br><img width=\"640\" height=\"360\" style=\"\" src=\"https://pbs.twimg.com/media/HFUWbSUa8AAx3-N?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Wow Rains and Thunder in Delhi at this time ! Completely surprised me",
+      "link": "https://x.com/ShashankUdupa1/status/2041560216177930702",
+      "date": "2026-04-07T16:54:20+00:00",
+      "tweet_id": "2041560216177930702",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Wow Rains and Thunder in Delhi at this time ! Completely surprised me",
       "category": "Twitter"
     },
     {
@@ -6274,6 +6529,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Interesting post on Facebook from @theRealKiyosaki (Robert Kiyosaki) on India's efforts at diversification of energy import partners over the last decade. One message always stands out - Russia is India's most consequential trade partner.<br><img width=\"1400\" height=\"1686\" style=\"\" src=\"https://pbs.twimg.com/media/HFTBfpEbwAAEzov?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1400\" height=\"1716\" style=\"\" src=\"https://pbs.twimg.com/media/HFTBhdhboAAkfXJ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "All this without enterprise adoption! Enterprise deals are still at very rudimentary level for translate into product penetration. This should be easi...",
+      "link": "https://x.com/Finstor85/status/2041466645517127936",
+      "date": "2026-04-07T10:42:31+00:00",
+      "tweet_id": "2041466645517127936",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "All this without enterprise adoption! Enterprise deals are still at very rudimentary level for translate into product penetration. This should be easily $100bn run rate with enterprises buying licensed in the next 2-3yrs!<div class=\"rsshub-quote\"><br><br>Anthropic:\u2002Our run-rate revenue has surpassed $30 billion, up from $9 billion at the end of 2025, as demand for Claude continues to accelerate. This partnership gives us the compute to keep pace.<br><br>Read more: https://www.anthropic.com/news/google-broadcom-partnership-compute<br></div>",
       "category": "Twitter"
     },
     {
@@ -6754,21 +7024,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "ET Article - <br><br>Mangalore, Bhopal &amp; Aurangabad Step Up to Answer the Call of GCCs; Tier-2 cities now make up 30\u201332% of all new job postings, despite slower growth<br><br>India\u2019s global capability centres (GCCs) are expanding beyond traditional hubs, with the first set of Tier-2 cities such as Mangalore, Bhopal, and Chhatrapati Sambhajinagar emerging as key locations for new tech hubs, driven by cost advantage and access to talent<br><br>While GCCs' move into smaller cities such as Coimbatore, Indore, and Lucknow is well documented, more centres are coming up as states push policies and build infrastructure to attract such investments<br><br>Tier-2 cities now make up 30\u201332% of all new job postings, according to data.<br><br>Hiring demand for tech and GCC roles in cities like Mangalore and Indore has picked up notably, driven by the rise of nano-GCCs. Demand for such locations has risen to ~35% of new evaluations in FY25, up from 14.9% in FY24<br><br>Key Drivers<br><br>Cost arbitrage vs Tier-1 cities<br>Access to untapped talent pools<br>State-level incentives &amp; infrastructure push<br>AI-led distributed work models<br><br>no reco",
-      "category": "Twitter"
-    },
-    {
-      "title": "Nearly 95% of Indian households have access to basic drinking water, a rate of progress that has surpassed the world's average. Tap or piped water is ...",
-      "link": "https://x.com/dataforin/status/2041357852095516951",
-      "date": "2026-04-07T03:30:13+00:00",
-      "tweet_id": "2041357852095516951",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HFRcJVZa8AAP1GQ?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Nearly 95% of Indian households have access to basic drinking water, a rate of progress that has surpassed the world's average. Tap or piped water is the single largest source of drinking water for urban Indians.<br><br>The most recent data on access to drinking water in India comes from the 79th round of the National Sample Survey (NSS), conducted in 2022-23.<br><br>Nearly seven in ten households across urban India use tap water as their principal source of drinking water. The principal source refers to the one from which most of the drinking water was obtained by the household during the last 365 days.<br><br>However, there are some key peculiarities at the state level. Bottled water (which includes home-delivered cans of water) has become an important source of drinking water in the southern states.<br><br>In urban Andhra Pradesh, Karnataka, Tamil Nadu and Telangana, over a quarter of households get their drinking water primarily from bottled water. In Kerala, on the other hand, household wells are the most important source of drinking water.<br><br>Driven by the southern states, bottled water has become a key source of drinking water in urban India, now serving 15% of households nationally.<br><br>How does bottled water use compare in rural India? Read @Rukmini's analysis to find out: https://www.dataforindia.com/access-to-drinking-water/?utm_source=twitter&amp;utm_medium=post <br><br>#Water #WASH #WashData #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HFRcJVZa8AAP1GQ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -7297,21 +7552,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Amul's annual turnover growth of 11% at this scale is fairly amazing (for context, HUL is growing at 5-6%). Just wonder how large its protein portfoli...",
-      "link": "https://x.com/madhavchanchani/status/2041109663203180576",
-      "date": "2026-04-06T11:04:00+00:00",
-      "tweet_id": "2041109663203180576",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HFNWO7ta8AAzkwi?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Amul's annual turnover growth of 11% at this scale is fairly amazing (for context, HUL is growing at 5-6%).<br><br>Just wonder how large its protein portfolio will be and how much faster it is growing vs the overall company.<br><img width=\"480\" height=\"572\" style=\"\" src=\"https://pbs.twimg.com/media/HFNWO7ta8AAzkwi?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "This is an interesting change that will be visible in the TER declarations from mutual funds. Unfortunately, the concept of \"annualising\" brokerage co...",
       "link": "https://x.com/deepakshenoy/status/2041108817061302768",
       "date": "2026-04-06T11:00:38+00:00",
@@ -7519,6 +7759,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Governments worldwide have responded with a wide range of emergency measures aimed at shielding consumers and securing domestic supply, ranging from financial support to rationing as the fuel crisis deepens\u2026.<br><img width=\"1200\" height=\"1500\" style=\"\" src=\"https://pbs.twimg.com/media/HFMrQ3WasAAEbnE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Again highest traded energy! This is in line with the FY30 target of trading 2300 BU of Indian Power Demand - with the fuel crisis we should accelerat...",
+      "link": "https://x.com/ShashankUdupa1/status/2041020434951659822",
+      "date": "2026-04-06T05:09:26+00:00",
+      "tweet_id": "2041020434951659822",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Again highest traded energy! This is in line with the FY30 target of trading 2300 BU of Indian Power Demand - with the fuel crisis we should accelerate Renewable with Bess and Tranmission upgrades!<div class=\"rsshub-quote\"><br><br>RedboxGlobal India:\u2002IEX: CO ACHIEVES HIGHEST EVER TRADED ELECTRICITY VOLUME OF 141 BU IN FY\u201926, INCREASE OF 17% YOY || RTM ACHIEVES GROWTH OF 41% YOY || GREEN MARKET ACHIEVES GROWTH OF 23% YOY<br></div>",
       "category": "Twitter"
     },
     {
@@ -7777,6 +8032,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Unless you build, you don't learn. If you are using Codex or Claude Code or even Git agents, always have two files: 1. Architecture md: describes ever...",
+      "link": "https://x.com/Finstor85/status/2040479105687138380",
+      "date": "2026-04-04T17:18:23+00:00",
+      "tweet_id": "2040479105687138380",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Unless you build, you don't learn. If you are using Codex or Claude Code or even Git agents, always have two files: <br>1. Architecture md: describes every architecture decision, what to build &amp; the sequence of build. If you close VSCode &amp; there is no session memory, this file is your savior. <br>2. Decisions md: make sure your codegen write every decision it made into a decisions markdown. Ask it to also record why it selected something over alternative. This gives you way more learning than anything else. <br>Ensure you keep updating architecture md so that you don't need a separate State md file.",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Yuen Yuen Ang: \"#Polycrisis has become an apocalyptic buzzword of the 2020s.. But there is something important we need to notice... Like most 'glob...",
       "link": "https://x.com/pranaykotas/status/2040798442247905525",
       "date": "2026-04-04T16:53:16+00:00",
@@ -7864,6 +8134,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "I wrote this at the beginning of the war. I don't like to predict things, but it appears that the initial probabilities I'd spoken of have kinda sorta come about. <br><br>The war will continue, but now there is an attempt to get boots on the ground? Whatever happens, don't underestimate Iran's capabilities in a conventional war. They've planned for this a long time. <br><br>What will matter now is how commerce flows. A month is already eating up the buffers built of - of oil, of anti-missile defenses, of other things. The world needs a trade reset of sorts to diversify dependence.<div class=\"rsshub-quote\"><br><br>Deepak Shenoy:\u2002The Iran vs Israel/US war is on. My first thoughts.<br><br>The stated goal seems to still be the elimination of missile or nuclear capability of Iran. I believe Iran will get defensive anti-missile support from Russia and/or China, for protection. Their years of oil revenues have<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "The best trades are always made in the boring zone. Not in the headlines.",
+      "link": "https://x.com/ShashankUdupa1/status/2040396463654482303",
+      "date": "2026-04-04T11:50:00+00:00",
+      "tweet_id": "2040396463654482303",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The best trades are always made in the boring zone. Not in the headlines.",
       "category": "Twitter"
     },
     {
@@ -8062,21 +8347,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Everyone is tracking Dhurandhar 2\u2019s box office ticket sales, but the real story will unfold somewhere else - Of course, thanks to the amazing respons...",
-      "link": "https://x.com/aditya_kondawar/status/2040001710467469540",
-      "date": "2026-04-03T09:41:23+00:00",
-      "tweet_id": "2040001710467469540",
-      "source": "Aditya Kondawar",
-      "publisher": "Aditya Kondawar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Everyone is tracking Dhurandhar 2\u2019s box office ticket sales, but the real story will unfold somewhere else -<br><br>Of course, thanks to the amazing response, the quarter will be good for Multiplex operators for PVR Inox and others<br><br>However, the real story for PVR Inox will unfold in the Food &amp; Beverages (F&amp;B) segment and Ad Revenue.<br><br>You\u2019re locking a consumer inside the theatre for 4.5\u20135 hours. F&amp;B spend per head goes up (multiple orders, not one), and F&amp;B carries 60\u201370% gross margins<br><br>Let\u2019s take a live example: I went to watch the movie and paid Rs 1,400 for two recliner tickets. I saw that a popcorn + Cold drink combo was almost 1000 Rs, and even if you buy some other items between 2 people, you can easily spend Rs 1000<br><br>It's like spending almost 60-70% of the total amount spent on tickets on Food and beverages<br><br>PVR Inox is not a multiplex company, it is a Food and beverage company \ud83d\ude0a<br><br>no stock reco",
-      "category": "Twitter"
-    },
-    {
       "title": "RT OldWan: The tigers who came to tea",
       "link": "https://x.com/pranaykotas/status/2039988375147692089",
       "date": "2026-04-03T07:37:45+00:00",
@@ -8122,6 +8392,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Parimal Paritosh: Re @Finstor85 @abhymurarka @CuriosityStac Just used it. Analysis is very detailed.",
+      "link": "https://x.com/Finstor85/status/2040004980153757929",
+      "date": "2026-04-03T05:57:20+00:00",
+      "tweet_id": "2040004980153757929",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Parimal Paritosh<br>Re @Finstor85 @abhymurarka @CuriosityStac Just used it. Analysis is very detailed.",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Vasant Shetty | Building Mundhe Banni: Would you trust an AI with your money? Would you pick a stock just because an AI suggested it? Today, your I...",
       "link": "https://x.com/deepakshenoy/status/2039943299411390594",
       "date": "2026-04-03T05:39:49+00:00",
@@ -8164,21 +8449,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Deepak Nitrite promoter has been buying from open market <br><br>Might be a good time to research , stock is down ~50% from all time highs<br><img width=\"1538\" height=\"769\" style=\"\" src=\"https://pbs.twimg.com/media/HE9ETWUaEAAOYx_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "India has seen a sharp decline in the incidence of malaria, sharper than in the rest of the world. In 1990, India recorded around 4,000 new cases for ...",
-      "link": "https://x.com/dataforin/status/2039908298531745980",
-      "date": "2026-04-03T03:30:12+00:00",
-      "tweet_id": "2039908298531745980",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HE81yM-a4AA0BOk?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "India has seen a sharp decline in the incidence of malaria, sharper than in the rest of the world.<br><br>In 1990, India recorded around 4,000 new cases for every 100,000 people, mirroring the global malaria incidence rate. By 2020, while the global incidence rate fell to 3,000 new cases for every 100,000 people, India\u2019s rate dropped to less than 230 per 100,000 people.<br><br>These figures are based on modelled estimates from the Institute for Health Metrics and Evaluation, as data on directly reported cases of malaria from the Indian government remains limited and does not include state-level estimates.<br><br>However, malaria is not evenly distributed across India, with 80% of the disease burden concentrated among 20% of the population classified as \"high risk\".<br><br>In 2020, incidence rates were highest in Mizoram and Chhattisgarh (around 1 in 50 people affected), followed by Jharkhand (around 1 in 100 people affected).<br><br>Regions with high tribal populations are disproportionately affected, contributing to 32% of cases and 42% of malaria-related deaths, despite accounting for just 6.6% of India\u2019s population. Malaria in these areas is driven by unique challenges, including difficult-to-reach forested and hilly terrains, climatic conditions favouring mosquito and parasite proliferation, and limited healthcare access.<br><br>What do malaria death rates look like across different states in India? Read @nileena_suresh's piece to find out: https://www.dataforindia.com/malaria-in-india/?utm_source=twitter&amp;utm_medium=post <br><br>#Malaria #Health #PublicHealth #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HE81yM-a4AA0BOk?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -8272,6 +8542,21 @@
       "category": "Twitter"
     },
     {
+      "title": "India is building...the handover from IT services to indigenous tech is underway, slowly, silently, one company at a time. Our VC ecosystem needs to s...",
+      "link": "https://x.com/Finstor85/status/2039770930356879758",
+      "date": "2026-04-02T18:24:21+00:00",
+      "tweet_id": "2039770930356879758",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2039387397860057089/img/3DaX6338CKGinIbc.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "India is building...the handover from IT services to indigenous tech is underway, slowly, silently, one company at a time. Our VC ecosystem needs to start backing our own or soon Western VCs will end up owning everything.<div class=\"rsshub-quote\"><br><br>Varun Guru:\u2002Watch out for Theranautilus.<br><br>This is probably one of the biggest moonshot Indian startup out there right now.<br><br>This Bengaluru-based startup is using nanobots to cure tooth sensitivity (for now).<br><br>Their nanobot called \"CalBots\" go into tiny tunnels in your teeth - where you have<br><br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/amplify_video/2039387397860057089/vid/avc1/1280x720/pYBBgepYTN89gsyB.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2039387397860057089/img/3DaX6338CKGinIbc.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Krishna Appala: We have something interesting coming up! We have spent the last few months building a new investment approach to solve a very speci...",
       "link": "https://x.com/deepakshenoy/status/2039911264684757289",
       "date": "2026-04-02T17:56:07+00:00",
@@ -8362,6 +8647,21 @@
       "category": "Twitter"
     },
     {
+      "title": "HDFC Bank is down 16% in March. MD resigned. Macro worries. Selling pressure. But the fundamentals haven't changed. At some point, price becomes the t...",
+      "link": "https://x.com/ShashankUdupa1/status/2039702641719337206",
+      "date": "2026-04-02T13:53:00+00:00",
+      "tweet_id": "2039702641719337206",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HE4aowIbsAAEIfP?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "HDFC Bank is down 16% in March.<br>MD resigned. Macro worries. Selling pressure.<br>But the fundamentals haven't changed.<br>At some point, price becomes the thesis.<br><br>Disc - not invested<br><img width=\"1561\" height=\"1249\" style=\"\" src=\"https://pbs.twimg.com/media/HE4aowIbsAAEIfP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Capitalmind: After the 2023 debt tax change, pure debt funds lost their edge for anyone in the higher brackets. But you still need non-equity expos...",
       "link": "https://x.com/deepakshenoy/status/2039774339718156304",
       "date": "2026-04-02T12:30:01+00:00",
@@ -8422,6 +8722,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Today is exactly 1 year since Trump's Liberation Day tariffs hit India at 26%. Everyone said India was finished. Nifty had other plans\ud83d\ude02",
+      "link": "https://x.com/ShashankUdupa1/status/2039596041985728743",
+      "date": "2026-04-02T06:49:24+00:00",
+      "tweet_id": "2039596041985728743",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Today is exactly 1 year since Trump's Liberation Day tariffs hit India at 26%.<br>Everyone said India was finished.<br>Nifty had other plans\ud83d\ude02",
+      "category": "Twitter"
+    },
+    {
       "title": "WAR IIMPACT. Cost inflation hits 43-month high. Growth of factory orders & production eases. Seasonally adjusted HSBC India Manufacturing PMI drops fr...",
       "link": "https://x.com/TamalBandyo/status/2039590001311469656",
       "date": "2026-04-02T06:25:24+00:00",
@@ -8452,6 +8767,21 @@
       "category": "Twitter"
     },
     {
+      "title": "I am super excited for this weekend! This Saturday I am going to sit down with you all live, opening my screen and showing you exactly how I use AI fo...",
+      "link": "https://x.com/ShashankUdupa1/status/2039584484748845479",
+      "date": "2026-04-02T06:03:29+00:00",
+      "tweet_id": "2039584484748845479",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HE4PCxba4AAQ6E4?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "I am super excited for this weekend!<br><br>This Saturday I am going to sit down with you all live, opening my screen and showing you exactly how I use AI for investing. <br><br>This isn't an intro \"AI is the future\" talk. We're skipping all of that and going straight to the tools, the prompts, the actual process.<br><br>I will show you how I do equity research, building investor decks, portfolio rebalancing, financial planning, tax loss harvesting, all using AI.<br><br>FREE. April 4th, 5 PM. No upsell, no gyan, just a good Saturday well spent.<br><br>And one more thing \u2014 there's something special I'm revealing only for people who join live. Trust me you don't want to miss this one!!<br><br>Limited seats left. Join now!<br>https://forms.gle/jdUfkyCwS7UeiQya9<br>See you Saturday.<br><img width=\"1280\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HE4PCxba4AAQ6E4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Chinese government bonds have sidestepped a global debt sell-off since the start of the Iran war\u2026largely aided by domestic buying\u2026",
       "link": "https://x.com/TamalBandyo/status/2039566745414017484",
       "date": "2026-04-02T04:53:00+00:00",
@@ -8479,21 +8809,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "To scale clinical trials, govt should take up widespread awareness initiatives\u2013on the lines of what RBI does on the financial sector, says @ANaqvee. As Union govt aims to add 1,000 clinical trial sites in the country, @charubahri looks into the gaps https://www.indiaspend.com/health/india-wants-1000-new-clinical-trial-sites-patients-are-still-being-left-in-the-dark-982673",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Marginal Revolution: MRU high school fellowship https://marginalrevolution.com/marginalrevolution/2026/04/mru-high-school-fellowship.html",
-      "link": "https://x.com/srajagopalan/status/2039508732141293886",
-      "date": "2026-04-02T00:37:14+00:00",
-      "tweet_id": "2039508732141293886",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Marginal Revolution<br>MRU high school fellowship https://marginalrevolution.com/marginalrevolution/2026/04/mru-high-school-fellowship.html",
       "category": "Twitter"
     },
     {
@@ -8587,6 +8902,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Mucciii: Re @soicfinance I would highly recommend you also get everyone hooked on to @CuriosityStac thanks to @Finstor85 fantastic work im using it...",
+      "link": "https://x.com/Finstor85/status/2039719788591698312",
+      "date": "2026-04-01T13:28:27+00:00",
+      "tweet_id": "2039719788591698312",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Mucciii<br>Re @soicfinance I would highly recommend you also get everyone hooked on to @CuriosityStac thanks to @Finstor85 fantastic work im using it for my entire folio",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Richard Turrin: The IMF has a MUST-READ report covering Southeast Asia\u2019s (SEA\u2019s) QR-based digital payment revolution that is transforming cross-b...",
       "link": "https://x.com/andymukherjee70/status/2040301280456048787",
       "date": "2026-04-01T12:15:06+00:00",
@@ -8662,6 +8992,36 @@
       "category": "Twitter"
     },
     {
+      "title": "Market These Days NASDAQ Pre Market - Peace, War Over, markets up - Buying Pressure \ud83d\udfe2 Nifty Pre Market - Iran fires rocket, UAE drone spotted, Isra...",
+      "link": "https://x.com/ShashankUdupa1/status/2039227436882354348",
+      "date": "2026-04-01T06:24:42+00:00",
+      "tweet_id": "2039227436882354348",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Market These Days<br><br>NASDAQ Pre Market - Peace, War Over, markets up -<br><br>Buying Pressure  \ud83d\udfe2 <br><br>Nifty Pre Market - Iran fires rocket, UAE drone spotted, Israel hits Iran \ud83d\ude02<br>Selling pressure \ud83d\udd34",
+      "category": "Twitter"
+    },
+    {
+      "title": "Superb for both! Fun fact, NSE is also a competitor to IEX as they have an energy exchange called PXIL. Very few people have done the real math behind...",
+      "link": "https://x.com/ShashankUdupa1/status/2039226831266582835",
+      "date": "2026-04-01T06:22:18+00:00",
+      "tweet_id": "2039226831266582835",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Superb for both! Fun fact, NSE is also a competitor to IEX as they have an energy exchange called PXIL. <br><br>Very few people have done the real math behind IEX Market Coupling and its actual Impact! Fun times ahead<br><br>Disc - Invested/ biased. Not a buy sell recommendation<div class=\"rsshub-quote\"><br><br>RedboxGlobal India:\u2002IEX: NSE PARTNERS WITH IGX TO LAUNCH DERIVATIVES BASED IGX INDEX BENCHMARK<br><br>#BREAKING<br></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Pranay Kotasthane: Good strategic move by Pakistan on the West Asia situation. This war is one of the rare superordinate threats where our interest...",
       "link": "https://x.com/pranaykotas/status/2041764248616145272",
       "date": "2026-04-01T05:52:54+00:00",
@@ -8689,6 +9049,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "India not alone. EM ex China experienced strongest net outflows since COVID, with $68bn exiting.<br>Korea in line of fire with $24bn leaving in March (after $14bn outflow in Feb); Taiwan reversed 2 months of inflows with strong net selling ($28bn).India saw net outflows of $12bn.<br><img width=\"1100\" height=\"942\" style=\"\" src=\"https://pbs.twimg.com/media/HEykjKUa4AAWMV4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Looks like IRGC isnt stopping. Its weird how during US market hours all good news come\ud83d\ude02 Nifty ke time pe all bad ones",
+      "link": "https://x.com/ShashankUdupa1/status/2039177750775562256",
+      "date": "2026-04-01T03:07:16+00:00",
+      "tweet_id": "2039177750775562256",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Looks like IRGC isnt stopping. Its weird how during US market hours all good news come\ud83d\ude02 Nifty ke time pe all bad ones<div class=\"rsshub-quote\"><br><br>zerohedge:\u2002EXPLOSIONS AT AMERICAN BASES IN BAHRAIN AND KUWAIT: IRNA<br></div>",
       "category": "Twitter"
     },
     {
@@ -8722,6 +9097,21 @@
       "category": "Twitter"
     },
     {
+      "title": "At what point does UK retaliate and start dumping US bonds?",
+      "link": "https://x.com/ShashankUdupa1/status/2038958400281907282",
+      "date": "2026-03-31T12:35:39+00:00",
+      "tweet_id": "2038958400281907282",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "At what point does UK retaliate and start dumping US bonds?<div class=\"rsshub-quote\"><br><br>RedboxGlobal India:\u2002Trump On Truth Social <br><br>All of those countries that can\u2019t get jet fuel because of the Strait of Hormuz, like the United Kingdom, which refused to get involved in the decapitation of Iran, I have a suggestion for you: Number 1, buy from the U.S., we have plenty, and Number 2,<br></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "Watch Full Webinar Now: https://youtu.be/sQdidZgdHh0 CareEdge Ratings successfully hosted a webinar on \u201cCommercial Vehicle Financing: Emerging Trends...",
       "link": "https://x.com/CareEdge_Group/status/2038873666445082878",
       "date": "2026-03-31T06:58:57+00:00",
@@ -8752,6 +9142,21 @@
       "category": "Twitter"
     },
     {
+      "title": "AI is changing investing faster than most people realize. And honestly? Everyone around me, my peers, followers, even seasoned finance geeks are eithe...",
+      "link": "https://x.com/ShashankUdupa1/status/2038857549060194333",
+      "date": "2026-03-31T05:54:54+00:00",
+      "tweet_id": "2038857549060194333",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEt5v_7bMAAhZe4?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "AI is changing investing faster than most people realize.<br><br>And honestly? Everyone around me, my peers, followers, even seasoned finance geeks are either scared or feeling FOMO.<br><br>So this Saturday, I'm doing something about it!<br><br>FREE AI Finance Webinar. April 4th, 5 PM. No entry cost. No upsell. Just old school learning together, live.<br><br>I will show you how to:<br>\u2022 Build investor-ready decks with Claude<br>\u2022 Create AI-powered earnings one-pagers<br>\u2022 Rebalance your portfolio with AI<br>\u2022 Build a full financial plan using AI<br>\u2022 Automate tax-loss harvesting<br>\u2022 Turn raw data into professional decks<br>\u2022 AI-driven equity research, done right<br><br>No fluff. No gyan. Just real, practical use-cases you can apply immediately.<br><br>Fill this form if you want to Join - Limited Seats<br>https://forms.gle/jdUfkyCwS7UeiQya9<br><img width=\"1377\" height=\"768\" style=\"\" src=\"https://pbs.twimg.com/media/HEt5v_7bMAAhZe4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Doing rounds on WhatsApp",
       "link": "https://x.com/TamalBandyo/status/2038850979253379290",
       "date": "2026-03-31T05:28:48+00:00",
@@ -8764,21 +9169,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Doing rounds on WhatsApp<br><img width=\"1179\" height=\"1190\" style=\"\" src=\"https://pbs.twimg.com/media/HEt0Iq8bkAAK8uX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Road accidents are a leading cause of mortality in India. 29 out of every 1,000 deaths in India in 2022 were attributed to road accidents. India repor...",
-      "link": "https://x.com/dataforin/status/2038821218665861161",
-      "date": "2026-03-31T03:30:32+00:00",
-      "tweet_id": "2038821218665861161",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HEtZAwfbEAAFUsi?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Road accidents are a leading cause of mortality in India. 29 out of every 1,000 deaths in India in 2022 were attributed to road accidents.<br><br>India reports the highest number of road accident deaths in the world, and accounts for 11% of the world's road accidents.<br><br>The impact is particularly severe on young men aged 15-29. Road accidents are the single largest cause of death among young Indian men, responsible for nearly one in four deaths.<br><br>Two-wheeler riders account for the highest number of fatality victims in road accidents in India \u2013 nearly half of all deaths in road accidents are of people on two-wheelers. According to police statistics, two-wheelers are also the leading cause of road accident fatalities, followed by cars and trucks.<br><br>The lack of usage of helmets is a serious concern when it comes to fatalities from two-wheeler accidents. In about 50,000 of the 75,000 fatalities involving two-wheelers in India in 2022, the victims were not wearing helmets.<br><br>Which states bear the highest burden of road accident deaths, and how do these patterns differ across India? Read @nileena_suresh's analysis to find out: https://www.dataforindia.com/road-accident-deaths/?utm_source=twitter&amp;utm_medium=post <br><br>#Death #Accident #Roads #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HEtZAwfbEAAFUsi?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -8842,6 +9232,36 @@
       "category": "Twitter"
     },
     {
+      "title": "And surprisingly they had launched LakeWatch - Agentic SIEM just days ago!! Irony is this is their 1st cybersec product & what immediately follows is ...",
+      "link": "https://x.com/Finstor85/status/2038615777826185513",
+      "date": "2026-03-30T13:54:11+00:00",
+      "tweet_id": "2038615777826185513",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEp7VjkWAAEw1Jq?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "And surprisingly they had launched LakeWatch - Agentic SIEM just days ago!! Irony is this is their 1st cybersec product &amp; what immediately follows is this.<div class=\"rsshub-quote\"><br><br>Dark Web Intelligence:\u2002\ud83d\udea8 Databricks Allegedly Targeted in Supply Chain Attack<br><br>Claims are circulating that Databricks may have been impacted as part of a TeamPCP-related supply chain compromise.<br><br>\ud83d\udcca Context:<br>\u2022 Databricks is a major cloud data analytics platform<br>\u2022 Widely used for large-scale data<br><br><img width=\"1320\" height=\"1087\" style=\"\" src=\"https://pbs.twimg.com/media/HEp7VjkWAAEw1Jq?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Three recent key acquisitions, all in the last mile segment. Infosys - Optimum Healthcare & Stratus SAP - Reltio Whoever built the first-mile tools ca...",
+      "link": "https://x.com/Finstor85/status/2038575678371590502",
+      "date": "2026-03-30T11:14:51+00:00",
+      "tweet_id": "2038575678371590502",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Three recent key acquisitions, all in the last mile segment.<br><br>Infosys - Optimum Healthcare &amp; Stratus<br>SAP - Reltio<br><br>Whoever built the first-mile tools captures efficiency gains but whoever owns the last mile captures the long lasting economic moat. More here: https://finstor85.substack.com/p/ais-first-mile-efficiency-and-last",
+      "category": "Twitter"
+    },
+    {
       "title": "Coastal road has caused pain to Peddar Road",
       "link": "https://x.com/contrarianEPS/status/2038569672111726884",
       "date": "2026-03-30T10:50:59+00:00",
@@ -8854,6 +9274,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Coastal road has caused pain to Peddar Road<div class=\"rsshub-quote\"><br><br>Ira Dugal:\u2002HDFC Bank\u2019s chairman abrupt exist grabbed a lot of attention, as it should.<br><br>The real problems for HDFC Bank may run deeper \u2014 a sharp shift in management culture,  a tough merger with HDFC Ltd (gains from which have been slow to realise) and a stock which has massively<br><br><img width=\"1206\" height=\"951\" style=\"\" src=\"https://pbs.twimg.com/media/HEpW6p8aAAAOyeF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1206\" height=\"1103\" style=\"\" src=\"https://pbs.twimg.com/media/HEpW6qLaUAE8GU2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Nifty at 22500 ~ what are some Deep Value Stocks on your radar today?",
+      "link": "https://x.com/ShashankUdupa1/status/2038518421378490668",
+      "date": "2026-03-30T07:27:20+00:00",
+      "tweet_id": "2038518421378490668",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEpFssuaUAAwRXE?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Nifty at 22500 ~ what are some Deep Value Stocks on your radar today?<br><img width=\"1096\" height=\"679\" style=\"\" src=\"https://pbs.twimg.com/media/HEpFssuaUAAwRXE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -8872,6 +9307,21 @@
       "category": "Twitter"
     },
     {
+      "title": "They've stepped in now to protect the falling Rupee! Need more",
+      "link": "https://x.com/ShashankUdupa1/status/2038471131297165576",
+      "date": "2026-03-30T04:19:25+00:00",
+      "tweet_id": "2038471131297165576",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "They've stepped in now to protect the falling Rupee! Need more<div class=\"rsshub-quote\"><br><br>Shashank Udupa - SEBI RA:\u2002I think Govt has to step in now to do some corrective measures! What do you think can happen?<br><br>Falling Re, Energy Issues, Market Falling<br></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "Paul Samuelson, \u201cInvesting should be dull. It shouldn\u2019t be exciting. Investing should be more like watching paint dry or watching grass grow. If you...",
       "link": "https://x.com/contrarianEPS/status/2038106469581885797",
       "date": "2026-03-29T04:10:23+00:00",
@@ -8884,6 +9334,66 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Paul Samuelson, \u201cInvesting should be dull. It shouldn\u2019t be exciting. Investing should be more like watching paint dry or watching grass grow. If you want excitement, take $800 and go to Las Vegas.\"",
+      "category": "Twitter"
+    },
+    {
+      "title": "The % of first mile Vs. last mile tasks AI can handle across various domains. AI will not replace a profession, but it is replacing the volume/grunt w...",
+      "link": "https://x.com/Finstor85/status/2037981762224312332",
+      "date": "2026-03-28T19:54:50+00:00",
+      "tweet_id": "2037981762224312332",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEhdjocbAAAWwVD?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The % of first mile Vs. last mile tasks AI can handle across various domains. <br>AI will not replace a profession, but it is replacing the volume/grunt work inside a profession while leaving the value pocket untouched.<br>Put simply, the work that gets replaced was never what the profession actually charge for.<br><img width=\"915\" height=\"401\" style=\"\" src=\"https://pbs.twimg.com/media/HEhdjocbAAAWwVD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "How's that nobody's posted how Gemini Flash Live is going to impact Customer Service, Conversational AI companies yet. \ud83d\ude03Because clients don't buy j...",
+      "link": "https://x.com/Finstor85/status/2037861398479298576",
+      "date": "2026-03-28T11:56:33+00:00",
+      "tweet_id": "2037861398479298576",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "How's that nobody's posted how Gemini Flash Live is going to impact Customer Service, Conversational AI companies yet. \ud83d\ude03Because clients don't buy just products. They buy responsibility, ownership &amp; if an incumbent is able to adopt new tools &amp; deliver, clients going nowhere. No matter what tool comes. Not just yet.",
+      "category": "Twitter"
+    },
+    {
+      "title": "\u2665\ufe0fIf 8y old is able to be this curious imagine what he'd go on to achieve through the life. Love this! Deserves a full support.",
+      "link": "https://x.com/Finstor85/status/2037853168424427955",
+      "date": "2026-03-28T11:23:51+00:00",
+      "tweet_id": "2037853168424427955",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2037829139986890752/img/iRdnfU2FWHfO2vPJ.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "\u2665\ufe0fIf 8y old is able to be this curious imagine what he'd go on to achieve through the life. Love this! Deserves a full support.<div class=\"rsshub-quote\"><br><br>Capt Venkat \ud83c\uddee\ud83c\uddf3:\u2002Laksh has made it to Round 2 of VibeCon by @EmergentLabs. This is his video submission. Please show your support.<br><br><video width=\"2048\" height=\"1152\" src=\"https://video.twimg.com/amplify_video/2037829139986890752/vid/avc1/3840x2160/qq2VII64cqUt-1nr.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2037829139986890752/img/iRdnfU2FWHfO2vPJ.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "The real deal isn't building something. It is to ensure you don't blow up token consumption just because of a poor architecture. That's the only impor...",
+      "link": "https://x.com/Finstor85/status/2037850472191561975",
+      "date": "2026-03-28T11:13:08+00:00",
+      "tweet_id": "2037850472191561975",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEfiyiaacAAdrmZ?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "The real deal isn't building something. It is to ensure you don't blow up token consumption just because of a poor architecture. That's the only important nudge your users need keep using what you've built. <br>Curiosity Stack v3.3.0 is out now with fully loaded capabilities. Try today. https://curiositystack.app/<div class=\"rsshub-quote\"><br><br>Curiosity Stack:\u2002The new v3.3.0 of Curiosity Stack is here<br>&gt; 60% fewer tokens consumption to ensure your limits are not wasted<br>&gt; v3 India-Proxy Agent with deep search<br>&gt; Seed companies the agent won't find via search<br>&gt; More research per session<br>v3.3.0 uses your claude limit far more efficiently.<br><br><img width=\"716\" height=\"412\" style=\"\" src=\"https://pbs.twimg.com/media/HEfiyiaacAAdrmZ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1415\" height=\"368\" style=\"\" src=\"https://pbs.twimg.com/media/HEfi4v-W4AAO0QZ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -8947,6 +9457,21 @@
       "category": "Twitter"
     },
     {
+      "title": "I think Govt has to step in now to do some corrective measures! What do you think can happen? Falling Re, Energy Issues, Market Falling",
+      "link": "https://x.com/ShashankUdupa1/status/2037490306825040019",
+      "date": "2026-03-27T11:21:58+00:00",
+      "tweet_id": "2037490306825040019",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "I think Govt has to step in now to do some corrective measures! What do you think can happen?<br><br>Falling Re, Energy Issues, Market Falling",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Attrishu Bordoloi: Comparing ASUSE-based direct estimates, Labour Input method estimates, and extrapolated estimates, we show that informal sector ...",
       "link": "https://x.com/Ideas4India/status/2037508008205529095",
       "date": "2026-03-27T10:42:22+00:00",
@@ -8959,21 +9484,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Attrishu Bordoloi<br>Comparing ASUSE-based direct estimates, Labour Input method estimates, and extrapolated estimates, we show that informal sector figures diverge \u2014post periods of structural shocks like demonetisation and COVID.<br>While averages align in long run, shorter frames show sharp variation.<div class=\"rsshub-quote\"><br><br>Ideas for India:\u2002Has informal sector output been overstated by extrapolating using formal sector growth rates?<br>Using now available high-frequency enterprise+labour force data @KartikeyaBatra @attrishu @Santanu_CEGIS compare alternative methodologies; suggest way forward<br>https://www.ideasforindia.in/topics/macroeconomics/formal-sector-growth-as-proxy-for-informal-sector-does-it-distort-measurement<br><br><img width=\"1024\" height=\"683\" style=\"\" src=\"https://pbs.twimg.com/media/HEZSNhha8AAzIxX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "Economic activity is not uniformly spread across the country. Among India\u2019s 28 states and eight union territories, there are significant differences ...",
-      "link": "https://x.com/dataforin/status/2037371556230578269",
-      "date": "2026-03-27T03:30:06+00:00",
-      "tweet_id": "2037371556230578269",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HEYyobxb0AAGdB9?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Economic activity is not uniformly spread across the country. Among India\u2019s 28 states and eight union territories, there are significant differences in relative affluence as well as in the trajectories of their economic development.<br><br>India\u2019s economic output is concentrated in the southern and western states. They are home to a third of India\u2019s population but contribute more than half of its economic output.<br><br>Over the last four decades, India\u2019s southern and eastern states have seen a considerable divergence in their contributions to the national economy, despite both regions having comparable populations. Southern states like Karnataka now contribute relatively more, while eastern states like West Bengal have seen their share decline.<br><br>This divergence becomes even sharper in terms of per capita income, or state domestic product relative to population, since the richer states are also the ones where population growth has slowed much more dramatically.<br><br>In 1981, West Bengal\u2019s per capita income was 16% higher than Karnataka\u2019s. By 2021, Karnataka\u2019s per capita income was more than double West Bengal\u2019s, showing a reversal in their positions and a widening gap between one of India\u2019s richest and one of its poorest states.<br><br>What is the share of different sectors in the economic growth of states across India? Read @akwaghmare\u2019s piece to learn more: https://www.dataforindia.com/state-economies/?utm_source=twitter&amp;utm_medium=post <br><br>#Economy #States #GDP #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HEYyobxb0AAGdB9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -9049,21 +9559,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Ather and Ola Electric need to be appreciated here<br><br>They develop and control the IP for the 'brains' of the two wheeler after working on it completely in house<br><img width=\"791\" height=\"413\" style=\"\" src=\"https://pbs.twimg.com/media/HEJ-6I6aIAAo0Ck?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Normal Guy:\u2002India pays a premium for the privilege of not learning anything :)<br><br>Every Indian car Tata, Mahindra, Maruti, all of them  has a tiny computer inside called an ECU (Engine Control Unit) <br><br>This computer decides everything - how much fuel to inject, when to shift gears, how brakes<br><br><img width=\"1220\" height=\"818\" style=\"\" src=\"https://pbs.twimg.com/media/HEGIMI_aoAA8AU3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "One of the most effective ways to understand how Indians live is by looking at how much they spend in a month. This is particularly significant in Ind...",
-      "link": "https://x.com/dataforin/status/2036284429937922267",
-      "date": "2026-03-24T03:30:15+00:00",
-      "tweet_id": "2036284429937922267",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HEJV5XgaYAAWDSi?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "One of the most effective ways to understand how Indians live is by looking at how much they spend in a month. This is particularly significant in India where the economy is largely informal and significantly agricultural, making income measurement a challenge.<br><br>An average Indian\u2019s Monthly Per Capita Consumption Expenditure (MPCE) on everything except investments is a little under \u20b95,000 or USD 60, according to the 2023 Household Consumption Expenditure Survey.<br><br>However, national averages in a country India\u2019s size do not capture the variations that exist between different groups. One way to understand how consumption expenditure varies across the country is to arrange the population in order of increasing MPCE and then divide them into five equal groups, or quintiles.<br><br>People in the top 20% of urban India spend nearly five times as much each month as those in the bottom 20%. People in the top 20% of rural India spend nearly four times as much as those in the bottom 20%.<br><br>Within the top quintile, average consumption expenditure is driven up by a relatively small group. In urban India, the average MPCE of only the top 5% (roughly 25 million people) is above \u20b920,000. In rural India, the average MPCE of the top 5% is above \u20b910,000.<br><br>What do Indians spend their money on? Read @akwaghmare\u2019s piece to find out: https://www.dataforindia.com/consumption-expenditure/?utm_source=twitter&amp;utm_medium=post <br><br>#ConsumptionExpenditure #HouseholdSpending #LivingStandards #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HEJV5XgaYAAWDSi?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -9292,21 +9787,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Global temperatures have been rising at a clear and measurable pace, with the past decade (2015\u20132025) being the warmest on record, and approximately ...",
-      "link": "https://x.com/dataforin/status/2034834896557134116",
-      "date": "2026-03-20T03:30:19+00:00",
-      "tweet_id": "2034834896557134116",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HD0vjUYboAQBZCe?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Global temperatures have been rising at a clear and measurable pace, with the past decade (2015\u20132025) being the warmest on record, and approximately 1.1\u00b0C warmer than pre-industrial levels (1850\u20131900).<br><br>India\u2019s warming mirrors this global trend, with the past decade (2015\u20132025) the hottest on record and 2024 standing out as the warmest year in over a century. In India, these trends carry direct implications for agriculture, water security, public health and energy demand.<br><br>Data from the India Meteorological Department (IMD) shows that from 1901 to 2024, India\u2019s mean temperature increased by approximately 0.9\u00b0C.<br><br>This increase was relatively modest in the early decades, followed by more rapid warming from the 1990s onward. The warmest years in India\u2019s 124-year temperature record are overwhelmingly concentrated in the recent period, with the highest mean temperature of 25.7\u00b0C recorded in 2024.<br><br>Every fraction of a degree of warming matters. According to the Intergovernmental Panel on Climate Change (IPCC), each additional 0.1\u00b0C increases the intensity and frequency of heatwaves, rainfall extremes and droughts.<br><br>What do India\u2019s minimum and maximum temperatures look like across this 124-year period? Read @chatterjee_juhi's piece to find out: https://www.dataforindia.com/temperature-trends-in-india/?utm_source=twitter&amp;utm_medium=post <br><br>#Temperature #Climate #Heat #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HD0vjUYboAQBZCe?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Megha Patnaik: Global Capability Centres are projected to contribute to 3.5% of India's GDP. My new paper argues that GCCs are firm-level reorganis...",
       "link": "https://x.com/IlaPatnaik/status/2042186839705161969",
       "date": "2026-03-17T12:13:44+00:00",
@@ -9319,21 +9799,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Megha Patnaik<br>Global Capability Centres are projected to contribute to 3.5% of India's GDP.  My new paper argues that GCCs are firm-level reorganisation at the global scale:  only the most productive firms set up GCCs, trading off lower wages against higher coordination costs of remote work.<div class=\"rsshub-quote\"><br><br>CEPR:\u2002New CEPR Discussion Paper - DP21294<br>Services Across Borders: How Firms Organize Remote Work at Scale<br>Megha Patnaik @megonomista @UniLUISS <br>https://ow.ly/2gIf50YuL4m<br>#CEPR_ITRE #EconTwitter<br><br><img width=\"1200\" height=\"675\" style=\"\" src=\"https://pbs.twimg.com/media/HDm5-VXWMAABu2v?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "Salaried workers are a minority in India's workforce, making up only 23% of workers. In contrast, more than half of the global workforce is in salarie...",
-      "link": "https://x.com/dataforin/status/2033747687280152882",
-      "date": "2026-03-17T03:30:08+00:00",
-      "tweet_id": "2033747687280152882",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDlSvSBaEAA7GJ5?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Salaried workers are a minority in India's workforce, making up only 23% of workers. In contrast, more than half of the global workforce is in salaried employment.<br><br>Labour statistics define salaried employment, or regular wage employment, as a working arrangement in which employees work in enterprises owned by others and are paid wages on a regular basis, generally by the same employer.<br><br>As economies grow, the workforce tends to shift from agriculture to manufacturing and services. Alongside this shift, the share of salaried workers typically rises. Almost all jobs in advanced economies such as the United States and Japan are salaried jobs.<br><br>While the share of salaried workers in India's workforce has grown only modestly over time, it is much higher in many emerging market economies than in India, and has also grown faster over time. This is true both in other lower-middle-income countries such as Bangladesh and in upper-middle-income countries such as China and Indonesia.<br><br>What does the share of salaried workers in the workforce look like across different states in India? Read @akwaghmare\u2019s piece to find out:  https://www.dataforindia.com/salaried-jobs/?utm_source=twitter&amp;utm_medium=post <br><br>#Salary #Jobs #Work #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HDlSvSBaEAA7GJ5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -9394,21 +9859,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Niteen S Dharmawat, CFA<br>Re @ishmohit1 Remember, we do not lose money in bear markets, we lose money only in bull markets. This is not intuitive and easy to comprehend.",
-      "category": "Twitter"
-    },
-    {
-      "title": "There has been a significant expansion in access to electricity across India. In 2000, only about 60% of India\u2019s population had access to electricity...",
-      "link": "https://x.com/dataforin/status/2032298142537052437",
-      "date": "2026-03-13T03:30:10+00:00",
-      "tweet_id": "2032298142537052437",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDQsYprbQAEvRX4?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "There has been a significant expansion in access to electricity across India. In 2000, only about 60% of India\u2019s population had access to electricity. By 2021, this figure had risen to 99.6%.<br><br>Despite this progress, access to electricity is not universal across all groups in India. Virtually all households in the highest wealth quintile have access to electricity, while about 1 in 5 (18%) of the poorest rural households did not have access to electricity as of 2021.<br><br>Not just is access unequally distributed, but the consumption of electricity is also determined by household wealth.<br><br>India\u2019s Household Consumer Expenditure Survey (HCES) captures electricity consumption by recording the number of units (kWh) used by households over a 30-day reference period.<br><br>On average, an Indian household consumes 97 kWh of electricity every month. This is enough to power five 60-watt incandescent light bulbs for about 10 hours each day, or to run one window air-conditioning unit for about two hours daily.<br><br>However, the richest Indian households consume more than twice as much electricity on average as the poorest households. There is also a notable difference in electricity consumption between urban and rural households. Over half of urban households consume more than 100 units per month, whereas fewer than a quarter of rural households reach this level.<br><br>How does access to electricity vary across different regions in India? Read @nileena_suresh 's piece to find out: https://www.dataforindia.com/access-to-electricity/?utm_source=twitter&amp;utm_medium=post <br><br>#Electricity #Power #Lighting #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HDQsYprbQAEvRX4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -9517,21 +9967,6 @@
       "category": "Twitter"
     },
     {
-      "title": "With approximately 625 million workers, India represents the world's second-largest labour market. One important way to understand the labour market i...",
-      "link": "https://x.com/dataforin/status/2031210970522292669",
-      "date": "2026-03-10T03:30:08+00:00",
-      "tweet_id": "2031210970522292669",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDBPm9DaMAIfBPr?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "With approximately 625 million workers, India represents the world's second-largest labour market. One important way to understand the labour market is by looking at unemployment rates.<br><br>To measure unemployment, workers are asked how long they worked during the last year. A person who worked for at least 30 days in the preceding 365 days is considered employed, while a person who was looking for work or was available to work but did not work for at least 30 days is counted as unemployed.<br><br>About 600 million Indians are currently employed, and roughly 20\u201325 million are unemployed. This puts India\u2019s unemployment rate at 3.2% in 2023\u201324. In urban areas, the unemployment rate was higher, at 5.1%.<br><br>But unemployment in India isn\u2019t evenly distributed, and is higher among the better educated. While less than 1% of Indians educated only up to the primary level are unemployed, more than 13% of those with a graduate degree or higher are jobless. Female unemployment is significantly higher at this level.<br><br>In low-income countries, skilled jobs may be scarce, and there may be a mismatch between skills and jobs. In addition, better-educated workers can often afford to stay unemployed for longer, and might hold out for a suitable job.<br><br>How does unemployment vary across age groups in India? Read @akwaghmare 's work on employment to learn more: https://www.dataforindia.com/work-employment-in-india/?utm_source=twitter&amp;utm_medium=post <br><br>#Work #Employment #Unemployment #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HDBPm9DaMAIfBPr?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Abhishek Murarka \ud83d\udcb9\ud83d\udc02: If someone asks me this question about sector today - I have a sector name now - it's IT.",
       "link": "https://x.com/abhymurarka/status/2041409047812067550",
       "date": "2026-03-09T05:51:06+00:00",
@@ -9622,21 +10057,6 @@
       "category": "Twitter"
     },
     {
-      "title": "The full extent of people's interactions with the law in India can be difficult to quantify. India\u2019s National Crime Records Bureau publishes annual s...",
-      "link": "https://x.com/dataforin/status/2029761427305853353",
-      "date": "2026-03-06T03:30:10+00:00",
-      "tweet_id": "2029761427305853353",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HCspQlNaUAU_a_D?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The full extent of people's interactions with the law in India can be difficult to quantify.<br><br>India\u2019s National Crime Records Bureau publishes annual statistics on the number of offences registered each year under various criminal laws, as well as the share of these reported crimes that were sent to courts. However, this is an incomplete repository, and no analogous record exists for civil laws.<br><br>To go beyond the limitations of police-recorded data, we use data from courts. For our analysis, we looked at all cases disposed of at the district level across every subordinate court in India, over a ten-year period. These cases before magistrates, civil judges, and district and sessions judges, are the first point of contact between Indians and the legal system.<br> <br>In all, we looked at 43 million records of legislation invoked in cases, the majority of which deal with criminal offences. <br><br>Among criminal cases in the dataset, cheque-bouncing and rash-driving related offences dominate India's lower courts.<br><br>Section 138 of the Negotiable Instrument Act is 'dishonour of cheque for insufficiency, etc., of funds in the account', or what is known as cheque-bouncing. It is punishable by an imprisonment for a period of up to two years and a fine of up to twice the amount of the cheque. At 2.8 million, Section 138 of NI Act is the single most common legal provision in this database; nearly a million more than the next most common provision, representing over 6% of the cases in the dataset.<br><br>Section 279 (rash driving or riding on a public way) of the Indian Penal Code is the next most frequently invoked criminal offence. It accounts for 1.91 million records, or over 4% of the dataset. The Indian Penal Code (IPC) was the main criminal legislation in the country before it was replaced by Bharatiya Nyaya Sanhita (BNS) in 2024.<br><br>What are the most commonly invoked civil laws in the dataset? Read Ameya Bokil and Apoorv Anand\u2019s detailed analysis to find out: https://www.dataforindia.com/law-in-india/?utm_source=twitter&amp;utm_medium=post <br><br>#CriminalLaw #Legal #Law #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HCspQlNaUAU_a_D?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Rohit Tomar - The Finance Brew: Just watched this old 2017 video of @SamitVartak sir. Extremely valuable insights. Truly a paisa vasool video. Must...",
       "link": "https://x.com/SamitVartak/status/2029204848584036620",
       "date": "2026-03-04T11:09:10+00:00",
@@ -9649,21 +10069,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Rohit Tomar - The Finance Brew<br>Just watched this old 2017 video of @SamitVartak  sir.<br><br>Extremely valuable insights.  <br><br>Truly a paisa vasool video.<br><br>Must watch.<br><br>https://www.youtube.com/watch?v=-H_0xZHmv-E",
-      "category": "Twitter"
-    },
-    {
-      "title": "Childhood vaccinations are a cornerstone of India\u2019s public health programme, playing an essential role in reducing infant mortality in the country. I...",
-      "link": "https://x.com/dataforin/status/2028675108265713861",
-      "date": "2026-03-03T03:33:31+00:00",
-      "tweet_id": "2028675108265713861",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HCdMfB7akAAwXw4?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Childhood vaccinations are a cornerstone of India\u2019s public health programme, playing an essential role in reducing infant mortality in the country.<br><br>India provides free of cost immunisation against 12 vaccine-preventable diseases under its Universal Immunization Programme (UIP), including vaccines that prevent poliomyelitis, tuberculosis, rotavirus diarrhoea and measles.<br><br>Vaccination coverage has improved sharply over time, especially in rural India. In 1993, fewer than one in three rural children were fully vaccinated. By 2021, this increased to over three in four children in both rural and urban India.<br><br>Even among children who are not fully vaccinated, nearly all have received at least some vaccinations. 'Zero-dose children' is a term used as a measure of lack of access to routine immunisation services. It is defined by the World Health Organization (WHO) as children who have not received the first dose of the DPT vaccine, since this is included in most national immunisation programmes and is one of the first vaccines given across countries. The share of zero-dose children in India is now just 7%.<br><br>How does India compare to other countries in its child immunisation efforts? Read @nileena_suresh's piece to find out: https://www.dataforindia.com/childhood-immunisation/?utm_source=twitter&amp;utm_medium=post <br><br>#Immunisation #PublicHealth #Health #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HCdMfB7akAAwXw4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -9682,36 +10087,6 @@
       "category": "Twitter"
     },
     {
-      "title": "India's roads host nearly 260 million two-wheelers and 50 million cars. This translates to 185 two-wheelers and 34 cars per 1,000 people. Globally, In...",
-      "link": "https://x.com/dataforin/status/2027224783096782947",
-      "date": "2026-02-27T03:30:26+00:00",
-      "tweet_id": "2027224783096782947",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HCImH3KaQAA9J8v?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "India's roads host nearly 260 million two-wheelers and 50 million cars. This translates to 185 two-wheelers and 34 cars per 1,000 people.<br><br>Globally, India has one of the lowest number of registered cars, but highest number of two-wheelers per 1,000 people.<br><br>Advanced economies such as Germany and the UK generally have more cars relative to the population, as compared to two-wheelers. But emerging economies show both trends: South Africa and Brazil have more prevalence of cars, while India and Sri Lanka have a high prevalence of two-wheelers.<br><br>However, these numbers don't tell the complete story, as some households may own multiple vehicles while others have none.<br><br>The Household Consumption Expenditure Survey (HCES) conducted by India\u2019s National Statistics Office provides a more accurate picture of vehicle ownership at the family level. More than half of Indian households own a motorcycle or scooter, while less than one in ten own a car or jeep, according to the 2023 survey.<br><br>How does vehicle ownership look across different regions in India? Read @akwaghmare's piece to learn more: https://www.dataforindia.com/vehicle-ownership/?utm_source=twitter&amp;utm_medium=post <br><br>#TwoWheeler #Car #Vehicle #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HCImH3KaQAA9J8v?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Data For India was launched nearly two years ago to make India's data landscape more accessible, understandable, and useful. Since then, we have publi...",
-      "link": "https://x.com/dataforin/status/2026862308811747722",
-      "date": "2026-02-26T03:30:06+00:00",
-      "tweet_id": "2026862308811747722",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Data For India was launched nearly two years ago to make India's data landscape more accessible, understandable, and useful.<br><br>Since then, we have published 70 in-depth analyses featuring 329 interactive charts, and introduced \"The Big Shift\" \u2014 a weekly subscriber-only newsletter written by our founder, Rukmini S. <br><br>Last year for the first time, we reached out to you \u2014 our readers \u2014 to understand your experience with Data For India.<br><br>Today, we are excited to share the biggest update to Data For India since its launch: a significant redesign focused on making it easier than ever to discover, explore, and understand India through data.<br><br>Read what\u2019s new on the platform: https://www.dataforindia.com/redesign-announcement/?utm_source=twitter&amp;utm_medium=post<br><br>This milestone would not have been possible without the efforts of Gulshan, @pragnya_9 , Apoorv and @Rukmini  from the Data For India team. Special thanks to our design partners Tibba Design Studio who helped bring this vision to life.<br><br>And finally, thank you to you \u2014 our readers. Your curiosity and engagement with India's data continues to drive us forward. <br><br>We would love to hear your thoughts on the redesign, and what you would like to see next. Write to us at info@dataforindia.com.<br><br>Explore the redesigned Data For India platform: https://www.dataforindia.com/?utm_source=twitter&amp;utm_medium=post",
-      "category": "Twitter"
-    },
-    {
       "title": "Looking forward to the conversation",
       "link": "https://x.com/SamitVartak/status/2026226615701885081",
       "date": "2026-02-24T09:24:05+00:00",
@@ -9724,21 +10099,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Looking forward to the conversation<div class=\"rsshub-quote\"><br><br>PMS AIF WORLD:\u2002What does conviction investing in Indian equities look like in 2026?<br><br>@PMS_AIF_World  brings you @SamitVartak  (SageOne Investment Managers) at India\u2019s Largest Alternatives Investment Summit.<br><br>Topic: Thought Leader Lens to Invest in Indian Equities with Conviction in 2026<br><br><img width=\"1600\" height=\"1600\" style=\"\" src=\"https://pbs.twimg.com/media/HB6J8R8boAA12MD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "One of independent India's most remarkable successes has been the vast improvement in its life expectancy. In 1950, a child born in India could expect...",
-      "link": "https://x.com/dataforin/status/2026137509592539386",
-      "date": "2026-02-24T03:30:00+00:00",
-      "tweet_id": "2026137509592539386",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HB1TS6makAAFYA0?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "One of independent India's most remarkable successes has been the vast improvement in its life expectancy. In 1950, a child born in India could expect to live only until the age of 41. By 2024, the life expectancy at birth in India had gone up to 72 years.<br><br>Life expectancy is the average number of years a person would live if they were exposed to the sex- and age-specific death rates prevailing at that time. This data for India and other countries comes from the World Population Prospects, 2024 Revision, published by the United Nations Population Division.<br><br>But if the life expectancy at birth in India is now 72, it doesn't mean that a 70-year-old today can only expect to live two more years.<br><br>Life expectancy at birth is a crude measure, because it averages the death rates for all age groups in a population to produce an estimate of how long a child born in that year could live if the death rates remain unchanged. <br><br>In India, as in most developing countries, mortality rates are high among infants and young children. As a result, life expectancy increases substantially once a person has successfully made it through early childhood. While life expectancy at birth in India is now 72 years, a 15-year-old today can expect to live to be nearly 75. An Indian who has already made it to age 65 can expect to live to be over 81.<br><br>What does life expectancy look like in different regions across India? Read @Rukmini's analysis to find out: https://www.dataforindia.com/life-expectancy/?utm_source=twitter&amp;utm_medium=post<br><br>#LifeExpectancy #Ageing #Population #India #DataForIndia<br><img width=\"1639\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HB1TS6makAAFYA0?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -9769,21 +10129,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Earnings growth picture for Dec'25 quarter vs Dec'24 quarter. Wtd Avg (growth in sum total earnings) is significantly better for the mid and small cap universe. Small cap has an exceptional earnings from Kiri Ind with 5000 cr plus (vs 177 cr year ago) which skews the growth much higher than normal. If you remove that, the wtd avg growth is 14.9%. Median growth reduces influence of such outliers or exceptional items and hence gives a better directional picture. Over all growth is good but nothing exceptional. I believe we should see much improved growth in the Mar'26 quarter as sharp pick up in economic activity (as covered in my last memo) started in the month of December 2025.<br><img width=\"649\" height=\"218\" style=\"\" src=\"https://pbs.twimg.com/media/HB0LDMAaoAA0Xop?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Six in ten workers in India are self-employed, making up the largest category of workers. India's labour statistics define the self-employed as person...",
-      "link": "https://x.com/dataforin/status/2024687956813111587",
-      "date": "2026-02-20T03:30:00+00:00",
-      "tweet_id": "2024687956813111587",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HBhS4DubUAce8EI?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Six in ten workers in India are self-employed, making up the largest category of workers.<br><br>India's labour statistics define the self-employed as persons who operate their own farm or non-farm enterprise, or are engaged independently in a profession or trade on their own, or with one or a few partners in household enterprises.<br><br>Unlike salaried and casual workers, the self-employed are not paid&nbsp; wages, but their earnings come from the profits of the enterprise.<br><br>Self-employment is categorised into three types - own-account workers who run their own enterprise without employees, employers who run the enterprise by hiring paid employees, and unpaid helpers who work in a household enterprise for no wages.<br><br>There is a stark difference between men and women in the way they are self-employed. Half of all self-employed women are unpaid helpers, who work for household enterprises owned typically by a family member, for no wages. Three out of four self-employed men, on the other hand, are own-account workers who run their own enterprises.<br><br>Only 6% of the self-employed hire other paid workers, and this share is even lower among self-employed women.<br><br>How has the share of self-employed women who are paid for their work changed over time? Read @akwaghmare\u2019s piece to find out: https://www.dataforindia.com/self-employment/?utm_source=twitter&amp;utm_medium=post<br><br>#Employment #SelfEmployment #Work #India #DataForIndia<br><img width=\"1639\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HBhS4DubUAce8EI?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -9859,21 +10204,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Capt Venkat \ud83c\uddee\ud83c\uddf3<br>My wife wasn\u2019t keen on online schooling or homeschooling Laksh.<br><br>I didn\u2019t argue.<br>Laksh and I kept building. Every day. For four years.<br><br>Today she says,<br>\u201cRegular school isn\u2019t helping him. Let\u2019s give him a better platform.\u201d<br><br>Consistency wins. \ud83d\ude07",
-      "category": "Twitter"
-    },
-    {
-      "title": "One of the most remarkable stories of change in India has been the successful effort to bring most children into schools. To understand how many child...",
-      "link": "https://x.com/dataforin/status/2023600793174307112",
-      "date": "2026-02-17T03:30:00+00:00",
-      "tweet_id": "2023600793174307112",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HBR1AVOaMAAYulE?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "One of the most remarkable stories of change in India has been the successful effort to bring most children into schools.<br><br>To understand how many children in a particular educational level are in school, we look at a measure called the enrolment ratio. The Gross Enrolment Ratio (GER) is the number of children enrolled in an education level relative to their population. Over time, the GER in India has risen across all education levels, but most substantially at the elementary level (Grades 1-8).<br><br>At the primary level (Grades 1 to 5), India's gross enrolment ratio is now more than 100%. This is&nbsp; a result of some underage or overage children being enrolled in primary classes. Even at the upper primary level (Grades 6-8), the gross enrolment ratio has reached 95% as of 2021.<br><br>Beyond the overall growth in enrolment ratios lies yet another significant achievement - the closing of the gender gap in enrolment.<br><br>In 1951, fewer than three in ten girls were enrolled at the primary level of education against six in ten for boys. At the upper primary level, girls were virtually absent - less than 5% were enrolled. This gap has now been closed; an equal or slightly higher proportion of female students as compared to male students are now enrolled at both stages.<br><br>How does India\u2019s GER compare to other countries across education levels? Read @akwaghmare's piece to find out: https://www.dataforindia.com/enrolment-in-education/?utm_source=twitter&amp;utm_medium=post<br><br>#Enrolment #Education #HigherEducation #India #DataForIndia<br><img width=\"960\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HBR1AVOaMAAYulE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
