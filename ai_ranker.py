@@ -38,9 +38,9 @@ OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 MODELS = {
-    "gemini-3-flash": {
-        "id": "gemini-3-flash-preview",
-        "name": "Gemini 3.0 Flash",
+    "gemini-2-5-flash": {
+        "id": "gemini-2.5-flash",
+        "name": "Gemini 2.5 Flash",
         "provider": "gemini",
     },
     "deepseek-v3": {

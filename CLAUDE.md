@@ -202,7 +202,7 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 | Workflow | Schedule | What it does |
 |----------|----------|-------------|
 | `hourly.yml` | Every hour | telegram_fetcher → aggregator → commit + push |
-| `ai-ranking.yml` | 4x daily (UTC 0,6,12,18) | ai_ranker → wsw_ranker → commit + push |
+| `ai-ranking.yml` | 2x daily (UTC 10, 22) | ai_ranker → wsw_ranker → commit + push. Targets 6 AM / 6 PM IST completion (cron offset 2.5 hrs earlier for Actions delay) |
 | `missing-story-audit.yml` | Daily UTC 00:30 | Audit 7-day SLA breaches |
 | `deploy-rss-proxy.yml` | Manual | Deploy Cloudflare RSS proxy worker |
 
@@ -225,5 +225,5 @@ Key constants: `FEED_FETCH_TIMEOUT=15`, `FEED_THREAD_WORKERS=10`, `NEWS_FRESHNES
 AI ranker bucket targets are in `ai_ranker.py:BUCKET_TARGETS` (news=25, telegram=20, reports=10, twitter=10, youtube=10). Clustering constants: `AI_RANKER_MAX_CLUSTERS`, `AI_RANKER_MIN_CLUSTER_SIZE`, `AI_RANKER_CLUSTER_TIMEOUT`.
 
 ## API Integration
-- Always verify the correct Gemini model IDs before making API calls. Use `gemini-1.5-flash` or `gemini-1.5-pro` (not legacy names). Test API calls with a simple request before integrating.
+- Always verify the correct Gemini model IDs before making API calls. The AI ranker currently uses `gemini-2.5-flash` (see `ai_ranker.py:MODELS`); confirm any swap against the latest ai.google.dev pricing page. Test API calls with a simple request before integrating.
 - AI rankers (`ai_ranker.py`, `wsw_ranker.py`) use both Gemini and OpenRouter (DeepSeek). Both API keys are required for full multi-provider operation; single-provider degradation is handled gracefully.

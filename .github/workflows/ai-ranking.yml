@@ -2,12 +2,11 @@ name: AI News Ranking
 
 "on":
   schedule:
-    # 4x daily refresh for Home Spotlight + AI sidebar
-    # IST: 5:30, 11:30, 17:30, 23:30
-    - cron: "0 0 * * *"
-    - cron: "0 6 * * *"
-    - cron: "0 12 * * *"
-    - cron: "0 18 * * *"
+    # 2x daily refresh for Home Spotlight + AI sidebar.
+    # Target completion: 6:00 AM IST (00:30 UTC) and 6:00 PM IST (12:30 UTC).
+    # Offset ~2.5 hrs earlier to absorb GitHub Actions cron delay.
+    - cron: "0 10 * * *"   # fires 10:00 UTC → ready ~6:00 PM IST
+    - cron: "0 22 * * *"   # fires 22:00 UTC → ready ~6:00 AM IST next day
   workflow_dispatch:
 
 concurrency:
