@@ -545,6 +545,7 @@ def call_gemini(prompt, model_id):
             "temperature": 0.4,
             "maxOutputTokens": 8192,
             "response_mime_type": "application/json",
+            "thinkingConfig": {"thinkingBudget": 0},
         },
     }
     request = urllib.request.Request(
@@ -569,7 +570,7 @@ def call_gemini(prompt, model_id):
         print("    [WARN] Gemini hit token limit — response may be truncated")
 
     parts = (candidate.get("content") or {}).get("parts") or []
-    text = " ".join(part.get("text", "") for part in parts if isinstance(part, dict) and part.get("text"))
+    text = " ".join(part.get("text", "") for part in parts if isinstance(part, dict) and part.get("text") and not part.get("thought"))
     if not text.strip():
         raise ValueError(f"Gemini returned empty text (finishReason={finish_reason})")
     return parse_json_response(text)
