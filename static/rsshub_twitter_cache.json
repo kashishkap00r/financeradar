@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-15T17:56:31.641036+00:00",
+  "generated_at": "2026-04-15T18:47:00.126065+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 48,
     "handles_empty": 1,
     "handles_error": 0,
-    "items_total": 777
+    "items_total": 776
   },
   "items": [
     {
@@ -79,6 +79,34 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002snoopy and friends<br>April 14,1961<br><img width=\"900\" height=\"192\" style=\"\" src=\"https://pbs.twimg.com/media/HF2V_-YXIAAoqKl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "This is also partly why government has been pushing for larger Indian-owned consulting firms.",
+      "link": "https://x.com/menakadoshi/status/2044484617496105320",
+      "date": "2026-04-15T18:34:52+00:00",
+      "tweet_id": "2044484617496105320",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "This is also partly why government has been pushing for larger Indian-owned consulting firms.<div class=\"rsshub-quote\"><br><br>Piyush Gambhir\ud83c\uddf5\ud83c\uddf8:\u2002Yamini Aiyar has been writing on this since the past few years.<br></div>"
+    },
+    {
+      "title": "RT Holger Zschaepitz: OOPS! The S&P 500 briefly touched a new record intraday high over 7,003.",
+      "link": "https://x.com/menakadoshi/status/2044478525575729248",
+      "date": "2026-04-15T17:57:14+00:00",
+      "tweet_id": "2044478525575729248",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HF9vLPcWEAAykI6?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Holger Zschaepitz<br>OOPS! The S&amp;P 500 briefly touched a new record intraday high over 7,003.<br><img width=\"2048\" height=\"1145\" style=\"\" src=\"https://pbs.twimg.com/media/HF9vLPcWEAAykI6?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT Al Jazeera Breaking News: Prime Minister Giorgia Meloni says Italy is suspending its defence agreement with Israel as global protests mount over th...",
@@ -249,34 +277,6 @@
       "description_html": "RT\u2002Vali Nasr<br>I told @nytimes that the size and composition of Iran\u2019s delegation shows \u201cthat they have not come to stonewall,\u201d but are there with full authority and seriousness to reach a deal with the United States. Such a large delegation of experts would only be deployed if negotiations were in the final stages of a deal, not for an initial testing of the waters. Tehran and Washington might have advanced in talks further than publicly known during back-channel messaging mediated by Pakistan over the past weeks.\u201d https://www.nytimes.com/2026/04/11/world/middleeast/iran-delegation-pakistan-us.html?smid=url-share"
     },
     {
-      "title": "US Treasury Secretary Scott Bessent and Federal Reserve Chair Jerome Powell summoned Wall Street leaders to give them an urgent warning. An artificial...",
-      "link": "https://x.com/menakadoshi/status/2042873555076182341",
-      "date": "2026-04-11T07:53:04+00:00",
-      "tweet_id": "2042873555076182341",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "US Treasury Secretary&nbsp;Scott Bessent&nbsp;and Federal Reserve Chair&nbsp;Jerome Powell&nbsp;summoned Wall Street leaders to give them an&nbsp;urgent warning.<br><br>An artificial intelligence tool from&nbsp;Anthropic PBC - Mythos -&nbsp;marks the beginning of a new era of cybersecurity.<br><br>What is Mythos?<br><br>Claude Mythos Preview is a general purpose AI model that Anthropic says significantly outperforms prior offerings on a range of benchmarks, including for coding and reasoning. The company says it\u2019s so powerful that it has decided not to release it to the public.&nbsp;<br><br>Here's an explainer<br>https://www.bloomberg.com/news/articles/2026-04-10/mythos-why-anthropic-s-new-ai-has-officials-worried"
-    },
-    {
-      "title": "\"The total MTF book has grown by nearly 59 per cent since April 2025, from under Rs 70,000 crore to approximately Rs 1.1 lakh crore. More troublingly,...",
-      "link": "https://x.com/menakadoshi/status/2042863991748464730",
-      "date": "2026-04-11T07:15:04+00:00",
-      "tweet_id": "2042863991748464730",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "\"The total MTF book has grown by nearly 59 per cent since April 2025, from under Rs 70,000 crore to approximately Rs 1.1 lakh crore. More troublingly, a significant portion of these borrowed positions sits in relatively illiquid stocks, where MTF outstanding is many times the daily trading volume.\" <br><br>Important read.<div class=\"rsshub-quote\"><br><br>Dhirendra Kumar:\u2002http://x.com/i/article/2042856172466900995<br></div>"
-    },
-    {
       "title": "RT menaka doshi: Re Sign up for India Edition here https://www.bloomberg.com/account/newsletters/india-edition?source=NLshare",
       "link": "https://x.com/menakadoshi/status/2042967938710614408",
       "date": "2026-04-10T19:22:29+00:00",
@@ -289,20 +289,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002menaka doshi<br>Re Sign up for India Edition here<br><br>https://www.bloomberg.com/account/newsletters/india-edition?source=NLshare"
-    },
-    {
-      "title": "RT The Hindu: A total of 149 leopards died in Madhya Pradesh over the 14 months starting January last year, with accidents accounting for the highest ...",
-      "link": "https://x.com/menakadoshi/status/2042873993955545295",
-      "date": "2026-04-10T10:12:40+00:00",
-      "tweet_id": "2042873993955545295",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002The Hindu<br>A total of 149 leopards died in Madhya Pradesh over the 14 months starting January last year, with accidents accounting for the highest number of fatalities, according to data provided in response to an RTI query.<br>https://www.thehindu.com/sci-tech/energy-and-environment/149-leopards-died-in-madhya-pradesh-in-14-months-accidents-major-cause/article70846698.ece"
     },
     {
       "title": "RT menaka doshi: I\u2019ve spent the last month asking women in India about the size of their vanity kits. Ratna, 22, lives in a Mumbai shanty town and cl...",
@@ -2363,6 +2349,20 @@
       "description_html": "Analysis-Foreign investors grow more wary of India as #FX curbs hit bonds, earnings risks haunt equities<br><br>https://www.cnbctv18.com/market/analysis-foreign-investors-grow-more-wary-of-india-as-fx-curbs-hit-bonds-earnings-risks-haunt-equities-ws-l-19887173.htm"
     },
     {
+      "title": "#MarkMobius, pioneer of emerging markets investing, dies at 89 https://economictimes.indiatimes.com/markets/us-stocks/news/mark-mobius-pioneer-of-emer...",
+      "link": "https://x.com/ETMarkets/status/2044476862228009342",
+      "date": "2026-04-15T18:04:03+00:00",
+      "tweet_id": "2044476862228009342",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#MarkMobius, pioneer of emerging markets investing, dies at 89<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/mark-mobius-pioneer-of-emerging-markets-investing-dies-at-89/articleshow/130290715.cms"
+    },
+    {
       "title": "#Delhivery block deals worth Rs 186 crore see Goldman Sachs, Morgan Stanley, MFs step in; #Nexus sells stake https://economictimes.indiatimes.com/mark...",
       "link": "https://x.com/ETMarkets/status/2044451161223340376",
       "date": "2026-04-15T16:21:55+00:00",
@@ -2599,20 +2599,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#ClosingBell: #Sensex zooms 1,207 pts, #Nifty ends above 24,200; #Eternal, #IndiGo jump 4% each<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-ril-tcs-share-price-15-april-2026/liveblog/130271139.cms<br><img width=\"922\" height=\"387\" style=\"\" src=\"https://pbs.twimg.com/media/HF8CbMYacAAeW1k?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "12 #stocks held by 100+ MFs surge up to 55% in just over 3 months #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/12-stocks-held-b...",
-      "link": "https://x.com/ETMarkets/status/2044355054367351273",
-      "date": "2026-04-15T10:00:01+00:00",
-      "tweet_id": "2044355054367351273",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "12 #stocks held by 100+ MFs surge up to 55% in just over 3 months<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/12-stocks-held-by-100-mfs-surge-up-to-55-in-just-over-3-months/mf-darlings/slideshow/130279688.cms"
     },
     {
       "title": "Why 27th April is imp for Iran ? Iran\u2019s oil system is built for flow\u2014not storage. A) It produces ~3.2 million barrels per day, consumes ~1.7 million...",
@@ -4015,6 +4001,20 @@
       "description_html": "RT\u2002Nicholas Fabiano, MD<br>You are one walk away from a better day.<br><img width=\"1024\" height=\"571\" style=\"\" src=\"https://pbs.twimg.com/media/HFJc8l1XIAAkkf_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "RT \u092e\u0919\u094d\u0917\u0932\u092e\u094d: Vishu a happy Wishu! \ud83d\ude4f\ud83c\udffc\u263a\ufe0f Take this lovely traditional song rendered by this amazing couple! Krupa and Bhargav. May Sri Gur...",
+      "link": "https://x.com/sanjeevsanyal/status/2044487190462533861",
+      "date": "2026-04-15T04:28:53+00:00",
+      "tweet_id": "2044487190462533861",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2044271616004370435/img/IUd2sOAZUQ195zLV.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002\u092e\u0919\u094d\u0917\u0932\u092e\u094d<br>Vishu a happy Wishu! \ud83d\ude4f\ud83c\udffc\u263a\ufe0f <br><br>Take this lovely traditional song rendered by this amazing couple! Krupa and Bhargav. <br><br>May Sri Guruvayurappa bless Keralam and all the Astikas in their duty to protect Sanatana Dharma! <br><br>\u263a\ufe0f\ud83d\ude4f\ud83c\udffc\u263a\ufe0f\ud83d\ude4f\ud83c\udffc\u263a\ufe0f<br><video width=\"360\" height=\"640\" src=\"https://video.twimg.com/amplify_video/2044271616004370435/vid/avc1/360x640/7C1EETLHuqrryUTm.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2044271616004370435/img/IUd2sOAZUQ195zLV.jpg\"></video>"
+    },
+    {
       "title": "Shubho Nabo Borsho !!! Have a great year ahead\u2026 \u09b8\u09ac\u09be\u0987\u0995\u09c7 \u099c\u09be\u09a8\u09be\u0987 \u09b6\u09c1\u09ad \u09a8\u09ac\u09ac\u09b0\u09cd\u09b7\u09c7\u09b0 \u09aa\u09cd\u09b0\u09c0\u09a4\u09bf \u0993 \u09b6\u09c1\u09ad\u09c7\u099a\u09cd\u099b\u09be \ud83d\ude4f\ud83d\ude4f\ud83d\ude4f \u0964\u0964\u0964...",
       "link": "https://x.com/sanjeevsanyal/status/2044240831687864530",
       "date": "2026-04-15T02:26:09+00:00",
@@ -4253,20 +4253,6 @@
       "description_html": "RT\u2002The Khel India<br>\ud83d\udea8 SUJEET KALKAL IS ASIAN CHAMPION \ud83c\udfc6\ud83e\udd47<br><br>Defeated Umidjon Jalolov \ud83c\uddfa\ud83c\uddff 8-1 in Men's 65kg Final at the Asian Championship 2026! \ud83d\udd25<br><br>3rd Gold of the season for him, Well Done! \ud83c\uddee\ud83c\uddf3\u2764\ufe0f<br><video width=\"1080\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2042949618015571968/vid/avc1/1080x1080/RtulwdxyowthnKXC.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2042949618015571968/img/sbgWgP3BOg4EdTZ1.jpg\"></video>"
     },
     {
-      "title": "Cannot get over that return \u2026 just too good",
-      "link": "https://x.com/sanjeevsanyal/status/2042918597606150327",
-      "date": "2026-04-11T10:52:03+00:00",
-      "tweet_id": "2042918597606150327",
-      "source": "Sanjeev Sanyal",
-      "publisher": "Sanjeev Sanyal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2042684392179666944/img/n1xNgdLCgNcOM_Nh.jpg",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Cannot get over that return \u2026 just too good<div class=\"rsshub-quote\"><br><br>\ud83c\uddee\ud83c\uddf3 Rupen Chowdhury \ud83d\udea9:\u2002A 20 year old Indian Badminton talent Ayush Shetty beats WR7 &amp; Li Shi Feng at Asia Badminton Championship !! \ud83c\uddee\ud83c\uddf3\ud83d\udd25<br><br>Look at his confidence !! \ud83d\udd25\ud83d\udd25<br><br><video width=\"416\" height=\"368\" src=\"https://video.twimg.com/amplify_video/2042684392179666944/vid/avc1/416x368/VXeNsWIad3T22m7n.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2042684392179666944/img/n1xNgdLCgNcOM_Nh.jpg\"></video></div>"
-    },
-    {
       "title": "RT Ricardo: In 19 days, a jury in Oakland is going to decide whether the entire legal foundation of the AI industry is built on fraud. Everyone thinks...",
       "link": "https://x.com/sanjeevsanyal/status/2042919485590638889",
       "date": "2026-04-08T13:43:15+00:00",
@@ -4279,6 +4265,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Ricardo<br>In 19 days, a jury in Oakland is going to decide whether the entire legal foundation of the AI industry is built on fraud.<br><br>Everyone thinks the Musk vs Altman lawsuit is a billionaire grudge match. <br><br>Two egos, one grudge, a $150 billion damages number designed for headlines. <br><br>Easy to dismiss. Easy to scroll past.<br><br>That's exactly what Altman wants you to think.<br><br>Because what's actually on trial on April 27 is something much BIGGER than Elon's hurt feelings...<br><br>A jury is going to decide whether you can legally take billions of dollars in nonprofit donations, use them to build the most valuable technology in human history, and then quietly convert that nonprofit into a for-profit company worth $850 billion.<br><br>If the answer is no, the entire AI industry has a problem.<br><br>Because OpenAI is not the only company that did this:<br><br>Anthropic was founded by OpenAI defectors using the same nonprofit-first mission language. <br><br>xAI pitches itself as building AI \"for humanity.\" <br><br>Every frontier lab has used the moral cover of \"we're doing this for the good of the world\" to attract talent, capital, and regulatory goodwill they would have never gotten otherwise.<br><br>An Elon win doesn't just touch OpenAI. It creates a legal precedent that every AI company built on a nonprofit or public benefit promise becomes vulnerable to shareholder and donor clawback suits.<br><br>That's why this case matters. And that's why Altman is panicking.<br><br>Just look at what he did this week:<br><br>Elon filed a motion demanding the court remove Altman and Brockman from their roles and FORCE OpenAI to return to its nonprofit origins. <br><br>Then he amended the suit to say if he wins the $150 billion, all of it goes to OpenAI's charity arm. Not him. Zero dollars to Elon personally.<br><br>That amendment was surgical. It stripped Altman of his entire public defense. <br><br>He can no longer claim this is about Elon's ego or Elon's bank account. Elon is now legally on record saying he just wants the mission back.<br><br>OpenAI's response was to panic-write a letter to the California and Delaware attorneys general asking them to investigate Elon for \"anti-competitive behavior.\" Their strategy chief publicly accused Elon of coordinating attacks with Mark Zuckerberg. <br><br>They called the lawsuit \"harassment driven by ego and jealousy.\"<br><br>That's NOT the response of a company that thinks it's going to win.<br><br>Real companies with real defenses don't ask the government to silence the person suing them 3 weeks before trial. They let the evidence speak. <br><br>OpenAI is scrambling because they know what's in discovery.<br>Elon's team has been building this case for two years. Emails, board minutes, internal conversations about the conversion. <br><br>The kind of paper trail that juries understand and executives can't explain away.<br><br>And the timing couldn't be worse...<br><br>OpenAI is trying to IPO at $852 billion. They just raised $122 billion. Microsoft has $135 billion of exposure to them. <br><br>A jury verdict that even partially sides with Elon in late April or May would crater the entire IPO runway and send shockwaves through every major AI investor on Earth.<br><br>This is why Altman spent the last 2 weeks doing press tours and policy blueprints and \"super intelligence agendas\" aimed at Washington. He's trying to REFRAME himself as the responsible statesman of AI right before a jury decides if he's a con artist.<br><br>Most people will watch this trial start and think it's celebrity drama.<br><br>The smart money is watching it and realizing that the legal foundation of the AI boom is about to be tested in court for the first time EVER.<br><br>And if that foundation cracks, everything built on top of it is at risk.<br><video width=\"1918\" height=\"1080\" src=\"https://video.twimg.com/ext_tw_video/2041874376065519616/pu/vid/avc1/1918x1080/DPZdf4NUBMbEcVa5.mp4?tag=19\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2041874376065519616/pu/img/HA-J2sgXuApkv_7v.jpg\"></video>"
+    },
+    {
+      "title": "Analysis: How \u2018plug-in solar\u2019 can save UK homes \u00a31,100 on energy bills | Ho Woo Nam Read here: https://buff.ly/tzsbtWT",
+      "link": "https://x.com/CarbonBrief/status/2044486420123783609",
+      "date": "2026-04-15T18:42:01+00:00",
+      "tweet_id": "2044486420123783609",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HF95kHvX0AA4U3A?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Analysis: How \u2018plug-in solar\u2019 can save UK homes \u00a31,100 on energy bills | Ho Woo Nam <br><br>Read here: https://buff.ly/tzsbtWT<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HF95kHvX0AA4U3A?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Analysis: How Chinese media is covering the Iran energy crisis | @_AN_Patel Read here: https://buff.ly/wsqwWm7",
@@ -4545,20 +4545,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "IPCC: \u2018Frustrating and disappointing\u2019 meeting leaves AR7 timeline in deadlock <br><br>\u270d\ufe0f @AyeshaTandon Cecilia Keating @daisydunnesci<br><br>Read here: https://buff.ly/U8GS4w1<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HF4IJtqXcAECsDh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "How wildfires and storms drove insurance losses in 2025 \u2013 in three charts | @orladwyer_ Ho Woo Nam Read here: https://buff.ly/0XOfI5t",
-      "link": "https://x.com/CarbonBrief/status/2044061875055313208",
-      "date": "2026-04-14T14:35:02+00:00",
-      "tweet_id": "2044061875055313208",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HF33cVCXUAAUhwY?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "How wildfires and storms drove insurance losses in 2025 \u2013 in three charts | @orladwyer_ Ho Woo Nam <br><br>Read here: https://buff.ly/0XOfI5t<br><img width=\"2048\" height=\"776\" style=\"\" src=\"https://pbs.twimg.com/media/HF33cVCXUAAUhwY?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "The 1970s fossil shocks led to a peak in per capita fossil consumption. Today, scalable, cost-effective #electrotech alternatives are set to accelerat...",
@@ -8075,6 +8061,48 @@
       "description_html": "RT\u2002CNBC-TV18<br>A simple phone call, a moment of panic\u2014and your money is gone. India is seeing a massive surge in digital payment scams. \u26a0\ufe0f\ud83d\udcf2<br><br>Now, the RBI is stepping in with big changes that could completely reshape how you send money. @_RituSingh  explains<br><br>Watch: https://youtu.be/n3BC1UR1SdU<br><br>#RBI #ScamAlert #DigitalFraud #UPI #CyberSecurity #India #OnlineSafety #FinTech #Banking #StayAlert #CNBCTV18Digital"
     },
     {
+      "title": "Going to start writing about my learnings from books / podcasts that I really like , what say ? Just as a daily small note of wisdom we can learn from...",
+      "link": "https://x.com/EquityValueIn/status/2044480704843800657",
+      "date": "2026-04-15T18:19:19+00:00",
+      "tweet_id": "2044480704843800657",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Going to start writing about my learnings from books / podcasts that I really like , what say ? Just as a daily small note of wisdom we can learn from the best in the business ?"
+    },
+    {
+      "title": "Time adjusted returns are very important when trying to be contrarian or picking a cycle , because opportunity cost of capital in India is high , we h...",
+      "link": "https://x.com/EquityValueIn/status/2044480407664791612",
+      "date": "2026-04-15T18:18:08+00:00",
+      "tweet_id": "2044480407664791612",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Time adjusted returns are very important  when trying to be contrarian or picking a cycle , because opportunity cost of capital in India is high , we have to be good capital allocators to make our money return the best for us , especially for individual investors use the edge in your favor <br><br> No point of making 2 x after waiting for 5 years , the rate of change in the Expected return  framework has to account for opportunity cost of capital , this is usually forgotten by many when allocating capital and then fall short of returns in the name of conviction , the price to reward of conviction must be analyzed  <br><br> 2 things , especially a framework where  either I am paid to wait , or the rate of positive optionality in 2-3 years is so high that the return profile of the waiting period is justified as a % of portfolio , and hence focusing on  the art of portfolio construction is more important than picking stocks"
+    },
+    {
+      "title": "Must read , don't make these mistakes , use the edge of an individual investor!",
+      "link": "https://x.com/EquityValueIn/status/2044479967728488826",
+      "date": "2026-04-15T18:16:23+00:00",
+      "tweet_id": "2044479967728488826",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HF9zsKPbEAAfUtj?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Must read , don't make these mistakes , use the edge of an individual investor!<br><img width=\"1213\" height=\"496\" style=\"\" src=\"https://pbs.twimg.com/media/HF9zsKPbEAAfUtj?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "This is definitely going to get interesting !",
       "link": "https://x.com/EquityValueIn/status/2044468046195265741",
       "date": "2026-04-15T17:29:01+00:00",
@@ -8311,48 +8339,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Data Center Valuation , by KKR <br><br>Build , lease , stabilize , annuity <br><br>saw this on @TheIcahnist<br><img width=\"900\" height=\"585\" style=\"\" src=\"https://pbs.twimg.com/media/HF62MFaaoAAw9dc?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Rewarded very well , congrats folks , what a month its been for the portfolio and coverage! When we had to accumulate we did ,just NIFTY is up almost ...",
-      "link": "https://x.com/EquityValueIn/status/2044271125816119449",
-      "date": "2026-04-15T04:26:31+00:00",
-      "tweet_id": "2044271125816119449",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HEE_dU5aEAAHlWC?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Rewarded very well , congrats folks , what a month its been for the portfolio and coverage! <br><br>When we had to accumulate we did ,just  NIFTY is up almost 2k points from my note , portfolios doing really well ! <br><br>One battle after another !<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002My Latest Substack Article , Understanding the Edge , incomplete information and learning from history <br><br>https://open.substack.com/pub/valueequityin/p/understanding-the-edge-incomplete?r=7dokv9&amp;utm_campaign=post&amp;utm_medium=web&amp;showWelcomeOnShare=true<br><br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HEE_dU5aEAAHlWC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "Windlas Biotech , doing a buyback of shares , interesting , looks like they did not find suitable acquisition candidate in EU for now , ready for Q4 d...",
-      "link": "https://x.com/EquityValueIn/status/2044115693696889054",
-      "date": "2026-04-14T18:08:53+00:00",
-      "tweet_id": "2044115693696889054",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HF4nu5TasAIB6T5?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Windlas Biotech , doing a buyback of shares , interesting , looks like they did not find suitable acquisition candidate in EU for now , ready for Q4 <br><br>disc: invested and biased at 750 , no fresh reco , no financial advice<br><img width=\"724\" height=\"843\" style=\"\" src=\"https://pbs.twimg.com/media/HF4nu5TasAIB6T5?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Windlas Biotech Q3FY26 concall notes, my notes from the call just concluded <br><br>disc: invested and biased at 745, no fresh reco , no financial advice<br><br><img width=\"576\" height=\"391\" style=\"\" src=\"https://pbs.twimg.com/media/HAdT601bwAABNeO?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"531\" height=\"358\" style=\"\" src=\"https://pbs.twimg.com/media/HAdT96hbAAACuaJ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "Books must read , and recent podcast's I have been listening to All of Nassim Nicholas Taleb, Investing from Darwin Pulak prasad , Richer Wiser happie...",
-      "link": "https://x.com/EquityValueIn/status/2044113824073347153",
-      "date": "2026-04-14T18:01:28+00:00",
-      "tweet_id": "2044113824073347153",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Books must read , and recent podcast's I have been listening to <br><br> All of Nassim Nicholas Taleb, Investing from  Darwin Pulak prasad , Richer Wiser happier,   and Books on Probabilities and financial history of central banks and Capital returns to understand capital cycles and understanding evolution <br><br>Nick sleep letters , Peter Theil , and I really like The founders podcast my latest favorite that I am obsessed with listening to , just heard the Larry Ellison one yesterday  and Rockefeller one today , absolute gems"
     },
     {
       "title": "Monsoon forecasts and Projections are just for economists. Hardly has there been any impact on agricultural growth and almost no impact on India marke...",
@@ -10651,6 +10637,48 @@
       "description_html": "RT\u2002Lenny Rachitsky<br>Breaking: Anthropic is now at $30B ARR.<br><br>Up from $19B in February.<br><br>That's $11B ARR added in one month.<br><br>WAT.<br><img width=\"1332\" height=\"368\" style=\"\" src=\"https://pbs.twimg.com/media/HFQTahza4AAlw-L?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Lenny Rachitsky:\u2002Anthropic is on an unprecedented growth run.<br><br>Just in the past year they grew from $1B to $19B ARR. They added $6B in ARR just in *February*. Companies like Palantir and Atlassian took 15-20 years to reach ~$5B ARR. Anthropic is adding that every month.<br><br>Amol Avasare is head of<br></div>"
     },
     {
+      "title": "The US-China \"Board of Trade\" floated by the president & USTR would be \"changing a market system, which has worked very well for the US for 250 years,...",
+      "link": "https://x.com/PIIE/status/2044483649844744325",
+      "date": "2026-04-15T18:31:01+00:00",
+      "tweet_id": "2044483649844744325",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The US-China \"Board of Trade\" floated by the president &amp; USTR would be \"changing a market system, which has worked very well for the US for 250 years, to one where everything goes through Trump,\u201d Mary Lovely says, &amp; opens up room for corruption. <br>https://www.nytimes.com/2026/04/14/business/dealbook/stocks-us-iran-war.html"
+    },
+    {
+      "title": "RT Jos\u00e9 Luis Escriv\u00e1: Several central bankers, myself included, discussed decision\u2011making in today\u2019s uncertain environment at @PIIE. I focused on ...",
+      "link": "https://x.com/PIIE/status/2044487187467550785",
+      "date": "2026-04-15T18:16:30+00:00",
+      "tweet_id": "2044487187467550785",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Jos\u00e9 Luis Escriv\u00e1<br>Several central bankers, myself included, discussed decision\u2011making in today\u2019s uncertain environment at @PIIE.<br><br>I focused on a tool I find particularly useful: defining alternative scenarios.<br><br>The challenge lies in designing them properly.<br><br>\ud83e\uddf5\ud83d\udc47"
+    },
+    {
+      "title": "RT IMF: LIVE NOW: @KGeorgieva, @bankofengland Governor Bailey, @ProfKForbes, and @AdamPosen debate why the gap between surplus and deficit economies i...",
+      "link": "https://x.com/PIIE/status/2044478405035397156",
+      "date": "2026-04-15T18:00:25+00:00",
+      "tweet_id": "2044478405035397156",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002IMF<br>LIVE NOW: @KGeorgieva, @bankofengland Governor Bailey, @ProfKForbes, and @AdamPosen debate why the gap between surplus and deficit economies is widening and what policy priorities can deliver stability and growth. @greg_ip moderates. https://x.com/i/broadcasts/1qJDzPmXDzvKV"
+    },
+    {
       "title": "\ud83c\udf38Watch now: https://www.youtube.com/watch?v=hbEeO5fT3qM",
       "link": "https://x.com/PIIE/status/2044467086454337595",
       "date": "2026-04-15T17:25:12+00:00",
@@ -10845,48 +10873,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Ownership of global petrochemical firms does not equal control. Chinese &amp; other Asian investors exert significant control, while US investors exercise limited control due to reliance on passive investments. Saudi Arabia fully controls its investments.https://www.piie.com/publications/working-papers/2026/who-controls-global-petrochemical-industry-and-how-might-change"
-    },
-    {
-      "title": "ICYMI: @ojblanchard1 joined PIIE Insider LIVE to explain why he's \"reasonably optimistic\" about Europe's future, how the EU manages to get 27 countrie...",
-      "link": "https://x.com/PIIE/status/2044090456116535442",
-      "date": "2026-04-14T16:28:36+00:00",
-      "tweet_id": "2044090456116535442",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "ICYMI: @ojblanchard1 joined PIIE Insider LIVE to explain why he's \"reasonably optimistic\" about Europe's future, how the EU manages to get 27 countries to cooperate, what's next for populism, &amp; more. <br>Watch here: https://www.youtube.com/watch?v=g17Em78wOeo"
-    },
-    {
-      "title": "It has been a common belief that somehow \"offshore\" dollars, including the dollar reserves held by non-US authorities, have to \"leave\" the US through ...",
-      "link": "https://x.com/PIIE/status/2044042491645640836",
-      "date": "2026-04-14T13:18:01+00:00",
-      "tweet_id": "2044042491645640836",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "It has been a common belief that somehow \"offshore\" dollars, including the dollar reserves held by non-US authorities, have to \"leave\" the US through US current account deficits. This belief is dead wrong.<br>Maurice Obstfeld explains: https://www.piie.com/blogs/realtime-economics/2026/dont-blame-americas-current-account-deficit-dollar"
-    },
-    {
-      "title": "RT VoxEU: New VoxTalks Economics: Global Imbalances Redux Since the 1970s, global imbalances surged three times. Maurice Obstfeld (@PIIE) joins @timsv...",
-      "link": "https://x.com/PIIE/status/2044061366843998497",
-      "date": "2026-04-14T11:01:08+00:00",
-      "tweet_id": "2044061366843998497",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HF3Ge6rW8AAeBCj?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002VoxEU<br>New VoxTalks Economics: Global Imbalances Redux<br><br>Since the 1970s, global imbalances surged three times. Maurice Obstfeld (@PIIE) joins @timsvengali to discuss their return, with the US current account deficit at 3.9% of GDP in 2025.<br><br>Listen: https://ow.ly/biyU50YIL9S<br><img width=\"1200\" height=\"675\" style=\"\" src=\"https://pbs.twimg.com/media/HF3Ge6rW8AAeBCj?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     }
   ]
 }
