@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T14:46:53.866455+00:00",
+  "generated_at": "2026-04-17T15:47:26.039622+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -10,6 +10,20 @@
     "items_total": 771
   },
   "items": [
+    {
+      "title": "CER: \"There is obviously to some extent a relationship between China's GDP growth number and the real economy. Although we don\u2019t know exactly how clo...",
+      "link": "https://x.com/michaelxpettis/status/2045153766605807673",
+      "date": "2026-04-17T14:53:49+00:00",
+      "tweet_id": "2045153766605807673",
+      "source": "Michael Pettis",
+      "publisher": "Michael Pettis",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "CER: \"There is obviously to some extent a relationship between China's GDP growth number and the real economy. Although we don\u2019t know exactly how closely those two things match.\"<br>https://chinaeconomicreview.substack.com/p/numbers-numbers"
+    },
     {
       "title": "Very good Brad Setser interview on global imbalances. https://www.ft.com/content/5a6382c3-ee71-4b25-b3fe-002265f96bde via @ft",
       "link": "https://x.com/michaelxpettis/status/2045038232090325121",
@@ -1607,6 +1621,20 @@
       "description_html": "Unless you build, you don't learn. If you are using Codex or Claude Code or even Git agents, always have two files: <br>1. Architecture md: describes every architecture decision, what to build &amp; the sequence of build. If you close VSCode &amp; there is no session memory, this file is your savior. <br>2. Decisions md: make sure your codegen write every decision it made into a decisions markdown. Ask it to also record why it selected something over alternative. This gives you way more learning than anything else. <br>Ensure you keep updating architecture md so that you don't need a separate State md file."
     },
     {
+      "title": "Stock is up a whooping 78% YTD and 172% in 1 year ... but there is a warning ... an unseen warning! https://antifragilethinking.substack.com/p/a-turna...",
+      "link": "https://x.com/unseenvalue/status/2045151758373036255",
+      "date": "2026-04-17T14:45:50+00:00",
+      "tweet_id": "2045151758373036255",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Stock is up a whooping 78% YTD and 172% in 1 year ... but there is a warning ... an unseen warning!<br><br>https://antifragilethinking.substack.com/p/a-turnaround-powered-by-tailwinds<br><br>D: invested, as the balance sheet is net cash, operating cash flow is rock solid."
+    },
+    {
       "title": "I am not regretting \u2026 I deployed",
       "link": "https://x.com/unseenvalue/status/2045144819689820221",
       "date": "2026-04-17T14:18:16+00:00",
@@ -1787,20 +1815,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "DMCC's 20% gain is completely unjustified. BSE will send the obligatory show cause notice, they'll deny everything ; same old script. I didn't touch it at the lows last month. Not one share. Want an expensive signal (margins jump), not a cheap one, from stock price movement.<br><img width=\"640\" height=\"1140\" style=\"\" src=\"https://pbs.twimg.com/media/HFxOsxdawAAKn6_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Investing rewards those who ruthlessly discard bad patterns and relentlessly pursue better ones.",
-      "link": "https://x.com/unseenvalue/status/2043592041087508940",
-      "date": "2026-04-13T07:28:05+00:00",
-      "tweet_id": "2043592041087508940",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HFxL1OHXEAAV2v3?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Investing rewards those who ruthlessly discard bad patterns and relentlessly pursue better ones.<br><img width=\"1520\" height=\"750\" style=\"\" src=\"https://pbs.twimg.com/media/HFxL1OHXEAAV2v3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT Anil Agarwal: It is painful to see India face the adverse consequences of a war we have nothing to do with, particularly because of raw material se...",
@@ -2055,6 +2069,62 @@
       "description_html": "RT\u2002LionCircuits<br>Pune, ready to revolutionise manufacturing? \ud83d\ude80<br><br>We\u2019re at #EFYExpo bringing real solutions, from rapid prototyping to mass production. Meet the team &amp; let's map out your strategy!<br><br>\ud83d\udcc5 8-10 Jan 2026 <br>\ud83d\udccd Messe Global Convention Center, Pune <br>\ud83d\udd22 Booth: D3<br><br>#MakeInIndia #PuneEvents<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/G-Cvf5kbcAEYZBE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Ships crossing #Hormuz need #IRGC OK, unfreezing of assets part of deal, #Iran official says https://www.cnbctv18.com/world/ships-crossing-hormuz-need...",
+      "link": "https://x.com/CNBCTV18Live/status/2045163846550323333",
+      "date": "2026-04-17T15:33:52+00:00",
+      "tweet_id": "2045163846550323333",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Ships crossing #Hormuz need #IRGC OK, unfreezing of assets part of deal, #Iran official says<br><br>https://www.cnbctv18.com/world/ships-crossing-hormuz-need-irgc-ok-unfreezing-of-assets-part-of-deal-iran-official-says-ws-l-19888901.htm"
+    },
+    {
+      "title": "#Trump says #Israel banned from bombing #Lebanon https://www.cnbctv18.com/world/trump-says-israel-banned-from-bombing-lebanon-ws-l-19888890.htm",
+      "link": "https://x.com/CNBCTV18Live/status/2045161282219987253",
+      "date": "2026-04-17T15:23:41+00:00",
+      "tweet_id": "2045161282219987253",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Trump says #Israel banned from bombing #Lebanon<br><br>https://www.cnbctv18.com/world/trump-says-israel-banned-from-bombing-lebanon-ws-l-19888890.htm"
+    },
+    {
+      "title": "#TCS brings in #Deloitte, #Trilegal to probe misconduct allegations; says no complaints filed, #Nashik office still open @Santia_Gora https://www.cnbc...",
+      "link": "https://x.com/CNBCTV18Live/status/2045157235412828434",
+      "date": "2026-04-17T15:07:36+00:00",
+      "tweet_id": "2045157235412828434",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#TCS brings in #Deloitte, #Trilegal to probe misconduct allegations; says no complaints filed, #Nashik office still open<br><br>@Santia_Gora <br><br>https://www.cnbctv18.com/india/tcs-brings-in-deloitte-trilegal-to-probe-misconduct-allegations-says-no-complaints-filed-nashik-office-still-open-ws-l-19888862.htm"
+    },
+    {
+      "title": "RT Prashant Nair: Trump -> \u2018Iran has agreed to never close the Strait of Hormuz again..\u2019 #Iran #Trump #Nifty #Israel",
+      "link": "https://x.com/CNBCTV18Live/status/2045154636185969119",
+      "date": "2026-04-17T14:43:41+00:00",
+      "tweet_id": "2045154636185969119",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGHWL9WbsAAFu2Q?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Prashant Nair<br>Trump -&gt; \u2018Iran has agreed to never close the Strait of Hormuz again..\u2019<br><br>#Iran #Trump #Nifty #Israel<br><img width=\"1169\" height=\"686\" style=\"\" src=\"https://pbs.twimg.com/media/HGHWL9WbsAAFu2Q?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "RT Nigel D'Souza: Lloyd Group buys approx 5% in Bharat Wire Ropes today, details on exhanges! a. Lloyds Enterprises BSE: Bought 5 lakh shares at Rs.21...",
       "link": "https://x.com/CNBCTV18Live/status/2045148025060987103",
       "date": "2026-04-17T14:26:08+00:00",
@@ -2237,60 +2307,18 @@
       "description_html": "RT\u2002Nigel D'Souza<br>Are Textile/Garmenting stocks at an inflection point \ud83e\udd14 <br><br>Tailwinds<br>Lower \ud83c\uddfa\ud83c\uddf8 tariffs<br>\u20b9 depreciation<br>UK &amp; Europe FTA ratification due<br>Energy issues in \ud83c\udde7\ud83c\udde9<br>Cotton Yarn Spreads surge<br><br>Stocks<br>Welspun Living <br>Gokaldas Exports<br>Pearl Global<br>KPR Mill<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2045106228460933120/vid/avc1/1920x1080/KZ3cVvx1jfv63Eoc.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/media/HGGzWzwbMAApZht?format=jpg&amp;name=orig\"></video>"
     },
     {
-      "title": "#FundFlow | FIIs Net Buy \u20b9683.20 Cr While DIIs Net Sell \u20b94,721.48 Cr In Equities Today (Provisional)",
-      "link": "https://x.com/CNBCTV18Live/status/2045119612375945545",
-      "date": "2026-04-17T12:38:06+00:00",
-      "tweet_id": "2045119612375945545",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HGG5V1XbUAADYkR?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#FundFlow | FIIs Net Buy \u20b9683.20 Cr While<br>DIIs Net Sell \u20b94,721.48 Cr In Equities Today (Provisional)<br><img width=\"1280\" height=\"721\" style=\"\" src=\"https://pbs.twimg.com/media/HGG5V1XbUAADYkR?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "#BonusAlert: #TataGroup multibagger to consider first bonus share issue; details here @sheersh0510 https://www.cnbctv18.com/market/bonus-alert-tata-gr...",
-      "link": "https://x.com/CNBCTV18Live/status/2045116037654552741",
-      "date": "2026-04-17T12:23:54+00:00",
-      "tweet_id": "2045116037654552741",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "#Sebi clears four #IPOs including Avaada Electro and Grand Housing https://economictimes.indiatimes.com/markets/ipos/fpos/sebi-clears-four-ipos-includ...",
+      "link": "https://x.com/ETMarkets/status/2045162548639760602",
+      "date": "2026-04-17T15:28:43+00:00",
+      "tweet_id": "2045162548639760602",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#BonusAlert: #TataGroup multibagger to consider first bonus share issue; details here<br><br>@sheersh0510 <br><br>https://www.cnbctv18.com/market/bonus-alert-tata-group-multibagger-trent-to-consider-first-bonus-share-issue-details-19888766.htm"
-    },
-    {
-      "title": "#PCJeweller cuts bank debt by another 10%; repays over 90% under settlement plan @jpullokaran https://www.cnbctv18.com/market/stocks/pc-jeweller-share...",
-      "link": "https://x.com/CNBCTV18Live/status/2045113062118801652",
-      "date": "2026-04-17T12:12:05+00:00",
-      "tweet_id": "2045113062118801652",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#PCJeweller cuts bank debt by another 10%; repays over 90% under settlement plan<br><br>@jpullokaran <br><br>https://www.cnbctv18.com/market/stocks/pc-jeweller-share-price-reduces-bank-debt-by-another-10-pc-repays-over-90-pc-under-settlement-plan-ws-l-19888745.htm"
-    },
-    {
-      "title": "#ForexData | Total Reserves In Week-Ended April 10 Up $3.83 Bn At $700.95 Bn Foreign Currency Assets In Week-Ended April 10 Up $3.13 Bn At $555.98 Bn",
-      "link": "https://x.com/CNBCTV18Live/status/2045108493485830521",
-      "date": "2026-04-17T11:53:55+00:00",
-      "tweet_id": "2045108493485830521",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HGGvUsOa0AAEvh7?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#ForexData | Total Reserves In Week-Ended April 10 Up $3.83 Bn At $700.95 Bn<br><br>Foreign Currency Assets In Week-Ended April 10 Up $3.13 Bn At $555.98 Bn<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HGGvUsOa0AAEvh7?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "#Sebi clears four #IPOs including Avaada Electro and Grand Housing<br><br>https://economictimes.indiatimes.com/markets/ipos/fpos/sebi-clears-four-ipos-including-avaada-electro-and-grand-housing/articleshow/130336958.cms"
     },
     {
       "title": "US Stock Market Today | Dow Jones | Nasdaq Live: #Dow soars over 600 points as #Iran announces opening of #StraitofHormuz; #oil prices dip below $90 p...",
@@ -2543,20 +2571,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Bitcoin holds near $74,600, #Ethereum steady above $2,300 amid volatility; technicals signal strength<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/cryptocurrency/crypto-influencers/bitcoin-holds-near-74600-ethereum-steady-above-2300-amid-volatility-technicals-signal-strength/articleshow/130326810.cms"
-    },
-    {
-      "title": "#Wipro announces Rs 15,000-crore buyback: Check record date, price, other key things to know #ETMarkets https://economictimes.indiatimes.com/markets/s...",
-      "link": "https://x.com/ETMarkets/status/2045047107329855579",
-      "date": "2026-04-17T07:50:00+00:00",
-      "tweet_id": "2045047107329855579",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Wipro announces Rs 15,000-crore buyback: Check record date, price, other key things to know<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/wipro-announces-rs-15000-crore-buyback-check-record-date-price-other-key-things-to-know/buyback-buzz/slideshow/130326094.cms"
     },
     {
       "title": "Crude Oil down 10% Big relief for Indian OMCs, Chemical, Paint cos",
@@ -3791,20 +3805,6 @@
       "description_html": "Data For India was launched nearly two years ago to make India's data landscape more accessible, understandable, and useful.<br><br>Since then, we have published 70 in-depth analyses featuring 329 interactive charts, and introduced \"The Big Shift\" \u2014 a weekly subscriber-only newsletter written by our founder, Rukmini S. <br><br>Last year for the first time, we reached out to you \u2014 our readers \u2014 to understand your experience with Data For India.<br><br>Today, we are excited to share the biggest update to Data For India since its launch: a significant redesign focused on making it easier than ever to discover, explore, and understand India through data.<br><br>Read what\u2019s new on the platform: https://www.dataforindia.com/redesign-announcement/?utm_source=twitter&amp;utm_medium=post<br><br>This milestone would not have been possible without the efforts of Gulshan, @pragnya_9 , Apoorv and @Rukmini  from the Data For India team. Special thanks to our design partners Tibba Design Studio who helped bring this vision to life.<br><br>And finally, thank you to you \u2014 our readers. Your curiosity and engagement with India's data continues to drive us forward. <br><br>We would love to hear your thoughts on the redesign, and what you would like to see next. Write to us at info@dataforindia.com.<br><br>Explore the redesigned Data For India platform: https://www.dataforindia.com/?utm_source=twitter&amp;utm_medium=post"
     },
     {
-      "title": "RT Vinodsrinivasan: Iran just declared the Strait of Hormuz \u201ccompletely open.\u201d Oil fell 9 percent. Stocks ripped to all-time highs. Before you celeb...",
-      "link": "https://x.com/abhymurarka/status/2045151302439899187",
-      "date": "2026-04-17T14:06:21+00:00",
-      "tweet_id": "2045151302439899187",
-      "source": "Abhishek Murarka \ud83d\udcb9\ud83d\udc02",
-      "publisher": "Abhy Murarka",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Vinodsrinivasan<br>Iran just declared the Strait of Hormuz \u201ccompletely open.\u201d<br><br>Oil fell 9 percent. Stocks ripped to all-time highs.<br><br>Before you celebrate, read the next tweet."
-    },
-    {
       "title": "Fun fact: INR has depreciated at twice the rate against Chinese Yuan compared to US Dollar over the last year. This does NOT help our Current account ...",
       "link": "https://x.com/abhymurarka/status/2045109687562179047",
       "date": "2026-04-17T11:58:40+00:00",
@@ -4013,6 +4013,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002bhatnaturally \uf8ff \ud83c\uddee\ud83c\uddf3<br>Near total silence on the TCS Nashik case on LinkedIn. My network of advertising &amp; marketing folks are usually vocal on political issues on that platform speaking up for 'minorities'. Strategic 'ignore' has been activated now. Even if someone posts on the topic I could see comments like 'why are you posting such on LinkedIn?'"
+    },
+    {
+      "title": "RT kumar saurabh: We have shared the 270 page 50+ sector insight document for free in the Newsletter section. Create a free account , go to Newsletter...",
+      "link": "https://x.com/abhymurarka/status/2043129428889489748",
+      "date": "2026-04-11T11:27:41+00:00",
+      "tweet_id": "2043129428889489748",
+      "source": "Abhishek Murarka \ud83d\udcb9\ud83d\udc02",
+      "publisher": "Abhy Murarka",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFnvyqsakAEkcSj?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002kumar saurabh<br>We have shared the 270 page 50+ sector insight document for free in the Newsletter section.<br><br>Create a free account , go to Newsletter section and download : <br>https://practitioner.scientificinvesting.in/enroll<br><br>This single document helps me to<br><br>1. Have understanding of latest development , opportunity and risks across sectors<br><br>2. Interesting opportunities among companies <br><br>3. Generate ideas and kill ideas <br><br>Please note that we do use AI heavily influenced our work but our heavy lifting comes from reading and analysing posts putting a lot of effort to make AI valuable for productivity gains<br><img width=\"1078\" height=\"530\" style=\"\" src=\"https://pbs.twimg.com/media/HFnvyqsakAEkcSj?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT Nicholas Fabiano, MD: You are one walk away from a better day.",
@@ -4867,6 +4881,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Rui Ma<br>I just listened to Dwarkesh interview of Jensen where he asked about export controls. Jensen said that Anthropic Mythos was trained on a mundane number of chips and that China has no shortage of such capacity plus a lot of high end talent. The conclusion being that research should be globally collaborative and not antagonistic or siloed.<br><br>My understanding of Chinese AI is somewhat complementary. There are chips. But they are expensive. Chinese investors are unwilling to fund experiments into AGI / ASI. There are only like 2 or 3 commercial players that the industry generally and truly believes with such as their goal. A few others may state they want to do it, but are hamstrung by their ability to fundraise from the market (a much smaller pool of capital vs US companies) or their boards. Maybe sounds silly to some folks outside of China, but shouldn\u2019t to those who have followed me for a long time. I\u2019ve written extensively about how finance shapes innovation, and how there is, relatively speaking, a notable disparity in availability of truly risk-taking capital in the private markets.<br><br>I just don\u2019t think there is much evidence export controls are a main reason for the successes or failures of AI development in China. What export controls very clearly did though is give the Chinese semiconductor sector a huge boost. And in that I think people really underestimate the competitor that has been created, which was entirely unnecessary. But whatever, probably good for humanity overall to have diversification for such a critical technology. But US really could have monopolized that for the foreseeable future."
+    },
+    {
+      "title": "India is urbanising at a brisk pace, having seen its #urban #population increase ~10 percentage points in the last two decades. While Indian cities dr...",
+      "link": "https://x.com/IndiaSpend/status/2045162871219208232",
+      "date": "2026-04-17T15:30:00+00:00",
+      "tweet_id": "2045162871219208232",
+      "source": "IndiaSpend",
+      "publisher": "IndiaSpend",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "India is urbanising at a brisk pace, having seen its #urban #population increase ~10 percentage points in the last two decades. While Indian cities drive the country\u2019s economy, generating two-thirds of the GDP, they remain sites of daily strain. Read on: https://www.indiaspend.com/governance/indias-cities-are-crumbling-the-rich-are-seeking-urban-oases-983602"
     },
     {
       "title": "India\u2019s cities suffer because #urban local bodies haven\u2019t been empowered. While they have been entrusted with 17 of 18 listed functions, only four o...",
@@ -5765,6 +5793,20 @@
       "description_html": "RT\u2002Alex Tabarrok<br>Send your students to the Public Choice Outreach Conference, a crash course in public choice!<br><img width=\"1186\" height=\"1536\" style=\"\" src=\"https://pbs.twimg.com/media/HFOwvAYXYAAcFRM?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Bang on Sunil sir on \ud83c\udfaf Recall you saying you would stick your neck out and said that crude oil will pull back in 2 months \ud83d\udd28 @SunilBSinghania kud...",
+      "link": "https://x.com/Nigel__DSouza/status/2045165945510109558",
+      "date": "2026-04-17T15:42:13+00:00",
+      "tweet_id": "2045165945510109558",
+      "source": "Nigel D'Souza",
+      "publisher": "Nigel D'Souza",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGHEFq_aAAAVMzP?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Bang on Sunil sir on \ud83c\udfaf <br><br>Recall you saying you would stick your neck out and said that crude oil will pull back in 2 months \ud83d\udd28 <br><br>@SunilBSinghania kudos<div class=\"rsshub-quote\"><br><br>Sunil Singhania:\u2002Worth reposting again \ud83d\ude00\ud83d\ude00<br><br><img width=\"1320\" height=\"1509\" style=\"\" src=\"https://pbs.twimg.com/media/HGHEFq_aAAAVMzP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
+    },
+    {
       "title": "Lloyd Group buys approx 5% in Bharat Wire Ropes today, details on exhanges! a. Lloyds Enterprises BSE: Bought 5 lakh shares at Rs.215/sh NSE: Bought 1...",
       "link": "https://x.com/Nigel__DSouza/status/2045146799690981723",
       "date": "2026-04-17T14:26:08+00:00",
@@ -6029,20 +6071,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "S&amp;P 500 &amp; Nasdaq close at fresh record highs as markets shrug off Iran war fears \ud83d\udcc8<br><br>@CNBCTV18News @CNBCTV18Live <br><br>\ud83c\uddfa\ud83c\uddf8 US Markets on Wednesday<br>#DowJones -0.15%<br>#Nasdaq +1.59%<br>S&amp;P500 +0.8%<br><br>What\u2019s driving the optimism?<br>Investors are betting the conflict may be nearing an end after President Trump said the Iran war is \u201cvery close to over\u201d and that Iran wants to \u201cmake a deal very badly\u201d<br><br>Big Mover: Broadcom +4% \ud83d\ude80<br>Reason: Meta Platforms has extended its partnership with Broadcom to deploy custom chips using the company\u2019s technology <br><br>Other Asset Classes:<br>\ud83d\udcb5 Dollar Index: 98.05<br>\ud83d\udee2\ufe0f Brent Crude: $94.9<br>\ud83d\udcc9 US 10Y Yield: 4.27%<br>\u20bf Bitcoin: $74,720<br>\ud83e\udd47 Gold: $4,800<br><br>What to watch on Thursday \ud83d\udc40<br>\ud83d\udcca Earnings on deck: PepsiCo, Travelers, U.S. Bancorp, Abbott Labs &amp; Charles Schwab<br><br>\ud83d\udcc8 Key economic data:<br>\u2022 Weekly jobless claims<br>\u2022 March capacity utilization<br>\u2022 Industrial production"
-    },
-    {
-      "title": "Rest in peace, Mark Mobius. A legend of investing passes away at 89. A true pioneer in the world of emerging market investing, whose insights shaped g...",
-      "link": "https://x.com/Nigel__DSouza/status/2044569441024057439",
-      "date": "2026-04-16T00:11:55+00:00",
-      "tweet_id": "2044569441024057439",
-      "source": "Nigel D'Souza",
-      "publisher": "Nigel D'Souza",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HF_FEVjbsAEqvlu?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Rest in peace, Mark Mobius. A legend of investing passes away at 89.<br><br>A true pioneer in the world of emerging market investing, whose insights shaped generations of investors globally.<br><br>Privileged to have had the opportunity to speak with him on our channel.<br><img width=\"1206\" height=\"737\" style=\"\" src=\"https://pbs.twimg.com/media/HF_FEVjbsAEqvlu?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT Capitalmind Mutual Fund: Returns were driven by better earnings and dragged by lower valuation multiples. From FY22 to FY26: - Earnings grew 22% a ...",
@@ -6605,6 +6633,20 @@
       "description_html": "Last year, the oil market was preoccupied with a question: why China was stockpiling so much crude. <br><br>I wrote an @Opinion column about it in Sept, and re-reading it \u2935\ufe0f now, I must admit that all makes sense: Beijing was prudent. <br><br>The link is here: https://www.bloomberg.com/opinion/articles/2025-09-18/oil-market-why-is-china-stockpiling-so-much-crude?sref=5dj0X2VO<br><img width=\"686\" height=\"300\" style=\"\" src=\"https://pbs.twimg.com/media/HGCKAEVaAAAeM5g?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "EU prepares for jet fuel sharing as supplies dwindle https://ft.trib.al/JcdJFqR",
+      "link": "https://x.com/ftenergy/status/2045151968667062287",
+      "date": "2026-04-17T14:46:41+00:00",
+      "tweet_id": "2045151968667062287",
+      "source": "FT Energy",
+      "publisher": "FT Energy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "EU prepares for jet fuel sharing as supplies dwindle https://ft.trib.al/JcdJFqR"
+    },
+    {
       "title": "Green energy\u2019s fossil fuel problem https://ft.trib.al/GOOhE32",
       "link": "https://x.com/ftenergy/status/2045104963701887270",
       "date": "2026-04-17T11:39:54+00:00",
@@ -6871,20 +6913,6 @@
       "description_html": "UK gas prices dip below pre-Iran war level in relief for Reeves https://ft.trib.al/0MBUwcW"
     },
     {
-      "title": "Reeves should avoid big energy support package for households, IMF says https://ft.trib.al/zg8OcFE",
-      "link": "https://x.com/ftenergy/status/2044404288445723120",
-      "date": "2026-04-15T13:15:40+00:00",
-      "tweet_id": "2044404288445723120",
-      "source": "FT Energy",
-      "publisher": "FT Energy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Reeves should avoid big energy support package for households, IMF says https://ft.trib.al/zg8OcFE"
-    },
-    {
       "title": "Services exports recorded strong momentum in December, rising 21.9% MoM and 13.3% YoY, the first instance of double-digit annual growth in three month...",
       "link": "https://x.com/IndiaDataHub/status/2018738201653870925",
       "date": "2026-02-03T17:27:48+00:00",
@@ -7037,6 +7065,34 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "We\u2019re launching Trade DB to track India\u2019s trade at the HS code level by value or quantity, across imports, exports, and also detailed category and subcategory data for our trade partners. See this for more:  https://www.youtube.com/watch?v=KdwhLPaU3Fw  #India #Trade #Exports #Imports"
+    },
+    {
+      "title": "BREAKING: President Trump says Iran has agreed to never close the Strait of Hormuz again.",
+      "link": "https://x.com/KobeissiLetter/status/2045157187333365771",
+      "date": "2026-04-17T15:07:25+00:00",
+      "tweet_id": "2045157187333365771",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGHbn3_aQAAzEFl?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: President Trump says Iran has agreed to never close the Strait of Hormuz again.<br><img width=\"1206\" height=\"687\" style=\"\" src=\"https://pbs.twimg.com/media/HGHbn3_aQAAzEFl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "PRESIDENT TRUMP: \u201cWe will Make Lebanon Great Again.\u201d",
+      "link": "https://x.com/KobeissiLetter/status/2045156976909291686",
+      "date": "2026-04-17T15:06:35+00:00",
+      "tweet_id": "2045156976909291686",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGHbbonXQAANSe0?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "PRESIDENT TRUMP:<br><br>\u201cWe will Make Lebanon Great Again.\u201d<br><img width=\"1206\" height=\"577\" style=\"\" src=\"https://pbs.twimg.com/media/HGHbbonXQAANSe0?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "BREAKING: US oil prices officially fall below $80/barrel, now down -32% in 9 trading days.",
@@ -7275,34 +7331,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BREAKING: Bitcoin rises above $76,000 and hits its highest level in 10 weeks.<br><img width=\"1206\" height=\"2041\" style=\"\" src=\"https://pbs.twimg.com/media/HGGkMiTXkAASxju?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "BREAKING: President Trump says today \u201cmay have been a historic day for Lebanon\u201d and \u201cgood things are happening.\u201d The Lebanon-Israel ceasefire has ...",
-      "link": "https://x.com/KobeissiLetter/status/2044984160914125145",
-      "date": "2026-04-17T03:39:52+00:00",
-      "tweet_id": "2044984160914125145",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HGE-QZUbQAAp1YB?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: President Trump says today \u201cmay have been a historic day for Lebanon\u201d and \u201cgood things are happening.\u201d<br><br>The Lebanon-Israel ceasefire has officially taken effect.<br><img width=\"1206\" height=\"510\" style=\"\" src=\"https://pbs.twimg.com/media/HGE-QZUbQAAp1YB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Global gold demand is being primarily driven by emerging markets: Emerging markets have accounted for 70% of world gold demand over the last 10 years....",
-      "link": "https://x.com/KobeissiLetter/status/2044942289789747510",
-      "date": "2026-04-17T00:53:29+00:00",
-      "tweet_id": "2044942289789747510",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HGCkdBIXAAAvXam?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Global gold demand is being primarily driven by emerging markets:<br><br>Emerging markets have accounted for 70% of world gold demand over the last 10 years.<br><br>Greater China alone made up 27% of global demand, the largest portion of any region, followed by India at 21%.<br><br>As a result, the two countries accounted for nearly half of all global gold demand.<br><br>By comparison, North America and Europe, including Russia, represented just 11% and 12%, respectively.<br><br>On the supply side, mine production accounted for 74% of total gold supply, with recycling reflecting the remaining 26%.<br><br>Africa is the largest gold supply source, at 26%, followed by Asia at 19%, the Commonwealth of Independent States (CIS), Central, and South America at 15% each, and North America at 14%.<br><br>Emerging markets are fueling the gold rush.<br><img width=\"974\" height=\"554\" style=\"\" src=\"https://pbs.twimg.com/media/HGCkdBIXAAAvXam?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Trump -> \u2018Israel will not be bombing Lebanon any longer. They are prohibited from doing so\u2026\u2019",
@@ -8112,9 +8140,9 @@
       "source_mode": "rsshub",
       "image": "https://pbs.twimg.com/media/HFkpWt5W0AAipij?format=jpg&name=orig",
       "is_retweet": true,
-      "is_quote": true,
+      "is_quote": false,
       "is_reply": false,
-      "description_html": "RT\u2002Ryan Rozbiani<br>JUST IN \ud83c\uddee\ud83c\uddf7\ud83c\uddf5\ud83c\uddf0: The Iranian Delegation will be Led by Dr. Mohammad Bagher Ghalibaf and Dr. Abbas Araghchi<br><br>The Iranian Delegation is named the Minab 168 to honor the children killed on day one of the War on Iran.<br><br>They look ready.<br><br>Tasnim Agency: If the other side accepts Iran's preconditions to start negotiations, talks will start. Waiting to see what those are<br><img width=\"1280\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HFkpWt5W0AAipij?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Ryan Rozbiani:\u2002JUST IN \ud83c\uddee\ud83c\uddf7\ud83c\uddfa\ud83c\uddf8: The Iranian Delegation has Arrived at Islamabad, Pakistan for Peace Talks with the U.S.<br><br>They were warmly welcomed at the airport by Pakistan's Field Marshal Asim Munir.<br><br>Praying this goes well.<br><br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/amplify_video/2042706538482282496/vid/avc1/1280x720/yCJrTSb_wMPlOVue.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2042706538482282496/img/X9MVJM2fq7qcHCve.jpg\"></video></div>"
+      "description_html": "RT\u2002Ryan Rozbiani<br>JUST IN \ud83c\uddee\ud83c\uddf7\ud83c\uddf5\ud83c\uddf0: The Iranian Delegation will be Led by Dr. Mohammad Bagher Ghalibaf and Dr. Abbas Araghchi<br><br>The Iranian Delegation is named the Minab 168 to honor the children killed on day one of the War on Iran.<br><br>They look ready.<br><br>Tasnim Agency: If the other side accepts Iran's preconditions to start negotiations, talks will start. Waiting to see what those are<br><img width=\"1280\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HFkpWt5W0AAipij?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT CNBC-TV18: RBI proposes new rules to classify NBFC - Plans to remove \"parametric scoring\" - Classify all NBFCs with asset size more than \u20b91 lk cr ...",
@@ -8591,34 +8619,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "This will not end well that most of us know<br><br>The question is how long does this mania last <br><br>This shows the AI hype is crazy<br>Giving dot come vibes \ud83d\ude05<br><img width=\"1062\" height=\"1194\" style=\"\" src=\"https://pbs.twimg.com/media/HF9Rg9fa0AAUOnF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Mind blown while going through the last 1 year X stats today Crossed the 60k milestone Almost completed 12k posts 1,00,000+ bookmarks This is despite ...",
-      "link": "https://x.com/EquityInsightss/status/2044377914750435473",
-      "date": "2026-04-15T11:30:52+00:00",
-      "tweet_id": "2044377914750435473",
-      "source": "Equity Insights Elite",
-      "publisher": "Equity Insights",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HF8UHciawAAWXL-?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Mind blown while going through the last 1 year X stats today<br><br>Crossed the 60k milestone<br>Almost completed 12k posts<br>1,00,000+ bookmarks<br><br>This is despite markets not being very favourable over the past many months<br><br>Grateful to everyone who feels the content is adding value<br><br>X is one of the best places to be if you are interested in financial markets, have learnt a lot from so many wonderful people here who keep sharing their knowledge consistently <br><br>Never really taken a day off since started writing on X<br>just tried to stay consistent whether markets were in a bull phase or a bear phase<br><br>Thank you everyone for the support \ud83d\ude4f<br><img width=\"1928\" height=\"1758\" style=\"\" src=\"https://pbs.twimg.com/media/HF8UHciawAAWXL-?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Many beaten down stocks have seen a good recovery in last few trading sessions",
-      "link": "https://x.com/EquityInsightss/status/2044365290696548579",
-      "date": "2026-04-15T10:40:42+00:00",
-      "tweet_id": "2044365290696548579",
-      "source": "Equity Insights Elite",
-      "publisher": "Equity Insights",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HF8KeiNaAAE2KN6?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Many beaten down stocks have seen a good recovery in last few trading sessions<br><img width=\"1814\" height=\"1652\" style=\"\" src=\"https://pbs.twimg.com/media/HF8KeiNaAAE2KN6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT menaka doshi: \"The total MTF book has grown by nearly 59 per cent since April 2025, from under Rs 70,000 crore to approximately Rs 1.1 lakh crore. ...",
@@ -9713,6 +9713,146 @@
       "description_html": "Does ethanol blending actually save fossil fuel consumption. India is usually compared to Brazil<br><br>Sharing the math below and answer is - Not Really<br><br>Key Take Away - It makes way more sense in Brazil as their sugar cane is rain fed, while in India we use quite a bit of irrigation<br><br>India saves ~27%. Brazil saves ~87%. The difference is almost entirely irrigation \u2014 Indian sugarcane is pumped with majorly coal-fired electricity, Brazilian cane is rainfed. India's ethanol program mostly swaps imported crude for domestic coal and gas. Brazil's genuinely displaces fossil fuels.<br><img width=\"596\" height=\"631\" style=\"\" src=\"https://pbs.twimg.com/media/HEKBTFLaIAE_uTv?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "TRUMP SAYS ONCE A DEAL IS REACHED HE MIGHT GO TO ISLAMABAD BUT HASN'T MADE THAT DETERMINATION -RTRS",
+      "link": "https://x.com/REDBOXINDIA/status/2045166197633843215",
+      "date": "2026-04-17T15:43:13+00:00",
+      "tweet_id": "2045166197633843215",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "TRUMP SAYS ONCE A DEAL IS REACHED HE MIGHT GO TO ISLAMABAD BUT HASN'T MADE THAT DETERMINATION -RTRS"
+    },
+    {
+      "title": "TRUMP: U.S. WILL WORK WITH IRAN TO RECOVER ITS ENRICHED URANIUM AND WILL BRING IT BACK TO THE U.S. || WE WILL GO IN AT A LEISURELY PACE TO RECOVER URA...",
+      "link": "https://x.com/REDBOXINDIA/status/2045166048434164033",
+      "date": "2026-04-17T15:42:37+00:00",
+      "tweet_id": "2045166048434164033",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "TRUMP: U.S. WILL WORK WITH IRAN TO RECOVER ITS ENRICHED URANIUM AND WILL BRING IT BACK TO THE U.S. || WE WILL GO IN AT A LEISURELY PACE TO RECOVER URANIUM || THERE WILL PROBABLY BE MORE TALKS THIS WEEKEND ABOUT AN IRAN DEAL -RTRS"
+    },
+    {
+      "title": "TRUMP: U.S. WILL KEEP BLOCKADE OF STRAIT OF HORMUZ IN PLACE UNTIL DEAL WITH IRAN IS FINALIZED ||WE ARE WORKING WITH IRAN TO GET THE MINES OUT OF THE S...",
+      "link": "https://x.com/REDBOXINDIA/status/2045165973137998001",
+      "date": "2026-04-17T15:42:19+00:00",
+      "tweet_id": "2045165973137998001",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "TRUMP: U.S. WILL KEEP BLOCKADE OF STRAIT OF HORMUZ IN PLACE UNTIL DEAL WITH IRAN IS FINALIZED ||WE ARE WORKING WITH IRAN TO GET THE MINES OUT OF THE STRAIT || NO MONEY WOULD BE EXCHANGING HANDS AS PART OF POTENTIAL DEAL WITH IRAN -RTRS"
+    },
+    {
+      "title": "IRAN TO CLOSE STRAIT OF HORMUZ IF US BLOCKADE PERSISTS: FARS",
+      "link": "https://x.com/REDBOXINDIA/status/2045161581055815822",
+      "date": "2026-04-17T15:24:52+00:00",
+      "tweet_id": "2045161581055815822",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "IRAN TO CLOSE STRAIT OF HORMUZ IF US BLOCKADE PERSISTS: FARS"
+    },
+    {
+      "title": "BHEL: CO FILES SUIT AGAINST RAICHUR POWER CORPORATION LTD IN BENGALURU COMMERCIAL COURT || CO CLAIMS OF 1.43B RUPEES",
+      "link": "https://x.com/REDBOXINDIA/status/2045159930722963783",
+      "date": "2026-04-17T15:18:19+00:00",
+      "tweet_id": "2045159930722963783",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BHEL: CO FILES SUIT AGAINST RAICHUR POWER CORPORATION LTD IN BENGALURU COMMERCIAL COURT || CO CLAIMS OF 1.43B RUPEES"
+    },
+    {
+      "title": "HATHWAY CABLE & DATACOM: Q4 CONS NET LOSS 113M RUPEES VS PROFIT 347M (YOY) || Q4 REVENUE 5.46B RUPEES VS 5.13B (YOY)",
+      "link": "https://x.com/REDBOXINDIA/status/2045158011325579380",
+      "date": "2026-04-17T15:10:41+00:00",
+      "tweet_id": "2045158011325579380",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "HATHWAY CABLE &amp; DATACOM: Q4 CONS NET LOSS 113M RUPEES VS PROFIT 347M (YOY) || Q4 REVENUE 5.46B RUPEES VS 5.13B (YOY)"
+    },
+    {
+      "title": "UKRAINE'S SENIOR DEFENCE OFFICIAL SAYS HE MET INDIAN FOREIGN MINISTER, DISCUSSED WAR",
+      "link": "https://x.com/REDBOXINDIA/status/2045154841660702934",
+      "date": "2026-04-17T14:58:06+00:00",
+      "tweet_id": "2045154841660702934",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "UKRAINE'S SENIOR DEFENCE OFFICIAL SAYS HE MET INDIAN FOREIGN MINISTER, DISCUSSED WAR"
+    },
+    {
+      "title": "HATHWAY CABLE AND DATACOM: CO APPOINTS GURJEEV SINGH KAPOOR AS COO CUM CEO DESIGNATE",
+      "link": "https://x.com/REDBOXINDIA/status/2045154668154888247",
+      "date": "2026-04-17T14:57:24+00:00",
+      "tweet_id": "2045154668154888247",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "HATHWAY CABLE AND DATACOM: CO APPOINTS GURJEEV SINGH KAPOOR AS COO CUM CEO DESIGNATE"
+    },
+    {
+      "title": "EMS: CO HAS RECEIVED LOWEST BIDDER (L-1) STATUS FOR TWO PROJECTS || TWO PROJECTS WORTH 1.44 BLN RUPEES AND 648.5M RUPEES RESPECTIVELY",
+      "link": "https://x.com/REDBOXINDIA/status/2045154362633462260",
+      "date": "2026-04-17T14:56:11+00:00",
+      "tweet_id": "2045154362633462260",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "EMS: CO HAS RECEIVED LOWEST BIDDER (L-1) STATUS FOR TWO PROJECTS || TWO PROJECTS WORTH 1.44 BLN RUPEES AND 648.5M RUPEES RESPECTIVELY"
+    },
+    {
+      "title": "SUBAM PAPERS: CO UNIT COMMENCES COMMERCIAL PRODUCTION AT NEW KRAFT PAPER PLANT IN TIRUNELVELI",
+      "link": "https://x.com/REDBOXINDIA/status/2045153150945149118",
+      "date": "2026-04-17T14:51:22+00:00",
+      "tweet_id": "2045153150945149118",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "SUBAM PAPERS: CO UNIT COMMENCES COMMERCIAL PRODUCTION AT NEW KRAFT PAPER PLANT IN TIRUNELVELI"
+    },
+    {
       "title": "LEMON TREE HOTELS: CO SIGNS LICENSE AGREEMENT FOR HOTEL IN GARUDESHWAR, GUJARAT",
       "link": "https://x.com/REDBOXINDIA/status/2045151883476795403",
       "date": "2026-04-17T14:46:20+00:00",
@@ -9853,146 +9993,6 @@
       "description_html": "TRUMP: THE U.S.A. WILL GET ALL NUCLEAR \u201cDUST,\u201d CREATED BY OUR GREAT B2 BOMBERS - NO MONEY WILL EXCHANGE HANDS IN ANY WAY, SHAPE, OR FORM. THIS DEAL IS IN NO WAY SUBJECT TO LEBANON, EITHER, BUT THE USA WILL, SEPARATELY, WORK WITH LEBANON, AND DEAL WITH THE HEZBOOLAH SITUATION IN AN APPROPRIATE MANNER. ISRAEL WILL NOT BE BOMBING LEBANON ANY LONGER. THEY ARE PROHIBITED FROM DOING SO BY THE U.S.A. ENOUGH IS ENOUGH!!! THANK YOU! PRESIDENT DJT"
     },
     {
-      "title": "ADIT.BIRLA MONEY: Q4 SL NET PROFIT 187.3M RUPEES VS 93M (YOY) || Q4 REVENUE 1.3B RUPEES VS 961M (YOY)",
-      "link": "https://x.com/REDBOXINDIA/status/2045139456941007208",
-      "date": "2026-04-17T13:56:58+00:00",
-      "tweet_id": "2045139456941007208",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "ADIT.BIRLA MONEY: Q4 SL NET PROFIT 187.3M RUPEES VS 93M (YOY) || Q4 REVENUE 1.3B RUPEES VS 961M (YOY)"
-    },
-    {
-      "title": "BHARAT FORGE: CO SUBSIDIARY BFISL TO ACQUIRE 90% STAKE IN RS AEROSTRUCTURES",
-      "link": "https://x.com/REDBOXINDIA/status/2045136755704422689",
-      "date": "2026-04-17T13:46:14+00:00",
-      "tweet_id": "2045136755704422689",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BHARAT FORGE: CO SUBSIDIARY BFISL TO ACQUIRE 90% STAKE IN RS AEROSTRUCTURES"
-    },
-    {
-      "title": "IRAN MILITARY OFFICIAL SAYS MILITARY VESSELS NOT ALLOWED TO PASS STRAIT OF HORMUZ - STATE TV",
-      "link": "https://x.com/REDBOXINDIA/status/2045136504490774801",
-      "date": "2026-04-17T13:45:14+00:00",
-      "tweet_id": "2045136504490774801",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "IRAN MILITARY OFFICIAL SAYS MILITARY VESSELS NOT ALLOWED TO PASS STRAIT OF HORMUZ - STATE TV"
-    },
-    {
-      "title": "INDIA DROPS PROPOSAL TO PRELOAD NEW PHONES WITH STATE BIOMETRIC ID APP AADHAAR -RTRS",
-      "link": "https://x.com/REDBOXINDIA/status/2045134641045409858",
-      "date": "2026-04-17T13:37:49+00:00",
-      "tweet_id": "2045134641045409858",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "INDIA DROPS PROPOSAL TO PRELOAD NEW PHONES WITH STATE BIOMETRIC ID APP AADHAAR -RTRS"
-    },
-    {
-      "title": "DREDGING CORP: CO SIGNS \u20b92,157.07 CR FUEL SUPPLY MOU WITH IOCL | FIVE-YEAR AGREEMENT ENSURES STEADY FUEL SUPPLY FOR NATIONWIDE DREDGING FLEET",
-      "link": "https://x.com/REDBOXINDIA/status/2045134192158322739",
-      "date": "2026-04-17T13:36:02+00:00",
-      "tweet_id": "2045134192158322739",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "DREDGING CORP: CO SIGNS \u20b92,157.07 CR FUEL SUPPLY MOU WITH IOCL | FIVE-YEAR AGREEMENT ENSURES STEADY FUEL SUPPLY FOR NATIONWIDE DREDGING FLEET"
-    },
-    {
-      "title": "TRUMP: THE STRAIT OF HORMUZ IS COMPLETELY OPEN AND READY FOR BUSINESS AND FULL PASSAGE, BUT THE NAVAL BLOCKADE WILL REMAIN IN FULL FORCE AND EFFECT AS...",
-      "link": "https://x.com/REDBOXINDIA/status/2045132285591379997",
-      "date": "2026-04-17T13:28:28+00:00",
-      "tweet_id": "2045132285591379997",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "TRUMP: THE STRAIT OF HORMUZ IS COMPLETELY OPEN AND READY FOR BUSINESS AND FULL PASSAGE, BUT THE NAVAL BLOCKADE WILL REMAIN IN FULL FORCE AND EFFECT AS IT PERTAINS TO IRAN, ONLY, UNTIL SUCH TIME AS OUR TRANSACTION WITH IRAN IS 100% COMPLETE. THIS PROCESS SHOULD GO VERY QUICKLY IN THAT MOST OF THE POINTS ARE ALREADY NEGOTIATED."
-    },
-    {
-      "title": "TRADERS NOW SEE A NEARLY 60% CHANCE THE FED WILL CUT RATES BY DECEMBER BASED ON FED FUND FUTURES",
-      "link": "https://x.com/REDBOXINDIA/status/2045131039924977857",
-      "date": "2026-04-17T13:23:31+00:00",
-      "tweet_id": "2045131039924977857",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "TRADERS NOW SEE A NEARLY 60% CHANCE THE FED WILL CUT RATES BY DECEMBER BASED ON FED FUND FUTURES"
-    },
-    {
-      "title": "ZEE ENTERTAINMENT: CO BOARD APPROVES \u20b9116 CR INVESTMENT IN PHANTOM DIGITAL EFFECTS",
-      "link": "https://x.com/REDBOXINDIA/status/2045130552819470643",
-      "date": "2026-04-17T13:21:35+00:00",
-      "tweet_id": "2045130552819470643",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "ZEE ENTERTAINMENT: CO BOARD APPROVES \u20b9116 CR INVESTMENT IN PHANTOM DIGITAL EFFECTS"
-    },
-    {
-      "title": "SPOT SILVER JUMPS NEARLY 5% TO ABOUT $82.30 PER OUNCE.",
-      "link": "https://x.com/REDBOXINDIA/status/2045128832890683874",
-      "date": "2026-04-17T13:14:45+00:00",
-      "tweet_id": "2045128832890683874",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SPOT SILVER JUMPS NEARLY 5% TO ABOUT $82.30 PER OUNCE."
-    },
-    {
-      "title": "AUROBINDO PHARMA: CO RECEIVES USFDA APPROVAL FOR DEXTROMETHORPHAN POLISTIREX ORAL SUSPENSION | OTC DRUG FOR EXTENDED-RELEASE COUGH RELIEF (30 MG/5 ML)",
-      "link": "https://x.com/REDBOXINDIA/status/2045128084857528442",
-      "date": "2026-04-17T13:11:46+00:00",
-      "tweet_id": "2045128084857528442",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "AUROBINDO PHARMA: CO RECEIVES USFDA APPROVAL FOR DEXTROMETHORPHAN POLISTIREX ORAL SUSPENSION | OTC DRUG FOR EXTENDED-RELEASE COUGH RELIEF (30 MG/5 ML)"
-    },
-    {
       "title": "JIOFIN delivered strong 96.7% YoY revenue growth driven by 133% interest income and 461% fee income growth, with the loan book expanding 155.7% to \u20b92...",
       "link": "https://x.com/exencial_RP/status/2045145042403328319",
       "date": "2026-04-17T14:19:09+00:00",
@@ -10075,6 +10075,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Exencial  Industry Tidings - 17/4/2026                  <br><br>Fuel For thoughts in Every Industry            <br><br>We Are Publishing Daily, You will Find now on X<br><br>https://drive.google.com/file/d/1Jf831eb5PWxPpEPQD4B4GWiYJ5KMtQNJ/view?usp=sharing<br><img width=\"401\" height=\"577\" style=\"\" src=\"https://pbs.twimg.com/media/HGFoh_cb0AEB1jJ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "Strait of Hormuz is open during ceasefire, Iran says. Iranian Foreign Minister Abbas Araghchi said the Strait of Hormuz was open following a ceasefire...",
+      "link": "https://x.com/TamalBandyo/status/2045161043836674141",
+      "date": "2026-04-17T15:22:44+00:00",
+      "tweet_id": "2045161043836674141",
+      "source": "Tamal Bandyopadhyay",
+      "publisher": "Tamal Bandyopadhyay",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Strait of Hormuz is open during ceasefire, Iran says.<br>Iranian Foreign Minister Abbas Araghchi said the Strait of Hormuz was open following a ceasefire accord agreed in Lebanon, while US President Donald Trump said he believed a deal to end the Iran war would come \"soon,\" although the timing remains unclear.<br>Araghchi said in a post on X the Strait was open for all commercial vessels for the remainder of the U.S.-brokered 10-day truce between Israeli forces and Iran-backed Hezbollah agreed between Israel and Lebanon.<br>He said the passage of ships would need to be along the route that Iran's Ports and Maritime Organisation had announced.<br>@Reuters"
     },
     {
       "title": "Oil tumbles following Iran\u2019s promise to open Strait of Hormuz. Oil prices falls sharply after Iran\u2019s foreign minister announced that the Strait of H...",
@@ -10329,20 +10343,6 @@
       "description_html": "A long pause before a rate hike. Per for course in uncertain times. Latest #BankersTrust in \u2066@bsindia\u2069 on \u2066@RBI\u2069 April monetary policy<br><img width=\"408\" height=\"1280\" style=\"\" src=\"https://pbs.twimg.com/media/HFb87UAa8AA8oXB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "Trump says US and Iran will \u2018dig up and remove\u2019 nuclear material. Trump says the US will work with Iran to \u201cdig up and remove\u201d the country\u2019s nucl...",
-      "link": "https://x.com/TamalBandyo/status/2041857438350242187",
-      "date": "2026-04-08T12:35:23+00:00",
-      "tweet_id": "2041857438350242187",
-      "source": "Tamal Bandyopadhyay",
-      "publisher": "Tamal Bandyopadhyay",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Trump says US and Iran will \u2018dig up and remove\u2019 nuclear material. Trump says the US will work with Iran to \u201cdig up and remove\u201d the country\u2019s nuclear material, and has been discussing sanctions relief with Tehran. @FT"
-    },
-    {
       "title": "RT Techmeme: Sources: Google is negotiating a deal with the US DOD that would let the Pentagon deploy Gemini AI models in classified settings, reversi...",
       "link": "https://x.com/madhavchanchani/status/2044854091587932238",
       "date": "2026-04-16T13:10:46+00:00",
@@ -10523,6 +10523,48 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002The Arc<br>\ud83d\udea8 Cred is making its play in the wealth-tech space through an upgraded Kuvera app, the direct mutual fund platform it acquired in 2024.<br><br>Kuvera is also introducing Surplus, which allows you to invest excess cash in liquid funds.<br><br>Details \ud83d\udc47<br><img width=\"635\" height=\"841\" style=\"\" src=\"https://pbs.twimg.com/media/HFRvfO4aQAAdzL5?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "US population growth slowed in 2025, particularly in urban counties, because immigration fell. Read more by @JedKolko: https://www.piie.com/blogs/real...",
+      "link": "https://x.com/PIIE/status/2045166936674165099",
+      "date": "2026-04-17T15:46:09+00:00",
+      "tweet_id": "2045166936674165099",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGHkeW4WgAAAol8?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US population growth slowed in 2025, particularly in urban counties, because immigration fell.<br>Read more by @JedKolko: https://www.piie.com/blogs/realtime-economics/2026/less-immigration-urban-growth-slowed-2025<br><img width=\"1732\" height=\"968\" style=\"\" src=\"https://pbs.twimg.com/media/HGHkeW4WgAAAol8?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": ".@ojblanchard1 is reasonably optimistic about Europe's future. Watch the full PIIE Insider LIVE episode on YouTube or listen wherever you get podcasts...",
+      "link": "https://x.com/PIIE/status/2045162879637246083",
+      "date": "2026-04-17T15:30:02+00:00",
+      "tweet_id": "2045162879637246083",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGHgyLPXUAAK6ds?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": ".@ojblanchard1 is reasonably optimistic about Europe's future. <br><br>Watch the full PIIE Insider LIVE episode on YouTube or listen wherever you get podcasts.<br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/amplify_video/2045162628088049664/vid/avc1/1280x720/OLvAnnq8yb1vnQoq.mp4?tag=14\" controls=\"controls\" poster=\"https://pbs.twimg.com/media/HGHgyLPXUAAK6ds?format=jpg&amp;name=orig\"></video>"
+    },
+    {
+      "title": "RT Isabel Schnabel \ud83c\uddea\ud83c\uddfa\ud83c\uddfa\ud83c\udde6: Yesterday I participated in an excellent panel at the @PIIE on the future of the eurozone, jointly with @carlos_c...",
+      "link": "https://x.com/PIIE/status/2045155078193983566",
+      "date": "2026-04-17T14:44:27+00:00",
+      "tweet_id": "2045155078193983566",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGHTo7UaMAAu1Pl?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Isabel Schnabel \ud83c\uddea\ud83c\uddfa\ud83c\uddfa\ud83c\udde6<br>Yesterday I participated in an excellent panel at the @PIIE on the future of the eurozone, jointly with @carlos_cuerpo, @ojblanchard1 and @AngelUbide, moderated by @AdamPosen. In my remarks, I reflected on the euro area\u2019s successes and challenges. 1/11<br><img width=\"1608\" height=\"890\" style=\"\" src=\"https://pbs.twimg.com/media/HGHTo7UaMAAu1Pl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Economic sanctions make sense if there's a case for a negative effect to US national security, @ChorzempaMartin says. \u201cWhere the real risk of overrea...",
@@ -10749,20 +10791,6 @@
       "description_html": "It has been a common belief that somehow \"offshore\" dollars, including the dollar reserves held by non-US authorities, have to \"leave\" the US through US current account deficits. This belief is dead wrong.<br>Maurice Obstfeld explains: https://www.piie.com/blogs/realtime-economics/2026/dont-blame-americas-current-account-deficit-dollar"
     },
     {
-      "title": "\ud83c\udf38NOW: @ojblanchard1, @carlos_cuerpo @_minecogob, @Isabel_Schnabel @ECB, & @AngelUbide @Citadel explore monetary policy transmission & financial sta...",
-      "link": "https://x.com/PIIE/status/2044764011049238938",
-      "date": "2026-04-16T13:05:04+00:00",
-      "tweet_id": "2044764011049238938",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\ud83c\udf38NOW: @ojblanchard1, @carlos_cuerpo @_minecogob, @Isabel_Schnabel @ECB, &amp; @AngelUbide @Citadel explore monetary policy transmission &amp; financial stability in the eurozone, Eurobonds, defense spending, &amp; more.<br>Watch: https://www.youtube.com/watch?v=EQNvCWmUmwE"
-    },
-    {
       "title": "RT Econom\u00eda, Comercio y Empresa: \ud83d\udccdWashington | El VP1 @carlos_cuerpo inaugura y participa en el panel 'El futuro de la arquitectura econ\u00f3mica de ...",
       "link": "https://x.com/PIIE/status/2044782393576374489",
       "date": "2026-04-16T12:43:17+00:00",
@@ -10775,34 +10803,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Econom\u00eda, Comercio y Empresa<br>\ud83d\udccdWashington | El VP1 @carlos_cuerpo inaugura y participa en el panel 'El futuro de la arquitectura econ\u00f3mica de la zona euro' en el @PIIE.<br><br>\ud83d\udd34EN DIRECTO: https://www.youtube.com/watch?v=EQNvCWmUmwE<br><img width=\"973\" height=\"499\" style=\"\" src=\"https://pbs.twimg.com/media/HGBxC3AXcAAdi1r?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "\ud83c\udf38NOW: Warwick McKibbin, Cullen Hendrix, & @jfkirkegaard discuss economic security, trade-offs, vulnerabilities, & more. Watch live: https://www.you...",
-      "link": "https://x.com/PIIE/status/2044491706058379517",
-      "date": "2026-04-15T19:03:02+00:00",
-      "tweet_id": "2044491706058379517",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\ud83c\udf38NOW: Warwick McKibbin, Cullen Hendrix, &amp; @jfkirkegaard discuss economic security, trade-offs, vulnerabilities, &amp; more.<br>Watch live: https://www.youtube.com/watch?v=pEWiRGvnsFk"
-    },
-    {
-      "title": "RT Jos\u00e9 Luis Escriv\u00e1: Several central bankers, myself included, discussed decision\u2011making in today\u2019s uncertain environment at @PIIE. I focused on ...",
-      "link": "https://x.com/PIIE/status/2044487187467550785",
-      "date": "2026-04-15T18:16:30+00:00",
-      "tweet_id": "2044487187467550785",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Jos\u00e9 Luis Escriv\u00e1<br>Several central bankers, myself included, discussed decision\u2011making in today\u2019s uncertain environment at @PIIE.<br><br>I focused on a tool I find particularly useful: defining alternative scenarios.<br><br>The challenge lies in designing them properly.<br><br>\ud83e\uddf5\ud83d\udc47"
     }
   ]
 }
