@@ -1,26 +1,356 @@
 {
-  "generated_at": "2026-04-20T18:45:33.181722+05:30",
+  "generated_at": "2026-04-21T14:02:11.264638+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 48,
       "feeds_failed": 1,
-      "items_raw": 1147,
-      "resolve_attempted": 1147,
-      "resolve_resolved": 1145,
-      "resolve_cache_hits": 1140
+      "items_raw": 1144,
+      "resolve_attempted": 1144,
+      "resolve_resolved": 1142,
+      "resolve_cache_hits": 1132
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.5,
-      "items": 729,
-      "handles_ok": 45
+      "age_hours": 18.8,
+      "items": 768,
+      "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-04-20T18:45:33.181672+05:30"
+    "generated_at": "2026-04-21T14:02:11.264594+05:30"
   },
   "items": [
+    {
+      "title": "BREAKING: The Dow Jones Industrial Average erases all losses and turns green after Iran shuts the Strait of Hormuz.",
+      "link": "https://x.com/KobeissiLetter/status/2046222425742839846",
+      "date": "2026-04-20T13:40:17+00:00",
+      "tweet_id": "2046222425742839846",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGWkc5RWYAASQGT?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: The Dow Jones Industrial Average erases all losses and turns green after Iran shuts the Strait of Hormuz.<br><img width=\"1206\" height=\"2030\" style=\"\" src=\"https://pbs.twimg.com/media/HGWkc5RWYAASQGT?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "IRANIAN DEPUTY FOREIGN MINISTER: AMERICA HAS NO CHOICE BUT TO ABANDON THE APPROACH OF EXCESSIVE DEMANDS AND TO RESPECT THE RIGHTS OF OUR PEOPLE",
+      "link": "https://x.com/REDBOXINDIA/status/2046221928982098337",
+      "date": "2026-04-20T13:38:19+00:00",
+      "tweet_id": "2046221928982098337",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "IRANIAN DEPUTY FOREIGN MINISTER: AMERICA HAS NO CHOICE BUT TO ABANDON THE APPROACH OF EXCESSIVE DEMANDS AND TO RESPECT THE RIGHTS OF OUR PEOPLE",
+      "category": "Twitter"
+    },
+    {
+      "title": "Hungary's verdict on Orb\u00e1n & his 16 years of corruption & economic mismanagement sends a signal to Brazil & Argentina, where voters have historically...",
+      "link": "https://x.com/PIIE/status/2046221853513982068",
+      "date": "2026-04-20T13:38:01+00:00",
+      "tweet_id": "2046221853513982068",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Hungary's verdict on Orb\u00e1n &amp; his 16 years of corruption &amp; economic mismanagement sends a signal to Brazil &amp; Argentina, where voters have historically shown a much lower tolerance for this than their Eastern European counterparts.<br>https://www.piie.com/blogs/realtime-economics/2026/orbans-fall-sends-warning-signal-argentina-and-brazil",
+      "category": "Twitter"
+    },
+    {
+      "title": "US OIL PARES GAINS TO HIT INTRADAY LOWS NEAR $87/BBL",
+      "link": "https://x.com/REDBOXINDIA/status/2046221848799555715",
+      "date": "2026-04-20T13:38:00+00:00",
+      "tweet_id": "2046221848799555715",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US OIL PARES GAINS TO HIT INTRADAY LOWS NEAR $87/BBL",
+      "category": "Twitter"
+    },
+    {
+      "title": "JD VANCE, US DELEGATION TO LAND IN ISLAMABAD WITHIN HOURS: NYP",
+      "link": "https://x.com/REDBOXINDIA/status/2046219499272048807",
+      "date": "2026-04-20T13:28:40+00:00",
+      "tweet_id": "2046219499272048807",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "JD VANCE, US DELEGATION TO LAND IN ISLAMABAD WITHIN HOURS: NYP",
+      "category": "Twitter"
+    },
+    {
+      "title": "Q&A: What does China\u2019s new Paris Agreement pledge mean for climate action? | @_AN_Patel @drsimevans Read here: https://buff.ly/cEVcjs2",
+      "link": "https://x.com/CarbonBrief/status/2046218589548527899",
+      "date": "2026-04-20T13:25:03+00:00",
+      "tweet_id": "2046218589548527899",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGWg9rTX0AA2XKr?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Q&amp;A: What does China\u2019s new Paris Agreement pledge mean for climate action? | @_AN_Patel @drsimevans<br><br>Read here: https://buff.ly/cEVcjs2<br><img width=\"1788\" height=\"1140\" style=\"\" src=\"https://pbs.twimg.com/media/HGWg9rTX0AA2XKr?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "ONMOBILE GLOBAL: CO ENTERS WHOLESALE SUPPLY AGREEMENT WITH FLIPKART INDIA | PARTNERSHIP TO DISTRIBUTE GAMING HARDWARE AND DIGITAL SERVICES ECOSYSTEM A...",
+      "link": "https://x.com/REDBOXINDIA/status/2046218374041030788",
+      "date": "2026-04-20T13:24:11+00:00",
+      "tweet_id": "2046218374041030788",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "ONMOBILE GLOBAL: CO ENTERS WHOLESALE SUPPLY AGREEMENT WITH FLIPKART INDIA | PARTNERSHIP TO DISTRIBUTE GAMING HARDWARE AND DIGITAL SERVICES ECOSYSTEM AHEAD OF UPCOMING PRODUCT LAUNCH",
+      "category": "Twitter"
+    },
+    {
+      "title": "#India-#Korea CEPA was \"irrational\" and \"lopsided\", led to tripling of trade deficit: #PiyushGoyal @abhhimanyus https://www.cnbctv18.com/economy/india...",
+      "link": "https://x.com/CNBCTV18Live/status/2046217778026451447",
+      "date": "2026-04-20T13:21:49+00:00",
+      "tweet_id": "2046217778026451447",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#India-#Korea CEPA was \"irrational\" and \"lopsided\", led to tripling of trade deficit: #PiyushGoyal<br><br>@abhhimanyus <br><br>https://www.cnbctv18.com/economy/india-korea-cepa-was-irrational-and-lopsided-led-to-tripling-of-trade-deficit-piyush-goyal-ws-l-19889863.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "TRUMP, RESPONDING TO REUTERS REPORTS: THE PAKISTANI ARMY CHIEF DID NOT ADVISE ME ON ANYTHING REGARDING THE SIEGE OF IRANIAN PORTS",
+      "link": "https://x.com/REDBOXINDIA/status/2046217693347434945",
+      "date": "2026-04-20T13:21:29+00:00",
+      "tweet_id": "2046217693347434945",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "TRUMP, RESPONDING TO REUTERS REPORTS: THE PAKISTANI ARMY CHIEF DID NOT ADVISE ME ON ANYTHING REGARDING THE SIEGE OF IRANIAN PORTS",
+      "category": "Twitter"
+    },
+    {
+      "title": "SECOND ROUND OF TALKS BETWEEN ISRAEL AND LEBANON WILL TAKE PLACE ON THURSDAY IN WASHINGTON - ISRAELI MEDIA",
+      "link": "https://x.com/REDBOXINDIA/status/2046217602062573909",
+      "date": "2026-04-20T13:21:07+00:00",
+      "tweet_id": "2046217602062573909",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "SECOND ROUND OF TALKS BETWEEN ISRAEL AND LEBANON WILL TAKE PLACE ON THURSDAY IN WASHINGTON - ISRAELI MEDIA",
+      "category": "Twitter"
+    },
+    {
+      "title": "TVS MOTOR: CO PARTNERS WITH HYUNDAI MOTOR COMPANY TO DEVELOP ELECTRIC 3-WHEELERS | JOINT DEVELOPMENT AGREEMENT (JDA) FOCUSED ON MANUFACTURING AND COMM...",
+      "link": "https://x.com/REDBOXINDIA/status/2046217382293635247",
+      "date": "2026-04-20T13:20:15+00:00",
+      "tweet_id": "2046217382293635247",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "TVS MOTOR: CO PARTNERS WITH HYUNDAI MOTOR COMPANY TO DEVELOP ELECTRIC 3-WHEELERS | JOINT DEVELOPMENT AGREEMENT (JDA) FOCUSED ON MANUFACTURING AND COMMERCIALIZING ELECTRIC MICROMOBILITY SOLUTIONS",
+      "category": "Twitter"
+    },
+    {
+      "title": "IRAN: MORE DETAILS ON PAKISTAN CALL TO BE RELEASED LATER -RTRS",
+      "link": "https://x.com/REDBOXINDIA/status/2046215628584009978",
+      "date": "2026-04-20T13:13:17+00:00",
+      "tweet_id": "2046215628584009978",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "IRAN: MORE DETAILS ON PAKISTAN CALL TO BE RELEASED LATER -RTRS",
+      "category": "Twitter"
+    },
+    {
+      "title": "SENIOR IRANIAN OFFICIAL: POSITIVE EFFORTS ARE UNDERWAY BY PAKISTAN TO END THE U.S. BLOCKADE, ENSURE IRAN'S PARTICIPATION IN TALKS -RTRS",
+      "link": "https://x.com/REDBOXINDIA/status/2046215484413301053",
+      "date": "2026-04-20T13:12:42+00:00",
+      "tweet_id": "2046215484413301053",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "SENIOR IRANIAN OFFICIAL: POSITIVE EFFORTS ARE UNDERWAY BY PAKISTAN TO END THE U.S. BLOCKADE, ENSURE IRAN'S PARTICIPATION IN TALKS -RTRS",
+      "category": "Twitter"
+    },
+    {
+      "title": "SENIOR IRANIAN OFFICIAL: IRAN IS POSITIVELY REVIEWING PARTICIPATION IN PEACE TALKS WITH U.S., NO FINAL DECISION HAS BEEN MADE YET -RTRS",
+      "link": "https://x.com/REDBOXINDIA/status/2046215359305502982",
+      "date": "2026-04-20T13:12:13+00:00",
+      "tweet_id": "2046215359305502982",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "SENIOR IRANIAN OFFICIAL: IRAN IS POSITIVELY REVIEWING PARTICIPATION IN PEACE TALKS WITH U.S., NO FINAL DECISION HAS BEEN MADE YET -RTRS",
+      "category": "Twitter"
+    },
+    {
+      "title": "#ETMarkets Insurance firms boost stakes in 10 midcap stocks in Q4FY26 https://economictimes.indiatimes.com/markets/stocks/news/insurance-firms-boost-s...",
+      "link": "https://x.com/ETMarkets/status/2046214548605288798",
+      "date": "2026-04-20T13:08:59+00:00",
+      "tweet_id": "2046214548605288798",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#ETMarkets<br><br>Insurance firms boost stakes in 10 midcap stocks in Q4FY26<br><br>https://economictimes.indiatimes.com/markets/stocks/news/insurance-firms-boost-stakes-in-10-mid-cap-stocks-in-q4fy26/holding-hike/slideshow/130392463.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "#Nifty yet to catch up even as #MSCI EM Index erases #Iran war losses @yoosefkp https://www.cnbctv18.com/market/nifty-yet-to-catch-up-even-as-msci-em-...",
+      "link": "https://x.com/CNBCTV18Live/status/2046213733257814492",
+      "date": "2026-04-20T13:05:45+00:00",
+      "tweet_id": "2046213733257814492",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Nifty yet to catch up even as #MSCI EM Index erases #Iran war losses<br><br>@yoosefkp <br><br>https://www.cnbctv18.com/market/nifty-yet-to-catch-up-even-as-msci-em-index-erases-iran-war-losses-ws-l-19889858.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "Yes, let's do this one by one.",
+      "link": "https://x.com/menakadoshi/status/2046212625571418209",
+      "date": "2026-04-20T13:01:21+00:00",
+      "tweet_id": "2046212625571418209",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGVW-TDakAASsPs?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Yes, let's do this one by one.<div class=\"rsshub-quote\"><br><br>Live Law:\u2002#SupremeCourt passes an order requesting Appellate Tribunal constituted in #WestBengal to give out of turn hearing to a Muslim woman excluded from electoral roll after SIR exercise<br><br>The woman claimed she had documents like passport, etc.<br><br><img width=\"750\" height=\"450\" style=\"\" src=\"https://pbs.twimg.com/media/HGVW-TDakAASsPs?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: Kuwait has declared force majeure on oil shipments as Iran closes the Strait of Hormuz. Prior to the Iran War, Kuwait was producing 2.5 mill...",
+      "link": "https://x.com/KobeissiLetter/status/2046212408574710174",
+      "date": "2026-04-20T13:00:29+00:00",
+      "tweet_id": "2046212408574710174",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: Kuwait has declared force majeure on oil shipments as Iran closes the Strait of Hormuz.<br><br>Prior to the Iran War, Kuwait was producing 2.5 million barrels of oil per day.",
+      "category": "Twitter"
+    },
+    {
+      "title": "India\u2019s beleaguered bling exporters are nothing if not die-hard optimists. Even after high US tariffs, rising gold prices, rupee volatility and the w...",
+      "link": "https://x.com/menakadoshi/status/2046211188703596760",
+      "date": "2026-04-20T12:55:38+00:00",
+      "tweet_id": "2046211188703596760",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGWaK-Xa4AAJUWL?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "India\u2019s beleaguered bling exporters are nothing if not die-hard optimists. <br><br>Even after high US tariffs, rising gold prices, rupee volatility and the war on Iran prompted another contraction in sales, exporters are looking at a slim silver lining. <br><br>That the disruption in supply chains in the Middle East may give India a shot at becoming a diamond trading hub alongside Antwerp and Dubai.<br><br>Read India Edition daily <br>https://www.bloomberg.com/news/newsletters/2026-04-20/jewelry-exporters-seek-new-markets-as-growth-slows-banks-seeks-depositors?srnd=undefined<br><img width=\"976\" height=\"687\" style=\"\" src=\"https://pbs.twimg.com/media/HGWaK-Xa4AAJUWL?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Miliband unveils move to delink gas and electricity prices https://ft.trib.al/bePiqqY",
+      "link": "https://x.com/ftenergy/status/2046210322365636897",
+      "date": "2026-04-20T12:52:12+00:00",
+      "tweet_id": "2046210322365636897",
+      "source": "FT Energy",
+      "publisher": "FT Energy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Miliband unveils move to delink gas and electricity prices https://ft.trib.al/bePiqqY",
+      "category": "Twitter"
+    },
+    {
+      "title": "OIL INDIA (OGEL): CO SIGNS MOU WITH NUMALIGARH REFINERY (NRL) FOR RENEWABLE ENERGY COLLABORATION",
+      "link": "https://x.com/REDBOXINDIA/status/2046209393356878215",
+      "date": "2026-04-20T12:48:30+00:00",
+      "tweet_id": "2046209393356878215",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "OIL INDIA (OGEL): CO SIGNS MOU WITH NUMALIGARH REFINERY (NRL) FOR RENEWABLE ENERGY COLLABORATION",
+      "category": "Twitter"
+    },
+    {
+      "title": "#SMLMahindra #Q4Results: Profit edges up, margin narrows; dividend declared @sheersh0510 https://www.cnbctv18.com/market/sml-mahindra-q4-results-profi...",
+      "link": "https://x.com/CNBCTV18Live/status/2046209085075525929",
+      "date": "2026-04-20T12:47:17+00:00",
+      "tweet_id": "2046209085075525929",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#SMLMahindra #Q4Results: Profit edges up, margin narrows; dividend declared<br><br>@sheersh0510 <br><br>https://www.cnbctv18.com/market/sml-mahindra-q4-results-profit-edges-up-margin-narrows-dividend-declared-ws-l-19889851.htm",
+      "category": "Twitter"
+    },
     {
       "title": "MEDPLUS HEALTH SERVICES: CO SUBSIDIARY OPTIVAL HEALTH SOLUTIONS RECEIVES SUSPENSION ORDERS FOR TWO DRUG STORE LICENSES",
       "link": "https://x.com/REDBOXINDIA/status/2046208363055432004",
@@ -247,6 +577,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT ValueEquity: Chemicals & Specialty Chemicals Value Chain in India , mapping the players",
+      "link": "https://x.com/EquityValueIn/status/2046210596610457738",
+      "date": "2026-04-20T12:17:37+00:00",
+      "tweet_id": "2046210596610457738",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGWQ2iTacAAJhHS?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002ValueEquity<br>Chemicals &amp; Specialty Chemicals Value Chain in India , mapping the players<br><img width=\"1024\" height=\"1158\" style=\"\" src=\"https://pbs.twimg.com/media/HGWQ2iTacAAJhHS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1042\" height=\"1002\" style=\"\" src=\"https://pbs.twimg.com/media/HGWQ65CacAAcEAB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Chemicals & Specialty Chemicals Value Chain in India , mapping the players",
       "link": "https://x.com/EquityValueIn/status/2046201620116189532",
       "date": "2026-04-20T12:17:37+00:00",
@@ -322,36 +667,6 @@
       "category": "Twitter"
     },
     {
-      "title": "APEEJAY SURRENDRA PARK HOTELS: CO ASPHL SIGNS TWO HOTEL MANAGEMENT AGREEMENTS IN AYODHYA AND UJJAIN",
-      "link": "https://x.com/REDBOXINDIA/status/2046198958868029914",
-      "date": "2026-04-20T12:07:02+00:00",
-      "tweet_id": "2046198958868029914",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "APEEJAY SURRENDRA PARK HOTELS: CO ASPHL SIGNS TWO HOTEL MANAGEMENT AGREEMENTS IN AYODHYA AND UJJAIN",
-      "category": "Twitter"
-    },
-    {
-      "title": "JSW STEEL: CO, POSCO PARTNER TO SET UP 6 MTPA GREENFIELD STEEL PLANT IN ODISHA",
-      "link": "https://x.com/REDBOXINDIA/status/2046198913867358556",
-      "date": "2026-04-20T12:06:52+00:00",
-      "tweet_id": "2046198913867358556",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "JSW STEEL: CO, POSCO PARTNER TO SET UP 6 MTPA GREENFIELD STEEL PLANT IN ODISHA",
-      "category": "Twitter"
-    },
-    {
       "title": "#JustIn | #March #CoreSector Data India March Eight Core Industries -0.4% YoY Vs 2.8% In February",
       "link": "https://x.com/CNBCTV18Live/status/2046198509972652455",
       "date": "2026-04-20T12:05:15+00:00",
@@ -364,21 +679,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#JustIn | #March #CoreSector Data<br><br>India March Eight Core Industries -0.4% YoY Vs 2.8% In February<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HGWOsaKagAAUBzJ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "SML MAHINDRA: Q4 SL NET PROFIT 542M RUPEES VS 530M (YOY) || Q4 REVENUE 9B RUPEES VS 7.7B (YOY) SML MAHINDRA: Q4 EBITDA RUPEES 905M VS 904M (YOY) || Q4...",
-      "link": "https://x.com/REDBOXINDIA/status/2046197641609146401",
-      "date": "2026-04-20T12:01:48+00:00",
-      "tweet_id": "2046197641609146401",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SML MAHINDRA: Q4 SL NET PROFIT 542M RUPEES VS 530M (YOY) || Q4 REVENUE 9B RUPEES VS 7.7B (YOY)<br><br>SML MAHINDRA: Q4 EBITDA RUPEES 905M VS 904M (YOY) || Q4 EBITDA MARGIN 10.06% VS 11.72% (YOY)<br><br>SML MAHINDRA: CO FINAL DIVIDEND OF 23.50 RUPEES PER SHARE",
       "category": "Twitter"
     },
     {
@@ -397,48 +697,33 @@
       "category": "Twitter"
     },
     {
-      "title": "IRANIAN AUTHORITIES HAVE EXPRESSED WILLINGNESS TO SEND A DELEGATION FOR A SECOND ROUND OF TALKS IN ISLAMABAD THIS WEEK, TWO PAKISTANI OFFICIALS SAID M...",
-      "link": "https://x.com/REDBOXINDIA/status/2046195315582329239",
-      "date": "2026-04-20T11:52:34+00:00",
-      "tweet_id": "2046195315582329239",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
+      "title": "RT EAC-PM: Member @sanjeevsanyal & Director @AakankshaArora5 write on the recent reform in process of reclaiming the unclaimed dividends and shares fr...",
+      "link": "https://x.com/sanjeevsanyal/status/2046219520201880057",
+      "date": "2026-04-20T11:59:46+00:00",
+      "tweet_id": "2046219520201880057",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
       "source_mode": "rsshub",
       "image": "",
-      "is_retweet": false,
+      "is_retweet": true,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "IRANIAN AUTHORITIES HAVE EXPRESSED WILLINGNESS TO SEND A DELEGATION FOR A SECOND ROUND OF TALKS IN ISLAMABAD THIS WEEK, TWO PAKISTANI OFFICIALS SAID MONDAY",
+      "description_html": "RT\u2002EAC-PM<br>Member @sanjeevsanyal &amp; Director @AakankshaArora5 write on the recent reform in process of reclaiming the unclaimed dividends and shares from Investor Education&nbsp;and&nbsp;Protection Fund Authority (IEPFA) in @merotribune  <br>https://merotribune.com/2026/04/20/how-process-reforms-transformed-indias-investor-protection-fund/",
       "category": "Twitter"
     },
     {
-      "title": "IRAN WILLING TO ATTEND SECOND ROUND OF TALKS WITH US, PAKISTAN OFFICIALS SAY: AP",
-      "link": "https://x.com/REDBOXINDIA/status/2046195248393834921",
-      "date": "2026-04-20T11:52:18+00:00",
-      "tweet_id": "2046195248393834921",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
+      "title": "RT Chad P. Bown: As Soumaya and I researched our book, companies kept describing a disconnect between what the President said about tariffs and their ...",
+      "link": "https://x.com/PIIE/status/2046221534675566687",
+      "date": "2026-04-20T11:52:22+00:00",
+      "tweet_id": "2046221534675566687",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
       "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
+      "image": "https://pbs.twimg.com/media/HGWGbvMXcAAHUZ1?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
       "is_reply": false,
-      "description_html": "IRAN WILLING TO ATTEND SECOND ROUND OF TALKS WITH US, PAKISTAN OFFICIALS SAY: AP",
-      "category": "Twitter"
-    },
-    {
-      "title": "VEDANTA: CO SETS MAY 1, 2026, AS RECORD DATE FOR SCHEME OF ARRANGEMENT OF DEMERGER OF VEDANTA INTO 4 COMPANIES",
-      "link": "https://x.com/REDBOXINDIA/status/2046194396912390621",
-      "date": "2026-04-20T11:48:55+00:00",
-      "tweet_id": "2046194396912390621",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "VEDANTA: CO SETS MAY 1, 2026, AS RECORD DATE FOR SCHEME OF ARRANGEMENT OF DEMERGER OF VEDANTA INTO 4 COMPANIES",
+      "description_html": "RT\u2002Chad P. Bown<br>As Soumaya and I researched our book, companies kept describing a disconnect between what the President said about tariffs and their everyday reality.<br><br>I visited Fall River, Massachusetts to see exactly how made-in-America seat cushions were being caught up in Trump's tariffs...<br><img width=\"1720\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HGWGbvMXcAAHUZ1?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Trade Talks Podcast:\u2002NEW EPISODE: The owner of Klear Vu, a 55-person company that makes seat cushions in Massachusetts and imports fabric from China, joins for a candid conversation about how President Trump's tariffs are affecting its supply chain, pricing, workers, and more.<br>https://tradetalkspodcast.com/podcast/211-how-one-small-american-manufacturer-is-dealing-with-trumps-tariffs/<br></div>",
       "category": "Twitter"
     },
     {
@@ -469,21 +754,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Govt releases \u20b917,744 crore #MGNREGA funds; new wage rates to be notified soon<br><br>@sheersh0510 @Sapna_CNBC <br><br>https://www.cnbctv18.com/economy/govt-releases-rs-17744-crore-mgnrega-funds-vb-gram-g-wages-to-be-notified-soon-19889793.htm",
-      "category": "Twitter"
-    },
-    {
-      "title": "VEERHEALTH CARE: CO BAGS \"BIGGEST SINGLE ORDER\" WORTH \u20b96.16 CR FOR SKINCARE PRODUCTS",
-      "link": "https://x.com/REDBOXINDIA/status/2046190308514537661",
-      "date": "2026-04-20T11:32:40+00:00",
-      "tweet_id": "2046190308514537661",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "VEERHEALTH CARE: CO BAGS \"BIGGEST SINGLE ORDER\" WORTH \u20b96.16 CR FOR SKINCARE PRODUCTS",
       "category": "Twitter"
     },
     {
@@ -532,21 +802,6 @@
       "category": "Twitter"
     },
     {
-      "title": "SENIOR LEBANESE POLITICIAN ALI HASSAN KHALIL: ISRAELI FORCES HAVE CARRIED OUT VARYING DEGREES OF DESTRUCTION IN 39 VILLAGES THEY OCCUPY IN SOUTHERN LE...",
-      "link": "https://x.com/REDBOXINDIA/status/2046188241217610015",
-      "date": "2026-04-20T11:24:27+00:00",
-      "tweet_id": "2046188241217610015",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SENIOR LEBANESE POLITICIAN ALI HASSAN KHALIL: ISRAELI FORCES HAVE CARRIED OUT VARYING DEGREES OF DESTRUCTION IN 39 VILLAGES THEY OCCUPY IN SOUTHERN LEBANON",
-      "category": "Twitter"
-    },
-    {
       "title": "RT CSEINDIA: \ud83d\udce2 Coming up tomorrow on the Sunita Narain Show: Energy in Times of War War will change energy map of the world. What will it mean for ...",
       "link": "https://x.com/down2earthindia/status/2046197284493578347",
       "date": "2026-04-20T11:21:24+00:00",
@@ -589,21 +844,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Raja Shivaji \ud83e\udee1<br><br>Hand on heart, you can feel every bit of emotion in this one. <br><br>Daaji, Gens &amp; our little surprise Rahyl \u2764\ufe0f<br><br>May 1st. Lock it in. \ud83d\ude47 <br><br>@Riteishd <br>@geneliad <br>@jiostudios <br>https://youtu.be/3CXt4GtjLmc<br><img width=\"707\" height=\"358\" style=\"\" src=\"https://pbs.twimg.com/media/HGWED03b0AAbvF-?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "CHINA EASTERN AIRLINES RESUMES KOLKATA-KUNMING DIRECT FLIGHTS",
-      "link": "https://x.com/REDBOXINDIA/status/2046186342833701082",
-      "date": "2026-04-20T11:16:55+00:00",
-      "tweet_id": "2046186342833701082",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "CHINA EASTERN AIRLINES RESUMES KOLKATA-KUNMING DIRECT FLIGHTS",
       "category": "Twitter"
     },
     {
@@ -697,6 +937,36 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Trade Talks Podcast: NEW EPISODE: The owner of Klear Vu, a 55-person company that makes seat cushions in Massachusetts and imports fabric from Chin...",
+      "link": "https://x.com/PIIE/status/2046221510491193572",
+      "date": "2026-04-20T10:56:59+00:00",
+      "tweet_id": "2046221510491193572",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Trade Talks Podcast<br>NEW EPISODE: The owner of Klear Vu, a 55-person company that makes seat cushions in Massachusetts and imports fabric from China, joins for a candid conversation about how President Trump's tariffs are affecting its supply chain, pricing, workers, and more.<br>https://tradetalkspodcast.com/podcast/211-how-one-small-american-manufacturer-is-dealing-with-trumps-tariffs/",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Ira Dugal: India central bank partially withdraws restrictions on certain rupee trades https://www.reuters.com/world/india/india-central-bank-parti...",
+      "link": "https://x.com/srajagopalan/status/2046210229734375773",
+      "date": "2026-04-20T10:54:06+00:00",
+      "tweet_id": "2046210229734375773",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Ira Dugal<br>India central bank partially withdraws restrictions on certain rupee trades<br><br>https://www.reuters.com/world/india/india-central-bank-partially-withdraws-restrictions-certain-rupee-trades-2026-04-20/",
+      "category": "Twitter"
+    },
+    {
       "title": "India central bank partially withdraws restrictions on certain rupee trades https://www.reuters.com/world/india/india-central-bank-partially-withdraws...",
       "link": "https://x.com/dugalira/status/2046180603566109048",
       "date": "2026-04-20T10:54:06+00:00",
@@ -739,21 +1009,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Navkar Corporation delivered a strong turnaround in FY26 with EBITDA of \u20b9118.16 crore exceeding management guidance of \u20b9100 crore by 18.16%. The company transformed from a net loss of \u20b945.30 crore to net profit of \u20b930.15 crore, with EBITDA margin expanding by 1548 bps to 17.2%. <br><br>While working capital stress (58% receivables growth) and low RoCE (~3%) remain concerns, the execution on guidance and strong cash generation indicate improving operational efficiency.<br><br>Positive Factors<br><br>Revenue grew 41.1% YoY to \u20b9687.46 crore<br><br>EBITDA grew 1319.9% YoY to \u20b9118.16 crore<br><br>EBITDA margin expanded 1548 bps YoY to 17.2%<br><br>PAT turned positive at \u20b930.15 crore vs loss of \u20b945.30 <br>crore in FY25<br><br>EPS turned positive at \u20b92.00 vs -\u20b93.01 in FY25<br><br>Beat EBITDA guidance of \u20b9100 crore by 18.16%<br><br>Free cash flow positive at \u20b921.61 crore<br><br>Finance costs declined 23.3% YoY<br><br>Risk Factors<br><br>Trade receivables grew 58% YoY outpacing revenue growth of 41.1%<br><br>Net debt to EBITDA at 1.26x indicating moderate leverage<br><br>RoCE at ~3% remains low despite improvement<br><br>Short-term borrowings increased 49.9% YoY<br><br>Effective tax rate high at 38.1%",
-      "category": "Twitter"
-    },
-    {
-      "title": "PRESIDENT LEE SAYS INDIA'S AI CAPABILITIES AND SOUTH KOREA'S ADVANCED MANUFACTURING CAN TOGETHER CREATE HUGE SYNERGY",
-      "link": "https://x.com/REDBOXINDIA/status/2046179504549429422",
-      "date": "2026-04-20T10:49:44+00:00",
-      "tweet_id": "2046179504549429422",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "PRESIDENT LEE SAYS INDIA'S AI CAPABILITIES AND SOUTH KOREA'S ADVANCED MANUFACTURING CAN TOGETHER CREATE HUGE SYNERGY",
       "category": "Twitter"
     },
     {
@@ -814,21 +1069,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#BankofMaharashtra Q4 Results: Net profit jumps 34% YoY to Rs 2,014 crore; NII up 20%<br><br>https://economictimes.indiatimes.com/markets/stocks/earnings/bank-of-maharashtra-q4-results-net-profit-jumps-34-yoy-to-rs-2014-crore-nii-up-20/articleshow/130389579.cms",
-      "category": "Twitter"
-    },
-    {
-      "title": "TRADE MINISTER SAYS INDIA, SOUTH KOREA HAVE AGREED TO FAST TRACK TALKS ON EASING NON-TRADE BARRIERS, EASING RULES OF ORIGIN, MARKET ACCESS TO EXPAND B...",
-      "link": "https://x.com/REDBOXINDIA/status/2046176902726013038",
-      "date": "2026-04-20T10:39:24+00:00",
-      "tweet_id": "2046176902726013038",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "TRADE MINISTER SAYS INDIA, SOUTH KOREA HAVE AGREED TO FAST TRACK TALKS ON EASING NON-TRADE BARRIERS, EASING RULES OF ORIGIN, MARKET ACCESS TO EXPAND BILATERAL TRADE",
       "category": "Twitter"
     },
     {
@@ -1192,21 +1432,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#Exclusive: #HDFCBank board to seek CEO\u2019s reappointment after Law firm submits report; auditor has submited unqualified report @imFmoharkan https://w...",
-      "link": "https://x.com/CNBCTV18Live/status/2046154194298732874",
-      "date": "2026-04-20T09:09:10+00:00",
-      "tweet_id": "2046154194298732874",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Exclusive: #HDFCBank board to seek CEO\u2019s reappointment after Law firm submits report; auditor has submited unqualified report<br><br>@imFmoharkan <br>https://www.cnbctv18.com/business/companies/exclusive-hdfc-bank-board-to-seek-ceos-reappointment-after-law-firm-submits-report-auditor-has-submited-unqualified-report-19889636.htm",
-      "category": "Twitter"
-    },
-    {
       "title": "Groww Q4FY26: Solid Set with market share gains across key products Q4FY26 Total Inc\ud83d\udd3c81% - 1,536 Cr EBITDA \ud83d\udd3c142% - 939 Cr PAT \ud83d\udd3c122% - 686 Cr ...",
       "link": "https://x.com/EquityInsightss/status/2046153874835230804",
       "date": "2026-04-20T09:07:54+00:00",
@@ -1267,21 +1492,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#Japan: #Tsunami warning after massive earthquake off north-east coast https://www.youtube.com/live/dbUXhHToBYU",
-      "link": "https://x.com/CNBCTV18Live/status/2046150328098464042",
-      "date": "2026-04-20T08:53:48+00:00",
-      "tweet_id": "2046150328098464042",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Japan: #Tsunami warning after massive earthquake off north-east coast<br><br>https://www.youtube.com/live/dbUXhHToBYU",
-      "category": "Twitter"
-    },
-    {
       "title": "Opinion Vanishing shadows: Why conserving the Himalayan wolf in Kashmir is crucial for ecosystem balance If the Valley is to retain its wilderness, th...",
       "link": "https://x.com/down2earthindia/status/2046149990394065338",
       "date": "2026-04-20T08:52:27+00:00",
@@ -1294,21 +1504,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Opinion<br><br>Vanishing shadows: Why conserving the Himalayan wolf in Kashmir is crucial for ecosystem balance<br><br>If the Valley is to retain its wilderness, then the wolf must be allowed to walk its snowfields, unseen yet indispensable, not as a fading echo, but as a living voice in the choir of nature, write Mohsin Javid,&nbsp;Orus Ilyas and&nbsp;Khursheed Ahmad<br><br>https://www.downtoearth.org.in/wildlife-biodiversity/vanishing-shadows-why-conserving-the-himalayan-wolf-in-kashmir-is-crucial-for-ecosystem-balance<br><img width=\"1099\" height=\"597\" style=\"\" src=\"https://pbs.twimg.com/media/HGVihmrbwAA3Vyi?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "15 killed in #Udhampur bus tragedy; #PMModi announces \u20b92 lakh ex-gratia to next of kin of deceased https://www.cnbctv18.com/india/jammu-kashmir-udham...",
-      "link": "https://x.com/CNBCTV18Live/status/2046149724546490731",
-      "date": "2026-04-20T08:51:24+00:00",
-      "tweet_id": "2046149724546490731",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "15 killed in #Udhampur bus tragedy; #PMModi announces \u20b92 lakh ex-gratia to next of kin of deceased<br><br>https://www.cnbctv18.com/india/jammu-kashmir-udhampur-bus-tragedy-death-toll-injuries-rescue-ops-ex-gratia-probe-underway-ws-l-19889613.htm",
       "category": "Twitter"
     },
     {
@@ -1654,21 +1849,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Trent shares jump 4% ahead of board meet to consider bonus issue on April 22<br><br>https://economictimes.indiatimes.com/markets/stocks/news/trent-shares-jump-4-ahead-of-board-meet-to-consider-bonus-issue-on-april-22/articleshow/130384879.cms",
-      "category": "Twitter"
-    },
-    {
-      "title": "#SuzlonEnergy shares drop 2% after 35% rally in April so far. Should you buy? https://economictimes.indiatimes.com/markets/stocks/news/suzlon-energy-s...",
-      "link": "https://x.com/ETMarkets/status/2046122695935635624",
-      "date": "2026-04-20T07:04:00+00:00",
-      "tweet_id": "2046122695935635624",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#SuzlonEnergy shares drop 2% after 35% rally in April so far. Should you buy?<br><br>https://economictimes.indiatimes.com/markets/stocks/news/suzlon-energy-shares-drop-2-after-35-rally-in-april-so-far-should-you-buy/articleshow/130384566.cms",
       "category": "Twitter"
     },
     {
@@ -2842,6 +3022,21 @@
       "category": "Twitter"
     },
     {
+      "title": "\"Socialized\"? How about this?",
+      "link": "https://x.com/abhymurarka/status/2045910029178708258",
+      "date": "2026-04-19T16:58:56+00:00",
+      "tweet_id": "2045910029178708258",
+      "source": "Abhishek Murarka \ud83d\udcb9\ud83d\udc02",
+      "publisher": "Abhy Murarka",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGSIU5wasAAaFZ3?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "\"Socialized\"? How about this?<br><img width=\"554\" height=\"554\" style=\"\" src=\"https://pbs.twimg.com/media/HGSIU5wasAAaFZ3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>zellie:\u2002Mandatory<br><br><img width=\"720\" height=\"570\" style=\"\" src=\"https://pbs.twimg.com/media/HGPMnfkXsAAv_yf?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "When Factories Run at 55% and China Gets $110 Billion, Who Really Wins from AI? https://tinyurl.com/3xnpxu5k",
       "link": "https://x.com/Finstor85/status/2045905218005799185",
       "date": "2026-04-19T16:39:49+00:00",
@@ -3682,6 +3877,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Margin of safety is a lifesaver in Equity: Between IndianHotels and ITCHotels (not the stocks) but what is the perception recently between Taj and ...",
+      "link": "https://x.com/abhymurarka/status/2045701869612503303",
+      "date": "2026-04-19T03:08:38+00:00",
+      "tweet_id": "2045701869612503303",
+      "source": "Abhishek Murarka \ud83d\udcb9\ud83d\udc02",
+      "publisher": "Abhy Murarka",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Margin of safety is a lifesaver in Equity<br>Between IndianHotels and ITCHotels (not the stocks) but what is the perception recently between Taj and ITC ? Recently been reading a lot of negative flak for Taj and positive experiences on ITC. @abhymurarka <br>Would u do a poll.",
+      "category": "Twitter"
+    },
+    {
       "title": "Raamdeo Agrawal Sir on how his investing journey started \u2013 \"During my CA course in Mumbai, I somehow got hooked onto the stock markets. I got to lear...",
       "link": "https://x.com/aditya_kondawar/status/2045688539434848257",
       "date": "2026-04-19T02:18:49+00:00",
@@ -3994,21 +4204,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "The more you read- the more you learn :) <br><br>Beauty of investing and people sharing knowledge @LearningEleven<div class=\"rsshub-quote\"><br><br>The Catalyst Decoder:\u2002TD Power Systems Ltd<br><br>#TDPOWER has hit a fresh all-time high above the four-digit mark (1000 INR), marking a remarkable journey.<br><br>I first came across this stock during my early learning phase in equity markets with @soicfinance , when I was strongly inclined toward fundamental<br><br><img width=\"1117\" height=\"1592\" style=\"\" src=\"https://pbs.twimg.com/media/HGMPcjTXUAACheF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "Nuclear India Value chain",
-      "link": "https://x.com/EquityValueIn/status/2045501157402140889",
-      "date": "2026-04-18T13:54:14+00:00",
-      "tweet_id": "2045501157402140889",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HDvlaRSbMAEanQH?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Nuclear India Value chain<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Nuclear Players in India and the value chain to why it matters <br><br>source :internal research<br><br><img width=\"1169\" height=\"1178\" style=\"\" src=\"https://pbs.twimg.com/media/HDvlaRSbMAEanQH?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -5152,21 +5347,6 @@
       "category": "Twitter"
     },
     {
-      "title": "US population growth slowed in 2025, particularly in urban counties, because immigration fell. Read more by @JedKolko: https://www.piie.com/blogs/real...",
-      "link": "https://x.com/PIIE/status/2045166936674165099",
-      "date": "2026-04-17T15:46:09+00:00",
-      "tweet_id": "2045166936674165099",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HGHkeW4WgAAAol8?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "US population growth slowed in 2025, particularly in urban counties, because immigration fell.<br>Read more by @JedKolko: https://www.piie.com/blogs/realtime-economics/2026/less-immigration-urban-growth-slowed-2025<br><img width=\"1732\" height=\"968\" style=\"\" src=\"https://pbs.twimg.com/media/HGHkeW4WgAAAol8?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Bang on Sunil sir on \ud83c\udfaf Recall you saying you would stick your neck out and said that crude oil will pull back in 2 months \ud83d\udd28 @SunilBSinghania kud...",
       "link": "https://x.com/Nigel__DSouza/status/2045165945510109558",
       "date": "2026-04-17T15:42:13+00:00",
@@ -5179,21 +5359,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Bang on Sunil sir on \ud83c\udfaf <br><br>Recall you saying you would stick your neck out and said that crude oil will pull back in 2 months \ud83d\udd28 <br><br>@SunilBSinghania kudos<div class=\"rsshub-quote\"><br><br>Sunil Singhania:\u2002Worth reposting again \ud83d\ude00\ud83d\ude00<br><br><img width=\"1320\" height=\"1509\" style=\"\" src=\"https://pbs.twimg.com/media/HGHEFq_aAAAVMzP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": ".@ojblanchard1 is reasonably optimistic about Europe's future. Watch the full PIIE Insider LIVE episode on YouTube or listen wherever you get podcasts...",
-      "link": "https://x.com/PIIE/status/2045162879637246083",
-      "date": "2026-04-17T15:30:02+00:00",
-      "tweet_id": "2045162879637246083",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HGHgyLPXUAAK6ds?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": ".@ojblanchard1 is reasonably optimistic about Europe's future. <br><br>Watch the full PIIE Insider LIVE episode on YouTube or listen wherever you get podcasts.<br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/amplify_video/2045162628088049664/vid/avc1/1280x720/OLvAnnq8yb1vnQoq.mp4?tag=14\" controls=\"controls\" poster=\"https://pbs.twimg.com/media/HGHgyLPXUAAK6ds?format=jpg&amp;name=orig\"></video>",
       "category": "Twitter"
     },
     {
@@ -5257,6 +5422,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Stock is up a whooping 78% YTD and 172% in 1 year ... but there is a warning ... an unseen warning! https://antifragilethinking.substack.com/p/a-turna...",
+      "link": "https://x.com/unseenvalue/status/2045151758373036255",
+      "date": "2026-04-17T14:45:50+00:00",
+      "tweet_id": "2045151758373036255",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Stock is up a whooping 78% YTD and 172% in 1 year ... but there is a warning ... an unseen warning!<br><br>https://antifragilethinking.substack.com/p/a-turnaround-powered-by-tailwinds<br><br>D: invested, as the balance sheet is net cash, operating cash flow is rock solid.",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Isabel Schnabel \ud83c\uddea\ud83c\uddfa\ud83c\uddfa\ud83c\udde6: A warm thank you to @AdamPosen and the @PIIE for the invitation. The whole session can be rewatched here:",
       "link": "https://x.com/PIIE/status/2045199621975154784",
       "date": "2026-04-17T14:45:50+00:00",
@@ -5284,21 +5464,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Trump -&gt; \u2018Israel will not be bombing Lebanon any longer. They are prohibited from doing so\u2026\u2019<br><img width=\"1169\" height=\"1196\" style=\"\" src=\"https://pbs.twimg.com/media/HGHWq-abcAAtkiG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Isabel Schnabel \ud83c\uddea\ud83c\uddfa\ud83c\uddfa\ud83c\udde6: Yesterday I participated in an excellent panel at the @PIIE on the future of the eurozone, jointly with @carlos_c...",
-      "link": "https://x.com/PIIE/status/2045155078193983566",
-      "date": "2026-04-17T14:44:27+00:00",
-      "tweet_id": "2045155078193983566",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HGHTo7UaMAAu1Pl?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Isabel Schnabel \ud83c\uddea\ud83c\uddfa\ud83c\uddfa\ud83c\udde6<br>Yesterday I participated in an excellent panel at the @PIIE on the future of the eurozone, jointly with @carlos_cuerpo, @ojblanchard1 and @AngelUbide, moderated by @AdamPosen. In my remarks, I reflected on the euro area\u2019s successes and challenges. 1/11<br><img width=\"1608\" height=\"890\" style=\"\" src=\"https://pbs.twimg.com/media/HGHTo7UaMAAu1Pl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -5332,21 +5497,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Guest post: Using El Ni\u00f1o forecasts to give early warning of crop failures | @AgroClim #CBarchive Read here: https://buff.ly/4gATz1P",
-      "link": "https://x.com/CarbonBrief/status/2045149039755157659",
-      "date": "2026-04-17T14:35:02+00:00",
-      "tweet_id": "2045149039755157659",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HGHUNquWoAAwECM?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Guest post: Using El Ni\u00f1o forecasts to give early warning of crop failures | @AgroClim #CBarchive<br><br>Read here: https://buff.ly/4gATz1P<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HGHUNquWoAAwECM?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Lloyd Group buys approx 5% in Bharat Wire Ropes today, details on exhanges! a. Lloyds Enterprises BSE: Bought 5 lakh shares at Rs.215/sh NSE: Bought 1...",
       "link": "https://x.com/Nigel__DSouza/status/2045146799690981723",
       "date": "2026-04-17T14:26:08+00:00",
@@ -5359,6 +5509,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Lloyd Group buys approx 5% in Bharat Wire Ropes today, details on exhanges!<br><br>a. Lloyds Enterprises<br>BSE: Bought 5 lakh shares at Rs.215/sh<br>NSE: Bought 11.47 lakh shares at Rs. 215.17/sh<br><br>b. Lloyds Metals And Energy<br>NSE: Bought 20 lakh shares at Rs.193.42/sh<br><br>@ShereenBhan @CNBCTV18Live @CNBCTV18News<div class=\"rsshub-quote\"><br><br>Nigel D'Souza:\u2002Bharat Wire Ropes surging on massive volumes today<br><br>Valuations are not too expensive or cheap<br><br>Company has high proportion of exports <br><br>Scaling up EBITDA to be tracked \ud83d\udc40<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2045044004275040256/vid/avc1/1920x1080/A2HlO5yuR08CXvy6.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2045044004275040256/img/4V8MvT_G914dI62q.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "I am not regretting \u2026 I deployed",
+      "link": "https://x.com/unseenvalue/status/2045144819689820221",
+      "date": "2026-04-17T14:18:16+00:00",
+      "tweet_id": "2045144819689820221",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "I am not regretting \u2026 I deployed<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002Last few days left to deploy cash or regret.<br></div>",
       "category": "Twitter"
     },
     {
@@ -5527,21 +5692,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Shiv Aroor: BREAKING \ud83d\udea8 Iran opens the Strait of Hormuz.",
-      "link": "https://x.com/sanjeevsanyal/status/2045177188765581809",
-      "date": "2026-04-17T12:55:24+00:00",
-      "tweet_id": "2045177188765581809",
-      "source": "Sanjeev Sanyal",
-      "publisher": "Sanjeev Sanyal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HGG9T5RaMAEOYPb?format=png&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Shiv Aroor<br>BREAKING \ud83d\udea8<br><br>Iran opens the Strait of Hormuz.<br><img width=\"787\" height=\"323\" style=\"\" src=\"https://pbs.twimg.com/media/HGG9T5RaMAEOYPb?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Are Textile/Garmenting stocks at an inflection point \ud83e\udd14 Tailwinds Lower \ud83c\uddfa\ud83c\uddf8 tariffs \u20b9 depreciation UK & Europe FTA ratification due Energy iss...",
       "link": "https://x.com/Nigel__DSouza/status/2045120585571958868",
       "date": "2026-04-17T12:41:58+00:00",
@@ -5599,6 +5749,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Did you know why Nuclear energy is making a comeback?<br><br>One kilogram of enriched uranium (4% U-235) produces roughly 160,000 kWh of electricity. For comparison:<br><br>1 kg of coal \u2192 3 kWh<br>1 kg of natural gas \u2192 15 kWh<br>1 kg of diesel \u2192 12 kWh<br><br>This is not a marginal improvement. It is a 50,000x advantage over coal by mass. It's why one standard 700 MWe PHWR in India replaces a 2,800 MW coal plant equivalent on annual energy.",
+      "category": "Twitter"
+    },
+    {
+      "title": "Fun fact: INR has depreciated at twice the rate against Chinese Yuan compared to US Dollar over the last year. This does NOT help our Current account ...",
+      "link": "https://x.com/abhymurarka/status/2045109687562179047",
+      "date": "2026-04-17T11:58:40+00:00",
+      "tweet_id": "2045109687562179047",
+      "source": "Abhishek Murarka \ud83d\udcb9\ud83d\udc02",
+      "publisher": "Abhy Murarka",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGGwa3vawAAuYIn?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Fun fact: INR has depreciated at twice the rate against Chinese Yuan compared to US Dollar over the last year. This does NOT help our Current account deficit or Rupee.<br><img width=\"1080\" height=\"1495\" style=\"\" src=\"https://pbs.twimg.com/media/HGGwa3vawAAuYIn?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>The Spectator Index:\u2002Indian oil refiners paid for Iranian oil using Chinese yuan, according to Reuters report.<br></div>",
       "category": "Twitter"
     },
     {
@@ -5809,6 +5974,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Bharat Wire Ropes Shares Surge 20% on Strategic CCPS Transaction<br><br>https://scanx.trade/stock-market-news/corporate-actions/bharat-wire-ropes-shares-surge-20-on-strategic-ccps-transaction/23087550",
+      "category": "Twitter"
+    },
+    {
+      "title": "US never attacked Iran. Chip War is a beautiful book. Rich in frames.",
+      "link": "https://x.com/unseenvalue/status/2045052577838969156",
+      "date": "2026-04-17T08:11:44+00:00",
+      "tweet_id": "2045052577838969156",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HF9qwFMW8AAXBAs?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "US never attacked Iran. Chip War is a beautiful book. Rich in frames.<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002If you own precision engineering, semiconductor, defence, or aerospace stocks and haven\u2019t read these books, you\u2019re just guessing, not investing.<br><br>1. Chip War<br>2. The Coming Wave<br>3. Elon Musk (Walter Isaacson)<br><br><img width=\"537\" height=\"237\" style=\"\" src=\"https://pbs.twimg.com/media/HF9qwFMW8AAXBAs?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -6172,6 +6352,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Malabar has increased holding in Virtuoso Optoelectronics this quarter substantially",
+      "link": "https://x.com/Tijori1/status/2044985182676271213",
+      "date": "2026-04-17T03:43:56+00:00",
+      "tweet_id": "2044985182676271213",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGE_ChaaAAEpVx4?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Malabar has increased holding in Virtuoso Optoelectronics this quarter substantially<br><img width=\"950\" height=\"147\" style=\"\" src=\"https://pbs.twimg.com/media/HGE_ChaaAAEpVx4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "While most Indian households now own a mobile phone, computer ownership in India has grown slowly. Over the last two decades, the share of households ...",
       "link": "https://x.com/dataforin/status/2044981714687303791",
       "date": "2026-04-17T03:30:09+00:00",
@@ -6184,6 +6379,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "While most Indian households now own a mobile phone, computer ownership in India has grown slowly. Over the last two decades, the share of households that own a computer has increased from just over 1% to just over 9%. In most developed countries, by contrast, computer ownership exceeds 75%.<br><br>Among the 30 million households in India that own a computer, 90% have a laptop, while 20% own a desktop. A little under 10% of computer-owning households report having both a laptop and a desktop.<br><br>India has also made limited progress in the ability to use computers over the last decade. A little over one in five adults, or 200 million people, were able to operate a computer as of 2025. This share is roughly twice the share of households that own a computer, suggesting that many people may have learned to use a computer, or use one in college or at work, without owning one themselves.<br><br>While the proportion of rural adults who can use a computer has increased, it still stands at just about one in six. Among urban adults, the figure is much higher with over one in three adults, but it has grown only marginally over the last decade.<br><br>How does the ability to use computers vary by age group and gender in India? Read @akwaghmare\u2019s piece to find out: https://www.dataforindia.com/computers/?utm_source=twitter&amp;utm_medium=post <br><br>#Computer #Technology #Laptop #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HGE8BxaasAAYTTS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "How much you know matters. How much you remember matters more. How much you implement matters the most. Knowing is not the same as doing.",
+      "link": "https://x.com/abhymurarka/status/2044979203272282457",
+      "date": "2026-04-17T03:20:10+00:00",
+      "tweet_id": "2044979203272282457",
+      "source": "Abhishek Murarka \ud83d\udcb9\ud83d\udc02",
+      "publisher": "Abhy Murarka",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "How much you know matters.<br>How much you remember matters more.<br>How much you implement matters the most.<br><br>Knowing is not the same as doing.",
       "category": "Twitter"
     },
     {
@@ -6502,6 +6712,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Siddharth Jain: Tank so big, it doesn\u2019t fit in the frame! Flagging off India\u2019s largest ever 1500 m3 LNG cryogenic tank as it crosses the seven se...",
+      "link": "https://x.com/abhymurarka/status/2044800084773392549",
+      "date": "2026-04-16T12:22:50+00:00",
+      "tweet_id": "2044800084773392549",
+      "source": "Abhishek Murarka \ud83d\udcb9\ud83d\udc02",
+      "publisher": "Abhy Murarka",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGBsWfnbkAAQvKl?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Siddharth Jain<br>Tank so big, it doesn\u2019t fit in the frame!<br><br>Flagging off India\u2019s largest ever 1500 m3 LNG cryogenic tank as it crosses the seven seas to the Caribbean!<br> <br>So proud of my colleagues @INOXCVA for constantly taking on bigger challenges and redefining our capabilities! <br><br>Made in India. Made for the World!<br><img width=\"1600\" height=\"1064\" style=\"\" src=\"https://pbs.twimg.com/media/HGBsWfnbkAAQvKl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1600\" height=\"1064\" style=\"\" src=\"https://pbs.twimg.com/media/HGBsWfmbEAAHNau?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1600\" height=\"1064\" style=\"\" src=\"https://pbs.twimg.com/media/HGBsWf2bkAAcX4_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HGBsWgAaUAI3kdX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Fabulous piece \ud83d\udc47",
       "link": "https://x.com/andymukherjee70/status/2044745977798795689",
       "date": "2026-04-16T11:53:25+00:00",
@@ -6559,21 +6784,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "India is urbanising at a brisk pace, having seen its #urban population increase ~10 percentage points in the last two decades. While Indian cities drive the country\u2019s economy, generating two-thirds of the GDP, they remain sites of daily strain. Read on: https://www.indiaspend.com/governance/indias-cities-are-crumbling-the-rich-are-seeking-urban-oases-983602",
-      "category": "Twitter"
-    },
-    {
-      "title": "How to finance geothermal energy https://ft.trib.al/pIUqDnZ",
-      "link": "https://x.com/ftenergy/status/2044734909445513502",
-      "date": "2026-04-16T11:09:26+00:00",
-      "tweet_id": "2044734909445513502",
-      "source": "FT Energy",
-      "publisher": "FT Energy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "How to finance geothermal energy https://ft.trib.al/pIUqDnZ",
       "category": "Twitter"
     },
     {
@@ -6742,6 +6952,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Sold 30% #Vedanta. Invested since March 2016. Never imagined such wealth creation in a debt laden, bad corporate governance (perceived if not real bac...",
+      "link": "https://x.com/unseenvalue/status/2044685051036574126",
+      "date": "2026-04-16T07:51:19+00:00",
+      "tweet_id": "2044685051036574126",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Sold 30% #Vedanta. Invested since March 2016. Never imagined such wealth creation in a debt laden, bad corporate governance (perceived if not real back then), cyclical. Dividends alone have been a multibagger of invested capital. Randomness has no limits, when time is plenty!",
+      "category": "Twitter"
+    },
+    {
       "title": "Updates on GLP 1 market in India CareEdge Ratings estimates that India\u2019s potential GLP\u20111 market is set to expand nearly fivefold, from Rs 1,000\u2013Rs ...",
       "link": "https://x.com/soicfinance/status/2044683439069425950",
       "date": "2026-04-16T07:44:54+00:00",
@@ -6787,21 +7012,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Bloomberg: Modi is using the women\u2019s quota to redraw the electoral map and secure a 2029 win for the BJP, writes Menaka Doshi in India Edition. ht...",
-      "link": "https://x.com/menakadoshi/status/2044705769812324748",
-      "date": "2026-04-16T06:30:38+00:00",
-      "tweet_id": "2044705769812324748",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Bloomberg<br>Modi is using the women\u2019s quota to redraw the electoral map and secure a 2029 win for the BJP, writes Menaka Doshi in India Edition. https://www.bloomberg.com/news/newsletters/2026-04-16/india-s-modi-uses-women-s-quota-to-remake-parliament-with-delimitation-push?taid=69e0820e4cd2160001d646b8&amp;utm_campaign=trueanthem&amp;utm_content=business&amp;utm_medium=social&amp;utm_source=twitter",
-      "category": "Twitter"
-    },
-    {
       "title": "RT SachinChhabra: http://x.com/i/article/2044653117204230144",
       "link": "https://x.com/andymukherjee70/status/2044696508961058863",
       "date": "2026-04-16T05:48:33+00:00",
@@ -6832,6 +7042,21 @@
       "category": "Twitter"
     },
     {
+      "title": "New benefit for Tijori Premium users Premium users get - 3 free Reports on Demand. Plus 20% off on every report after that. Reports on Demand is our n...",
+      "link": "https://x.com/Tijori1/status/2044643729462775997",
+      "date": "2026-04-16T05:07:07+00:00",
+      "tweet_id": "2044643729462775997",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HGAIbNObAAAQBx1?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "New benefit for Tijori Premium users <br><br>Premium users get - 3 free Reports on Demand. Plus 20% off on every report after that.<br><br>Reports on Demand is our new deep research product, backed by 10 years of Tijori data. Two report types to choose from:<br><br>1. Risk Probe<br>2. 5-Year Revenue Estimates<br><br>Head to any company page \u2192 Reports tab to check it out<br><img width=\"898\" height=\"769\" style=\"\" src=\"https://pbs.twimg.com/media/HGAIbNObAAAQBx1?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"891\" height=\"775\" style=\"\" src=\"https://pbs.twimg.com/media/HGAIbM8bMAAJ-fL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"888\" height=\"772\" style=\"\" src=\"https://pbs.twimg.com/media/HGAIbM_aoAAcbIh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"901\" height=\"775\" style=\"\" src=\"https://pbs.twimg.com/media/HGAIbM8awAAoVaz?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Japanese stocks hit new high as AI boosts tech heavy Asian markets. Optimism for more US-Iran talks lifts Tokyo market; South Korea also up 2%.",
       "link": "https://x.com/TamalBandyo/status/2044642391907508408",
       "date": "2026-04-16T05:01:48+00:00",
@@ -6847,21 +7072,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Vivek: My recommendation - can guarantee one will come out learning about the hot issue of today. #DelimitationDebate https://youtu.be/2lJOtT2MoEA?...",
-      "link": "https://x.com/srajagopalan/status/2044639043896389965",
-      "date": "2026-04-16T04:35:29+00:00",
-      "tweet_id": "2044639043896389965",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Vivek<br>My recommendation - can guarantee one will come out learning about the hot issue of today. #DelimitationDebate <br><br>https://youtu.be/2lJOtT2MoEA?si=34EKAEIm8T4ffELV<br><br>From the best in business @srajagopalan and @amitvarma",
-      "category": "Twitter"
-    },
-    {
       "title": "Mr. Ravi Jaipuria has an established reputation as an entrepreneur and business leader and is the only Indian to receive PepsiCo's International Bottl...",
       "link": "https://x.com/aditya_kondawar/status/2044634869561798719",
       "date": "2026-04-16T04:31:55+00:00",
@@ -6874,21 +7084,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Mr. Ravi Jaipuria has an established reputation as an entrepreneur and business leader and is the only Indian to receive PepsiCo's International Bottler of the Year award, which was awarded in 1997. Think about that: within 6 years of partnering with PepsiCo, an Indian bottler with a single plant had become their global standard-bearer<br><br>He was awarded the Bottler of the Year by PepsiCo in 1999, receiving the award from former US President George H. W. Bush.<br><br>Src \u2013 empor top, no reco",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT ChaloPMC Pune\u0938\u0902\u0935\u093e\u0926: \ud835\udc46\ud835\udc61\ud835\udc4e\ud835\udc5b\ud835\udc51\ud835\udc56\ud835\udc5b\ud835\udc54 \ud835\udc4e\ud835\udc59\ud835\udc5c\ud835\udc5b\ud835\udc54 \ud835\udc6e\ud835\udc82\ud835\udc8f\ud835\udc86\ud835\udc94\ud835\udc89\ud835\udc8c\ud835\udc89\ud835\udc8a\ud835\udc8f\ud835\udc85 \ud835\udc79\ud835\udc90\ud835\udc82\ud835\udc85, \ud835\udc43...",
-      "link": "https://x.com/menakadoshi/status/2044774344237436942",
-      "date": "2026-04-16T04:15:58+00:00",
-      "tweet_id": "2044774344237436942",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HF_863hbAAAILak?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002ChaloPMC Pune\u0938\u0902\u0935\u093e\u0926<br>\ud835\udc46\ud835\udc61\ud835\udc4e\ud835\udc5b\ud835\udc51\ud835\udc56\ud835\udc5b\ud835\udc54 \ud835\udc4e\ud835\udc59\ud835\udc5c\ud835\udc5b\ud835\udc54 \ud835\udc6e\ud835\udc82\ud835\udc8f\ud835\udc86\ud835\udc94\ud835\udc89\ud835\udc8c\ud835\udc89\ud835\udc8a\ud835\udc8f\ud835\udc85 \ud835\udc79\ud835\udc90\ud835\udc82\ud835\udc85, \ud835\udc43\ud835\udc62\ud835\udc5b\ud835\udc52 \ud835\udc53\ud835\udc5c\ud835\udc5f \ud835\udc61\u210e\ud835\udc52 \ud835\udc5d\ud835\udc4e\ud835\udc60\ud835\udc61 70\u201380 \ud835\udc66\ud835\udc52\ud835\udc4e\ud835\udc5f\ud835\udc60, \ud835\udc61\u210e\ud835\udc52\ud835\udc60\ud835\udc52 \ud835\udc41\ud835\udc4e\ud835\udc5b\ud835\udc51\ud835\udc5f\ud835\udc62\ud835\udc58 (\ud835\udc39\ud835\udc56\ud835\udc50\ud835\udc62\ud835\udc60) \ud835\udc61\ud835\udc5f\ud835\udc52\ud835\udc52\ud835\udc60 \ud835\udc4e\ud835\udc51\ud835\udc57\ud835\udc5c\ud835\udc56\ud835\udc5b\ud835\udc56\ud835\udc5b\ud835\udc54 \ud835\udc61\u210e\ud835\udc52 \ud835\udc43\ud835\udc5c\ud835\udc59\ud835\udc56\ud835\udc50\ud835\udc52 \ud835\udc3a\ud835\udc5f\ud835\udc5c\ud835\udc62\ud835\udc5b\ud835\udc51 \u210e\ud835\udc4e\ud835\udc63\ud835\udc52 \ud835\udc60\ud835\udc62\ud835\udc51\ud835\udc51\ud835\udc52\ud835\udc5b\ud835\udc59\ud835\udc66 \ud835\udc4f\ud835\udc52\ud835\udc52\ud835\udc5b \ud835\udc59\ud835\udc4e\ud835\udc4f\ud835\udc52\ud835\udc59\ud835\udc59\ud835\udc52\ud835\udc51 \ud835\udc4e\ud835\udc60 \ud835\udc5c\ud835\udc4f\ud835\udc60\ud835\udc61\ud835\udc4e\ud835\udc50\ud835\udc59\ud835\udc52\ud835\udc60 \ud835\udc61\ud835\udc5c \ud835\udc64\ud835\udc56\ud835\udc51\ud835\udc52\ud835\udc5b\ud835\udc56\ud835\udc5b\ud835\udc54 \ud835\udc61\u210e\ud835\udc52 \ud835\udc5f\ud835\udc5c\ud835\udc4e\ud835\udc51 \ud835\udc53\ud835\udc5f\ud835\udc5c\ud835\udc5a 36 \ud835\udc5a \ud835\udc61\ud835\udc5c 45 \ud835\udc5a.<br><br>\ud835\udc47\u210e\ud835\udc52 \ud835\udc87\ud835\udc82\ud835\udc95\ud835\udc86 \ud835\udc90\ud835\udc87 \ud835\udc95\ud835\udc89\ud835\udc86\ud835\udc94\ud835\udc86 \ud835\udc89\ud835\udc86\ud835\udc93\ud835\udc8a\ud835\udc95\ud835\udc82\ud835\udc88\ud835\udc86 \ud835\udc95\ud835\udc93\ud835\udc86\ud835\udc86\ud835\udc94\u2014\ud835\udc4e\ud835\udc59\ud835\udc5c\ud835\udc5b\ud835\udc54 \ud835\udc64\ud835\udc56\ud835\udc61\u210e \ud835\udc4e \ud835\udc61\ud835\udc5c\ud835\udc61\ud835\udc4e\ud835\udc59 \ud835\udc5c\ud835\udc53 529 \ud835\udc61\ud835\udc5f\ud835\udc52\ud835\udc52\ud835\udc60 \ud835\udc5c\ud835\udc5b \ud835\udc3a\ud835\udc4e\ud835\udc5b\ud835\udc52\ud835\udc60\u210e\ud835\udc58\u210e\ud835\udc56\ud835\udc5b\ud835\udc51 \ud835\udc45\ud835\udc5c\ud835\udc4e\ud835\udc51\u2014\ud835\udc64\ud835\udc56\ud835\udc59\ud835\udc59 \ud835\udc60\ud835\udc5c\ud835\udc5c\ud835\udc5b \ud835\udc4f\ud835\udc52 \ud835\udc51\ud835\udc52\ud835\udc50\ud835\udc56\ud835\udc51\ud835\udc52\ud835\udc51 \ud835\udc4f\ud835\udc66 \ud835\udc95\ud835\udc89\ud835\udc86 \ud835\udc94\ud835\udc8a\ud835\udc8d\ud835\udc86\ud835\udc8f\ud835\udc84\ud835\udc86 \ud835\udc90\ud835\udc87 \ud835\udc8d\ud835\udc82\ud835\udc8c\ud835\udc89\ud835\udc94 \ud835\udc90\ud835\udc87 \ud835\udc77\ud835\udc96\ud835\udc8f\ud835\udc86\ud835\udc8c\ud835\udc82\ud835\udc93\ud835\udc94 \ud835\udc82\ud835\udc8f\ud835\udc85 \ud835\udc95\ud835\udc89\ud835\udc86 \ud835\udc84\ud835\udc89\ud835\udc82\ud835\udc8a\ud835\udc8f\ud835\udc94\ud835\udc82\ud835\udc98\ud835\udc94 \ud835\udc8a\ud835\udc8f \ud835\udc95\ud835\udc89\ud835\udc86 \ud835\udc89\ud835\udc82\ud835\udc8f\ud835\udc85\ud835\udc94 \ud835\udc90\ud835\udc87 \ud835\udc82 \ud835\udc91\ud835\udc90\ud835\udc98\ud835\udc86\ud835\udc93\ud835\udc87\ud835\udc96\ud835\udc8d \ud835\udc87\ud835\udc86\ud835\udc98.<br><br>@CMOMaharashtra <br>@navalMH <br>@mohol_murlidhar <br>@SidShirole <br>@Medha_kulkarni <br>@madhurimisal <br>@ChDadaPatil <br>@MAHA_UDD<br>@MahaDGIPR<br>@AUThackeray<br>@MNSSachinK<br>@anilshidore<br>@supriya_sule<br>@PuneRivers<br>@ultra__sonic<br>@PKarve_Samuchit<br>@AngadPatwardhan<br>@ameetgsingh<br>@RupeshKesekar<br>@RohanAaron1<br>@navipeth<br>@KatYogesh<br>@RahulAsks<br>@_prashantkadam<br>@SVYadwadkar<br>@Meghnarbhandari<br>@pulse_pune<br>@shrikaleLokmat<br>@brizpatil<br>@eeshwari_jedhe<br>@vandymini<br>@mhemachari<br>@jbaphna<br>@RajaSubramani22 <br><br>#Ganeshkhind #road #Pune #Heritage #trees<br><img width=\"1080\" height=\"1932\" style=\"\" src=\"https://pbs.twimg.com/media/HF_863hbAAAILak?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>ChaloPMC Pune\u0938\u0902\u0935\u093e\u0926:\u2002\ud83d\udea8 \u203c\ufe0f Death knell for these trees on Ganeshkhind road\u203c\ufe0f\ud83d\udea8<br><br>The docket is out! \u23f0 Deadline: 23 April 2026, 6 PM<br><br>Send your objections now by clicking this link arrow\u2b07\ufe0f<br><br>\ud83c\udd98 https://punesamvad.wordpress.com/2026/04/09/object-to-530-tree-felling-ganeshkhind-road/<br><br>More than 80% trees on Ganeshkhind road are heritage trees but their report says<br><br><img width=\"1131\" height=\"1600\" style=\"\" src=\"https://pbs.twimg.com/media/HF-TjtWaQAA9HH8?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -7057,6 +7252,21 @@
       "category": "Twitter"
     },
     {
+      "title": "If you own precision engineering, semiconductor, defence, or aerospace stocks and haven\u2019t read these books, you\u2019re just guessing, not investing. 1. ...",
+      "link": "https://x.com/unseenvalue/status/2044470168445686034",
+      "date": "2026-04-15T17:37:27+00:00",
+      "tweet_id": "2044470168445686034",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HF9qwFMW8AAXBAs?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "If you own precision engineering, semiconductor, defence, or aerospace stocks and haven\u2019t read these books, you\u2019re just guessing, not investing.<br><br>1. Chip War<br>2. The Coming Wave<br>3. Elon Musk (Walter Isaacson)<br><img width=\"537\" height=\"237\" style=\"\" src=\"https://pbs.twimg.com/media/HF9qwFMW8AAXBAs?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT dylan matthews \ud83d\udd38: Some of my favorite writers, like @salonium and @_HannahRitchie, are people I first encountered through their work at Our Worl...",
       "link": "https://x.com/OurWorldInData/status/2044473534227829171",
       "date": "2026-04-15T16:43:45+00:00",
@@ -7102,6 +7312,21 @@
       "category": "Twitter"
     },
     {
+      "title": "#LaurusLabs, at today\u2019s not-so-cheap valuations and hovering near its all-time highs, is not a HOLD if your view is just 3 months. But stretch that v...",
+      "link": "https://x.com/unseenvalue/status/2044439986431230057",
+      "date": "2026-04-15T15:37:31+00:00",
+      "tweet_id": "2044439986431230057",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HF9LuRYW0AEtUoB?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#LaurusLabs, at today\u2019s not-so-cheap valuations and hovering near its all-time highs, is not a HOLD if your view is just 3 months. But stretch that view to 3 years, and it still might be.<br><br>This gap comes down to time. As Howard Marks and Nassim Taleb remind us, risk and value shift with the clock. What feels expensive and fragile in the short run can turn reasonable once time allows the business to prove itself.<br><br>In 'Fooled by Randomness', Taleb tells a story about a retired dentist who is a skilled investor. The dentist expects to earn about 15% more than safe government bonds each year. But he checks his portfolio many times a day. This habit causes stress because, in the short term, prices move almost randomly. Taleb calls this \u201cnoise\u201d, which simply means meaningless fluctuations that do not reflect real value.<br><br>Over very short periods, like minutes or days, the chance of seeing a gain is barely above 50%. This means that over three months, price movements are driven mostly by luck and maybe Q4 FY26 numbers or, rather, the interpretation of those. If a stock is already \u201cnot-so-cheap\u201d, its price reflects a lot of optimism. There is little room for disappointment. Even a small negative surprise can push the price down. It's always albout the rate of change relative to the asking run-rate (valuations)<br><br>In 'Most Important Thing', Marks explains that risk often comes from paying too high a price. When you buy an expensive stock, you have almost no \u201cmargin for error\u201d. This simply means you have little room to be wrong and still be okay. In the short term, bad luck or shifting sentiment can cause sharp falls. He also points out that being early can feel the same as being wrong, especially over short periods.<br><br>Taleb offers another example in 'Fooled by Randomness'. He describes the idea of building a ski resort in Miami. Imagine a rare blizzard hits, and the resort makes a huge profit in its first year. That success does not make it a good decision. It was simply luck. In the same way, making money on an expensive stock over 3 months may just mean you were lucky, not right.<br><br>Things look different over longer periods. As time passes, real business performance begins to matter more than daily price swings. Taleb notes that over a year, the odds of seeing gains improve greatly. Over 3 years, the company\u2019s actual progress has a much better chance to show through the noise. What the business earns and builds starts to matter more than short-term sentiment. <br><br>Back in 2023, I was one of the few bullish voices on Laurus. Talk is cheap, so I backed that view with my own money. Sell ratings were common at the time, and many were anchored to targets around 250, which weighed heavily on sentiment.<br><br>Marks explains that while prices can drift in the short run, terminal value pulls them back over time. Terminal value is simply what a business is truly worth based on what it can earn and build.<br><br>For Laurus Labs, the CDMO business is that anchor. Over the next five to seven years, this segment alone could cross 10,000 Cr. in annual sales. Then, post-2033, the precision fermentation and bio-engine should be all guns blazing.<br><br>If a company grows well, it can \u201cgrow into\u201d a high MCap. This is why a stock that looks expensive today may still work out over a few years. Over 3 years, a strong business may justify a high starting price. Over 3 months, you are mostly exposed to chance.<br><br>Taleb compares short-term risk to a version of Russian roulette with many chambers. You might avoid losses several times, but the risk is always there. Without a margin of safety, a sudden drop can happen at any time. This is why short-term investing in expensive stocks can feel unpredictable and fragile.<br><br>In the end, time changes the nature of the bet. Over 3 months, randomness dominates, and a high price leaves little protection. Over 3 years, business performance has time to come through, and value can catch up with price. The same stock can look risky or reasonable depending on how long you plan to hold it.<br><br>Laurus Labs is our core family holding, and none of this is an investment recommendation.<br><img width=\"1084\" height=\"1262\" style=\"\" src=\"https://pbs.twimg.com/media/HF9LuRYW0AEtUoB?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT CNBC-TV18: \u201cWe believe the distribution model is best suited for tech companies,\u201d says @kunalb11, founder of @CRED_club in conversation with @_Ri...",
       "link": "https://x.com/_RituSingh/status/2044460498109009924",
       "date": "2026-04-15T15:32:34+00:00",
@@ -7129,6 +7354,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002CNBC-TV18<br>\u201cNot actively thinking about IPO at this point. Market is there to stay, &amp; good Cos will find right time,\u201d says @kunalb11 founder of @CRED_club in conversation with @_RituSingh . <br><br>He adds, Cred is focused on strong consumer love &amp; is creating a larger ecosystem over long term.<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2044436064258187264/vid/avc1/1920x1080/ovkX8jDxbrw5X0oZ.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/media/HF9NISNboAAKpR8?format=jpg&amp;name=orig\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Start at 36:00 for a distinctly different analytical lens drawn from Shane Parrish\u2019s most important work, and arguably far more powerful than the usu...",
+      "link": "https://x.com/unseenvalue/status/2044430022660817336",
+      "date": "2026-04-15T14:57:55+00:00",
+      "tweet_id": "2044430022660817336",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HF9Fw0DbsAAdcnh?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Start at 36:00 for a distinctly different analytical lens drawn from Shane Parrish\u2019s most important work, and arguably far more powerful than the usual \u2018mental models\u2019 4-volume series.<br><br>Once you\u2019ve watched that segment of this presentation, revisit Windlas Bio\u2019s latest balance sheet and CAPEX plans. The rationale behind their buyback announcement should become much clearer.<br><br>#WindlasBio \ud83d\udc47<br><br>https://antifragilethinking.substack.com/p/windlas-bio-clear-thinking-shane-volume<br><img width=\"1019\" height=\"576\" style=\"\" src=\"https://pbs.twimg.com/media/HF9Fw0DbsAAdcnh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -7414,6 +7654,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Carraro up 20% :) <br><br>no stock reco strictly<div class=\"rsshub-quote\"><br><br>Aditya Kondawar:\u2002Visited Carraro India Plants last week in Ranjangaon<br><br>Part of the Italy-headquartered Carraro Group (90+ years legacy), and operates as an independent Tier-1 supplier of axles, transmission systems, gears, and driveline solutions<br><br>Really good plants! Strictly no stock reco<br><br><img width=\"360\" height=\"610\" style=\"\" src=\"https://pbs.twimg.com/media/HETU1ssbEAARNJa?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1200\" height=\"1600\" style=\"\" src=\"https://pbs.twimg.com/media/HETU28PbAAARTtA?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Optionality >> optimisation",
+      "link": "https://x.com/unseenvalue/status/2044300251180204073",
+      "date": "2026-04-15T06:22:15+00:00",
+      "tweet_id": "2044300251180204073",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Optionality &gt;&gt; optimisation",
       "category": "Twitter"
     },
     {
@@ -7777,6 +8032,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Decisions don\u2019t fail because of lack of information. They fail because of how quickly we act on what we think we know. Most thinking is automatic. We...",
+      "link": "https://x.com/unseenvalue/status/2043973230826840192",
+      "date": "2026-04-14T08:42:48+00:00",
+      "tweet_id": "2043973230826840192",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Decisions don\u2019t fail because of lack of information.<br>They fail because of how quickly we act on what we think we know.<br>Most thinking is automatic.<br>We react before we examine.<br><br>But every decision passes through a moment we rarely notice:<br>a pause.<br><br>In that small gap, outcomes are shaped.<br><br>This is from something I\u2019ve been working on recently.",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Markets by Zerodha: The rupee has been all over the place in the last few weeks, and most explanations you've read have only told you half the stor...",
       "link": "https://x.com/deepakshenoy/status/2043970060788842992",
       "date": "2026-04-14T08:01:15+00:00",
@@ -7927,6 +8197,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Good news for India IT companies? Goldman Sachs CEO says AI taking over enterprise software is not as easy as it looks",
+      "link": "https://x.com/Tijori1/status/2043910022841938394",
+      "date": "2026-04-14T04:31:38+00:00",
+      "tweet_id": "2043910022841938394",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HF1tL82bEAAMBUg?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Good news for India IT companies? <br><br>Goldman Sachs CEO says AI taking over enterprise software is not as easy as it looks<br><img width=\"973\" height=\"555\" style=\"\" src=\"https://pbs.twimg.com/media/HF1tL82bEAAMBUg?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Shashi Tharoor: The answer can be found in Europe, where the principle of degressive proportionality is applied to the composition of the European ...",
       "link": "https://x.com/dugalira/status/2044095138339926253",
       "date": "2026-04-14T03:54:06+00:00",
@@ -8032,6 +8317,21 @@
       "category": "Twitter"
     },
     {
+      "title": "\"Time does not reward activity. It rewards consistency\" From the new book ...",
+      "link": "https://x.com/unseenvalue/status/2043656028647030897",
+      "date": "2026-04-13T11:42:21+00:00",
+      "tweet_id": "2043656028647030897",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFsreOiWUAAxNfU?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "\"Time does not reward activity. It rewards consistency\"<br><br>From the new book ...<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002Coming soon ...<br><br>More information doesn\u2019t fix bad thinking.<br>We simplify before we understand.<br>We trust what feels right.<br>Most errors happen quietly.<br><br>This book makes that visible.<br>Not to make you right, but less wrong.<br><br>Book's title? something unseen for now ;)<br><br><img width=\"1234\" height=\"1022\" style=\"\" src=\"https://pbs.twimg.com/media/HFsreOiWUAAxNfU?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "Monsoon forecasts and Projections are just for economists. Hardly has there been any impact on agricultural growth and almost no impact on India marke...",
       "link": "https://x.com/BeatTheStreet10/status/2043651932317962434",
       "date": "2026-04-13T11:26:04+00:00",
@@ -8062,6 +8362,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Important disclosure https://antifragilethinking.substack.com/p/disclosure-one-trade-that-played",
+      "link": "https://x.com/unseenvalue/status/2043635934386606525",
+      "date": "2026-04-13T10:22:30+00:00",
+      "tweet_id": "2043635934386606525",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Important disclosure<br><br>https://antifragilethinking.substack.com/p/disclosure-one-trade-that-played",
+      "category": "Twitter"
+    },
+    {
       "title": "Been spending a lot of time digging into the Indian hospital sector and it\u2019s turning out to be way more interesting than it looks on the surface! Dem...",
       "link": "https://x.com/ShashankUdupa1/status/2043634761563050379",
       "date": "2026-04-13T10:17:50+00:00",
@@ -8074,6 +8389,51 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Been spending a lot of time digging into the Indian hospital sector and it\u2019s turning out to be way more interesting than it looks on the surface!<br><br>Demand is exploding, supply is still catching up, and this could quietly become the next big megatrend.<br><br>So i am hosting a webinar this Saturday to break it down:<br>\u2022 What\u2019s driving the opportunity<br>\u2022 How hospital businesses actually make money<br>\u2022 Key KPIs most investors miss<br>\u2022 A few interesting company deep dives - from special situations to high-efficiency operators<br><br>\ud83d\uddd3 18th April | 7:30 PM<br>Registration link: https://superprofile.bio/e/fh9-C49b<br>Use code LEARN to get 20% off.<br><br>If you\u2019re trying to spot where the next wave of value creation could come from, this is worth your time!<br><br>Let\u2019s decode the hospital industry together \ud83d\ude4c<br><img width=\"2048\" height=\"1143\" style=\"\" src=\"https://pbs.twimg.com/media/HFxypE5aQAAzYAx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Sold 'Sona' and bought Sona; that Sona is on a fresh 52-week high now.",
+      "link": "https://x.com/unseenvalue/status/2043619117148578212",
+      "date": "2026-04-13T09:15:40+00:00",
+      "tweet_id": "2043619117148578212",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Sold 'Sona' and bought Sona; that Sona is on a fresh 52-week high now.<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002Sold Gold! <br>Buy pessimism. Sell optimism. Rethink again and again.<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "At 18x EV/EBITDA with EBITDA set to grow well over 18%, the market is pricing in mediocrity. That's exactly the 'Expectations Investing' thesis Michae...",
+      "link": "https://x.com/unseenvalue/status/2043599841188520387",
+      "date": "2026-04-13T07:59:05+00:00",
+      "tweet_id": "2043599841188520387",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "At 18x EV/EBITDA with EBITDA set to grow well over 18%, the market is pricing in mediocrity.<br>That's exactly the 'Expectations Investing' thesis Michael Mauboussin wrote about. Low expectations, strong delivery. That's where alpha lives.<br><br>Added today!<br><br>https://antifragilethinking.substack.com/p/winning-without-war-a-path-to-niche",
+      "category": "Twitter"
+    },
+    {
+      "title": "DMCC's 20% gain is completely unjustified. BSE will send the obligatory show cause notice, they'll deny everything ; same old script. I didn't touch i...",
+      "link": "https://x.com/unseenvalue/status/2043595483516395807",
+      "date": "2026-04-13T07:41:46+00:00",
+      "tweet_id": "2043595483516395807",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFxOsxdawAAKn6_?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "DMCC's 20% gain is completely unjustified. BSE will send the obligatory show cause notice, they'll deny everything ; same old script. I didn't touch it at the lows last month. Not one share. Want an expensive signal (margins jump), not a cheap one, from stock price movement.<br><img width=\"640\" height=\"1140\" style=\"\" src=\"https://pbs.twimg.com/media/HFxOsxdawAAKn6_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -8602,6 +8962,21 @@
       "category": "Twitter"
     },
     {
+      "title": "An underappreciated fact about Mazagon Dock - company is as much an insurance company as it is a shipyard The company runs on float due to heavy advan...",
+      "link": "https://x.com/Tijori1/status/2042460060995957044",
+      "date": "2026-04-10T04:30:00+00:00",
+      "tweet_id": "2042460060995957044",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFe9N62bQAA14Oq?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "An underappreciated fact about Mazagon Dock - <br>company is as much an insurance company as it is a shipyard<br><br>The company runs on float due to heavy advances from customers<br><br>Nearly 50% of its net profit is due to interest it earns risk free on these advances parked in its bank accounts<br><img width=\"623\" height=\"620\" style=\"\" src=\"https://pbs.twimg.com/media/HFe9N62bQAA14Oq?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "The rise of mobile phones powered access to the internet in India. In the ten years from 2014 to 2024, India added 30 million wired internet connectio...",
       "link": "https://x.com/dataforin/status/2042444991348556055",
       "date": "2026-04-10T03:30:07+00:00",
@@ -8749,6 +9124,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Vikaas M Sachdeva<br>\u201cTimes take care of everything.\u201d<br>Unless you keep interfering.<br><br>Wisdom from my conversation with @dhirendra_vr from @ValueResearch <br><br>\ud83c\udf99\ufe0f Watch the latest episode of MF Chronicles - https://youtu.be/hXp97edoJWg<br><video width=\"2048\" height=\"1152\" src=\"https://video.twimg.com/amplify_video/2042135088381751297/vid/avc1/3840x2160/HmCvYO7HUWG4-twO.mp4?tag=21\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2042135088381751297/img/nr0oUQRv4LU75Cu_.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Result season kicks off today \ud83e\udd1e",
+      "link": "https://x.com/Tijori1/status/2042128348495933702",
+      "date": "2026-04-09T06:31:53+00:00",
+      "tweet_id": "2042128348495933702",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFcY2zTa8AUpozH?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Result season kicks off today \ud83e\udd1e<br><img width=\"1615\" height=\"879\" style=\"\" src=\"https://pbs.twimg.com/media/HFcY2zTa8AUpozH?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -8947,6 +9337,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Madhu Kela has increased holding in Kopran Pharma is a core competence sector for the investor",
+      "link": "https://x.com/Tijori1/status/2041764701961646296",
+      "date": "2026-04-08T06:26:53+00:00",
+      "tweet_id": "2041764701961646296",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFXN8b3a8AA3My5?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Madhu Kela has increased holding in Kopran <br><br>Pharma is a core competence sector for the investor<br><img width=\"1755\" height=\"669\" style=\"\" src=\"https://pbs.twimg.com/media/HFXN8b3a8AA3My5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "While the National Edu. Policy promises a world-class blueprint for investing in Early Childhood Care & Education, the challenge is implementation. Sa...",
       "link": "https://x.com/Ideas4India/status/2041749149843157314",
       "date": "2026-04-08T05:25:05+00:00",
@@ -9109,6 +9514,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Economic Times<br>India's GDP may come down to 6.5% in FY27, if crude remains at USD 100: CareEdge https://economictimes.indiatimes.com/news/economy/indicators/indias-gdp-may-come-down-to-6-5-in-fy27-if-crude-remains-at-usd-100-careedge/articleshow/129973749.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "Lloyds Metal vs Godawari vs Sarda Energy Hearing lot of chatter about these integrated players, so here is the difference between them Sarda Energy is...",
+      "link": "https://x.com/Tijori1/status/2041366488385294722",
+      "date": "2026-04-07T04:04:32+00:00",
+      "tweet_id": "2041366488385294722",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFRj8dWa8AAxzyy?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Lloyds Metal vs Godawari vs Sarda Energy <br><br>Hearing lot of chatter about these integrated players, so here is the difference between them<br><br>Sarda Energy is a power company with metals <br>Lloyds is a mining-to-steel transformation story mid-pivot<br>Godawari is the  genuinely integrated steel player<br><img width=\"615\" height=\"487\" style=\"\" src=\"https://pbs.twimg.com/media/HFRj8dWa8AAxzyy?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -9382,6 +9802,36 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Tijori: Mazagon Dock vs Garden Reach Shipbuilder vs Cochin Shipyard Difference between them in capabilities. For complex platforms Mazagon Dock is ...",
+      "link": "https://x.com/Tijori1/status/2041004611826483425",
+      "date": "2026-04-05T06:12:07+00:00",
+      "tweet_id": "2041004611826483425",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFHtr48asAAbBIo?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Tijori<br>Mazagon Dock vs Garden Reach Shipbuilder vs Cochin Shipyard<br><br>Difference between them in capabilities. For complex platforms Mazagon Dock is the undisputed leader<br><img width=\"747\" height=\"471\" style=\"\" src=\"https://pbs.twimg.com/media/HFHtr48asAAbBIo?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Mazagon Dock vs Garden Reach Shipbuilder vs Cochin Shipyard Difference between them in capabilities. For complex platforms Mazagon Dock is the undispu...",
+      "link": "https://x.com/Tijori1/status/2040673819543966146",
+      "date": "2026-04-05T06:12:07+00:00",
+      "tweet_id": "2040673819543966146",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HFHtr48asAAbBIo?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Mazagon Dock vs Garden Reach Shipbuilder vs Cochin Shipyard<br><br>Difference between them in capabilities. For complex platforms Mazagon Dock is the undisputed leader<br><img width=\"747\" height=\"471\" style=\"\" src=\"https://pbs.twimg.com/media/HFHtr48asAAbBIo?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "a celebrity in studio for views. Makes no sense to have 3k cr mkt cap owner in studio \ud83e\udd29 https://youtu.be/IIb-CUKdqtE?si=wW9UThPl8Rb5FeQM",
       "link": "https://x.com/contrarianEPS/status/2040668839638438302",
       "date": "2026-04-05T05:52:19+00:00",
@@ -9439,6 +9889,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "http://x.com/i/article/2040380644723990528",
+      "category": "Twitter"
+    },
+    {
+      "title": "Deepak Nitrite promoter has been buying from open market Might be a good time to research , stock is down ~50% from all time highs",
+      "link": "https://x.com/Tijori1/status/2039924343237669329",
+      "date": "2026-04-03T04:33:58+00:00",
+      "tweet_id": "2039924343237669329",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HE9ETWUaEAAOYx_?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Deepak Nitrite promoter has been buying from open market <br><br>Might be a good time to research , stock is down ~50% from all time highs<br><img width=\"1538\" height=\"769\" style=\"\" src=\"https://pbs.twimg.com/media/HE9ETWUaEAAOYx_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -9517,6 +9982,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Indian stock market is much more mature when compared to China Chinese market is more retail sentiment driven, with much more margin trading and no st...",
+      "link": "https://x.com/Tijori1/status/2039408970562248801",
+      "date": "2026-04-01T18:26:03+00:00",
+      "tweet_id": "2039408970562248801",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HE1vY9NakAAA2cx?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Indian stock market is much more mature when compared to China<br><br>Chinese market is more retail sentiment driven, with much more margin trading and no stabilizing factor like mutual fund SIP's<br><img width=\"829\" height=\"368\" style=\"\" src=\"https://pbs.twimg.com/media/HE1vY9NakAAA2cx?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT abhishek: What \u201cmarket\u201d thinks can often make outcomes noisy in the short term. But over medium term: Business prevails. First principles prevail...",
       "link": "https://x.com/contrarianEPS/status/2039371279262986367",
       "date": "2026-04-01T15:02:01+00:00",
@@ -9547,6 +10027,21 @@
       "category": "Twitter"
     },
     {
+      "title": "OpenAI basically had a \u201csoft IPO\u201d with $3B of investment from individuals Also inclusion in ARK Invest ETF's With everything going on, investors see...",
+      "link": "https://x.com/Tijori1/status/2039281998288879892",
+      "date": "2026-04-01T10:01:31+00:00",
+      "tweet_id": "2039281998288879892",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEz78GibAAEl1r_?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "OpenAI basically had a \u201csoft IPO\u201d with $3B of investment from individuals <br><br>Also inclusion in ARK Invest ETF's<br><br>With everything going on, investors seem to have missed this<br><img width=\"912\" height=\"202\" style=\"\" src=\"https://pbs.twimg.com/media/HEz78GibAAEl1r_?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Parakh: Absolute treat listening to @SamitVartak Fundamental backed market views in such testing times hit different, this is the kind of signal wo...",
       "link": "https://x.com/SamitVartak/status/2039285519524503817",
       "date": "2026-04-01T07:36:11+00:00",
@@ -9559,6 +10054,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Parakh<br>Absolute treat listening to @SamitVartak <br><br>Fundamental backed market views in such testing times hit different, this is the kind of signal worth tuning into right now<br><br>Small cap cycles, P/B trends, mid &amp; small cap resilience vs Nifty in this crisis, beautifully broken down<br><img width=\"2048\" height=\"1365\" style=\"\" src=\"https://pbs.twimg.com/media/HEza50HbMAA_IIn?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Indian Investing Conclave:\u2002[No Paywall] Watch Samit Vartak, CIO at SageOne Advisors uncover historical smallcap cycles with signs of current one bottoming out.<br><br>In this insightful session, Samit covers:<br>- Smallcap cycles: Worst seems behind with good setup for an outsized returns (avg. 64% upside within a<br><br><img width=\"2048\" height=\"1029\" style=\"\" src=\"https://pbs.twimg.com/media/HEo6Kupa0AEr9Dg?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Companies which will benefit from accelerated adoption of rPET due to government notification",
+      "link": "https://x.com/Tijori1/status/2039021794410311726",
+      "date": "2026-03-31T16:47:33+00:00",
+      "tweet_id": "2039021794410311726",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEwPVjIbMAAXGRP?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Companies which will benefit from accelerated adoption of rPET due to government notification<br><img width=\"686\" height=\"746\" style=\"\" src=\"https://pbs.twimg.com/media/HEwPVjIbMAAXGRP?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Yatin Mota:\u2002Govt notifies 40% recycled content mandatory in food packaging effective April 1<br><br>The mandate is expected to accelerate the adoption of recycled PET (rPET) across the food and beverage sector, creating robust demand for high-quality recycled materials while strengthening the<br><br><img width=\"931\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HEwLfFSbMAMeTXT?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"931\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HEwLfGGbAAALjNI?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -9589,6 +10099,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "In my experience, this is probably the first time the Mid &amp; Small cap indices have outperformed the Nifty 50 during a crisis time. It's also extremely rare to see the Mid &amp; Small cap indices (avg of the two) beating the Nifty 50 near the bottom of the cycle. Their avg CAGR has outperformed during the last two tough years as well as all the below trailing years. I am not that surprised as their balance sheet, P&amp;L and cash flow quality has substantially improved post COVID. I believe the biggest multi-baggers will emerge from this space as the earnings growth differential will be significant going forward. Because of the quality differential today vs during pre-COVID period, I would be surprised if their valuations correct to levels seen during the previous crashes. We probably have the best corporate quality and least stressed financials currently compared to any other previous big crisis.<br><img width=\"907\" height=\"391\" style=\"\" src=\"https://pbs.twimg.com/media/HErcr50awAAJJWI?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Gaurab Chakrabarti: The U.S. is running Elon's playbook on LNG: Build it before the world knows it needs it. A decade ago, American LNG exports wer...",
+      "link": "https://x.com/Tijori1/status/2039551895854035387",
+      "date": "2026-03-30T16:44:53+00:00",
+      "tweet_id": "2039551895854035387",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HErFULBbMAAzNti?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Gaurab Chakrabarti<br>The U.S. is running Elon's playbook on LNG: Build it before the world knows it needs it. A decade ago, American LNG exports were near zero. Today the US is the world's largest exporter at 15 billion cubic feet per day with eight new terminals under construction. Capacity doubles to 29 billion cubic feet per day by 2029. Total capital committed: $150 billion. The contracts are 20-year take-or-pay, denominated in USD. During COVID, buyers cancelled every cargo they could. They still paid billions in fixed fees. Then Iran closed the Strait of Hormuz. Qatar, 20% of global LNG supply, went offline. Vessel transits dropped from 129 per day to 4. Europe needed a replacement. BUT the contracts were already signed. US share of European LNG: 27% in 2021, 56% today. Germany went from zero LNG imports to sourcing 94% from America. Japan is locked through 2050. American LNG is a 20-year legal obligation with no exit clause.<br><img width=\"912\" height=\"661\" style=\"\" src=\"https://pbs.twimg.com/media/HErFULBbMAAzNti?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -9694,6 +10219,66 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Economic activity is not uniformly spread across the country. Among India\u2019s 28 states and eight union territories, there are significant differences in relative affluence as well as in the trajectories of their economic development.<br><br>India\u2019s economic output is concentrated in the southern and western states. They are home to a third of India\u2019s population but contribute more than half of its economic output.<br><br>Over the last four decades, India\u2019s southern and eastern states have seen a considerable divergence in their contributions to the national economy, despite both regions having comparable populations. Southern states like Karnataka now contribute relatively more, while eastern states like West Bengal have seen their share decline.<br><br>This divergence becomes even sharper in terms of per capita income, or state domestic product relative to population, since the richer states are also the ones where population growth has slowed much more dramatically.<br><br>In 1981, West Bengal\u2019s per capita income was 16% higher than Karnataka\u2019s. By 2021, Karnataka\u2019s per capita income was more than double West Bengal\u2019s, showing a reversal in their positions and a widening gap between one of India\u2019s richest and one of its poorest states.<br><br>What is the share of different sectors in the economic growth of states across India? Read @akwaghmare\u2019s piece to learn more: https://www.dataforindia.com/state-economies/?utm_source=twitter&amp;utm_medium=post <br><br>#Economy #States #GDP #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HEYyobxb0AAGdB9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Anthropic's Opus model is shockingly good at scenario simulation\u2014the US Department of Defense is already using it. We've integrated this capability i...",
+      "link": "https://x.com/Tijori1/status/2037215447867932676",
+      "date": "2026-03-26T17:09:47+00:00",
+      "tweet_id": "2037215447867932676",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEWj3UjbYAQ_kSu?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Anthropic's Opus model is shockingly good at scenario simulation\u2014the US Department of Defense is already using it. <br><br>We've integrated this capability into our risk probe reports to generate stress tests and quantify impact on the company.<br><img width=\"757\" height=\"795\" style=\"\" src=\"https://pbs.twimg.com/media/HEWj3UjbYAQ_kSu?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Putting sale of the IPL teams RCB and Rajasthan Royals in context",
+      "link": "https://x.com/Tijori1/status/2036698000777764991",
+      "date": "2026-03-25T06:53:38+00:00",
+      "tweet_id": "2036698000777764991",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEPN4n1agAAE-8F?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Putting sale of the IPL teams RCB and Rajasthan Royals in context<br><img width=\"837\" height=\"723\" style=\"\" src=\"https://pbs.twimg.com/media/HEPN4n1agAAE-8F?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RCB Deal - big stock market beneficiary seems to be RPSG ventures, stock is up ~+16%",
+      "link": "https://x.com/Tijori1/status/2036657115809681573",
+      "date": "2026-03-25T04:11:10+00:00",
+      "tweet_id": "2036657115809681573",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEOoywnbMAAIsrF?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RCB Deal - big stock market beneficiary seems to be RPSG ventures, stock is up ~+16%<br><img width=\"854\" height=\"430\" style=\"\" src=\"https://pbs.twimg.com/media/HEOoywnbMAAIsrF?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Does ethanol blending actually save fossil fuel consumption. India is usually compared to Brazil Sharing the math below and answer is - Not Really Key...",
+      "link": "https://x.com/Tijori1/status/2036332487853412579",
+      "date": "2026-03-24T06:41:12+00:00",
+      "tweet_id": "2036332487853412579",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HEKBTFLaIAE_uTv?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Does ethanol blending actually save fossil fuel consumption. India is usually compared to Brazil<br><br>Sharing the math below and answer is - Not Really<br><br>Key Take Away - It makes way more sense in Brazil as their sugar cane is rain fed, while in India we use quite a bit of irrigation<br><br>India saves ~27%. Brazil saves ~87%. The difference is almost entirely irrigation \u2014 Indian sugarcane is pumped with majorly coal-fired electricity, Brazilian cane is rainfed. India's ethanol program mostly swaps imported crude for domestic coal and gas. Brazil's genuinely displaces fossil fuels.<br><img width=\"596\" height=\"631\" style=\"\" src=\"https://pbs.twimg.com/media/HEKBTFLaIAE_uTv?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
