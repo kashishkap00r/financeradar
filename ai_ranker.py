@@ -506,7 +506,27 @@ def parse_json_response(text):
     text = text.replace("\n", " ").replace("\r", " ")
     text = re.sub(r',\s*]', ']', text)
     text = re.sub(r',\s*}', '}', text)
-    return json.loads(text)
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        # Truncated response (e.g. Gemini hit maxOutputTokens on the clustering
+        # call). Walk backward through `}` boundaries, close the array, and
+        # return the longest prefix that parses as a non-empty list.
+        if not text.startswith("["):
+            raise
+        for i in range(len(text) - 1, 0, -1):
+            if text[i] != '}':
+                continue
+            candidate = text[:i + 1] + ']'
+            candidate = re.sub(r',\s*]', ']', candidate)
+            try:
+                result = json.loads(candidate)
+            except json.JSONDecodeError:
+                continue
+            if isinstance(result, list) and result:
+                print(f"  [WARN] Recovered {len(result)} items from truncated JSON")
+                return result
+        raise
 
 
 def call_openrouter(prompt, model_id):
