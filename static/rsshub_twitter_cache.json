@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-04T17:47:51.782475+00:00",
+  "generated_at": "2026-05-04T18:46:52.991611+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 48,
     "handles_empty": 1,
     "handles_error": 0,
-    "items_total": 787
+    "items_total": 791
   },
   "items": [
     {
@@ -1257,20 +1257,6 @@
       "description_html": "Fedfina's change in capital allocation is visible in numbers<br><br>1. Company allocated more capital to higher ROA/ROE gold loan segment. ROE has gone from single digits to 12%+, and was at 14% in Q4.<br><br>2. Secured loans have increased from 89.5% to 99%.<br><br>3. Credit costs have fallen post the transition. <br><br>Disc: no recommendation to buy or sell.<br><img width=\"2048\" height=\"1097\" style=\"\" src=\"https://pbs.twimg.com/media/HHAFO-xa8AEeZXv?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "Must read insight from Zomato's Letter to Shareholders Whether Ai will disrupt or be an enabler for them?",
-      "link": "https://x.com/soicfinance/status/2049081830729761023",
-      "date": "2026-04-28T11:02:33+00:00",
-      "tweet_id": "2049081830729761023",
-      "source": "Intrinsic Compounding",
-      "publisher": "SOIC",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HG_M9YSboAErjdD?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Must read insight from Zomato's Letter to Shareholders<br><br>Whether Ai will disrupt or be an enabler for them?<br><img width=\"1482\" height=\"1550\" style=\"\" src=\"https://pbs.twimg.com/media/HG_M9YSboAErjdD?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
       "title": "RT Intrinsic Compounding: http://x.com/i/article/2047610728702734336",
       "link": "https://x.com/soicfinance/status/2050450631316676645",
       "date": "2026-04-24T10:10:02+00:00",
@@ -1283,6 +1269,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Intrinsic Compounding<br>http://x.com/i/article/2047610728702734336"
+    },
+    {
+      "title": "RT Intrinsic Compounding: In Terminator 2, a T-800 cyborg said \u201cI\u2019ll be back.\u201d Well, humanoid robots are here \u2013 but the time-traveling murder spre...",
+      "link": "https://x.com/soicfinance/status/2051371423428661336",
+      "date": "2025-07-06T20:18:36+00:00",
+      "tweet_id": "2051371423428661336",
+      "source": "Intrinsic Compounding",
+      "publisher": "SOIC",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/GvMxDlCWMAEcpAX?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Intrinsic Compounding<br>In Terminator 2, a T-800 cyborg said \u201cI\u2019ll be back.\u201d<br><br>Well, humanoid robots are here \u2013 but the time-traveling murder spree seems to be a far -fetched reality. What was once sci-fi is now serious R&amp;D.<br><br>Elon Musk even claims Tesla\u2019s new humanoid \u2018Optimus\u2019 will be \u201cworth more than the car business\u201d. From lab prototypes to factory floors, 2025 is starting to feel like the dawn of the robot revolution.<br><br>So Let\u2019s Dive in \ud83d\udc47<br><br>Disclaimer - No, Skynet isn\u2019t online\u2026 yet.<br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/GvMxDlCWMAEcpAX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "The two best contra bets (selan, cpcl) picked in 2020 & 2021 have grown up so well in their ops. Selan strategically crossed a major topline benchmark...",
@@ -2209,6 +2209,20 @@
       "description_html": "#TataTrusts set to recast #TataSons board at May 8 meet; Srinivasan\u2019s exit, Bhaskar Bhat\u2019s entry under consideration<br><br>https://www.cnbctv18.com/business/companies/tata-trusts-set-to-recast-tata-sons-board-at-may-8-meet-srinivasans-exit-bhaskar-bhats-entry-under-consideration-19898274.htm"
     },
     {
+      "title": "#ETMarkets US stocks today: Amazon opens up logistics network to other businesses in challenge to UPS, FedEx https://economictimes.indiatimes.com/mark...",
+      "link": "https://x.com/ETMarkets/status/2051365087332725024",
+      "date": "2026-05-04T18:15:23+00:00",
+      "tweet_id": "2051365087332725024",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#ETMarkets<br><br>US stocks today: Amazon opens up logistics network to other businesses in challenge to UPS, FedEx<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-today-amazon-opens-up-logistics-network-to-other-businesses-in-challenge-to-ups-fedex/articleshow/130809262.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
+    },
+    {
       "title": "#ETMarkets US Stock Market Today | Dow Jones | Nasdaq Live: US stocks trade lower as Iran war tensions keep sentiment in check; oil prices jump 5% htt...",
       "link": "https://x.com/ETMarkets/status/2051345020830273566",
       "date": "2026-05-04T16:55:39+00:00",
@@ -2459,20 +2473,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Silver futures plunge Rs 3,917 to Rs 2.47 lakh/kg on weak global trends<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/commodities/news/silver-futures-plunge-rs-3917-to-rs-2-47-lakh/kg-on-weak-global-trends/articleshow/130780533.cms"
-    },
-    {
-      "title": "#GlobalMarkets | #European shares inch lower as tariff threats drag automakers; investors assess Mideast progress #ETMarkets https://economictimes.ind...",
-      "link": "https://x.com/ETMarkets/status/2051234125554852265",
-      "date": "2026-05-04T09:35:00+00:00",
-      "tweet_id": "2051234125554852265",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#GlobalMarkets | #European shares inch lower as tariff threats drag automakers; investors assess Mideast progress<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/global-markets-european-shares-inch-lower-as-tariff-threats-drag-automakers-investors-assess-mideast-progress/articleshow/130777795.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
     },
     {
       "title": "AB CAPITAL - Good Results",
@@ -3691,6 +3691,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Childhood vaccinations are a cornerstone of India\u2019s public health programme, playing an essential role in reducing infant mortality in the country.<br><br>India provides free of cost immunisation against 12 vaccine-preventable diseases under its Universal Immunization Programme (UIP), including vaccines that prevent poliomyelitis, tuberculosis, rotavirus diarrhoea and measles.<br><br>Vaccination coverage has improved sharply over time, especially in rural India. In 1993, fewer than one in three rural children were fully vaccinated. By 2021, this increased to over three in four children in both rural and urban India.<br><br>Even among children who are not fully vaccinated, nearly all have received at least some vaccinations. 'Zero-dose children' is a term used as a measure of lack of access to routine immunisation services. It is defined by the World Health Organization (WHO) as children who have not received the first dose of the DPT vaccine, since this is included in most national immunisation programmes and is one of the first vaccines given across countries. The share of zero-dose children in India is now just 7%.<br><br>How does India compare to other countries in its child immunisation efforts? Read @nileena_suresh's piece to find out: https://www.dataforindia.com/childhood-immunisation/?utm_source=twitter&amp;utm_medium=post <br><br>#Immunisation #PublicHealth #Health #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HCdMfB7akAAwXw4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "The Poddar Chhatra Niwas gang of 2007-2011. Divided by cities, work and life. United after years by an election outcome.",
+      "link": "https://x.com/abhymurarka/status/2051369086706401433",
+      "date": "2026-05-04T18:31:17+00:00",
+      "tweet_id": "2051369086706401433",
+      "source": "Abhishek Murarka \ud83d\udcb9\ud83d\udc02",
+      "publisher": "Abhy Murarka",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHftTp8aoAAS6V0?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The Poddar Chhatra Niwas gang of 2007-2011.<br><br>Divided by cities, work and life. United after years by an election outcome.<br><img width=\"945\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HHftTp8aoAAS6V0?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "The real plight of mis-governance, extortion and gundaraj of Bengal was faced by the small businessmen. Youngsters escaped, they stayed. No one will f...",
@@ -6115,6 +6129,20 @@
       "description_html": "Interesting one on multi-cap fund performances.<br><br>Groww Multicap Fund has outperformed in this category though its AUM is still relatively small.<br><br>Source: @padhucfp<br><img width=\"638\" height=\"859\" style=\"\" src=\"https://pbs.twimg.com/media/HHUgfXybEAAha9p?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "RT Capitalmind: Most HNI portfolios have the equity part figured out. What they're missing is the sleeve that keeps them invested when equity does wha...",
+      "link": "https://x.com/deepakshenoy/status/2051365303024865685",
+      "date": "2026-05-04T13:30:02+00:00",
+      "tweet_id": "2051365303024865685",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Capitalmind<br>Most HNI portfolios have the equity part figured out. What they're missing is the sleeve that keeps them invested when equity does what equity does: drops 25-30% and tests every investor's nerve.<br><br>Shray sits down with @AkankshaMaulik and @iKrishnaAppala to talk about Capitalmind Anchor: a product that's been quietly in the works for a while. It's not a stock strategy. It's not chasing alpha. It's a rule-based basket of hybrid mutual funds designed to keep you invested when everything around you is telling you to run.  <br><br>If you're 100% in equities and have never thought about what happens to your goals when a bad market shows up at exactly the wrong time, this one's worth your hour.<br>https://www.youtube.com/watch?v=g7Z5JHuggao"
+    },
+    {
       "title": "RT Anoop: http://x.com/i/article/2051270737441566720",
       "link": "https://x.com/deepakshenoy/status/2051299419929141349",
       "date": "2026-05-04T12:11:41+00:00",
@@ -7121,6 +7149,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "We\u2019re launching Trade DB to track India\u2019s trade at the HS code level by value or quantity, across imports, exports, and also detailed category and subcategory data for our trade partners. See this for more:  https://www.youtube.com/watch?v=KdwhLPaU3Fw  #India #Trade #Exports #Imports"
+    },
+    {
+      "title": "Shocking stat of the day: Adjusted Stablecoin volume is projected to reach $719 TRILLION by 2035, according to a new report from Chainalysis. This pro...",
+      "link": "https://x.com/KobeissiLetter/status/2051363095210045579",
+      "date": "2026-05-04T18:07:29+00:00",
+      "tweet_id": "2051363095210045579",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHfDc1CWoAEQvB6?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Shocking stat of the day:<br><br>Adjusted Stablecoin volume is projected to reach $719 TRILLION by 2035, according to a new report from Chainalysis.<br><br>This projection is assuming organic growth alone. When factoring in macro catalysts, Chainalysis says this figure could approach $1.5 quadrillion.<br><br>In fact, Stablecoin payment volumes are on pace to match Visa and Mastercard\u2019s off-chain transaction volumes somewhere between 2031 and 2039.<br><br>This comes amid a massive shift toward Stablecoin infrastructure, with Western Union, $USDPT, Fidelity, $FIDD, Meta, and many other Fortune 500 companies preparing launches.<br><br>The ecosystem is also evolving, such as Jupiter's $JUPUSD, which returns yield back to the ecosystem and has been attracting large inflows.<br><br>Stablecoin adoption is skyrocketing.<br><img width=\"802\" height=\"679\" style=\"\" src=\"https://pbs.twimg.com/media/HHfDc1CWoAEQvB6?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "BREAKING: President Trump releases a statement following new Iranian drone attacks on Gulf countries.",
@@ -9517,6 +9559,20 @@
       "description_html": "RT\u2002Shereen Bhan<br>#Exclusive: Parle-G biscuit maker in talks with banks for #IPO, sources say @R_Dhanrajani reports Formal pitches are expected to progress by mid-May, though the process remains at an early stage @CNBCTV18Live @CNBCTV18News #Parle #ParleG <br>https://www.cnbctv18.com/market/exclusive-parle-g-biscuit-maker-in-talks-with-banks-for-potential-ipo-sources-say-19895075.htm"
     },
     {
+      "title": "Some great technical in-depth interviews of Ather Energy are on Tijori knowledge base For example this one by @gareebscientist",
+      "link": "https://x.com/Tijori1/status/2051361282629181653",
+      "date": "2026-05-04T18:00:16+00:00",
+      "tweet_id": "2051361282629181653",
+      "source": "Tijori",
+      "publisher": "Tijori Finance",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHfmNRRb0AA5zQy?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Some great technical in-depth interviews of Ather Energy are on Tijori knowledge base<br><br>For example this one by @gareebscientist<br><img width=\"1327\" height=\"426\" style=\"\" src=\"https://pbs.twimg.com/media/HHfmNRRb0AA5zQy?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Google after last night's +10% surge Sundar Pichai has caught up to Satya Nadella , with both stocks now sitting at roughly 11\u00d7 their price when each...",
       "link": "https://x.com/Tijori1/status/2050173411968868450",
       "date": "2026-05-01T11:20:06+00:00",
@@ -10749,6 +10805,34 @@
       "description_html": "RT\u2002Techmeme<br>Parallel Web Systems, founded by former Twitter CEO Parag Agrawal and which offers web search tools for AI agents, raised a $100M Series B at a $2B valuation (@bellelin_ / Wall Street Journal)<br><br>(Visit Techmeme dot com for the link and full context!)"
     },
     {
+      "title": "Calling China to change its distortionary development strategy may be warranted, @arvindsubraman says. But one can't question it's mercantilism on gro...",
+      "link": "https://x.com/PIIE/status/2051372005341921730",
+      "date": "2026-05-04T18:42:53+00:00",
+      "tweet_id": "2051372005341921730",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Calling China to change its distortionary development strategy may be warranted, @arvindsubraman says. But one can't question it's mercantilism on grounds it penalizes China's consumers, whose standard of living has risen faster than anywhere else.<br>https://www.project-syndicate.org/commentary/china-export-model-does-not-come-at-the-expense-of-chinese-consumers-by-arvind-subramanian-2026-05"
+    },
+    {
+      "title": "Listen to the newest @Trade__Talks episode with @PortofLA Executive Director Gene Seroka here or wherever you get podcasts: https://tradetalkspodcast....",
+      "link": "https://x.com/PIIE/status/2051371661954330827",
+      "date": "2026-05-04T18:41:31+00:00",
+      "tweet_id": "2051371661954330827",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHfvo3FW4AAO9d1?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Listen to the newest @Trade__Talks episode with @PortofLA Executive Director Gene Seroka here or wherever you get podcasts: https://tradetalkspodcast.com/podcast/213-ups-and-downs-at-the-port-of-los-angeles/<br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/amplify_video/2051371536330674176/vid/avc1/1280x720/mavyNI2UwAZfjmgu.mp4?tag=14\" controls=\"controls\" poster=\"https://pbs.twimg.com/media/HHfvo3FW4AAO9d1?format=jpg&amp;name=orig\"></video>"
+    },
+    {
       "title": "It has been a common belief that somehow \"offshore\" dollars, including the dollar reserves held by non-US authorities, have to \"leave\" the US through ...",
       "link": "https://x.com/PIIE/status/2051339830567501825",
       "date": "2026-05-04T16:35:02+00:00",
@@ -10761,6 +10845,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "It has been a common belief that somehow \"offshore\" dollars, including the dollar reserves held by non-US authorities, have to \"leave\" the US through US current account deficits. This belief is dead wrong.<br>Maurice Obstfeld explains: https://www.piie.com/blogs/realtime-economics/2026/dont-blame-americas-current-account-deficit-dollar"
+    },
+    {
+      "title": "RT Port of Los Angeles: Port of Los Angeles Executive Director Gene Seroka discusses the current state of the nation\u2019s busiest port, including update...",
+      "link": "https://x.com/PIIE/status/2051369441527525415",
+      "date": "2026-05-04T16:20:32+00:00",
+      "tweet_id": "2051369441527525415",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHfO0nvaIAAmB6y?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Port of Los Angeles<br>Port of Los Angeles Executive Director Gene Seroka discusses the current state of the nation\u2019s busiest port, including updates on U.S. trade with China, the impact of recent tariffs and more on the latest podcast episode of @Trade__Talks with @ChadBown, senior fellow at @PIIE.<br><img width=\"1920\" height=\"1440\" style=\"\" src=\"https://pbs.twimg.com/media/HHfO0nvaIAAmB6y?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1920\" height=\"1440\" style=\"\" src=\"https://pbs.twimg.com/media/HHfO8GZbsAA14BW?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "NEW: @PortofLA Executive Director Gene Seroka joined @ChadBown on @Trade__Talks for an update on US trade with China, as well as the impact on the Por...",
@@ -10789,6 +10887,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The political consequences of AI may be similar to the political economy of oil states: an economy in which the state derives significant revenue from a narrow, high-rent sector, while the relative economic leverage of labor declines. By Cullen Hendrix:<br>https://foreignpolicy.com/2026/04/30/petrostates-ai-democracies/?utm_content=gifting&amp;tpcc=gifting_article&amp;gifting_article=cGV0cm9zdGF0ZXMtYWktZGVtb2NyYWNpZXM=&amp;pid=PNILoiIJgqmxsxl"
+    },
+    {
+      "title": "RT Project Syndicate: Arvind Subramanian rebuts the claim that the country\u2019s mercantilist development model has short-changed consumers. https://www....",
+      "link": "https://x.com/PIIE/status/2051369534028714326",
+      "date": "2026-05-04T14:54:06+00:00",
+      "tweet_id": "2051369534028714326",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Project Syndicate<br>Arvind Subramanian rebuts the claim that the country\u2019s mercantilist development model has short-changed consumers. https://www.project-syndicate.org/commentary/china-export-model-does-not-come-at-the-expense-of-chinese-consumers-by-arvind-subramanian-2026-05"
     },
     {
       "title": "One of the few winners in the current oil squeeze\u2014US oil & gas producers who have enjoyed \u201cunusual profits\u201d since the war began\u2014will likely see so...",
@@ -10971,62 +11083,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Reviving a modern helium reserve would not eliminate risk. But it would ensure that when the next disruption comes, the world is not left scrambling for a gas that, while invisible, underpins the technologies we depend on every day. https://www.piie.com/blogs/realtime-economics/2026/bring-back-helium-reserve-next-shock-hits"
-    },
-    {
-      "title": "It has been a common belief that somehow \"offshore\" dollars, including the dollar reserves held by non-US authorities, have to \"leave\" the US through ...",
-      "link": "https://x.com/PIIE/status/2050252669386682375",
-      "date": "2026-05-01T16:35:02+00:00",
-      "tweet_id": "2050252669386682375",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "It has been a common belief that somehow \"offshore\" dollars, including the dollar reserves held by non-US authorities, have to \"leave\" the US through US current account deficits. This belief is dead wrong.<br>Maurice Obstfeld explains: https://www.piie.com/blogs/realtime-economics/2026/dont-blame-americas-current-account-deficit-dollar"
-    },
-    {
-      "title": "\u201cSo far, the Fed\u2019s resistance has been effective\u2014more so probably than at any other agency\u2014& my sense is Trump finds that intensely frustrating,\u201d...",
-      "link": "https://x.com/PIIE/status/2050231704669786367",
-      "date": "2026-05-01T15:11:44+00:00",
-      "tweet_id": "2050231704669786367",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\u201cSo far, the Fed\u2019s resistance has been effective\u2014more so probably than at any other agency\u2014&amp; my sense is Trump finds that intensely frustrating,\u201d says David Wilcox. Legislative protections to insulate the Fed from political control were well designed. https://www.washingtonpost.com/business/2026/04/30/trump-attacks-backfire-fed/"
-    },
-    {
-      "title": "The political consequences of AI may be similar to the political economy of oil states: an economy in which the state derives significant revenue from...",
-      "link": "https://x.com/PIIE/status/2050203840188698932",
-      "date": "2026-05-01T13:21:01+00:00",
-      "tweet_id": "2050203840188698932",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The political consequences of AI may be similar to the political economy of oil states: an economy in which the state derives significant revenue from a narrow, high-rent sector, while the relative economic leverage of labor declines. By Cullen Hendrix:<br>https://foreignpolicy.com/2026/04/30/petrostates-ai-democracies/?utm_content=gifting&amp;tpcc=gifting_article&amp;gifting_article=cGV0cm9zdGF0ZXMtYWktZGVtb2NyYWNpZXM=&amp;pid=PNILoiIJgqmxsxl"
-    },
-    {
-      "title": "RT VoxEU: A VoxTalks Economics podcast: World War Trade In this episode, @BaldwinRE @IMD_Bschool tells @timsvengali that world trade entered a state o...",
-      "link": "https://x.com/PIIE/status/2050206284943651214",
-      "date": "2026-04-30T14:30:13+00:00",
-      "tweet_id": "2050206284943651214",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHKPx1tXoAAUY--?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002VoxEU<br>A VoxTalks Economics podcast: World War Trade<br><br>In this episode, @BaldwinRE @IMD_Bschool tells @timsvengali that world trade entered a state of cold war.<br><br>Listen now: https://ow.ly/QFNt50YCeWQ <br><br>Download Richard\u2019s book for free from CEPR Press: https://ow.ly/geRw50YCeWP <br><br>#Econ #TradeWar #Tariffs<br><img width=\"1200\" height=\"670\" style=\"\" src=\"https://pbs.twimg.com/media/HHKPx1tXoAAUY--?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     }
   ]
 }
