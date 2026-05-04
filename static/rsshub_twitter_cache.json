@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-04T18:46:52.991611+00:00",
+  "generated_at": "2026-05-04T19:47:22.465868+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 48,
     "handles_empty": 1,
     "handles_error": 0,
-    "items_total": 791
+    "items_total": 792
   },
   "items": [
     {
@@ -1285,6 +1285,20 @@
       "description_html": "RT\u2002Intrinsic Compounding<br>In Terminator 2, a T-800 cyborg said \u201cI\u2019ll be back.\u201d<br><br>Well, humanoid robots are here \u2013 but the time-traveling murder spree seems to be a far -fetched reality. What was once sci-fi is now serious R&amp;D.<br><br>Elon Musk even claims Tesla\u2019s new humanoid \u2018Optimus\u2019 will be \u201cworth more than the car business\u201d. From lab prototypes to factory floors, 2025 is starting to feel like the dawn of the robot revolution.<br><br>So Let\u2019s Dive in \ud83d\udc47<br><br>Disclaimer - No, Skynet isn\u2019t online\u2026 yet.<br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/GvMxDlCWMAEcpAX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Tell me you don't know ERP without telling me you don't know ERP. \ud83d\ude42\u200d\u2194\ufe0f",
+      "link": "https://x.com/Finstor85/status/2051386983201788399",
+      "date": "2026-05-04T19:42:24+00:00",
+      "tweet_id": "2051386983201788399",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHfDWzubEAAVNQi?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Tell me you don't know ERP without telling me you don't know ERP. \ud83d\ude42\u200d\u2194\ufe0f<div class=\"rsshub-quote\"><br><br>Amir Efrati:\u2002\ud83d\udc40Mercedes cut SAP instances 40%. <br><br>SAP (used by vast majority of Fortune 500) now cutting off unauthorized AI agents, a move that has gotten a lot of people's attn.<br><br><img width=\"1532\" height=\"626\" style=\"\" src=\"https://pbs.twimg.com/media/HHfDWzubEAAVNQi?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
+    },
+    {
       "title": "The two best contra bets (selan, cpcl) picked in 2020 & 2021 have grown up so well in their ops. Selan strategically crossed a major topline benchmark...",
       "link": "https://x.com/Finstor85/status/2051296892055667021",
       "date": "2026-05-04T13:44:24+00:00",
@@ -1493,20 +1507,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Many reached out asking what can be done to stop paying to Claude/OpenAi &amp; build something locally. In theory you can but AI/Model isn't the reason claude has so many users. It's the tooling, apps, connectors and everything around that makes the entire ecosystem extremely valuable. If you choose to localise everything, you have to build everything around it on your own. But I recommend, taking this challenge and build regardless.<br><br>I am running Gemma 4 with Ollama on a an i7 with 16GB RAM. No GPU. No special hardware. <br><br>The system spins up specialist agents dynamically, they communicate through a shared memory blackboard, a decision engine checks quality, and the orchestrator compiles everything into one answer. Everything localised, no API, no costs, no internet needed. Learned how to implement namespace keys to prevent decision conflict between agents.<br> <br>Saw how temperature impacts agents behaviour immediately. Set it low, # of loops shoot up, set it high, somehow output JSON breaks. <br><br>That's why I say, just go build. Regardless of the outcomes, things you will learn through the process is extremely valuable."
-    },
-    {
-      "title": "RT Markets by Zerodha: How does Indian IT adapt in the age of AI? Can we tell what adaptation even looks like? What's really changing on ground? To an...",
-      "link": "https://x.com/Finstor85/status/2047963590540603712",
-      "date": "2026-04-24T10:18:45+00:00",
-      "tweet_id": "2047963590540603712",
-      "source": "Ameya",
-      "publisher": "Finstor",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Markets by Zerodha<br>How does Indian IT adapt in the age of AI? Can we tell what adaptation even looks like? What's really changing on ground?<br><br>To answer all this, we had a chat with Ameya P (@Finstor85), who has spent 20 years in the industry and is a prolific tech investor.<br><br>A \ud83e\uddf5 of his quotes:"
     },
     {
       "title": "The first mistake was crowding into chemicals in 2021\u201322. The second is writing it off in 2026.",
@@ -7151,6 +7151,20 @@
       "description_html": "We\u2019re launching Trade DB to track India\u2019s trade at the HS code level by value or quantity, across imports, exports, and also detailed category and subcategory data for our trade partners. See this for more:  https://www.youtube.com/watch?v=KdwhLPaU3Fw  #India #Trade #Exports #Imports"
     },
     {
+      "title": "BREAKING: President Trump says Fed Chair Powell is a \"disaster for America\" and that interest rates are \"too high.\" The 10Y Note Yield is nearing 4.50...",
+      "link": "https://x.com/KobeissiLetter/status/2051375298449416534",
+      "date": "2026-05-04T18:55:58+00:00",
+      "tweet_id": "2051375298449416534",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHfyqpGWMAAUENT?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: President Trump says Fed Chair Powell is a \"disaster for America\" and that interest rates are \"too high.\"<br><br>The 10Y Note Yield is nearing 4.50% with the average rate for a new 30Y mortgage now above 6.5%.<br><img width=\"522\" height=\"667\" style=\"\" src=\"https://pbs.twimg.com/media/HHfyqpGWMAAUENT?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Shocking stat of the day: Adjusted Stablecoin volume is projected to reach $719 TRILLION by 2035, according to a new report from Chainalysis. This pro...",
       "link": "https://x.com/KobeissiLetter/status/2051363095210045579",
       "date": "2026-05-04T18:07:29+00:00",
@@ -7415,20 +7429,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Individual investors are piling into semiconductor ETFs at a historic pace:<br><br>Since January 2025, retail investors have purchased a net +$1.0 billion of the Semiconductor ETF, $SMH.<br><br>Over the same period, retail purchases in the 3x leveraged short semiconductor ETF, $SOXS, have surged to +$1.2 billion.<br><br>Retail inflows into both funds have more than DOUBLED since January 2026.<br><br>Furthermore, the 3x leveraged long semiconductor ETF, $SOXL, has attracted +$600 million in retail purchases since January 2025.<br><br>At the same time, the Semiconductor ETF, $SOXX, has seen +$400 million in retail inflows.<br><br>Semiconductors are the hottest trade in the market.<br><img width=\"948\" height=\"721\" style=\"\" src=\"https://pbs.twimg.com/media/HHZn5OZXQAA0Nq8?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Hedge funds are rushing to reduce tech exposure: Hedge funds just posted their largest 2-week reduction in US information technology exposure over the...",
-      "link": "https://x.com/KobeissiLetter/status/2050963717378974037",
-      "date": "2026-05-03T15:40:29+00:00",
-      "tweet_id": "2050963717378974037",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHZnm5PWAAArK03?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Hedge funds are rushing to reduce tech exposure:<br><br>Hedge funds just posted their largest 2-week reduction in US information technology exposure over the last decade, excluding the meme stock frenzy in early 2021.<br><br>This was driven by long sales outpacing short covers at a ratio of 1.5 to 1.<br><br>Nearly every subsector saw exposure cuts, led by Semiconductors and Semi Equipment via long sales.<br><br>Furthermore, hedge funds sold Magnificent 7 stocks in 4 of the last 5 trading sessions.<br><br>Hedge funds are cashing-in massive profits in tech.<br><img width=\"974\" height=\"651\" style=\"\" src=\"https://pbs.twimg.com/media/HHZnm5PWAAArK03?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT Shereen Bhan: An interesting insight from @PradeepGuptaAMI on what makes the BJP the ultimate election machine. They learn doggedly from loss. Mani...",
@@ -8535,6 +8535,20 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Laurus Labs , market rewards quality of earnings always!<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Laurus Labs Q4FY26 concall notes , my notes from the call just concluded <br><br>disc: invested and biased at 365 , no fresh reco , no financial advice<br><br><img width=\"604\" height=\"512\" style=\"\" src=\"https://pbs.twimg.com/media/HHJuc7gbMAELFQL?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"593\" height=\"399\" style=\"\" src=\"https://pbs.twimg.com/media/HHJxWBra8AAUHpp?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"608\" height=\"305\" style=\"\" src=\"https://pbs.twimg.com/media/HHJ03h8a0AA64t8?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
+    },
+    {
+      "title": "Commodity costs were rising sharply, but Ather still improved margins. EBITDA moved from -23.3% to -2.5% over two years (~2080 bps YoY improvement), e...",
+      "link": "https://x.com/BeatTheStreet10/status/2051385775980413279",
+      "date": "2026-05-04T19:37:36+00:00",
+      "tweet_id": "2051385775980413279",
+      "source": "Beat The Street",
+      "publisher": "Beat The Street",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHf2IqObIAAbO01?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Commodity costs were rising sharply, but Ather still improved margins.<br><br>EBITDA moved from -23.3% to -2.5% over two years (~2080 bps YoY improvement), even as:<br>\u2013 Aluminium &amp; metals prices rose ~41%<br>\u2013 Battery and electronics costs remained volatile<br><br>What helped:<br>\u2022 Better sourcing &amp; inventory planning<br>\u2022 Use of alternate materials (light rare-earth magnets)<br>\u2022 Shift to LFP batteries<br>\u2022 Product design changes<br><br>A good example of how execution can offset cost pressures.<br><img width=\"1808\" height=\"950\" style=\"\" src=\"https://pbs.twimg.com/media/HHf2IqObIAAbO01?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1860\" height=\"998\" style=\"\" src=\"https://pbs.twimg.com/media/HHf6e_Ia4AEEGVO?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1882\" height=\"1024\" style=\"\" src=\"https://pbs.twimg.com/media/HHf6i21aoAEMFnf?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Featured in Livemint today! Vedanta F&O contracts expire today ahead of demerger. https://www.livemint.com/market/vedanta-f-o-contracts-expiry-today-d...",
