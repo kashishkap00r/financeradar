@@ -1,26 +1,41 @@
 {
-  "generated_at": "2026-05-05T05:18:33.969160+05:30",
+  "generated_at": "2026-05-05T06:18:54.123532+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 48,
       "feeds_failed": 1,
-      "items_raw": 1206,
-      "resolve_attempted": 1206,
-      "resolve_resolved": 1205,
-      "resolve_cache_hits": 1204
+      "items_raw": 1207,
+      "resolve_attempted": 1207,
+      "resolve_resolved": 1206,
+      "resolve_cache_hits": 1202
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 1.0,
-      "items": 795,
+      "age_hours": 0.0,
+      "items": 792,
       "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-05-05T05:18:33.969098+05:30"
+    "generated_at": "2026-05-05T06:18:54.123484+05:30"
   },
   "items": [
+    {
+      "title": "BREAKING: The ratio of US leading to coincident economic indicators is now down to 0.84, matching the 2008 Financial Crisis low. This comes as the Lea...",
+      "link": "https://x.com/KobeissiLetter/status/2051463095101329857",
+      "date": "2026-05-05T00:44:50+00:00",
+      "tweet_id": "2051463095101329857",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHej44YWwAAZB5N?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: The ratio of US leading to coincident economic indicators is now down to 0.84, matching the 2008 Financial Crisis low.<br><br>This comes as the Leading Economic Index (LEI) fell -0.6% MoM in March, posting its 7th monthly decline out of the last 8.<br><br>The Conference Board Leading Economic Index (LEI) tracks forward-looking data, including consumer expectations, manufacturing orders, weekly hours, and initial jobless claims.<br><br>At the same time, the Coincident Economic Index (CEI) measures current economic conditions in real time, such as nonfarm payrolls or personal income, excluding government social security or unemployment payments.<br><br>This ratio is now on track for its 5th consecutive annual decline, the longest streak on record.<br><br>In the past, such depressed levels have never occurred outside of a recession.<br><br>The US economy and the stock market are moving in opposite directions.<br><img width=\"975\" height=\"549\" style=\"\" src=\"https://pbs.twimg.com/media/HHej44YWwAAZB5N?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
     {
       "title": "Software companies are flooding the US private credit industry: Software loans account for ~20% of all loans deployed by Business Development Companie...",
       "link": "https://x.com/KobeissiLetter/status/2051431563481547179",
@@ -232,21 +247,6 @@
       "category": "Twitter"
     },
     {
-      "title": "The Poddar Chhatra Niwas gang of 2007-2011. Divided by cities, work and life. United after years by an election outcome.",
-      "link": "https://x.com/abhymurarka/status/2051369086706401433",
-      "date": "2026-05-04T18:31:17+00:00",
-      "tweet_id": "2051369086706401433",
-      "source": "Abhishek Murarka \ud83d\udcb9\ud83d\udc02",
-      "publisher": "Abhy Murarka",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHftTp8aoAAS6V0?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The Poddar Chhatra Niwas gang of 2007-2011.<br><br>Divided by cities, work and life. United after years by an election outcome.<br><img width=\"945\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HHftTp8aoAAS6V0?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "#ETMarkets US stocks today: Amazon opens up logistics network to other businesses in challenge to UPS, FedEx https://economictimes.indiatimes.com/mark...",
       "link": "https://x.com/ETMarkets/status/2051365087332725024",
       "date": "2026-05-04T18:15:23+00:00",
@@ -334,6 +334,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Power Transmission sector , understanding the structure<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002India Power transmission , understanding the industry structure in depth<br><br><img width=\"579\" height=\"556\" style=\"\" src=\"https://pbs.twimg.com/media/HG6mNYhaoAIR75S?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"606\" height=\"417\" style=\"\" src=\"https://pbs.twimg.com/media/HG6mRNSbIAATQBs?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"628\" height=\"528\" style=\"\" src=\"https://pbs.twimg.com/media/HG6mVGLaYAEvvem?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Shereen Bhan: #Trump says Iran struck a South Korean cargo Ship; says no otter damage. Pete Hegseth and Chairman of the Joint Chief of Staff to bri...",
+      "link": "https://x.com/CNBCTV18Live/status/2051454245199876543",
+      "date": "2026-05-04T17:34:39+00:00",
+      "tweet_id": "2051454245199876543",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Shereen Bhan<br>#Trump says Iran struck a South Korean cargo Ship; says no otter damage. Pete Hegseth and Chairman of the Joint Chief of Staff to brief.<br>Trump  \ud83d\udc47 <br>\u2018Iran has taken some shots at unrelated Nations with respect to the Ship Movement, PROJECT FREEDOM, including a South Korean Cargo Ship. We\u2019ve shot down seven small Boats or, as they like to call them, \u201cfast\u201d Boats. Secretary of War Pete Hegseth and Chairman of the Joint Chiefs of Staff, Dan Caine, will have a News Conference tomorrow morning\u2019 @CNBCTV18News @CNBCTV18Live #Iran #CNBCTV18Market<div class=\"rsshub-quote\"><br><br>Shereen Bhan:\u2002Fire at UAE\u2019s Fujairah refinery being reported. #UAE says air defence systems successfully engaged with missiles and UAV threats. Oil prices jump, Dow futures drop @CNBCTV18News @CNBCTV18Live #CNBCTV18Market #Iran<br></div>",
       "category": "Twitter"
     },
     {
@@ -2797,51 +2812,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Re With a record order book of ~\u20b9530 Cr heading into FY27 and a massive tech moat, ideaForge is the purest play on India's \"Drone Hub 2030\" vision. ...",
-      "link": "https://x.com/exencial_RP/status/2051207682187501934",
-      "date": "2026-05-04T07:49:55+00:00",
-      "tweet_id": "2051207682187501934",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Re With a record order book of ~\u20b9530 Cr heading into FY27 and a massive tech moat, ideaForge is the purest play on India's \"Drone Hub 2030\" vision.<br><br>\u2022 The turnaround isn't just coming - it's here.<br><br>#Investing #StockMarket #Defense #ideaForge #MakeInIndia<br><br>(10/10)",
-      "category": "Twitter"
-    },
-    {
-      "title": "Re High Volatility Alert: \u2022 This isn't a \"steady-as-she-goes\" stock. Revenue is \"lumpy\" because it depends on big government contracts. \u2022 Expect wil...",
-      "link": "https://x.com/exencial_RP/status/2051207679474086271",
-      "date": "2026-05-04T07:49:55+00:00",
-      "tweet_id": "2051207679474086271",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Re High Volatility Alert:<br><br>\u2022 This isn't a \"steady-as-she-goes\" stock. Revenue is \"lumpy\" because it depends on big government contracts.<br><br>\u2022 Expect wild swings. You need a stomach for volatility if you're holding this through the quarters.<br><br>(9/10)",
-      "category": "Twitter"
-    },
-    {
-      "title": "Re Despite a heavy R&D spend, the company maintains a very low Debt-to-Equity ratio of ~0.14%. \u2022 They\u2019ve been \"stockpiling\" inventory to avoid globa...",
-      "link": "https://x.com/exencial_RP/status/2051207676873560236",
-      "date": "2026-05-04T07:49:54+00:00",
-      "tweet_id": "2051207676873560236",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Re Despite a heavy R&amp;D spend, the company maintains a very low Debt-to-Equity ratio of ~0.14%.<br><br>\u2022 They\u2019ve been \"stockpiling\" inventory to avoid global chip shortages, showing management is thinking 3 steps ahead of the supply chain.<br><br>(8/10)",
-      "category": "Twitter"
-    },
-    {
       "title": "Speak about disruption....",
       "link": "https://x.com/madhavchanchani/status/2051207476696301964",
       "date": "2026-05-04T07:49:06+00:00",
@@ -3904,21 +3874,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "President Trump said the US will begin guiding neutral ships trapped in the Persian Gulf starting Monday.<br><br>\u201cThis is a Humanitarian gesture on behalf of the United States, Middle Eastern Countries but, in particular, the Country of Iran.\u201d<br><br>https://truthsocial.com/@realDonaldTrump/posts/116512555123589170",
-      "category": "Twitter"
-    },
-    {
-      "title": "Wealthy investors are all-in on equities: Equity allocation among high-net-worth individuals is up to 65% of total assets, the highest since December ...",
-      "link": "https://x.com/KobeissiLetter/status/2051039453112656131",
-      "date": "2026-05-03T20:41:26+00:00",
-      "tweet_id": "2051039453112656131",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHZoBOyXIAAUb5Q?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Wealthy investors are all-in on equities:<br><br>Equity allocation among high-net-worth individuals is up to 65% of total assets, the highest since December 2021.<br><br>This percentage has risen +7 points since 2023 and is just below the 2021 meme stock frenzy peak of 66%.<br><br>By comparison, the 2020 pandemic low was 54% while the long-term average is ~57%.<br><br>At the same time, cash holdings fell to 10%, the lowest since September 2018.<br><br>High-net-worth individuals now hold just 18% of their capital in bonds.<br><br>Risk appetite is through the roof.<br><img width=\"974\" height=\"691\" style=\"\" src=\"https://pbs.twimg.com/media/HHZoBOyXIAAUb5Q?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
