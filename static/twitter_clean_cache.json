@@ -1,26 +1,146 @@
 {
-  "generated_at": "2026-05-07T02:37:57.812244+05:30",
+  "generated_at": "2026-05-07T07:42:09.697453+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
-      "feeds_ok": 47,
-      "feeds_failed": 2,
-      "items_raw": 1196,
-      "resolve_attempted": 1196,
-      "resolve_resolved": 1195,
-      "resolve_cache_hits": 1176
+      "feeds_ok": 46,
+      "feeds_failed": 3,
+      "items_raw": 1173,
+      "resolve_attempted": 1173,
+      "resolve_resolved": 1172,
+      "resolve_cache_hits": 1154
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 2.3,
-      "items": 768,
+      "age_hours": 5.0,
+      "items": 769,
       "handles_ok": 46
     },
     "warning": "",
-    "generated_at": "2026-05-07T02:37:57.812200+05:30"
+    "generated_at": "2026-05-07T07:42:09.697390+05:30"
   },
   "items": [
+    {
+      "title": "Carlyle teams with Diversified Energy on $1.2bn oil and gas venture https://ft.trib.al/gFW7xIC",
+      "link": "https://x.com/ftenergy/status/2052124550540771522",
+      "date": "2026-05-06T20:33:14+00:00",
+      "tweet_id": "2052124550540771522",
+      "source": "FT Energy",
+      "publisher": "FT Energy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Carlyle teams with Diversified Energy on $1.2bn oil and gas venture https://ft.trib.al/gFW7xIC",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: DoorDash stock, $DASH, surges over +15% after reporting +33% year-over-year revenue growth and strong guidance.",
+      "link": "https://x.com/KobeissiLetter/status/2052122530480029761",
+      "date": "2026-05-06T20:25:12+00:00",
+      "tweet_id": "2052122530480029761",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHqahX3XIAYdzVW?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: DoorDash stock, $DASH, surges over +15% after reporting +33% year-over-year revenue growth and strong guidance.<br><img width=\"438\" height=\"620\" style=\"\" src=\"https://pbs.twimg.com/media/HHqahX3XIAYdzVW?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Q&A: How the UK government aims to \u2018break link between gas and electricity prices\u2019 | @DrSimEvans Read here \u27a1\ufe0f https://buff.ly/J1UuTlg",
+      "link": "https://x.com/CarbonBrief/status/2052119989524513110",
+      "date": "2026-05-06T20:15:06+00:00",
+      "tweet_id": "2052119989524513110",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHqYQU9WMAgyDGb?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Q&amp;A: How the UK government aims to \u2018break link between gas and electricity prices\u2019 | @DrSimEvans<br><br>Read here \u27a1\ufe0f https://buff.ly/J1UuTlg<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HHqYQU9WMAgyDGb?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "#ETMarkets US stocks today: S&P 500 and Nasdaq notch records; AMD results spark AI stock rally https://economictimes.indiatimes.com/markets/us-stocks/...",
+      "link": "https://x.com/ETMarkets/status/2052118274968825860",
+      "date": "2026-05-06T20:08:17+00:00",
+      "tweet_id": "2052118274968825860",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#ETMarkets<br><br>US stocks today: S&amp;P 500 and Nasdaq notch records; AMD results spark AI stock rally<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-today-sp-500-and-nasdaq-notch-records-amd-results-spark-ai-stock-rally/articleshow/130869531.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: The S&P 500 closes at its highest level on record, now up +16.6% since the March 30th bottom. That's +$9.6 TRILLION in market cap in 27 trad...",
+      "link": "https://x.com/KobeissiLetter/status/2052116261178327390",
+      "date": "2026-05-06T20:00:17+00:00",
+      "tweet_id": "2052116261178327390",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHqUyiuWMAka-7e?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: The S&amp;P 500 closes at its highest level on record, now up +16.6% since the March 30th bottom.<br><br>That's +$9.6 TRILLION in market cap in 27 trading days.<br><img width=\"754\" height=\"500\" style=\"\" src=\"https://pbs.twimg.com/media/HHqUyiuWMAka-7e?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "EMDE policy responses to the Fed & dollar have served them well in past crises. Many EMDE central banks will retain this approach, prioritizing contai...",
+      "link": "https://x.com/PIIE/status/2052114937112150407",
+      "date": "2026-05-06T19:55:02+00:00",
+      "tweet_id": "2052114937112150407",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "EMDE policy responses to the Fed &amp; dollar have served them well in past crises. Many EMDE central banks will retain this approach, prioritizing containing inflation over maintaining short-term growth by tracking US monetary policy &amp; exchange rates.<br>https://www.piie.com/blogs/realtime-economics/2026/amid-wartime-disruptions-most-emerging-market-central-banks-will",
+      "category": "Twitter"
+    },
+    {
+      "title": "How incumbents are solving the imference-memory problem is so interesting. Model designs & architectures are evolving so fast & likes of NVDA are alre...",
+      "link": "https://x.com/Finstor85/status/2052113886854128043",
+      "date": "2026-05-06T19:50:51+00:00",
+      "tweet_id": "2052113886854128043",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "How incumbents are solving the imference-memory problem is so interesting. Model designs &amp; architectures are evolving so fast &amp; likes of NVDA are already investing heavily. The memory issue is mainly because of the transformers &amp; attention problem. I read a very interesting study on state space models too. As model architecture slowly starts to mimic human brain, the inference costs will collapse to zero and no memory issues either. As an investor, you should follow this space closely to know when you call it out.",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: Saudi Arabia\u2019s budget deficit widened by -$8.2 billion in Q1 2026, to -$33.5 billion, the largest since 2018. Saudi Arabia's deficit has mo...",
+      "link": "https://x.com/KobeissiLetter/status/2052108100639805575",
+      "date": "2026-05-06T19:27:52+00:00",
+      "tweet_id": "2052108100639805575",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHpNgtEXwAIbuK9?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: Saudi Arabia\u2019s budget deficit widened by -$8.2 billion in Q1 2026, to -$33.5 billion, the largest since 2018.<br><br>Saudi Arabia's deficit has more than TRIPLED since Q2 2025.<br><br>This comes as oil revenues fell -3% YoY, while government expenditure surged +20% YoY, to ~$103 billion.<br><br>However, the full financial impact of the Iran war has not been reflected yet and is expected to appear more clearly in Q2 data.<br><br>Saudi Arabia is facing economic pressure amid the Iran War.<br><img width=\"1600\" height=\"1039\" style=\"\" src=\"https://pbs.twimg.com/media/HHpNgtEXwAIbuK9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
     {
       "title": "Iran war: EU strategy sets out 44 actions to limit \u2018fossil-fuel price shocks\u2019 | @Josh_Gabbatiss @MollyLempriere Read here: https://buff.ly/oZWCX4c",
       "link": "https://x.com/CarbonBrief/status/2052096565414687132",
@@ -532,6 +652,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Mmmmm, \"...the restoration of normal passage...\" shouldn't include Tehran installing a tollbooth in the strait to determine who can and cannot cross.",
+      "link": "https://x.com/JavierBlas/status/2052051073699820001",
+      "date": "2026-05-06T15:41:15+00:00",
+      "tweet_id": "2052051073699820001",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Mmmmm, \"...the restoration of normal passage...\" shouldn't include Tehran installing a tollbooth in the strait to determine who can and cannot cross.<div class=\"rsshub-quote\"><br><br>I.R.IRAN Mission to UN, NY:\u2002The only viable solution in the Strait of Hormuz is clear: a permanent end to the war, the lifting of the maritime blockade, and the restoration of normal passage.<br><br>Instead, the U.S. is pushing a flawed, politically motivated UN Security Council draft resolution under the pretext<br></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "http://x.com/i/article/2052047596483756032",
       "link": "https://x.com/ShashankUdupa1/status/2052049696001278028",
       "date": "2026-05-06T15:35:47+00:00",
@@ -604,6 +739,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "APTUS VALUE HOUSING FINANCE INDIA: Q4 CONS NET PROFIT 2.61B RUPEES VS 2.07B (YOY) || Q4 REVENUE 5.74B RUPEES VS 4.84B (YOY)<br><br>APTUS VALUE HOUSING FINANCE INDIA: DIVIDEND OF 2.50 RUPEES PER SHARE",
+      "category": "Twitter"
+    },
+    {
+      "title": "CHART OF THE DAY: US refiners are going gangbusters trying to solve the global jet-fuel shortage (and to cash in record high margins). The chart shows...",
+      "link": "https://x.com/JavierBlas/status/2052045683117396013",
+      "date": "2026-05-06T15:19:50+00:00",
+      "tweet_id": "2052045683117396013",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHpTpAWWQAA82BZ?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "CHART OF THE DAY: US refiners are going gangbusters trying to solve the global jet-fuel shortage (and to cash in record high margins).<br><br>The chart shows seasonal jet-fuel output from 2000-to-date (2026 is top line in blue). The bottom outliers are 2020 and 2021 during Covid.<br><img width=\"1274\" height=\"779\" style=\"\" src=\"https://pbs.twimg.com/media/HHpTpAWWQAA82BZ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -874,6 +1024,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#JustIn | Media Mogul &amp; #CNN Founder Ted Turner Passes Away At 87<br><br>#TedTurner Revolutionised Television News By Launching The World\u2019s First 24-Hour #News Channel<br><img width=\"1800\" height=\"1012\" style=\"\" src=\"https://pbs.twimg.com/media/HHpMfiCbUAAkgaj?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "PHOTO OF THE DAY: Far from exploding, Iranian oil wells are pumping and pumping (don't believe everything the White House says). According to @Coperni...",
+      "link": "https://x.com/JavierBlas/status/2052036789850796203",
+      "date": "2026-05-06T14:44:30+00:00",
+      "tweet_id": "2052036789850796203",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHpL5IPWoAQ-rNx?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "PHOTO OF THE DAY: Far from exploding, Iranian oil wells are pumping and pumping (don't believe everything the White House says).<br><br>According to @CopernicusEU Sentinel-2 imagery, Iran was loading today three (3 !!!) tankers simultaneously at Kharg Island (\ud83d\udef0\ufe0f\ud83d\udcf7 May 6 @ 7.16am GMT)<br><img width=\"2048\" height=\"1233\" style=\"\" src=\"https://pbs.twimg.com/media/HHpL5IPWoAQ-rNx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1235\" style=\"\" src=\"https://pbs.twimg.com/media/HHpL6Q9X0AQAgTB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1235\" style=\"\" src=\"https://pbs.twimg.com/media/HHpL7lwX0AE-FJC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -1162,6 +1327,21 @@
       "category": "Twitter"
     },
     {
+      "title": "#ETMarkets US Stock Market Today | Dow Jones | Nasdaq Live: US market edge higher as AI optimism, peace hopes lift sentiment; AMD jumps 19% https://ec...",
+      "link": "https://x.com/ETMarkets/status/2052028485313675676",
+      "date": "2026-05-06T14:11:30+00:00",
+      "tweet_id": "2052028485313675676",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#ETMarkets<br><br>US Stock Market Today | Dow Jones | Nasdaq Live: US market edge higher as AI optimism, peace hopes lift sentiment; AMD jumps 19%<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stock-market-live-dow-jones-sp-500-nasdaq-trump-us-iran-israel-war-peace-talks-brent-crude-oil-amd-super-micro-alphabet-nvidia-arm-holdings-stock-price-news/liveblog/130855971.cms",
+      "category": "Twitter"
+    },
+    {
       "title": "#ETMarkets 6 midcap stocks post 50%+ EBITDA growth in March '26 quarter https://economictimes.indiatimes.com/markets/stocks/news/6-midcap-stocks-post-...",
       "link": "https://x.com/ETMarkets/status/2052028322805354532",
       "date": "2026-05-06T14:10:51+00:00",
@@ -1402,18 +1582,18 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Value Research: Are you a \u201cgreat investor\u201d- or just in a great market? Read @dhirendra_vr latest take \u2192 https://vro.in/u983y4 https://vro.in/u98...",
-      "link": "https://x.com/dhirendra_vr/status/2052048071559987347",
-      "date": "2026-05-06T12:57:19+00:00",
-      "tweet_id": "2052048071559987347",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
+      "title": "Iran says it's reviewing latest US proposal to end the war, according to the country's state-owned news agency @isna_farsi. The news agency however po...",
+      "link": "https://x.com/JavierBlas/status/2052010952682262785",
+      "date": "2026-05-06T13:01:50+00:00",
+      "tweet_id": "2052010952682262785",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
       "source_mode": "rsshub",
       "image": "",
-      "is_retweet": true,
+      "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "RT\u2002Value Research<br>Are you a \u201cgreat investor\u201d- or just in a great market?<br><br>Read @dhirendra_vr latest take \u2192 https://vro.in/u983y4<br>https://vro.in/u983y4",
+      "description_html": "Iran says it's reviewing latest US proposal to end the war, according to the country's state-owned news agency @isna_farsi. The news agency however pours cold water on the Axios report, saying it contains \"ambitious and unrealistic proposals.\"<br><br>http://isna.ir/xdWmD3",
       "category": "Twitter"
     },
     {
@@ -2092,6 +2272,21 @@
       "category": "Twitter"
     },
     {
+      "title": "[ICYMI] COLUMN: Ruinously high electricity bills became the defining image of Europe's energy crisis in 2022. So what's different this time? European ...",
+      "link": "https://x.com/JavierBlas/status/2051982008193065068",
+      "date": "2026-05-06T11:06:49+00:00",
+      "tweet_id": "2051982008193065068",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "[ICYMI] COLUMN: Ruinously high electricity bills became the defining image of Europe's energy crisis in 2022.<br><br>So what's different this time?<br><br>European electricity markets are calmer in 2026 thanks to more nuclear, hydropower, solar, and better grids.<br><br>https://www.bloomberg.com/opinion/articles/2026-05-05/iran-war-so-when-does-the-energy-price-shock-finally-hit-europe?utm_source=website&amp;utm_medium=share&amp;utm_campaign=twitter",
+      "category": "Twitter"
+    },
+    {
       "title": "Samsung just entered the $1 TRILLION club AI demand is turning memory chips into the backbone of the global economy. From cyclical business to core in...",
       "link": "https://x.com/ETMarkets/status/2051981469388882247",
       "date": "2026-05-06T11:04:40+00:00",
@@ -2104,6 +2299,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Samsung just entered the $1 TRILLION club <br><br>AI demand is turning memory chips into the backbone of the global economy.<br><br>From cyclical business to core infrastructure. But with strikes, rising costs &amp; weak mobile business, is this rally sustainable?<br><br>#samsungelectronics #AIclub #memorychips #marketvaluation #ETMarkets #globaleconomy<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2051981256112631808/vid/avc1/1080x1920/4FmhLrmE2gpLzE30.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2051981256112631808/img/0MlDfz2aSQSgydoH.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Jason Bordoff: In my latest @nytimes oped, I argue UAE exit from OPEC may not be the win Trump thinks it is. A weaker OPEC could mean more volatili...",
+      "link": "https://x.com/JavierBlas/status/2051980486151413881",
+      "date": "2026-05-06T10:56:52+00:00",
+      "tweet_id": "2051980486151413881",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Jason Bordoff<br>In my latest @nytimes oped, I argue UAE exit from OPEC may not be the win Trump thinks it is. A weaker OPEC could mean more volatility, which is economically costly. The US should take steps to cushion shocks &amp; curb oil use. With a debt to @Bob_McNally \ud83d\ude4fhttps://www.nytimes.com/2026/05/06/opinion/opec-oil-markets-trump.html",
       "category": "Twitter"
     },
     {
@@ -2257,6 +2467,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Brent oil price drops under $100 a barrel on US-Iran deal hopes",
+      "link": "https://x.com/JavierBlas/status/2051975700165312993",
+      "date": "2026-05-06T10:41:45+00:00",
+      "tweet_id": "2051975700165312993",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Brent oil price drops under $100 a barrel on US-Iran deal hopes",
+      "category": "Twitter"
+    },
+    {
       "title": "Traditional models still 'outperform AI' for extreme weather forecasts | @AyeshaTandon Read here: https://buff.ly/RXkbmGe",
       "link": "https://x.com/CarbonBrief/status/2051975272983834831",
       "date": "2026-05-06T10:40:03+00:00",
@@ -2284,21 +2509,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "CGPOWER delivered strong Q4 FY26 with 25% revenue growth and 32.5% PAT growth, driven by exceptional 50% YoY growth in Power Systems segment where margins expanded 287 bps to 23.8%. The balance sheet was transformed via \u20b93000 cr QIP, leaving the company near debt-free with record \u20b914859 cr order book. <br><br>Industrial Systems segment remains a drag with 16.5% PBIT decline, while new semiconductor business is ramping with \u20b9155.6 cr revenue but losses of \u20b937.4 cr. Execution quality is superior with capacity expansion ahead of schedule.<br><br>Positive Factors<br><br>Revenue grew 25.0% YoY to \u20b93441.76 crores in Q4<br><br>PAT grew 32.5% YoY to \u20b9363.46 crores, EPS at \u20b92.32 up 30.3%<br><br>EBITDA margin expanded 95 bps YoY to 13.55%<br><br>Power Systems segment revenue grew 49.7% YoY with PBIT up 60.6%<br><br>Power Systems PBIT margin expanded 287 bps to 23.8%<br><br>Semiconductors segment started contributing with \u20b9155.60 crores revenue<br><br>Total equity doubled to \u20b98198.25 crores post \u20b93000 cr QIP<br><br>Order book at record \u20b914859 crores for standalone company<br><br>Company near debt-free with borrowings at only \u20b90.26 crores<br><br>Government grants of \u20b9668.19 crores received for semiconductor business<br><br>Risk Factors<br><br>Industrial Systems segment PBIT declined 16.5% YoY with margin compression of 202 bps to 8.95%<br><br>Semiconductor segment PBIT loss of \u20b937.42 crores in Q4, full year loss at \u20b9107.86 crores<br><br>Employee costs up 53.6% YoY due to hiring for new semiconductor business<br><br>Working capital increased significantly - trade receivables up 45.5% YoY, inventories up 39.3% YoY<br><br>Operating cash flow declined 23.3% YoY to \u20b9702.45 crores despite higher profits<br><br>Railway business issues in Industrial Systems not yet fully resolved",
-      "category": "Twitter"
-    },
-    {
-      "title": "#Sebi classifies 'significant indices' based on Rs 20,000-cr AUM threshold #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/sebi-cl...",
-      "link": "https://x.com/ETMarkets/status/2051974000931160212",
-      "date": "2026-05-06T10:35:00+00:00",
-      "tweet_id": "2051974000931160212",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Sebi classifies 'significant indices' based on Rs 20,000-cr AUM threshold<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/sebi-classifies-significant-indices-based-on-rs-20000-cr-aum-threshold/articleshow/130850502.cms",
       "category": "Twitter"
     },
     {
@@ -2542,6 +2752,21 @@
       "category": "Twitter"
     },
     {
+      "title": "According to the @Axios report, the Strait of Hormuz would only re-open \"gradually\" during a 30-day period of negotiations *if* an initial deal on a s...",
+      "link": "https://x.com/JavierBlas/status/2051953419246600296",
+      "date": "2026-05-06T09:13:13+00:00",
+      "tweet_id": "2051953419246600296",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "According to the @Axios report, the Strait of Hormuz would only re-open \"gradually\" during a 30-day period of negotiations *if* an initial deal on a single page memorandum of understanding can be achieved in the next few hours/days. <br><br>https://www.axios.com/2026/05/06/iran-us-deal-one-page-memo",
+      "category": "Twitter"
+    },
+    {
       "title": "Seasonally adjusted HSBC India Services PMI Business Activity Index up from 57.5 in March to 58.8 in April -- strongest rate of expansion since Novemb...",
       "link": "https://x.com/TamalBandyo/status/2051952261870354465",
       "date": "2026-05-06T09:08:37+00:00",
@@ -2629,6 +2854,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "GRWRHITECH Q4 FY26 showed strong recovery with revenue up 8.9% YoY and PAT up 39% YoY, driven by margin expansion of 409 bps to 26.2%. FY26 EBITDA margin of 23.6% met management's guided range. <br><br>The company generated positive FCF despite elevated capex and maintains a strong balance sheet with \u20b9744 Cr liquidity. New \u20b9191 Cr SCF capex and TPU plant commissioning in FY27 provide near-term catalysts.<br><br>Positive Factors<br><br>Q4 FY26 revenue grew 8.9% YoY to \u20b9596.69 Cr with 30.1% QoQ recovery<br><br>PAT surged 39.1% YoY to \u20b9108.21 Cr in Q4<br><br>EBITDA margin expanded 409 bps YoY to 26.2% in Q4<br>FY26 EBITDA margin of 23.6% met management's guided range of 22-25%<br><br>Generated positive FCF of \u20b9113.92 Cr despite \u20b9161.41 <br>Cr capex<br><br>Net worth grew 12% YoY to \u20b92,656 Cr with liquidity surplus of \u20b9744.72 Cr<br><br>Board approved \u20b9191 Cr capex for new SCF line (29% capacity addition)<br><br>Dividend of \u20b912 per share (120%) announced<br><br>Risk Factors<br><br>FY26 revenue grew only 0.5% YoY to \u20b92,120 Cr, missing original guidance of \u20b92,500 Cr (withdrawn mid-year)<br><br>Raw material cost as % of revenue increased from 46.1% to 50.8% YoY in Q4<br><br>Operating cash flow declined to \u20b9275.33 Cr from \u20b9329.72 Cr in FY25 due to inventory build-up<br><br>US tariff headwinds impacted full year performance",
+      "category": "Twitter"
+    },
+    {
+      "title": "*LUFTHANSA SAYS FUEL SUPPLY FULLY SECURED AT HUBS TIL END JUNE",
+      "link": "https://x.com/JavierBlas/status/2051948242758148500",
+      "date": "2026-05-06T08:52:39+00:00",
+      "tweet_id": "2051948242758148500",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "*LUFTHANSA SAYS FUEL SUPPLY FULLY SECURED AT HUBS TIL END JUNE<div class=\"rsshub-quote\"><br><br>Javier Blas:\u2002*AIR FRANCE HAS NO ISSUES WITH JET-FUEL SHORTAGES, CEO SAYS<br><br>*AIR FRANCE: NO ISSUE WITH JET-FUEL STOCK THROUGH END OF 2Q<br></div>",
       "category": "Twitter"
     },
     {
@@ -2827,6 +3067,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT @CMShehbaz: I am grateful to President Donald Trump for his courageous leadership and timely announcement regarding the pause in Project\u2026",
+      "link": "https://x.com/JavierBlas/status/2051941074642338236",
+      "date": "2026-05-06T08:24:10+00:00",
+      "tweet_id": "2051941074642338236",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT @CMShehbaz: I am grateful to President Donald Trump for his courageous leadership and timely announcement regarding the pause in Project\u2026",
+      "category": "Twitter"
+    },
+    {
       "title": "Capillary delivered strong FY26 results with revenue growth of 22.8% meeting its 20%+ target, and normalized PAT growth of 106.5% YoY excluding the on...",
       "link": "https://x.com/exencial_RP/status/2051938768668786908",
       "date": "2026-05-06T08:15:00+00:00",
@@ -2839,6 +3094,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Capillary delivered strong FY26 results with revenue growth of 22.8% meeting its 20%+ target, and normalized PAT growth of 106.5% YoY excluding the one-time \u20b9249.6 million exceptional gain. The company achieved a transformational turnaround in operating cash flow (\u20b91,499 million vs negative \u20b9462 million in FY25) with an exceptional 1.61x CFO-to-EBITDA conversion. <br><br>Balance sheet strengthened significantly post-IPO with debt reduced 55% and strong net cash position. The upcoming SessionM acquisition and improving client concentration (43% to 38%) provide near-term catalysts, though margin pressure from rising employee and software costs warrants monitoring.<br><br>Positive Factors<br><br>Revenue grew 22.8% YoY to \u20b97,345.99 million (FY26), meeting the 20%+ long-term target<br><br>Normalized PAT grew 106.5% YoY to \u20b9274.28 million excluding one-time exceptional gain<br><br>Operating cash flow turned positive at \u20b91,499.07 million vs negative \u20b9461.99 million in FY25<br><br>CFO to Normalized EBITDA ratio exceptional at 1.61x<br><br>Top 5 customer concentration improved from 43% to 38%, reducing concentration risk<br><br>Total debt reduced 55.3% YoY to \u20b9447.21 million with strong net cash position<br><br>Acquired SessionM from Mastercard for USD 20 million post-FY26, key future growth driver<br><br>Risk Factors<br><br>EBITDA margin contracted 169 bps YoY to 16.41% in Q4 due to higher employee (34.6% YoY) and software <br>costs (44.2% YoY)<br><br>Amortization expense grew 24.7% YoY to \u20b9749.71 million, depressing reported PAT<br><br>Working capital: Trade receivables grew 12.2% YoY while revenue grew 22.8% YoY - collections may need <br>monitoring<br><br>Integration risk from Kognitiv acquisition (11 months) and upcoming SessionM integration",
+      "category": "Twitter"
+    },
+    {
+      "title": "Norway approves the re-development of three North Sea oil-and-gas fields that were closed ~30 years ago. After redeveloping, the fields will pump gas ...",
+      "link": "https://x.com/JavierBlas/status/2051938723953045557",
+      "date": "2026-05-06T08:14:49+00:00",
+      "tweet_id": "2051938723953045557",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Norway approves the re-development of three North Sea oil-and-gas fields that were closed ~30 years ago.<br><br>After redeveloping, the fields will pump gas and light oil. The gas will be sent to Germany and the light oil to (irony of the ironies) the UK. https://www.regjeringen.no/no/aktuelt/godkjenner-gjenopning-av-tre-gassfelt-i-ekofiskomradet/id3158570/",
       "category": "Twitter"
     },
     {
@@ -2944,6 +3214,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "NYT: \"Last year, China installed three times as much wind power capacity as the rest of the world combined, even as its turbine exports jumped. The war has made China\u2019s investments in wind look prescient.\"<br>https://www.nytimes.com/2026/05/05/business/china-wind-turbines.html?smid=tw-share",
+      "category": "Twitter"
+    },
+    {
+      "title": "For the first time since 2022, US gasoline average retail price tops $4.5 per gallon.",
+      "link": "https://x.com/JavierBlas/status/2051929625115168824",
+      "date": "2026-05-06T07:38:40+00:00",
+      "tweet_id": "2051929625115168824",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "For the first time since 2022, US gasoline average retail price tops $4.5 per gallon.",
       "category": "Twitter"
     },
     {
@@ -3229,6 +3514,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Water Vagabond (Eklavya Prasad)<br>Re @down2earthindia Sharing my latest piece in @down2earthindia, seeking thoughtful &amp; critical engagement - https://www.downtoearth.org.in/water/an-urban-water-emergency-warrants-that-the-jharkhand-rain-water-harvesting-regulation-2017-must-now-become-a-civic-movement<br><br>@JharkhandCMO @HemantSorenJMM @MoHUA_India @amrut_MoHUA @dc_dhanbad @DhanbadC  @NIUA_India @indiawater @dhullu_mahto @rajsinhabjp @RaginiSingh7007 <br>#Dhanbad #Jharkhand",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT @AliVaez: The end of Project Freedom likely came when Trump realized force wouldn\u2019t just fail to deliver the outcome he wanted \u2014 it woul\u2026",
+      "link": "https://x.com/JavierBlas/status/2051906835729326360",
+      "date": "2026-05-06T06:08:06+00:00",
+      "tweet_id": "2051906835729326360",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT @AliVaez: The end of Project Freedom likely came when Trump realized force wouldn\u2019t just fail to deliver the outcome he wanted \u2014 it woul\u2026",
       "category": "Twitter"
     },
     {
@@ -3907,18 +4207,33 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: President Trump says \u201cProject Freedom\u201d in the Strait of Hormuz will be paused on the request of Pakistan and other countries.",
-      "link": "https://x.com/KobeissiLetter/status/2051797962146120163",
-      "date": "2026-05-05T22:55:29+00:00",
-      "tweet_id": "2051797962146120163",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
+      "title": "Just 48 hours since its launch, President Trump says that the \u201cProject Freedom\u201d to unilaterally re-open the Strait of Hormuz would be \u201cpaused for a...",
+      "link": "https://x.com/JavierBlas/status/2051803067117355345",
+      "date": "2026-05-05T23:15:46+00:00",
+      "tweet_id": "2051803067117355345",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHlzXzIW8AEi3D0?format=jpg&name=orig",
+      "image": "https://pbs.twimg.com/media/HHl4A8qXsAQagPm?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "BREAKING: President Trump says \u201cProject Freedom\u201d in the Strait of Hormuz will be paused on the request of Pakistan and other countries.<br><img width=\"1206\" height=\"1364\" style=\"\" src=\"https://pbs.twimg.com/media/HHlzXzIW8AEi3D0?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "description_html": "Just 48 hours since its launch, President Trump says that the \u201cProject Freedom\u201d to unilaterally re-open the Strait of Hormuz would be \u201cpaused for a short period.\u201d<br><img width=\"1088\" height=\"1166\" style=\"\" src=\"https://pbs.twimg.com/media/HHl4A8qXsAQagPm?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Chad P. Bown: My book is out in 3 weeks. Which means it\u2019s time to pitch HOW TO WIN A TRADE WAR: The Movie \ud83c\udfac",
+      "link": "https://x.com/PIIE/status/2052117708871807315",
+      "date": "2026-05-05T22:54:41+00:00",
+      "tweet_id": "2052117708871807315",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2051797597757562888/img/cFyXNVP8SFjsJouQ.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Chad P. Bown<br>My book is out in 3 weeks.<br><br>Which means it\u2019s time to pitch<br>HOW TO WIN A TRADE WAR: The Movie \ud83c\udfac<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2051797597757562888/vid/avc1/1080x1920/-qcrblkgS2irXt5p.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2051797597757562888/img/cFyXNVP8SFjsJouQ.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -3937,18 +4252,18 @@
       "category": "Twitter"
     },
     {
-      "title": "Investors are piling into South Korean stocks: Call option notional open interest on the South Korea ETF, $EWY, surged to a record $5.5 billion last w...",
-      "link": "https://x.com/KobeissiLetter/status/2051783010924544500",
-      "date": "2026-05-05T21:56:04+00:00",
-      "tweet_id": "2051783010924544500",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
+      "title": "VIDEO COLUMN: Can President Trump\u2019s new \u2018Project Freedom\u2019 unblock the Strait of Hormuz? I take a look at his high-risk, high-reward shipping plan, ...",
+      "link": "https://x.com/JavierBlas/status/2051770799506211282",
+      "date": "2026-05-05T21:07:33+00:00",
+      "tweet_id": "2051770799506211282",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHjxd-dWYAE-dPC?format=jpg&name=orig",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2051746835824304128/img/-gr44oIyqIDY7Omp.jpg",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "Investors are piling into South Korean stocks:<br><br>Call option notional open interest on the South Korea ETF, $EWY, surged to a record $5.5 billion last week.<br><br>The total dollar value of outstanding bullish bets has risen +600% over the last several weeks.<br><br>To put this into perspective, weekly call open interest did not exceed $700 million before 2025.<br><br>Meanwhile, the fund has also attracted +$6.3 billion in inflows year-to-date.<br><br>As a result, the South Korean ETF is up +68% year-to-date, and +181% over the last 15 months, making it the best-performing major equity market globally.<br><br>Investors are positioning for another leg higher in South Korean stocks.<br><img width=\"974\" height=\"642\" style=\"\" src=\"https://pbs.twimg.com/media/HHjxd-dWYAE-dPC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "description_html": "VIDEO COLUMN: Can President Trump\u2019s new \u2018Project Freedom\u2019 unblock the Strait of Hormuz?<br><br>I take a look at his high-risk, high-reward shipping plan, trying to circumvent Iran\u2019s grip on the crucial waterway. <br><br>@Opinion<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2051746835824304128/vid/avc1/1080x1920/Dx_eXEax4zRdWrYN.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2051746835824304128/img/-gr44oIyqIDY7Omp.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -3982,21 +4297,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: AMD, $AMD, surges over +6% after reporting stronger than expected Q1 2026 earnings and providing positive guidance. The stock has now added ...",
-      "link": "https://x.com/KobeissiLetter/status/2051763340926419146",
-      "date": "2026-05-05T20:37:55+00:00",
-      "tweet_id": "2051763340926419146",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHlT4n2XIAEo3Z_?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: AMD, $AMD, surges over +6% after reporting stronger than expected Q1 2026 earnings and providing positive guidance.<br><br>The stock has now added +$35 billion in market cap since reporting earnings.<br><img width=\"1206\" height=\"2020\" style=\"\" src=\"https://pbs.twimg.com/media/HHlT4n2XIAEo3Z_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Jessica Lessin: Good lord. Half-ish of the cloud backlog at Microsoft, Oracle, Google and Amazon is OpenAI and Anthropic????",
       "link": "https://x.com/madhavchanchani/status/2051837827454013873",
       "date": "2026-05-05T20:28:04+00:00",
@@ -4009,6 +4309,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Jessica Lessin<br>Good lord. Half-ish of the cloud backlog at Microsoft, Oracle, Google and Amazon is OpenAI and Anthropic????<br><img width=\"1764\" height=\"858\" style=\"\" src=\"https://pbs.twimg.com/media/HHlRbEkbcAAbQYM?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Alex Ward: SecState Rubio on Iran war: \"the operation which has concluded...the operation is over.\" Epic Fury? \"We're done with that stage of it.\"",
+      "link": "https://x.com/JavierBlas/status/2051774485909426614",
+      "date": "2026-05-05T19:42:33+00:00",
+      "tweet_id": "2051774485909426614",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Alex Ward<br>SecState Rubio on Iran war: \"the operation which has concluded...the operation is over.\" <br><br>Epic Fury? \"We're done with that stage of it.\"",
       "category": "Twitter"
     },
     {
@@ -4054,6 +4369,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Aditya Raj Kaul<br>A sudden scooter explosion was reported near the headquarters of the Border Security Force (BSF) in Punjab's Jalandhar district. The high-security location of the blast has added urgency to an already serious situation. Police investigating all angles.<br><video width=\"528\" height=\"320\" src=\"https://video.twimg.com/amplify_video/2051731112461045760/vid/avc1/528x320/2aqESHvPt666PS1_.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2051731112461045760/img/cdwR4m0WrMHiwIUk.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Gregory Brew: Biggest takeaways from yesterday: -Neither sides is ready to resume full hostilities. -Both seem ready to accept a low-level of hosti...",
+      "link": "https://x.com/JavierBlas/status/2051781360801456226",
+      "date": "2026-05-05T18:11:11+00:00",
+      "tweet_id": "2051781360801456226",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Gregory Brew<br>Biggest takeaways from yesterday: <br><br>-Neither sides is ready to resume full hostilities.<br><br>-Both seem ready to accept a low-level of hostilities esp. in and around the strait.<br><br>-Iran remains committed to keeping the strait closed by force.<br><br>-US growing somewhat more bold re: opening the strait with force. <br><br>-Shippers still waiting for a more durable peace before they make crossing en masse (never mind resuming east-west transit). <br><br>-Iran prepared to escalate against GCC and regards UAE as the primary target.",
       "category": "Twitter"
     },
     {
@@ -4114,6 +4444,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Bypassing the Strait of Hormuz https://ft.trib.al/E4U5Ff0",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Press TV \ud83d\udd3b: \ud83d\udd34Exclusive: Iran has implemented a new mechanism for ship transits in the Strait of Hormuz: \ud83d\udc49 Ships intending to transit the s...",
+      "link": "https://x.com/JavierBlas/status/2051750133306364415",
+      "date": "2026-05-05T17:18:07+00:00",
+      "tweet_id": "2051750133306364415",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HHkmJ5GXsAk_ohn?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Press TV \ud83d\udd3b<br>\ud83d\udd34Exclusive: Iran has implemented a new mechanism for ship transits in the Strait of Hormuz:   <br><br>\ud83d\udc49 Ships intending to transit the strait receive an email from info@PGSA.ir informing them of the transit regulations. They then adjust to the framework and receive a transit permit.<br><img width=\"760\" height=\"206\" style=\"\" src=\"https://pbs.twimg.com/media/HHkmJ5GXsAk_ohn?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -4627,21 +4972,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Factcheck: 18 misleading myths about heat pumps | @janrosenow #CBarchive Read here: https://buff.ly/cvOAzdS",
-      "link": "https://x.com/CarbonBrief/status/2051654404990763127",
-      "date": "2026-05-05T13:25:02+00:00",
-      "tweet_id": "2051654404990763127",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHjwzvHXIAIqE--?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Factcheck: 18 misleading myths about heat pumps | @janrosenow #CBarchive<br><br>Read here: https://buff.ly/cvOAzdS<br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HHjwzvHXIAIqE--?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT menaka doshi: Is the Tamil Nadu Model at risk? For over four decades Tamil Nadu has enjoyed what\u2019s been popularly referred to as \u201cbipartisan cons...",
       "link": "https://x.com/menakadoshi/status/2051860888102342872",
       "date": "2026-05-05T13:24:11+00:00",
@@ -5137,21 +5467,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Ravi Handa: He manages \u20b911,571.31 Cr and these are the returns. Charges for PMS are 1% of money managed or 10% of profits generated. How does some...",
-      "link": "https://x.com/dhirendra_vr/status/2051615060292976702",
-      "date": "2026-05-05T09:57:29+00:00",
-      "tweet_id": "2051615060292976702",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHjAEVwa4AACnXo?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Ravi Handa<br>He manages \u20b911,571.31 Cr and these are the returns. <br><br>Charges for PMS are 1% of money managed or 10% of profits generated. <br><br>How does someone get to 10,000+ Crores in just 3 years is beyond me. Saurabh Mukherjea needs to up his game.<br><img width=\"2048\" height=\"329\" style=\"\" src=\"https://pbs.twimg.com/media/HHjAEVwa4AACnXo?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Sandeep Jethwani:\u2002Mutual funds are one of the best wealth creation tools available to Indians.<br><br>Low cost. Professionally managed. Transparent. Tax efficient. They have quietly built more wealth for Indian households than almost any other product.<br><br>But for someone with serious capital, picking the<br><br><img width=\"1697\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HHeEEv6aEAAobrG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Live Law: #Breaking: Bombay High Court quashed the FIR lodged against Sashidhar Jagdishan, the CEO of the HDFC Bank, who challenged the FIR lodged ...",
       "link": "https://x.com/_RituSingh/status/2051611585941266566",
       "date": "2026-05-05T09:52:45+00:00",
@@ -5242,36 +5557,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Nimit Vora, CFA: Okay here is the performance. This is the PMS wrapper. Has a 3 year history. Doesn\u2019t beat the largest funds and the multicap inde...",
-      "link": "https://x.com/dhirendra_vr/status/2051593934808498180",
-      "date": "2026-05-05T09:24:02+00:00",
-      "tweet_id": "2051593934808498180",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHi5pSUb0AAE8Xz?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Nimit Vora, CFA<br>Okay here is the performance. <br><br>This is the PMS wrapper. Has a 3 year history. <br><br>Doesn\u2019t beat the largest funds and the multicap index. <br><br>Returns are pre tax and post expenses. Do note the performance fees would not have accrued in the last 2 years due to flat markets.<br><img width=\"1513\" height=\"505\" style=\"\" src=\"https://pbs.twimg.com/media/HHi5pSUb0AAE8Xz?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Dhirendra Kumar:\u2002@sandeepjethwani The pitch reads well. The math underneath does not.<br>The PMS fee sits on top of the mutual fund expense ratio, not in place of it. All-in: 1.1 to 2%. A direct MF portfolio does the same job at 0.5 to 1%.<br>Tax pass-through is a feature of mutual funds, not the PMS wrapper. The<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Nimit Vora, CFA: Re @dhirendra_vr @sandeepjethwani Okay here is the performance. This is the PMS wrapper. Has a 3 year history. Doesn\u2019t beat the l...",
-      "link": "https://x.com/dhirendra_vr/status/2051593839681605979",
-      "date": "2026-05-05T09:22:05+00:00",
-      "tweet_id": "2051593839681605979",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHi5MylasAIwUrh?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Nimit Vora, CFA<br>Re @dhirendra_vr @sandeepjethwani Okay here is the performance. <br><br>This is the PMS wrapper. Has a 3 year history. <br><br>Doesn\u2019t beat the largest funds and the multicap index. <br><br>Returns are pre tax and post expenses. Do note the performance fees would not have accrued in the last 2 years due to flat markets.<br><img width=\"1513\" height=\"505\" style=\"\" src=\"https://pbs.twimg.com/media/HHi5MylasAIwUrh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Marico now at Days high, 5% up from the time of post",
       "link": "https://x.com/yatinmota/status/2051592768787763231",
       "date": "2026-05-05T09:20:07+00:00",
@@ -5302,36 +5587,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Sravan K Chettry: Re @dhirendra_vr @sandeepjethwani Tried it. Doesn't feel like a smart thing that I did. the 'Alpha' is elusive.",
-      "link": "https://x.com/dhirendra_vr/status/2051589571348173304",
-      "date": "2026-05-05T09:03:52+00:00",
-      "tweet_id": "2051589571348173304",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Sravan K Chettry<br>Re @dhirendra_vr @sandeepjethwani Tried it. Doesn't feel like a smart thing that I did. the 'Alpha' is elusive.",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Himanshu Sinha: Re @dhirendra_vr @sandeepjethwani https://x.com/hsinha1445/status/2051583914536538246?s=20",
-      "link": "https://x.com/dhirendra_vr/status/2051589612355957246",
-      "date": "2026-05-05T08:45:29+00:00",
-      "tweet_id": "2051589612355957246",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHiwoC0aQAAfk6D?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Himanshu Sinha<br>Re @dhirendra_vr @sandeepjethwani https://x.com/hsinha1445/status/2051583914536538246?s=20<div class=\"rsshub-quote\"><br><br>Himanshu Sinha:\u2002Dezerv charges 0% fixed fee. Here's why that's the most expensive wrapper on the market.<br><br>A 0% fixed management fee sounds like the ultimate honesty. Pay the manager only when you make money. What could be fairer?<br><br>The math says the opposite. The better the manager performs, the<br><br><img width=\"2048\" height=\"1258\" style=\"\" src=\"https://pbs.twimg.com/media/HHiwoC0aQAAfk6D?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "Strong Set from M&M One of the very consistent performers in largecaps Strong volume growth led by market share gains",
       "link": "https://x.com/EquityInsightss/status/2051582814576169382",
       "date": "2026-05-05T08:40:34+00:00",
@@ -5359,36 +5614,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Super El Nino ?<br><br>NY Times (today) \u201cForecasters say a powerful El Ni\u00f1o weather pattern could form later this year, with a chance of becoming one of the strongest in three decades. The National Oceanic and Atmospheric Administration says there\u2019s a roughly 60% chance of an El Ni\u00f1o developing between May and July.\u201d<br><br>CNA Singapore (today) \u201cLast week, the United Nations' weather &amp; climate agency said El Nino conditions could develop as soon as May to July.<br><br>The World Meteorological Organization - meanwhile, said early signs indicated the event could be particularly strong, with some dubbing the impending event a \"super El Nino\"<br><br>If true, not great news for most Asian countries !<br><br>#Nifty #BankNifty #Trump #India #Monsoon @Manisha3005 #Iran",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Partha, SEBI RIA: The upper people move in the ladder of wealth, the more they think of buying products uniquely positioned for welfare of the rich...",
-      "link": "https://x.com/dhirendra_vr/status/2051590649796071875",
-      "date": "2026-05-05T08:39:43+00:00",
-      "tweet_id": "2051590649796071875",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Partha, SEBI RIA<br>The upper people move in the ladder of wealth, the more they think of buying products uniquely positioned for welfare of the rich. <br><br>The harder truth is, a majority of these products are there to just rip you off. <br><br>But then, that\u2019s why they are made exclusive and advertised as \u201ccan\u2019t have\u201d.<br><br>FOMO sells more.<div class=\"rsshub-quote\"><br><br>Dhirendra Kumar:\u2002@sandeepjethwani The pitch reads well. The math underneath does not.<br>The PMS fee sits on top of the mutual fund expense ratio, not in place of it. All-in: 1.1 to 2%. A direct MF portfolio does the same job at 0.5 to 1%.<br>Tax pass-through is a feature of mutual funds, not the PMS wrapper. The<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT SCODE: Re @Shashan60989713 @dhirendra_vr @StableInvestor @sandeepjethwani Product is same MF .. but sold by different person It is like buying Road...",
-      "link": "https://x.com/dhirendra_vr/status/2051590650416767219",
-      "date": "2026-05-05T08:39:03+00:00",
-      "tweet_id": "2051590650416767219",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002SCODE<br>Re @Shashan60989713 @dhirendra_vr @StableInvestor @sandeepjethwani Product is same  MF .. but sold by different person  <br>It is like buying Road side chai served by a person in suit",
       "category": "Twitter"
     },
     {
@@ -5677,21 +5902,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Rahul: Re @sandeepjethwani @dhirendra_vr is saying that Rebalancing stocks inside MFs has zero tax impact on the investor. The fund handles it inte...",
-      "link": "https://x.com/dhirendra_vr/status/2051554812358185352",
-      "date": "2026-05-05T06:48:04+00:00",
-      "tweet_id": "2051554812358185352",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Rahul<br>Re @sandeepjethwani @dhirendra_vr is saying that Rebalancing stocks inside MFs has zero tax impact on the investor. The fund handles it internally with no tax for you.<br>@sandeepjethwani  I know you\u2019re aware of this, but it\u2019s tough to say when it kills your own business narrative",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Riteish Deshmukh: Shaurygatha ki goonj ab aur bhi buland ho gayi! \u2764\ufe0f\u200d\ud83d\udd25 Relive the golden history through music! \ud83d\udea9 Full Album Out Now \ud83d\udd17-...",
       "link": "https://x.com/Nigel__DSouza/status/2051606891323945003",
       "date": "2026-05-05T06:36:44+00:00",
@@ -5977,51 +6187,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Reclaiming_Life: Re @dhirendra_vr @sandeepjethwani So true. Here's what the PMS pitch doesn't mention. Every rebalance triggers a capital gains tax...",
-      "link": "https://x.com/dhirendra_vr/status/2051553937610924296",
-      "date": "2026-05-05T05:22:32+00:00",
-      "tweet_id": "2051553937610924296",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Reclaiming_Life<br>Re @dhirendra_vr @sandeepjethwani So true. Here's what the PMS pitch doesn't mention. Every rebalance triggers a capital gains tax in your demat. STCG at 20%. An MF rebalances internally \u2014 you pay nothing until you actually redeem. Tax drag over several years could be brutal.",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Mahesh \ud83c\uddee\ud83c\uddf3: Disadvantages of PMS - other than expenses The moment the PMS sells a stock, tax follows. You do not pay tax when a mutual fund se...",
-      "link": "https://x.com/dhirendra_vr/status/2051528856797061487",
-      "date": "2026-05-05T05:01:23+00:00",
-      "tweet_id": "2051528856797061487",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Mahesh \ud83c\uddee\ud83c\uddf3<br>Disadvantages of PMS - other than expenses<br>The moment the PMS sells a stock, tax follows.<br>You do not pay tax when a mutual fund sells a stock<div class=\"rsshub-quote\"><br><br>Dhirendra Kumar:\u2002@sandeepjethwani The pitch reads well. The math underneath does not.<br>The PMS fee sits on top of the mutual fund expense ratio, not in place of it. All-in: 1.1 to 2%. A direct MF portfolio does the same job at 0.5 to 1%.<br>Tax pass-through is a feature of mutual funds, not the PMS wrapper. The<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Tarun: Re @r1ghtuda @dhirendra_vr @DezervHQ Arre yaar they need to make their 40 Cr na",
-      "link": "https://x.com/dhirendra_vr/status/2051529166412190007",
-      "date": "2026-05-05T04:57:21+00:00",
-      "tweet_id": "2051529166412190007",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Tarun<br>Re @r1ghtuda @dhirendra_vr @DezervHQ Arre yaar they need to make their 40 Cr na",
-      "category": "Twitter"
-    },
-    {
       "title": "Last few weeks I have been really enjoying the rally in US Stocks! Got a double win with both crazy upside on stocks + Dollar getting stronger vs INR",
       "link": "https://x.com/ShashankUdupa1/status/2051523014458814505",
       "date": "2026-05-05T04:42:56+00:00",
@@ -6034,36 +6199,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Last few weeks I have been really enjoying the rally in US Stocks! <br><br>Got a double win with both crazy upside on stocks + Dollar getting stronger vs INR<br><img width=\"982\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HHh5TzjaUAA8Gwp?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Abhinav Singh: Re @dhirendra_vr @ravihanda @sandeepjethwani Thanks for sharing your comments. They are well structured. I was also wondering how \u2018...",
-      "link": "https://x.com/dhirendra_vr/status/2051517157411107309",
-      "date": "2026-05-05T04:16:39+00:00",
-      "tweet_id": "2051517157411107309",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Abhinav Singh<br>Re @dhirendra_vr @ravihanda @sandeepjethwani Thanks for sharing your comments. They are well structured. I was also wondering how \u2018PMS\u2019 and 'tax efficiency' were used in the same sentence. Also, the performance fee on MFs is exactly what the regulator doesn't want and what investors don't need.",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Flexible Capital \u2b50: Using a PMS for MFs is like hiring Einstein to teach grade 8 physics The tax angle isn't the point: the investor directly and ...",
-      "link": "https://x.com/dhirendra_vr/status/2051517192941011199",
-      "date": "2026-05-05T04:13:22+00:00",
-      "tweet_id": "2051517192941011199",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Flexible Capital \u2b50<br>Using a PMS for MFs is like hiring Einstein to teach grade 8 physics<br><br>The tax angle isn't the point: the investor directly and via PMS wrapper pays taxes whenever funds are being switched. It's actually the double payment for advisory fee: on the PMS and on the MF (via TER)<br><br>A PMS makes sense for direct stocks esp if the manager can outperform constantly (net of fees). Otherwise an RIA or even a good MFD can do the job if you want to stick to MFs<div class=\"rsshub-quote\"><br><br>Dhirendra Kumar:\u2002@sandeepjethwani The pitch reads well. The math underneath does not.<br>The PMS fee sits on top of the mutual fund expense ratio, not in place of it. All-in: 1.1 to 2%. A direct MF portfolio does the same job at 0.5 to 1%.<br>Tax pass-through is a feature of mutual funds, not the PMS wrapper. The<br></div>",
       "category": "Twitter"
     },
     {
@@ -6202,51 +6337,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Priyank: Re @ActusDei @dhirendra_vr I have been on the receiving end of their pitch and asked them the same thing, here is their reply https://x.co...",
-      "link": "https://x.com/dhirendra_vr/status/2051513211753775149",
-      "date": "2026-05-05T03:42:20+00:00",
-      "tweet_id": "2051513211753775149",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Priyank<br>Re @ActusDei @dhirendra_vr I have been on the receiving end of their pitch and asked them the same thing, here is their reply <br>https://x.com/i/status/2051505868542509248<div class=\"rsshub-quote\"><br><br>Priyank:\u2002@dhirendra_vr @ravihanda @sandeepjethwani 100% true, that exactly what I told their sales rep. His reply was the fee is 0.25% of AUM and as per our 3 year track record tax due to rebalancing has been about 0.4% of AUM. But we give you 3-4% outperformance on index. I dint buy that but many will.<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Saurabh Mundra: Re @dhirendra_vr @sandeepjethwani All financial advice relies on investors incapable of doing compounding math... The human brain i...",
-      "link": "https://x.com/dhirendra_vr/status/2051513244314116350",
-      "date": "2026-05-05T03:38:17+00:00",
-      "tweet_id": "2051513244314116350",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Saurabh Mundra<br>Re @dhirendra_vr @sandeepjethwani All financial advice relies on investors incapable of doing compounding math...<br>The human brain is terrible at intuitively understanding exponential anything",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Priyank: Re @dhirendra_vr @ravihanda @sandeepjethwani 100% true, that exactly what I told their sales rep. His reply was the fee is 0.25% of AUM an...",
-      "link": "https://x.com/dhirendra_vr/status/2051506002248573008",
-      "date": "2026-05-05T03:34:48+00:00",
-      "tweet_id": "2051506002248573008",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Priyank<br>Re @dhirendra_vr @ravihanda @sandeepjethwani 100% true, that exactly what I told their sales rep. His reply was the fee is 0.25% of AUM and as per our 3 year track record tax due to rebalancing has been about 0.4% of AUM. But we give you 3-4% outperformance on index. I dint buy that but many will.",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Mayank: As product differentiation / moat gets difficult in the AI era .. it\u2019s going to be about - Land with service Expand with product And india...",
       "link": "https://x.com/madhavchanchani/status/2051513656874291377",
       "date": "2026-05-05T03:32:33+00:00",
@@ -6274,51 +6364,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Good morning, folks !<br><br>Shots fired ! As we discussed yesterday -  will this escalate militarily ? Ships &amp; oil hubs hit. Trump has so far stopped short of calling it a violation of ceasefire -  but for how long ? Oil @ $114.<br><br>View/levels\ud83d\udc47<br><br>#Nifty #GIFTNIFTY #BankNifty #Iran<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002Oil jumps 5% to near $114/bbl!<br><br>Escalation in M-East. Iran fires on ships, oil hubs.<br><br>Trump stops short of saying Iran violated ceasefire.<br><br>S&amp;P 500 -0.41%. US 2-yr yield jumps to near 4%.<br><br>Nifty support 23,820 &amp; 23,550.<br><br>Set-up @_prashantnair<br><br>#GIFTNIFTY #BankNifty #IranWar<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2051494878551613441/vid/avc1/1920x1080/Zx5W6piYXgaQtaQ-.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2051494878551613441/img/96bDfTXjjmLMdjQ_.jpg\"></video></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Sachin: Some body called it loud !! I read this article and was surprised, how misinformed it seems. Kind of double read. Then thought oh this is a...",
-      "link": "https://x.com/dhirendra_vr/status/2051505689953181708",
-      "date": "2026-05-05T03:29:25+00:00",
-      "tweet_id": "2051505689953181708",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Sachin<br>Some body called it loud !!<br>I read this article and was surprised, how  misinformed it seems.<br>Kind of double read.<br>Then thought oh this is another propaganda<div class=\"rsshub-quote\"><br><br>Dhirendra Kumar:\u2002@sandeepjethwani The pitch reads well. The math underneath does not.<br>The PMS fee sits on top of the mutual fund expense ratio, not in place of it. All-in: 1.1 to 2%. A direct MF portfolio does the same job at 0.5 to 1%.<br>Tax pass-through is a feature of mutual funds, not the PMS wrapper. The<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT vishvak saen: This. @DezervHQ assumes the instant checkout crowd will not go into the math & fair enough - many will take it. But better to be tran...",
-      "link": "https://x.com/dhirendra_vr/status/2051505769703710791",
-      "date": "2026-05-05T03:26:02+00:00",
-      "tweet_id": "2051505769703710791",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002vishvak saen<br>This. <br>@DezervHQ assumes the instant checkout crowd will not go into the math &amp; fair enough - many will take it. But better to be transparent on the value you provide, if you are building a long term biz in wealth. Same crowd will move so fast when they figure out the dishonesty.<div class=\"rsshub-quote\"><br><br>Dhirendra Kumar:\u2002@sandeepjethwani The pitch reads well. The math underneath does not.<br>The PMS fee sits on top of the mutual fund expense ratio, not in place of it. All-in: 1.1 to 2%. A direct MF portfolio does the same job at 0.5 to 1%.<br>Tax pass-through is a feature of mutual funds, not the PMS wrapper. The<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Neil Borate: A powerful counter. A PMS fee layer can bring you back to a 2% expense ratio negating the benefits of direct funds. On top of it, no t...",
-      "link": "https://x.com/dhirendra_vr/status/2051505822656815463",
-      "date": "2026-05-05T03:19:33+00:00",
-      "tweet_id": "2051505822656815463",
-      "source": "Dhirendra Kumar",
-      "publisher": "Dhirendra Kumar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Neil Borate<br>A powerful counter. A PMS fee layer can bring you back to a 2% expense ratio negating the benefits of direct funds. On top of it, no tax benefits for the expenses.<div class=\"rsshub-quote\"><br><br>Dhirendra Kumar:\u2002@sandeepjethwani The pitch reads well. The math underneath does not.<br>The PMS fee sits on top of the mutual fund expense ratio, not in place of it. All-in: 1.1 to 2%. A direct MF portfolio does the same job at 0.5 to 1%.<br>Tax pass-through is a feature of mutual funds, not the PMS wrapper. The<br></div>",
       "category": "Twitter"
     },
     {
@@ -6409,6 +6454,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Such an important story, so creatively told. \ud83d\udc47<div class=\"rsshub-quote\"><br><br>Bloomberg:\u2002No visitors. No texting. No escape. For eight days, Ruchika Tandon was \u201carrested by phone.\u201d This is the inside story of India\u2019s new digital nightmare. Read the 2026 Pulitzer Prize winning graphic novel by @an_anandrk @natalieobiko @SuparnaSharma https://www.bloomberg.com/graphics/2025-india-digital-arrest-by-phone-graphic-novel/<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Bill Spiegel: Some farmers say a lot of negative things about wheat. But they can\u2019t say it\u2019s not pretty.",
+      "link": "https://x.com/JavierBlas/status/2051969377549848988",
+      "date": "2026-05-05T02:08:44+00:00",
+      "tweet_id": "2051969377549848988",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2051484107058663432/img/Qz6E249FccXcRlTW.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Bill Spiegel<br>Some farmers say a lot of negative things about wheat. But they can\u2019t say it\u2019s not pretty.<br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/amplify_video/2051484107058663432/vid/avc1/1280x720/t3lVRqEIYnQ4iQRT.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2051484107058663432/img/Qz6E249FccXcRlTW.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -6532,21 +6592,6 @@
       "category": "Twitter"
     },
     {
-      "title": "EMDE policy responses to the Fed & dollar have served them well in past crises. Many EMDE central banks will retain this approach, prioritizing contai...",
-      "link": "https://x.com/PIIE/status/2051390159829057593",
-      "date": "2026-05-04T19:55:01+00:00",
-      "tweet_id": "2051390159829057593",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "EMDE policy responses to the Fed &amp; dollar have served them well in past crises. Many EMDE central banks will retain this approach, prioritizing containing inflation over maintaining short-term growth by tracking US monetary policy &amp; exchange rates.<br>https://www.piie.com/blogs/realtime-economics/2026/amid-wartime-disruptions-most-emerging-market-central-banks-will",
-      "category": "Twitter"
-    },
-    {
       "title": "Tell me you don't know ERP without telling me you don't know ERP. \ud83d\ude42\u200d\u2194\ufe0f",
       "link": "https://x.com/Finstor85/status/2051386983201788399",
       "date": "2026-05-04T19:42:24+00:00",
@@ -6577,21 +6622,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Calling China to change its distortionary development strategy may be warranted, @arvindsubraman says. But one can't question it's mercantilism on gro...",
-      "link": "https://x.com/PIIE/status/2051372005341921730",
-      "date": "2026-05-04T18:42:53+00:00",
-      "tweet_id": "2051372005341921730",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Calling China to change its distortionary development strategy may be warranted, @arvindsubraman says. But one can't question it's mercantilism on grounds it penalizes China's consumers, whose standard of living has risen faster than anywhere else.<br>https://www.project-syndicate.org/commentary/china-export-model-does-not-come-at-the-expense-of-chinese-consumers-by-arvind-subramanian-2026-05",
-      "category": "Twitter"
-    },
-    {
       "title": "Some great technical in-depth interviews of Ather Energy are on Tijori knowledge base For example this one by @gareebscientist",
       "link": "https://x.com/Tijori1/status/2051361282629181653",
       "date": "2026-05-04T18:00:16+00:00",
@@ -6619,21 +6649,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Shereen Bhan<br>#Trump says Iran struck a South Korean cargo Ship; says no otter damage. Pete Hegseth and Chairman of the Joint Chief of Staff to brief.<br>Trump  \ud83d\udc47 <br>\u2018Iran has taken some shots at unrelated Nations with respect to the Ship Movement, PROJECT FREEDOM, including a South Korean Cargo Ship. We\u2019ve shot down seven small Boats or, as they like to call them, \u201cfast\u201d Boats. Secretary of War Pete Hegseth and Chairman of the Joint Chiefs of Staff, Dan Caine, will have a News Conference tomorrow morning\u2019 @CNBCTV18News @CNBCTV18Live #Iran #CNBCTV18Market<div class=\"rsshub-quote\"><br><br>Shereen Bhan:\u2002Fire at UAE\u2019s Fujairah refinery being reported. #UAE says air defence systems successfully engaged with missiles and UAV threats. Oil prices jump, Dow futures drop @CNBCTV18News @CNBCTV18Live #CNBCTV18Market #Iran<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "The oil price crunch is looming https://ft.trib.al/T2kzTnv",
-      "link": "https://x.com/ftenergy/status/2051348381490946484",
-      "date": "2026-05-04T17:09:01+00:00",
-      "tweet_id": "2051348381490946484",
-      "source": "FT Energy",
-      "publisher": "FT Energy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The oil price crunch is looming https://ft.trib.al/T2kzTnv",
       "category": "Twitter"
     },
     {
