@@ -1,26 +1,161 @@
 {
-  "generated_at": "2026-05-15T01:02:33.421948+05:30",
+  "generated_at": "2026-05-15T02:19:55.540847+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 48,
       "feeds_failed": 1,
-      "items_raw": 1233,
-      "resolve_attempted": 1233,
-      "resolve_resolved": 1233,
-      "resolve_cache_hits": 1227
+      "items_raw": 1239,
+      "resolve_attempted": 1239,
+      "resolve_resolved": 1239,
+      "resolve_cache_hits": 1221
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.8,
-      "items": 760,
-      "handles_ok": 47
+      "age_hours": 0.0,
+      "items": 742,
+      "handles_ok": 46
     },
     "warning": "",
-    "generated_at": "2026-05-15T01:02:33.421880+05:30"
+    "generated_at": "2026-05-15T02:19:55.540784+05:30"
   },
   "items": [
+    {
+      "title": "US Stock Market Today | Dow Jones | Nasdaq Highlights: #DowJones scales 50,000 mark for first time on tech stock rally https://economictimes.indiatime...",
+      "link": "https://x.com/ETMarkets/status/2055021042838737362",
+      "date": "2026-05-14T20:22:51+00:00",
+      "tweet_id": "2055021042838737362",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US Stock Market Today | Dow Jones | Nasdaq Highlights: #DowJones scales 50,000 mark for first time on tech stock rally<br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stock-market-live-dow-jones-sp-500-trump-xi-china-iran-war-brent-crude-oil-energy-inflation-fed-rate-nvidia-cisco-chip-stock-price-news/liveblog/131093087.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "Traditional models still 'outperform AI' for extreme weather forecasts | @AyeshaTandon Read here: https://buff.ly/RXkbmGe",
+      "link": "https://x.com/CarbonBrief/status/2055019083792347419",
+      "date": "2026-05-14T20:15:04+00:00",
+      "tweet_id": "2055019083792347419",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HITk92KW8AAHas9?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Traditional models still 'outperform AI' for extreme weather forecasts | @AyeshaTandon<br><br>Read here: https://buff.ly/RXkbmGe<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HITk92KW8AAHas9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "US stocks today: #USstocks end higher on tech rally; investors eye Beijing talks https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks...",
+      "link": "https://x.com/ETMarkets/status/2055018153433067741",
+      "date": "2026-05-14T20:11:22+00:00",
+      "tweet_id": "2055018153433067741",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US stocks today: #USstocks end higher on tech rally; investors eye Beijing talks<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-today-us-stocks-end-higher-on-tech-rally-investors-eye-beijing-talks/articleshow/131102748.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "\u201c\u2026 Yet Brent crude, at $106 a barrel, fetches much less than the $129 it hit in 2022, after Russia invaded Ukraine, and nowhere near the $150-200 an...",
+      "link": "https://x.com/JavierBlas/status/2055017644911133010",
+      "date": "2026-05-14T20:09:21+00:00",
+      "tweet_id": "2055017644911133010",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\u201c\u2026 Yet Brent crude, at $106 a barrel, fetches much less than the $129 it hit in 2022, after Russia invaded Ukraine, and nowhere near the $150-200 analysts predicted if the Iran war dragged on\u2026\u201d<br><br>https://www.economist.com/finance-and-economics/2026/05/12/how-the-world-has-avoided-an-oil-catastrophe-so-far",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: The S&P 500 closes at its highest level on record, now up +19% since the March 30th bottom. That's +$11 TRILLION in market cap in under 7 we...",
+      "link": "https://x.com/KobeissiLetter/status/2055017191011954727",
+      "date": "2026-05-14T20:07:33+00:00",
+      "tweet_id": "2055017191011954727",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HITZCHvWEAEkqxA?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: The S&amp;P 500 closes at its highest level on record, now up +19% since the March 30th bottom.<br><br>That's +$11 TRILLION in market cap in under 7 weeks.<br><img width=\"766\" height=\"496\" style=\"\" src=\"https://pbs.twimg.com/media/HITZCHvWEAEkqxA?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Sadanand Dhume: Check out this terrific opportunity to work on India and South Asia at the Council on Foreign Relations. (If you\u2019re interested, pl...",
+      "link": "https://x.com/srajagopalan/status/2055021987819561163",
+      "date": "2026-05-14T19:59:08+00:00",
+      "tweet_id": "2055021987819561163",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Sadanand Dhume<br>Check out this terrific opportunity to work on India and South Asia at the Council on Foreign Relations. (If you\u2019re interested, please apply directly.)<br>https://careers-cfr.icims.com/jobs/2929/research-associate%2c-india%2c-pakistan-and-south-asia/job?mode=view&amp;mobile=true&amp;width=402&amp;height=684&amp;bga=true&amp;needsRedirect=false&amp;jan1offset=-300&amp;jun1offset=-240",
+      "category": "Twitter"
+    },
+    {
+      "title": "The physical oil market is strengthening again after a slump earlier this week, in part thanks to spot purchases by Asian refiners. North Sea / WAF pr...",
+      "link": "https://x.com/JavierBlas/status/2055012883398885492",
+      "date": "2026-05-14T19:50:26+00:00",
+      "tweet_id": "2055012883398885492",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The physical oil market is strengthening again after a slump earlier this week, in part thanks to spot purchases by Asian refiners. North Sea / WAF premia have risen, although values remain well below the levels seen in early to mid April.",
+      "category": "Twitter"
+    },
+    {
+      "title": "NEW: Edited by Maurice Obstfeld, @pogourinchas, & Petia Topalova, \"Steering Structural Change\" explores transformations economies face as rising geopo...",
+      "link": "https://x.com/PIIE/status/2055005730776764506",
+      "date": "2026-05-14T19:22:01+00:00",
+      "tweet_id": "2055005730776764506",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "NEW: Edited by Maurice Obstfeld, @pogourinchas, &amp; Petia Topalova, \"Steering Structural Change\" explores transformations economies face as rising geopolitical tensions, climate change, &amp; technology disrupt economic structures.<br>From @mitpress here: https://mitpress.mit.edu/9780262051910/steering-structural-change/",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: The average price of ground beef in the US is now up to a record $6.90 per pound. On a non-seasonally adjusted basis, ground beef prices hav...",
+      "link": "https://x.com/KobeissiLetter/status/2055004122860965922",
+      "date": "2026-05-14T19:15:37+00:00",
+      "tweet_id": "2055004122860965922",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HISncFGX0AEYCJS?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: The average price of ground beef in the US is now up to a record $6.90 per pound.<br><br>On a non-seasonally adjusted basis, ground beef prices have exceeded $7.00 per pound for the first time in history.<br><br>Prices have surged +77% since January 2020, when they stood at $3.89 per pound.<br><br>Furthermore, the average price of uncooked beef steaks is up to a record $13.02 per pound, surging +70% since January 2020.<br><br>Ground beef prices have now DOUBLED since 2013.<br><br>Food inflation is running hotter than ever.<br><img width=\"974\" height=\"760\" style=\"\" src=\"https://pbs.twimg.com/media/HISncFGX0AEYCJS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
     {
       "title": "Despite becoming richer & higher-tech, China continues to occupy a large share of global low-skill-intensive export markets, precisely where low- & mi...",
       "link": "https://x.com/PIIE/status/2054995916684173385",
@@ -64,21 +199,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Ford shares surge after launch of power unit for data centres https://ft.trib.al/z33XINF",
-      "category": "Twitter"
-    },
-    {
-      "title": "Sharp erosion in gross margins. #SGRL",
-      "link": "https://x.com/unseenvalue/status/2054992389580664930",
-      "date": "2026-05-14T18:29:00+00:00",
-      "tweet_id": "2054992389580664930",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Sharp erosion in gross margins. #SGRL",
       "category": "Twitter"
     },
     {
@@ -154,21 +274,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BREAKING: Bitcoin surges above $82,000 after the Senate Banking Committee advances the Crypto Clarity Act.<br><img width=\"1206\" height=\"2005\" style=\"\" src=\"https://pbs.twimg.com/media/HIS6I7WXoAAx2kt?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "The 75% decline in valuations since the IPO is noise. The signal is a 40% improvement in the business.",
-      "link": "https://x.com/unseenvalue/status/2054971371021627764",
-      "date": "2026-05-14T17:05:29+00:00",
-      "tweet_id": "2054971371021627764",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The 75% decline in valuations since the IPO is noise. The signal is a 40% improvement in the business.",
       "category": "Twitter"
     },
     {
@@ -1297,6 +1402,21 @@
       "category": "Twitter"
     },
     {
+      "title": "US stocks today: #USstocks open higher as #Nvidia gains; US-China talks, data in focus https://economictimes.indiatimes.com/markets/us-stocks/news/us-...",
+      "link": "https://x.com/ETMarkets/status/2054921691709821421",
+      "date": "2026-05-14T13:48:04+00:00",
+      "tweet_id": "2054921691709821421",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US stocks today: #USstocks open higher as #Nvidia gains; US-China talks, data in focus<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-today-us-stocks-opens-higher-as-nvidia-gains-us-china-talks-data-in-focus/articleshow/131095044.cms",
+      "category": "Twitter"
+    },
+    {
       "title": "#UnitedSpirits @Q4 Results: Premium portfolio drives profit growth; dividend declared @sheersh0510 https://www.cnbctv18.com/market/united-spirits-q4-r...",
       "link": "https://x.com/CNBCTV18Live/status/2054921267757904308",
       "date": "2026-05-14T13:46:23+00:00",
@@ -1414,21 +1534,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The pattern of declining overdose deaths, after peaking during the Biden administration, calls into question the role of tariffs imposed on China for its role in fentanyl trade by the current Trump administration, Marcus Noland writes.<br>Read more: https://www.piie.com/blogs/realtime-economics/2026/fentanyl-china-and-trumps-2025-tariffs<br><img width=\"1732\" height=\"856\" style=\"\" src=\"https://pbs.twimg.com/media/HISDroKXwAAM3wt?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1732\" height=\"918\" style=\"\" src=\"https://pbs.twimg.com/media/HISDs3gXIAEagpr?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Divi\u2019s Labs: The TSMC of Pharma? https://antifragilethinking.substack.com/p/divis-labs-the-tsmc-of-pharma Disclaimer: invested; super biased. Not a r...",
-      "link": "https://x.com/unseenvalue/status/2054908538221137986",
-      "date": "2026-05-14T12:55:48+00:00",
-      "tweet_id": "2054908538221137986",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HISAbGLWMAA-zRm?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Divi\u2019s Labs: The TSMC of Pharma?<br><br>https://antifragilethinking.substack.com/p/divis-labs-the-tsmc-of-pharma<br><br>Disclaimer: invested; super biased. Not a recommendation.<br><img width=\"840\" height=\"784\" style=\"\" src=\"https://pbs.twimg.com/media/HISAbGLWMAA-zRm?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2212,36 +2317,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#IRFC #Q4 Results: Co posts muted profit growth at Rs 1,684 crore, revenue rises 9% YoY #ETMarkets https://economictimes.indiatimes.com/markets/stocks...",
-      "link": "https://x.com/ETMarkets/status/2054860594461982937",
-      "date": "2026-05-14T09:45:17+00:00",
-      "tweet_id": "2054860594461982937",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HIRUwZibAAA0PlV?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#IRFC #Q4 Results: Co posts muted profit growth at Rs 1,684 crore, revenue rises 9% YoY<br>#ETMarkets<br>https://economictimes.indiatimes.com/markets/stocks/earnings/irfc-q4-results-co-posts-muted-profit-growth-at-rs-1684-crore-revenue-rises-9-yoy/articleshow/131089043.cms<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HIRUwZibAAA0PlV?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Samir Arora-backed #Helios Flexi Cap Fund increases stake in #Tata Motors, #Eternal, #Paytm, 8 others in April #ETMutualFunds https://economictimes.in...",
-      "link": "https://x.com/ETMarkets/status/2054858004135129599",
-      "date": "2026-05-14T09:35:00+00:00",
-      "tweet_id": "2054858004135129599",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Samir Arora-backed #Helios Flexi Cap Fund increases stake in #Tata Motors, #Eternal, #Paytm, 8 others in April<br>#ETMutualFunds<br>https://economictimes.indiatimes.com/mf/analysis/samir-arora-backed-helios-flexi-cap-fund-increases-stake-in-tata-motors-eternal-paytm-8-others-in-april/articleshow/131083374.cms",
-      "category": "Twitter"
-    },
-    {
       "title": "Ideaforge , focused on asking the right questions at the right time ahead of the curve creates the asymmetric edge , has rewarded well from below twee...",
       "link": "https://x.com/EquityValueIn/status/2054857457445576898",
       "date": "2026-05-14T09:32:49+00:00",
@@ -2314,21 +2389,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Few managements will be thinking ki hamse galti ho gaye after delivering strong numbers <br><br>Stock rallies before results and gets dumped into post results",
-      "category": "Twitter"
-    },
-    {
-      "title": "A 400\u00d7 outcome never feels obvious while you\u2019re living through it. Holding Neuland was painful. Very! It was noise, stagnation, volatility, and doub...",
-      "link": "https://x.com/unseenvalue/status/2054852634549293276",
-      "date": "2026-05-14T09:13:40+00:00",
-      "tweet_id": "2054852634549293276",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HIRNjuYWYAA6iBX?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "A 400\u00d7 outcome never feels obvious while you\u2019re living through it. Holding Neuland was painful. Very!<br><br>It was noise, stagnation, volatility, and doubt until hindsight compressed 20 years into one chart.<br><br>Compounding is rarely linear. It\u2019s psychological before it\u2019s mathematical.<br><img width=\"2048\" height=\"1153\" style=\"\" src=\"https://pbs.twimg.com/media/HIRNjuYWYAA6iBX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2434,21 +2494,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Zaggle Prepaid Ocean Services says<br><br>FY27 topline guidance: Consolidated +40% &amp; standalone at +25-30%<br><br>Promoters intent is to look to hike stake post cooling off period<br><br>https://www.youtube.com/watch?v=JqsOQTAbRos",
-      "category": "Twitter"
-    },
-    {
-      "title": "Taleb\u2019s mental models are powerful only when backed by real domain knowledge. Without that, it\u2019s easy to mistake depth for difficulty.",
-      "link": "https://x.com/unseenvalue/status/2054834700070355345",
-      "date": "2026-05-14T08:02:24+00:00",
-      "tweet_id": "2054834700070355345",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Taleb\u2019s mental models are powerful only when backed by real domain knowledge. Without that, it\u2019s easy to mistake depth for difficulty.",
       "category": "Twitter"
     },
     {
@@ -3622,21 +3667,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Releasing Divi\u2019s Labs tomorrow\u2026 This will be worth your time.",
-      "link": "https://x.com/unseenvalue/status/2054646886447956290",
-      "date": "2026-05-13T19:36:05+00:00",
-      "tweet_id": "2054646886447956290",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Releasing Divi\u2019s Labs tomorrow\u2026 <br>This will be worth your time.<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002I will be sharing a distinctly different perspective on Divi\u2019s Labs, Narayana Health, and one undisclosed small/mid-cap leader later this month. Even those who\u2019ve tracked these businesses for over a decade, especially Divi\u2019s, will come away with a new thinking or heuristic.<br></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "NEW: Edited by Maurice Obstfeld, @pogourinchas, & Petia Topalova, \"Steering Structural Change\" explores transformations economies face as rising geopo...",
       "link": "https://x.com/PIIE/status/2054643344127525302",
       "date": "2026-05-13T19:22:01+00:00",
@@ -3832,21 +3862,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Adam Kobeissi: Just about all key measures of inflation are saying the same thing: Inflation in the US is at a 3+ year high. Luckily, those who hav...",
-      "link": "https://x.com/KobeissiLetter/status/2054618564787650802",
-      "date": "2026-05-13T17:42:45+00:00",
-      "tweet_id": "2054618564787650802",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HIN38adXMAAsLXi?format=png&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Adam Kobeissi<br>Just about all key measures of inflation are saying the same thing:<br><br>Inflation in the US is at a 3+ year high.<br><br>Luckily, those who have followed our work at @KobeissiLetter welcome this development, accumulating assets for 12+ months.<br><br>Asset owners will be the only winners.<br><img width=\"654\" height=\"467\" style=\"\" src=\"https://pbs.twimg.com/media/HIN38adXMAAsLXi?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "IT stocks have now become a punching bag\ud83d\udc4a",
       "link": "https://x.com/EquityInsightss/status/2054617145271787682",
       "date": "2026-05-13T17:37:55+00:00",
@@ -3862,21 +3877,6 @@
       "category": "Twitter"
     },
     {
-      "title": "China has been building out the legal foundation for measures to counter foreign sanctions for a decade. \u201cNow they feel confident enough to use them,...",
-      "link": "https://x.com/PIIE/status/2054616423708709348",
-      "date": "2026-05-13T17:35:02+00:00",
-      "tweet_id": "2054616423708709348",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "China has been building out the legal foundation for measures to counter foreign sanctions for a decade. \u201cNow they feel confident enough to use them,\u201d Mary Lovely says. https://www.nytimes.com/2026/05/13/us/politics/trumps-shrinking-ambitions-on-china.html",
-      "category": "Twitter"
-    },
-    {
       "title": "Q&A: How countries got the global \u2018net-zero\u2019 shipping deal \u2018back on track\u2019 | @MollyLempriere @Josh_Gabbatiss Read here: https://buff.ly/Wt4M04G",
       "link": "https://x.com/CarbonBrief/status/2054610637452403145",
       "date": "2026-05-13T17:12:03+00:00",
@@ -3889,21 +3889,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Q&amp;A: How countries got the global \u2018net-zero\u2019 shipping deal \u2018back on track\u2019 | @MollyLempriere @Josh_Gabbatiss <br><br>Read here: https://buff.ly/Wt4M04G<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HINxfJNWAAE41Wy?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "BREAKING: The S&P 500 extends its historic rally into record high territory, now up +18% since its March 30th bottom. That's +$10.2 TRILLION in market...",
-      "link": "https://x.com/KobeissiLetter/status/2054608426148192349",
-      "date": "2026-05-13T17:03:16+00:00",
-      "tweet_id": "2054608426148192349",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HINvdbBXwAABqPm?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: The S&amp;P 500 extends its historic rally into record high territory, now up +18% since its March 30th bottom.<br><br>That's +$10.2 TRILLION in market cap added in just 6 weeks.<br><img width=\"439\" height=\"623\" style=\"\" src=\"https://pbs.twimg.com/media/HINvdbBXwAABqPm?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -4084,21 +4069,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Cropped is Carbon Brief\u2019s fortnightly newsletter that provides a digest of all the key developments from the fraught, yet fascinating intersection between food systems \ud83d\udc04 , land use \ud83c\udf3d, nature \ud83c\udf3f and climate change.<br><br>Sign up here for free \u2b07\ufe0f<br>https://buff.ly/3kFciAO<br><video width=\"600\" height=\"338\" src=\"https://video.twimg.com/tweet_video/HINXnjrW0AEhaR6.mp4\" autoplay=\"\" loop=\"\" muted=\"\" webkit-playsinline=\"\" playsinline=\"\" controls=\"controls\" poster=\"https://pbs.twimg.com/tweet_video_thumb/HINXnjrW0AEhaR6.jpg\"></video>",
-      "category": "Twitter"
-    },
-    {
-      "title": "Predictability is usually priced to perfection. Asymmetry lives in uncertainty.",
-      "link": "https://x.com/unseenvalue/status/2054580729808404982",
-      "date": "2026-05-13T15:13:12+00:00",
-      "tweet_id": "2054580729808404982",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Predictability is usually priced to perfection. Asymmetry lives in uncertainty.",
       "category": "Twitter"
     },
     {
@@ -4474,21 +4444,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Reena Kumari cooks on a chulha in the afternoon sun. She does not have a gas connection; used a 5-kg cylinder that needs less documentation. Now, her children get distressed by the smoke from the chulha. How women, children bear the brunt of the #LPG crisis: https://www.indiaspend.com/governance/in-delhis-scorching-heat-its-poorest-women-are-back-to-the-chulha-985446<br><img width=\"1200\" height=\"804\" style=\"\" src=\"https://pbs.twimg.com/media/HILGz7ga8AA8pHx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "In a world of positive feedback, those who get ahead tend to get further ahead.",
-      "link": "https://x.com/unseenvalue/status/2054523827284009169",
-      "date": "2026-05-13T11:27:06+00:00",
-      "tweet_id": "2054523827284009169",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "In a world of positive feedback, those who get ahead tend to get further ahead.",
       "category": "Twitter"
     },
     {
@@ -5182,21 +5137,6 @@
       "category": "Twitter"
     },
     {
-      "title": "On the eve of the Trump-Xi summit, some interesting activity in the Strait of Hormuz, with a Chinese-linked oil tanker making the crossing (via the Ir...",
-      "link": "https://x.com/JavierBlas/status/2054457844594774036",
-      "date": "2026-05-13T07:04:54+00:00",
-      "tweet_id": "2054457844594774036",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "On the eve of the Trump-Xi summit, some interesting activity in the Strait of Hormuz, with a Chinese-linked oil tanker making the crossing (via the Iranian new lanes). <br><br>If the Yuan Hua Hu VLCC completes the crossing (she has gone dark now), it would be the 3rd Chinese oil tanker to make it through since the war started. The tanker carries 2m barrels of Iraqi oil.",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Prabhakar Kudva: This needs to be framed and hanged on the walls!",
       "link": "https://x.com/itsTarH/status/2054459284185137290",
       "date": "2026-05-13T07:04:49+00:00",
@@ -5782,21 +5722,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Is global warming tipping key Atlantic ocean currents towards \u2018collapse\u2019? \u270d\ufe0f Cecilia Keating \ud83c\udfa8 @tomoprater Kerry Cleaver Read here: https://buf...",
-      "link": "https://x.com/CarbonBrief/status/2054294323282206781",
-      "date": "2026-05-12T20:15:08+00:00",
-      "tweet_id": "2054294323282206781",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2054294307767488512/pu/img/HJg4ErAZJE7jPnw-.jpg",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Is global warming tipping key Atlantic ocean currents towards \u2018collapse\u2019? <br><br>\u270d\ufe0f Cecilia Keating  <br>\ud83c\udfa8 @tomoprater Kerry Cleaver <br><br>Read here: https://buff.ly/mgaIBvM<br><video width=\"1920\" height=\"1348\" src=\"https://video.twimg.com/ext_tw_video/2054294307767488512/pu/vid/avc1/1024x720/LegyhHDUqXa21evy.mp4?tag=12\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2054294307767488512/pu/img/HJg4ErAZJE7jPnw-.jpg\"></video>",
-      "category": "Twitter"
-    },
-    {
       "title": "Gold, silver and precious metal imports to get costlier as government hikes duty to 10% Govt Increases Import Duty On Gold, Silver And Precious Metal ...",
       "link": "https://x.com/TamalBandyo/status/2054293660796366892",
       "date": "2026-05-12T20:12:30+00:00",
@@ -5944,21 +5869,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Javier Blas<br>As the paper oil market rallies, in the North Sea physical market we have seen today the first trade at a **discount** to the Dated Brent benchmark since the war started. <br><br>The ironies of the oil market: when plenty (next few days) and dearth (next few weeks) coexist.",
-      "category": "Twitter"
-    },
-    {
-      "title": "I used the Virender Sehwag analogy for Neuland back in 2022. Like Sehwag, any emerging CDMO will always be lumpy and volatile, but people tend to judg...",
-      "link": "https://x.com/unseenvalue/status/2054231081637892477",
-      "date": "2026-05-12T16:03:50+00:00",
-      "tweet_id": "2054231081637892477",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/FcxTuBqWIAEeNIl?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "I used the Virender Sehwag analogy for Neuland back in 2022. Like Sehwag, any emerging CDMO will always be lumpy and volatile, but people tend to judge outcomes rather than the quality of the process. To each their own.<br><br>Likewise, we saw 14-15% EBITDA in Laurus not so long ago. We might see 34-35% as well :)<br><br>No fresh reco on anything. Be self-aware. Have patience.<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002\"No one has ever become poor by giving\" - Anne Frank<br><br>The disclaimer and the \"beware\" warning are the most important paragraphs in this four page opinionated view. This is not a short term view. SIP over decades add value. Views are biased. Add salt to taste \ud83d\ude42<br><br>#UVPhilanthropy11<br><br><img width=\"818\" height=\"1161\" style=\"\" src=\"https://pbs.twimg.com/media/FcxTuBqWIAEeNIl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"822\" height=\"1159\" style=\"\" src=\"https://pbs.twimg.com/media/FcxTuBzXkAAh4MG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"858\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/FcxTuCHWQAAW_T3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"856\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/FcxTuCeXoAAemBP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -6187,21 +6097,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Non-linear systems reward patience. The lumpiness looks messy until the convexity shows up. A Talebian lens helps, but patience and the capacity to su...",
-      "link": "https://x.com/unseenvalue/status/2054182628522172784",
-      "date": "2026-05-12T12:51:18+00:00",
-      "tweet_id": "2054182628522172784",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HIHr8roWIAAUOoQ?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Non-linear systems reward patience. The lumpiness looks messy until the convexity shows up. A Talebian lens helps, but patience and the capacity to suffer for long periods cannot be borrowed.<br><br>Neuland's Q1 FY26 EBITDA was 12% and Q2 was 30% ... look at Q4 FY26 :)<br><br>No reco.<br><img width=\"1280\" height=\"1127\" style=\"\" src=\"https://pbs.twimg.com/media/HIHr8roWIAAUOoQ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Was absolutely a pleasure to be on podcast with @_soniashenoy . Enjoyed a very in depth discussion on my investment journey, investment process and fo...",
       "link": "https://x.com/SamitVartak/status/2054181684657160626",
       "date": "2026-05-12T12:47:33+00:00",
@@ -6409,21 +6304,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Europe\u2019s oil majors reap up to $4.75bn from trading on Iran war volatility\u2026<br><img width=\"1600\" height=\"1600\" style=\"\" src=\"https://pbs.twimg.com/media/HIHDgDcXUAAXCJL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Fair-play disclosure: Chemicals Stock https://antifragilethinking.substack.com/p/fair-play-disclosure-chemicals-stock",
-      "link": "https://x.com/unseenvalue/status/2054133536152592805",
-      "date": "2026-05-12T09:36:13+00:00",
-      "tweet_id": "2054133536152592805",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Fair-play disclosure: Chemicals Stock<br><br>https://antifragilethinking.substack.com/p/fair-play-disclosure-chemicals-stock<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002Don\u2019t chase commodity chemicals after they\u2019ve already run up significantly from recent lows. Think in terms of probabilities, not binaries. Avoid trying to predict the next big move. If you own them from lower levels, feel free to hold, provided your thesis was never about just 2<br></div>",
       "category": "Twitter"
     },
     {
@@ -6754,21 +6634,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Indian Hotels says April saw a dip but things have picked up in May. Expects double-digit revenue growth in FY'27.<br><br>Says will continue to build the homestays category (Ama Stays) organically (300 odd properties to go to 700-1000) <br><br>Chat with management.<br><br>https://www.youtube.com/watch?v=jcDy-9Y5Jmk",
-      "category": "Twitter"
-    },
-    {
-      "title": "Privi Speciality and most complex systems cannot be understood through financial metrics alone; chemistry, supply chains, customer ecosystems, and ene...",
-      "link": "https://x.com/unseenvalue/status/2054094811091628156",
-      "date": "2026-05-12T07:02:20+00:00",
-      "tweet_id": "2054094811091628156",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Privi Speciality and most complex systems cannot be understood through financial metrics alone; chemistry, supply chains, customer ecosystems, and energy all interact ...",
       "category": "Twitter"
     },
     {
@@ -7432,21 +7297,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Calm surfaces can hide accumulating risk. Occasional small volatility is healthy. For a 500-bagger, occasional 50% drawdowns are small.",
-      "link": "https://x.com/unseenvalue/status/2053747155429425287",
-      "date": "2026-05-11T08:00:53+00:00",
-      "tweet_id": "2053747155429425287",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Calm surfaces can hide accumulating risk. Occasional small volatility is healthy. For a 500-bagger, occasional 50% drawdowns are small.",
-      "category": "Twitter"
-    },
-    {
       "title": "Ember is joining @ClimateGroup\u2019s Asia Action Summit and Climate Week NYC to provide governments and businesses with data-driven guidance for the ener...",
       "link": "https://x.com/ember_energy/status/2053731836409401382",
       "date": "2026-05-11T07:00:00+00:00",
@@ -7717,21 +7567,6 @@
       "category": "Twitter"
     },
     {
-      "title": "\u201cA few major wins make up for countless failures.\u201d \u2014 Jeff Bezos",
-      "link": "https://x.com/unseenvalue/status/2053566375507992921",
-      "date": "2026-05-10T20:02:31+00:00",
-      "tweet_id": "2053566375507992921",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\u201cA few major wins make up for countless failures.\u201d \u2014 Jeff Bezos",
-      "category": "Twitter"
-    },
-    {
       "title": "Reporting /= Investing.",
       "link": "https://x.com/abhymurarka/status/2053536367133729237",
       "date": "2026-05-10T18:03:17+00:00",
@@ -7972,21 +7807,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Recently entered Bajaj Healthcare. I am not selling on Monday. Remain optimistic and treating this as a genuine management mistake (revenue recognitio...",
-      "link": "https://x.com/unseenvalue/status/2053097469999804864",
-      "date": "2026-05-09T12:59:16+00:00",
-      "tweet_id": "2053097469999804864",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Recently entered Bajaj Healthcare. I am not selling on Monday. Remain optimistic and treating this as a genuine management mistake (revenue recognition as customer advance). Not an integrity issue!<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002Aggressive accounting in Bajaj Healthcare? Earlier profits were recognised. Now reversed in Q4 FY26. Suggests aggressive revenue recognition earlier.<br></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "\u201cWe are prioritising market leadership over short-term profitability in this phase.\u201d",
       "link": "https://x.com/madhavchanchani/status/2053079535122563391",
       "date": "2026-05-09T11:48:00+00:00",
@@ -8017,21 +7837,6 @@
       "category": "Twitter"
     },
     {
-      "title": "4 software companies. 1 frame. https://antifragilethinking.substack.com/p/what-does-not-kill-me-kills-others",
-      "link": "https://x.com/unseenvalue/status/2053071227292414200",
-      "date": "2026-05-09T11:14:59+00:00",
-      "tweet_id": "2053071227292414200",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HH35Qm3XgAoElHF?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "4 software companies. 1 frame.<br><br>https://antifragilethinking.substack.com/p/what-does-not-kill-me-kills-others<br><img width=\"1882\" height=\"1658\" style=\"\" src=\"https://pbs.twimg.com/media/HH35Qm3XgAoElHF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Supreme Court allowed a 15yr-old in 3rd trimester to abort her pregnancy, but medical boards pushed back. Creation of medical boards adds a \u201clayer of...",
       "link": "https://x.com/IndiaSpend/status/2053059907423801397",
       "date": "2026-05-09T10:30:00+00:00",
@@ -8059,21 +7864,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002The Arc<br>\ud83d\udea8 PB Fintech, owner of Policybazaar and Paisabazaar, has got a stock broking license to offer debt securities like bonds.<br><img width=\"716\" height=\"1026\" style=\"\" src=\"https://pbs.twimg.com/media/HH3fZzGa8AAJ08o?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "If the next opportunity is 200% better than your current one, after accounting for taxes and the cost of time (research time is sunk and irrecoverable...",
-      "link": "https://x.com/unseenvalue/status/2053041002508652807",
-      "date": "2026-05-09T09:14:53+00:00",
-      "tweet_id": "2053041002508652807",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "If the next opportunity is 200% better than your current one, after accounting for taxes and the cost of time (research time is sunk and irrecoverable), then it makes sense to switch, provided you have high conviction.<br><br>Why 200% or more and not 100%? That's your margin of error.",
       "category": "Twitter"
     },
     {
@@ -8212,21 +8002,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Aggressive accounting in Bajaj Healthcare? Earlier profits were recognised. Now reversed in Q4 FY26. Suggests aggressive revenue recognition earlier.",
-      "link": "https://x.com/unseenvalue/status/2052790026119909470",
-      "date": "2026-05-08T16:37:35+00:00",
-      "tweet_id": "2052790026119909470",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Aggressive accounting in Bajaj Healthcare? Earlier profits were recognised. Now reversed in Q4 FY26. Suggests aggressive revenue recognition earlier.",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Dan Primack: Something I heard over and over while in LA for Milken was praise for Anhropic and pessimism toward OpenAI. At lunch, I made a comment...",
       "link": "https://x.com/madhavchanchani/status/2053047041912389793",
       "date": "2026-05-08T15:06:05+00:00",
@@ -8269,21 +8044,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "In India, personhood begins at birth, yet medical boards are increasingly arguing for the \u201crights of the unborn child\u201d to deny abortions. Experts say this shifts the law from a right to a \u201cpermission\u201d. @riotsjain reports: https://www.indiaspend.com/health/how-medical-boards-are-gatekeeping-abortion-access-985139",
-      "category": "Twitter"
-    },
-    {
-      "title": "Don\u2019t chase commodity chemicals after they\u2019ve already run up significantly from recent lows. Think in terms of probabilities, not binaries. Avoid tr...",
-      "link": "https://x.com/unseenvalue/status/2052757185717735679",
-      "date": "2026-05-08T14:27:06+00:00",
-      "tweet_id": "2052757185717735679",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Don\u2019t chase commodity chemicals after they\u2019ve already run up significantly from recent lows. Think in terms of probabilities, not binaries. Avoid trying to predict the next big move. If you own them from lower levels, feel free to hold, provided your thesis was never about just 2 months.<br><br>Several detailed presentations covered commodity chemicals ranging from NOCIL to DMCC and Deepak Nitrite. There are 30 other commodity chemical stocks, but the same framework applies to all. <br><br>Heuristics work when rules fail. Point #11 is what I seriously follow. Sold Indoco Remedies yesterday at day's high as it failed this test:<br><br>1. Think in probabilities instead of making absolute predictions about commodity stocks.<br>2. Do build positions gradually rather than chasing a stock after a sharp 40-50% rally.<br>3. Do continuously update your view as new supply, demand, and geopolitical information emerges.<br>4. Do focus on whether the market has already priced in the bullish narrative before buying. Predictions usually fail, so have a margin of safety!<br>5. Do preserve capital and wait patiently if the risk-reward becomes unfavourable after a fast/euphoric move.<br>6. Don\u2019t chase vertically rising stocks out of fear of missing out.<br>7. Don\u2019t extrapolate recent gains indefinitely into the future, because commodity cycles often reverse sharply.<br>8. Don\u2019t confuse a compelling geopolitical story with a guaranteed investment outcome.<br>9. Don\u2019t ignore demand destruction risk when commodity prices rise too quickly. <br>10. Don\u2019t become emotionally attached to a bullish thesis when market conditions start changing.<br>11. Focus on the balance sheet, cash flows and people (management) behind those stocks!<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002Commodity chemicals and pharma APIs could surprise on the upside. Cyclical, short-term trade. Not a buy and sleep. Buy to sell. Buy fast. Sell faster. Stick to what you understand. Ignore social validation.<br></div>",
       "category": "Twitter"
     },
     {
@@ -9787,21 +9547,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Alex Tabarrok: Working on new edition of Modern Principles. Still very proud of this:",
-      "link": "https://x.com/srajagopalan/status/2049885319621685340",
-      "date": "2026-04-30T15:05:03+00:00",
-      "tweet_id": "2049885319621685340",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HHKXiidWAAAwWah?format=png&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Alex Tabarrok<br>Working on new edition of Modern Principles. Still very proud of this:<br><img width=\"790\" height=\"152\" style=\"\" src=\"https://pbs.twimg.com/media/HHKXiidWAAAwWah?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "In case you want to know why everyone is talking about CPU's and companies like Intel Source: @swyx",
       "link": "https://x.com/Tijori1/status/2049724243332800928",
       "date": "2026-04-30T05:35:16+00:00",
@@ -11239,21 +10984,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002India in Saudi Arabia<br>Re Eminent Panel of Speakers included former diplomat Amb Navtej Sarna @NavtejSarna, Ms Jenny Johnson, CEO @FTI_Global, economist Dr. Ila Patnaik @IlaPatnaik &amp; Mr. Yashish Dhahiya of Policy Bazaar. US Amb. to India H.E. Eric Garcetti @USAmbIndia also attended as the special guest.<br><img width=\"2048\" height=\"1536\" style=\"\" src=\"https://pbs.twimg.com/media/GbH3wdCWcAAl6pm?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1280\" height=\"960\" style=\"\" src=\"https://pbs.twimg.com/media/GbH3wb0W4AAboFP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"960\" height=\"1280\" style=\"\" src=\"https://pbs.twimg.com/media/GbH3wdCW8AEzamA?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Antifragile Thinking: The higher the uncertainty: -> more valuable the diverse range of optionalities -> higher the probability of disproportionate...",
-      "link": "https://x.com/unseenvalue/status/2054823715506917657",
-      "date": "2024-03-13T09:28:03+00:00",
-      "tweet_id": "2054823715506917657",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/GIilmQeXgAAtlii?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Antifragile Thinking<br>The higher the uncertainty:<br><br>-&gt; more valuable the diverse range of optionalities<br><br>-&gt; higher the probability of disproportionately large positive outcomes over the unpredictable workflow of the cash-to-cash business cycle<br><img width=\"1155\" height=\"650\" style=\"\" src=\"https://pbs.twimg.com/media/GIilmQeXgAAtlii?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
