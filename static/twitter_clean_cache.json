@@ -1,26 +1,101 @@
 {
-  "generated_at": "2026-05-19T01:00:49.956541+05:30",
+  "generated_at": "2026-05-19T02:37:03.288938+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 48,
       "feeds_failed": 1,
-      "items_raw": 1259,
-      "resolve_attempted": 1259,
+      "items_raw": 1260,
+      "resolve_attempted": 1260,
       "resolve_resolved": 1247,
-      "resolve_cache_hits": 1257
+      "resolve_cache_hits": 1254
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.7,
-      "items": 805,
+      "age_hours": 1.3,
+      "items": 806,
       "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-05-19T01:00:49.956492+05:30"
+    "generated_at": "2026-05-19T02:37:03.288887+05:30"
   },
   "items": [
+    {
+      "title": "Same energy if you have seen this movie \ud83e\udd26\u200d\u2642\ufe0f\ud83e\udd23",
+      "link": "https://x.com/ishmohit1/status/2056457499017118056",
+      "date": "2026-05-18T19:30:49+00:00",
+      "tweet_id": "2056457499017118056",
+      "source": "ishmohit",
+      "publisher": "Mohit Ish",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/tweet_video_thumb/HIoBMeYbEAApXhW.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Same energy if you have seen this movie \ud83e\udd26\u200d\u2642\ufe0f\ud83e\udd23<br><video width=\"220\" height=\"172\" src=\"https://video.twimg.com/tweet_video/HIoBMeYbEAApXhW.mp4\" autoplay=\"\" loop=\"\" muted=\"\" webkit-playsinline=\"\" playsinline=\"\" controls=\"controls\" poster=\"https://pbs.twimg.com/tweet_video_thumb/HIoBMeYbEAApXhW.jpg\"></video><div class=\"rsshub-quote\"><br><br>*Walter Bloomberg:\u2002TRUMP: HAVE BEEN ASKED BY QATAR, SAUDI ARABIA, AND UNITED ARAB EMIRATES TO HOLD OFF ON OUR PLANNED MILITARY ATTACK OF ISLAMIC REPUBLIC OF IRAN<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: President Trump says he has called off a US \"Military attack\" on Iran which was scheduled for tomorrow after leaders of Qatar, Saudi Arabia,...",
+      "link": "https://x.com/KobeissiLetter/status/2056452987187302472",
+      "date": "2026-05-18T19:12:53+00:00",
+      "tweet_id": "2056452987187302472",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HIn8aITXEAAIhRL?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: President Trump says he has called off a US \"Military attack\" on Iran which was scheduled for tomorrow after leaders of Qatar, Saudi Arabia, and the UAE called him and asked him to \"hold off.\"<br><br>Trump has instructed the US Military to \"be prepared to go forward with a full, large scale assault of Iran.\"<br><img width=\"1282\" height=\"972\" style=\"\" src=\"https://pbs.twimg.com/media/HIn8aITXEAAIhRL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "TRUMP: INSTRUCTED DEFENSE SECRETARY HEGSETH, JOINT CHIEFS CHAIRMAN GEN. CAINE & US MILITARY TO STAND DOWN BUT BE PREPARED FOR FULL-SCALE ASSAULT ON IR...",
+      "link": "https://x.com/REDBOXINDIA/status/2056452295240630423",
+      "date": "2026-05-18T19:10:08+00:00",
+      "tweet_id": "2056452295240630423",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "TRUMP: INSTRUCTED DEFENSE SECRETARY HEGSETH, JOINT CHIEFS CHAIRMAN GEN. CAINE &amp; US MILITARY TO STAND DOWN BUT BE PREPARED FOR FULL-SCALE ASSAULT ON IRAN AT A MOMENT'S NOTICE IF ACCEPTABLE DEAL IS NOT REACHED - TRUTH SOCIAL",
+      "category": "Twitter"
+    },
+    {
+      "title": "TRUMP: AT REQUEST OF QATAR'S EMIR, SAUDI CROWN PRINCE & UAE PRESIDENT, CANCELS SCHEDULED MILITARY ATTACK ON IRAN SET FOR TOMORROW AS SERIOUS NEGOTIATI...",
+      "link": "https://x.com/REDBOXINDIA/status/2056452254375539010",
+      "date": "2026-05-18T19:09:59+00:00",
+      "tweet_id": "2056452254375539010",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "TRUMP: AT REQUEST OF QATAR'S EMIR, SAUDI CROWN PRINCE &amp; UAE PRESIDENT, CANCELS SCHEDULED MILITARY ATTACK ON IRAN SET FOR TOMORROW AS SERIOUS NEGOTIATIONS UNDERWAY; ALLIES BELIEVE DEAL WILL BE REACHED THAT IS ACCEPTABLE TO US &amp; ALL MIDDLE EAST NATIONS, INCLUDING NO NUCLEAR WEAPONS FOR IRAN - TRUTH SOCIAL",
+      "category": "Twitter"
+    },
+    {
+      "title": "US extends Russian oil waiver in attempt to lower fuel prices https://ft.trib.al/M7dHKCb",
+      "link": "https://x.com/ftenergy/status/2056451999999082982",
+      "date": "2026-05-18T19:08:58+00:00",
+      "tweet_id": "2056451999999082982",
+      "source": "FT Energy",
+      "publisher": "FT Energy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US extends Russian oil waiver in attempt to lower fuel prices https://ft.trib.al/M7dHKCb",
+      "category": "Twitter"
+    },
     {
       "title": "Despite becoming richer & higher-tech, China continues to occupy a large share of global low-skill-intensive export markets, precisely where low- & mi...",
       "link": "https://x.com/PIIE/status/2056445467236401557",
@@ -274,6 +349,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Analysis: Wind and solar have saved UK from gas imports worth \u00a31.7bn since Iran war began | @DrSimEvans and Ho Woo Nam<br><br>Read here:https://buff.ly/LOd9rCE<br><img width=\"2048\" height=\"1170\" style=\"\" src=\"https://pbs.twimg.com/media/HInYDJgWQAAmrla?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Treasury Secretary Scott Bessent: .@USTreasury is issuing a temporary 30-day general license to provide the most vulnerable nations with the abilit...",
+      "link": "https://x.com/menakadoshi/status/2056452422952956256",
+      "date": "2026-05-18T16:29:49+00:00",
+      "tweet_id": "2056452422952956256",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Treasury Secretary Scott Bessent<br>.@USTreasury is issuing a temporary 30-day general license to provide the most vulnerable nations with the ability to temporarily access Russian oil currently stranded at sea. <br><br>This extension will provide additional flexibility, and we will work with these nations to provide specific licenses as needed. This general license will help stabilize the physical crude market and ensure oil reaches the most energy-vulnerable countries. <br><br>It will also help reroute existing supply to countries most in need by reducing China\u2019s ability to stockpile discounted oil.",
       "category": "Twitter"
     },
     {
@@ -1042,21 +1132,6 @@
       "category": "Twitter"
     },
     {
-      "title": "PURAVANKARA: Q4 CONS NET PROFIT 1.14B RUPEES VS LOSS 855M (YOY) || Q4 REVENUE 15B RUPEES VS 5.42B (YOY) PURAVANKARA: Q4 EBITDA 3B RUPEES VS 305M (YOY)...",
-      "link": "https://x.com/REDBOXINDIA/status/2056381067997917504",
-      "date": "2026-05-18T14:27:06+00:00",
-      "tweet_id": "2056381067997917504",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "PURAVANKARA: Q4 CONS NET PROFIT 1.14B RUPEES VS LOSS 855M (YOY) || Q4 REVENUE 15B RUPEES VS 5.42B (YOY)<br><br>PURAVANKARA: Q4 EBITDA 3B RUPEES VS 305M (YOY) || Q4 EBITDA MARGIN 20% VS 5.62% (YOY)",
-      "category": "Twitter"
-    },
-    {
       "title": "Goldman Sachs Refining: Product Supply Challenge Even in De-Escalation (12 May '26) System entered the Middle East disruption already near its limits ...",
       "link": "https://x.com/exencial_RP/status/2056380285173072278",
       "date": "2026-05-18T14:24:00+00:00",
@@ -1114,21 +1189,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Indianmarkets capable of absorbing different types of shocks: SEBI chief on West Asia crisis<br><br>https://economictimes.indiatimes.com/markets/stocks/news/indian-markets-capable-of-absorbing-different-types-of-shocks-sebi-chief-on-west-asia-crisis/articleshow/131176488.cms",
-      "category": "Twitter"
-    },
-    {
-      "title": "WAAREE RENEWABLE TECHNOLOGIES: CO BAGS A MASSIVE TURNKEY 350MW / 1400MWH BATTERY ENERGY STORAGE SYSTEM EPC CONTRACT",
-      "link": "https://x.com/REDBOXINDIA/status/2056378261358465500",
-      "date": "2026-05-18T14:15:57+00:00",
-      "tweet_id": "2056378261358465500",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "WAAREE RENEWABLE TECHNOLOGIES: CO BAGS A MASSIVE TURNKEY 350MW / 1400MWH BATTERY ENERGY STORAGE SYSTEM EPC CONTRACT",
       "category": "Twitter"
     },
     {
@@ -3664,21 +3724,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "UAE says drone strike caused fire at nuclear plant https://ft.trib.al/St70VES",
-      "category": "Twitter"
-    },
-    {
-      "title": "BREAKING: Japanese investors sold -$29.6 billion in US Treasuries, agency, and local authority debt in Q1 2026, the largest quarterly sale since Q2 20...",
-      "link": "https://x.com/KobeissiLetter/status/2056027540184023373",
-      "date": "2026-05-17T15:02:19+00:00",
-      "tweet_id": "2056027540184023373",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HIh6JuOW8AAfpHT?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: Japanese investors sold -$29.6 billion in US Treasuries, agency, and local authority debt in Q1 2026, the largest quarterly sale since Q2 2022.<br><br>This marks the first quarterly outflow since Q4 2024 and follows 11 quarters of purchases of the last 12.<br><br>Agency debt includes mortgage-backed securities (MBS) and bonds from government-sponsored entities, while local authority debt includes municipal bonds issued by US states, cities, and local governments.<br><br>This comes as rising interest rate expectations, driven by a rebound in inflation, weighed on bond prices and prompted Japanese investors to cut US bond holdings.<br><br>Japan is the largest foreign holder of US Treasuries, at $1.24 trillion, ahead of the UK, at $897 billion, and China, at $693 billion.<br><br>Japanese investors are aggressively dumping US bonds.<br><img width=\"1073\" height=\"715\" style=\"\" src=\"https://pbs.twimg.com/media/HIh6JuOW8AAfpHT?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -6547,21 +6592,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Metlen was London\u2019s biggest new listing of 2025. What exactly is it? https://ft.trib.al/xTIP0IP",
-      "link": "https://x.com/ftenergy/status/2055151969728115100",
-      "date": "2026-05-15T05:03:07+00:00",
-      "tweet_id": "2055151969728115100",
-      "source": "FT Energy",
-      "publisher": "FT Energy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Metlen was London\u2019s biggest new listing of 2025. What exactly is it? https://ft.trib.al/xTIP0IP",
-      "category": "Twitter"
-    },
-    {
       "title": "Sir, 10Y yields have crossed 4.5%",
       "link": "https://x.com/itsTarH/status/2055149197050200405",
       "date": "2026-05-15T04:52:06+00:00",
@@ -7909,21 +7939,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Sanghamitra Patra runs a dhaba in Delhi\u2019s Munirka. With no LPG, she\u2019s shifted to wood stoves. \u201cThe dhaba gets filled with smoke, so many customers turn back. My income\u2019s decreased by half.\u201d How #LPG crisis is affecting health, incomes of the most vulnerable https://www.indiaspend.com/governance/in-delhis-scorching-heat-its-poorest-women-are-back-to-the-chulha-985446<br><img width=\"1200\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HILG7upbgAAi6dk?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Fabrizio Romano: \ud83d\udea8\ud83d\udca3 Manchester United and Michael Carrick are set to continue together next season and beyond. Chances increasing for weeks a...",
-      "link": "https://x.com/ishmohit1/status/2054590430801715591",
-      "date": "2026-05-13T14:51:13+00:00",
-      "tweet_id": "2054590430801715591",
-      "source": "ishmohit",
-      "publisher": "Mohit Ish",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HINRP8PWwAAVFUY?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Fabrizio Romano<br>\ud83d\udea8\ud83d\udca3 Manchester United and Michael Carrick are set to continue together next season and beyond.<br><br>Chances increasing for weeks as reported and everyone at #MUFC feels he should stay.<br><br>Players, management, everyone on same page.<br><br>Next step: talks to final stages and new deal.<br><img width=\"1440\" height=\"1800\" style=\"\" src=\"https://pbs.twimg.com/media/HINRP8PWwAAVFUY?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
