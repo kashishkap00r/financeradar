@@ -463,6 +463,24 @@
     "source_tier": "official"
   },
   {
+    "id": "sebi-enforcement-orders",
+    "name": "SEBI — Enforcement Orders",
+    "url": "https://exchangecirculars.com/tags/enforcement-order/",
+    "feed": "https://exchangecirculars.com/tags/enforcement-order/feed.xml",
+    "category": "News",
+    "publisher": "SEBI",
+    "source_tier": "official"
+  },
+  {
+    "id": "sebi-adjudication-orders",
+    "name": "SEBI — Adjudication Orders",
+    "url": "https://exchangecirculars.com/tags/adjudication-order/",
+    "feed": "https://exchangecirculars.com/tags/adjudication-order/feed.xml",
+    "category": "News",
+    "publisher": "SEBI",
+    "source_tier": "official"
+  },
+  {
     "id": "the-hindu-markets",
     "name": "The Hindu — Markets",
     "url": "https://www.thehindu.com/business/markets/",

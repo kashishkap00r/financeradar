@@ -45,7 +45,7 @@
             if (tab === 'papers' && !PAPER_ARTICLES) {
                 loads.push(_safeLoad('papers', 'static/tab_papers.json', function(d) { PAPER_ARTICLES = d; }));
             }
-            if ((tab === 'news') && !NEWS_ARTICLES) {
+            if ((tab === 'news' || tab === 'home') && !NEWS_ARTICLES) {
                 loads.push(_safeLoad('news', 'static/tab_news.json', function(d) { NEWS_ARTICLES = d; }));
             }
             // Home tab only needs ai_rankings.json (loaded below) — no tab JSON fetches
@@ -2243,6 +2243,50 @@
                 + '<div class="slider-track" id="tw-track">' + cards + '</div></section>';
         }
 
+        function getSebiNotices() {
+            if (!NEWS_ARTICLES || !NEWS_ARTICLES.length) return [];
+            var SEBI_NOTICE_SOURCES = {
+                'SEBI — Enforcement Orders': true,
+                'SEBI — Adjudication Orders': true
+            };
+            // Cutoff = start of (today - 10 days), local time — calendar-day window
+            var cutoff = new Date();
+            cutoff.setHours(0, 0, 0, 0);
+            cutoff.setDate(cutoff.getDate() - 10);
+            var cutoffMs = cutoff.getTime();
+            return NEWS_ARTICLES
+                .filter(function(a) {
+                    if (SEBI_NOTICE_SOURCES[a.source] !== true) return false;
+                    var t = new Date(a.date || 0).getTime();
+                    return t >= cutoffMs;
+                })
+                .slice()
+                .sort(function(a, b) {
+                    return new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
+                })
+                .slice(0, 15);
+        }
+
+        function buildSebiSlider(items) {
+            if (!items || !items.length) return '';
+            const cards = items.map(function(n) {
+                const title = escapeHtml(cleanHomeTitle(n.title));
+                const url = sanitizeUrl(n.link || n.source_url || '');
+                const src = escapeHtml(n.source || 'SEBI');
+                const dateStr = n.date ? escapeHtml(new Date(n.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
+                const bk = npBookmarkBtn(url, title, 'SEBI');
+                return '<div class="slider-card slider-sebi"><div class="slider-card-body">'
+                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + src + '</div>'
+                    + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                    + (dateStr ? '<span class="rp-region">' + dateStr + '</span>' : '')
+                    + '</div>' + bk + '</div></div></div>';
+            }).join('');
+            return '<section class="slider-section">'
+                + '<div class="slider-header"><h2 class="slider-label">SEBI Notices</h2>'
+                + '<div class="slider-nav">' + sliderArrows('sebi-track') + '</div></div>'
+                + '<div class="slider-track" id="sebi-track">' + cards + '</div></section>';
+        }
+
         function buildPpSlider(items) {
             if (!items.length) return '';
             const cards = items.map(p => {
@@ -2469,6 +2513,7 @@
                 breakers[0],
                 buildYtSlider(result.youtube),
                 breakers[1],
+                buildSebiSlider(getSebiNotices()),
                 renderPatternB(s3),
                 breakers[2],
                 buildRpSlider(result.reports),
