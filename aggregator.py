@@ -1433,11 +1433,20 @@ def main():
     # Filter out articles older than configured days
     now = datetime.now(IST_TZ)
     cutoff_date = now - timedelta(days=NEWS_FRESHNESS_DAYS)
+    # Sources that bypass news-freshness pruning (low-frequency official orders;
+    # surfaced separately on the homepage with their own client-side date window)
+    FRESHNESS_BYPASS_SOURCES = {
+        "SEBI — Enforcement Orders",
+        "SEBI — Adjudication Orders",
+    }
     recent_articles = []
     old_count = 0
 
     for article in filtered_articles:
         article_date = article.get("date")
+        if article.get("source") in FRESHNESS_BYPASS_SOURCES:
+            recent_articles.append(article)
+            continue
         if article_date is None:
             # Keep articles without dates (will be sorted to end)
             recent_articles.append(article)
