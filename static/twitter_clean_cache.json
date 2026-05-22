@@ -1,26 +1,341 @@
 {
-  "generated_at": "2026-05-22T17:37:06.233310+05:30",
+  "generated_at": "2026-05-22T18:58:40.822325+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
-      "feeds_ok": 47,
-      "feeds_failed": 2,
-      "items_raw": 1226,
-      "resolve_attempted": 1226,
-      "resolve_resolved": 1219,
+      "feeds_ok": 48,
+      "feeds_failed": 1,
+      "items_raw": 1230,
+      "resolve_attempted": 1230,
+      "resolve_resolved": 1223,
       "resolve_cache_hits": 1213
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.0,
-      "items": 741,
-      "handles_ok": 46
+      "age_hours": 0.7,
+      "items": 784,
+      "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-05-22T17:37:06.233257+05:30"
+    "generated_at": "2026-05-22T18:58:40.822268+05:30"
   },
   "items": [
+    {
+      "title": "LPG consumption drops 13% in April as supply disruptions, fuel switching and affordability stress amid West Asia crisis reshape demand \ud83d\udd8a\ufe0f @puja_da...",
+      "link": "https://x.com/down2earthindia/status/2057804207613415890",
+      "date": "2026-05-22T12:42:09+00:00",
+      "tweet_id": "2057804207613415890",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7KAmxbcAAxlxZ?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "LPG consumption drops 13% in April as supply disruptions, fuel switching and affordability stress amid West Asia crisis reshape demand<br><br>\ud83d\udd8a\ufe0f @puja_das12 <br><br>https://www.downtoearth.org.in/energy/lpg-consumption-drops-13-in-april-as-supply-disruptions-fuel-switching-and-affordability-stress-amid-west-asia-crisis-reshape-demand<br><img width=\"1097\" height=\"681\" style=\"\" src=\"https://pbs.twimg.com/media/HI7KAmxbcAAxlxZ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "#FundFlow | FIIs Net Sell \u20b94,440.47 Cr While DIIs Net Buy \u20b96,003.53 Cr In Equities Today (Provisional)",
+      "link": "https://x.com/CNBCTV18Live/status/2057803997353001297",
+      "date": "2026-05-22T12:41:19+00:00",
+      "tweet_id": "2057803997353001297",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7JqhQasAIxB7I?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#FundFlow | FIIs Net Sell \u20b94,440.47 Cr While DIIs Net Buy \u20b96,003.53 Cr In Equities Today (Provisional)<br><img width=\"1441\" height=\"810\" style=\"\" src=\"https://pbs.twimg.com/media/HI7JqhQasAIxB7I?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "A little disappointing that RBI has given just 2.86 lakh crore as a dividend to the government. They had nearly 4 lakh crore of profit. And yet, chose...",
+      "link": "https://x.com/deepakshenoy/status/2057803739273261449",
+      "date": "2026-05-22T12:40:18+00:00",
+      "tweet_id": "2057803739273261449",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7I_cMbEAARnfj?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "A little disappointing that RBI has given just 2.86 lakh crore as a dividend to the government. <br><br>They had nearly 4 lakh crore of profit. And yet, chose to keep a substantial portion of it into their CRB - a risk buffer they have never had to use ever, and won't. <br><br>The official reason is to maintain 6.5% as a buffer. I hope they sell their gold now, reduce the balance sheet size which is extremely bloated, and can return even more. But these hopes, they just remain hopes. We deserve better.<br><img width=\"1181\" height=\"219\" style=\"\" src=\"https://pbs.twimg.com/media/HI7I_cMbEAARnfj?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "\ud83d\udce2 Introducing the Power Demand Tracker @_KushagraG of @CSEINDIA tracks the power demand as summer peaks in the country. In the first of daily updat...",
+      "link": "https://x.com/down2earthindia/status/2057803680838238509",
+      "date": "2026-05-22T12:40:04+00:00",
+      "tweet_id": "2057803680838238509",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7JZ-mbUAAPdjY?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\ud83d\udce2 Introducing the Power Demand Tracker<br><br>@_KushagraG of @CSEINDIA tracks the power demand as summer peaks in the country.<br><br>In the first of daily updates, he reports that India met its all-time high demand of 270.8 GW on May 21, with renewable energy's share 34%<br><br>https://www.downtoearth.org.in/energy/power-demand-tracker-india-meets-all-time-high-power-demand-of-2708-gw-renewable-energy-share-34<br><img width=\"989\" height=\"615\" style=\"\" src=\"https://pbs.twimg.com/media/HI7JZ-mbUAAPdjY?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Imagine how every taxpayer in this country must feel when watching this video. The way they mock us, our hard work and money. It gets more brazen ever...",
+      "link": "https://x.com/menakadoshi/status/2057802967831773304",
+      "date": "2026-05-22T12:37:14+00:00",
+      "tweet_id": "2057802967831773304",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2057494164552761344/img/dA-OFt11mp2lyJI7.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Imagine how every taxpayer in this country must feel when watching this video.<br><br>The way they mock us, our hard work and money. It gets more brazen everyday.<div class=\"rsshub-quote\"><br><br>Mohammed Futurewala:\u2002Only 50 cars convoy in Madhya Pradesh for saving the fuel\u2026 Jai Ho\ud83d\ude4f\ud83c\udffe<br><br><video width=\"720\" height=\"912\" src=\"https://video.twimg.com/amplify_video/2057494164552761344/vid/avc1/720x912/if8AYPZlWm309h0d.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2057494164552761344/img/dA-OFt11mp2lyJI7.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "The head of the Pakistani army, Field Marshal Asim Munir, is headed for the Iranian capital, state-run Islamic Republic News Agency reported on Friday...",
+      "link": "https://x.com/JavierBlas/status/2057802811300041144",
+      "date": "2026-05-22T12:36:36+00:00",
+      "tweet_id": "2057802811300041144",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The head of the Pakistani army, Field Marshal Asim Munir, is headed for the Iranian capital, state-run Islamic Republic News Agency reported on Friday. Munir has been the main mediator between Tehran and Washington.",
+      "category": "Twitter"
+    },
+    {
+      "title": "Opinion India\u2019s maize-led ethanol story shows how quickly policy can move markets; but course correction is needed The test now is whether policy can...",
+      "link": "https://x.com/down2earthindia/status/2057802599894577199",
+      "date": "2026-05-22T12:35:46+00:00",
+      "tweet_id": "2057802599894577199",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7Ii2UbMAA4R6I?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Opinion<br><br>India\u2019s maize-led ethanol story shows how quickly policy can move markets; but course correction is needed<br><br>The test now is whether policy can move just as fast to rebuild the guardrails that keep food security, nutrition, water and soil at the centre of India\u2019s energy transition, writes Abhay Kumar Singh<br><br>https://www.downtoearth.org.in/energy/indias-maize-led-ethanol-story-shows-how-quickly-policy-can-move-markets-but-course-correction-is-needed<br><img width=\"1098\" height=\"686\" style=\"\" src=\"https://pbs.twimg.com/media/HI7Ii2UbMAA4R6I?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "PROSTARM INFO SYSTEMS: Q4 NET PROFIT 88M RUPEES VS 68M (YOY) || Q4 REVENUE 1B RUPEES VS 780M (YOY) PROSTARM INFO SYSTEMS: Q4 EBITDA 119M RUPEES VS 112...",
+      "link": "https://x.com/REDBOXINDIA/status/2057802402607267943",
+      "date": "2026-05-22T12:34:59+00:00",
+      "tweet_id": "2057802402607267943",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "PROSTARM INFO SYSTEMS: Q4 NET PROFIT 88M RUPEES VS 68M (YOY) || Q4 REVENUE 1B RUPEES VS 780M (YOY)<br><br>PROSTARM INFO SYSTEMS: Q4 EBITDA 119M RUPEES VS 112M (YOY) || Q4 EBITDA MARGIN 11.54% VS 14.32% (YOY)",
+      "category": "Twitter"
+    },
+    {
+      "title": "Comment Climate change is no longer only an environmental story, or even an economic one. It is a clinical one; that is a calculus policymakers, and v...",
+      "link": "https://x.com/down2earthindia/status/2057802248588304422",
+      "date": "2026-05-22T12:34:22+00:00",
+      "tweet_id": "2057802248588304422",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7IIgRbQAAffyF?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Comment<br><br>Climate change is no longer only an environmental story, or even an economic one. It is a clinical one; that is a calculus policymakers, and voters, would do well to internalise, writes Pallavi Mishra<br><br>https://www.downtoearth.org.in/climate-change/indias-fossil-fuel-subsidy-bill-now-exceeds-its-health-budget-the-lancet-just-told-us-why-that-matters<br><img width=\"1093\" height=\"685\" style=\"\" src=\"https://pbs.twimg.com/media/HI7IIgRbQAAffyF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "#Colgate beats sales estimates in Q4, announces \u20b924 dividend https://www.cnbctv18.com/market/earnings/colgate-beats-sales-estimates-in-q4-announces-r...",
+      "link": "https://x.com/CNBCTV18Live/status/2057801838314008725",
+      "date": "2026-05-22T12:32:45+00:00",
+      "tweet_id": "2057801838314008725",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Colgate beats sales estimates in Q4, announces \u20b924 dividend<br><br>https://www.cnbctv18.com/market/earnings/colgate-beats-sales-estimates-in-q4-announces-rs-24-dividend-ws-l-19911721.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "#EicherMotors #Q4Results: Cons profit grows 12% YoY to Rs 1,520 crore, revenue jumps 16% https://economictimes.indiatimes.com/markets/stocks/earnings/...",
+      "link": "https://x.com/ETMarkets/status/2057800846478647573",
+      "date": "2026-05-22T12:28:48+00:00",
+      "tweet_id": "2057800846478647573",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7G3WlaoAEsB7T?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#EicherMotors #Q4Results: Cons profit grows 12% YoY to Rs 1,520 crore, revenue jumps 16%<br><br>https://economictimes.indiatimes.com/markets/stocks/earnings/eicher-motors-q4-results-cons-profit-grows-12-yoy-to-rs-1520-crore-revenue-jumps-16/articleshow/131262844.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HI7G3WlaoAEsB7T?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "#Hindalco #Q4Results: Profit falls 51% YoY to Rs 2,597 crore; co declares Rs 5 dividend https://economictimes.indiatimes.com/markets/stocks/earnings/h...",
+      "link": "https://x.com/ETMarkets/status/2057799845218496883",
+      "date": "2026-05-22T12:24:49+00:00",
+      "tweet_id": "2057799845218496883",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7GA1ybQAEAgxt?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Hindalco #Q4Results: Profit falls 51% YoY to Rs 2,597 crore; co declares Rs 5 dividend<br><br>https://economictimes.indiatimes.com/markets/stocks/earnings/hindalco-q4-results-profit-falls-51-yoy-to-rs-2597-crore-co-declares-rs-5-dividend/articleshow/131263290.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HI7GA1ybQAEAgxt?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "MODISON: Q4 NET PROFIT 360M RUPEES VS 95M (YOY) || Q4 REVENUE 2.9B RUPEES VS 1.3B (YOY) MODISON: Q4 EBITDA 714M RUPEES VS 154M (YOY) || Q4 EBITDA MARG...",
+      "link": "https://x.com/REDBOXINDIA/status/2057798803353419861",
+      "date": "2026-05-22T12:20:41+00:00",
+      "tweet_id": "2057798803353419861",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "MODISON: Q4 NET PROFIT 360M RUPEES VS 95M (YOY) || Q4 REVENUE 2.9B RUPEES VS 1.3B (YOY)<br><br>MODISON: Q4 EBITDA 714M RUPEES VS 154M (YOY) || Q4 EBITDA MARGIN 24.84% VS 11.82% (YOY)",
+      "category": "Twitter"
+    },
+    {
+      "title": "#EicherMotors Q4 Results: #RoyalEnfield sales power earnings beat, margin rise @sheersh0510 https://www.cnbctv18.com/market/eicher-motors-q4-results-r...",
+      "link": "https://x.com/CNBCTV18Live/status/2057798731869864204",
+      "date": "2026-05-22T12:20:24+00:00",
+      "tweet_id": "2057798731869864204",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#EicherMotors Q4 Results: #RoyalEnfield sales power earnings beat, margin rise<br><br>@sheersh0510 <br><br>https://www.cnbctv18.com/market/eicher-motors-q4-results-royal-enfield-sales-power-earnings-beat-margin-rise-ws-l-19911726.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "JINDAL DRILLING AND INDUSTRIES: Q4 SL NET PROFIT 322M RUPEES VS 533M (YOY) || Q4 REVENUE 2.62B RUPEES VS 2.45B (YOY) JINDAL DRILLING AND INDUSTRIES: Q...",
+      "link": "https://x.com/REDBOXINDIA/status/2057797361238483005",
+      "date": "2026-05-22T12:14:57+00:00",
+      "tweet_id": "2057797361238483005",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "JINDAL DRILLING AND INDUSTRIES: Q4 SL NET PROFIT 322M RUPEES VS 533M (YOY) || Q4 REVENUE 2.62B RUPEES VS 2.45B (YOY)<br><br>JINDAL DRILLING AND INDUSTRIES: Q4 EBITDA 781M RUPEES VS 870M (YOY) || Q4 EBITDA MARGIN 29.71% VS 35.5% (YOY)",
+      "category": "Twitter"
+    },
+    {
+      "title": "Analysis: UK no longer top UN Green Climate Fund donor after latest aid cut | @Josh_Gabbatiss Read here: https://buff.ly/9HdaFV9",
+      "link": "https://x.com/CarbonBrief/status/2057796876292817087",
+      "date": "2026-05-22T12:13:01+00:00",
+      "tweet_id": "2057796876292817087",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7DWnxW0AAkul5?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Analysis: UK no longer top UN Green Climate Fund donor after latest aid cut | @Josh_Gabbatiss<br><br>Read here: https://buff.ly/9HdaFV9<br><img width=\"1560\" height=\"916\" style=\"\" src=\"https://pbs.twimg.com/media/HI7DWnxW0AAkul5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Asia Pac ex-Japan COUNTRY-SECTORS Equity Flow Long-only in USD billions: LAST MONTH Our Understanding So India quietly took in around 2.88 billion dol...",
+      "link": "https://x.com/exencial_RP/status/2057796869359890739",
+      "date": "2026-05-22T12:13:00+00:00",
+      "tweet_id": "2057796869359890739",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI5oKrzbEAA8ruC?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Asia Pac ex-Japan COUNTRY-SECTORS Equity Flow Long-only in USD billions: LAST MONTH<br><br>Our Understanding <br><br>So India quietly took in around 2.88 billion dollars while the rest of Asia Pacific ex Japan lost almost 50 billion. Simplest read, money is bailing out of North Asia and finding a home in India, not really a brand new India bull case. The tell would be a China recovery pulling that money back out.<br><br>Most of the inflow was Telecom at 1.24 billion, with decent help from Diversified Financials, Industrials, Software and Health Care. The soft spots were Consumer Staples, Banks, Insurance and Real Estate, all gently negative. Add it up and you still land at a tidy plus 2.88 billion, a rare green country.<br><br>Underneath, the month basically liked growth and infrastructure and shrugged at staples and the banks. The thing worth flagging is how lopsided it is, with Telecom doing almost all the work, so India's standout month rests on a pretty narrow base rather than broad sector wide demand.<br><img width=\"1199\" height=\"499\" style=\"\" src=\"https://pbs.twimg.com/media/HI5oKrzbEAA8ruC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Exencial Research Partners:\u2002http://x.com/i/article/2057343123660099584<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "In the world\u2019s most populous country, where over 60% survive on free food grain and graduate unemployment is very high, one state is offering cash in...",
+      "link": "https://x.com/menakadoshi/status/2057796158521790934",
+      "date": "2026-05-22T12:10:10+00:00",
+      "tweet_id": "2057796158521790934",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "In the world\u2019s most populous country, where over 60% survive on free food grain and graduate unemployment is very high, one state is offering cash incentives to fund a baby boom.<br><br>\u201cIt\u2019s an utterly stupid move in every possible examinable way,\u201d said political scientist Devesh Kapur.<br><br>Read - An Indian State\u2019s Cash-for-Babies Gambit<br>\ud83d\udc47<br>https://www.bloomberg.com/news/newsletters/2026-05-21/india-s-andhra-pradesh-offers-cash-to-boost-birth-rate-as-population-ages?srnd=undefined",
+      "category": "Twitter"
+    },
+    {
+      "title": "EIH ASSOCIATED HOTELS: Q4 SL NET PROFIT 376M RUPEES VS 463M (YOY) || Q4 REVENUE 1.27B RUPEES VS 1.4B (YOY) EIH ASSOCIATED HOTELS: Q4 EBITDA 496M RUPEE...",
+      "link": "https://x.com/REDBOXINDIA/status/2057795946642297077",
+      "date": "2026-05-22T12:09:20+00:00",
+      "tweet_id": "2057795946642297077",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "EIH ASSOCIATED HOTELS: Q4 SL NET PROFIT 376M RUPEES VS 463M (YOY) || Q4 REVENUE 1.27B RUPEES VS 1.4B (YOY)<br><br>EIH ASSOCIATED HOTELS: Q4 EBITDA 496M RUPEES VS 506M (YOY) || Q4 EBITDA MARGIN 39% VS 36.14% (YOY)",
+      "category": "Twitter"
+    },
+    {
+      "title": "Slowly choking Mumbai to death.",
+      "link": "https://x.com/menakadoshi/status/2057795207756927324",
+      "date": "2026-05-22T12:06:24+00:00",
+      "tweet_id": "2057795207756927324",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2057691053424336896/pu/img/EGODyXkZ93s2ciYu.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Slowly choking Mumbai to death.<div class=\"rsshub-quote\"><br><br>Ranjeet Shamal Bajirao Jadhav:\u2002Green buffer turns grey as illegal dumping spreads near SGNP ESZ, sparks 'land mafia' fears.<br><br>#sgnp #debrisdumping #ecosensitivezone #mumbai #bmc<br><br><video width=\"720\" height=\"1280\" src=\"https://video.twimg.com/ext_tw_video/2057691053424336896/pu/vid/avc1/720x1280/wBxdUM8gQ6xQ_u9i.mp4?tag=25\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2057691053424336896/pu/img/EGODyXkZ93s2ciYu.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RBI dividend: Highest till date, but a-little lower RBI announced a record dividend transfer of \u20b92.87 trillion to the government, slightly below mark...",
+      "link": "https://x.com/Nigel__DSouza/status/2057794725973823977",
+      "date": "2026-05-22T12:04:29+00:00",
+      "tweet_id": "2057794725973823977",
+      "source": "Nigel D'Souza",
+      "publisher": "Nigel D'Souza",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7BURHbIAAyzLu?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RBI dividend: Highest till date, but a-little lower <br><br>RBI announced a record dividend transfer of \u20b92.87 trillion to the government, slightly below market expectations of \u20b93 trillion on account of higher contingency buffer. <br><br>\ud83d\udc49 GoI budgeted \u20b93.2 trillion in receipts from RBI &amp; PSUs combined. <br><br>\ud83d\udc49 Under the revised Economic Capital Framework, the RBI retained the Contingent Risk Buffer at 6.5% of the balance sheet (target range: 4.5-7.5%)<br><br>The board also approved a sharply higher transfer of \u20b91.09 trillion to the buffer for FY26 vs \u20b944900 cr in the previous year. So lower than expected transfer does increase the risk of fiscal slippage<br><br>Budgeted \ud83d\udc49 4.3% of GDP<br>Expected \ud83d\udc49 4.7% of GDP<br><br>Could be marginally negative for the yields<br><img width=\"526\" height=\"303\" style=\"\" src=\"https://pbs.twimg.com/media/HI7BURHbIAAyzLu?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
     {
       "title": "HINDALCO: Q4 CONS NET PROFIT 26B RUPEES VS 52.8B (YOY) || Q4 REVENUE 781B RUPEES VS 649B (YOY) HINDALCO: Q4 EBITDA 100B RUPEES VS 88.36B (YOY) || Q4 E...",
       "link": "https://x.com/REDBOXINDIA/status/2057794222435213682",
@@ -52,6 +367,21 @@
       "category": "Twitter"
     },
     {
+      "title": "By Sorit Gupto",
+      "link": "https://x.com/down2earthindia/status/2057793629058691337",
+      "date": "2026-05-22T12:00:07+00:00",
+      "tweet_id": "2057793629058691337",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI7ANLeboAAKT94?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "By Sorit Gupto<br><img width=\"1377\" height=\"1347\" style=\"\" src=\"https://pbs.twimg.com/media/HI7ANLeboAAKT94?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "The history of stock market bubble concentration The bubble history of stock market concentration measured as % of US market cap",
       "link": "https://x.com/exencial_RP/status/2057791331075031426",
       "date": "2026-05-22T11:50:59+00:00",
@@ -64,6 +394,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The history of stock market bubble concentration<br><br>The bubble history of stock market concentration measured as % of US market cap<br><img width=\"1582\" height=\"831\" style=\"\" src=\"https://pbs.twimg.com/media/HI6-LA3aUAAPz2f?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "#ShilpaMedicare Q4 results: Shares gain on sharp profit growth, exceptional gains boost earnings @GareemaBangad https://www.cnbctv18.com/market/shilpa...",
+      "link": "https://x.com/CNBCTV18Live/status/2057790246524510609",
+      "date": "2026-05-22T11:46:41+00:00",
+      "tweet_id": "2057790246524510609",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#ShilpaMedicare Q4 results: Shares gain on sharp profit growth, exceptional gains boost earnings<br><br>@GareemaBangad <br><br>https://www.cnbctv18.com/market/shilpa-medicare-q4-results-shares-gain-on-sharp-profit-growth-exceptional-gains-boost-earnings-ws-l-19911632.htm",
       "category": "Twitter"
     },
     {
@@ -106,9 +451,9 @@
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
-      "is_quote": true,
+      "is_quote": false,
       "is_reply": false,
-      "description_html": "You know what? <br><br>Today, I will take you head on and not get intimidated by a 2 rs troll. <br><br>I have covered numerous sectors from Cdmo to aerospace to financials to shipbuilding and what not with an intention to share knowledge. Given your hate and stupidity you don\u2019t even realise that I haven\u2019t covered names like route etc that you have mentioned. I get it why you\u2019re doing this- you want cheap attention &amp; your twitter payout .  Even businesses like alkyl at numerous places I have mentioned how margins are at an all time high and non replicable. <br><br>Many many businesses which have done well but given you just want to defame. I will mention this- <br><br>Those who know us and have followed hardwork of @soicfinance @ResearchSOIC - will know the value we have delivered. <br><br>For 2rs troll like you - this is the last bit of attention that you deserve especially when you can\u2019t even write your real name. <br><br>Our work will go on and get better from here :)<div class=\"rsshub-quote\"><br><br>Margin of Safety\ud83c\uddee\ud83c\uddf3:\u200280% of the stocks praised by Lishmohit in hourly long videos few years back have never seen their top again.<br><br>Alkyl amines<br>IEX<br>Clean science<br>Route mobile<br>Tanla<br>Astral<br>etc etc<br></div>",
+      "description_html": "You know what? <br><br>Today, I will take you head on and not get intimidated by a 2 rs troll. <br><br>I have covered numerous sectors from Cdmo to aerospace to financials to shipbuilding and what not with an intention to share knowledge. Given your hate and stupidity you don\u2019t even realise that I haven\u2019t covered names like route etc that you have mentioned. I get it why you\u2019re doing this- you want cheap attention &amp; your twitter payout .  Even businesses like alkyl at numerous places I have mentioned how margins are at an all time high and non replicable. <br><br>Many many businesses which have done well but given you just want to defame. I will mention this- <br><br>Those who know us and have followed hardwork of @soicfinance @ResearchSOIC - will know the value we have delivered. <br><br>For 2rs troll like you - this is the last bit of attention that you deserve especially when you can\u2019t even write your real name. <br><br>Our work will go on and get better from here :)",
       "category": "Twitter"
     },
     {
@@ -124,6 +469,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "TORRENT PHARMACEUTICALS: Q4 CONS NET PROFIT 3.9B RUPEES VS 4.98B (YOY) || Q4 REVENUE 41.3B RUPEES VS 29.6B (YOY)<br><br>TORRENT PHARMACEUTICALS: Q4 EBITDA 12.7B RUPEES VS 9.64B (YOY) || Q4 EBITDA MARGIN 30.77% VS 32.58% (YOY)",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Gregg Carlstrom: A good summary from Raz of where we are: \"Trump will have to do what none of us likes to do: prioritize. If, in his view, the Horm...",
+      "link": "https://x.com/JavierBlas/status/2057795981480001556",
+      "date": "2026-05-22T11:32:48+00:00",
+      "tweet_id": "2057795981480001556",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Gregg Carlstrom<br>A good summary from Raz of where we are:<br><br>\"Trump will have to do what none of us likes to do: prioritize. If, in his view, the Hormuz issue is the top priority (which is probably the case, given the US set of considerations and the global economy), he may have to accept greater compromises on the nuclear issue (ie, settle for less significant Iranian concessions, at least in the initial framework agreement phase).\"<div class=\"rsshub-quote\"><br><br>Raz Zimmt:\u2002In the coming days, President Trump will likely be forced to reach the frustrating conclusion that, under the current reality, it is not possible to impose on Iran what it perceives as surrender\u2014neither on the nuclear issue nor on control over Hormuz. There are several reasons<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT ValueEquity: Rategain Technologies Q4FY26 concall notes ,my notes from the call concluded , some very interesting commentary on using AI and also c...",
+      "link": "https://x.com/EquityValueIn/status/2057801978248614239",
+      "date": "2026-05-22T11:30:00+00:00",
+      "tweet_id": "2057801978248614239",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI6ntq_bUAASm4E?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002ValueEquity<br>Rategain Technologies Q4FY26 concall notes ,my notes from the call concluded , some very interesting commentary on using AI and also creating a culture to keep experimenting through AI based focused outcomes <br><br>One of the co's in IT space I like a lot , apart from the my usual favorites like coforge , indegene !<br><img width=\"601\" height=\"396\" style=\"\" src=\"https://pbs.twimg.com/media/HI6ntq_bUAASm4E?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"634\" height=\"423\" style=\"\" src=\"https://pbs.twimg.com/media/HI6pfcMbcAAiQEf?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -154,6 +529,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "After non-stop  depreciation since 7th May till 20th May and hitting a closing low of 96.825 a $, INR reverses the trend. After appreciating on Thursday, Indian currency continued its appreciation on Friday. Rupee closed at 95.70 a dollar against yesterday\u2019s close of 96.20",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT CSEINDIA: Re \"The Jal Jeevan Mission 2.0 now aims to strengthen the Gram Panchayats and Gram Sabhas \u2013 the third level of governance in rural areas...",
+      "link": "https://x.com/down2earthindia/status/2057793267459342483",
+      "date": "2026-05-22T11:26:33+00:00",
+      "tweet_id": "2057793267459342483",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI64tcDaUAA-8qN?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CSEINDIA<br>Re \"The Jal Jeevan Mission 2.0 now aims to strengthen the Gram Panchayats and Gram Sabhas \u2013 the third level of governance in rural areas \u2013 so that they can own and operate the water and wastewater management systems.\u201d <br><br>Ashok K K Meena, IAS, secretary, Department of Drinking Water and Sanitation, @DoWRRDGR_MoJS emphasised the government\u2019s focus on passing on the management of water resources to local communities and management bodies at the national workshop.<br><img width=\"2048\" height=\"1426\" style=\"\" src=\"https://pbs.twimg.com/media/HI64tcDaUAA-8qN?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -247,6 +637,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Raju Sajwan: State governments spend nearly \u20b91 lakh crore every year and the central government spends \u20b933,000 crore on social assistance pension...",
+      "link": "https://x.com/down2earthindia/status/2057793297171800348",
+      "date": "2026-05-22T11:16:49+00:00",
+      "tweet_id": "2057793297171800348",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI6xJSlbIAAuFv3?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Raju Sajwan<br>State governments spend nearly \u20b91 lakh crore every year and the central government spends \u20b933,000 crore on social assistance pensions for more than 90 million people. these pensions are extremely important, but amount provided in many states remains very low. Read this report.<div class=\"rsshub-quote\"><br><br>Down To Earth:\u2002A government-commissioned study finds poor elderly people, widows and disabled citizens spend most of their social pensions on food and medical treatment, as stagnant NSAP benefits since 2012 fail to keep up with inflation, prompting calls for a national floor pension and<br><br><img width=\"2048\" height=\"1365\" style=\"\" src=\"https://pbs.twimg.com/media/HI6xJSlbIAAuFv3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "A gargantuan energy deal for the AI age https://ft.trib.al/o9urf29",
       "link": "https://x.com/ftenergy/status/2057782198514655621",
       "date": "2026-05-22T11:14:42+00:00",
@@ -292,6 +697,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT CNBC-TV18: Mag-7 mcap @ IPO : $132 billion Current Mag-7 mcap : $24 trillion The $24 trillion created resided with \u2018public\u2019 investors. With Space...",
+      "link": "https://x.com/_prashantnair/status/2057790777921859732",
+      "date": "2026-05-22T11:13:20+00:00",
+      "tweet_id": "2057790777921859732",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI61vloaMAAq23w?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>Mag-7 mcap @ IPO : $132 billion<br><br>Current Mag-7 mcap : $24 trillion<br><br>The $24 trillion created resided with \u2018public\u2019 investors.<br><br>With SpaceX &amp; others IPOing at trillion $ valuations, @_prashantnair asks what's left for public investors ?<br><br>#Nifty #BankNifty #Investing #SpaceX<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2057781309280485376/vid/avc1/1920x1080/kjML_6xbW4yqZnE4.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/media/HI61vloaMAAq23w?format=jpg&amp;name=orig\"></video>",
+      "category": "Twitter"
+    },
+    {
       "title": "Share of global electricity generation by technology/fuel Our Understanding So the honest takeaway here is that coal share caves globally as solar and...",
       "link": "https://x.com/exencial_RP/status/2057781518098199016",
       "date": "2026-05-22T11:12:00+00:00",
@@ -304,6 +724,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Share of global electricity generation by technology/fuel<br><br>Our Understanding <br><br>So the honest takeaway here is that coal share caves globally as solar and wind stack up, meeting near 2032. For India it lands on new thermal maths, since any fresh coal plant must recover cost on a utilisation curve this very trend keeps dragging lower. Stalled firming would flip the whole read.<br><br>Who wins, mostly solar, wind, transmission and storage, as a firming layer thickens over a cheaper variable base of generation. Who loses, late coal capex and merchant thermal leaning on demand hours that quietly evaporate. Net of it, value drifts off fuel and onto grid capital instead.<br><br>Zoom out to the sector and it tilts renewables, transmission and storage into the structural sweet spot, while conventional thermal sits with terminal value risk on late builds. Think relative standing, not a timing call, because India coal is still doing the baseload work today across the grid.<br><img width=\"1200\" height=\"579\" style=\"\" src=\"https://pbs.twimg.com/media/HI5n1_6b0AE88rl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Exencial Research Partners:\u2002http://x.com/i/article/2057343123660099584<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "CCC: Investing in \u2018urgent\u2019 UK adaptation action \u2018cheaper than climate damages\u2019 | @Josh_Gabbatiss @MollyLempriere @GAViglione Read here: https://bu...",
+      "link": "https://x.com/CarbonBrief/status/2057781275235131397",
+      "date": "2026-05-22T11:11:02+00:00",
+      "tweet_id": "2057781275235131397",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI61KiCW8AAtqJj?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "CCC: Investing in \u2018urgent\u2019 UK adaptation action \u2018cheaper than climate damages\u2019 | @Josh_Gabbatiss @MollyLempriere @GAViglione<br><br>Read here: https://buff.ly/52cM8NZ<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HI61KiCW8AAtqJj?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -427,6 +862,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT India Wildlife News: DRI Pune's wildlife trafficking bust this week: 3 Malabar giant squirrels in cartons near a railway station, 7 Indian star tor...",
+      "link": "https://x.com/menakadoshi/status/2057803245389787379",
+      "date": "2026-05-22T10:49:07+00:00",
+      "tweet_id": "2057803245389787379",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI6v_09boAAMxZs?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002India Wildlife News<br>DRI Pune's wildlife trafficking bust this week: 3 Malabar giant squirrels in cartons near a railway station, 7 Indian star tortoises at a second location, 2 arrests.<br>Both species protected under Schedule I of the Wildlife Protection Act, 1972. Read more: https://indiawildlifenews.com/2026/05/22/dri-pune-malabar-giant-squirrel-star-tortoise-seized-2026/<br><br>#WildlifeCrime #IWT #Pune #Maharashtra<br><br>Malabar Giant Squirrel. Photo by Dhruvaraj S -- This file is licensed under the Creative Commons Attribution 2.0 Generic license.<br><img width=\"960\" height=\"639\" style=\"\" src=\"https://pbs.twimg.com/media/HI6v_09boAAMxZs?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "PARAMOUNT COMMUNICATIONS: Q4 CONS NET PROFIT 205M RUPEES VS 187M (YOY) || Q4 REVENUE 5.7B RUPEES VS 5.1B (YOY) PARAMOUNT COMMUNICATIONS: Q4 EBITDA 300...",
       "link": "https://x.com/REDBOXINDIA/status/2057775038791885105",
       "date": "2026-05-22T10:46:15+00:00",
@@ -484,6 +934,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "CENTURY PLYBOARDS (INDIA): Q4 CONS NET PROFIT 780M RUPEES VS 525M (YOY) || Q4 REVENUE 14.9B RUPEES VS 11.98B (YOY)<br><br>CENTURY PLYBOARDS (INDIA): Q4 EBITDA 1.77B RUPEES VS 1.3B (YOY) || Q4 EBITDA MARGIN 11.90% VS 11.23% (YOY)",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT CSEINDIA: Just Released: Managing Greywater in Two Agroclimatic Zones Jal Jeevan Mission (JJM) has not only ensured water supply at the doorstep of...",
+      "link": "https://x.com/down2earthindia/status/2057793232004923698",
+      "date": "2026-05-22T10:41:44+00:00",
+      "tweet_id": "2057793232004923698",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI6uDabbYAAvW-V?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CSEINDIA<br>Just Released: Managing Greywater in Two Agroclimatic Zones<br><br>Jal Jeevan Mission (JJM) has not only ensured water supply at the doorstep of each rural household but it also focuses on managing greywater from kitchens, bathrooms and washing areas. JJM went, for the first time in India, beyond water supply alone to tackle wastewater-related issues.<br><br>To assess how this transition is unfolding on the ground, the Centre for Science and Environment (CSE), with support from Tata Trusts examined two ecologically distinct districts: Pali in Rajasthan and Banda in Uttar Pradesh.<br><br>The study covered nearly 30 villages and 589 households across the two districts<br><br>Multi-village surface-water-based schemes have been planned under JJM in both districts, but due to irregular supply both districts have shifted largely to groundwater-based sources, public or private.<br><br>CSE\u2019s analysis shows that underestimating greywater generation has led to the installation of undersized or improperly sited greywater management structures.<br><br>Get the copy of the report now: https://www.cseindia.org/managing-greywater-in-two-agroclimatic-zones-13122<br><img width=\"1503\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HI6uDabbYAAvW-V?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "New coal plants hit \u201810-year\u2019 global high in 2025 \u2013 but power output still fell | @MollyLempriere @GlobalEnergyMon Read here: https://buff.ly/6ULYS...",
+      "link": "https://x.com/CarbonBrief/status/2057773472495874115",
+      "date": "2026-05-22T10:40:02+00:00",
+      "tweet_id": "2057773472495874115",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI6uEYvXQAA0Pq4?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "New coal plants hit \u201810-year\u2019 global high in 2025 \u2013 but power output still fell | @MollyLempriere @GlobalEnergyMon <br><br>Read here: https://buff.ly/6ULYS42<br><img width=\"1560\" height=\"730\" style=\"\" src=\"https://pbs.twimg.com/media/HI6uEYvXQAA0Pq4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -667,36 +1147,6 @@
       "category": "Twitter"
     },
     {
-      "title": "LUPIN: CO RECEIVES CHINA APPROVAL FOR OSELTAMIVIR PHOSPHATE ORAL SUSPENSION",
-      "link": "https://x.com/REDBOXINDIA/status/2057768670815003087",
-      "date": "2026-05-22T10:20:57+00:00",
-      "tweet_id": "2057768670815003087",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "LUPIN: CO RECEIVES CHINA APPROVAL FOR OSELTAMIVIR PHOSPHATE ORAL SUSPENSION",
-      "category": "Twitter"
-    },
-    {
-      "title": "STERLITE TECHNOLOGIES LTD: SUBSIDIARY RECEIVES MULTI-YEAR SUPPLY AGREEMENT WORTH ~USD 1.11 BILLION OR 10,000 CR RS FROM A HYPERSCALE PARTNER; CONTRACT...",
-      "link": "https://x.com/REDBOXINDIA/status/2057768090562437616",
-      "date": "2026-05-22T10:18:38+00:00",
-      "tweet_id": "2057768090562437616",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "STERLITE TECHNOLOGIES LTD: SUBSIDIARY RECEIVES MULTI-YEAR SUPPLY AGREEMENT WORTH ~USD 1.11 BILLION OR 10,000 CR RS FROM A HYPERSCALE PARTNER; CONTRACT FOR OPTICAL CONNECTIVITY PRODUCTS TO BE EXECUTED BY MARCH 2029.",
-      "category": "Twitter"
-    },
-    {
       "title": "#RupeeAtClose | Rupee Ends At One week High Of 95.68/$ Vs Thursday\u2019s Close Of 96.20/$ Rupee Gains 1.3% From Record Low Of 96.96/$ Hit On May 20 Rupee...",
       "link": "https://x.com/CNBCTV18Live/status/2057767646448570605",
       "date": "2026-05-22T10:16:53+00:00",
@@ -772,33 +1222,33 @@
       "category": "Twitter"
     },
     {
-      "title": "SEPC LTD: MOIL LIMITED CANCELS WORK ORDER VALUED AT 2.30B RUPEES",
-      "link": "https://x.com/REDBOXINDIA/status/2057763623951606239",
-      "date": "2026-05-22T10:00:54+00:00",
-      "tweet_id": "2057763623951606239",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
+      "title": "NEW \u2013 Guest post: How CMIP7 will shape the next wave of climate science \u270d\ufe0f Beth Dingley @ht_hewitt John Dunne and Eleanor O'Rourke Read here: https...",
+      "link": "https://x.com/CarbonBrief/status/2057764110570230109",
+      "date": "2026-05-22T10:02:50+00:00",
+      "tweet_id": "2057764110570230109",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HI6ljeNXQAAB-e6?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "SEPC LTD: MOIL LIMITED CANCELS WORK ORDER VALUED AT 2.30B RUPEES",
+      "description_html": "NEW \u2013 Guest post: How CMIP7 will shape the next wave of climate science <br><br>\u270d\ufe0f Beth Dingley @ht_hewitt John Dunne and Eleanor O'Rourke <br><br>Read here: https://buff.ly/eWkuPnc<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HI6ljeNXQAAB-e6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
-      "title": "SHILPA MEDICARE: CO EXPECTS COMMERCIALIZATION OF ONE CDMO NCE PROJECT IN FY27; 2 NBE PROJECTS TO ENTER HUMAN STUDIES, RECOMBINANT ALBUMIN PHASE-3 TRIA...",
-      "link": "https://x.com/REDBOXINDIA/status/2057763000485069107",
-      "date": "2026-05-22T09:58:25+00:00",
-      "tweet_id": "2057763000485069107",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
+      "title": "Factcheck: Trump\u2019s false claims about the IPCC and \u2018RCP8.5\u2019 climate scenario | @rtmcswee Cecilia Keating @hausfath Read here \u27a1\ufe0f https://buff.ly/7...",
+      "link": "https://x.com/CarbonBrief/status/2057762901276913966",
+      "date": "2026-05-22T09:58:01+00:00",
+      "tweet_id": "2057762901276913966",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HI6kdDuXMAA00zU?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "SHILPA MEDICARE: CO EXPECTS COMMERCIALIZATION OF ONE CDMO NCE PROJECT IN FY27; 2 NBE PROJECTS TO ENTER HUMAN STUDIES, RECOMBINANT ALBUMIN PHASE-3 TRIALS TO BEGIN IN 1HFY27",
+      "description_html": "Factcheck: Trump\u2019s false claims about the IPCC and \u2018RCP8.5\u2019 climate scenario | @rtmcswee Cecilia Keating @hausfath<br><br>Read here \u27a1\ufe0f  https://buff.ly/727LWJo<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HI6kdDuXMAA00zU?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -922,21 +1372,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#4QWithCNBCV18 | #ShilpaMedicare reports its Q4 results; \ud83d\udc49Net Profit At \u20b9108 Cr Vs \u20b914.5 Cr (YoY) \ud83d\udc49Revenue Up 32% At \u20b9437 Cr Vs \u20b9331 Cr (YoY...",
-      "link": "https://x.com/CNBCTV18Live/status/2057757348593373188",
-      "date": "2026-05-22T09:35:57+00:00",
-      "tweet_id": "2057757348593373188",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HI6fYbVboAAycnC?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#4QWithCNBCV18 | #ShilpaMedicare reports its Q4 results;<br><br>\ud83d\udc49Net Profit At \u20b9108 Cr Vs \u20b914.5 Cr (YoY)<br><br>\ud83d\udc49Revenue Up 32% At \u20b9437 Cr Vs \u20b9331 Cr (YoY)<br><br>\ud83d\udc49Up 49.6% At \u20b9119.7 Cr Vs \u20b980 Cr (YoY)<br><br>\ud83d\udc49Margin At 27.4% Vs 24.1% (YoY)<br><br>\ud83d\udc49One-time Gain Of \u20b925 Cr Vs One-time Loss Of \u20b930.6 Cr (YoY)<br><img width=\"598\" height=\"333\" style=\"\" src=\"https://pbs.twimg.com/media/HI6fYbVboAAycnC?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Palantir and the Physics of Execution https://antifragilethinking.substack.com/p/palantir-and-the-physics-of-execution Palantir may be one of the few ...",
       "link": "https://x.com/unseenvalue/status/2057757153067225148",
       "date": "2026-05-22T09:35:11+00:00",
@@ -1039,6 +1474,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Our Understanding <br><br>Look at what China just did, it grabbed the entire biopharma chain at once, licensing, trials and the WuXi style manufacturing base. The reason this matters for India is simple, every big pharma now needs a backup geography, and that search for a second source is the channel that flows straight toward us.<br><br>So who actually catches it. The work drifts toward Syngene, Divis and the wider CRAMS crowd as clients hedge their China exposure. China still wins on sheer scale and speed though, so India does not inherit the whole thing, only the slice that goes to whoever can prove they handle real volume well.<br><br>For allocators the clean way to hold this is at the outsourcing theme, not one stock. China stepping back leaves a long runway for Indian CRO and CDMO platforms that already pass Western audits, while the smaller formulation names mostly miss out. The edge keeps tilting toward scale and compliance.<br><img width=\"1199\" height=\"647\" style=\"\" src=\"https://pbs.twimg.com/media/HI5nPijakAAVCqr?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Exencial Research Partners:\u2002http://x.com/i/article/2057343123660099584<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Daily Briefing: UK\u2019s \u2018most-ambitious\u2019 targets | US eases \u2018super pollutant\u2019 rules | Colombia\u2019s \u2018climate crossroads\u2019 \u27a1\ufe0f Read today's briefing ...",
+      "link": "https://x.com/CarbonBrief/status/2057748645441638617",
+      "date": "2026-05-22T09:01:22+00:00",
+      "tweet_id": "2057748645441638617",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2057748634477772800/pu/img/dyMsAT9WXmwOvn54.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Daily Briefing: UK\u2019s \u2018most-ambitious\u2019 targets | US eases \u2018super pollutant\u2019 rules | Colombia\u2019s \u2018climate crossroads\u2019 <br><br>\u27a1\ufe0f Read today's briefing here: https://buff.ly/sVtNuJ3 <br><br>\u27a1\ufe0f Sign up to our email briefings: https://buff.ly/3kFciAO<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/ext_tw_video/2057748634477772800/pu/vid/avc1/1280x720/X3ZUuXbwQC3ILv9l.mp4?tag=12\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2057748634477772800/pu/img/dyMsAT9WXmwOvn54.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -1522,6 +1972,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Analysis: Half of global emissions covered by 2035 climate pledges after UN summit in New York | @daisydunnesci Ho Woo Nam Read here: https://buff.ly/...",
+      "link": "https://x.com/CarbonBrief/status/2057708550827188567",
+      "date": "2026-05-22T06:22:03+00:00",
+      "tweet_id": "2057708550827188567",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI5zBM-WMAAkRPo?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Analysis: Half of global emissions covered by 2035 climate pledges after UN summit in New York | @daisydunnesci Ho Woo Nam<br><br>Read here: https://buff.ly/vk9SPAe<br><img width=\"2048\" height=\"1353\" style=\"\" src=\"https://pbs.twimg.com/media/HI5zBM-WMAAkRPo?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Can #Honasa shares rally up to 57% after strong #Q4 show? Jefferies, CLSA & two other brokerages weigh in #ETMarkets https://economictimes.indiatimes....",
       "link": "https://x.com/ETMarkets/status/2057708033518583810",
       "date": "2026-05-22T06:20:00+00:00",
@@ -1537,21 +2002,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#Rupee plunge sees India turn to 2013 taper tantrum playbook #ETMarkets https://economictimes.indiatimes.com/markets/forex/rupee-plunge-sees-india-tur...",
-      "link": "https://x.com/ETMarkets/status/2057707708250485170",
-      "date": "2026-05-22T06:18:42+00:00",
-      "tweet_id": "2057707708250485170",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Rupee plunge sees India turn to 2013 taper tantrum playbook<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/forex/rupee-plunge-sees-india-turn-to-2013-taper-tantrum-playbook/articleshow/131258009.cms",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Kruti Shah: AI is facing a silent, suffocating bottleneck. \ud83d\uded1 While everyone hyper-focuses on advanced chips, the real war is against pure physic...",
       "link": "https://x.com/exencial_RP/status/2057744784014647320",
       "date": "2026-05-22T06:16:27+00:00",
@@ -1564,21 +2014,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Kruti Shah<br>AI is facing a silent, suffocating bottleneck. \ud83d\uded1<br><br>While everyone hyper-focuses on advanced chips, the real war is against pure physics: extreme heat.<br><br>Meet Envicool, the quiet giant keeping the physical infrastructure of AI from melting down. <br><br>1/13<br><img width=\"1078\" height=\"606\" style=\"\" src=\"https://pbs.twimg.com/media/HI5v-aiaIAAEs4m?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "#Paytm shares drop 4% after SAIF Partners, others likely sell stake worth Rs 960 crore #ETMarkets https://economictimes.indiatimes.com/markets/stocks/...",
-      "link": "https://x.com/ETMarkets/status/2057706775416123577",
-      "date": "2026-05-22T06:15:00+00:00",
-      "tweet_id": "2057706775416123577",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Paytm shares drop 4% after SAIF Partners, others likely sell stake worth Rs 960 crore<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/paytm-shares-drop-4-after-saif-partners-others-likely-sell-stake-worth-rs-960-crore/articleshow/131256679.cms",
       "category": "Twitter"
     },
     {
@@ -1609,21 +2044,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Comment:<br><br>International Biological Diversity Day 2026: How Odisha\u2019s tribal seed keepers are rebuilding biodiversity for a warmer future<br><br>Tribal women farmers in Odisha are preserving disappearing millet landraces that can survive drought, erratic rainfall and poor soils, offering critical lessons for climate resilience, food security and biodiversity conservation, write Susanta Sekhar Choudhury,&nbsp;Pritesh Sundar Roy,&nbsp;Pulak Ranjan Nayak,&nbsp;Bikash Das,&nbsp;Biswa Shankar Das and&nbsp;Suresh Kumar Sahoo<br><br>https://www.downtoearth.org.in/wildlife-biodiversity/international-biological-diversity-day-2026-how-odishas-tribal-seed-keepers-are-rebuilding-biodiversity-for-a-warmer-future<br><img width=\"1280\" height=\"853\" style=\"\" src=\"https://pbs.twimg.com/media/HI5w21za8AE3Cts?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1366\" style=\"\" src=\"https://pbs.twimg.com/media/HI5w36mb0AA_FYE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "#JSWCement shares gain 12% as Q4FY26 profit jumps to Rs 362 crore #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/jsw-cement-share...",
-      "link": "https://x.com/ETMarkets/status/2057705442663707117",
-      "date": "2026-05-22T06:09:42+00:00",
-      "tweet_id": "2057705442663707117",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#JSWCement shares gain 12% as Q4FY26 profit jumps to Rs 362 crore<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/jsw-cement-shares-gain-12-as-q4fy26-profit-jumps-to-rs-362-crore/articleshow/131257341.cms",
       "category": "Twitter"
     },
     {
@@ -1729,21 +2149,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002John Kemp<br>FRANCE says cannot release more oil reserves until there is greater clarity about the likely duration of the war: https://www.ft.com/content/dae2e100-e623-4765-9a05-06cae0d37837",
-      "category": "Twitter"
-    },
-    {
-      "title": "Lake Kariba\u2019s rising waters are restoring hope in Zambia and Zimbabwe, boosting hydropower, reviving fish stocks, improving fishers\u2019 incomes and red...",
-      "link": "https://x.com/down2earthindia/status/2057687676099477762",
-      "date": "2026-05-22T04:59:06+00:00",
-      "tweet_id": "2057687676099477762",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HI5f6rybsAExcZ5?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Lake Kariba\u2019s rising waters are restoring hope in Zambia and Zimbabwe, boosting hydropower, reviving fish stocks, improving fishers\u2019 incomes and reducing power cuts, while easing human-crocodile conflicts and breathing new life into tourism and local livelihoods.<br><br>https://www.downtoearth.org.in/water/lake-karibas-rising-waters-bring-hope-to-communities-in-zambia-and-zimbabwe<br><img width=\"2048\" height=\"1365\" style=\"\" src=\"https://pbs.twimg.com/media/HI5f6rybsAExcZ5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -1972,6 +2377,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Good morning, folks ! Nifty is up just 5 points this week - waiting for direction. Range shifted to 23,300-23,800. Sources - RBI disinclined to use ra...",
+      "link": "https://x.com/_prashantnair/status/2057659922557591988",
+      "date": "2026-05-22T03:08:49+00:00",
+      "tweet_id": "2057659922557591988",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2057652715535446016/img/3OvGFB1n5idyE_kj.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Good morning, folks !<br><br>Nifty is up just 5 points this week - waiting for direction. Range shifted to 23,300-23,800.<br><br>Sources - RBI disinclined to use rate hike to manage Rupee. INR has bounced for now from near 97 low !<br><br>Views\ud83d\udc47<br><br>#GIFTNIFTY #Nifty #BankNifty #IranWar\u200c<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002Markets await US-Iran updates!<br>&nbsp;<br>Oil @ $104, S&amp;P 500 +0.17%, WalMart -7.3%.<br><br>Rupee rebounds to 96.20. Low was 96.96.<br><br>Nifty resistance 23,800. Support 23,300.<br><br>Trade set-up @_prashantnair.<br>&nbsp;<br>#GIFTNIFTY #Trump #IranWar\u200c #Rupee #Oil #Nifty #BankNifty<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2057652715535446016/vid/avc1/1920x1080/Eauz0gamcwf30fct.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2057652715535446016/img/3OvGFB1n5idyE_kj.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "The vote was also an important step toward making Swiggy an Indian-owned and controlled company (IOCC). As part of the proposed changes to the Article...",
       "link": "https://x.com/madhavchanchani/status/2057659672811950357",
       "date": "2026-05-22T03:07:50+00:00",
@@ -2152,6 +2572,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Factcheck: What the UK car industry is not saying about EV targets | @DrSimEvans Read here: https://buff.ly/qjxJSO6",
+      "link": "https://x.com/CarbonBrief/status/2057555804874506275",
+      "date": "2026-05-21T20:15:06+00:00",
+      "tweet_id": "2057555804874506275",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI3oGUBWIAAAe4t?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Factcheck: What the UK car industry is not saying about EV targets | @DrSimEvans<br><br>Read here: https://buff.ly/qjxJSO6<br><img width=\"938\" height=\"1178\" style=\"\" src=\"https://pbs.twimg.com/media/HI3oGUBWIAAAe4t?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Edited by Maurice Obstfeld, @pogourinchas, & Petia Topalova, \"Steering Structural Change\" explores transformations economies face as rising geopolitic...",
       "link": "https://x.com/PIIE/status/2057542955913662565",
       "date": "2026-05-21T19:24:02+00:00",
@@ -2182,6 +2617,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Subscribe to Carbon Brief\u2019s \ud83c\udde8\ud83c\uddf3 China Briefing newsletter for: \u27a4Key developments in China's energy sector \u27a4Latest climate news \u27a4Context behin...",
+      "link": "https://x.com/CarbonBrief/status/2057537212024000654",
+      "date": "2026-05-21T19:01:13+00:00",
+      "tweet_id": "2057537212024000654",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2057537193611030528/pu/img/B1JMnZP0JHTk3g2V.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Subscribe to Carbon Brief\u2019s \ud83c\udde8\ud83c\uddf3 China Briefing newsletter for:<br><br>\u27a4Key developments in China's energy sector<br>\u27a4Latest climate news<br>\u27a4Context behind the headlines<br>\u27a4In-depth analysis<br>\u27a4Interesting new science<br>\u27a4Recommended reading<br><br>Sign up here for free \u2b07\ufe0f<br>https://buff.ly/3kFciAO<br><video width=\"800\" height=\"450\" src=\"https://video.twimg.com/ext_tw_video/2057537193611030528/pu/vid/avc1/800x450/A_PmwrOEh73AfB75.mp4?tag=12\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2057537193611030528/pu/img/B1JMnZP0JHTk3g2V.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
       "title": "Project Vault\u2014a hybrid futures market & strategic reserve for critical minerals\u2014should require mandatory participation with fees scaled to firm size...",
       "link": "https://x.com/PIIE/status/2057536155587850689",
       "date": "2026-05-21T18:57:01+00:00",
@@ -2194,6 +2644,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Project Vault\u2014a hybrid futures market &amp; strategic reserve for critical minerals\u2014should require mandatory participation with fees scaled to firm size, fund against worst-case collective supply shocks, &amp; prioritize processed materials over raw ore. https://www.piie.com/publications/policy-briefs/2026/strengthening-project-vault-us-plan-stockpile-critical-minerals",
+      "category": "Twitter"
+    },
+    {
+      "title": "Analysis: UK no longer top UN Green Climate Fund donor after latest aid cut | @Josh_Gabbatiss Read here: https://buff.ly/9HdaFV9",
+      "link": "https://x.com/CarbonBrief/status/2057532381385367993",
+      "date": "2026-05-21T18:42:01+00:00",
+      "tweet_id": "2057532381385367993",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI3SzCZXEAELr-F?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Analysis: UK no longer top UN Green Climate Fund donor after latest aid cut | @Josh_Gabbatiss<br><br>Read here: https://buff.ly/9HdaFV9<br><img width=\"1560\" height=\"916\" style=\"\" src=\"https://pbs.twimg.com/media/HI3SzCZXEAELr-F?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2299,6 +2764,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Investor demand for downside protection is plummeting:<br><br>The average 3-month put-to-call skew of S&amp;P 500 single stocks is down to 0.04, the 4th-lowest reading over the last 20 years.<br><br>This measures how much more investors are paying for downside protection via put options than for upside exposure through call options.<br><br>The lower the reading, the less investors are paying to protect themselves against a market decline.<br><br>The average 3-month put-to-call skew has fallen -75% since March, posting the sharpest drop since April-May 2025.<br><br>This metric is even lower than during the 2021 meme stock frenzy.<br><br>Investors are no longer thinking about downside risk.<br><img width=\"974\" height=\"671\" style=\"\" src=\"https://pbs.twimg.com/media/HI2R7CAWcAEXp1M?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "New coal plants hit \u201810-year\u2019 global high in 2025 \u2013 but power output still fell | @MollyLempriere @GlobalEnergyMon Read here: https://buff.ly/6ULYS...",
+      "link": "https://x.com/CarbonBrief/status/2057499419797340319",
+      "date": "2026-05-21T16:31:02+00:00",
+      "tweet_id": "2057499419797340319",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI200YlXIAAZj2L?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "New coal plants hit \u201810-year\u2019 global high in 2025 \u2013 but power output still fell | @MollyLempriere @GlobalEnergyMon <br><br>Read here: https://buff.ly/6ULYS42<br><img width=\"1560\" height=\"730\" style=\"\" src=\"https://pbs.twimg.com/media/HI200YlXIAAZj2L?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2542,6 +3022,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Factcheck: Trump\u2019s false claims about the IPCC and \u2018RCP8.5\u2019 climate scenario | @rtmcswee Cecilia Keating @hausfath Read here: https://buff.ly/727LW...",
+      "link": "https://x.com/CarbonBrief/status/2057470228217335841",
+      "date": "2026-05-21T14:35:03+00:00",
+      "tweet_id": "2057470228217335841",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI2aRPMWIAAZwBs?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Factcheck: Trump\u2019s false claims about the IPCC and \u2018RCP8.5\u2019 climate scenario | @rtmcswee Cecilia Keating @hausfath<br><br>Read here: https://buff.ly/727LWJo<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HI2aRPMWIAAZwBs?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT The Investing Expedition: Some incredible insights on the pharma landscape in this article. https://open.substack.com/pub/soic/p/is-this-the-pharma...",
       "link": "https://x.com/ishmohit1/status/2057476542738186618",
       "date": "2026-05-21T14:27:31+00:00",
@@ -2767,6 +3262,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Factcheck: What it really costs to heat a home in the UK with a heat pump | @DrSimEvans #CBarchive Read here: https://buff.ly/nnJMM5B",
+      "link": "https://x.com/CarbonBrief/status/2057452609087136035",
+      "date": "2026-05-21T13:25:02+00:00",
+      "tweet_id": "2057452609087136035",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Factcheck: What it really costs to heat a home in the UK with a heat pump | @DrSimEvans #CBarchive<br><br>Read here: https://buff.ly/nnJMM5B",
+      "category": "Twitter"
+    },
+    {
       "title": "Most tech companies compete on features ASML competes on physics That\u2019s a much harder race to enter!",
       "link": "https://x.com/aditya_kondawar/status/2057449198967230575",
       "date": "2026-05-21T13:11:29+00:00",
@@ -2812,21 +3322,6 @@
       "category": "Twitter"
     },
     {
-      "title": "India issues #Ebola advisory for travellers from affected regions http://www.downtoearth.org.in/health/india-issues-ebola-advisory-for-travellers-from...",
-      "link": "https://x.com/down2earthindia/status/2057444762605830149",
-      "date": "2026-05-21T12:53:51+00:00",
-      "tweet_id": "2057444762605830149",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HI2DA__aQAAs8Q6?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "India issues #Ebola advisory for travellers from affected regions http://www.downtoearth.org.in/health/india-issues-ebola-advisory-for-travellers-from-affected-regions <br><br>@himanshujourno<br><img width=\"1243\" height=\"843\" style=\"\" src=\"https://pbs.twimg.com/media/HI2DA__aQAAs8Q6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Closing tax loophole for oil groups will fund cost of living package, says Reeves https://ft.trib.al/Hz2uFA1",
       "link": "https://x.com/ftenergy/status/2057442531844014244",
       "date": "2026-05-21T12:44:59+00:00",
@@ -2857,21 +3352,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Photo of the Day: Trouble in the gharial\u2019s last bastion? The apex court recently rapped state governments for their inability to prevent sand mining ...",
-      "link": "https://x.com/down2earthindia/status/2057439239223312639",
-      "date": "2026-05-21T12:31:54+00:00",
-      "tweet_id": "2057439239223312639",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HI1-Bl2asAAKnLU?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Photo of the Day:<br><br>Trouble in the gharial\u2019s last bastion?<br><br>The apex court recently rapped state governments for their inability to prevent sand mining in the Chambal river, the fish-eating crocodilian\u2019s last stronghold<br><br>Photos by Vikas Choudhary<br><br>https://www.downtoearth.org.in/wildlife-biodiversity/trouble-in-the-gharials-last-bastion<br><img width=\"2048\" height=\"1366\" style=\"\" src=\"https://pbs.twimg.com/media/HI1-Bl2asAAKnLU?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1365\" style=\"\" src=\"https://pbs.twimg.com/media/HI1-DPnaYAE5ESe?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1366\" style=\"\" src=\"https://pbs.twimg.com/media/HI1-EoCbQAAyg4G?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "On reverse gear? For good? Or, just for a day? INR closes at 96.20 a $, 62 paisa stronger than local currency\u2019s previous close.",
       "link": "https://x.com/TamalBandyo/status/2057434906142347461",
       "date": "2026-05-21T12:14:41+00:00",
@@ -2887,18 +3367,18 @@
       "category": "Twitter"
     },
     {
-      "title": "RT CSEINDIA: \"Wild animals are destroying crops and adding massively to the economic losses of farmers. In many parts of India farming is becoming unv...",
-      "link": "https://x.com/down2earthindia/status/2057435261324480693",
-      "date": "2026-05-21T12:07:26+00:00",
-      "tweet_id": "2057435261324480693",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
+      "title": "Factcheck: US and Iran are world\u2019s only major emitters without net-zero targets | @daisydunnesci Read here: https://buff.ly/PxQKIqG",
+      "link": "https://x.com/CarbonBrief/status/2057434488431415721",
+      "date": "2026-05-21T12:13:01+00:00",
+      "tweet_id": "2057434488431415721",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HI13-yQbgAAIBey?format=jpg&name=orig",
-      "is_retweet": true,
+      "image": "https://pbs.twimg.com/media/HI15w6PWkAAjl4x?format=jpg&name=orig",
+      "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "RT\u2002CSEINDIA<br>\"Wild animals are destroying crops and adding massively to the economic losses of farmers. In many parts of India farming is becoming unviable because of marauding animals. There is now a war involving not only big mammals such as tigers, elephants and leopards, but also wild boars, nilgai and other ungulates and, most damaging of all, monkeys. This is a fact, but one that we are not willing to discuss, let alone resolve\" : Sunita Narain, DG, CSE<br><br>Over the past six months, Down To Earth\u2019s reporters have travelled across more than a dozen states to document this growing conflict.<br><br>Read our latest cover story, \u201cConflict in the Backyard\u201d, to understand what must be done to establish some form of coexistence between humans and wild and stray animals: https://www.downtoearth.org.in/wildlife-biodiversity/conflict-in-the-backyard-2<br><br>Subscribe to @down2earthindia magazine today: https://www.downtoearth.org.in/subscription?redirectUrl=https%3A%2F%2Fwww.downtoearth.org.in%2Fmagazine%2Farchive%2Farchives<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HI13-yQbgAAIBey?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "description_html": "Factcheck: US and Iran are world\u2019s only major emitters without net-zero targets | @daisydunnesci <br><br>Read here: https://buff.ly/PxQKIqG<br><img width=\"2048\" height=\"1141\" style=\"\" src=\"https://pbs.twimg.com/media/HI15w6PWkAAjl4x?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2914,21 +3394,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BREAKING: The Trump Administration is investing $2 billion in quantum computing companies and will receive equity stakes in return, per WSJ.<br><br>Details include:<br><br>1. $1 billion of the package will be awarded to IBM, $IBM <br><br>2. Chip maker GlobalFoundries, $GFS, is receiving $375 million in funding<br><br>3. The rest of the companies will receive $100 million each, except for startup Diraq, which is slated to get $38 million<br><br>4. Multiple other public companies will receive funds including D-Wave Quantum, Rigetti Computing, and Infleqtion<br><br>Trump's next big bet is on quantum computing.",
-      "category": "Twitter"
-    },
-    {
-      "title": "By Sorit Gupto",
-      "link": "https://x.com/down2earthindia/status/2057431219043004448",
-      "date": "2026-05-21T12:00:02+00:00",
-      "tweet_id": "2057431219043004448",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HI1vCTgbMAAxx_J?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "By Sorit Gupto<br><img width=\"1377\" height=\"1347\" style=\"\" src=\"https://pbs.twimg.com/media/HI1vCTgbMAAxx_J?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2977,21 +3442,6 @@
       "category": "Twitter"
     },
     {
-      "title": "US opposes, India and 27 nations abstain as UN backs ICJ climate ruling by 141-8 vote http://www.downtoearth.org.in/climate-change/us-opposes-india-an...",
-      "link": "https://x.com/down2earthindia/status/2057423661057867932",
-      "date": "2026-05-21T11:30:00+00:00",
-      "tweet_id": "2057423661057867932",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HI1pR4UbYAAAAR3?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "US opposes, India and 27 nations abstain as UN backs ICJ climate ruling by 141-8 vote http://www.downtoearth.org.in/climate-change/us-opposes-india-and-27-nations-abstain-as-un-backs-icj-climate-ruling-by-141-8-vote<br><br>The ICJ advisory opinion affirmed that nations have a legal obligation to address climate change. @puja_das12<br><img width=\"1253\" height=\"837\" style=\"\" src=\"https://pbs.twimg.com/media/HI1pR4UbYAAAAR3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Interesting geographic contrast in where Ather Energy and Ola Electric get their business. Ather is strong in South India, with nearly 50% of its sale...",
       "link": "https://x.com/madhavchanchani/status/2057420388406034600",
       "date": "2026-05-21T11:17:00+00:00",
@@ -3019,21 +3469,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Swarajya<br>\ud83d\udea2 CBIC introduces remote cargo clearance to speed up vessel operations at Indian ports.<br><br>\ud83d\udccd Customs approvals for ship entry and departure will now be processed digitally in most cases.<br><br>\ud83d\udcc4 Online filing of sea cargo manifests has been made mandatory under the revised system.  https://swarajyamag.com/news-brief/cbic-rolls-out-remote-vessel-clearance-and-mandatory-digital-cargo-filing-to-cut-port-delays",
-      "category": "Twitter"
-    },
-    {
-      "title": "No new dams will be built in the Alaknanda and Bhagirathi river basins in Uttarakhand, the Union Ministry of Environment, Forest and Climate Change (M...",
-      "link": "https://x.com/down2earthindia/status/2057419079892562126",
-      "date": "2026-05-21T11:11:48+00:00",
-      "tweet_id": "2057419079892562126",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HI1ro4cbQAAPMR5?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "No new dams will be built in the Alaknanda and Bhagirathi river basins in Uttarakhand, the Union Ministry of Environment, Forest and Climate Change (MoEFCC) has stated in its counter-affidavit filed in a Supreme Court case on May 19, 2026<br><br>\ud83d\udd8a\ufe0f @mediavivek <br><br>https://www.downtoearth.org.in/rivers/no-new-hydropower-projects-in-alaknanda-bhagirathi-basin-centre-tells-apex-court<br><img width=\"1200\" height=\"675\" style=\"\" src=\"https://pbs.twimg.com/media/HI1ro4cbQAAPMR5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -3067,21 +3502,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Developed economies delivered $136.7 billion in climate finance in 2024, surpassing the $100 billion goal for a third year, yet low-income nations rec...",
-      "link": "https://x.com/down2earthindia/status/2057416113924030670",
-      "date": "2026-05-21T11:00:01+00:00",
-      "tweet_id": "2057416113924030670",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HI1mIoObsAA0mBM?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Developed economies delivered $136.7 billion in climate finance in 2024, surpassing the $100 billion goal for a third year, yet low-income nations received just 7%. <br><br>@puja_das12 explains how loans dominate, adaptation funding lags, and why vulnerable countries remain sidelined despite rising global climate finance commitments.<br><br>https://www.downtoearth.org.in/climate-change/developed-economies-deliver-1367-billion-in-climate-finance-in-2024-but-low-income-nations-receive-only-7<br><img width=\"2048\" height=\"1390\" style=\"\" src=\"https://pbs.twimg.com/media/HI1mIoObsAA0mBM?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Interesting divergence playing out globally Markets linked to the AI trade are massively outperforming AI linked Markets: South Korea, Taiwan, Japan D...",
       "link": "https://x.com/EquityInsightss/status/2057415474309439706",
       "date": "2026-05-21T10:57:28+00:00",
@@ -3094,6 +3514,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Interesting divergence playing out globally<br><br>Markets linked to the AI trade are massively outperforming<br><br>AI linked Markets: South Korea, Taiwan, Japan<br><br>Domestic Growth / \u201cAnti-AI\u201d Markets: India, Indonesia, Philippines<br><br>Why this divergence?<br><br>Korea &amp; Taiwan are directly benefiting from the AI infrastructure boom<br><br>Samsung &amp; SK Hynix are riding the HBM memory cycle<br><br>TSMC is at the center of AI chip manufacturing<br><br>Japan is benefiting through semiconductor equipment &amp; exporters<br><br>This is becoming a clear split globally:<br><br>AI Asia = Korea, Taiwan &amp; Japan<br><br>Domestic Growth Asia = India, Indonesia &amp; Philippines<br><br>Interesting part is that even within markets, the rally is becoming extremely concentrated<br><br>A handful of AI linked companies are driving entire indices higher<br><img width=\"1033\" height=\"1236\" style=\"\" src=\"https://pbs.twimg.com/media/HI1oeGwbMAAtjaK?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "CCC: Investing in \u2018urgent\u2019 UK adaptation action \u2018cheaper than climate damages\u2019 | @Josh_Gabbatiss @MollyLempriere @GAViglione Read here: https://bu...",
+      "link": "https://x.com/CarbonBrief/status/2057411089680208034",
+      "date": "2026-05-21T10:40:03+00:00",
+      "tweet_id": "2057411089680208034",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI1ke4LWQAA5ysy?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "CCC: Investing in \u2018urgent\u2019 UK adaptation action \u2018cheaper than climate damages\u2019 | @Josh_Gabbatiss @MollyLempriere @GAViglione<br><br>Read here: https://buff.ly/52cM8NZ<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HI1ke4LWQAA5ysy?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -3124,21 +3559,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002ValueEquity<br>Apollo pipes has doubled from below tweet, what a journey it has been from tracking it 3 quarters in pessimism rate of change , pulling the trigger when we saw rate of change and now a doubler in this market situation , this is not to tell you how well it has done , but the power of a process that enables this outcome ! Hope you all also capitalized this !<br><br>Process+ Research depth+ cycle based execution is what rewards big ! <br><br>Lot of people are interested in pipes now , but we have already made the best out of it !<br><br>disc: invested, no reco , no advice !<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Apollo pipes , have initiated today at 270 , having not much expectations for 1 year  <br><br>disc: invested and biased , no direct financial advice or reco<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "Apollo pipes has doubled from below tweet, what a journey it has been from tracking it 3 quarters in pessimism rate of change , pulling the trigger wh...",
-      "link": "https://x.com/EquityValueIn/status/2057402187211485428",
-      "date": "2026-05-21T10:04:40+00:00",
-      "tweet_id": "2057402187211485428",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Apollo pipes has doubled from below tweet, what a journey it has been from tracking it 3 quarters in pessimism rate of change , pulling the trigger when we saw rate of change and now a doubler in this market situation , this is not to tell you how well it has done , but the power of a process that enables this outcome ! Hope you all also capitalized this !<br><br>Process+ Research depth+ cycle based execution is what rewards big ! <br><br>Lot of people are interested in pipes now , but we have already made the best out of it !<br><br>disc: invested, no reco , no advice !<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Apollo pipes , have initiated today at 270 , having not much expectations for 1 year  <br><br>disc: invested and biased , no direct financial advice or reco<br></div>",
       "category": "Twitter"
     },
     {
@@ -3199,6 +3619,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002CNBC-TV18<br>#4QWithCNBCTV18 | JSW Cement Q4FY26 \u2014 Margin Expansion, Profit Surges<br>- Profit grows 52%, Expenses and finance costs decline YoY<br>- FY26 capex stood at Rs 2,000 crores<br>@Nigel__DSouza #CNBCTV18Market #JSWCement #Cement #Earnings<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2057393981361893376/vid/avc1/1920x1080/nu6H8ehtbl0Wjfcf.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2057393981361893376/img/6VxovDX8rmp8tt-j.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Daily Briefing: UN backs ICJ | Wind and solar \u2018outpace gas\u2019 | Oil drops 6% \u27a1\ufe0f Read today's briefing here: https://buff.ly/oCJ8YP3 \u27a1\ufe0f Sign up to ...",
+      "link": "https://x.com/CarbonBrief/status/2057393894996775355",
+      "date": "2026-05-21T09:31:43+00:00",
+      "tweet_id": "2057393894996775355",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2057393884229947392/pu/img/P9nmgowrIp_BRbkv.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Daily Briefing: UN backs ICJ | Wind and solar \u2018outpace gas\u2019 | Oil drops 6% <br><br>\u27a1\ufe0f Read today's briefing here: https://buff.ly/oCJ8YP3 <br><br>\u27a1\ufe0f Sign up to our email briefings: https://buff.ly/3kFciAO<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/ext_tw_video/2057393884229947392/pu/vid/avc1/1280x720/M6Uouv6GWXSt0RmX.mp4?tag=12\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2057393884229947392/pu/img/P9nmgowrIp_BRbkv.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -3274,6 +3709,51 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Just did dog walking course on unacademy<div class=\"rsshub-quote\"><br><br>Saikiran Pulavarthi:\u2002Blue-collar jobs are likely to become more important, while traditional white-collar roles may gradually reduce<br><br>In my view, AI is emerging as a major catalyst for this shift.<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Re @daisydunnesci @GAViglione \ud83d\udca1 Spotlight | Returning pet parrots to the wild This week, Carbon Brief visits a conservation project working to retu...",
+      "link": "https://x.com/CarbonBrief/status/2057380144180801842",
+      "date": "2026-05-21T08:37:05+00:00",
+      "tweet_id": "2057380144180801842",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI1IVaHX0AECPt2?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Re @daisydunnesci @GAViglione \ud83d\udca1 Spotlight | Returning pet parrots to the wild<br><br>This week, Carbon Brief visits a conservation project working to return former pet parrots to the wild in Colombia. \ud83e\udd9c<br><img width=\"1024\" height=\"1365\" style=\"\" src=\"https://pbs.twimg.com/media/HI1IVaHX0AECPt2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Re This fortnight: \ud83c\udf3d Brazil presented a first outline of its promised deforestation \u201croadmap\u201d. \ud83c\udf3d Pacific leaders met for the first-ever Melane...",
+      "link": "https://x.com/CarbonBrief/status/2057380143417475301",
+      "date": "2026-05-21T08:37:05+00:00",
+      "tweet_id": "2057380143417475301",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Re This fortnight:<br>\ud83c\udf3d Brazil presented a first outline of its promised deforestation \u201croadmap\u201d.<br>\ud83c\udf3d Pacific leaders met for the first-ever Melanesian Ocean Summit.<br>\ud83c\udf3d A UN report said the global demand for sand is outstripping supply.<br>\ud83c\udf3d The European Commission revealed its fertiliser action plan.",
+      "category": "Twitter"
+    },
+    {
+      "title": "\ud83c\udf3d New Cropped just dropped \ud83c\udf3d Cropped: Deforestation roadmap | Melanesian Ocean Summit | Returning pet parrots to the wild \u270d\ufe0f written by @daisy...",
+      "link": "https://x.com/CarbonBrief/status/2057380142398255496",
+      "date": "2026-05-21T08:37:04+00:00",
+      "tweet_id": "2057380142398255496",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2057380136538767360/pu/img/p2rinn9Pha4rVpJS.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\ud83c\udf3d New Cropped just dropped \ud83c\udf3d<br><br>Cropped: Deforestation roadmap | Melanesian Ocean Summit | Returning pet parrots to the wild <br><br>\u270d\ufe0f written by @daisydunnesci @GAViglione <br><br>Read here \u27a1\ufe0f https://bit.ly/3Pjis9I <br>Subscribe here \u27a1\ufe0f http://buff.ly/k84LIFK<br><video width=\"800\" height=\"450\" src=\"https://video.twimg.com/ext_tw_video/2057380136538767360/pu/vid/avc1/800x450/pngDGhyX4PqM165v.mp4?tag=12\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2057380136538767360/pu/img/p2rinn9Pha4rVpJS.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -3424,21 +3904,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "China continues to cushion the global oil market, with imports May-to-date plunging significantly below even the depressed levels seen in April. <br><br>At the current pace, Chinese crude oil imports are set to hit a 10-year low in May.  On a four-week average, Chinese crude/condesate imports are running &gt;4 million b/d BELOW pre-war levels.",
-      "category": "Twitter"
-    },
-    {
-      "title": "The UK government is spinning its waiver on imports of Russian refined oil products as \"temporary\" (and briefing reporters it will be reviewed in 3 mo...",
-      "link": "https://x.com/JavierBlas/status/2057363114161553914",
-      "date": "2026-05-21T07:29:25+00:00",
-      "tweet_id": "2057363114161553914",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HI03Y7CWAAAWGIr?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The UK government is spinning its waiver on imports of Russian refined oil products as \"temporary\" (and briefing reporters it will be reviewed in 3 months).<br><br>But the legal text doesn't say that \u2935\ufe0f. It says the waiver is of \"indefinite duration.\" Of course, as any other waiver, it can be rescinded. But, if so, the legal text says the gov \"will endevour\" to provide the market with a 4-month notice. So, using the briefing guidance, that's 3 months for a review + 4 months notice = end of 2026.<br><br>Agree with the gov briefing in one aspect: cock-up.<br><img width=\"760\" height=\"243\" style=\"\" src=\"https://pbs.twimg.com/media/HI03Y7CWAAAWGIr?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -3622,21 +4087,6 @@
       "category": "Twitter"
     },
     {
-      "title": "\"We have seen absolutely no issues with jet fuel supply [...] We have no concerns this summer. We fully intent to fly the schedule we have\" -- EasyJet...",
-      "link": "https://x.com/JavierBlas/status/2057351605272342554",
-      "date": "2026-05-21T06:43:41+00:00",
-      "tweet_id": "2057351605272342554",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\"We have seen absolutely no issues with jet fuel supply [...] We have no concerns this summer. We fully intent to fly the schedule we have\" -- EasyJet CEO",
-      "category": "Twitter"
-    },
-    {
       "title": "Metro Brands says \ud83d\udc5e Input & freight costs have increased due to the ongoing conflict, which could have a near-term impact on demand but confident o...",
       "link": "https://x.com/Nigel__DSouza/status/2057350057993830524",
       "date": "2026-05-21T06:37:32+00:00",
@@ -3673,6 +4123,21 @@
       "tweet_id": "2057351030137028732",
       "source": "ishmohit",
       "publisher": "Mohit Ish",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI0phIZbQAA7xLr?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Intrinsic Compounding<br>We went through 30+ companies across 6 categories to understand what's really happening in the Pharma space and why the index itself is hitting all time highs<br><br>Here's the compelete breakdown of the same..<br><br>https://soic.substack.com/p/is-this-the-pharma-supercycle<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HI0phIZbQAA7xLr?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Intrinsic Compounding: We went through 30+ companies across 6 categories to understand what's really happening in the Pharma space and why the inde...",
+      "link": "https://x.com/soicfinance/status/2057798954524545254",
+      "date": "2026-05-21T06:24:36+00:00",
+      "tweet_id": "2057798954524545254",
+      "source": "Intrinsic Compounding",
+      "publisher": "SOIC",
       "source_mode": "rsshub",
       "image": "https://pbs.twimg.com/media/HI0phIZbQAA7xLr?format=jpg&name=orig",
       "is_retweet": true,
@@ -3787,6 +4252,36 @@
       "category": "Twitter"
     },
     {
+      "title": "RT CNBC-TV18: Thank you Prof Tsoukalas (@gerrytsou), for joining us on #TheGlobalReset and sharing your views on AI layoffs, demand collapse and the a...",
+      "link": "https://x.com/_prashantnair/status/2057332567599370494",
+      "date": "2026-05-21T05:09:29+00:00",
+      "tweet_id": "2057332567599370494",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HI0XfRnaEAA5DJ4?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>Thank you Prof Tsoukalas (@gerrytsou), for joining us on #TheGlobalReset and sharing your views on AI layoffs, demand collapse and the automation tax debate.  <br><br>Here's the full conversation: <br>https://www.youtube.com/watch?v=l7hhOVZwmG4<br><br>@ShereenBhan @_prashantnair @CNBCTV18PrimeIN<br><img width=\"539\" height=\"463\" style=\"\" src=\"https://pbs.twimg.com/media/HI0XfRnaEAA5DJ4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Factcheck: North Sea gas is not \u2018four times cleaner\u2019 than LNG imports | @daisydunnesci @drsimevans #CBarchive Read here: https://buff.ly/IoMIeUt",
+      "link": "https://x.com/CarbonBrief/status/2057327024109207953",
+      "date": "2026-05-21T05:06:00+00:00",
+      "tweet_id": "2057327024109207953",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Factcheck: North Sea gas is not \u2018four times cleaner\u2019 than LNG imports | @daisydunnesci @drsimevans #CBarchive<br><br>Read here: https://buff.ly/IoMIeUt",
+      "category": "Twitter"
+    },
+    {
       "title": "The Map is not the Territory :)",
       "link": "https://x.com/unseenvalue/status/2057323880889434496",
       "date": "2026-05-21T04:53:31+00:00",
@@ -3892,6 +4387,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT CNBC-TV18: SpaceX IPO coming! $1 trillion valuation! More & more founders like @elonmusk scale their companies in private for long before an IPO! W...",
+      "link": "https://x.com/_prashantnair/status/2057308610284400844",
+      "date": "2026-05-21T03:50:12+00:00",
+      "tweet_id": "2057308610284400844",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2057307832782118912/img/TlFxYkDaEbtbL3qM.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>SpaceX IPO coming! $1 trillion valuation!<br><br>More &amp; more founders like @elonmusk scale their companies in private for long before an IPO!<br>&nbsp;<br>What does it mean for public investors?<br>&nbsp;<br>@_prashantnair chats with Dipan Mehta.<br>&nbsp;<br>#Nifty #BankNifty #SpaceX #Investing<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2057307832782118912/vid/avc1/1920x1080/L4F2UckcDvtAJmDG.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2057307832782118912/img/TlFxYkDaEbtbL3qM.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
       "title": "RBI intervenes strongly this morning, after days of feeble defence. Rupee jumps.",
       "link": "https://x.com/dugalira/status/2057305406918303776",
       "date": "2026-05-21T03:40:06+00:00",
@@ -3904,6 +4414,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RBI intervenes strongly this morning, after days of feeble defence.<br><br>Rupee jumps.<br><img width=\"2048\" height=\"1561\" style=\"\" src=\"https://pbs.twimg.com/media/HI0EXClaIAAAtzS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Rupee Relief ! Opens At 96.30 Vs Wednesday\u2019s Close Of 96.82. #Nifty #BankNifty #Oil #IranWar\u200c #RBI",
+      "link": "https://x.com/_prashantnair/status/2057304503830098379",
+      "date": "2026-05-21T03:36:31+00:00",
+      "tweet_id": "2057304503830098379",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Rupee Relief !<br><br>Opens At 96.30 Vs Wednesday\u2019s Close Of 96.82.<br><br>#Nifty #BankNifty #Oil #IranWar\u200c #RBI",
+      "category": "Twitter"
+    },
+    {
+      "title": "Good morning ! Mkts excited about Trump's 'final stages' comment! BUT His full remarks sound quite diff\ud83d\udc47 \"We're in final stages .. We'll see what h...",
+      "link": "https://x.com/_prashantnair/status/2057296325478379843",
+      "date": "2026-05-21T03:04:01+00:00",
+      "tweet_id": "2057296325478379843",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2057291356276703232/img/oVZBYtJTsNmKAtkV.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Good morning !<br><br>Mkts excited about Trump's 'final stages' comment!<br><br>BUT<br><br>His full remarks sound quite diff\ud83d\udc47<br><br>\"We're in final stages .. We'll see what happens. Either a deal or do some things that are a little bit nasty..\"<br><br>So now ? <br><br>Views\ud83d\udc47<br><br>#GIFTNIFTY #Nifty #BankNifty<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002Oil -5% overnight, Trump says Iran talks in 'final stages'!<br><br>Oil relief spilled across; 10-yr yield -9 bps, S&amp;P +1%.<br>&nbsp;<br>FOMC minutes hawkish at the margin. Silver +3%.<br>&nbsp;<br>Nifty needs to get past 23,800.<br>&nbsp;<br>Trade set-up @_prashantnair<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2057291356276703232/vid/avc1/1920x1080/Aa8BOkIwKU0-baKJ.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2057291356276703232/img/oVZBYtJTsNmKAtkV.jpg\"></video></div>",
       "category": "Twitter"
     },
     {
@@ -4012,6 +4552,21 @@
       "category": "Twitter"
     },
     {
+      "title": "SpaceX filed publicly for its IPO under symbol SPCX, disclosing quarterly revenue of $4.7 billion.",
+      "link": "https://x.com/_prashantnair/status/2057274494981673104",
+      "date": "2026-05-21T01:37:16+00:00",
+      "tweet_id": "2057274494981673104",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "SpaceX filed publicly for its IPO under symbol SPCX, disclosing quarterly revenue of $4.7 billion.",
+      "category": "Twitter"
+    },
+    {
       "title": "70% of low-income #roadaccident victims don't know compensation schemes exist. Police are legally required to inform them, but rarely do. Even when th...",
       "link": "https://x.com/IndiaSpend/status/2057272664813625472",
       "date": "2026-05-21T01:30:00+00:00",
@@ -4039,6 +4594,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Grasim Industries Q4FY26, key takeaways \ud83d\udc47<br><br>Standalone performance better than expected, beating Kotak estimates<br>\u2022 Cellulosic Staple Fibre EBIT at \u20b9588 Cr<br>\u2022 Chemicals EBIT at \u20b9304 Cr<br><br>Birla Opus scaling fast<br>\u2022 Paints revenue +52% YoY<br>\u2022 Volume growth at 17% QoQ<br>\u2022 Market share gain at ~90 bps QoQ<br><br>New businesses seeing lower losses<br>\u2022 EBITDA loss (Paints/B2B/Others) at -\u20b9302 Cr<br>\u2022 B2B e-commerce expected to turn profitable by FY27 exit<br><br>Capital allocation remains disciplined<br>\u2022 Grasim to receive ~\u20b93,970 Cr dividend from Ultratech<br>\u2022 \u20b92,880 Cr investment planned in Aditya Birla Capital<br>\u2022 Management says no new business entry planned currently<br><br>Brokerages remain constructive<br>\u2022 Nuvama: \u20b93,546<br>\u2022 Jefferies: \u20b93,600<br>\u2022 Motilal Oswal: \u20b93,440<br><br>@GrasimInd @CNBCTV18Live",
+      "category": "Twitter"
+    },
+    {
+      "title": "Trump -> \"Economic numbers are phenomenal. We're in final stages of Iran. We'll see what happens. Either have a deal or we're going to do some things ...",
+      "link": "https://x.com/_prashantnair/status/2057263854934261858",
+      "date": "2026-05-21T00:54:59+00:00",
+      "tweet_id": "2057263854934261858",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HIzeVAhb0AAnEir?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Trump -&gt; \"Economic numbers are phenomenal. We're in final stages of Iran. We'll see what happens. Either have a deal or we're going to do some things that are a little bit nasty, but hopefully that won't happen.\"<br><br>#GIFTNIFTY #Nifty #BankNifty #Trump<br><img width=\"366\" height=\"165\" style=\"\" src=\"https://pbs.twimg.com/media/HIzeVAhb0AAnEir?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -4492,6 +5062,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Insurance distribution could be headed for a reset ! IRDAI Chairman Ajay Seth says a comprehensive discussion paper will be out in 3-4 weeks with anal...",
+      "link": "https://x.com/_prashantnair/status/2057100749449166952",
+      "date": "2026-05-20T14:06:52+00:00",
+      "tweet_id": "2057100749449166952",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2056982311137415168/img/PDTHwpRd0_QLWFBo.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Insurance distribution could be headed for a reset !<br><br>IRDAI Chairman Ajay Seth says a comprehensive discussion paper will be out in 3-4 weeks with analysis, reform framework &amp; feedback process !<br><br>Imp to track..<br><br>#Insurance #Nifty #CNBCTV18Exclusive #BankNifty<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002IRDAI Chairman: Consultation paper on insurance distribution reforms in 3-4 weeks.<br>&nbsp;<br>Tells @_prashantnair that the paper will provide a framework for where distribution reforms need to go &amp; then elicit feedback.<br>&nbsp;<br>#InsuranceforAllby2047 #Insurance #Nifty<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2056982311137415168/vid/avc1/1920x1080/GduVq_dqDWTTg90e.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056982311137415168/img/PDTHwpRd0_QLWFBo.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Gurmeet Chadha: RBI announces $5 billion Dollar/ INR Swap on 26th May.. got some DMs. Will try and simplify -basically commercial banks like SBI , ...",
       "link": "https://x.com/aditya_kondawar/status/2057106844842414453",
       "date": "2026-05-20T14:05:38+00:00",
@@ -4504,6 +5089,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Gurmeet Chadha<br>RBI announces $5 billion Dollar/ INR Swap on 26th May.. got some DMs. Will try and simplify<br><br>-basically commercial banks like SBI , hdfc etc will sell dollars to RBI and take Rupees in return<br>- after 3 years banks buy back the same amount of dollars &amp; They have to return the rupees . This is obviously done at an agreed swap premium. <br><br>Why it is done - it infuses rupee liquidity ( banks get rupee)and also helps stabilise the currency as RBI gets dollars.",
+      "category": "Twitter"
+    },
+    {
+      "title": "IRDAI Chairman Ajay Seth makes the clearest case yet for Bima Sugam - insurers must compete on performance/price - not on who controls distribution! W...",
+      "link": "https://x.com/_prashantnair/status/2057099538876514659",
+      "date": "2026-05-20T14:02:03+00:00",
+      "tweet_id": "2057099538876514659",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2056982658014703616/img/ja5CYy9LAVGbc8P1.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "IRDAI Chairman Ajay Seth makes the clearest case yet for Bima Sugam - insurers must compete on performance/price - not on who controls distribution!<br><br>Watch this space !<br><br>#CNBCTV18Exclusive #Nifty #Insurance #Investing<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002IRDAI Chairman: Distributors dictating pricing in anti-competition!<br>&nbsp;<br>Tells @_prashantnair that Bima Sugam will be a transformative intervention in terms of getting value for the customers.<br><br>#InsuranceforAllby2047 #Insurance #Nifty<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2056982658014703616/vid/avc1/1920x1080/Y4Wk9rJCs80HRmgn.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056982658014703616/img/ja5CYy9LAVGbc8P1.jpg\"></video></div>",
       "category": "Twitter"
     },
     {
@@ -4639,6 +5239,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The oil shock is coming for America https://ft.trib.al/21vy0bS",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Anand Sanwal: Wharton Professor warns the high school strivers with a sudden \"interest\" in research Excellent sheep doing what excellent sheep do",
+      "link": "https://x.com/_prashantnair/status/2057326443051520075",
+      "date": "2026-05-20T12:02:00+00:00",
+      "tweet_id": "2057326443051520075",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2056842847857332225/img/yABnfPIYvSw-VyGo.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Anand Sanwal<br>Wharton Professor warns the high school strivers with a sudden \"interest\" in research<br><br>Excellent sheep doing what excellent sheep do<br><video width=\"480\" height=\"854\" src=\"https://video.twimg.com/amplify_video/2056842847857332225/vid/avc1/480x854/qRmMr0gadDfjys_d.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056842847857332225/img/yABnfPIYvSw-VyGo.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -4837,6 +5452,21 @@
       "category": "Twitter"
     },
     {
+      "title": "The recent drying up of FDI reflects a sharp tightening of global financial conditions since 2022, when CBs hiked aggresively. Lesson here ? Sajjid sa...",
+      "link": "https://x.com/_prashantnair/status/2057037444151918970",
+      "date": "2026-05-20T09:55:19+00:00",
+      "tweet_id": "2057037444151918970",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2057022926474645504/img/WllENXrHptX6F7Zi.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "The recent drying up of FDI reflects a sharp tightening of global financial conditions since 2022, when CBs hiked aggresively.<br><br>Lesson here ?<br><br>Sajjid says we must work on 'pull factors' to attract strong &amp; sustained FDI !<br><br>#Rupee #Oil #IranWar\u200c #Nifty<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002Why have FDI flows into India dried up?<br><br>JPMorgan's Sajjid Chinoy explains:<br><br>-  US 10-year yields near 5% - The new benchmark every EM must beat<br> - Add currency risk + country risk + execution risk - the hurdle is high<br> - During COVID, yields were zero - investing abroad was easy<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2057022926474645504/vid/avc1/1920x1080/pYLLkxlpvjHzGlXS.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2057022926474645504/img/WllENXrHptX6F7Zi.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "NCC's order book: \u20b9830 billion. 4.1x its annual revenue. NCC's FY26 revenue: down 9%. When the government is your biggest client and stops releasing ...",
       "link": "https://x.com/ShashankUdupa1/status/2057037112554488017",
       "date": "2026-05-20T09:54:00+00:00",
@@ -4864,6 +5494,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Eww karela<br>Tomasetti's work of Mahabharata is nothing short of elite! So glad that Modiji has recognised it<br><img width=\"1920\" height=\"1381\" style=\"\" src=\"https://pbs.twimg.com/media/HIwP03CaAAAg04a?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1800\" height=\"1450\" style=\"\" src=\"https://pbs.twimg.com/media/HIwP04gbYAAjX7v?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1400\" height=\"721\" style=\"\" src=\"https://pbs.twimg.com/media/HIwP05tasAADp0Z?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1600\" height=\"1300\" style=\"\" src=\"https://pbs.twimg.com/media/HIwP09WbcAEuarh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Narendra Modi:\u2002A glimpse of Kashi in Rome! <br><br>Mr. Giampaolo Tomassetti, an Italian painter, presented his work on Varanasi. His passion for Indian culture goes back over four decades. In the 1980\u2019s he started as an illustrator for books on Vedic culture. From 2008 to 2013 he worked on 23 large<br><br><img width=\"1280\" height=\"1000\" style=\"\" src=\"https://pbs.twimg.com/media/HIu0bBAbcAAVZtX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Sajjid's advice to the Govt is this -\"If you're raising capital, go big enough, to change the market narrative\" #Rupee #Macros #Nifty #BankNifty",
+      "link": "https://x.com/_prashantnair/status/2057036337874976921",
+      "date": "2026-05-20T09:50:55+00:00",
+      "tweet_id": "2057036337874976921",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2057028483667435520/img/atp3b7i93U2q_YR9.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Sajjid's advice to the Govt is this -\"If you're raising capital, go big enough, to change the market narrative\"<br><br>#Rupee #Macros #Nifty #BankNifty<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002How should India arrest the capital account problem ?<br><br>JPMorgan's Sajjid Chinoy says<br><br>- All instruments must be on the table - withholding taxes, ECBs, #FCNR-style swaps<br>- If you're raising capital, go big enough to change market narrative<br>- Goal: Augment reserves and act as a<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2057028483667435520/vid/avc1/1920x1080/NNPZddyqKxI2RJha.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2057028483667435520/img/atp3b7i93U2q_YR9.jpg\"></video></div>",
       "category": "Twitter"
     },
     {
@@ -4984,21 +5629,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "For low-income households hit by a #roadcrash, medical expenses alone average Rs 78,824\u2014about 52% of total crash costs. Indian laws provide for compensation, but few actually receive these entitlements, @PrachiSalve11 reports https://www.indiaspend.com/governance/for-indias-road-accident-survivors-legal-compensation-is-elusive-985838",
-      "category": "Twitter"
-    },
-    {
-      "title": "This is by far the biggest endorsement for any product! Too good \ud83d\udc4f",
-      "link": "https://x.com/Nigel__DSouza/status/2057010243989917971",
-      "date": "2026-05-20T08:07:14+00:00",
-      "tweet_id": "2057010243989917971",
-      "source": "Nigel D'Souza",
-      "publisher": "Nigel D'Souza",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2056981875818635264/img/p_m9sEvZsaXFC-gf.jpg",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "This is by far the biggest endorsement for any product! <br><br>Too good \ud83d\udc4f<div class=\"rsshub-quote\"><br><br>Giorgia Meloni:\u2002Thank you for the gift<br><br><video width=\"1152\" height=\"2048\" src=\"https://video.twimg.com/amplify_video/2056981875818635264/vid/avc1/2160x3840/tY98-SaV48ubczt0.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056981875818635264/img/p_m9sEvZsaXFC-gf.jpg\"></video></div>",
       "category": "Twitter"
     },
     {
@@ -5197,6 +5827,51 @@
       "category": "Twitter"
     },
     {
+      "title": "RT CNBC-TV18: IRDAI Chairman: Distributors dictating pricing in anti-competition! Tells @_prashantnair that Bima Sugam will be a transformative interv...",
+      "link": "https://x.com/_prashantnair/status/2056994959933534717",
+      "date": "2026-05-20T06:18:09+00:00",
+      "tweet_id": "2056994959933534717",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2056982658014703616/img/ja5CYy9LAVGbc8P1.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>IRDAI Chairman: Distributors dictating pricing in anti-competition!<br>&nbsp;<br>Tells @_prashantnair that Bima Sugam will be a transformative intervention in terms of getting value for the customers.<br><br>#InsuranceforAllby2047 #Insurance #Nifty<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2056982658014703616/vid/avc1/1920x1080/Y4Wk9rJCs80HRmgn.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056982658014703616/img/ja5CYy9LAVGbc8P1.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT CNBC-TV18: IRDAI Chairman: Consultation paper on public insurance registry (PIR) will be out by mid-June. Tells @_prashantnair that PIR will help a...",
+      "link": "https://x.com/_prashantnair/status/2056994920725127616",
+      "date": "2026-05-20T06:17:29+00:00",
+      "tweet_id": "2056994920725127616",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2056982490183876608/img/knWHZNdKhr95WbmI.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>IRDAI Chairman: Consultation paper on public insurance registry (PIR) will be out by mid-June.<br>&nbsp;<br>Tells @_prashantnair that PIR will help against mis-selling but also help insurers underwrite better.<br>&nbsp;<br>#InsuranceforAllby2047 #Insurance #Nifty<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2056982490183876608/vid/avc1/1920x1080/EXrsQ_OXKtlmUnQT.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056982490183876608/img/knWHZNdKhr95WbmI.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT CNBC-TV18: IRDAI Chairman: Consultation paper on insurance distribution reforms in 3-4 weeks. Tells @_prashantnair that the paper will provide a fr...",
+      "link": "https://x.com/_prashantnair/status/2056994942971781437",
+      "date": "2026-05-20T06:16:49+00:00",
+      "tweet_id": "2056994942971781437",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2056982311137415168/img/PDTHwpRd0_QLWFBo.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>IRDAI Chairman: Consultation paper on insurance distribution reforms in 3-4 weeks.<br>&nbsp;<br>Tells @_prashantnair that the paper will provide a framework for where distribution reforms need to go &amp; then elicit feedback.<br>&nbsp;<br>#InsuranceforAllby2047 #Insurance #Nifty<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2056982311137415168/vid/avc1/1920x1080/GduVq_dqDWTTg90e.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056982311137415168/img/PDTHwpRd0_QLWFBo.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
       "title": "#Shaily Engineering: Competitive Fitness Test (November 2025) https://antifragilethinking.substack.com/p/shaily-engineering-competitive-fitness Precis...",
       "link": "https://x.com/unseenvalue/status/2056981880042365245",
       "date": "2026-05-20T06:14:31+00:00",
@@ -5299,6 +5974,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Road crashes killed ~173,000 Indians in 2023. For the poorest families, the bigger crisis comes after: lost income, medical debt, and a compensation system so inaccessible that most victims never receive a rupee they are legally owed. Read on: https://www.indiaspend.com/governance/for-indias-road-accident-survivors-legal-compensation-is-elusive-985838",
+      "category": "Twitter"
+    },
+    {
+      "title": "\"A complete stall of FDI flows in 2024 & 2025 have been at the heart of the capital flows story\" Sajjid Chinoy of JPM asks the question in his new rep...",
+      "link": "https://x.com/_prashantnair/status/2056970492696011257",
+      "date": "2026-05-20T05:29:16+00:00",
+      "tweet_id": "2056970492696011257",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HIvSFuDbAAALIkq?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\"A complete stall of FDI flows in 2024 &amp; 2025 have been at the heart of the capital flows story\"<br><br>Sajjid Chinoy of JPM asks the question in his new report -&gt; Why have India's capital flows dried up ?<br><br>Tune in at 12 Noon.<br><br>#Nifty #BankNifty #Trump #IranWar\u200c #Oil #Rupee<br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HIvSFuDbAAALIkq?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -5482,6 +6172,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT CNBC-TV18: #CNBCTV18Exclusive | \"#BimaSugam will allow for better product & price discovery\" IRDAI Chairman #AjaySeth breaks down the potential of ...",
+      "link": "https://x.com/_prashantnair/status/2056977944954970492",
+      "date": "2026-05-20T04:11:28+00:00",
+      "tweet_id": "2056977944954970492",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HIvBAH2bYAAq1qf?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>#CNBCTV18Exclusive | \"#BimaSugam will allow for better product &amp; price discovery\"<br><br>IRDAI Chairman #AjaySeth breaks down the potential of the Bima Sugam platform &amp; takes a strong stance on maintaining a fair, competitive marketplace for insurers and consumers alike. 'Aim of Bima Sugam is to provide substantially cheaper insurance'<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HIvBAH2bYAAq1qf?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "No longer trust any video, screenshot, audio or a picture At the same time, anyone can create industrial grade videos with full vfx",
       "link": "https://x.com/itsTarH/status/2056950292550386147",
       "date": "2026-05-20T04:09:00+00:00",
@@ -5494,6 +6199,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "No longer trust any video, screenshot, audio or a picture<br><br>At the same time, anyone can create industrial grade videos with full vfx<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2056812890246844416/vid/avc1/1920x1080/i7FyI29CUyUploz-.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056812890246844416/img/w2hKlljrvRdkATs6.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT CNBC-TV18: #CNBCTV18Exclusive | Consultation paper on Public Insurance Registry (PIR) will be out by mid-June, PIR will help against mis-selling bu...",
+      "link": "https://x.com/_prashantnair/status/2056978014379049381",
+      "date": "2026-05-20T04:04:42+00:00",
+      "tweet_id": "2056978014379049381",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HIvARsib0AAnTEi?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>#CNBCTV18Exclusive | Consultation paper on Public Insurance Registry (PIR) will be out by mid-June, PIR will help against mis-selling but also help insurers underwrite better: #IRDAIChairman says<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HIvARsib0AAnTEi?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002#CNBCTV18Exclusive | #IRDAIChairman Exclusive: Major insurance distribution reforms on the horizon! \ud83d\udcca<br><br>Will come out with consultation paper on insurance distribution reforms in 3-4 weeks, provide a framework for where the distribution reform should travel &amp; then elicit feedback<br><br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HIu_W4kbIAIKZF1?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT CNBC-TV18: #CNBCTV18Exclusive | #IRDAIChairman Exclusive: Major insurance distribution reforms on the horizon! \ud83d\udcca Will come out with consultation...",
+      "link": "https://x.com/_prashantnair/status/2056977882719949237",
+      "date": "2026-05-20T04:02:19+00:00",
+      "tweet_id": "2056977882719949237",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HIu_W4kbIAIKZF1?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>#CNBCTV18Exclusive | #IRDAIChairman Exclusive: Major insurance distribution reforms on the horizon! \ud83d\udcca<br><br>Will come out with consultation paper on insurance distribution reforms in 3-4 weeks, provide a framework for where the distribution reform should travel &amp; then elicit feedback<br><br>Stay tuned for more updates!<br><br>#IRDAI #InsuranceSector #BusinessNews #InsuranceReforms #CNBCTV18Exclusive<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HIu_W4kbIAIKZF1?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -7327,21 +8062,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT menaka doshi: Indian mangoes now available at a Costco in New Jersey, USA. 4 Kesar mangoes for $20 The overseas market potential for mangoes is hug...",
-      "link": "https://x.com/menakadoshi/status/2056313536125849821",
-      "date": "2026-05-17T14:13:06+00:00",
-      "tweet_id": "2056313536125849821",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HIhu4E_aMAAqXsL?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002menaka doshi<br>Indian mangoes now available at a Costco in New Jersey, USA. <br><br>4 Kesar mangoes for $20<br><br>The overseas market potential for mangoes is huge, but price and logistics remain major obstacles.<br><br>Read - The Sweet and Sour of India\u2019s Mango Export Dream<br>\ud83d\udc47<br>https://www.bloomberg.com/newsletters?source=eyebrow<br><br>Photo from the supplier.<br><img width=\"1200\" height=\"1600\" style=\"\" src=\"https://pbs.twimg.com/media/HIhu4E_aMAAqXsL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Happiest moment as a united in last few years Bruno \u2665\ufe0f\ud83d\uded1",
       "link": "https://x.com/ishmohit1/status/2056006161774825854",
       "date": "2026-05-17T13:37:22+00:00",
@@ -7384,36 +8104,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Pessimism about India's tech power is underpinned by a simplification that if you are not in the top-two, you are toast. <br><br>Just as with AI, people said the same things about railway manufacturing, space, and nuclear weapons. <br><br>In each of these sectors, India was able to build base-level capabilities. We'll also likely find a 'third way' (to use @matthan's phrase) in domains that we prioritise.",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Anoop: http://x.com/i/article/2055847220109557760",
-      "link": "https://x.com/deepakshenoy/status/2055920596043833604",
-      "date": "2026-05-17T06:49:03+00:00",
-      "tweet_id": "2055920596043833604",
-      "source": "Deepak Shenoy",
-      "publisher": "Deepak Shenoy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Anoop<br>http://x.com/i/article/2055847220109557760",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Nitin Pai: Re Distrust of civic institutions compounds the pre-existing generalized distrust in our hyper-diverse society, leaving India with a sev...",
-      "link": "https://x.com/deepakshenoy/status/2055912571333759377",
-      "date": "2026-05-17T06:48:26+00:00",
-      "tweet_id": "2055912571333759377",
-      "source": "Deepak Shenoy",
-      "publisher": "Deepak Shenoy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Nitin Pai<br>Re Distrust of civic institutions compounds the pre-existing generalized distrust in our hyper-diverse society, leaving India with a severe social capital deficit. <br><br>We buy gold to cover this deficit. <br><br>Gold is imported and paid for in foreign currency, and hence shows up on the deficit side of the current account. <br><br>As CapitalMind CEO @deepakshenoy showed, if gold imports are excluded, India\u2019s current account would have been in surplus for 11 of the past 12 quarters. <br><br>In other words, our social capital deficit is exacerbating macroeconomic problems during an approaching crisis.",
       "category": "Twitter"
     },
     {
@@ -7489,21 +8179,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Garett Jones<br><br><img width=\"410\" height=\"567\" style=\"\" src=\"https://pbs.twimg.com/media/HId0b78XIAAFVKN?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Peter Boettke:\u2002May he rest in peace.  Please do read his wonderful book Mass Flourishing if you get a chance this summer.<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "In 1990, stroke killed South Koreans at a rate of 248 per 100,000. By 2023, that rate had fallen to 32. @DrTomFrieden explains how. https://tomfrieden...",
-      "link": "https://x.com/menakadoshi/status/2055731149272723747",
-      "date": "2026-05-16T19:24:34+00:00",
-      "tweet_id": "2055731149272723747",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HIdsk0NaIAAhga9?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "In 1990, stroke killed South Koreans at a rate of 248 per 100,000. By 2023, that rate had fallen to 32.&nbsp;<br><br>@DrTomFrieden explains how. https://tomfrieden.substack.com/p/how-south-korea-cut-stroke-deaths<br><img width=\"1638\" height=\"992\" style=\"\" src=\"https://pbs.twimg.com/media/HIdsk0NaIAAhga9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -7972,21 +8647,6 @@
       "category": "Twitter"
     },
     {
-      "title": "One common theme from the earnings call of different companies- Near term will get impacted due to the war situation and spike in RM costs. Businesses...",
-      "link": "https://x.com/soicfinance/status/2055282852636598355",
-      "date": "2026-05-15T13:43:12+00:00",
-      "tweet_id": "2055282852636598355",
-      "source": "Intrinsic Compounding",
-      "publisher": "SOIC",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "One common theme from the earnings call of different companies-<br><br>Near term will get impacted due to the war situation and spike in RM costs. Businesses are feeling the pain.",
-      "category": "Twitter"
-    },
-    {
       "title": "Yes, your \u201cgood work\u201d will work for ever. West Bengal knows it well poet-painer-politician",
       "link": "https://x.com/TamalBandyo/status/2055278867427061816",
       "date": "2026-05-15T13:27:21+00:00",
@@ -8254,21 +8914,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Access to safe, usable toilet facilities is a critical component of public health and safety.<br><br>India has long struggled with very low levels of sanitation, significantly worse than many comparable countries. In 2000, only 14% of India\u2019s population had access to at least a basic sanitation facility, placing it behind much poorer countries in Sub-Saharan Africa, such as Somalia. When people do not have access to a safe and usable toilet, they are forced to defecate in the open.<br><br>However, over the next two decades, India made consistent progress in improving access to sanitation. By 2022, India had surpassed countries that were at a similar level in 2000, or were ahead at the time.<br><br>Basic sanitation facilities are defined as improved sanitation facilities that are not shared with other households. These include flush/pour-flush to piped sewer systems, septic tanks or pit latrines; ventilated improved pit latrines, composting toilets or pit latrines with slabs. This categorisation is based on WHO and UNICEF's definition.<br><br>What kind of toilet facilities do Indian households have access to? Read @nileena_suresh's piece to find out: https://www.dataforindia.com/sanitation/?utm_source=twitter&amp;utm_medium=post <br><br>#Toilets #Sanitation #WASH #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HIVIkk2bsAAz_mG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Public Pulse: Step out of Charni Road station, Platform 4. You enter a footpath so narrow only one person can walk at a time. And even that is encr...",
-      "link": "https://x.com/menakadoshi/status/2055605887679758532",
-      "date": "2026-05-15T03:29:09+00:00",
-      "tweet_id": "2055605887679758532",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HIVISkXaIAAFQ8p?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Public Pulse<br>Step out of Charni Road station, Platform 4.<br><br>You enter a footpath so narrow<br>only one person can walk at a time. And even that is encroached.<br><br>A little ahead, the footpath simply disappears and illegal parking takes over.<br><br>This is how #pedestrians get erased from cities.<br><br>@mybmc<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HIVISkXaIAAFQ8p?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HIVISllbsAA8bgJ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HIVISmGb0AAfVg5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HIVISpMaIAAizpY?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
