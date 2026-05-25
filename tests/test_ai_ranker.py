@@ -16,7 +16,6 @@ from ai_ranker import (
     build_candidates_for_source,
     enforce_source_coverage_and_size,
     enforce_bucket_size,
-    call_gemini,
     resolve_cluster_indices,
     cluster_ranked_items,
 )
@@ -206,17 +205,6 @@ class _FakeHttpResponse:
         return self._payload.encode("utf-8")
 
 
-class TestGeminiGuards(unittest.TestCase):
-    def test_call_gemini_raises_when_no_candidates(self):
-        payload = json.dumps({"promptFeedback": {"blockReason": "SAFETY"}})
-        with patch("ai_ranker.GEMINI_API_KEY", "test-key"), patch(
-            "ai_ranker.urllib.request.urlopen",
-            return_value=_FakeHttpResponse(payload),
-        ):
-            with self.assertRaises(ValueError):
-                call_gemini("test prompt", "gemini-3-flash-preview")
-
-
 class TestClusterResolution(unittest.TestCase):
     """Tests for cross-bucket story clustering."""
 
@@ -306,16 +294,16 @@ class TestClusterResolution(unittest.TestCase):
     def test_cluster_ranked_items_returns_empty_on_failure(self):
         """cluster_ranked_items returns [] if API call fails."""
         items = self._make_items()
-        model_config = {"id": "test-model", "provider": "gemini"}
-        with patch("ai_ranker.GEMINI_API_KEY", "test-key"), patch(
-            "ai_ranker.call_gemini", side_effect=Exception("API down")
+        model_config = {"id": "test-model", "provider": "openrouter"}
+        with patch("ai_ranker.OPENROUTER_API_KEY", "test-key"), patch(
+            "ai_ranker.call_openrouter", side_effect=Exception("API down")
         ):
             result = cluster_ranked_items(items, model_config)
         self.assertEqual(result, [])
 
     def test_cluster_ranked_items_returns_empty_for_tiny_input(self):
         """Fewer than 2 items → no clustering attempted."""
-        result = cluster_ranked_items([{"title": "Solo"}], {"id": "x", "provider": "gemini"})
+        result = cluster_ranked_items([{"title": "Solo"}], {"id": "x", "provider": "openrouter"})
         self.assertEqual(result, [])
 
 

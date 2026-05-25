@@ -18,18 +18,16 @@ from config import SSL_CONTEXT, WSW_LOOKBACK_DAYS, WSW_API_TIMEOUT
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_MODEL = "gemini-3-flash-preview"
 
 WSW_MODELS = {
-    "gemini-3-flash": {
-        "id": "gemini-3-flash-preview",
-        "name": "Gemini 3.0 Flash",
-        "provider": "gemini"
-    },
-    "deepseek-v3": {
+    "deepseek-v3-2": {
         "id": "deepseek/deepseek-v3.2",
         "name": "DeepSeek V3.2",
+        "provider": "openrouter"
+    },
+    "deepseek-v3-2-exp": {
+        "id": "deepseek/deepseek-v3.2-exp",
+        "name": "DeepSeek V3.2 (exp)",
         "provider": "openrouter"
     }
 }
@@ -277,28 +275,6 @@ def call_openrouter(input_text, model_id):
     return parse_json_response(result["choices"][0]["message"]["content"])
 
 
-def call_gemini(input_text):
-    if not GEMINI_API_KEY:
-        raise ValueError("GEMINI_API_KEY not set")
-    url = (
-        f"https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}"
-    )
-    body = {
-        "contents": [{"parts": [{"text": WSW_PROMPT.format(items=input_text)}]}],
-        "generationConfig": {"temperature": 0.4, "maxOutputTokens": 8192}
-    }
-    request = urllib.request.Request(
-        url,
-        data=json.dumps(body).encode("utf-8"),
-        headers={"Content-Type": "application/json"}
-    )
-    with urllib.request.urlopen(request, timeout=WSW_API_TIMEOUT, context=SSL_CONTEXT) as response:
-        result = json.loads(response.read().decode("utf-8"))
-    text = result["candidates"][0]["content"]["parts"][0]["text"]
-    return parse_json_response(text)
-
-
 def main():
     print("=" * 50)
     print("WSW (Who Said What) Ranker")
@@ -327,10 +303,7 @@ def main():
         for attempt in range(2):
             try:
                 print(f"\nCalling {model_name} (attempt {attempt+1})...")
-                if model_config["provider"] == "gemini":
-                    clusters = call_gemini(input_text)
-                else:
-                    clusters = call_openrouter(input_text, model_id)
+                clusters = call_openrouter(input_text, model_id)
                 if isinstance(clusters, dict):
                     clusters = clusters.get("clusters", clusters.get("items", []))
                 if not isinstance(clusters, list):

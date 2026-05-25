@@ -8,7 +8,7 @@ Before ending a task, capture these items in your final update:
 - Exact commands run (build/test/preview).
 - Test status and any known gaps.
 - Generated artifacts touched (`index.html`, files in `static/`).
-- Required env vars or secrets (`TELEGRAM_*`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`).
+- Required env vars or secrets (`TELEGRAM_*`, `OPENROUTER_API_KEY`).
 - Open risks, blockers, or TODOs.
 
 ## For Larger Changes

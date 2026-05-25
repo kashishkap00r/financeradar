@@ -20,7 +20,6 @@ from difflib import SequenceMatcher
 
 from articles import IST_TZ, clean_twitter_title
 from config import (
-    AI_RANKER_GEMINI_TIMEOUT,
     AI_RANKER_OPENROUTER_TIMEOUT,
 )
 
@@ -464,33 +463,6 @@ def _parse_json_response(text):
     return json.loads(text)
 
 
-def _call_gemini_rank(prompt):
-    api_key = os.environ.get("GEMINI_API_KEY", "")
-    if not api_key:
-        raise ValueError("GEMINI_API_KEY not set")
-    url = (
-        "https://generativelanguage.googleapis.com/v1beta/models/"
-        f"gemini-3-flash-preview:generateContent?key={api_key}"
-    )
-    body = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": 0.2,
-            "maxOutputTokens": 4096,
-            "response_mime_type": "application/json",
-        },
-    }
-    req = urllib.request.Request(
-        url,
-        data=json.dumps(body).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
-    )
-    with urllib.request.urlopen(req, timeout=AI_RANKER_GEMINI_TIMEOUT, context=SSL_CONTEXT) as response:
-        result = json.loads(response.read().decode("utf-8"))
-    text = result["candidates"][0]["content"]["parts"][0]["text"]
-    return _parse_json_response(text)
-
-
 def _call_openrouter_rank(prompt):
     api_key = os.environ.get("OPENROUTER_API_KEY", "")
     if not api_key:
@@ -539,12 +511,9 @@ No markdown, no commentary.
 """
     ranked = None
     try:
-        ranked = _call_gemini_rank(prompt)
+        ranked = _call_openrouter_rank(prompt)
     except Exception:
-        try:
-            ranked = _call_openrouter_rank(prompt)
-        except Exception:
-            return []
+        return []
     if not isinstance(ranked, list):
         return []
     picked = []

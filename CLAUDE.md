@@ -19,8 +19,8 @@ python3 twitter_fetcher.py           # (called by aggregator.py, rarely run stan
 python3 paper_fetcher.py             # Academic papers → static/papers_cache.json
 
 # AI ranking (requires API keys)
-GEMINI_API_KEY="..." OPENROUTER_API_KEY="..." python3 ai_ranker.py      # → static/ai_rankings.json
-GEMINI_API_KEY="..." OPENROUTER_API_KEY="..." python3 wsw_ranker.py     # → static/wsw_clusters.json
+OPENROUTER_API_KEY="..." python3 ai_ranker.py      # → static/ai_rankings.json
+OPENROUTER_API_KEY="..." python3 wsw_ranker.py     # → static/wsw_clusters.json
 
 # Local Twitter fetch (requires RSSHub running on localhost:1200)
 python3 rsshub_local_fetch.py          # Fetch + save cache
@@ -71,7 +71,7 @@ OUTPUT
 
 The homepage **exclusively shows AI-ranked content** from `static/ai_rankings.json`. Individual tabs remain chronological.
 
-- `getMergedAiRankings(bucket)` in `app.js` merges picks from all providers (Gemini + DeepSeek) with consensus scoring: items picked by 2+ models rank highest (average rank), single-provider items get a +50 penalty
+- `getMergedAiRankings(bucket)` in `app.js` merges picks from all providers (two DeepSeek variants: v3.2 + v3.2-exp) with consensus scoring: items picked by 2+ models rank highest (average rank), single-provider items get a +50 penalty
 - Cross-provider matching uses URL (exact, lowercased) with fallback to `normalizeAiTitle()` (handles unicode dash/quote/ellipsis variants)
 - News + Telegram interleave in the newspaper feed (3:1 ratio); YouTube, Reports, Twitter render in dedicated slider sections
 - WSW breakers auto-select the provider with the most clusters
@@ -206,7 +206,7 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 | `missing-story-audit.yml` | Daily UTC 00:30 | Audit 7-day SLA breaches |
 | `deploy-rss-proxy.yml` | Manual | Deploy Cloudflare RSS proxy worker |
 
-Required secrets: `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_SESSION`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`, `RSS_PROXY_URL` (optional), `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+Required secrets: `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_SESSION`, `OPENROUTER_API_KEY`, `RSS_PROXY_URL` (optional), `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 
 ## Local Services (systemd user units)
 
@@ -225,5 +225,4 @@ Key constants: `FEED_FETCH_TIMEOUT=15`, `FEED_THREAD_WORKERS=10`, `NEWS_FRESHNES
 AI ranker bucket targets are in `ai_ranker.py:BUCKET_TARGETS` (news=25, telegram=20, reports=10, twitter=10, youtube=10). Clustering constants: `AI_RANKER_MAX_CLUSTERS`, `AI_RANKER_MIN_CLUSTER_SIZE`, `AI_RANKER_CLUSTER_TIMEOUT`.
 
 ## API Integration
-- Always verify the correct Gemini model IDs before making API calls. The AI ranker currently uses `gemini-2.5-flash` (see `ai_ranker.py:MODELS`); confirm any swap against the latest ai.google.dev pricing page. Test API calls with a simple request before integrating.
-- AI rankers (`ai_ranker.py`, `wsw_ranker.py`) use both Gemini and OpenRouter (DeepSeek). Both API keys are required for full multi-provider operation; single-provider degradation is handled gracefully.
+- AI rankers (`ai_ranker.py`, `wsw_ranker.py`) call OpenRouter exclusively, using two DeepSeek variants (`deepseek/deepseek-v3.2` and `deepseek/deepseek-v3.2-exp`) to preserve the dual-provider consensus signal in `static/ai_rankings.json`. Verify any model swap against OpenRouter's `/api/v1/models` listing before deploying.

@@ -32,19 +32,17 @@ jobs:
 
       - name: Validate secrets
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
-          [ -n "$GEMINI_API_KEY" ] || (echo "::error::GEMINI_API_KEY not set" && exit 1)
+          [ -n "$OPENROUTER_API_KEY" ] || (echo "::error::OPENROUTER_API_KEY not set" && exit 1)
 
       - name: Run AI ranker
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python3 ai_ranker.py
 
       - name: Run WSW Ranker
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python3 wsw_ranker.py
 

@@ -26,7 +26,6 @@ from config import (
     AI_RANKER_MAX_ARTICLES,
     AI_RANKER_TARGET_COUNT,
     AI_RANKER_OPENROUTER_TIMEOUT,
-    AI_RANKER_GEMINI_TIMEOUT,
     AI_RANKER_MAX_CLUSTERS,
     AI_RANKER_CLUSTER_TIMEOUT,
     SSL_CONTEXT,
@@ -35,17 +34,16 @@ from config import (
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 MODELS = {
-    "gemini-2-5-flash": {
-        "id": "gemini-2.5-flash",
-        "name": "Gemini 2.5 Flash",
-        "provider": "gemini",
-    },
-    "deepseek-v3": {
+    "deepseek-v3-2": {
         "id": "deepseek/deepseek-v3.2",
         "name": "DeepSeek V3.2",
+        "provider": "openrouter",
+    },
+    "deepseek-v3-2-exp": {
+        "id": "deepseek/deepseek-v3.2-exp",
+        "name": "DeepSeek V3.2 (exp)",
         "provider": "openrouter",
     },
 }
@@ -509,9 +507,8 @@ def parse_json_response(text):
     try:
         return json.loads(text)
     except json.JSONDecodeError:
-        # Truncated response (e.g. Gemini hit maxOutputTokens on the clustering
-        # call). Walk backward through `}` boundaries, close the array, and
-        # return the longest prefix that parses as a non-empty list.
+        # Truncated response: walk backward through `}` boundaries, close the
+        # array, and return the longest prefix that parses as a non-empty list.
         if not text.startswith("["):
             raise
         for i in range(len(text) - 1, 0, -1):
@@ -549,51 +546,6 @@ def call_openrouter(prompt, model_id):
     with urllib.request.urlopen(request, timeout=AI_RANKER_OPENROUTER_TIMEOUT, context=SSL_CONTEXT) as response:
         result = json.loads(response.read().decode("utf-8"))
     return parse_json_response(result["choices"][0]["message"]["content"])
-
-
-def call_gemini(prompt, model_id):
-    """Call Gemini API directly with guardrails for empty/blocked responses."""
-    if not GEMINI_API_KEY:
-        raise ValueError("GEMINI_API_KEY not set")
-    url = (
-        f"https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{model_id}:generateContent?key={GEMINI_API_KEY}"
-    )
-    body = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": 0.4,
-            "maxOutputTokens": 8192,
-            "response_mime_type": "application/json",
-            "thinkingConfig": {"thinkingBudget": 0},
-        },
-    }
-    request = urllib.request.Request(
-        url,
-        data=json.dumps(body).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
-    )
-    with urllib.request.urlopen(request, timeout=AI_RANKER_GEMINI_TIMEOUT, context=SSL_CONTEXT) as response:
-        result = json.loads(response.read().decode("utf-8"))
-
-    candidates = result.get("candidates") or []
-    if not candidates:
-        prompt_feedback = result.get("promptFeedback") or {}
-        block_reason = prompt_feedback.get("blockReason", "no-candidates")
-        raise ValueError(f"Gemini returned no candidates ({block_reason})")
-
-    candidate = candidates[0]
-    finish_reason = candidate.get("finishReason", "UNKNOWN")
-    if finish_reason not in ("STOP", "MAX_TOKENS"):
-        print(f"    [WARN] Gemini finishReason={finish_reason}")
-    if finish_reason == "MAX_TOKENS":
-        print("    [WARN] Gemini hit token limit — response may be truncated")
-
-    parts = (candidate.get("content") or {}).get("parts") or []
-    text = " ".join(part.get("text", "") for part in parts if isinstance(part, dict) and part.get("text") and not part.get("thought"))
-    if not text.strip():
-        raise ValueError(f"Gemini returned empty text (finishReason={finish_reason})")
-    return parse_json_response(text)
 
 
 def normalize_ai_response(rankings):
@@ -666,8 +618,6 @@ def sanitize_error(err):
 
 
 def call_provider(model_config, prompt):
-    if model_config.get("provider") == "gemini":
-        return call_gemini(prompt, model_config["id"])
     return call_openrouter(prompt, model_config["id"])
 
 
@@ -967,10 +917,7 @@ def cluster_ranked_items(all_items, model_config, max_clusters=AI_RANKER_MAX_CLU
     prompt = build_clustering_prompt(all_items, max_clusters=max_clusters)
 
     try:
-        if model_config.get("provider") == "gemini":
-            raw = call_gemini(prompt, model_config["id"])
-        else:
-            raw = call_openrouter(prompt, model_config["id"])
+        raw = call_openrouter(prompt, model_config["id"])
 
         if isinstance(raw, dict):
             raw = raw.get("clusters", raw.get("items", []))
