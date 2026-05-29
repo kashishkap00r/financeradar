@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-05-28T00:46:35.395302+05:30",
+  "generated_at": "2026-05-28T23:30:04.639875+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
-      "feeds_ok": 47,
-      "feeds_failed": 2,
-      "items_raw": 1217,
-      "resolve_attempted": 1217,
-      "resolve_resolved": 1214,
-      "resolve_cache_hits": 1213
+      "feeds_ok": 46,
+      "feeds_failed": 3,
+      "items_raw": 1177,
+      "resolve_attempted": 1177,
+      "resolve_resolved": 1173,
+      "resolve_cache_hits": 1158
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.2,
-      "items": 797,
+      "age_hours": 22.2,
+      "items": 801,
       "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-05-28T00:46:35.395240+05:30"
+    "generated_at": "2026-05-28T23:30:04.639814+05:30"
   },
   "items": [
     {
@@ -9202,6 +9202,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT National CoE: Welcoming @Spharaka as the #AgenticAISOC Partner at the #InnovationArcade. As AI-driven cybersecurity transformation accelerates, con...",
+      "link": "https://x.com/Finstor85/status/2059719505299775717",
+      "date": "2026-05-20T04:29:32+00:00",
+      "tweet_id": "2059719505299775717",
+      "source": "Ameya",
+      "publisher": "Finstor",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HIvFsHibMAA939p?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002National CoE<br>Welcoming @Spharaka as the #AgenticAISOC Partner at the #InnovationArcade.<br><br>As AI-driven cybersecurity transformation accelerates, conversations around intelligent &amp; resilient SOC capabilities are becoming increasingly important. We look forward to Spharaka joining the showcase.<br><img width=\"1639\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HIvFsHibMAA939p?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Abhishek Anand: Had a a terrific conversation with @MilanV for #GrandTamasha. We explored a broad set of questions: Is India growing as fast as we ...",
       "link": "https://x.com/menakadoshi/status/2058191047965175992",
       "date": "2026-05-20T04:18:28+00:00",
@@ -9709,6 +9724,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Pessimism about India's tech power is underpinned by a simplification that if you are not in the top-two, you are toast. <br><br>Just as with AI, people said the same things about railway manufacturing, space, and nuclear weapons. <br><br>In each of these sectors, India was able to build base-level capabilities. We'll also likely find a 'third way' (to use @matthan's phrase) in domains that we prioritise.",
+      "category": "Twitter"
+    },
+    {
+      "title": "What does it say abt Sml and Mid Source: Morguen Stanley",
+      "link": "https://x.com/contrarianEPS/status/2055892555972399531",
+      "date": "2026-05-17T06:05:56+00:00",
+      "tweet_id": "2055892555972399531",
+      "source": "Contrarian EPS",
+      "publisher": "ContrariianEPS",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HIf_YZ_bsAAqMY-?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "What does it say abt Sml and Mid <br><br>Source: Morguen Stanley<br><img width=\"770\" height=\"393\" style=\"\" src=\"https://pbs.twimg.com/media/HIf_YZ_bsAAqMY-?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -10552,6 +10582,21 @@
       "category": "Twitter"
     },
     {
+      "title": "I get 10 buy ideas everyday in mail.",
+      "link": "https://x.com/contrarianEPS/status/2052425856489038154",
+      "date": "2026-05-07T16:30:31+00:00",
+      "tweet_id": "2052425856489038154",
+      "source": "Contrarian EPS",
+      "publisher": "ContrariianEPS",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2052395804300660736/img/3b_07hbhmou_gUGF.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "I get 10 buy ideas everyday in mail.<div class=\"rsshub-quote\"><br><br>Kevin Carpenter:\u2002Warren Buffett: \"Of the sixty years I've been in the business, probably [only] five of them have been really juicy.\"<br><br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/amplify_video/2052395804300660736/vid/avc1/1280x720/ACDGFLvyjCqujN5o.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2052395804300660736/img/3b_07hbhmou_gUGF.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "Dot com",
       "link": "https://x.com/contrarianEPS/status/2052418589437890681",
       "date": "2026-05-07T16:01:38+00:00",
@@ -10714,6 +10759,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Slowdown in domestic #aviation, strong growth in life insurance, pause in #gold holdings, return to growth for wireless telecom operators. This and more in this week\u2019s edition of #TWID https://thisweekindata.indiadatahub.com/p/aviation-slowdown-gold-holdings-vi",
+      "category": "Twitter"
+    },
+    {
+      "title": "Just like sandwich, profits are perishable till ALMM exists.",
+      "link": "https://x.com/contrarianEPS/status/2050858625233731781",
+      "date": "2026-05-03T08:42:54+00:00",
+      "tweet_id": "2050858625233731781",
+      "source": "Contrarian EPS",
+      "publisher": "ContrariianEPS",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Just like sandwich, profits are perishable till ALMM exists.<div class=\"rsshub-quote\"><br><br>Vijay Kedia:\u2002Complex Ideas. Simple Words. From Sand to Solar Panel: How Solar Power Is Built -- <br><br>Silicon : A natural element found in sand and rocks  - the foundation of solar manufacturing. Think of it like wheat.<br><br>Polysilicon : This is highly purified silicon, the starting material for<br></div>",
       "category": "Twitter"
     },
     {
