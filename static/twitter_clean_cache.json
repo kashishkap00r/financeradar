@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-05-31T04:24:48.573330+05:30",
+  "generated_at": "2026-05-31T05:28:13.983143+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
-      "feeds_ok": 46,
-      "feeds_failed": 3,
-      "items_raw": 1179,
-      "resolve_attempted": 1179,
-      "resolve_resolved": 1177,
-      "resolve_cache_hits": 1174
+      "feeds_ok": 45,
+      "feeds_failed": 4,
+      "items_raw": 1148,
+      "resolve_attempted": 1148,
+      "resolve_resolved": 1145,
+      "resolve_cache_hits": 1144
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 18.1,
+      "age_hours": 19.2,
       "items": 771,
       "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-05-31T04:24:48.573276+05:30"
+    "generated_at": "2026-05-31T05:28:13.983100+05:30"
   },
   "items": [
     {
