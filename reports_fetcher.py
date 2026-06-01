@@ -18,6 +18,7 @@ import urllib.request
 import urllib.error
 import subprocess
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 
 from articles import IST_TZ
@@ -396,6 +397,48 @@ def fetch_ficci(feed_config):
         articles.append(_make_article(
             "Economy \u2014 Daily News Wrap", pdf_url, pub_date, "", feed_config
         ))
+
+    return articles
+
+
+# ── CEEW (Council on Energy, Environment and Water) ───────────────────
+
+@scraper
+def fetch_ceew(feed_config):
+    """Fetch CEEW publications from the site's native RSS feed.
+
+    ceew.in/publications is behind a Cloudflare JS challenge (403), but
+    ceew.in/rss.xml (a mixed frontpage feed) returns 200. We keep only
+    /publications/ links and drop event/bio pages.
+    """
+    articles = []
+    content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
+
+    for block in re.findall(r"<item>(.*?)</item>", content, re.DOTALL):
+        link_m = re.search(r"<link>(.*?)</link>", block, re.DOTALL)
+        if not link_m:
+            continue
+        link = html.unescape(link_m.group(1).strip())
+        if "/publications/" not in link:          # publications only
+            continue
+
+        title_m = re.search(r"<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", block, re.DOTALL)
+        title = html.unescape(_strip_html(title_m.group(1)).strip()) if title_m else ""
+        if not title:
+            continue
+
+        date_m = re.search(r"<pubDate>(.*?)</pubDate>", block, re.DOTALL)
+        dt = None
+        if date_m:
+            try:
+                dt = parsedate_to_datetime(date_m.group(1).strip())
+            except (TypeError, ValueError):
+                dt = None
+
+        desc_m = re.search(r"<description>(.*?)</description>", block, re.DOTALL)
+        desc = _strip_html(html.unescape(desc_m.group(1))).strip() if desc_m else ""
+
+        articles.append(_make_article(title, link, dt, desc, feed_config))
 
     return articles
 
@@ -1228,6 +1271,7 @@ REPORT_FETCHERS = {
     "baroda:": fetch_baroda_etrade,
     "sbi:": fetch_sbi_research,
     "ficci:": fetch_ficci,
+    "ceew:": fetch_ceew,
     "icici:": fetch_icici_research,
     "hdfcsec:": fetch_hdfc_sec,
     "axis:": fetch_axis_direct,

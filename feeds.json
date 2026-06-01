@@ -1075,6 +1075,15 @@
     "publisher": "FICCI"
   },
   {
+    "id": "ceew-publications",
+    "name": "CEEW — Publications",
+    "url": "https://www.ceew.in/rss.xml",
+    "feed": "ceew:publications",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "CEEW"
+  },
+  {
     "id": "icici-bank-research",
     "name": "ICICI Bank — Research",
     "url": "https://www.icici.bank.in/corporate/globaltradeservice/research-reports",
