@@ -1,26 +1,86 @@
 {
-  "generated_at": "2026-06-03T00:08:11.687398+05:30",
+  "generated_at": "2026-06-03T08:59:07.236647+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
-      "feeds_ok": 46,
-      "feeds_failed": 3,
-      "items_raw": 1152,
-      "resolve_attempted": 1152,
-      "resolve_resolved": 1150,
-      "resolve_cache_hits": 1145
+      "feeds_ok": 47,
+      "feeds_failed": 2,
+      "items_raw": 1170,
+      "resolve_attempted": 1170,
+      "resolve_resolved": 1168,
+      "resolve_cache_hits": 1152
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.6,
-      "items": 765,
+      "age_hours": 8.7,
+      "items": 766,
       "handles_ok": 49
     },
     "warning": "",
-    "generated_at": "2026-06-03T00:08:11.687341+05:30"
+    "generated_at": "2026-06-03T08:59:07.236594+05:30"
   },
   "items": [
+    {
+      "title": "New coal plants hit \u201810-year\u2019 global high in 2025 \u2013 but power output still fell | @MollyLempriere @GlobalEnergyMon Read here: https://buff.ly/6ULYS...",
+      "link": "https://x.com/CarbonBrief/status/2061881036766679319",
+      "date": "2026-06-02T18:42:01+00:00",
+      "tweet_id": "2061881036766679319",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HJ1F4EnW4AEK2gT?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "New coal plants hit \u201810-year\u2019 global high in 2025 \u2013 but power output still fell | @MollyLempriere @GlobalEnergyMon <br><br>Read here: https://buff.ly/6ULYS42<br><img width=\"1560\" height=\"730\" style=\"\" src=\"https://pbs.twimg.com/media/HJ1F4EnW4AEK2gT?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "The US manufacturing sector recovery is accelerating: Chicago\u2019s PMI Manufacturing Index jumped +13.5 points in May, to 62.7, the highest since March ...",
+      "link": "https://x.com/KobeissiLetter/status/2061878981671125296",
+      "date": "2026-06-02T18:33:51+00:00",
+      "tweet_id": "2061878981671125296",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HJ1EAcJXsAAFNKx?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The US manufacturing sector recovery is accelerating:<br><br>Chicago\u2019s PMI Manufacturing Index jumped +13.5 points in May, to 62.7, the highest since March 2022.<br><br>This marks the largest monthly increase since the 2020 pandemic recovery and the 2nd-largest since this index's inception in February 1967.<br><br>This index has now been in expansion territory, above 50 points, in 4 out of the last 5 months.<br><br>New orders jumped to their highest level since January 2022, alongside a recovery in order backlogs and supplier deliveries.<br><br>Meanwhile, prices paid surged to their highest level since May 2022, led by rising oil prices and transport fuel surcharges.<br><br>US manufacturing activity is gaining momentum.<br><img width=\"974\" height=\"708\" style=\"\" src=\"https://pbs.twimg.com/media/HJ1EAcJXsAAFNKx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Innovation Waves Never Die: The 25-Year Tech Bull Market Playbook",
+      "link": "https://x.com/exencial_RP/status/2061877759081632117",
+      "date": "2026-06-02T18:29:00+00:00",
+      "tweet_id": "2061877759081632117",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HJyNMGKbsAA2whc?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Innovation Waves Never Die: The 25-Year Tech Bull Market Playbook<br><img width=\"2000\" height=\"1126\" style=\"\" src=\"https://pbs.twimg.com/media/HJyNMGKbsAA2whc?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Exencial Research Partners:\u2002http://x.com/i/article/2061271616009711617<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Seven states sue US for paying $1bn to make Total exit wind power https://ft.trib.al/j5Ywa14",
+      "link": "https://x.com/ftenergy/status/2061877566395371925",
+      "date": "2026-06-02T18:28:14+00:00",
+      "tweet_id": "2061877566395371925",
+      "source": "FT Energy",
+      "publisher": "FT Energy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Seven states sue US for paying $1bn to make Total exit wind power https://ft.trib.al/j5Ywa14",
+      "category": "Twitter"
+    },
     {
       "title": "The rise of EVs: fuel demand decouples from mobility growth",
       "link": "https://x.com/exencial_RP/status/2061870463022924077",
@@ -34,6 +94,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "The rise of EVs: fuel demand decouples from mobility growth<br><img width=\"1354\" height=\"736\" style=\"\" src=\"https://pbs.twimg.com/media/HJyNDMYbYAAP1dL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Exencial Research Partners:\u2002http://x.com/i/article/2061271616009711617<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Archie: \u201cIn Europe and I think in the US, everyone is kind of asleep at the wheel and just carrying on life as normal,\u201d Tom Baker, a board member...",
+      "link": "https://x.com/JavierBlas/status/2061875446153662907",
+      "date": "2026-06-02T17:54:07+00:00",
+      "tweet_id": "2061875446153662907",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Archie<br>\u201cIn Europe and I think in the US, everyone is kind of asleep at the wheel and just carrying on life as normal,\u201d Tom Baker, a board member at Vitol, said at S&amp;P Global\u2019s Middle East Petroleum &amp; Gas Conference in London.<br><br>https://www.bloomberg.com/news/articles/2026-06-02/vitol-says-europe-and-us-aren-t-facing-up-to-oil-supply-crunch?utm_source=website&amp;utm_medium=share&amp;utm_campaign=copy",
       "category": "Twitter"
     },
     {
@@ -1549,6 +1624,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Daily Court Digest for June 1, 2026: key NGT orders on leachate mismanagement at Sirsa\u2019s Bakriyanwali dump site, challenges to bauxite mining clearances in Odisha\u2019s Ballada mines, and a halt on alleged illegal construction over village forest land in Puri.<br><br>https://www.downtoearth.org.in/environment/daily-court-digest-major-environment-orders-june-1-2026<br><img width=\"763\" height=\"465\" style=\"\" src=\"https://pbs.twimg.com/media/HJzy-KwawAA0db6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Alex Tabarrok: I knew.",
+      "link": "https://x.com/srajagopalan/status/2061873035431305393",
+      "date": "2026-06-02T12:38:05+00:00",
+      "tweet_id": "2061873035431305393",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Alex Tabarrok<br>I knew.<div class=\"rsshub-quote\"><br><br>Noah Smith \ud83d\udc07\ud83c\uddfa\ud83c\uddf8\ud83c\uddfa\ud83c\udde6\ud83c\uddf9\ud83c\uddfc:\u2002All those years I was advocating for stronger antitrust, I had no idea how looney the leaders of that movement were. I knew the econ papers, but I didn't know what was happening in the back rooms of Washington D.C.<br></div>",
       "category": "Twitter"
     },
     {
@@ -4072,21 +4162,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: Anthropic has confidentially filed an S-1 with the SEC for its proposed IPO.",
-      "link": "https://x.com/KobeissiLetter/status/2061479190600307077",
-      "date": "2026-06-01T16:05:14+00:00",
-      "tweet_id": "2061479190600307077",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HJvYXugWYAEYuYL?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: Anthropic has confidentially filed an S-1 with the SEC for its proposed IPO.<br><img width=\"2048\" height=\"1075\" style=\"\" src=\"https://pbs.twimg.com/media/HJvYXugWYAEYuYL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT \ud835\udc12\ud835\udc1a\ud835\udc26\ud835\udc22\ud835\udc1d\ud835\udc21\ud835\udc1a \ud835\udc12\ud835\udc21\ud835\udc1a\ud835\udc2b\ud835\udc26\ud835\udc1a: Boom!\ud83d\udca5 Anthropic confidentially submits draft S-1 to the SEC https://www.anthropic.com/ne...",
       "link": "https://x.com/madhavchanchani/status/2061481225395777893",
       "date": "2026-06-01T16:05:13+00:00",
@@ -4459,21 +4534,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002The Tape<br>Breaking: $MRVL launches the Teralynx T100, the industry\u2019s first 102.4 Tbps AI data center switch silicon.",
-      "category": "Twitter"
-    },
-    {
-      "title": "Analysis: China\u2019s new carbon metric leaves Germany-sized gap in its emissions \u270d\ufe0f @laurimyllyvirta Read here: https://buff.ly/RfVDxLT",
-      "link": "https://x.com/CarbonBrief/status/2061438876527280535",
-      "date": "2026-06-01T13:25:02+00:00",
-      "tweet_id": "2061438876527280535",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HJuzuyGXsAAHsYX?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Analysis: China\u2019s new carbon metric leaves Germany-sized gap in its emissions <br><br>\u270d\ufe0f @laurimyllyvirta<br><br>Read here: https://buff.ly/RfVDxLT<br><img width=\"1560\" height=\"892\" style=\"\" src=\"https://pbs.twimg.com/media/HJuzuyGXsAAHsYX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -5119,21 +5179,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The structural cost of capital remains prohibitively high in India. Agarwal &amp; Vardhan locate the reasons in weak domestic financial savings, heavy public-sector borrowing &amp; a fragmented regulatory system. <br><br>How can India finance growth more productively?<br><br>https://www.ideasforindia.in/topics/money-finance/why-commercial-credit-remains-expensive-in-india",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Abdulkhaleq Abdulla: \u0648\u0643\u0627\u0644\u0629 \u062a\u0633\u0646\u064a\u0645 \u0627\u0644\u0625\u064a\u0631\u0627\u0646\u064a\u0629 1 \u0627\u0644\u0633\u0644\u0639 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629 \u0643\u0627\u0646\u062a \u062a\u0635\u0644 \u0625\u0644\u0649 \u0627\u064a\u0631\u0627\u0646 \u0639\u0628\u0631 \u0627\u0644\u0625\u0645\u0627\u0631\u0627...",
-      "link": "https://x.com/JavierBlas/status/2061391364793794820",
-      "date": "2026-06-01T05:25:54+00:00",
-      "tweet_id": "2061391364793794820",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Abdulkhaleq Abdulla<br>\u0648\u0643\u0627\u0644\u0629 \u062a\u0633\u0646\u064a\u0645 \u0627\u0644\u0625\u064a\u0631\u0627\u0646\u064a\u0629&nbsp;<br>1 \u0627\u0644\u0633\u0644\u0639 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629 \u0643\u0627\u0646\u062a \u062a\u0635\u0644 \u0625\u0644\u0649 \u0627\u064a\u0631\u0627\u0646 \u0639\u0628\u0631 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a<br>2 \u0627\u0644\u0635\u0627\u062f\u0631\u0627\u062a \u0645\u0646 \u0627\u0644\u0635\u064a\u0646 \u0625\u0644\u0649 \u0627\u064a\u0631\u0627\u0646 \u0644\u0627 \u0628\u062f \u0627\u0646 \u062a\u0645\u0631 \u0639\u0628\u0631 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a<br>3 \u0645\u062f\u0641\u0648\u0639\u0627\u062a \u0627\u064a\u0631\u0627\u0646 \u0627\u0644\u062a\u062c\u0627\u0631\u064a\u0629 \u062a\u062a\u0645 \u0639\u0628\u0631 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a<br>4 \u0627\u0639\u062a\u0645\u0627\u062f \u0627\u064a\u0631\u0627\u0646 \u0627\u0644\u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a \u0639\u0644\u0649 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a \u0644\u0627 \u0628\u062f\u064a\u0644 \u0644\u0647<br>5 \u0627\u064a\u0631\u0627\u0646 \u062a\u062d\u062a\u0627\u062c \u0625\u0644\u0649 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a \u0627\u0643\u062b\u0631 \u0645\u0646 \u062d\u0627\u062c\u0629 \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a \u0625\u0644\u0649 \u0627\u064a\u0631\u0627\u0646",
       "category": "Twitter"
     },
     {
@@ -6934,21 +6979,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "First you win in mind, then you win in reality. Kudos sir @sanjivrbajaj<div class=\"rsshub-quote\"><br><br>Sanjiv Bajaj:\u2002India won\u2019t just adopt the next wave of tech. India will build it. <br><br>We\u2019ve launched Finserv Intelligence: our applied research &amp; innovation initiative. We\u2019ve partnered IIT Bombay on AI, cybersecurity and quantum &amp; we are committed to backing deep tech founders with Rs. 1,500<br><br><img width=\"2048\" height=\"1366\" style=\"\" src=\"https://pbs.twimg.com/media/HJeJ8SQbMAA5jyt?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1366\" style=\"\" src=\"https://pbs.twimg.com/media/HJeJ8SHaIAAmgLT?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1366\" style=\"\" src=\"https://pbs.twimg.com/media/HJeJ8SKb0AAL3q6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1366\" style=\"\" src=\"https://pbs.twimg.com/media/HJeJ8SNbEAE2p4z?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "Kazakhstan offers to take Iran\u2019s uranium stockpile, watchdog says https://ft.trib.al/ML0aBQp",
-      "link": "https://x.com/ftenergy/status/2060378077302014352",
-      "date": "2026-05-29T15:09:48+00:00",
-      "tweet_id": "2060378077302014352",
-      "source": "FT Energy",
-      "publisher": "FT Energy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Kazakhstan offers to take Iran\u2019s uranium stockpile, watchdog says https://ft.trib.al/ML0aBQp",
       "category": "Twitter"
     },
     {
@@ -9349,21 +9379,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Fantastic song list for today\u2019s concert! On way way :)<div class=\"rsshub-quote\"><br><br>Sanjay Subrahmanyan:\u2002Today\u2019s concert songlist<br>Sanjay Sabha Live In Virginia<br>Friday 22nd May 2026 7:00 PM<br>Langley High School Auditorium, 6520, Georgetown Pike, Mclean, VA - 22101<br>Tickets - http://www.sanjaysub.com<br><br><img width=\"1257\" height=\"1588\" style=\"\" src=\"https://pbs.twimg.com/media/HI6znESWkAAIe1t?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Howie Liu: We\u2019re giving away $10,000,000 to founders building agent-first businesses. Autonomous, proactive agents will run tomorrow's companies. ...",
-      "link": "https://x.com/srajagopalan/status/2057942758237642886",
-      "date": "2026-05-22T14:00:06+00:00",
-      "tweet_id": "2057942758237642886",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2057822237881958400/img/NCLPqeqVOXfAUBAU.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Howie Liu<br>We\u2019re giving away $10,000,000 to founders building agent-first businesses.<br><br>Autonomous, proactive agents will run tomorrow's companies.<br><br>We're backing 500 founders building them.<br><br>The Founding 500.<br><br>http://hyperagent.com<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2057822237881958400/vid/avc1/1920x1080/xTzy-TZy6Yfwuv3-.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2057822237881958400/img/NCLPqeqVOXfAUBAU.jpg\"></video>",
       "category": "Twitter"
     },
     {
