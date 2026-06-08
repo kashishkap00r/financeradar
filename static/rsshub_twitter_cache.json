@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T16:48:17.634511+00:00",
+  "generated_at": "2026-06-08T17:47:54.487663+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 49,
     "handles_empty": 0,
     "handles_error": 0,
-    "items_total": 791
+    "items_total": 792
   },
   "items": [
     {
@@ -1450,7 +1450,7 @@
       "is_retweet": false,
       "is_quote": true,
       "is_reply": false,
-      "description_html": "Meta creating their own data to train models on but this is going to scare a lot of folks. I experienced this last year. One of the product companies brought Claude, SDEs were excited, built a model silently to learn how they perform &amp; fired almost 65% of the team. We've to figure out inclusive ways otherwise this will get out of hand eventually.<div class=\"rsshub-quote\"><br><br>Official Layoff:\u2002LEAKED AUDIO FROM META ALL-HANDS AHEAD OF LAYOFFS TOMORROW<br><br>Mark Zuckerberg, in his own words, told Meta employees their devices are being tracked to train AI models.<br><br>His reasoning? Meta employees are smarter than the contract workers the rest of the industry uses for data<br><br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2056857797560872960/vid/avc1/1080x1920/XUUMarW5M9EOyOhx.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056857797560872960/img/N8y2xu6Kr0tUnFhe.jpg\"></video></div>"
+      "description_html": "Meta creating their own data to train models on but this is going to scare a lot of folks. I experienced this last year. One of the product companies brought Claude, SDEs were excited, built a model silently to learn how they perform &amp; fired almost 65% of the team. We've to figure out inclusive ways otherwise this will get out of hand eventually.<div class=\"rsshub-quote\"><br><br>LayoffHedge:\u2002LEAKED AUDIO FROM META ALL-HANDS AHEAD OF LAYOFFS TOMORROW<br><br>Mark Zuckerberg, in his own words, told Meta employees their devices are being tracked to train AI models.<br><br>His reasoning? Meta employees are smarter than the contract workers the rest of the industry uses for data<br><br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2056857797560872960/vid/avc1/1080x1920/XUUMarW5M9EOyOhx.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056857797560872960/img/N8y2xu6Kr0tUnFhe.jpg\"></video></div>"
     },
     {
       "title": "PSU reborn. #dredgingcorp \ud83d\udcaa",
@@ -4253,6 +4253,20 @@
       "description_html": "RT\u2002SOIC Research<br>Today, let's talk about a SaaS business that most people would dismiss at first glance.<br><br>An IT company. A software business. In 2025-26, the automatic reaction is, \"AI will eat these guys alive.\"<br>And honestly? For most SaaS companies, that fear is valid.<br><br>But this one is different.<br><br>This isn't a generic software vendor selling dashboards or CRM tools. This business has quietly built itself into the invisible infrastructure of a $1.5 trillion global travel industry.<br><br>Every time you book a hotel on Booking. com, every time an airline adjusts its fare, every time a hotel decides how much to spend on Google ads there's a high chance this company's technology is running in the background, making that decision happen.<br><br>And here's the contrarian thesis that we'll break down in this thread:<br><br>AI doesn't disrupt this business. AI makes its moat deeper.<br><br>While the market debates whether SaaS companies will survive the AI wave, this one is already deploying AI agents that deliver 300% revenue lifts for customers, has built the world's largest travel intent data platform with 1.5 billion data points, and is in active conversations with OpenAI and Google to become the advertising infrastructure layer for AI-powered travel.<br><br>So in this thread, we're going to break it all down for you in simple terms:<br><br>\u2192 What the business actually does (and why it can't be replicated) <br>\u2192 Why financial metrics of this company are among the best in Indian SaaS <br>\u2192 What's going to drive the next phase of growth <br>\u2192 The real risks that you should watch <br>\u2192 And the big question, is AI a threat or the biggest tailwind this business has ever had?<br><img width=\"1158\" height=\"684\" style=\"\" src=\"https://pbs.twimg.com/media/HJveVUGaAAAujhE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Analysis: China\u2019s new carbon metric leaves Germany-sized gap in its emissions \u270d\ufe0f @laurimyllyvirta Read here: https://buff.ly/RfVDxLT",
+      "link": "https://x.com/CarbonBrief/status/2064032716308271570",
+      "date": "2026-06-08T17:12:02+00:00",
+      "tweet_id": "2064032716308271570",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HKTq0SjXcAATULb?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Analysis: China\u2019s new carbon metric leaves Germany-sized gap in its emissions <br><br>\u270d\ufe0f @laurimyllyvirta<br><br>Read here: https://buff.ly/RfVDxLT<br><img width=\"1560\" height=\"892\" style=\"\" src=\"https://pbs.twimg.com/media/HKTq0SjXcAATULb?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Media reaction: UK and Europe's \u2018mind-boggling\u2019 May heat and climate change \u270d\ufe0f @AyeshaTandon @daisydunnesci Josh Gabbatiss @MollyLempriere Read he...",
       "link": "https://x.com/CarbonBrief/status/2064022403475296489",
       "date": "2026-06-08T16:31:03+00:00",
@@ -4517,20 +4531,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Explainer: Will global warming \u2018stop\u2019 as soon as net-zero emissions are reached? | @hausfath #CBarchive<br><br>Read: https://buff.ly/v5OslxB"
-    },
-    {
-      "title": "Experts: Why migration is \u2018not a failure of adaptation\u2019 in a warming world | @AyeshaTandon Cecilia Keating Read here: https://buff.ly/cNHSCfj",
-      "link": "https://x.com/CarbonBrief/status/2062991623361818624",
-      "date": "2026-06-05T20:15:06+00:00",
-      "tweet_id": "2062991623361818624",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HKE38sYWwAAPRaA?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Experts: Why migration is \u2018not a failure of adaptation\u2019 in a warming world | @AyeshaTandon Cecilia Keating <br><br>Read here: https://buff.ly/cNHSCfj<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HKE38sYWwAAPRaA?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "SOON | Asia overtook the West on electrification in 2016 and is now electrifying 5 TIMES faster \u26a1 Explore what the electric-fuelled rise of Asia mean...",
@@ -5541,6 +5541,34 @@
       "description_html": "India\u2019s Nationally Determined Contribution (NDC) targets under the Paris Agreement pertain to emissions and energy use in the economy as a whole. <br><br>Sector-specific policy measures may hold the key\u2014argue Sarkar, Das Gupta and Desai<br><br>https://www.ideasforindia.in/topics/environment/a-multi-sectoral-approach-to-evaluate-indias-energy-and-emissions-targets"
     },
     {
+      "title": "RT Coefficient Giving: We're launching a $10 million RFP for R&D on one of the biggest barriers to alternative protein adoption: taste. \ud83e\uddf5",
+      "link": "https://x.com/srajagopalan/status/2064027249561551353",
+      "date": "2026-06-08T16:02:25+00:00",
+      "tweet_id": "2064027249561551353",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HKTa4q4bwAA3586?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Coefficient Giving<br>We're launching a $10 million RFP for R&amp;D on one of the biggest barriers to alternative protein adoption: taste. \ud83e\uddf5<br><img width=\"1480\" height=\"872\" style=\"\" src=\"https://pbs.twimg.com/media/HKTa4q4bwAA3586?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "RT Dean W. Ball: I keep playlists, mostly just in my head, of the music I would play for the great composers if they returned to life today. One thing...",
+      "link": "https://x.com/srajagopalan/status/2064027428549173272",
+      "date": "2026-06-08T14:52:21+00:00",
+      "tweet_id": "2064027428549173272",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Dean W. Ball<br>I keep playlists, mostly just in my head, of the music I would play for the great composers if they returned to life today. One thing I\u2019d play for almost all of them is Nusrat Fateh Ali Khan\u2019s qawwalis (as opposed to his funkier stuff). I think that Beethoven, for instance, (assume a hearing aid), would love the pianistic wilding out + lip-biting rhythms of a good recording of \u201cAli Ali Haq.\u201d <br><br>At a deeper level, though, I suspect he would see a structural similarity in musical epistemology. Qawwali is devotional music, intended to \u201cannihilate the soul\u201d in the face of a communally conjured God. \u201cAli Ali Haq\u201d begins in a kind of primordial chaos, with many disparate voices. There is an underlying rhythm but there is no unifying theme for the performers, no algorithm executed commonly by the musicians.<br><br>\u201cAli,\u201d they scream in a kind of desperation. But then the \u201cHaq\u201d (\u201ctruth\u201d) line begins and the chorus converges on more complex rhythms achievable only through coordinated effort. This reminds me quite deeply of the structure of the fourth movement of Beethoven\u2019s Ninth, with the Ode to Joy serving a similar role as the \u201cAli Ali Haq\u201d line in Nusrat.<br><br>There are many great recordings of \u201cAli Ali Haq.\u201d The below is not as pianistic as some others, but it captures the structural insight the best among Nusrat\u2019s best recordings of the tune.<br><br>It slaps.<br><br>https://youtu.be/DcPaCn2AQSI?si=S3i2l3KKZkpMfe6k"
+    },
+    {
       "title": "RT Kevin A. Bryan: This is excellent. Pre-cheap-reproduction, effort of copying -> enough incentive to make new things. When reproduction cheap, copyr...",
       "link": "https://x.com/srajagopalan/status/2063938881741783279",
       "date": "2026-06-08T03:00:13+00:00",
@@ -5749,34 +5777,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Saloni<br>A few months ago, a high profile paper in Science claimed to find that researchers' ideology produced biased results in favour of immigration.<br><br>A reanalysis of the data finds that result came from a coding error, which once corrected, shows no effect.<br><br>Will people who shared that original finding update their views?<br>https://osf.io/preprints/metaarxiv/4sepa_v2<br><img width=\"1802\" height=\"738\" style=\"\" src=\"https://pbs.twimg.com/media/HJ66m5UWUAA5pGj?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1092\" height=\"986\" style=\"\" src=\"https://pbs.twimg.com/media/HJ66m7HWsAA5M7v?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT Alex Tabarrok: I knew.",
-      "link": "https://x.com/srajagopalan/status/2061873035431305393",
-      "date": "2026-06-02T12:38:05+00:00",
-      "tweet_id": "2061873035431305393",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Alex Tabarrok<br>I knew.<div class=\"rsshub-quote\"><br><br>Noah Smith \ud83d\udc07\ud83c\uddfa\ud83c\uddf8\ud83c\uddfa\ud83c\udde6\ud83c\uddf9\ud83c\uddfc:\u2002All those years I was advocating for stronger antitrust, I had no idea how looney the leaders of that movement were. I knew the econ papers, but I didn't know what was happening in the back rooms of Washington D.C.<br></div>"
-    },
-    {
-      "title": "RT WSJ Books Section: The former vice president sees little conservatism in President Trump\u2019s second term, and is determined to bring it back, writes...",
-      "link": "https://x.com/srajagopalan/status/2061590158420394042",
-      "date": "2026-06-01T20:13:21+00:00",
-      "tweet_id": "2061590158420394042",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002WSJ Books Section<br>The former vice president sees little conservatism in President Trump\u2019s second term, and is determined to bring it back, writes @tunkuv https://www.wsj.com/arts-culture/books/what-conservatives-believe-review-mike-pences-way-6a3c22e5"
     },
     {
       "title": "Data for 08-Jun-2026 \ud83d\udc47 A) Cash Market \ud83d\udc4e FII net sold \u20b95556 cr \ud83d\udc4d DII net bought \u20b95165 cr B) FNO Market FII On Index Futures \ud83d\udc49 Unwound 1.1...",
@@ -7291,6 +7291,20 @@
       "description_html": "We\u2019re launching Trade DB to track India\u2019s trade at the HS code level by value or quantity, across imports, exports, and also detailed category and subcategory data for our trade partners. See this for more:  https://www.youtube.com/watch?v=KdwhLPaU3Fw  #India #Trade #Exports #Imports"
     },
     {
+      "title": "The US job market is experiencing a historic divergence: US information technology employment has declined -11%, since the launch of ChatGPT in Novemb...",
+      "link": "https://x.com/KobeissiLetter/status/2064040949131473071",
+      "date": "2026-06-08T17:44:44+00:00",
+      "tweet_id": "2064040949131473071",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HKSxWCjXkAE5qRH?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The US job market is experiencing a historic divergence:<br><br>US information technology employment has declined -11%, since the launch of ChatGPT in November 2022.<br><br>During this period, the tech sector has shed -332,000 jobs, down to 2.78 million.<br><br>At the same time, private education and health service employment has risen +13%, to an all-time high.<br><br>This comes as the sector has added +3.16 million jobs.<br><br>As a result, technology employment is now below pre-pandemic levels seen between 2017 and 2019.<br><br>AI remains a key force transforming labor market conditions.<br><img width=\"974\" height=\"535\" style=\"\" src=\"https://pbs.twimg.com/media/HKSxWCjXkAE5qRH?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Global investors are dumping South Korean stocks at an unprecedented pace: Foreign investors sold -$801 million of Kospi-listed shares on Monday. This...",
       "link": "https://x.com/KobeissiLetter/status/2064021036484485515",
       "date": "2026-06-08T16:25:37+00:00",
@@ -7555,20 +7569,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BREAKING: President Trump says he is \"not happy\" about Israel's earlier strikes on Beirut, Lebanon, and that the attacks were not coordinated with the US, per Fox News.<br><br>Trump tells Iran: \"You've shot your missiles, that's enough. Get back to the table and make a deal.\""
-    },
-    {
-      "title": "BREAKING: President Trump says the US and Iran are \"close to a deal\" as a third wave Iranian ballistic missiles is fired toward Israel, per Fox News.",
-      "link": "https://x.com/KobeissiLetter/status/2063711243731407300",
-      "date": "2026-06-07T19:54:37+00:00",
-      "tweet_id": "2063711243731407300",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: President Trump says the US and Iran are \"close to a deal\" as a third wave Iranian ballistic missiles is fired toward Israel, per Fox News."
     },
     {
       "title": "Bitcoin is now down 53% from its October 2025 high ! What happened ? Can we blame the market's & retail\u2019s obsession with AI for the lack of interest ...",
@@ -9769,6 +9769,20 @@
       "description_html": "RT\u2002Tijori<br>We ran as screen trying to figure out casting suppliers exposed to Tata and candidates for new suppliers<br><br>Here are the top listed candidates<br><img width=\"678\" height=\"834\" style=\"\" src=\"https://pbs.twimg.com/media/HJQsnRTakAEma6G?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Markets by Zerodha:\u2002Tata's problem is different. It is not short on factory space. But the Tata Sierra, which has seen strong bookings, is stuck because its casting suppliers for the new engine cannot ramp fast enough. Tata is bringing in additional suppliers to plug the gap.<br></div>"
     },
     {
+      "title": "INDIA WILLING TO OPEN MARKET TO HIGH-QUALITY, INNOVATIVE PHARMA PRODUCTS IN EXCHANGE FOR PREFERENTIAL ACCESS: PIYUSH GOYAL",
+      "link": "https://x.com/REDBOXINDIA/status/2064028411782410491",
+      "date": "2026-06-08T16:54:55+00:00",
+      "tweet_id": "2064028411782410491",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "INDIA WILLING TO OPEN MARKET TO HIGH-QUALITY, INNOVATIVE PHARMA PRODUCTS IN EXCHANGE FOR PREFERENTIAL ACCESS: PIYUSH GOYAL"
+    },
+    {
       "title": "WE CAN SEE PHARMACEUTICAL INDUSTRY DOUBLING IN NEXT FIVE YEARS: PIYUSH GOYAL",
       "link": "https://x.com/REDBOXINDIA/status/2064018847074816266",
       "date": "2026-06-08T16:16:55+00:00",
@@ -10035,18 +10049,32 @@
       "description_html": "FII/DII ACTIVITY FOR THE DAY<br><img width=\"1220\" height=\"1052\" style=\"\" src=\"https://pbs.twimg.com/media/HKSzq5_a4AAyvF2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "REPORT: HAL MAY FACE DEFENCE MINISTRY PENALTIES OVER DELAYS IN TEJAS MK-1A DELIVERIES TO THE INDIAN AIR FORCE",
-      "link": "https://x.com/REDBOXINDIA/status/2063971253896314984",
-      "date": "2026-06-08T13:07:48+00:00",
-      "tweet_id": "2063971253896314984",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
+      "title": "Global Private Investment in Al Has Been Dominated by the US",
+      "link": "https://x.com/exencial_RP/status/2064034218733154810",
+      "date": "2026-06-08T17:18:00+00:00",
+      "tweet_id": "2064034218733154810",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HKOHJctbwAAKYje?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "REPORT: HAL MAY FACE DEFENCE MINISTRY PENALTIES OVER DELAYS IN TEJAS MK-1A DELIVERIES TO THE INDIAN AIR FORCE"
+      "description_html": "Global Private Investment in Al Has Been Dominated by the US<br><img width=\"1738\" height=\"1245\" style=\"\" src=\"https://pbs.twimg.com/media/HKOHJctbwAAKYje?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "BofA Global Research Commodity Price Forecasts",
+      "link": "https://x.com/exencial_RP/status/2064029695881171298",
+      "date": "2026-06-08T17:00:01+00:00",
+      "tweet_id": "2064029695881171298",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HKQ81maa8AAYBY8?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "BofA Global Research Commodity Price Forecasts<br><img width=\"1445\" height=\"762\" style=\"\" src=\"https://pbs.twimg.com/media/HKQ81maa8AAYBY8?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Exencial Research Partners:\u2002http://x.com/i/article/2062182733405921280<br></div>"
     },
     {
       "title": "Data centers would not work without metals Mined raw materials used in data centers",
@@ -10259,34 +10287,6 @@
       "description_html": "RT\u2002Kruti Shah<br>Every AI chip shipped by TSMC, Samsung, or Intel goes through one silent checkpoint.<br><br>Not an AI model. Not a foundry. Not a GPU designer.<br><br>A metrology and inspection company from Wilmington, Massachusetts. \ud83d\udd2c<br><br>Meet $ONTO \u2014 Onto Innovation. \ud83e\uddf5<br><br>The unsexy company that holds the keys to every advanced packaging yield on Earth. <br><br>1/12<br><img width=\"700\" height=\"300\" style=\"\" src=\"https://pbs.twimg.com/media/HKRVqB5b0AAZQup?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "Exencial Industry Tidings - 8/6/2026 Fuel For thoughts in Every Industry We Are Publishing Daily, You will Find now on https://drive.google.com/file/d...",
-      "link": "https://x.com/exencial_RP/status/2063867896212726101",
-      "date": "2026-06-08T06:17:05+00:00",
-      "tweet_id": "2063867896212726101",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HKRUnWEaEAEHj60?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Exencial  Industry Tidings - 8/6/2026                          <br><br>Fuel For thoughts in Every Industry                                                <br><br>We Are Publishing Daily, You will Find now on<br><br>https://drive.google.com/file/d/1n_PPbjePrfTU6pniLr4jxGRmCrP8_DDN/view?usp=sharing<br><img width=\"401\" height=\"577\" style=\"\" src=\"https://pbs.twimg.com/media/HKRUnWEaEAEHj60?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "SBI Bank SOTP",
-      "link": "https://x.com/exencial_RP/status/2063867810057687339",
-      "date": "2026-06-08T06:16:45+00:00",
-      "tweet_id": "2063867810057687339",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HKRU1ICb0AAOP7N?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SBI Bank SOTP<br><img width=\"1241\" height=\"488\" style=\"\" src=\"https://pbs.twimg.com/media/HKRU1ICb0AAOP7N?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
       "title": "RT Exencial Research Partners: Xi\u2019s Pyongyang Power Play: First NK Visit in 7 Years as Kim\u2019s Russia Ties Raise Beijing\u2019s Eyebrows",
       "link": "https://x.com/exencial_RP/status/2063888629899080164",
       "date": "2026-06-07T15:30:52+00:00",
@@ -10299,6 +10299,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Exencial Research Partners<br>Xi\u2019s Pyongyang Power Play:<br><br>First NK Visit in 7 Years as Kim\u2019s Russia Ties Raise Beijing\u2019s Eyebrows<br><img width=\"1200\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HKOJ7tAbcAA4-FE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "RT Kruti Shah: Everyone thinks Nvidia owns the AI gold rush. They're wrong. An overlooked silicon titan is quietly architecting the physical nervous s...",
+      "link": "https://x.com/exencial_RP/status/2064029105616814359",
+      "date": "2026-06-04T10:30:04+00:00",
+      "tweet_id": "2064029105616814359",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HJ9nRp_bkAAcbVN?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Kruti Shah<br>Everyone thinks Nvidia owns the AI gold rush. They're wrong.<br><br>An overlooked silicon titan is quietly architecting the physical nervous system of the AI age.<br><br>This is the epic rise of Marvell Technology.<br><br>1/12<br><img width=\"700\" height=\"300\" style=\"\" src=\"https://pbs.twimg.com/media/HJ9nRp_bkAAcbVN?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Iran declares halt to military operations against Israel. Iran says it is halting its military operations against Israel today after a cycle of retali...",
@@ -10833,6 +10847,20 @@
       "description_html": "Ola Electric has set a floor price of Rs 37.74 per share for its QIP.<br><br>That's 50% below the IPO price of Rs 76, less than two years ago.<br><br>Repaying debt - which stands at close to Rs 2,500 cr for Ola Electric - is the key priority.<br><br>Most of the debt is at over 11% interest pa \ud83d\udc47<br><img width=\"998\" height=\"1146\" style=\"\" src=\"https://pbs.twimg.com/media/HJyIeRTbwAAHzw4?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"998\" height=\"906\" style=\"\" src=\"https://pbs.twimg.com/media/HJyIeRhbMAAiZ-o?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Reconstructing Venezuela will be one of the most arduous challenges any Latin American nation has ever encountered & will require public resources tha...",
+      "link": "https://x.com/PIIE/status/2064035326520176909",
+      "date": "2026-06-08T17:22:24+00:00",
+      "tweet_id": "2064035326520176909",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Reconstructing Venezuela will be one of the most arduous challenges any Latin American nation has ever encountered &amp; will require public resources that will come from the international financial institutions whose debt is senior to current bondholders. https://www.piie.com/blogs/realtime-economics/2026/are-venezuelan-bondholders-trying-jump-line"
+    },
+    {
       "title": "Beijing does not \"want interdependence, they want everybody to depend on them,\u201d says @ChadBown. \u201cTheir goal was to acquire market power.\u201d https://w...",
       "link": "https://x.com/PIIE/status/2064022397661941965",
       "date": "2026-06-08T16:31:01+00:00",
@@ -11055,20 +11083,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Agreements on Reciprocal Trade shows how the Trump administration is building a legal framework for the US to, via trading partners, indirectly decouple from China &amp; other foreign entities of concern. https://www.piie.com/blogs/realtime-economics/2026/us-reciprocal-trade-deals-built-push-americas-trade-partners-away"
-    },
-    {
-      "title": "Europe needs a coherent, updated strategy toward an ever more aggressive China. So far, unfortunately, its dealings with the country have been marked ...",
-      "link": "https://x.com/PIIE/status/2062888422172229918",
-      "date": "2026-06-05T13:25:01+00:00",
-      "tweet_id": "2062888422172229918",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Europe needs a coherent, updated strategy toward an ever more aggressive China. <br>So far, unfortunately, its dealings with the country have been marked by lack of unity &amp; conflicting messages, @MalmstromEU writes.<br>https://www.piie.com/blogs/realtime-economics/2026/europe-lacks-coherent-strategy-toward-china"
     },
     {
       "title": "RT CEPR: Alan Wolff @PIIE argues that the EU must step up to lead the world trading system at this moment of historic disruption. In his contribution ...",
