@@ -895,6 +895,28 @@
         .foot-stats strong {
             color: var(--text-primary);
         }
+        .refresh-now {
+            font: inherit;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: none;
+            border: 1px solid var(--accent);
+            border-radius: 999px;
+            padding: 0.1rem 0.7rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+        }
+        .refresh-now:hover { background: var(--accent); color: #fff; }
+        .refresh-now:disabled { opacity: 0.5; cursor: default; }
+        .refresh-status {
+            display: block;
+            margin-top: 0.4rem;
+            font-size: 0.74rem;
+            color: var(--text-secondary);
+        }
+        .refresh-status:empty { display: none; }
         .foot-nav {
             display: flex;
             justify-content: center;

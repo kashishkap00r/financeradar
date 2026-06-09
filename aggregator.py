@@ -896,6 +896,8 @@ def generate_html(
     html += f"""        <footer>
             <div class="foot-stats">
                 <strong>{total_items}</strong> items &middot; last updated {now_ts} &middot; no ads, ever
+                <button type="button" id="refresh-now" class="refresh-now" hidden>Refresh now</button>
+                <span id="refresh-status" class="refresh-status"></span>
             </div>
             <nav class="foot-nav">
                 <a href="/">Feed</a>
@@ -936,6 +938,7 @@ def generate_html(
         var PAPER_ARTICLES = null;
         var NEWS_ARTICLES = null;
         var TODAY_ISO = "{today_iso}";
+        var SITE_GENERATED_AT = "{now_ist.isoformat()}";
 """
     html += """
     </script>

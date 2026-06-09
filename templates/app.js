@@ -1351,6 +1351,48 @@
             loadAiRankings();
         }, AI_REFRESH_INTERVAL_MS);
 
+        // ==================== MANUAL REFRESH BUTTON ====================
+        // Shows a "Refresh now" button in the footer only when the site is
+        // stale (>2h since last build). Clicking it calls the same-origin
+        // /api/trigger-update Pages Function, which re-checks staleness
+        // server-side before dispatching the GitHub Action. The token lives
+        // only in the Function — never here.
+        const REFRESH_STALE_MS = 2 * 60 * 60 * 1000;
+        const REFRESH_MESSAGES = {
+            already_running: 'A refresh is already running.',
+            cooldown: 'A refresh just ran — try again shortly.',
+            fresh: 'Site is already up to date.',
+        };
+
+        function initRefreshButton() {
+            const btn = document.getElementById('refresh-now');
+            const status = document.getElementById('refresh-status');
+            if (!btn) return;
+            const builtAt = (typeof SITE_GENERATED_AT === 'string') ? Date.parse(SITE_GENERATED_AT) : NaN;
+            // Only surface the button once the site is genuinely stale.
+            if (isNaN(builtAt) || (Date.now() - builtAt) < REFRESH_STALE_MS) return;
+            btn.hidden = false;
+
+            btn.addEventListener('click', async () => {
+                btn.disabled = true;
+                if (status) status.textContent = 'Refreshing… new content in ~3 min, reload shortly.';
+                try {
+                    const res = await fetch('/api/trigger-update', { method: 'POST' });
+                    const data = await res.json();
+                    if (data && data.ok) {
+                        if (status) status.textContent = 'Refresh started — reload in a few minutes.';
+                        return; // leave disabled; a run is on its way
+                    }
+                    const msg = (data && REFRESH_MESSAGES[data.reason]) || 'Could not start a refresh — try again later.';
+                    if (status) status.textContent = msg;
+                } catch (e) {
+                    if (status) status.textContent = 'Could not start a refresh — try again later.';
+                }
+                btn.disabled = false;
+            });
+        }
+        initRefreshButton();
+
         // ==================== WSW SIDEBAR ====================
         let wswData = null;
         let currentWswProvider = 'gemini-3-flash';
