@@ -1357,7 +1357,7 @@
         // /api/trigger-update Pages Function, which re-checks staleness
         // server-side before dispatching the GitHub Action. The token lives
         // only in the Function — never here.
-        const REFRESH_STALE_MS = 2 * 60 * 60 * 1000;
+        const REFRESH_STALE_MS = 2 * 60 * 1000; // TEMP TEST: 2 min — REVERT to 2 * 60 * 60 * 1000
         const REFRESH_MESSAGES = {
             already_running: 'A refresh is already running.',
             cooldown: 'A refresh just ran — try again shortly.',
