@@ -1357,7 +1357,7 @@
         // /api/trigger-update Pages Function, which re-checks staleness
         // server-side before dispatching the GitHub Action. The token lives
         // only in the Function — never here.
-        const REFRESH_STALE_MS = 2 * 60 * 1000; // TEMP TEST: 2 min — REVERT to 2 * 60 * 60 * 1000
+        const REFRESH_STALE_MS = 60 * 60 * 1000; // 60 min — button is clickable only once the feed is this stale
         const REFRESH_MESSAGES = {
             already_running: 'A refresh is already running.',
             cooldown: 'A refresh just ran — try again shortly.',
@@ -1369,11 +1369,21 @@
             const status = document.getElementById('refresh-status');
             if (!btn) return;
             const builtAt = (typeof SITE_GENERATED_AT === 'string') ? Date.parse(SITE_GENERATED_AT) : NaN;
-            // Only surface the button once the site is genuinely stale.
-            if (isNaN(builtAt) || (Date.now() - builtAt) < REFRESH_STALE_MS) return;
-            btn.hidden = false;
+            btn.hidden = false; // always visible; only its clickable state changes
+
+            // Enable only when the feed is stale enough. Re-checked on a timer so
+            // the button "wakes up" without a reload if the hourly cycle runs late.
+            function refreshEnabledState() {
+                if (btn.dataset.busy === '1') return; // a trigger is in flight — leave it disabled
+                const stale = isNaN(builtAt) || (Date.now() - builtAt) >= REFRESH_STALE_MS;
+                btn.disabled = !stale;
+                btn.title = stale ? 'Manually refresh the feed' : 'Available once the feed is over 60 min old';
+            }
+            refreshEnabledState();
+            setInterval(refreshEnabledState, 30 * 1000);
 
             btn.addEventListener('click', async () => {
+                btn.dataset.busy = '1';
                 btn.disabled = true;
                 if (status) status.textContent = 'Refreshing… new content in ~3 min, reload shortly.';
                 try {
@@ -1381,14 +1391,15 @@
                     const data = await res.json();
                     if (data && data.ok) {
                         if (status) status.textContent = 'Refresh started — reload in a few minutes.';
-                        return; // leave disabled; a run is on its way
+                        return; // leave disabled + busy; a run is on its way
                     }
                     const msg = (data && REFRESH_MESSAGES[data.reason]) || 'Could not start a refresh — try again later.';
                     if (status) status.textContent = msg;
                 } catch (e) {
                     if (status) status.textContent = 'Could not start a refresh — try again later.';
                 }
-                btn.disabled = false;
+                btn.dataset.busy = '';
+                refreshEnabledState();
             });
         }
         initRefreshButton();

@@ -12,8 +12,8 @@
 const REPO = "kashishkap00r/financeradar";
 const WORKFLOW = "hourly.yml";
 const BRANCH = "main";
-const STALE_HOURS = 2 / 60; // TEMP TEST: 2 minutes — REVERT to 2
-const COOLDOWN_MIN = 1; // TEMP TEST: 1 minute — REVERT to 10
+const STALE_HOURS = 1; // site must be at least this stale (60 min) before a manual run is allowed
+const COOLDOWN_MIN = 10; // ignore requests if a run started this recently (avoid hammering)
 
 const GH_HEADERS_BASE = {
   Accept: "application/vnd.github+json",
