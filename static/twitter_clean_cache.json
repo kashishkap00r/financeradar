@@ -1,26 +1,116 @@
 {
-  "generated_at": "2026-06-08T23:17:55.930478+05:30",
+  "generated_at": "2026-06-09T09:25:09.112320+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
-      "feeds_ok": 42,
-      "feeds_failed": 7,
-      "items_raw": 1034,
-      "resolve_attempted": 1034,
-      "resolve_resolved": 1032,
-      "resolve_cache_hits": 1028
+      "feeds_ok": 47,
+      "feeds_failed": 2,
+      "items_raw": 1162,
+      "resolve_attempted": 1162,
+      "resolve_resolved": 1161,
+      "resolve_cache_hits": 1141
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 1.0,
-      "items": 791,
+      "age_hours": 10.1,
+      "items": 792,
       "handles_ok": 49
     },
     "warning": "",
-    "generated_at": "2026-06-08T23:17:55.930428+05:30"
+    "generated_at": "2026-06-09T09:25:09.112254+05:30"
   },
   "items": [
+    {
+      "title": "The US job market is experiencing a historic divergence: US information technology employment has declined -11%, since the launch of ChatGPT in Novemb...",
+      "link": "https://x.com/KobeissiLetter/status/2064040949131473071",
+      "date": "2026-06-08T17:44:44+00:00",
+      "tweet_id": "2064040949131473071",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HKSxWCjXkAE5qRH?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The US job market is experiencing a historic divergence:<br><br>US information technology employment has declined -11%, since the launch of ChatGPT in November 2022.<br><br>During this period, the tech sector has shed -332,000 jobs, down to 2.78 million.<br><br>At the same time, private education and health service employment has risen +13%, to an all-time high.<br><br>This comes as the sector has added +3.16 million jobs.<br><br>As a result, technology employment is now below pre-pandemic levels seen between 2017 and 2019.<br><br>AI remains a key force transforming labor market conditions.<br><img width=\"974\" height=\"535\" style=\"\" src=\"https://pbs.twimg.com/media/HKSxWCjXkAE5qRH?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Reconstructing Venezuela will be one of the most arduous challenges any Latin American nation has ever encountered & will require public resources tha...",
+      "link": "https://x.com/PIIE/status/2064035326520176909",
+      "date": "2026-06-08T17:22:24+00:00",
+      "tweet_id": "2064035326520176909",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Reconstructing Venezuela will be one of the most arduous challenges any Latin American nation has ever encountered &amp; will require public resources that will come from the international financial institutions whose debt is senior to current bondholders. https://www.piie.com/blogs/realtime-economics/2026/are-venezuelan-bondholders-trying-jump-line",
+      "category": "Twitter"
+    },
+    {
+      "title": "Global Private Investment in Al Has Been Dominated by the US",
+      "link": "https://x.com/exencial_RP/status/2064034218733154810",
+      "date": "2026-06-08T17:18:00+00:00",
+      "tweet_id": "2064034218733154810",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HKOHJctbwAAKYje?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Global Private Investment in Al Has Been Dominated by the US<br><img width=\"1738\" height=\"1245\" style=\"\" src=\"https://pbs.twimg.com/media/HKOHJctbwAAKYje?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Analysis: China\u2019s new carbon metric leaves Germany-sized gap in its emissions \u270d\ufe0f @laurimyllyvirta Read here: https://buff.ly/RfVDxLT",
+      "link": "https://x.com/CarbonBrief/status/2064032716308271570",
+      "date": "2026-06-08T17:12:02+00:00",
+      "tweet_id": "2064032716308271570",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HKTq0SjXcAATULb?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Analysis: China\u2019s new carbon metric leaves Germany-sized gap in its emissions <br><br>\u270d\ufe0f @laurimyllyvirta<br><br>Read here: https://buff.ly/RfVDxLT<br><img width=\"1560\" height=\"892\" style=\"\" src=\"https://pbs.twimg.com/media/HKTq0SjXcAATULb?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "BofA Global Research Commodity Price Forecasts",
+      "link": "https://x.com/exencial_RP/status/2064029695881171298",
+      "date": "2026-06-08T17:00:01+00:00",
+      "tweet_id": "2064029695881171298",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HKQ81maa8AAYBY8?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "BofA Global Research Commodity Price Forecasts<br><img width=\"1445\" height=\"762\" style=\"\" src=\"https://pbs.twimg.com/media/HKQ81maa8AAYBY8?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Exencial Research Partners:\u2002http://x.com/i/article/2062182733405921280<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "INDIA WILLING TO OPEN MARKET TO HIGH-QUALITY, INNOVATIVE PHARMA PRODUCTS IN EXCHANGE FOR PREFERENTIAL ACCESS: PIYUSH GOYAL",
+      "link": "https://x.com/REDBOXINDIA/status/2064028411782410491",
+      "date": "2026-06-08T16:54:55+00:00",
+      "tweet_id": "2064028411782410491",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "INDIA WILLING TO OPEN MARKET TO HIGH-QUALITY, INNOVATIVE PHARMA PRODUCTS IN EXCHANGE FOR PREFERENTIAL ACCESS: PIYUSH GOYAL",
+      "category": "Twitter"
+    },
     {
       "title": "Media reaction: UK and Europe's \u2018mind-boggling\u2019 May heat and climate change \u270d\ufe0f @AyeshaTandon @daisydunnesci Josh Gabbatiss @MollyLempriere Read he...",
       "link": "https://x.com/CarbonBrief/status/2064022403475296489",
@@ -184,6 +274,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BLOCK DEAL ALERT: BLUESTONE JEWELLERY <br><br>Vendor sale - By way of one or more share sales on the screen-based trading platform of Indian Stock Exchanges (\u201cSale\u201d)<br><br>Vendors @yatinmota<br><br>360 ONE GROUP<br><br>ACCEL INDIA III (MAURITIUS) LIMITED<br><br>IVYCAP VENTURES TRUST<br><br>IRON PILLAR INDIA FUND I<br><br>IRON PILLAR FUND I LTD<br><br>Indicative Floor Price<br><br>INR 520 per Equity share<br>(~5.4% discount to closing price of INR 549.50 per share on the NSE on 08 June, 2026) #YM<br><br>Base Offer Size (# Shares)<br><br>Up to c. 5.8 mn shares / c. 3.8% of existing TSO<br><br>Base Offer Size (INR MM / USD MM)<br><br>Up to c. INR 3,000 MM / US$ 31 MM (calculated at floor price)<br><br>Upsize Option OPEN #broker #termsheet",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Coefficient Giving: We're launching a $10 million RFP for R&D on one of the biggest barriers to alternative protein adoption: taste. \ud83e\uddf5",
+      "link": "https://x.com/srajagopalan/status/2064027249561551353",
+      "date": "2026-06-08T16:02:25+00:00",
+      "tweet_id": "2064027249561551353",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HKTa4q4bwAA3586?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Coefficient Giving<br>We're launching a $10 million RFP for R&amp;D on one of the biggest barriers to alternative protein adoption: taste. \ud83e\uddf5<br><img width=\"1480\" height=\"872\" style=\"\" src=\"https://pbs.twimg.com/media/HKTa4q4bwAA3586?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -499,6 +604,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RBI: SWAP WILL BE UNDERTAKEN AT A FIXED RATE OF 1.5% PER ANNUM COMPOUNDED SEMI-ANNUALLY || SWAP FACILITY COMES INTO EFFECT FROM JUNE 8, WILL REMAIN OPEN UP TO JAN 15, 2027 FOR ELIGIBLE ECB DRAWDOWNS",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Dean W. Ball: I keep playlists, mostly just in my head, of the music I would play for the great composers if they returned to life today. One thing...",
+      "link": "https://x.com/srajagopalan/status/2064027428549173272",
+      "date": "2026-06-08T14:52:21+00:00",
+      "tweet_id": "2064027428549173272",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Dean W. Ball<br>I keep playlists, mostly just in my head, of the music I would play for the great composers if they returned to life today. One thing I\u2019d play for almost all of them is Nusrat Fateh Ali Khan\u2019s qawwalis (as opposed to his funkier stuff). I think that Beethoven, for instance, (assume a hearing aid), would love the pianistic wilding out + lip-biting rhythms of a good recording of \u201cAli Ali Haq.\u201d <br><br>At a deeper level, though, I suspect he would see a structural similarity in musical epistemology. Qawwali is devotional music, intended to \u201cannihilate the soul\u201d in the face of a communally conjured God. \u201cAli Ali Haq\u201d begins in a kind of primordial chaos, with many disparate voices. There is an underlying rhythm but there is no unifying theme for the performers, no algorithm executed commonly by the musicians.<br><br>\u201cAli,\u201d they scream in a kind of desperation. But then the \u201cHaq\u201d (\u201ctruth\u201d) line begins and the chorus converges on more complex rhythms achievable only through coordinated effort. This reminds me quite deeply of the structure of the fourth movement of Beethoven\u2019s Ninth, with the Ode to Joy serving a similar role as the \u201cAli Ali Haq\u201d line in Nusrat.<br><br>There are many great recordings of \u201cAli Ali Haq.\u201d The below is not as pianistic as some others, but it captures the structural insight the best among Nusrat\u2019s best recordings of the tune.<br><br>It slaps.<br><br>https://youtu.be/DcPaCn2AQSI?si=S3i2l3KKZkpMfe6k",
       "category": "Twitter"
     },
     {
@@ -1264,21 +1384,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "CHART OF THE DAY: At least some positive news to follow the US-Iran conflict. The price of Arabica coffee has plunged to a mear 2-year low on expectations of a large harvest in Brazil. Considering my war-watching high caffeine consumption, that's very good news.<br><img width=\"1033\" height=\"646\" style=\"\" src=\"https://pbs.twimg.com/media/HKSzW6qWoAAAUPY?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "REPORT: HAL MAY FACE DEFENCE MINISTRY PENALTIES OVER DELAYS IN TEJAS MK-1A DELIVERIES TO THE INDIAN AIR FORCE",
-      "link": "https://x.com/REDBOXINDIA/status/2063971253896314984",
-      "date": "2026-06-08T13:07:48+00:00",
-      "tweet_id": "2063971253896314984",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "REPORT: HAL MAY FACE DEFENCE MINISTRY PENALTIES OVER DELAYS IN TEJAS MK-1A DELIVERIES TO THE INDIAN AIR FORCE",
       "category": "Twitter"
     },
     {
@@ -2857,36 +2962,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Exencial Industry Tidings - 8/6/2026 Fuel For thoughts in Every Industry We Are Publishing Daily, You will Find now on https://drive.google.com/file/d...",
-      "link": "https://x.com/exencial_RP/status/2063867896212726101",
-      "date": "2026-06-08T06:17:05+00:00",
-      "tweet_id": "2063867896212726101",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HKRUnWEaEAEHj60?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Exencial  Industry Tidings - 8/6/2026                          <br><br>Fuel For thoughts in Every Industry                                                <br><br>We Are Publishing Daily, You will Find now on<br><br>https://drive.google.com/file/d/1n_PPbjePrfTU6pniLr4jxGRmCrP8_DDN/view?usp=sharing<br><img width=\"401\" height=\"577\" style=\"\" src=\"https://pbs.twimg.com/media/HKRUnWEaEAEHj60?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "SBI Bank SOTP",
-      "link": "https://x.com/exencial_RP/status/2063867810057687339",
-      "date": "2026-06-08T06:16:45+00:00",
-      "tweet_id": "2063867810057687339",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HKRU1ICb0AAOP7N?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SBI Bank SOTP<br><img width=\"1241\" height=\"488\" style=\"\" src=\"https://pbs.twimg.com/media/HKRU1ICb0AAOP7N?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Commodity prices are moving higher Rebar, aluminium, copper, zinc have all moved up meaningfully from recent lows src : MOFSL",
       "link": "https://x.com/EquityInsightss/status/2063867398227382772",
       "date": "2026-06-08T06:15:07+00:00",
@@ -3529,21 +3604,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "In April 2023, Laurus Labs was deeply out of favour.<br><br>COVID-linked revenues had disappeared. Margins had compressed sharply. The stock had fallen significantly from its peak, and the prevailing view was that the growth story was over.<br><br>What stood out in Dr Satyanarayana Chava's interview was not any particular answer.<br><br>It was his demeanour.<br><br>There was no urgency to justify the numbers. No attempt to manufacture optimism. No visible concern about market sentiment.<br><br>He appeared focused on capabilities, capacity, customer relationships and the next phase of growth.<br><br>The market was focused on what had happened or what was about to happen in FY24. Management appeared focused on what was being built.<br><br>https://www.youtube.com/watch?v=Ms-BPf-EMyw&amp;t=2397s<br><img width=\"1387\" height=\"781\" style=\"\" src=\"https://pbs.twimg.com/media/HKPGqtWXYAAHQL2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "BREAKING: President Trump says the US and Iran are \"close to a deal\" as a third wave Iranian ballistic missiles is fired toward Israel, per Fox News.",
-      "link": "https://x.com/KobeissiLetter/status/2063711243731407300",
-      "date": "2026-06-07T19:54:37+00:00",
-      "tweet_id": "2063711243731407300",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: President Trump says the US and Iran are \"close to a deal\" as a third wave Iranian ballistic missiles is fired toward Israel, per Fox News.",
       "category": "Twitter"
     },
     {
@@ -5422,21 +5482,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Experts: Why migration is \u2018not a failure of adaptation\u2019 in a warming world | @AyeshaTandon Cecilia Keating Read here: https://buff.ly/cNHSCfj",
-      "link": "https://x.com/CarbonBrief/status/2062991623361818624",
-      "date": "2026-06-05T20:15:06+00:00",
-      "tweet_id": "2062991623361818624",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HKE38sYWwAAPRaA?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Experts: Why migration is \u2018not a failure of adaptation\u2019 in a warming world | @AyeshaTandon Cecilia Keating <br><br>Read here: https://buff.ly/cNHSCfj<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HKE38sYWwAAPRaA?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT The Kobeissi Letter: What just happened? The S&P 500 just erased nearly -$2 TRILLION of market cap just hours after 3rd strongest US jobs report in...",
       "link": "https://x.com/madhavchanchani/status/2063091352301441411",
       "date": "2026-06-05T20:02:05+00:00",
@@ -5779,21 +5824,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Manoj Kumar<br>First tranche of US-India trade deal likely by mid-July, says India trade minister https://www.reuters.com/world/india/first-tranche-us-india-trade-deal-likely-by-mid-july-says-india-trade-minister-2026-06-05/",
-      "category": "Twitter"
-    },
-    {
-      "title": "Europe needs a coherent, updated strategy toward an ever more aggressive China. So far, unfortunately, its dealings with the country have been marked ...",
-      "link": "https://x.com/PIIE/status/2062888422172229918",
-      "date": "2026-06-05T13:25:01+00:00",
-      "tweet_id": "2062888422172229918",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Europe needs a coherent, updated strategy toward an ever more aggressive China. <br>So far, unfortunately, its dealings with the country have been marked by lack of unity &amp; conflicting messages, @MalmstromEU writes.<br>https://www.piie.com/blogs/realtime-economics/2026/europe-lacks-coherent-strategy-toward-china",
       "category": "Twitter"
     },
     {
@@ -7234,6 +7264,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Trafigura warns oil at \u2018inflection point\u2019 as Iran war stokes bumper half-year profits https://ft.trib.al/nVWJCM2",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Kruti Shah: Everyone thinks Nvidia owns the AI gold rush. They're wrong. An overlooked silicon titan is quietly architecting the physical nervous s...",
+      "link": "https://x.com/exencial_RP/status/2064029105616814359",
+      "date": "2026-06-04T10:30:04+00:00",
+      "tweet_id": "2064029105616814359",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HJ9nRp_bkAAcbVN?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Kruti Shah<br>Everyone thinks Nvidia owns the AI gold rush. They're wrong.<br><br>An overlooked silicon titan is quietly architecting the physical nervous system of the AI age.<br><br>This is the epic rise of Marvell Technology.<br><br>1/12<br><img width=\"700\" height=\"300\" style=\"\" src=\"https://pbs.twimg.com/media/HJ9nRp_bkAAcbVN?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -8857,21 +8902,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Alex Tabarrok: I knew.",
-      "link": "https://x.com/srajagopalan/status/2061873035431305393",
-      "date": "2026-06-02T12:38:05+00:00",
-      "tweet_id": "2061873035431305393",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Alex Tabarrok<br>I knew.<div class=\"rsshub-quote\"><br><br>Noah Smith \ud83d\udc07\ud83c\uddfa\ud83c\uddf8\ud83c\uddfa\ud83c\udde6\ud83c\uddf9\ud83c\uddfc:\u2002All those years I was advocating for stronger antitrust, I had no idea how looney the leaders of that movement were. I knew the econ papers, but I didn't know what was happening in the back rooms of Washington D.C.<br></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "South Korea Beat India. Then Jensen Huang Defended Software. \u201cThis is actually an incredible time to be a software company.\u201d - Jensen Huang, CEO, Nv...",
       "link": "https://x.com/menakadoshi/status/2061787711334482220",
       "date": "2026-06-02T12:31:11+00:00",
@@ -9124,21 +9154,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "The Consumer Demand is pushing Mega Capex Spends across the board! Watch out for CPUs and ASICs<div class=\"rsshub-quote\"><br><br>GURGAVIN:\u2002JUST IN : GOOGLE IS PLANNING TO SELL $80 BILLION IN NEW SHARES TO FUND GROWTH<br><br>BERKSHIRE HATHAWAY TO INVEST $10B IN GOOGLE<br><br>$GOOGL $BRK<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT WSJ Books Section: The former vice president sees little conservatism in President Trump\u2019s second term, and is determined to bring it back, writes...",
-      "link": "https://x.com/srajagopalan/status/2061590158420394042",
-      "date": "2026-06-01T20:13:21+00:00",
-      "tweet_id": "2061590158420394042",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002WSJ Books Section<br>The former vice president sees little conservatism in President Trump\u2019s second term, and is determined to bring it back, writes @tunkuv https://www.wsj.com/arts-culture/books/what-conservatives-believe-review-mike-pences-way-6a3c22e5",
       "category": "Twitter"
     },
     {
@@ -10428,7 +10443,7 @@
       "is_retweet": false,
       "is_quote": true,
       "is_reply": false,
-      "description_html": "Meta creating their own data to train models on but this is going to scare a lot of folks. I experienced this last year. One of the product companies brought Claude, SDEs were excited, built a model silently to learn how they perform &amp; fired almost 65% of the team. We've to figure out inclusive ways otherwise this will get out of hand eventually.<div class=\"rsshub-quote\"><br><br>Official Layoff:\u2002LEAKED AUDIO FROM META ALL-HANDS AHEAD OF LAYOFFS TOMORROW<br><br>Mark Zuckerberg, in his own words, told Meta employees their devices are being tracked to train AI models.<br><br>His reasoning? Meta employees are smarter than the contract workers the rest of the industry uses for data<br><br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2056857797560872960/vid/avc1/1080x1920/XUUMarW5M9EOyOhx.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056857797560872960/img/N8y2xu6Kr0tUnFhe.jpg\"></video></div>",
+      "description_html": "Meta creating their own data to train models on but this is going to scare a lot of folks. I experienced this last year. One of the product companies brought Claude, SDEs were excited, built a model silently to learn how they perform &amp; fired almost 65% of the team. We've to figure out inclusive ways otherwise this will get out of hand eventually.<div class=\"rsshub-quote\"><br><br>LayoffHedge:\u2002LEAKED AUDIO FROM META ALL-HANDS AHEAD OF LAYOFFS TOMORROW<br><br>Mark Zuckerberg, in his own words, told Meta employees their devices are being tracked to train AI models.<br><br>His reasoning? Meta employees are smarter than the contract workers the rest of the industry uses for data<br><br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2056857797560872960/vid/avc1/1080x1920/XUUMarW5M9EOyOhx.mp4?tag=27\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2056857797560872960/img/N8y2xu6Kr0tUnFhe.jpg\"></video></div>",
       "category": "Twitter"
     },
     {
