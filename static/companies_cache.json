@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:43:42.456627+05:30",
+  "generated_at": "2026-06-16T17:54:46.256761+05:30",
   "companies": [
     {
       "title": "Parmax Pharma's new owners are taking over. They're paying \u20b942.80 a share.",
@@ -15,6 +15,22 @@
       "cap": "Micro cap",
       "category": "M&A",
       "score": 10,
+      "feed_id": "tipsheet"
+    },
+    {
+      "title": "Modulex raises \u20b945.75 cr via warrant conversion, a third of its market cap",
+      "link": "https://tipsheet.markets/modulex-modulex-raises-45-75-cr-via-warrant-conversion-a-third-of-its-market-cap-108983/",
+      "source": "Tipsheet",
+      "source_url": "https://tipsheet.markets/modulex-modulex-raises-45-75-cr-via-warrant-conversion-a-third-of-its-market-cap-108983/",
+      "publisher": "Tipsheet",
+      "description": "",
+      "date": "2026-06-16T17:08:05+05:30",
+      "time": "5:08 PM",
+      "ticker": "MODULEX",
+      "sector": "Electric Equipment",
+      "cap": "Micro cap",
+      "category": "Credit",
+      "score": 9,
       "feed_id": "tipsheet"
     },
     {
@@ -1151,6 +1167,22 @@
       "cap": "Small cap",
       "category": "Order Wins",
       "score": 9,
+      "feed_id": "tipsheet"
+    },
+    {
+      "title": "Pakka's CFO resigns as credit downgrade, debt pressure mount",
+      "link": "https://tipsheet.markets/pakka-pakka-s-cfo-resigns-as-credit-downgrade-debt-pressure-mount-108973/",
+      "source": "Tipsheet",
+      "source_url": "https://tipsheet.markets/pakka-pakka-s-cfo-resigns-as-credit-downgrade-debt-pressure-mount-108973/",
+      "publisher": "Tipsheet",
+      "description": "",
+      "date": "2026-06-16T16:50:20+05:30",
+      "time": "4:50 PM",
+      "ticker": "PAKKA",
+      "sector": "Paper Products",
+      "cap": "Micro cap",
+      "category": "Other",
+      "score": 8,
       "feed_id": "tipsheet"
     },
     {
@@ -5938,6 +5970,22 @@
       "feed_id": "tipsheet"
     },
     {
+      "title": "RDB Infrastructure pledges \u20b917.75 cr guarantee for group firm, adds land",
+      "link": "https://tipsheet.markets/rdbril-rdb-infrastructure-pledges-17-75-cr-guarantee-for-group-firm-adds-land-108985/",
+      "source": "Tipsheet",
+      "source_url": "https://tipsheet.markets/rdbril-rdb-infrastructure-pledges-17-75-cr-guarantee-for-group-firm-adds-land-108985/",
+      "publisher": "Tipsheet",
+      "description": "",
+      "date": "2026-06-16T17:11:53+05:30",
+      "time": "5:11 PM",
+      "ticker": "RDBRIL",
+      "sector": "Real Estate",
+      "cap": "Micro cap",
+      "category": "Other",
+      "score": 7,
+      "feed_id": "tipsheet"
+    },
+    {
       "title": "Megastar fixes subsidy typo: \u20b988.68 cr, not \u20b9881.86 cr",
       "link": "https://tipsheet.markets/megastar-megastar-fixes-subsidy-typo-88-68-cr-not-881-86-cr-108946/",
       "source": "Tipsheet",
@@ -7948,54 +7996,6 @@
       "time": "10:08 PM",
       "ticker": "ENBETRD",
       "sector": "Finance - NBFC",
-      "cap": "Micro cap",
-      "category": "Other",
-      "score": 7,
-      "feed_id": "tipsheet"
-    },
-    {
-      "title": "Bilcare forfeits \u20b91.575 cr rather than put more cash into Caprihans",
-      "link": "https://tipsheet.markets/bi-bilcare-forfeits-1-575-cr-rather-than-put-more-cash-into-caprihans-105594/",
-      "source": "Tipsheet",
-      "source_url": "https://tipsheet.markets/bi-bilcare-forfeits-1-575-cr-rather-than-put-more-cash-into-caprihans-105594/",
-      "publisher": "Tipsheet",
-      "description": "",
-      "date": "2026-06-04T21:38:14+05:30",
-      "time": "9:38 PM",
-      "ticker": "BI",
-      "sector": "Plastic Products",
-      "cap": "Micro cap",
-      "category": "Credit",
-      "score": 7,
-      "feed_id": "tipsheet"
-    },
-    {
-      "title": "Apollo Ingredients sets an RPT limit equal to its entire revenue",
-      "link": "https://tipsheet.markets/indsoya-apollo-ingredients-sets-an-rpt-limit-equal-to-its-entire-revenue-105567/",
-      "source": "Tipsheet",
-      "source_url": "https://tipsheet.markets/indsoya-apollo-ingredients-sets-an-rpt-limit-equal-to-its-entire-revenue-105567/",
-      "publisher": "Tipsheet",
-      "description": "",
-      "date": "2026-06-04T19:42:52+05:30",
-      "time": "7:42 PM",
-      "ticker": "INDSOYA",
-      "sector": "Sugar",
-      "cap": "Micro cap",
-      "category": "Other",
-      "score": 7,
-      "feed_id": "tipsheet"
-    },
-    {
-      "title": "Integrated Hitech brings its director into the promoter fold",
-      "link": "https://tipsheet.markets/integhit-integrated-hitech-brings-its-director-into-the-promoter-fold-105545/",
-      "source": "Tipsheet",
-      "source_url": "https://tipsheet.markets/integhit-integrated-hitech-brings-its-director-into-the-promoter-fold-105545/",
-      "publisher": "Tipsheet",
-      "description": "",
-      "date": "2026-06-04T18:52:01+05:30",
-      "time": "6:52 PM",
-      "ticker": "INTEGHIT",
-      "sector": "IT - Software",
       "cap": "Micro cap",
       "category": "Other",
       "score": 7,
