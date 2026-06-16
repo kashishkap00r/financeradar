@@ -47,6 +47,14 @@ RSSHUB_CACHE_FILE = "static/rsshub_twitter_cache.json"  # RSSHub local fetch cac
 RSSHUB_CACHE_MAX_AGE_HOURS = 24  # treat RSSHub cache as stale after this (needs headroom for overnight/laptop-off gaps)
 RSSHUB_BASE_URL = "http://localhost:1200"  # local RSSHub instance
 
+# ── Companies (Tipsheet integration) ──────────────────────────────────
+COMPANIES_SEARCH_INDEX_URL = "https://tipsheet.markets/search-index.json"  # source feed
+COMPANIES_SITE_BASE = "https://tipsheet.markets"  # prepend to relative item URLs
+COMPANIES_CACHE_FILE = "static/companies_cache.json"  # cache fallback (CI safety)
+COMPANIES_FETCH_TIMEOUT = 20     # seconds, HTTP timeout for search-index fetch
+COMPANIES_FRESHNESS_DAYS = 30    # discard filings older than this
+COMPANIES_MAX_ITEMS = 500        # cap total items kept in the tab payload
+
 # ── Report scrapers ───────────────────────────────────────────────────
 SCRAPER_MAX_ARTICLES = 30        # max articles per scraper invocation
 SCRAPER_FRESHNESS_CUTOFF = timedelta(days=30)
