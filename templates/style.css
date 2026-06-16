@@ -3036,6 +3036,7 @@
         /* Horizontal carousel — one full card + a peek (~1.5 cards) on desktop */
         .cluster-track {
             display: flex;
+            align-items: flex-start;
             gap: 16px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
