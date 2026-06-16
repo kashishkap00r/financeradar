@@ -2441,7 +2441,10 @@
                     const trackId = btn.dataset.track;
                     const track = document.getElementById(trackId);
                     if (!track) return;
-                    const dir = btn.classList.contains('slider-prev') ? -320 : 320;
+                    // Scroll by one card width (+gap) so wider cards (e.g. Big Stories) page cleanly.
+                    const first = track.querySelector(':scope > *');
+                    const step = first ? Math.round(first.getBoundingClientRect().width + 16) : 320;
+                    const dir = btn.classList.contains('slider-prev') ? -step : step;
                     track.scrollBy({ left: dir, behavior: 'smooth' });
                 });
             });
@@ -2479,22 +2482,11 @@
 
         function renderClusterCard(cluster) {
             if (!cluster) return '';
-            var storyId = escapeForAttr(cluster.story_id || '');
             var storyLabel = escapeHtml(cluster.story_label || '');
             var articles = getClusterArticles(cluster);
             if (!articles.length) return '';
 
-            // Master bookmark — "save story" label on hover
-            var storyBkCls = 'btn-bk-story bookmark-btn' + (isStoryBookmarked(cluster.story_id) ? ' bookmarked' : '');
-            var storyBk = '<span class="cluster-bk">'
-                + '<span class="cluster-bk-label">save story</span>'
-                + '<button class="' + storyBkCls + '" type="button"'
-                + ' data-story-id="' + storyId + '"'
-                + ' onclick="toggleStoryBookmark(this)" aria-label="Save all stories"'
-                + ' title="Bookmark all stories">'
-                + BOOKMARK_SVG + '</button></span>';
-
-            // Cluster title (AI-generated)
+            // Cluster title (AI-generated). No master bookmark — each story below has its own.
             var headerHtml = '<h2 class="cluster-title">' + storyLabel + '</h2>';
 
             // All articles — newspaper sub-item style, collapse after 3
@@ -2531,15 +2523,18 @@
                 + (articles.length - CLUSTER_VISIBLE) + ' more sources</button>' : '')
             + '</div>';
 
-            return '<div class="cluster-card">' + storyBk + headerHtml + articlesHtml + '</div>';
+            return '<div class="cluster-card">' + headerHtml + articlesHtml + '</div>';
         }
 
         function renderBigStories(clusters) {
             if (!clusters || !clusters.length) return '';
-            return '<div class="section-divider"><span class="section-label">The Big Stories</span><span class="section-rule"></span></div>'
+            return '<div class="section-divider"><span class="section-label">The Big Stories</span>'
+                + '<span class="section-rule"></span>'
+                + '<div class="slider-nav">' + sliderArrows('bigstories-track') + '</div></div>'
                 + '<section class="big-stories-section">'
+                + '<div class="cluster-track" id="bigstories-track">'
                 + clusters.map(renderClusterCard).join('')
-                + '</section>';
+                + '</div></section>';
         }
 
         function renderSectionLabel(text) {

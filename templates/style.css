@@ -3033,16 +3033,27 @@
             margin-bottom: 0;
         }
 
+        /* Horizontal carousel — one full card + a peek (~1.5 cards) on desktop */
+        .cluster-track {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 0.5rem;
+        }
+        .cluster-track::-webkit-scrollbar { display: none; }
+
         .cluster-card {
             border-left: 3px solid var(--accent);
             background: var(--card-bg, #F5F0EA);
             padding: 1.2rem 1.4rem;
-            margin-bottom: 1rem;
             border-radius: 0 6px 6px 0;
             position: relative;
-        }
-        .cluster-card:last-child {
-            margin-bottom: 0;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            width: 65%;
         }
 
         .cluster-title {
@@ -3053,28 +3064,6 @@
             letter-spacing: -0.01em;
             color: var(--text-primary);
             margin-bottom: 0.85rem;
-            padding-right: 2.5rem;
-        }
-
-        /* Master bookmark — top-right, "save story" on hover */
-        .cluster-bk {
-            position: absolute;
-            top: 1.2rem;
-            right: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .cluster-bk-label {
-            font-size: 0.58rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        .cluster-card:hover .cluster-bk-label {
-            opacity: 1;
         }
 
         /* Articles list */
@@ -3225,16 +3214,13 @@
             text-decoration: underline;
         }
         .btn-bk-sub {
-            opacity: 0;
-            transition: opacity 0.2s;
+            opacity: 1;
+            transition: color 0.2s;
             flex-shrink: 0;
         }
         .btn-bk-sub svg {
             width: 11px;
             height: 11px;
-        }
-        .cluster-sub:hover .btn-bk-sub {
-            opacity: 1;
         }
 
         /* Story bookmark sidebar bundles */
@@ -3279,17 +3265,13 @@
         @media (max-width: 640px) {
             .cluster-card {
                 padding: 1rem 1rem;
-                margin-bottom: 0.8rem;
+                width: 86%;
             }
             .cluster-sub {
                 padding: 0.4rem 0;
             }
             .cluster-sub-link {
                 font-size: 0.82rem;
-            }
-            .btn-bk-sub {
-                opacity: 1;
-                flex-shrink: 0;
             }
             .cluster-sub-source {
                 font-size: 0.58rem;
@@ -3299,13 +3281,5 @@
             }
             .cluster-title {
                 font-size: 1.05rem;
-                padding-right: 2rem;
-            }
-            .cluster-bk {
-                top: 1rem;
-                right: 0.8rem;
-            }
-            .cluster-bk-label {
-                display: none;
             }
         }
