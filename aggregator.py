@@ -116,6 +116,39 @@ def _normalize_youtube_publisher(name):
     return YOUTUBE_PUBLISHER_ALIASES.get(cleaned.lower(), cleaned)
 
 
+# Telegram channels whose scraped owner-name is long/awkward get a clean display label.
+# Matched by case-insensitive prefix so the channel's title suffix can change freely.
+TELEGRAM_CHANNEL_ALIASES = {
+    "beat the street": "BTS News",  # scraped as "Beat The Street News| Latest Share Market News"
+}
+
+
+def _normalize_telegram_channel(name):
+    """Return a clean display name for known Telegram channels (prefix match)."""
+    cleaned = re.sub(r"\s+", " ", (name or "").strip())
+    low = cleaned.lower()
+    for prefix, canonical in TELEGRAM_CHANNEL_ALIASES.items():
+        if low.startswith(prefix):
+            return canonical
+    return cleaned
+
+
+def _normalize_ai_rankings_telegram(obj):
+    """Recursively clean Telegram source names inside the AI rankings structure.
+
+    Only touches items tagged source_type == 'telegram' so unrelated sources that
+    share a name prefix (e.g. the "Beat The Street (X)" Twitter feed) are untouched.
+    """
+    if isinstance(obj, dict):
+        if obj.get("source_type") == "telegram" and isinstance(obj.get("source"), str):
+            obj["source"] = _normalize_telegram_channel(obj["source"])
+        for value in obj.values():
+            _normalize_ai_rankings_telegram(value)
+    elif isinstance(obj, list):
+        for value in obj:
+            _normalize_ai_rankings_telegram(value)
+
+
 def export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles, paper_articles=None, twitter_high_signal=None):
     """Export all published tab items to a unified JSON snapshot for auditing."""
     news_items = []
@@ -190,7 +223,7 @@ def export_published_snapshot(article_groups, video_articles, twitter_articles, 
         with open(telegram_file, "r", encoding="utf-8") as f:
             telegram_data = json.load(f)
         for item in telegram_data.get("reports", []):
-            channel = item.get("channel", "")
+            channel = _normalize_telegram_channel(item.get("channel", ""))
             telegram_items.append({
                 "tab": "telegram",
                 "source_id": _telegram_source_id(channel),
@@ -323,6 +356,11 @@ def generate_html(
     try:
         with open(telegram_reports_file, "r", encoding="utf-8") as f:
             telegram_data = json.load(f)
+        # Normalize long/awkward channel names (e.g. "Beat The Street News| …" → "BTS News")
+        # in place so the tab, counts, and channel dropdown all use the clean label.
+        for _report in telegram_data.get("reports", []):
+            if isinstance(_report, dict) and _report.get("channel"):
+                _report["channel"] = _normalize_telegram_channel(_report["channel"])
         telegram_reports_json = json.dumps(telegram_data.get("reports", []))
         telegram_generated_at = telegram_data.get("generated_at", "")
         telegram_warnings = telegram_data.get("warnings", [])
@@ -337,6 +375,7 @@ def generate_html(
     try:
         with open(ai_rankings_file, "r", encoding="utf-8") as f:
             ai_rankings_bootstrap = json.load(f)
+        _normalize_ai_rankings_telegram(ai_rankings_bootstrap)
         ai_rankings_bootstrap_json = json.dumps(ai_rankings_bootstrap)
     except (IOError, json.JSONDecodeError):
         ai_rankings_bootstrap_json = "null"
