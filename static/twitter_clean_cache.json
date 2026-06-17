@@ -1,26 +1,41 @@
 {
-  "generated_at": "2026-06-17T01:21:02.544119+05:30",
+  "generated_at": "2026-06-17T09:37:38.132067+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 48,
       "feeds_failed": 1,
-      "items_raw": 1213,
-      "resolve_attempted": 1213,
-      "resolve_resolved": 1211,
+      "items_raw": 1216,
+      "resolve_attempted": 1216,
+      "resolve_resolved": 1213,
       "resolve_cache_hits": 1204
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.1,
-      "items": 778,
+      "age_hours": 7.3,
+      "items": 779,
       "handles_ok": 47
     },
     "warning": "",
-    "generated_at": "2026-06-17T01:21:02.544059+05:30"
+    "generated_at": "2026-06-17T09:37:38.132012+05:30"
   },
   "items": [
+    {
+      "title": "#ETMarkets US stocks: Nasdaq and S&P 500 slip while Dow hits record high ahead of Fed rate decision https://economictimes.indiatimes.com/markets/us-st...",
+      "link": "https://x.com/ETMarkets/status/2066977204135919972",
+      "date": "2026-06-16T20:12:22+00:00",
+      "tweet_id": "2066977204135919972",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#ETMarkets<br><br>US stocks: Nasdaq and S&amp;P 500 slip while Dow hits record high ahead of Fed rate decision<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-nasdaq-and-sp-500-slip-while-dow-hits-record-high-ahead-of-fed-rate-decision/articleshow/131781287.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst",
+      "category": "Twitter"
+    },
     {
       "title": "Analysis: UK no longer top UN Green Climate Fund donor after latest aid cut | @Josh_Gabbatiss Read here: https://buff.ly/9HdaFV9",
       "link": "https://x.com/CarbonBrief/status/2066961078811079123",
@@ -49,6 +64,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Retail investors are piling in to SpaceX stock:<br><br>Over the last 2 trading sessions, retail investors bought nearly as much SpaceX, $SPCX, as every other US single stock combined in the entire prior week, according to Vanda Research data.<br><br>On Monday alone, retail purchased +$93.8 million of $SPCX shares, accounting for ~73% of all retail single-stock purchases during the day.<br><br>In the first 10 minutes of Monday\u2019s session, retail investor turnover in the stock exceeded $7 million.<br><br>Individual investors also bought some semiconductor stocks such as Marvell $MRVL, Micron $MU, SanDisk $SNDK, and Broadcom $AVGO.<br><br>Retail appetite for risk shows no signs of slowing.<br><img width=\"974\" height=\"434\" style=\"\" src=\"https://pbs.twimg.com/media/HK8ElLlWAAAOwdq?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Chad P. Bown: Thanks to @BizFleury for the invitation to join @BBCWorld to talk about HOW TO WIN A TRADE WAR, and whether today's European Parliame...",
+      "link": "https://x.com/PIIE/status/2066974877811138887",
+      "date": "2026-06-16T18:29:18+00:00",
+      "tweet_id": "2066974877811138887",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2066951040428081152/img/-UGAKqxYcZ7pjIkt.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Chad P. Bown<br>Thanks to @BizFleury for the invitation to join @BBCWorld to talk about HOW TO WIN A TRADE WAR, and whether today's European Parliament vote to pass the Turnberry Agreement was, in fact, the end of Trump's trade war with Europe.<br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/amplify_video/2066951040428081152/vid/avc1/1280x720/-Go2-rx8YDxMuYY5.mp4?tag=28\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2066951040428081152/img/-UGAKqxYcZ7pjIkt.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -604,6 +634,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Anthropic/OpenAI : Wait bro, we want to be bubbly too..<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002#SpaceX market cap tops #Amazon, nears #Microsoft as blockbuster #IPO rally extends<br><br>@sheersh0510 <br><br>https://www.cnbctv18.com/market/spacex-market-cap-tops-amazon-nears-microsoft-as-blockbuster-ipo-rally-extends-19926700.htm<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Alex Tabarrok: Montana\u2019s SB535, signed into law in May 2025, is the most important regulatory innovation in drug approval in my lifetime. The law ...",
+      "link": "https://x.com/srajagopalan/status/2066976557793787920",
+      "date": "2026-06-16T15:12:02+00:00",
+      "tweet_id": "2066976557793787920",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Alex Tabarrok<br>Montana\u2019s SB535, signed into law in May 2025, is the most important regulatory innovation in drug approval in my lifetime. The law lets drugs be prescribed and sold in experimental treatment centers once they have passed Phase I trials. A very big deal. https://marginalrevolution.com/marginalrevolution/2026/06/montanas-sb535-and-a-potential-biotech-renaissance-in-america.html",
       "category": "Twitter"
     },
     {
@@ -2209,6 +2254,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Bulls in Action<br><br>#Sensex jumps over 500 pts, #Nifty nears 24K; IT, FMCG index rise 1% each<br>#ETMarkets <br><br>Catch all the LIVE updates here <br>https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-vedanta-share-price-16-june-2026/liveblog/131757356.cms<br><img width=\"904\" height=\"390\" style=\"\" src=\"https://pbs.twimg.com/media/HK7Fx1UawAM6zCF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Javier Blas: COLUMN: The Chinese 'oil weapon.' The Strait of Hormuz crisis shows Beijing is now a stabilizing force for oil prices. This potentiall...",
+      "link": "https://x.com/JavierBlas/status/2066977851492950039",
+      "date": "2026-06-16T08:43:08+00:00",
+      "tweet_id": "2066977851492950039",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Javier Blas<br>COLUMN: The Chinese 'oil weapon.'<br><br>The Strait of Hormuz crisis shows Beijing is now a stabilizing force for oil prices. This potentially reshapes the energy risk premia \u2014 and Asian geopolitics if conflict breaks out over Taiwan. <br><br>@Opinion https://www.bloomberg.com/opinion/articles/2026-06-16/iran-war-china-now-has-a-powerful-new-oil-price-weapon?utm_source=website&amp;utm_medium=share&amp;utm_campaign=twitter",
       "category": "Twitter"
     },
     {
@@ -5032,21 +5092,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Iranian deputy foreign affairs minister tells state television that Tehran and Washington have reached an agreement. Kazem Gharibabadi confirms signin...",
-      "link": "https://x.com/JavierBlas/status/2066283502505464259",
-      "date": "2026-06-14T22:15:51+00:00",
-      "tweet_id": "2066283502505464259",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Iranian deputy foreign affairs minister tells state television that Tehran and Washington have reached an agreement. Kazem Gharibabadi confirms signing ceremony to take place June 19.<br><br>\u201cStarting tonight, the US naval blockade against Iran will be terminated,\u201d he added.",
-      "category": "Twitter"
-    },
-    {
       "title": "If oil prices stay around $120/barrel + sharp rises in LNG, refined petroleum, & fertilizer prices for a year, global growth would slow, with economic...",
       "link": "https://x.com/PIIE/status/2066272993848770861",
       "date": "2026-06-14T21:34:05+00:00",
@@ -5764,21 +5809,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Marc Andreessen \ud83c\uddfa\ud83c\uddf8<br>Five dimensional chess doesn\u2019t exist. Everyone is furiously improvising all the time. The future is utterly uncertain.",
-      "category": "Twitter"
-    },
-    {
-      "title": "The EU is showing geopolitical leadership with its new trade agreements & partnership building with middle powers & others. It must maintain that cred...",
-      "link": "https://x.com/PIIE/status/2065863524979548506",
-      "date": "2026-06-13T18:27:00+00:00",
-      "tweet_id": "2065863524979548506",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The EU is showing geopolitical leadership with its new trade agreements &amp; partnership building with middle powers &amp; others. It must maintain that credibility by adopting a targeted common strategy on China. It will not work with 27 different versions. https://www.piie.com/blogs/realtime-economics/2026/europe-lacks-coherent-strategy-toward-china",
       "category": "Twitter"
     },
     {
@@ -9094,21 +9124,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Global Consilient Research<br>We at Global Consilient Research are in awe the kind of stuff @Tijori1 finance has on their tool!<br><br>Absolutely loving every feature!<br><img width=\"1954\" height=\"964\" style=\"\" src=\"https://pbs.twimg.com/media/HKRnOZ2awAAt0eH?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Kevin A. Bryan: This is excellent. Pre-cheap-reproduction, effort of copying -> enough incentive to make new things. When reproduction cheap, copyr...",
-      "link": "https://x.com/srajagopalan/status/2063938881741783279",
-      "date": "2026-06-08T03:00:13+00:00",
-      "tweet_id": "2063938881741783279",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Kevin A. Bryan<br>This is excellent. Pre-cheap-reproduction, effort of copying -&gt; enough incentive to make new things. When reproduction cheap, copyright protects exact expression, not ideas. When expression is cheap, protect costly development of taste to know what's worth doing? How - no idea.<div class=\"rsshub-quote\"><br><br>S\u00e9b Krier:\u2002Very well written piece on AI and copyright, and an important trade-off that we should take very seriously. https://open.substack.com/pub/srajagopalan/p/a-for-effort-how-ai-upends-copyright<br></div>",
       "category": "Twitter"
     },
     {
