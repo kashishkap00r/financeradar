@@ -969,7 +969,7 @@ def generate_html(
                 <div class="filter-head">
                     <div class="stats">
                         <span><strong id="companies-visible-count">{companies_count}</strong> filings</span>
-                        <span>via <strong>Tipsheet</strong></span>
+                        <span>via <a href="https://tipsheet.markets/" target="_blank" rel="noopener"><strong>Tipsheet</strong></a></span>
                     </div>
                     <div class="filter-head-actions">
                         <span class="update-time" id="companies-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
