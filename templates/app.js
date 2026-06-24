@@ -1822,6 +1822,7 @@
         let selectedCompanyCaps = new Set();      // empty = all cap tiers
         let selectedCompanyCats = new Set();      // empty = all categories
         let companySectorFilter = '';             // '' = all sectors
+        let companySortMode = 'relevance';        // 'relevance' (Tipsheet score) | 'recent' (date)
 
         // ==================== PAPERS TAB (vars) ====================
         let papersRendered = false;
@@ -3548,11 +3549,25 @@
         // score desc (newest as tiebreak). Filters: cap tier + category (multi-select
         // chips) and sector (single-select dropdown). Not AI-ranked.
         function sortCompanies(list) {
+            if (companySortMode === 'recent') {
+                // Newest first; Tipsheet score as tiebreak.
+                return list.sort(function(a, b) {
+                    var dd = new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
+                    if (dd !== 0) return dd;
+                    return (b.score || 0) - (a.score || 0);
+                });
+            }
+            // Default: editorial relevance (Tipsheet score desc), newest as tiebreak.
             return list.sort(function(a, b) {
                 var ds = (b.score || 0) - (a.score || 0);
                 if (ds !== 0) return ds;
                 return new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
             });
+        }
+
+        function setCompaniesSort(value) {
+            companySortMode = value === 'recent' ? 'recent' : 'relevance';
+            filterCompanies();
         }
 
         function buildCompanyCapFilters() {

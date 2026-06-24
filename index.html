@@ -430,6 +430,10 @@
                     <div class="company-chip-row" id="companies-cap-filters" aria-label="Market cap"></div>
                     <div class="company-chip-row" id="companies-cat-filters" aria-label="Category"></div>
                     <select id="companies-sector-select" class="company-sector-select" onchange="setCompaniesSector(this.value)" aria-label="Sector"></select>
+                    <select id="companies-sort-select" class="company-sector-select" onchange="setCompaniesSort(this.value)" aria-label="Sort by">
+                        <option value="relevance" selected>Sort: Relevance</option>
+                        <option value="recent">Sort: Recent</option>
+                    </select>
                 </div>
             </div>
             <div id="companies-container"></div>
