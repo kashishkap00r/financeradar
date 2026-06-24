@@ -2363,11 +2363,12 @@
                 + '<div class="slider-track" id="sebi-track">' + cards + '</div></section>';
         }
 
-        // Mega Cap companies (Tipsheet) — chronological, NOT AI-ranked. Mirrors the SEBI slider.
+        // Mega + Large cap companies (Tipsheet) — chronological, NOT AI-ranked. Mirrors the SEBI slider.
+        var COMPANY_STRIP_CAPS = { 'Mega cap': true, 'Large cap': true };
         function getMegaCapCompanies() {
             if (!COMPANIES_DATA || !COMPANIES_DATA.length) return [];
             return COMPANIES_DATA
-                .filter(function(c) { return c && c.cap === 'Mega cap'; })
+                .filter(function(c) { return c && COMPANY_STRIP_CAPS[c.cap]; })
                 .slice()
                 .sort(function(a, b) {
                     return new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
