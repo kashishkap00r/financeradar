@@ -380,8 +380,8 @@ footer {
       <div class="stat-label">Sources</div>
     </div>
     <div class="stat">
-      <div class="stat-number">6</div>
-      <div class="stat-label">Categories</div>
+      <div class="stat-number">7</div>
+      <div class="stat-label">Tabs</div>
     </div>
     <div class="stat">
       <div class="stat-number">24</div>
@@ -393,27 +393,29 @@ footer {
     </div>
   </div>
   <p>Every hour, an automated pipeline fetches RSS feeds from newspapers, blogs, research houses, YouTube channels, and Telegram groups. Articles are de-duplicated, grouped by similarity, and filtered through 150+ noise patterns to strip out clickbait, market-movement filler, and rewrites.</p>
-  <p>Four times a day, two independent AI models (Gemini and DeepSeek) rank the feed. Articles picked by both models rise to the top — a consensus signal that something genuinely matters, not just that someone rewrote a press release.</p>
+  <p>Twice a day, two independent AI models — Gemini 2.5 Flash and DeepSeek V3.2 — rank the feed. Because they come from different model families, articles picked by <em>both</em> rise to the top: a genuine consensus signal that something matters, not just that someone rewrote a press release.</p>
   <p>The homepage also clusters related articles into <strong>"The Big Stories"</strong> — grouping news, Telegram reports, YouTube explainers, tweets, and research papers that cover the same underlying event. You see the best take as the lead, with genuinely different angles underneath. No duplicates, no rewrites — just coverage variety.</p>
   <p>No personalisation. No tracking. The same feed for everyone, every time.</p>
 </section>
 
 <section class="about-section">
   <h2>What's in the feed</h2>
-  <p>Six tabs organise sources by type, plus four desk presets that filter by perspective:</p>
-  <p><strong>India Desk</strong> — ET, The Hindu, BusinessLine, Business Standard, Mint, ThePrint, Firstpost, Indian Express, Financial Express, and more.</p>
-  <p><strong>World Desk</strong> — BBC, CNBC, Reuters, Bloomberg, Financial Times, WSJ, The Economist, The Guardian, Techmeme.</p>
-  <p><strong>Indie Voices</strong> — Finshots, Filter Coffee, The Ken, The Morning Context, SOIC, Noah Smith, Musings on Markets, Ideas For India, and two dozen more independent writers who do original thinking.</p>
-  <p><strong>Official Channels</strong> — RBI, SEBI, ECB, ADB, FRED — for when you want the primary source, not someone's take on it.</p>
-  <p>Plus dedicated tabs for: <strong>Reports</strong> (brokerage research via Telegram and institutional scrapers), <strong>YouTube</strong> (finance explainers and market commentary), <strong>Twitter</strong> (curated threads with a High Signal lane for the best takes), and <strong>Papers</strong> (academic research from RBI, NBER, and policy institutes).</p>
+  <p>Seven tabs organise everything by source type. The homepage blends the AI-ranked best of each into one view; the tabs let you go deep on any single source.</p>
+  <p><strong>News</strong> — Indian and global news desks: ET, Mint, Business Standard, BusinessLine, ThePrint, Indian Express, alongside Reuters, Bloomberg, the Financial Times, and The Economist. Four desk presets filter by perspective — <em>India Desk</em>, <em>World Desk</em>, <em>Indie Voices</em> (Finshots, The Ken, The Morning Context, SOIC, Musings on Markets…), and <em>Official Channels</em> (RBI, SEBI, ECB, FRED) for the primary source rather than someone's take on it.</p>
+  <p><strong>Telegram</strong> — curated finance and brokerage Telegram channels and groups, pulled in and rendered as clean, readable cards instead of an endless scroll.</p>
+  <p><strong>Reports</strong> — institutional and brokerage research, scraped directly from research houses and regulators. The analysis desks, not the headlines.</p>
+  <p><strong>Papers</strong> — academic and policy research from RBI, NBER, and policy institutes, for when you want the rigorous version of a debate.</p>
+  <p><strong>YouTube</strong> — finance explainers and market commentary, filterable by Traditional Media, Indie Voices, or Educational/Explainers.</p>
+  <p><strong>Twitter</strong> — curated market chatter, split into a <em>High Signal</em> lane that surfaces only the best takes and a <em>Full Stream</em> for everything else.</p>
+  <p><strong>Companies</strong> — company announcements and filings sourced from Tipsheet, filterable by market-cap tier, sector, and category, and sortable by editorial relevance or recency. The homepage also carries a live strip of the latest mega- and large-cap announcements.</p>
 </section>
 
 <section class="about-section">
   <h2>About the site</h2>
   <p>Finance Radar is built entirely with Python, vanilla HTML/CSS/JS, and a healthy amount of Claude. No React. No framework. No build step. The entire frontend is a single generated HTML file served as a static page via Cloudflare Pages.</p>
-  <p>The AI ranking runs four times daily using two independent models (Gemini and DeepSeek), explicitly prompted to favour depth over speed, explanation over opinion, and data over anecdote. The ranking models see the same feed you do — they have no inside information.</p>
-  <p>A few things you might like: <strong>bookmarks</strong> (save individual articles or entire story clusters, copy them as a formatted list) and <strong>keyboard shortcuts</strong> (J/K to navigate, / to search, 1–6 for tabs).</p>
-  <p>This is a personal project by <a href="#">Kashish Kapoor</a>. It's not a startup. It doesn't have funding. It doesn't need your email. It exists because I wanted a better way to read financial news, and maybe you do too.</p>
+  <p>The AI ranking runs twice daily using two independent models (Gemini 2.5 Flash and DeepSeek V3.2), explicitly prompted to favour depth over speed, explanation over opinion, and data over anecdote. The ranking models see the same feed you do — they have no inside information.</p>
+  <p>A few things you might like: <strong>bookmarks</strong> (save individual articles or entire story clusters, copy them as a formatted list) and <strong>keyboard shortcuts</strong> (J/K to navigate, / to search, 1–7 for tabs).</p>
+  <p>This is a personal project by <a href="https://kashishkapoor.com" target="_blank" rel="noopener">Kashish Kapoor</a>. It's not a startup. It doesn't have funding. It doesn't need your email. It exists because I wanted a better way to read financial news, and maybe you do too.</p>
 
   <div class="cta-block">
     <p>Know a good source I'm missing? Have feedback or suggestions?</p>
