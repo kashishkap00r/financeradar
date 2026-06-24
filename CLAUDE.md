@@ -71,7 +71,7 @@ OUTPUT
 
 The homepage **exclusively shows AI-ranked content** from `static/ai_rankings.json`. Individual tabs remain chronological.
 
-- `getMergedAiRankings(bucket)` in `app.js` merges picks from all providers (two DeepSeek variants: v3.2 + v3.2-exp) with consensus scoring: items picked by 2+ models rank highest (average rank), single-provider items get a +50 penalty
+- `getMergedAiRankings(bucket)` in `app.js` merges picks from all providers (DeepSeek V3.2 via OpenRouter + Gemini 2.5 Flash via Google API) with consensus scoring: items picked by 2+ models rank highest (average rank), single-provider items get a +50 penalty. Cross-family consensus (different model vendors) is stronger signal than the old two-DeepSeek-variant setup
 - Cross-provider matching uses URL (exact, lowercased) with fallback to `normalizeAiTitle()` (handles unicode dash/quote/ellipsis variants)
 - News + Telegram interleave in the newspaper feed (3:1 ratio); YouTube, Reports, Twitter render in dedicated slider sections
 - WSW breakers auto-select the provider with the most clusters
@@ -206,7 +206,7 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 | `missing-story-audit.yml` | Daily UTC 00:30 | Audit 7-day SLA breaches |
 | `deploy-rss-proxy.yml` | Manual | Deploy Cloudflare RSS proxy worker |
 
-Required secrets: `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_SESSION`, `OPENROUTER_API_KEY`, `RSS_PROXY_URL` (optional), `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+Required secrets: `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_SESSION`, `OPENROUTER_API_KEY`, `GEMINI_API_KEY`, `RSS_PROXY_URL` (optional), `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 
 ## Local Services (systemd user units)
 
@@ -225,4 +225,4 @@ Key constants: `FEED_FETCH_TIMEOUT=15`, `FEED_THREAD_WORKERS=10`, `NEWS_FRESHNES
 AI ranker bucket targets are in `ai_ranker.py:BUCKET_TARGETS` (news=25, telegram=20, reports=10, twitter=10, youtube=10). Clustering constants: `AI_RANKER_MAX_CLUSTERS`, `AI_RANKER_MIN_CLUSTER_SIZE`, `AI_RANKER_CLUSTER_TIMEOUT`.
 
 ## API Integration
-- AI rankers (`ai_ranker.py`, `wsw_ranker.py`) call OpenRouter exclusively, using two DeepSeek variants (`deepseek/deepseek-v3.2` and `deepseek/deepseek-v3.2-exp`) to preserve the dual-provider consensus signal in `static/ai_rankings.json`. Verify any model swap against OpenRouter's `/api/v1/models` listing before deploying.
+- `ai_ranker.py` uses two models for consensus: **DeepSeek V3.2** (`deepseek/deepseek-v3.2` via OpenRouter) and **Gemini 2.5 Flash** (`gemini-2.5-flash` via Google's generateContent API, key `GEMINI_API_KEY`). Provider routing lives in `call_provider()`, which dispatches on `model_config["provider"]` (`"gemini"` → `call_gemini()`, else `call_openrouter()`). The clustering step (`cluster_ranked_items()`) also routes through `call_provider()`, so it respects the per-model provider. `wsw_ranker.py` still calls OpenRouter exclusively. Verify any model swap against the provider's models listing before deploying (OpenRouter `/api/v1/models`; Google AI Studio for Gemini IDs).

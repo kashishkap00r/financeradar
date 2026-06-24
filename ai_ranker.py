@@ -26,6 +26,7 @@ from config import (
     AI_RANKER_MAX_ARTICLES,
     AI_RANKER_TARGET_COUNT,
     AI_RANKER_OPENROUTER_TIMEOUT,
+    AI_RANKER_GEMINI_TIMEOUT,
     AI_RANKER_MAX_CLUSTERS,
     AI_RANKER_CLUSTER_TIMEOUT,
     SSL_CONTEXT,
@@ -34,6 +35,7 @@ from config import (
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 MODELS = {
     "deepseek-v3-2": {
@@ -41,10 +43,10 @@ MODELS = {
         "name": "DeepSeek V3.2",
         "provider": "openrouter",
     },
-    "deepseek-v3-2-exp": {
-        "id": "deepseek/deepseek-v3.2-exp",
-        "name": "DeepSeek V3.2 (exp)",
-        "provider": "openrouter",
+    "gemini-2-5-flash": {
+        "id": "gemini-2.5-flash",
+        "name": "Gemini 2.5 Flash",
+        "provider": "gemini",
     },
 }
 
@@ -548,6 +550,49 @@ def call_openrouter(prompt, model_id):
     return parse_json_response(result["choices"][0]["message"]["content"])
 
 
+def call_gemini(prompt, model_id):
+    """Call Google's Gemini API (generateContent) with the specified model.
+
+    Uses the same urllib/SSL_CONTEXT pattern as call_openrouter. The key is
+    sent via the x-goog-api-key header (not the URL) so it can't leak into
+    request logs or proxies. responseMimeType forces clean JSON; safety
+    settings are disabled so finance headlines don't trip content filters.
+    """
+    if not GEMINI_API_KEY:
+        raise ValueError("GEMINI_API_KEY not set")
+    safety = [
+        {"category": cat, "threshold": "BLOCK_NONE"}
+        for cat in (
+            "HARM_CATEGORY_HARASSMENT",
+            "HARM_CATEGORY_HATE_SPEECH",
+            "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "HARM_CATEGORY_DANGEROUS_CONTENT",
+        )
+    ]
+    request = urllib.request.Request(
+        f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent",
+        data=json.dumps({
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": {"responseMimeType": "application/json"},
+            "safetySettings": safety,
+        }).encode("utf-8"),
+        headers={
+            "x-goog-api-key": GEMINI_API_KEY,
+            "Content-Type": "application/json",
+        },
+    )
+    with urllib.request.urlopen(request, timeout=AI_RANKER_GEMINI_TIMEOUT, context=SSL_CONTEXT) as response:
+        result = json.loads(response.read().decode("utf-8"))
+    candidates = result.get("candidates") or []
+    if not candidates:
+        raise ValueError(f"Gemini returned no candidates: {sanitize_error(json.dumps(result))}")
+    parts = candidates[0].get("content", {}).get("parts") or []
+    text = "".join(part.get("text", "") for part in parts)
+    if not text.strip():
+        raise ValueError("Gemini returned empty text (possible safety block or truncation)")
+    return parse_json_response(text)
+
+
 def normalize_ai_response(rankings):
     if isinstance(rankings, dict):
         rankings = rankings.get("rankings", rankings.get("items", []))
@@ -618,6 +663,8 @@ def sanitize_error(err):
 
 
 def call_provider(model_config, prompt):
+    if model_config.get("provider") == "gemini":
+        return call_gemini(prompt, model_config["id"])
     return call_openrouter(prompt, model_config["id"])
 
 
@@ -917,7 +964,7 @@ def cluster_ranked_items(all_items, model_config, max_clusters=AI_RANKER_MAX_CLU
     prompt = build_clustering_prompt(all_items, max_clusters=max_clusters)
 
     try:
-        raw = call_openrouter(prompt, model_config["id"])
+        raw = call_provider(model_config, prompt)
 
         if isinstance(raw, dict):
             raw = raw.get("clusters", raw.get("items", []))
