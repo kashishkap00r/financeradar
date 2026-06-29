@@ -1,26 +1,101 @@
 {
-  "generated_at": "2026-06-28T22:32:33.191604+05:30",
+  "generated_at": "2026-06-29T08:52:32.241687+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 47,
       "feeds_failed": 2,
-      "items_raw": 1203,
-      "resolve_attempted": 1203,
-      "resolve_resolved": 1202,
-      "resolve_cache_hits": 1202
+      "items_raw": 1196,
+      "resolve_attempted": 1196,
+      "resolve_resolved": 1195,
+      "resolve_cache_hits": 1188
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.2,
-      "items": 784,
-      "handles_ok": 48
+      "age_hours": 8.4,
+      "items": 766,
+      "handles_ok": 47
     },
     "warning": "",
-    "generated_at": "2026-06-28T22:32:33.191544+05:30"
+    "generated_at": "2026-06-29T08:52:32.241637+05:30"
   },
   "items": [
+    {
+      "title": "Qualitative variables , one's I always focus on , very important things to look at beyond the numbers folks",
+      "link": "https://x.com/EquityValueIn/status/2071298168386650371",
+      "date": "2026-06-28T18:22:20+00:00",
+      "tweet_id": "2071298168386650371",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Qualitative variables , one's I always focus on , very important things to look at beyond the numbers folks<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002I always look for qualitative signals when I research and look deep into any  company <br><br>Things like <br>1) How frequently the company talks to the media <br>2) How often to KMP trade in and out of the stock <br>3) Does the company spend on digital presence and PR <br>4) Does hiring growth<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "The non-disclosure of the 91/100 entity\u2019s name is a few unresolved questions. I have a pending interview request with management to address them. The...",
+      "link": "https://x.com/unseenvalue/status/2071296300880929071",
+      "date": "2026-06-28T18:14:55+00:00",
+      "tweet_id": "2071296300880929071",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HL2OeEHX0AAov7i?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "The non-disclosure of the 91/100 entity\u2019s name is a few unresolved questions. I have a pending interview request with management to address them. The risk\u2013reward appears attractive, but I need greater certainty before proceeding.<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002I may be invested in some or all of the companies mentioned. This is not a recommendation in any form.<br><br>The list is not exhaustive and will evolve as more data is incorporated.<br><br><img width=\"1090\" height=\"1298\" style=\"\" src=\"https://pbs.twimg.com/media/HL2OeEHX0AAov7i?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "I\u2019ve made a small amendment to the note I shared earlier today. Please read, and I would \u0906\u0917\u094d\u0930\u0939 a careful reread of the last 3\u20134 paragraphs. htt...",
+      "link": "https://x.com/unseenvalue/status/2071289832072970522",
+      "date": "2026-06-28T17:49:13+00:00",
+      "tweet_id": "2071289832072970522",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HL6zCJ0WwAA6V2c?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "I\u2019ve made a small amendment to the note I shared earlier today. Please read, and I would \u0906\u0917\u094d\u0930\u0939 a careful reread of the last 3\u20134 paragraphs.<br><br>https://antifragilethinking.substack.com/p/the-real-bet-on-sona-comstar-can<br><br>Sona Comstar | Sona BLW<br><img width=\"2048\" height=\"1157\" style=\"\" src=\"https://pbs.twimg.com/media/HL6zCJ0WwAA6V2c?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "9/10 states with the highest share of exports to Canada & Mexico as a share of the state's total exports voted for Trump in 2024\u2014ID, IA, MI, MO, MT, ...",
+      "link": "https://x.com/PIIE/status/2071276462980669707",
+      "date": "2026-06-28T16:56:05+00:00",
+      "tweet_id": "2071276462980669707",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HL6m8zZXwAAB-Vb?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "9/10 states with the highest share of exports to Canada &amp; Mexico as a share of the state's total exports voted for Trump in 2024\u2014ID, IA, MI, MO, MT, NM, ND, OH, SD, &amp; WV.<br>Exporters in these states are at high risk of losses if Trump terminates the USMCA. #PIIECharts<br><img width=\"1836\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HL6m8zZXwAAB-Vb?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT akash kulgod: many many more crazy cool companies in blr (@Airbound_Aero @arctusaerospace aspera alteon spacefields @tohands_ mandrake @jhanaAI man...",
+      "link": "https://x.com/srajagopalan/status/2071289243599847728",
+      "date": "2026-06-28T16:53:06+00:00",
+      "tweet_id": "2071289243599847728",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HL41zRSbgAAckXM?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002akash kulgod<br>many many more crazy cool companies in blr (@Airbound_Aero @arctusaerospace aspera alteon spacefields @tohands_ mandrake @jhanaAI many many more) calling blr performative is npc energy, be a main character and build cool shit w us<div class=\"rsshub-quote\"><br><br>Kautuk | Conscious Engines:\u2002\"Bangalore feels like the performative Silicon Valley\"<br><br>Meanwhile Bangalore (just to name a few):<br><br><img width=\"1366\" height=\"768\" style=\"\" src=\"https://pbs.twimg.com/media/HL41zRSbgAAckXM?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"800\" height=\"420\" style=\"\" src=\"https://pbs.twimg.com/media/HL417aJbQAAibPz?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"907\" style=\"\" src=\"https://pbs.twimg.com/media/HL435loaEAApIOM?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1200\" height=\"630\" style=\"\" src=\"https://pbs.twimg.com/media/HL46u6SbwAAt3Fj?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
     {
       "title": "The 10 Biggest Ad Firms Now Include Five From China",
       "link": "https://x.com/exencial_RP/status/2071272103345787219",
@@ -34,21 +109,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The 10 Biggest Ad Firms Now Include Five From China<br><img width=\"1200\" height=\"739\" style=\"\" src=\"https://pbs.twimg.com/media/HL6i8JibkAElM1M?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Volatility among tech stocks is historically elevated: The gap between the Nasdaq 100 volatility index, $VXN, and the volatility index, $VIX, is up to...",
-      "link": "https://x.com/KobeissiLetter/status/2071264402737705295",
-      "date": "2026-06-28T16:08:10+00:00",
-      "tweet_id": "2071264402737705295",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HL6ANAfXIAAkiSa?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Volatility among tech stocks is historically elevated:<br><br>The gap between the Nasdaq 100 volatility index, $VXN, and the volatility index, $VIX, is up to 12 points, the highest in at least 23 years.<br><br>The difference has more than tripled since the start of May.<br><br>This comes as $VXN surged +9 points or +43% over this period, while $VIX rose just +2 points, or +9% at the same time.<br><br>By comparison, during the 2008 Financial Crisis and the 2020 pandemic, the gap peaked at 7 and 11 points, respectively.<br><br>Put simply, investors are pricing in significantly more uncertainty for technology stocks than for the broader market.<br><br>Market volatility is here to stay.<br><img width=\"974\" height=\"530\" style=\"\" src=\"https://pbs.twimg.com/media/HL6ANAfXIAAkiSa?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -634,6 +694,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#PMModi in #Seychelles: 'Guardian of the Blue Horizon' honour, maritime security talks mark visit<br><br>https://www.cnbctv18.com/photos/world/pm-modi-in-seychelles-guardian-of-the-blue-horizon-honour-maritime-security-talks-mark-visit-19933614.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Keh Ke Peheno: Indian badminton going places! KIDAMBI SRIKANTH INTO US OPEN 2026 FINALS! \ud83c\uddee\ud83c\uddf3 The 33-year-old Indian legend defeats Japan\u2019s Yu...",
+      "link": "https://x.com/sanjeevsanyal/status/2071284734106452046",
+      "date": "2026-06-28T10:38:32+00:00",
+      "tweet_id": "2071284734106452046",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2071149890491822080/img/3X5oM7nBMw-C-Ebv.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Keh Ke Peheno<br>Indian badminton going places!<br><br>KIDAMBI SRIKANTH INTO US OPEN 2026 FINALS! \ud83c\uddee\ud83c\uddf3<br><br>The 33-year-old Indian legend defeats Japan\u2019s Yudai Okimoto 22-20, 15-21, 21-19 in the semi-final.<br><video width=\"720\" height=\"1280\" src=\"https://video.twimg.com/amplify_video/2071149890491822080/vid/avc1/720x1280/O10FOJPLHEcU6yxV.mp4?tag=28\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2071149890491822080/img/3X5oM7nBMw-C-Ebv.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -1327,6 +1402,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Parimal: \"Aurangzeb looked to Islam-inspired solutions to try & solve the empire\u2019s problems... He honestly believed that they would work to the be...",
+      "link": "https://x.com/sanjeevsanyal/status/2071294585155055912",
+      "date": "2026-06-28T05:21:12+00:00",
+      "tweet_id": "2071294585155055912",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Parimal<br>\"Aurangzeb looked to Islam-inspired solutions to try &amp; solve the empire\u2019s problems... He honestly believed that they would work to the benefit of all his subjects.\" - Prof. Munis Faruqui (UCB), TOI (June 2026)<br><br>Including his own family! Let us review how Alamgir &amp; Co. pioneered \"global harmony\" &amp; \"employee wellness\" through radical corporate restructuring.<div class=\"rsshub-quote\"><br><br>Parimal:\u2002http://x.com/i/article/2071094639235641344<br></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "The Carbon Brief profile: Mexico | @josh_gabbatiss #CBarchive Read: https://buff.ly/utQ6UYm",
       "link": "https://x.com/CarbonBrief/status/2071097762783850861",
       "date": "2026-06-28T05:06:00+00:00",
@@ -1957,36 +2047,6 @@
       "category": "Twitter"
     },
     {
-      "title": "The US housing market is now firmly in favor of buyers: 46% of home sellers offered concessions to buyers in May, the highest May reading on record. T...",
-      "link": "https://x.com/KobeissiLetter/status/2071028726893031572",
-      "date": "2026-06-28T00:31:41+00:00",
-      "tweet_id": "2071028726893031572",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLq2abEWgAAPGWC?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The US housing market is now firmly in favor of buyers:<br><br>46% of home sellers offered concessions to buyers in May, the highest May reading on record.<br><br>This percentage has DOUBLED since 2022 and also marks the 2nd consecutive annual increase.<br><br>This comes as the US now has ~47% more home sellers than buyers, near the highest on record, with elevated mortgage rates and economic uncertainty continuing to weigh on buyer demand.<br><br>In Nashville, 76% of sellers gave concessions in May, the highest among the 28 major metropolitan areas.<br><br>This was followed by Charlotte and Atlanta, at 71% and 69%, respectively.<br><br>By comparison, just 3% of New York home sellers offered concessions last month.<br><br>Homebuyers are gaining negotiating power across much of the US housing market.<br><img width=\"975\" height=\"606\" style=\"\" src=\"https://pbs.twimg.com/media/HLq2abEWgAAPGWC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "BREAKING: President Trump announces new US Military strikes on Iran and threatens that Iran \u201cwill no longer exist\u201d if there comes a point when \u201cwe ...",
-      "link": "https://x.com/KobeissiLetter/status/2071012143340625949",
-      "date": "2026-06-27T23:25:47+00:00",
-      "tweet_id": "2071012143340625949",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HL22fU6WUAA8vjr?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: President Trump announces new US Military strikes on Iran and threatens that Iran \u201cwill no longer exist\u201d if there comes a point when \u201cwe are no longer able to be reasonable.\u201d<br><img width=\"1206\" height=\"1121\" style=\"\" src=\"https://pbs.twimg.com/media/HL22fU6WUAA8vjr?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT The Kobeissi Letter: South Korean investors have never borrowed this much to buy equities: Margin loans in South Korea are up to a record ~$26 bill...",
       "link": "https://x.com/ishmohit1/status/2071188882536923588",
       "date": "2026-06-27T23:06:35+00:00",
@@ -1999,21 +2059,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002The Kobeissi Letter<br>South Korean investors have never borrowed this much to buy equities:<br><br>Margin loans in South Korea are up to a record ~$26 billion, DOUBLING since the start of 2025.<br><br>However, as a % of Korea's free float, the portion of the market value available for public trading, margin loans are down to ~0.8%, the lowest since the 2020 pandemic low.<br><br>This comes as the surge in market cap has significantly outpaced the growth in leverage.<br><br>Meanwhile, during the recent market pullbacks, the daily forced liquidation ratio spiked to 4-5% of total outstanding margin loans, well above the ~1% seen under normal conditions.<br><br>This means brokers were forced to liquidate 4%-5% of all margin-backed positions in a single day because borrowers could not meet their margin calls.<br><br>Record leverage is exacerbating South Korea's market volatility.<br><img width=\"958\" height=\"850\" style=\"\" src=\"https://pbs.twimg.com/media/HLgMIiKX0AIdJ70?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "South Korean investors have never borrowed this much to buy equities: Margin loans in South Korea are up to a record ~$26 billion, DOUBLING since the ...",
-      "link": "https://x.com/KobeissiLetter/status/2071007313704501477",
-      "date": "2026-06-27T23:06:35+00:00",
-      "tweet_id": "2071007313704501477",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLgMIiKX0AIdJ70?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "South Korean investors have never borrowed this much to buy equities:<br><br>Margin loans in South Korea are up to a record ~$26 billion, DOUBLING since the start of 2025.<br><br>However, as a % of Korea's free float, the portion of the market value available for public trading, margin loans are down to ~0.8%, the lowest since the 2020 pandemic low.<br><br>This comes as the surge in market cap has significantly outpaced the growth in leverage.<br><br>Meanwhile, during the recent market pullbacks, the daily forced liquidation ratio spiked to 4-5% of total outstanding margin loans, well above the ~1% seen under normal conditions.<br><br>This means brokers were forced to liquidate 4%-5% of all margin-backed positions in a single day because borrowers could not meet their margin calls.<br><br>Record leverage is exacerbating South Korea's market volatility.<br><img width=\"958\" height=\"850\" style=\"\" src=\"https://pbs.twimg.com/media/HLgMIiKX0AIdJ70?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2047,36 +2092,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: The U.S. Military is currently conducting more strikes in the Strait of Hormuz area, per Axios. This marks the second set of U.S. Military s...",
-      "link": "https://x.com/KobeissiLetter/status/2070985059595587673",
-      "date": "2026-06-27T21:38:09+00:00",
-      "tweet_id": "2070985059595587673",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: The U.S. Military is currently conducting more strikes in the Strait of Hormuz area, per Axios.<br><br>This marks the second set of U.S. Military strikes since the \u201cMemorandum of Understanding\u201d was signed.",
-      "category": "Twitter"
-    },
-    {
-      "title": "BREAKING: China imported +163 tonnes of gold in May, the largest monthly import since March 2024. This marks the 3rd consecutive month with gold impor...",
-      "link": "https://x.com/KobeissiLetter/status/2070976193093132656",
-      "date": "2026-06-27T21:02:55+00:00",
-      "tweet_id": "2070976193093132656",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLlU_UrWYAA45to?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: China imported +163 tonnes of gold in May, the largest monthly import since March 2024.<br><br>This marks the 3rd consecutive month with gold imports exceeding +150 tonnes.<br><br>As a result, in the first 5 months of 2026, total gold imports rose +76% YoY, to +692 tonnes.<br><br>This has been driven by strong retail demand for physical bullion bars and gold accumulation plans, low-cost products that allow investors to build up gold holdings gradually over time.<br><br>Meanwhile, the People's Bank of China added +10 tonnes of gold to its official gold reserves in May, its 19th consecutive monthly purchase, bringing total holdings to a record 2,331 tonnes.<br><br>China\u2019s demand for gold remains strong.<br><img width=\"974\" height=\"581\" style=\"\" src=\"https://pbs.twimg.com/media/HLlU_UrWYAA45to?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "I may be invested in some or all of the companies mentioned. This is not a recommendation in any form. The list is not exhaustive and will evolve as m...",
       "link": "https://x.com/unseenvalue/status/2070968538513174919",
       "date": "2026-06-27T20:32:30+00:00",
@@ -2107,21 +2122,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: The US median home sales price jumped +$8,400 in May, to $424,900, the 2nd-highest since January 2025. Over the last 2 months, the median pr...",
-      "link": "https://x.com/KobeissiLetter/status/2070963759192146211",
-      "date": "2026-06-27T20:13:31+00:00",
-      "tweet_id": "2070963759192146211",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLq1zJ4W8AA3PBc?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: The US median home sales price jumped +$8,400 in May, to $424,900, the 2nd-highest since January 2025.<br><br>Over the last 2 months, the median price has soared +$31,800, the largest 2-month increase in 4 years.<br><br>Meanwhile, the average home sale price surged +$39,200 in May, to $540,600, the 2nd-highest on record.<br><br>As a result, the gap between the median and average home sales price is up to $115,700, or 27%.<br><br>By comparison, in May 2022, the gap was $79,500, or 19%.<br><br>This comes as a growing share of home sales is concentrated among the most expensive properties, lifting the average price faster than the median.<br><br>Housing affordability is somehow is still getting worse.<br><img width=\"974\" height=\"569\" style=\"\" src=\"https://pbs.twimg.com/media/HLq1zJ4W8AA3PBc?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Quarterly earnings transcripts are a critical input to my custom scoring algorithm. They reveal how management thinks and allocates capital and respon...",
       "link": "https://x.com/unseenvalue/status/2070952207223238775",
       "date": "2026-06-27T19:27:37+00:00",
@@ -2134,21 +2134,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Quarterly earnings transcripts are a critical input to my custom scoring algorithm.<br><br>They reveal how management thinks and allocates capital and responds under pressure and whether the investment thesis is strengthening or weakening.<br><br>If a company skips earnings calls, it gives up one of the most valuable signalling opportunities available to investors.<br><br>I'm currently stress testing the framework and preparing it for a Q1 FY27 launch.<br><br>No signal. No score.<br><img width=\"2048\" height=\"589\" style=\"\" src=\"https://pbs.twimg.com/media/HL2AAVIWMAAYdvh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "No sector in history has ever been this large: The Information Technology sector now accounts for a record 39% of the S&P 500's total market cap. This...",
-      "link": "https://x.com/KobeissiLetter/status/2070943495045382155",
-      "date": "2026-06-27T18:53:00+00:00",
-      "tweet_id": "2070943495045382155",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLv0kbyXsAAM2S1?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "No sector in history has ever been this large:<br><br>The Information Technology sector now accounts for a record 39% of the S&amp;P 500's total market cap.<br><br>This percentage has more than doubled since the 2020 pandemic.<br><br>This figure is also now above the 2000 Dot-Com Bubble peak of ~33% and the ~31% peak reached by the Energy sector in the 1980s.<br><br>Including internet retailers and digital media platforms such as Amazon, $AMZN, and Netflix, $NFLX, tech now accounts for a record 50% of the S&amp;P 500's market value.<br><br>By comparison, this same group accounted for just 29% of the index at the Dot-Com Bubble peak.<br><br>Tech is all that matters.<br><img width=\"1109\" height=\"821\" style=\"\" src=\"https://pbs.twimg.com/media/HLv0kbyXsAAM2S1?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2212,21 +2197,6 @@
       "category": "Twitter"
     },
     {
-      "title": "US tech fund flows are seeing extreme volatility: US technology sector funds posted -$15 billion in outflows this week, the largest weekly withdrawal ...",
-      "link": "https://x.com/KobeissiLetter/status/2070916065157083432",
-      "date": "2026-06-27T17:04:00+00:00",
-      "tweet_id": "2070916065157083432",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HL015geXUAIY7_E?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "US tech fund flows are seeing extreme volatility:<br><br>US technology sector funds posted -$15 billion in outflows this week, the largest weekly withdrawal in at least 2.5 years.<br><br>This exceeds the previous largest weekly outflow over this period by +100%.<br><br>This also comes after +$19 billion in inflows the prior week, also the largest weekly inflow in at least 2.5 years.<br><br>Furthermore, US equity funds saw an -$8.5 billion outflow this week, the largest weekly withdrawal in 3 months, following a record +$119 billion inflow.<br><br>Year-to-date, US equity funds have attracted +$332 billion in inflows, accounting for half of the +$661 billion total across all developed markets.<br><br>Investors are cashing out massive profits.<br><img width=\"975\" height=\"633\" style=\"\" src=\"https://pbs.twimg.com/media/HL015geXUAIY7_E?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Returning to most-favored-nation tariffs, & especially if Canada & Mexico impose retaliatory tariffs on US exports if Trump terminates the USMCA, woul...",
       "link": "https://x.com/PIIE/status/2070910049296294109",
       "date": "2026-06-27T16:40:06+00:00",
@@ -2257,21 +2227,6 @@
       "category": "Twitter"
     },
     {
-      "title": "We are experiencing an unprecedented ETF boom: US-listed ETFs have attracted over +$1 trillion in inflows so far in 2026, on track to surpass a record...",
-      "link": "https://x.com/KobeissiLetter/status/2070900714218406135",
-      "date": "2026-06-27T16:03:00+00:00",
-      "tweet_id": "2070900714218406135",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HL01s3pWMAA7VbO?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "We are experiencing an unprecedented ETF boom:<br><br>US-listed ETFs have attracted over +$1 trillion in inflows so far in 2026, on track to surpass a record +$2 trillion by year-end.<br><br>That would mark the 4th consecutive annual increase in ETF inflows and exceed the 2025 record by +33%, or +$500 billion.<br><br>Meanwhile, 700 ETFs have launched year-to-date, on track for another annual record.<br><br>In June alone, 186 ETFs have debuted, the highest monthly total in history.<br><br>The ETF industry is expanding at a record pace.<br><img width=\"974\" height=\"785\" style=\"\" src=\"https://pbs.twimg.com/media/HL01s3pWMAA7VbO?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Aditi Shrivastava: This proves confidence and correctness are unrelated \ud83e\udd2a",
       "link": "https://x.com/madhavchanchani/status/2070896604606058847",
       "date": "2026-06-27T15:19:53+00:00",
@@ -2284,21 +2239,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Aditi Shrivastava<br>This proves confidence and correctness are unrelated \ud83e\udd2a<div class=\"rsshub-quote\"><br><br>Roman Saini:\u2002Inspired by Founders Fund, we shot a game of Mafia in Bangalore. Here\u2019s Episode 1 \u263a\ufe0f<br><br><video width=\"2048\" height=\"1152\" src=\"https://video.twimg.com/amplify_video/2070869651119386624/vid/avc1/3840x2160/3NDZiovtW68YcGYg.mp4?tag=28\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2070869651119386624/img/GHAJDYo9_VhYil2c.jpg\"></video></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "Retail investors appear to be rotating out of gold and Bitcoin into semiconductor stocks: Since April, US gold and Bitcoin ETFs have posted -$12 billi...",
-      "link": "https://x.com/KobeissiLetter/status/2070885363447402922",
-      "date": "2026-06-27T15:02:00+00:00",
-      "tweet_id": "2070885363447402922",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HL01gg0XQAAJn3b?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Retail investors appear to be rotating out of gold and Bitcoin into semiconductor stocks:<br><br>Since April, US gold and Bitcoin ETFs have posted -$12 billion in cumulative outflows.<br><br>Over the same period, US semiconductor ETFs have attracted +$20 billion in cumulative inflows.<br><br>This trend accelerated in mid-May, with outflows from gold and Bitcoin funds more than tripling.<br><br>At the same time, inflows into semiconductor ETFs have doubled.<br><br>Meanwhile, the largest US gold-backed ETF, $GLD, is down -13% since the start of April, while the largest Bitcoin ETF, $IBIT, is down -12%.<br><br>Over the same period, the semiconductor ETFs, $SOXX and $SMH, are up +81% and +60%, respectively.<br><br>Retail is driving markets like never before.<br><img width=\"975\" height=\"614\" style=\"\" src=\"https://pbs.twimg.com/media/HL01gg0XQAAJn3b?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2467,21 +2407,6 @@
       "category": "Twitter"
     },
     {
-      "title": "The market's rally is broadening: The S&P 500 equal-weight ETF, $RSP, has outperformed the S&P 500 ETF, $SPY, by +5.0 percentage points so far in June...",
-      "link": "https://x.com/KobeissiLetter/status/2070870197448192193",
-      "date": "2026-06-27T14:01:44+00:00",
-      "tweet_id": "2070870197448192193",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HL01UvYWEAE31Z-?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The market's rally is broadening:<br><br>The S&amp;P 500 equal-weight ETF, $RSP, has outperformed the S&amp;P 500 ETF, $SPY, by +5.0 percentage points so far in June, on track for its best monthly outperformance since 2009.<br><br>That would also mark $RSP's 2nd-best month relative to $SPY in at least 23 years.<br><br>This comes as $RSP is up +1.9% month-to-date while $SPY is down -3.1% over the same period.<br><br>This week alone, the equal-weight ETF, $RSP, outperformed the S&amp;P 500 ETF, $SPY, by +3.4 percentage points, the largest weekly outperformance since the 2020 pandemic.<br><br>As a result, the 52-week correlation between the S&amp;P 500 and the S&amp;P 500 equal-weighted index is down to 0.90, from 0.97 in 2022, the lowest since 2003.<br><br>Mega-cap tech leadership is taking a breather.<br><img width=\"974\" height=\"481\" style=\"\" src=\"https://pbs.twimg.com/media/HL01UvYWEAE31Z-?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "National economic statistics accounts were not designed to track the AI economy. Statistics agencies should begin developing AI-focused satellite acco...",
       "link": "https://x.com/PIIE/status/2070857430859202875",
       "date": "2026-06-27T13:11:00+00:00",
@@ -2569,21 +2494,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "https://substack.com/@valueequityin/note/p-201845234<br><br>Styrenix performance Chemicals newly launched note , Indegene , Kirloskar Oil engines , Coal gasification theme and a lot more covered on my substack page , do give it a read folks , this and a lot more , both notes and newsletters <br><br>Do give it a read folks",
-      "category": "Twitter"
-    },
-    {
-      "title": "Aerospace Value Chain",
-      "link": "https://x.com/EquityValueIn/status/2070841833610191163",
-      "date": "2026-06-27T12:09:02+00:00",
-      "tweet_id": "2070841833610191163",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HL0boLxaEAEzCSU?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Aerospace Value Chain<br><img width=\"774\" height=\"591\" style=\"\" src=\"https://pbs.twimg.com/media/HL0boLxaEAEzCSU?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Aerospace , if you want to understand the Indian market these are things you should read/watch <br><br>1) Aequs DRHP ( for the data only on latest trends ) <br>2) Dynamatic Annual reports ( last 3 years )+ AGM of last year Video is there on you tube <br>3) HAL Annual reports last 3 years and<br></div>",
       "category": "Twitter"
     },
     {
@@ -3607,21 +3517,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: The US Pentagon delayed publicly announcing US strikes on Iran until after the US stock market had closed at 4 PM ET on Friday, per NBC News...",
-      "link": "https://x.com/KobeissiLetter/status/2070726183478599694",
-      "date": "2026-06-27T04:29:29+00:00",
-      "tweet_id": "2070726183478599694",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: The US Pentagon delayed publicly announcing US strikes on Iran until after the US stock market had closed at 4 PM ET on Friday, per NBC News.<br><br>The timing of the announcement was reportedly intended to \"reduce the immediate impact on financial markets.\"",
-      "category": "Twitter"
-    },
-    {
       "title": "Persistent Systems Mega Order win - 6.5-year strategic services agreement worth USD 650M+; annual value USD 125M+. For context, this is their entire 1...",
       "link": "https://x.com/aditya_kondawar/status/2070714622219579845",
       "date": "2026-06-27T03:43:32+00:00",
@@ -3742,21 +3637,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Owning a home in America has never been more expensive: The average annual cost of homeownership has surged +39% since 2019, to a record $28,596/year ...",
-      "link": "https://x.com/KobeissiLetter/status/2070676989418025117",
-      "date": "2026-06-27T01:14:00+00:00",
-      "tweet_id": "2070676989418025117",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLxqZAFW8AEuIZf?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Owning a home in America has never been more expensive:<br><br>The average annual cost of homeownership has surged +39% since 2019, to a record $28,596/year in 2025.<br><br>This outpaced the +26% increase in CPI inflation over the same period.<br><br>Interest payments are now the largest single cost, rising +35% since 2019, to over $10,500 last year.<br><br>Emergency repairs and home maintenance soared +175% and +85%, respectively, over the same period.<br><br>Meanwhile, property taxes are up +31%, to $5,900/year, making them the 3rd-largest component of homeownership costs in 2025.<br><br>The US housing affordability crisis is in full-swing.<br><img width=\"975\" height=\"831\" style=\"\" src=\"https://pbs.twimg.com/media/HLxqZAFW8AEuIZf?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "In 2025, Mumbai\u2019s Kanjurmarg #landfill emitted about 5 tonnes methane/hr which would contribute about as much to global warming as 1 million SUVs. Re...",
       "link": "https://x.com/IndiaSpend/status/2070667174654689543",
       "date": "2026-06-27T00:35:00+00:00",
@@ -3802,36 +3682,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: SpaceX, $SPCX, is being added to the Nasdaq 100 on July 7th. This marks the fastest inclusion into the Nasdaq 100 in the index\u2019s history.",
-      "link": "https://x.com/KobeissiLetter/status/2070663933212413965",
-      "date": "2026-06-27T00:22:07+00:00",
-      "tweet_id": "2070663933212413965",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: SpaceX, $SPCX, is being added to the Nasdaq 100 on July 7th.<br><br>This marks the fastest inclusion into the Nasdaq 100 in the index\u2019s history.",
-      "category": "Twitter"
-    },
-    {
-      "title": "Asian chip stocks are experiencing a historic run: The MSCI EM Semiconductors to Magnificent 7 ratio is up to a record ~205, more than doubling since ...",
-      "link": "https://x.com/KobeissiLetter/status/2070661889860968565",
-      "date": "2026-06-27T00:14:00+00:00",
-      "tweet_id": "2070661889860968565",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLxqWGIXYAAIeao?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Asian chip stocks are experiencing a historic run:<br><br>The MSCI EM Semiconductors to Magnificent 7 ratio is up to a record ~205, more than doubling since the start of 2026.<br><br>This comes as the Magnificent 7 has declined -7% year-to-date, while the MSCI EM Semiconductors index has rallied +91%.<br><br>This has been primarily driven by South Korean chipmakers, SK Hynix and Samsung, which are up +348% and +199%, respectively, over this period.<br><br>The outperformance accelerated this month, with the Magnificent 7 falling -14% so far in June.<br><br>At the same time, SK Hynix and Samsung are up +25% and +13%, respectively.<br><br>Asian chip stocks are leading the AI trade.<br><img width=\"974\" height=\"695\" style=\"\" src=\"https://pbs.twimg.com/media/HLxqWGIXYAAIeao?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "China is not just climbing the technological ladder; it is pulling up the ladder behind it. China is trying to do what economic theory says no country...",
       "link": "https://x.com/PIIE/status/2070656356860751885",
       "date": "2026-06-26T23:52:01+00:00",
@@ -3844,21 +3694,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "China is not just climbing the technological ladder; it is pulling up the ladder behind it.<br>China is trying to do what economic theory says no country should be able: retain comparative advantage in almost everything, @arvindsubraman &amp; @shoumitro_c write.<br>https://www.foreignaffairs.com/guest-pass/redeem/x6VWhG9iGyA",
-      "category": "Twitter"
-    },
-    {
-      "title": "BREAKING: The Trump Administration has struck a deal with Anthropic which grants the company permission to release its Mythos 5 model to a group of ~1...",
-      "link": "https://x.com/KobeissiLetter/status/2070646805478486231",
-      "date": "2026-06-26T23:14:03+00:00",
-      "tweet_id": "2070646805478486231",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: The Trump Administration has struck a deal with Anthropic which grants the company permission to release its Mythos 5 model to a group of ~100 companies and federal agencies, per CNBC.<br><br>Details include:<br><br>1. Senior Anthropic staffers flew to Washington DC to meet with members of the Trump Administration<br><br>2. Anthropic said earlier this month that it disabled access to its Fable 5 and Mythos 5 models to comply with an export control directive from the government<br><br>3. The Trump Administration and Anthropic have been in a two-week-long standoff over its latest models<br><br>This deal will have industry-wide implications.",
       "category": "Twitter"
     },
     {
@@ -4582,21 +4417,6 @@
       "category": "Twitter"
     },
     {
-      "title": "The ultimate luxury isn't money. It's an out-of-office message people actually respect.",
-      "link": "https://x.com/unseenvalue/status/2070505735121777069",
-      "date": "2026-06-26T13:53:30+00:00",
-      "tweet_id": "2070505735121777069",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLvYvk9WMAAFGhD?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "The ultimate luxury isn't money. It's an out-of-office message people actually respect.<div class=\"rsshub-quote\"><br><br>Dividend Growth Investor:\u2002I often think about this<br><br><img width=\"667\" height=\"722\" style=\"\" src=\"https://pbs.twimg.com/media/HLvYvk9WMAAFGhD?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "Alan Wm. Wolff sets out a strategic roadmap for EU trade policy to 2050: defending the WTO; pursuing closer alignment with CPTPP members; expanding tr...",
       "link": "https://x.com/PIIE/status/2070505113018327235",
       "date": "2026-06-26T13:51:01+00:00",
@@ -4897,21 +4717,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Many of you reached out, and most guessed #LaurusLabs for the 91/100 score. The scores have now been refreshed. I may hold positions in some or all of...",
-      "link": "https://x.com/unseenvalue/status/2070481959629803718",
-      "date": "2026-06-26T12:19:01+00:00",
-      "tweet_id": "2070481959629803718",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLvTvk_XgAAVf0e?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Many of you reached out, and most guessed #LaurusLabs for the 91/100 score. The scores have now been refreshed. I may hold positions in some or all of these names; nothing here should be construed as a recommendation. I\u2019ll be sharing the 91/100 candidate shortly, along with both the thesis and the counterview. This one has the potential to go all the way.<br><img width=\"1761\" height=\"877\" style=\"\" src=\"https://pbs.twimg.com/media/HLvTvk_XgAAVf0e?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002I may be invested in some or all of these. Nothing here is a recommendation. I\u2019ll be sharing the 91/100 candidate soon, along with both the thesis and antithesis.<br><br><img width=\"2048\" height=\"679\" style=\"\" src=\"https://pbs.twimg.com/media/HLsDxwfXMAAuJcs?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "\ud83d\udea8 Introducing Project Cosmos, the world\u2019s largest database of climate change research. Carbon Brief has mapped the academic literature and evidenc...",
       "link": "https://x.com/CarbonBrief/status/2070480451886563379",
       "date": "2026-06-26T12:13:02+00:00",
@@ -4969,21 +4774,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002M B Patil<br>I welcome the first PCB  Electronics Manufacturing unit in North Karnataka. <br><br>@LionCircuits, Thank you for being a Part of the Unbelievable Transformation story of Vijayapura. From a drought region 10 years ago, It has seen a Water Revolution, Green Revolution, Education Revolution and now an Employment Revolution.<br><br>Vijayapura stands testament to be one of India's few districts to have undergone such a massive 360 degree transformation in such a short period. <br><br>The 100-acre Integrated PCB Mega Campus marks the beginning of a new chapter in Karnataka's electronics manufacturing journey. <br><br>Be assured of my personal attention and the full support of my department. We will extend every possible assistance to ensure this game-changing project is implemented smoothly and successfully.<br><br>Today, the district is ready for an industrial revolution, with investments in electronics, renewable energy, beverages, advanced manufacturing, and several other sectors gathering momentum.<br><br>May this project become a benchmark for India's electronics manufacturing ambitions. We look forward to building a future defined by innovation, employment, and shared prosperity. <br><br>Best wishes to the Terra Circuits team.<br>@MuraliSrinivasa<br><br>#BeyondBengaluru #Vijayapura #InvestinKarnataka<div class=\"rsshub-quote\"><br><br>Murali Srinivasa:\u2002This is the site where our new 100 acre Integrated PCB mega campus will be built in \ud83c\uddee\ud83c\uddf3<br><br>We have been working hard to fix the structual gaps in PCB manufacturing in \ud83c\uddee\ud83c\uddf3<br><br>Some of the problems are harder than we think and it takes time to fix those. <br>We have been working on fixing<br><br><img width=\"2048\" height=\"1536\" style=\"\" src=\"https://pbs.twimg.com/media/HLtJ2AiawAADh1t?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1515\" style=\"\" src=\"https://pbs.twimg.com/media/HLtJ2kSbEAAVmpw?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "The Real Asset at Krystal Biotech Isn't VYJUVEK https://antifragilethinking.substack.com/p/the-real-asset-at-krystal-biotech Krystal Biotech | $KRYS",
-      "link": "https://x.com/unseenvalue/status/2070462326654808353",
-      "date": "2026-06-26T11:01:00+00:00",
-      "tweet_id": "2070462326654808353",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLr_3q8XIAA6nvd?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "The Real Asset at Krystal Biotech Isn't VYJUVEK<br><br>https://antifragilethinking.substack.com/p/the-real-asset-at-krystal-biotech<br><br>Krystal Biotech | $KRYS<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002Krystal Biotech ($KRYS): one of the cleanest mid-cap models. 95% GM on VYJUVEK funds the pipeline, with no dilution and self-sustaining. HSV-1 platform scales via delivery, not new biology, expanding from DEB into CF/NSCLC. The real risk isn\u2019t capital; it\u2019s whether the vector<br><br><img width=\"593\" height=\"428\" style=\"\" src=\"https://pbs.twimg.com/media/HLr_3q8XIAA6nvd?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -5704,21 +5494,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The Trump administration is using Agreements on Reciprocal Trade to construct legal architecture to pull US trade partners away from China &amp; constrain China economically. But the stringency of mechanisms vary across partner countries. #PIIECharts<br>More: https://www.piie.com/research/piie-charts/2026/us-reciprocal-trade-deals-are-designed-constrain-china-varying-degrees<br><img width=\"2048\" height=\"1790\" style=\"\" src=\"https://pbs.twimg.com/media/HLro2u4WUAA6TEE?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "A one-third reduction in US STEM graduates from abroad, sustained over ten years, would result in a smaller US economy than otherwise\u2014equivalent to l...",
-      "link": "https://x.com/PIIE/status/2070209171903971431",
-      "date": "2026-06-25T18:15:03+00:00",
-      "tweet_id": "2070209171903971431",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "A one-third reduction in US STEM graduates from abroad, sustained over ten years, would result in a smaller US economy than otherwise\u2014equivalent to losing an economy the size of Wisconsin or Utah annually. By @m_clem, @AmyMNice, &amp; @JeremyLNeufeld:<br>https://www.piie.com/blogs/realtime-economics/2026/us-driving-away-international-students-long-term-economic-cost",
       "category": "Twitter"
     },
     {
@@ -6787,21 +6562,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Why one must study fractals",
-      "link": "https://x.com/sanjeevsanyal/status/2069981448262787130",
-      "date": "2026-06-25T03:10:10+00:00",
-      "tweet_id": "2069981448262787130",
-      "source": "Sanjeev Sanyal",
-      "publisher": "Sanjeev Sanyal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2069852992262610944/img/vOlNAKw8AJLjeJFT.jpg",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Why one must study fractals<div class=\"rsshub-quote\"><br><br>0xDipper:\u2002Benoit Mandelbrot, the father of fractal geometry:<br><br>a 10-sigma market crash has odds of roughly 1 in Avogadro's number. by the Gaussian math taught in every business school, it simply can't happen.<br><br>\"It should never happen. It happens every day, somewhere, to somebody.\"<br><br>October<br><br><video width=\"320\" height=\"240\" src=\"https://video.twimg.com/amplify_video/2069852992262610944/vid/avc1/320x240/x7S8yXvfSoZlJO8s.mp4?tag=28\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2069852992262610944/img/vOlNAKw8AJLjeJFT.jpg\"></video></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "India's macro setup is turning favorable \u2705 Crude cooling off \u2705 Rupee stable despite a stronger Dollar Index \u2705 Bank Nifty headed to all-time highs #...",
       "link": "https://x.com/Nigel__DSouza/status/2069979094968906109",
       "date": "2026-06-25T03:00:49+00:00",
@@ -7054,21 +6814,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "GOLD CRASHES 30% FROM PEAK <br><br>Gold plunged back below $4,000 an ounce for the first time since November 2025 this morning, as a resurgent dollar and the prospect of higher interest rates bring bullion\u2019s three-year bull market to a halt (now down 30% from its January highs).<br><img width=\"675\" height=\"377\" style=\"\" src=\"https://pbs.twimg.com/media/HLl9Z2QW0AAUjoT?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Moupia Nandy: The picture was taken about three years ago. His name is Dipankar. Dipankar Das. He went out for his catering job, after finishing th...",
-      "link": "https://x.com/sanjeevsanyal/status/2069969002156392915",
-      "date": "2026-06-24T16:25:41+00:00",
-      "tweet_id": "2069969002156392915",
-      "source": "Sanjeev Sanyal",
-      "publisher": "Sanjeev Sanyal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLl5pHBW4AIMcps?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Moupia Nandy<br>The picture was taken about three years ago. His name is Dipankar. Dipankar Das. He went out for his catering job, after finishing that he was heading home with his mother's favorite ice cream. He didn't know what awaited him. When he returned, he found the charred bodies of his parents. Victims of political violence. It was 2018. This young boy Dipankar went door to door for justice. He started studying law and became a lawyer himself, driven only by the determination to get justice for his parents. Finally, after meeting the Chief Minister, arrests were made after eight long years in Kakdwip case.<br><img width=\"1170\" height=\"1422\" style=\"\" src=\"https://pbs.twimg.com/media/HLl5pHBW4AIMcps?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -8134,21 +7879,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "A link for those who wish to read my latest column \ud83d\udc47 : https://www.bloomberg.com/opinion/articles/2026-06-22/india-s-ipo-megadeals-will-test-fraying-retail-investors?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc4MjE4Nzg3NSwiZXhwIjoxNzgyNzkyNjc1LCJhcnRpY2xlSWQiOiJUSDFVOEZSMjRVOUIwMCIsImJjb25uZWN0SWQiOiJFRUJBOTlENEY5NkE0QTY4QUZGQUQ3RUNCNEE3QjRDMyJ9.5cbq88xHL8e0o74TIDcI3j--1xOtfqm772Aa9xKq3UI<div class=\"rsshub-quote\"><br><br>Bloomberg:\u2002India's retail investors need to get their mojo back, writes @andymukherjee70. IPOs for the National Stock Exchange and Jio might help with that (via @opinion)  https://www.bloomberg.com/opinion/articles/2026-06-22/india-s-ipo-megadeals-will-test-fraying-retail-investors?taid=6a39956d08ba4b0001f0fa7c&amp;utm_campaign=trueanthem&amp;utm_content=business&amp;utm_medium=social&amp;utm_source=twitter<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Math Lady Hazel \ud83c\udde6\ud83c\uddf7: The Fibonacci elephant.",
-      "link": "https://x.com/srajagopalan/status/2069411968042357009",
-      "date": "2026-06-23T04:04:32+00:00",
-      "tweet_id": "2069411968042357009",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2069269982983188480/img/7L6yrGTR-PmmlDQQ.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Math Lady Hazel \ud83c\udde6\ud83c\uddf7<br>The Fibonacci elephant.<br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/amplify_video/2069269982983188480/vid/avc1/1280x720/yFESVLaonmQfW9jh.mp4?tag=28\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2069269982983188480/img/7L6yrGTR-PmmlDQQ.jpg\"></video>",
       "category": "Twitter"
     },
     {
