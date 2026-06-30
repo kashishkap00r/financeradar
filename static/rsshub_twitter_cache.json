@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-30T14:55:32.618957+00:00",
+  "generated_at": "2026-06-30T14:56:43.763762+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
     "handles_total": 49,
     "handles_ok": 47,
-    "handles_empty": 1,
-    "handles_error": 1,
+    "handles_empty": 2,
+    "handles_error": 0,
     "items_total": 766
   },
   "items": [
