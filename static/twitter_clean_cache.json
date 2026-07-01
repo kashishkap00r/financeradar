@@ -1,26 +1,86 @@
 {
-  "generated_at": "2026-06-30T23:20:24.615553+05:30",
+  "generated_at": "2026-07-01T05:32:54.838220+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 47,
       "feeds_failed": 2,
-      "items_raw": 1198,
-      "resolve_attempted": 1198,
-      "resolve_resolved": 1197,
-      "resolve_cache_hits": 1178
+      "items_raw": 1197,
+      "resolve_attempted": 1197,
+      "resolve_resolved": 1196,
+      "resolve_cache_hits": 1185
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.0,
-      "items": 763,
-      "handles_ok": 47
+      "age_hours": 5.3,
+      "items": 783,
+      "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-06-30T23:20:24.615476+05:30"
+    "generated_at": "2026-07-01T05:32:54.838163+05:30"
   },
   "items": [
+    {
+      "title": "Unimech Aerospace , capability building , winning competitive bids",
+      "link": "https://x.com/EquityValueIn/status/2072025007224709489",
+      "date": "2026-06-30T18:30:32+00:00",
+      "tweet_id": "2072025007224709489",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HMFPpCbbwAAeTMv?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Unimech Aerospace , capability building , winning competitive bids<br><img width=\"652\" height=\"824\" style=\"\" src=\"https://pbs.twimg.com/media/HMFPpCbbwAAeTMv?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Unimech Aerospace Q4FY26 concall notes , my notes from the call just concluded<br><br><img width=\"595\" height=\"676\" style=\"\" src=\"https://pbs.twimg.com/media/HJd4RHEbkAE4y5m?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "US chip stocks are on a historic run: The semiconductor index, $SOX, has outperformed the S&P 500 by +85 percentage points year-to-date, on pace for t...",
+      "link": "https://x.com/KobeissiLetter/status/2072023815589437622",
+      "date": "2026-06-30T18:25:48+00:00",
+      "tweet_id": "2072023815589437622",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HMFOrcOWAAAYeph?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US chip stocks are on a historic run:<br><br>The semiconductor index, $SOX, has outperformed the S&amp;P 500 by +85 percentage points year-to-date, on pace for the best half-year outperformance in history.<br><br>This would exceed the previous record set during the Dot-Com Bubble in H1 2000 by +15 percentage points.<br><br>This comes as $SOX has rallied +94% so far in 2026, compared to a +9% increase in the S&amp;P 500.<br><br>Micron, $MU, has been a key driver, rallying +301% over this period, making it the largest contributor to the S&amp;P 500's gains this year.<br><br>SanDisk, $SNDK, has soared +764% in H1, making it the top-performing stock in the index YTD.<br><br>The US chip stock boom is rewriting the record books.<br><img width=\"975\" height=\"666\" style=\"\" src=\"https://pbs.twimg.com/media/HMFOrcOWAAAYeph?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Anthropic dumbed down Claude during peak periods, and the number and length of Claude outages increased.",
+      "link": "https://x.com/exencial_RP/status/2072017325310566708",
+      "date": "2026-06-30T18:00:01+00:00",
+      "tweet_id": "2072017325310566708",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HMCal2tXgAAnLhO?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Anthropic dumbed down Claude during peak periods, and the number and length of Claude outages increased.<br><img width=\"700\" height=\"428\" style=\"\" src=\"https://pbs.twimg.com/media/HMCal2tXgAAnLhO?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Exencial Research Partners:\u2002http://x.com/i/article/2071411806569185280<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Vedanta pulls listing of copper unit day before IPO https://ft.trib.al/kLNKA4B",
+      "link": "https://x.com/ftenergy/status/2072016100104024481",
+      "date": "2026-06-30T17:55:09+00:00",
+      "tweet_id": "2072016100104024481",
+      "source": "FT Energy",
+      "publisher": "FT Energy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Vedanta pulls listing of copper unit day before IPO https://ft.trib.al/kLNKA4B",
+      "category": "Twitter"
+    },
     {
       "title": "Another awfully weak trading day in the physical oil windows. Even after sellers offered the largest ever discounts for some WAF crudes, buyers are no...",
       "link": "https://x.com/JavierBlas/status/2072012991394898122",
@@ -1597,6 +1657,21 @@
       "category": "Twitter"
     },
     {
+      "title": "EV PV industry to be 10L vehicles by FY31 From 2.2L vehicles in FY26 So 5x in 5 years! Src - Tata Motors PPT, no reco",
+      "link": "https://x.com/aditya_kondawar/status/2071904558809550953",
+      "date": "2026-06-30T10:31:55+00:00",
+      "tweet_id": "2071904558809550953",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HMDiLOgXEAAx2Kt?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "EV PV industry to be 10L vehicles by FY31<br><br>From 2.2L vehicles in FY26<br><br>So 5x in 5 years!<br><br>Src - Tata Motors PPT, no reco<br><img width=\"940\" height=\"361\" style=\"\" src=\"https://pbs.twimg.com/media/HMDiLOgXEAAx2Kt?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Female participation in cross-border investing among Non-Resident Indians (#NRIs) has increased by nearly 70% over the past year, according to finding...",
       "link": "https://x.com/ETMarkets/status/2071904076410101911",
       "date": "2026-06-30T10:30:00+00:00",
@@ -2347,6 +2422,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Reliance Jio is planning to develop and launch its own LEO (Low Earth Orbit ) constellation of 1,600-1,650 satellites at \u223c650 km altitude in the next...",
+      "link": "https://x.com/aditya_kondawar/status/2071849709476737449",
+      "date": "2026-06-30T06:53:58+00:00",
+      "tweet_id": "2071849709476737449",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Reliance Jio is planning to develop and launch its own LEO (Low Earth Orbit ) constellation of 1,600-1,650 satellites at \u223c650 km altitude in the next 2-3 years<br><br>They will offer broadband and direct-to-device services<br><br>Good to see RIL getting into innovative sectors and not just ice cream<br><br>RIL should get into semiconductors also!",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Jay Vardhan Singh: What a wonderful line!!",
       "link": "https://x.com/sanjeevsanyal/status/2071851195984167190",
       "date": "2026-06-30T06:50:18+00:00",
@@ -2404,21 +2494,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Good chat with Gauri Kirloskar @ Kirloskar Oil Engines.<br><br>- Opportunity from data center boom<br>- Focus on HHP (high horsepower) &amp; Optiprime platform<br>- 30%+ growth from data centers ?<br>- Aim is $2B in revs by FY'30<br><br>@gk1983 #Investing #DataCenters #Power <br><br>https://www.youtube.com/watch?v=OACo5sC-090",
-      "category": "Twitter"
-    },
-    {
-      "title": "Exencial Industry Tidings - 30/6/2026 Fuel For thoughts in Every Industry We Are Publishing Daily, You will Find now on https://drive.google.com/file/...",
-      "link": "https://x.com/exencial_RP/status/2071840551474012232",
-      "date": "2026-06-30T06:17:35+00:00",
-      "tweet_id": "2071840551474012232",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HMCesVxWoAAc4fJ?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Exencial  Industry Tidings - 30/6/2026                                         <br><br>Fuel For thoughts in Every Industry                                                               <br><br>We Are Publishing Daily, You will Find now on<br><br>https://drive.google.com/file/d/1UxOGZPJLcwYMoFGZbD5PsAGUQGnWpnTK/view?usp=sharing<br><img width=\"401\" height=\"577\" style=\"\" src=\"https://pbs.twimg.com/media/HMCesVxWoAAc4fJ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2902,6 +2977,21 @@
       "category": "Twitter"
     },
     {
+      "title": "I will be in Manipal from 14th to 16th July 2026 If anyone is around during these dates, happy to catch up! I can also plan Mangalore if I get interes...",
+      "link": "https://x.com/aditya_kondawar/status/2071796609160265781",
+      "date": "2026-06-30T03:22:58+00:00",
+      "tweet_id": "2071796609160265781",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "I will be in Manipal from 14th to 16th July 2026<br><br>If anyone is around during these dates, happy to catch up!<br><br>I can also plan Mangalore if I get interest!",
+      "category": "Twitter"
+    },
+    {
       "title": "Most of Oyo's business now comes from US, followed by Europe, Middle East and SEA. This is thanks to acquisitions like Motel 6 in US (2024) and Leisur...",
       "link": "https://x.com/madhavchanchani/status/2071794302506983571",
       "date": "2026-06-30T03:13:48+00:00",
@@ -2914,6 +3004,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Most of Oyo's business now comes from US, followed by Europe, Middle East and SEA.<br><br>This is thanks to acquisitions like Motel 6 in US (2024) and Leisure Group in Europe (2019).<br><br>India now accounts for less than 12% of gross bookings, down from 30% a couple of years ago.<br><img width=\"576\" height=\"172\" style=\"\" src=\"https://pbs.twimg.com/media/HMB9N2Jb0AATt29?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Madhav Chanchani:\u2002\ud83d\udea8 Hospitality player Oyo's parent co has filed for a Rs 6,650 crore IPO.<br><br>This is Oyo's third filing for a public listing, after attempts at going public in 2021 and 2023.<br><br>Besides founder Ritesh Agarwal, Softbank - which owns 40% stake - also listed as promoter.<br><br><img width=\"1138\" height=\"1082\" style=\"\" src=\"https://pbs.twimg.com/media/HMB6WJFbAAAyKxt?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Amazon Now (QC) is offering discounts as well as cashbacks Flipkart Minutes is offering a discount on the cart value of 299 Rs Zepto continues to give...",
+      "link": "https://x.com/aditya_kondawar/status/2071784614855942472",
+      "date": "2026-06-30T02:35:18+00:00",
+      "tweet_id": "2071784614855942472",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Amazon Now (QC) is offering discounts as well as cashbacks<br><br>Flipkart Minutes is offering a discount on the cart value of 299 Rs<br><br>Zepto continues to give free delivery on min order value of 99-149 Rs<br><br>Only Blinkit is disciplined on SKU pricing <br><br>Quick commerce wars are on, and it's good to see Blinkit stay the course on Capital preservation, the mgmt has definitely become very capital-conscious post-listing <br><br>no stock reco",
       "category": "Twitter"
     },
     {
@@ -4192,6 +4297,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Amazing use case of AI - I keep sending news articles related to Maharashtra, Pune City, and the real estate sector He uploads them on Meta AI on What...",
+      "link": "https://x.com/aditya_kondawar/status/2071567614472773968",
+      "date": "2026-06-29T12:13:01+00:00",
+      "tweet_id": "2071567614472773968",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Amazing use case of AI - I keep sending news articles related to Maharashtra, Pune City, and the real estate sector<br><br>He uploads them on Meta AI on WhatsApp and asks for a Marathi translation and sometimes short English summaries<br><br>Thank you, META AI :)",
+      "category": "Twitter"
+    },
+    {
       "title": "BREAKING: President Trump says Iran has \u201crequested a meeting\u201d and it will take place tomorrow in Doha, Qatar.",
       "link": "https://x.com/KobeissiLetter/status/2071567318845444276",
       "date": "2026-06-29T12:11:51+00:00",
@@ -4249,21 +4369,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "A link for those who wish to read my latest column \ud83d\udc47 https://www.bloomberg.com/opinion/articles/2026-06-28/bitcoin-is-boring-bring-on-ai-space-and-jgb-tokens?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc4MjczMzE0NCwiZXhwIjoxNzgzMzM3OTQ0LCJhcnRpY2xlSWQiOiJUSENTT0ZOM04wOFcwMCIsImJjb25uZWN0SWQiOiJFRUJBOTlENEY5NkE0QTY4QUZGQUQ3RUNCNEE3QjRDMyJ9.f8p2d1G4KNZXMr_hD9ZDR0chf5q0gcREuIhbBwFD-T4<div class=\"rsshub-quote\"><br><br>Bloomberg:\u2002It\u2019s time to move on from Bitcoin, and look at the tokens of everything from US Treasuries and corporate bonds to stocks and commodities, writes @andymukherjee70 (via @opinion)  https://www.bloomberg.com/opinion/articles/2026-06-28/bitcoin-is-boring-bring-on-ai-space-and-jgb-tokens?taid=6a41776cc4ec020001905088&amp;utm_campaign=trueanthem&amp;utm_content=business&amp;utm_medium=social&amp;utm_source=twitter<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "AMI organics or now called Acutas Chemicals , done really well for us in the last year , smooth journey of execution and alpha being generated Picking...",
-      "link": "https://x.com/EquityValueIn/status/2071556406625599637",
-      "date": "2026-06-29T11:28:29+00:00",
-      "tweet_id": "2071556406625599637",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/GbmTyiWWUAAnMvi?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "AMI organics or now called Acutas Chemicals , done really well for us in the last  year , smooth journey of execution and alpha being generated   Picking the right management at the right time in the execution cycle is very rewarding , done well for us<br><br>Again this CDMO and chemicals  theme has rewarded very well <br><br>Credit to the original ideation from @vbomkara when I had seen his work on this is where I had started reading this exactly around 3 years back<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002AMI ORGANICS \ud83d\udfe2\ud83d\udfe2, great numbers with good margin growth and strong management commentary, now I would want to see if the supplier is starting to do well , see the listed players in the API buyers , clearly there is increasing odds of a positive cycle ( CIPLA , Laurus , hetero )<br><br><img width=\"1228\" height=\"746\" style=\"\" src=\"https://pbs.twimg.com/media/GbmTyiWWUAAnMvi?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1281\" height=\"719\" style=\"\" src=\"https://pbs.twimg.com/media/GbmT-NdXkAAFSAc?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -4504,6 +4609,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "MSTC up 7% on this news today<br><br>MSTC is up 57% already in June !<div class=\"rsshub-quote\"><br><br>Press Trust of India:\u2002News Alert ! Owners of BS IV four wheelers to get Rs 1 lakh scrapping incentive under Delhi EV Policy: Official.<br><br><video width=\"848\" height=\"478\" src=\"https://video.twimg.com/amplify_video/2071526684134887424/vid/avc1/848x478/PKogMqY5z1KqlS9g.mp4?tag=28\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2071526684134887424/img/5HE1C2wEjtem71HF.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Interesting comment from Delhivery CEO Sahil Barua - He expects further consolidation in Indian Logistics sector saying there isnt enough volume in th...",
+      "link": "https://x.com/aditya_kondawar/status/2071518598313779546",
+      "date": "2026-06-29T08:58:15+00:00",
+      "tweet_id": "2071518598313779546",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Interesting comment from Delhivery CEO Sahil Barua - <br><br>He expects further consolidation in Indian Logistics sector saying there isnt enough volume in the market for more than top 3 players to survive<br><br>he also said the quick commerce industry carried a high economic cost and says its difficult for players  other thank Blinkit turning profitable in near term <br><br>no stock reco | src - ET Article",
       "category": "Twitter"
     },
     {
@@ -5272,6 +5392,21 @@
       "category": "Twitter"
     },
     {
+      "title": "If you read concalls If you read corporate announcements daily on NSE/BSE If you do some promoter meetings/plant visits/broker conferences You will be...",
+      "link": "https://x.com/aditya_kondawar/status/2071427119536853221",
+      "date": "2026-06-29T02:54:45+00:00",
+      "tweet_id": "2071427119536853221",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "If you read concalls<br>If you read corporate announcements daily on NSE/BSE<br>If you do some promoter meetings/plant visits/broker conferences <br><br>You will be an unstoppable investor! <br><br>This may sound boring, but the road to great riches is indeed boring :)",
+      "category": "Twitter"
+    },
+    {
       "title": "Also worth noting that 11-year-old Shadowfax is now valued higher than 42-year-old Blue Dart. Current market capitalisation: Delhivery: Rs 34,800 cror...",
       "link": "https://x.com/madhavchanchani/status/2071424917611114922",
       "date": "2026-06-29T02:46:00+00:00",
@@ -5374,21 +5509,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "PFC and REC approve merger scheme <br><br>Ratio \ud83d\udc49 88 PFC shares for every 100 REC shares <br><br>Swap ratio is approx 5 % in favour of REC",
-      "category": "Twitter"
-    },
-    {
-      "title": "BREAKING: The US and Iran have agreed to halt strikes and meet this week, per Axios. The announcement comes just one hour before US stock market futur...",
-      "link": "https://x.com/KobeissiLetter/status/2071338155404325335",
-      "date": "2026-06-28T21:01:14+00:00",
-      "tweet_id": "2071338155404325335",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: The US and Iran have agreed to halt strikes and meet this week, per Axios.<br><br>The announcement comes just one hour before US stock market futures are set to reopen.",
       "category": "Twitter"
     },
     {
@@ -5662,6 +5782,21 @@
       "category": "Twitter"
     },
     {
+      "title": "There's a piece of India in every Mercedes Car and I hope to see even more of it going ahead - Mercedes-Benz Group Board member and CTO",
+      "link": "https://x.com/aditya_kondawar/status/2071200433272697285",
+      "date": "2026-06-28T11:53:58+00:00",
+      "tweet_id": "2071200433272697285",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "There's a piece of India in every Mercedes Car and I hope to see even more of it going ahead<br><br>- Mercedes-Benz Group Board member and CTO",
+      "category": "Twitter"
+    },
+    {
       "title": "Iran\u2019s foreign affairs minister: \u201c\u2026 Any attempt to adopt new or separate arrangements compared to what is underway by the Islamic Republic of Iran,...",
       "link": "https://x.com/JavierBlas/status/2071188694862594353",
       "date": "2026-06-28T11:07:20+00:00",
@@ -5854,6 +5989,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "NYT: \"President Trump threatened to scrap a just-finalized trade deal with the European Union on Friday, saying that any country that levies a digital services tax would be hit immediately with a 100 percent tariff on all exports to the United States.\"<br><br>President Trump was right to recognize that there was a problem with global trade, but he seems determined to undermine any possibility of a meaningful reform of global trade during his term.<br>https://www.nytimes.com/2026/06/26/business/economy/trump-tariffs-europe.html?unlocked_article_code=1.tlA.FTBn.UbOz3SxTFPai&amp;smid=tw-share",
+      "category": "Twitter"
+    },
+    {
+      "title": "Plucked all these vegetables on our own A friend has a farm house on the outskirts of Pune Interacted with a lot of farmers, everyone is so warm and h...",
+      "link": "https://x.com/aditya_kondawar/status/2071126166753489272",
+      "date": "2026-06-28T06:58:52+00:00",
+      "tweet_id": "2071126166753489272",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HL4eQYubAAAx_XQ?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Plucked all these vegetables on our own<br><br>A friend has a farm house on the outskirts of Pune<br><br>Interacted with a lot of farmers, everyone is so warm and had tea/coffee/snacks at so many farmers houses - even though we didn\u2019t know them, we were invited in for a conversation and a beverage/food<br><br>One more thing i noticed, everyone has branded tv ,fridge and washing machine in their houses<br><br>Best way to spend a Sunday\u2764\ufe0f\ud83d\ude0d<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HL4eQYubAAAx_XQ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HL4eQYTaoAAL8d7?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HL4eQYOaEAAkzU6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HL4eQYubMAAGdwW?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -6367,6 +6517,21 @@
       "category": "Twitter"
     },
     {
+      "title": "I heard someone say \u2013 If you knew you were 100 rejections away from your dreams, how excited would you be when someone told you no! What a powerful s...",
+      "link": "https://x.com/aditya_kondawar/status/2070835573368213860",
+      "date": "2026-06-27T11:44:09+00:00",
+      "tweet_id": "2070835573368213860",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "I heard someone say \u2013<br><br>If you knew you were 100 rejections away from your dreams, how excited would you be when someone told you no!<br><br>What a powerful statement!",
+      "category": "Twitter"
+    },
+    {
       "title": "\u201cThe law clearly states municipal bodies will not collect mixed waste but segregation is neither being done nor is being enforced. About 80% of a war...",
       "link": "https://x.com/IndiaSpend/status/2070832012638998690",
       "date": "2026-06-27T11:30:00+00:00",
@@ -6697,6 +6862,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Persistent Systems Mega Order win - 6.5-year strategic services agreement worth USD 650M+; annual value USD 125M+. For context, this is their entire 1...",
+      "link": "https://x.com/aditya_kondawar/status/2070714622219579845",
+      "date": "2026-06-27T03:43:32+00:00",
+      "tweet_id": "2070714622219579845",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HLymQf1bwAAcfk0?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Persistent Systems Mega Order win - <br><br>6.5-year strategic services agreement worth USD 650M+; annual value USD 125M+.<br><br>For context, this is their entire 1 quarter of TCV win, their FY26 TCV was 2.4 bn $<br><br>Acquired 21% stake in Nagarro, with the largest shareholder of Nagarro committing its entire stake under a binding agreement<br><br>Persistent \u2013 Nagarro Group merger will create a ~USD 2.9 billion AI-led engineering powerhouse with 46,000+ employees across 40+ countries.<br><br>no reco strictly<br><img width=\"1190\" height=\"662\" style=\"\" src=\"https://pbs.twimg.com/media/HLymQf1bwAAcfk0?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT The Indian Express: \ud83d\udea8 #ExpressInvestigation | The Union Minister of State for Agriculture Bhagirath Choudhary received a \u20b999.03 lakh subsidy fo...",
       "link": "https://x.com/menakadoshi/status/2070745599666970813",
       "date": "2026-06-27T03:09:43+00:00",
@@ -6934,6 +7114,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "84% of women entrepreneurs in India use digital payment tools. Across cohorts, UPI continues to gain traction, with usage standing at 72% among women entrepreneurs, 77% among HNW women and 54% among rural women earners, finds @DBSBankIndia survey done with Deloitte Touche Tohmatsu India<br>@UPI_NPCI",
+      "category": "Twitter"
+    },
+    {
+      "title": "Amazing! More power to them and i hope they get all the support they need!",
+      "link": "https://x.com/aditya_kondawar/status/2070528302205608161",
+      "date": "2026-06-26T15:23:10+00:00",
+      "tweet_id": "2070528302205608161",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2070039820882378752/img/bqv4afztCq1gSqjm.jpg",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Amazing! More power to them and i hope they get all the support they need!<div class=\"rsshub-quote\"><br><br>Runtime:\u2002Indian students are DIYing a semiconductor fab at IIT Bombay.<br><br>In just 10 months they've built:<br><br>1. A DLP-based lithography machine.<br>2. A tube furnace to oxidise silicon.<br>3. A DC plasma sputter.<br><br>Total cost: \u20b930 lakh.<br><br>Here's a rare behind-the-scenes look at HackerFab IITB.<br><br><video width=\"2048\" height=\"1152\" src=\"https://video.twimg.com/amplify_video/2070039820882378752/vid/avc1/3840x2160/ThR1ETRTDAYd_4Wb.mp4?tag=28\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2070039820882378752/img/bqv4afztCq1gSqjm.jpg\"></video></div>",
       "category": "Twitter"
     },
     {
@@ -7327,6 +7522,21 @@
       "category": "Twitter"
     },
     {
+      "title": "\"Despite 3 million places of worship, 43 UNESCO sites, and over 7,500 kms of coastline, we get less than 1 Cr foreign tourist arrivals, while a city l...",
+      "link": "https://x.com/aditya_kondawar/status/2070417268735881680",
+      "date": "2026-06-26T08:01:58+00:00",
+      "tweet_id": "2070417268735881680",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\"Despite 3 million places of worship, 43 UNESCO sites, and over 7,500 kms of coastline, we get less than 1 Cr foreign tourist arrivals, while a city like Paris alone gets 2.5 Cr\"<br><br>\"Considering the size and the opportunity, and excluding the Indian diaspora arrivals, we are getting very few international foreign tourists.\"<br><br>He also stressed the need for developing 50 new fully integrated tourist ecosystems on an urgent basis.<br><br>- Puneet Chhatwal, CEO of Taj Hotels Resorts and Palaces",
+      "category": "Twitter"
+    },
+    {
       "title": "Undertrials accounted for 72.6% of India's #prison population in 2024, up from 66.2% in 2005. Only 7 countries have a higher share of pre-trial detent...",
       "link": "https://x.com/IndiaSpend/status/2070394126047248817",
       "date": "2026-06-26T06:30:00+00:00",
@@ -7357,18 +7567,18 @@
       "category": "Twitter"
     },
     {
-      "title": "Zambia\u2019s state-owned miner seeks to revive London listing https://ft.trib.al/9WENkWh",
-      "link": "https://x.com/ftenergy/status/2070360280664596671",
-      "date": "2026-06-26T04:15:31+00:00",
-      "tweet_id": "2070360280664596671",
-      "source": "FT Energy",
-      "publisher": "FT Energy",
+      "title": "Burj Khalifa took 6 years and cost ~$1.5 Billion to build GTA VI took 12 years and cost $2+ Billion to make We have reached a point where building a v...",
+      "link": "https://x.com/aditya_kondawar/status/2070360347794715100",
+      "date": "2026-06-26T04:15:47+00:00",
+      "tweet_id": "2070360347794715100",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HLih9MLWIAAJIoj?format=jpg&name=orig",
       "is_retweet": false,
-      "is_quote": false,
+      "is_quote": true,
       "is_reply": false,
-      "description_html": "Zambia\u2019s state-owned miner seeks to revive London listing https://ft.trib.al/9WENkWh",
+      "description_html": "Burj Khalifa took 6 years and cost ~$1.5 Billion to build<br><br>GTA VI took 12 years and cost $2+ Billion to make<br><br>We have reached a point where building a virtual world costs more than building the world's tallest skyscraper.<br><br>The Creator Economy is only getting started!<div class=\"rsshub-quote\"><br><br>kira \ud83d\udc7e:\u2002i don\u2019t think people realize how insane this is\ud83d\ude2d<br><br><img width=\"1064\" height=\"986\" style=\"\" src=\"https://pbs.twimg.com/media/HLih9MLWIAAJIoj?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -7384,6 +7594,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Mahesh.BR<br>New Industrial Revolution is happening at #KIADB Mulavad, Vijayapura district North #Karnataka \ud83d\ude4c<br>#Bengaluru based @LionCircuits is building a Mega, AI driven, Upto 12 Layer , #PCB Manufacturing campus, to be #India's largest ,once commissioned \ud83d\udc4f <br>Kudos to our dynamic #Industry Min Sri @MBPatil for facilitating this and Lion Circuits CEO Sri @MuraliSrinivasa for this great venture ! <br>@DKShivakumar @investkarnataka <br>@TOIIndiaNews @DeccanHerald <br>@VijayaKarnataka @ChristinMathewPhilip<div class=\"rsshub-quote\"><br><br>Murali Srinivasa:\u2002This is the site where our new 100 acre Integrated PCB mega campus will be built in \ud83c\uddee\ud83c\uddf3<br><br>We have been working hard to fix the structual gaps in PCB manufacturing in \ud83c\uddee\ud83c\uddf3<br><br>Some of the problems are harder than we think and it takes time to fix those. <br>We have been working on fixing<br><br><img width=\"2048\" height=\"1536\" style=\"\" src=\"https://pbs.twimg.com/media/HLtJ2AiawAADh1t?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1515\" style=\"\" src=\"https://pbs.twimg.com/media/HLtJ2kSbEAAVmpw?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "India has learned one lesson repeatedly: strategic dependence comes at a cost. - 90% of our oil demand is met through imports \u2192 We must diversify ene...",
+      "link": "https://x.com/aditya_kondawar/status/2070350686035100040",
+      "date": "2026-06-26T03:37:23+00:00",
+      "tweet_id": "2070350686035100040",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "India has learned one lesson repeatedly: strategic dependence comes at a cost.<br><br>- 90% of our oil demand is met through imports \u2192 We must diversify energy sources.<br>- AI models are largely built overseas and are weaponized or restricted (US restricted Mythos new models to outside countries or companies) \u2192 We need sovereign Indian AI models - India rolls out three sovereign AI models, Sarvam AI, Gnani AI, BharatGen, to take on Big Tech<br>* Semiconductors and rare earths have been external dependencies \u2192 India is now investing in domestic chip manufacturing and strengthening its rare earth ecosystem (China had weaponized rare earth exports)<br><br>Energy security. Technology security. Supply chain security.<br><br>The next decade won't just be about economic growth\u2014it will be about strategic self-reliance!",
       "category": "Twitter"
     },
     {
@@ -7642,6 +7867,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Fun Fact - Companies listed on the Taiwan stock exchange must report their monthly revenue to the Market Observation Post System (MOPS) no later than ...",
+      "link": "https://x.com/aditya_kondawar/status/2070109290883637408",
+      "date": "2026-06-25T11:38:10+00:00",
+      "tweet_id": "2070109290883637408",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Fun Fact - <br><br>Companies listed on the Taiwan stock exchange must report their monthly revenue to the Market Observation Post System (MOPS) no later than the 10th of each month.<br><br>Interesting!",
+      "category": "Twitter"
+    },
+    {
       "title": "Apollo Micro Systems is steadily moving up the missile value chain. The company already supplies power systems and RF/communication modules. With the ...",
       "link": "https://x.com/ShashankUdupa1/status/2070107235175506255",
       "date": "2026-06-25T11:30:00+00:00",
@@ -7669,6 +7909,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "2nd Brain compounded over 2 months, is being built into a beast. Has become my go to AI OS for the entire business<br><img width=\"1806\" height=\"1689\" style=\"\" src=\"https://pbs.twimg.com/media/HLp3hqIbQAA1Bc4?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Finally, Reliance PIO after Reliance JIO",
+      "link": "https://x.com/aditya_kondawar/status/2070096775852196026",
+      "date": "2026-06-25T10:48:26+00:00",
+      "tweet_id": "2070096775852196026",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Finally, Reliance PIO after Reliance JIO<div class=\"rsshub-quote\"><br><br>RedboxGlobal India:\u2002RELIANCE INDUSTRIES: CO MAY LAUNCH LOW ALCOHOL BEVERAGES IN INDIA; WILL BE DIFFERENT FROM CAMPA COLA || CO TO EVEN BUY ALCOHOL MANUFACTURING CO.<br></div>",
       "category": "Twitter"
     },
     {
@@ -7852,6 +8107,21 @@
       "category": "Twitter"
     },
     {
+      "title": "The modern automobile is becoming an electronics and software platform on wheels. According to Tata Motors' Investor Day presentation: - Vehicle parts...",
+      "link": "https://x.com/aditya_kondawar/status/2070022874744885758",
+      "date": "2026-06-25T05:54:47+00:00",
+      "tweet_id": "2070022874744885758",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The modern automobile is becoming an electronics and software platform on wheels.<br><br>According to Tata Motors' Investor Day presentation:<br><br>- Vehicle parts have increased by 15%+ over the last decade.<br>- 40%+ of a vehicle now consists of electronics and software.<br>- 45%+ of value creation comes from beyond Tier 1 suppliers.<br><br>The opportunity is no longer limited to OEMs. Increasingly, value is shifting deeper into the automotive supply chain as vehicles become smarter, more connected, and more technology-intensive.<br><br>no reco",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Intrinsic Compounding: Most investors don't have an information problem. They have a research problem. Annual reports. Concall transcripts. Investo...",
       "link": "https://x.com/soicfinance/status/2070874730513740148",
       "date": "2026-06-25T05:40:28+00:00",
@@ -7909,6 +8179,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "JM Financial on Dixon Technologies <br>Upgrades to BUY vs ADD<br>Raises TP to \u20b914,200 vs \u20b911,200 earlier<br>Target multiple raised to 50x from 45x on stronger earnings visibility.<br><br>Why the upgrade?<br>\u2705 Vivo JV nearing approvals, contribution expected in coming quarters in FY27<br>\u2705 Smartphone ASPs supporting revenues despite soft volumes<br>\u2705 IT hardware, telecom gear, servers &amp; optical transceivers scaling up<br>\u2705 Display &amp; camera backward integration on track<br><br>@CNBCTV18Live",
+      "category": "Twitter"
+    },
+    {
+      "title": "Best News for India - Brent Crude back to pre-war levels Erases all gains ever since the War started Not just this, INR has appreciated to 94.31 v/s t...",
+      "link": "https://x.com/aditya_kondawar/status/2069981717788803321",
+      "date": "2026-06-25T03:11:14+00:00",
+      "tweet_id": "2069981717788803321",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HLoMM2YbsAAH-jZ?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Best News for India - Brent Crude back to pre-war levels<br><br>Erases all gains ever since the War started<br><br>Not just this, INR has appreciated to 94.31 v/s the lowest of 96.4<br><br>10Y bond yields have cooled to 6.7% from 7.11%<br><br>Rains have been late, but they have been heavy, and the deficit may be bridged quickly <br><br>Q1FY27 Earnings will also be good for India, except few margin hits<br><br>Many wars have happened, many wars will come, Many narratives also will come and go<br><br>Keep the patience and be stock specific - Compounding continues despite whatever is happening in the world!<br><img width=\"854\" height=\"621\" style=\"\" src=\"https://pbs.twimg.com/media/HLoMM2YbsAAH-jZ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"994\" height=\"458\" style=\"\" src=\"https://pbs.twimg.com/media/HLoNYgAbQAAwwG6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -8074,6 +8359,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Jes\u00fas Fern\u00e1ndez-Villaverde<br>This is a photo I took of Keynes\u2019s bedroom at Charleston House, Vanessa Bell and Duncan Grant\u2019s farmhouse. Keynes wrote The Economic Consequences of the Peace at this table, looking out over the pond (also notice Duncan Grant\u2019s 1917 portrait of Keynes in the top left corner, painted in the garden).<br><br>Keynes liked the area so much that he later leased Tilton House, just down the lane.<br><br>As always, Keynes was a dominating figure. Rumor has it that he changed all the clocks in the house to his own eccentric time zone, \u201cCharleston time,\u201d which suited the household\u2019s bohemian lifestyle. Whether this is true is hard to ascertain, but it fits the atmosphere quite well.<br><br>It was most interesting for me to be in the room where a book I teach every fall semester came to life. The curator, however, was intrigued by the fact that I seemed to care far more about Keynes than about Duncan Grant or Vanessa Bell. I apologized to her for my professional bias, pointing out that nobody is perfect!<br><img width=\"2048\" height=\"1536\" style=\"\" src=\"https://pbs.twimg.com/media/HLk9IK5XgAAxv1r?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "The SUV Market was 28% of the total PV market in FY20 It became 55% in FY26; Expected to be 60% in FY31 India sold 47L PVs in FY26 and is expected to ...",
+      "link": "https://x.com/aditya_kondawar/status/2069751677268443555",
+      "date": "2026-06-24T11:57:08+00:00",
+      "tweet_id": "2069751677268443555",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HLk8AE7WkAEusJ1?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The SUV Market was 28% of the total PV market in FY20<br><br>It became 55% in FY26; Expected to be 60% in FY31<br><br>India sold 47L PVs in FY26 and is expected to sell 64L PVs in FY31<br><br>So the % is increasing, and so are the absolute numbers<br><br>Premiumization is the name of the game!<br><br>No reco<br><img width=\"940\" height=\"378\" style=\"\" src=\"https://pbs.twimg.com/media/HLk8AE7WkAEusJ1?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
