@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-07-03T22:47:55.231211+05:30",
+  "generated_at": "2026-07-04T00:38:22.868343+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 47,
       "feeds_failed": 2,
-      "items_raw": 1174,
-      "resolve_attempted": 1174,
-      "resolve_resolved": 1174,
-      "resolve_cache_hits": 1167
+      "items_raw": 1165,
+      "resolve_attempted": 1165,
+      "resolve_resolved": 1165,
+      "resolve_cache_hits": 1151
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.1,
+      "age_hours": 1.4,
       "items": 797,
       "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-07-03T22:47:55.231152+05:30"
+    "generated_at": "2026-07-04T00:38:22.868283+05:30"
   },
   "items": [
     {
@@ -1486,9 +1486,9 @@
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
-      "is_quote": true,
+      "is_quote": false,
       "is_reply": false,
-      "description_html": "This has interesting tax characteristics. If your employer pays higher than 1800 (to match your contribution, voluntarily) then they reduce your effective salary to that extent, since CTC remains the same. This probably leads to lower tax outflow since employer contributions aren't taxable upto Rs. 7.5 lakh per year.<div class=\"rsshub-quote\"><br><br>Sonal Bhutra:\u2002EPFO just announced a new PF scheme for 2026. Here's what's actually changing.<br><br>Your mandatory PF contribution stays at 1,800 a month. That doesn't change, no matter your salary.<br><br>What's new is that anything you save above that amount is now optional. Before, a lot of employers<br></div>",
+      "description_html": "This has interesting tax characteristics. If your employer pays higher than 1800 (to match your contribution, voluntarily) then they reduce your effective salary to that extent, since CTC remains the same. This probably leads to lower tax outflow since employer contributions aren't taxable upto Rs. 7.5 lakh per year.",
       "category": "Twitter"
     },
     {
