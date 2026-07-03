@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T14:51:24.214061+00:00",
+  "generated_at": "2026-07-03T15:46:47.606546+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 48,
     "handles_empty": 1,
     "handles_error": 0,
-    "items_total": 801
+    "items_total": 797
   },
   "items": [
     {
@@ -348,9 +348,9 @@
     },
     {
       "title": "RT menaka doshi: Proof of life in Indian R&D A visit this month to the Wockhardt headquarters in downtown Mumbai offered me evidence contrary to the f...",
-      "link": "https://x.com/menakadoshi/status/2072871547652706587",
+      "link": "https://x.com/menakadoshi/status/2073059234552656136",
       "date": "2026-07-02T08:43:49+00:00",
-      "tweet_id": "2072871547652706587",
+      "tweet_id": "2073059234552656136",
       "source": "menaka doshi",
       "publisher": "Menaka Doshi",
       "source_mode": "rsshub",
@@ -2335,6 +2335,34 @@
       "description_html": "RT\u2002Sridhar Vembu<br>I am very happy to see Tenkasi Semiconductors, affectionately called Tensemi, taking shape under the leadership of my dear friend Anandan Ayyasamy, an outstanding silicon architect.<br><br>Anandan and I have made a promise to each other that he will teach me silicon design and I will teach him software design!<div class=\"rsshub-quote\"><br><br>Ananthan Ayyasamy:\u2002Hello World! - from team \u201cTenkasi Semiconductors\u201d<br><br>Stay tuned\u2026.<br><br><img width=\"2048\" height=\"1420\" style=\"\" src=\"https://pbs.twimg.com/media/HA-BUiIbsAM_QCF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
+      "title": "#FIFA's 2026 #WorldCup set to generate $9 billion in revenue, highest ever in tournament history https://www.cnbctv18.com/videos/sports/2026-fifa-worl...",
+      "link": "https://x.com/CNBCTV18Live/status/2073070598692217104",
+      "date": "2026-07-03T15:45:21+00:00",
+      "tweet_id": "2073070598692217104",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#FIFA's 2026 #WorldCup set to generate $9 billion in revenue, highest ever in tournament history<br><br>https://www.cnbctv18.com/videos/sports/2026-fifa-world-cup-record-revenue-broadcasting-ticket-sales-19938379.htm"
+    },
+    {
+      "title": "#Meta team meets #ITMinistry officials on username feature notice https://www.cnbctv18.com/technology/meta-team-meets-it-ministry-officials-on-usernam...",
+      "link": "https://x.com/CNBCTV18Live/status/2073062541824266307",
+      "date": "2026-07-03T15:13:20+00:00",
+      "tweet_id": "2073062541824266307",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Meta team meets #ITMinistry officials on username feature notice<br><br>https://www.cnbctv18.com/technology/meta-team-meets-it-ministry-officials-on-username-feature-notice-19938365.htm"
+    },
+    {
       "title": "#FortisHealthcare enters #Odisha, to run 300-bed hospital in Cuttack @ranimegha229 https://www.cnbctv18.com/business/fortis-healthcare-share-price-odi...",
       "link": "https://x.com/CNBCTV18Live/status/2073055709076631944",
       "date": "2026-07-03T14:46:11+00:00",
@@ -2571,20 +2599,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Q1WithCNBCTV18 | #SuryodaySFB Q1 Biz Update<br><br>\u23e9Gross Advances Up 8.4% QoQ At \u20b914,374 Cr<br><br>\u23e9Disbursements Down 4% QoQ At \u20b92,954 Cr<br><br>\u23e9Total Deposits Up 4.6% QoQ At \u20b914,634Cr<br><img width=\"1280\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HMS-zYRaIAAmrQQ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "#RupeeAtClose | #Rupee Closes At 95.21/$ Vs Thursday\u2019s Close Of 95.39/$",
-      "link": "https://x.com/CNBCTV18Live/status/2072990103933481326",
-      "date": "2026-07-03T10:25:29+00:00",
-      "tweet_id": "2072990103933481326",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HMS9bJaacAANKKZ?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#RupeeAtClose | #Rupee Closes At 95.21/$ Vs Thursday\u2019s Close Of 95.39/$<br><img width=\"610\" height=\"345\" style=\"\" src=\"https://pbs.twimg.com/media/HMS9bJaacAANKKZ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "#Sebi changes rules on unpaid client securities to ease broker operations https://economictimes.indiatimes.com/markets/stocks/news/sebi-changes-rules-...",
@@ -3385,6 +3399,20 @@
       "description_html": "Markets move through extremes on both sides. These extremes are largely driven by sentiment and, at times, reinforced by fundamentals. Currently, Indian equities are experiencing extremely weak sentiment, driven primarily by disappointment over the US trade deal and subdued earnings growth over the past few quarters. However, the September 2025 quarter has shown encouraging signs of earnings growth.<br><br>The on-ground feedback I am receiving across various domestic businesses is very strong. For many companies, activity has picked up significantly this month. In my career, I have rarely seen such a wide divergence between market sentiment and on-ground business momentum. After a long time, deep value is emerging in several pockets, even though valuations at the overall market level are not cheap. A shift in sentiment will require a trigger. If not a trade deal, strong earnings and supportive management commentary could serve as a meaningful catalyst.<br><br>Wishing everyone a very Happy New Year and hoping for a far more rewarding 2026!<br><img width=\"899\" height=\"262\" style=\"\" src=\"https://pbs.twimg.com/media/G9U7WhMawAEfxiA?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Because you dont need to track Trumps portfolio He will tweet it out himself including the tickr",
+      "link": "https://x.com/itsTarH/status/2073064275393097833",
+      "date": "2026-07-03T15:20:13+00:00",
+      "tweet_id": "2073064275393097833",
+      "source": "Tar \u26a1",
+      "publisher": "TarH",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HMUA9xaagAAf6DH?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Because you dont need to track Trumps portfolio<br><br>He will tweet it out himself including the tickr<br><img width=\"1080\" height=\"466\" style=\"\" src=\"https://pbs.twimg.com/media/HMUA9xaagAAf6DH?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Lee Roach:\u2002You can track Nancy Pelosi\u2019s stock trades on X. But once you start tracking Donald Trump\u2019s that\u2019s a no no. What\u2019s up with this @nikitabier.<br><br><img width=\"1260\" height=\"1318\" style=\"\" src=\"https://pbs.twimg.com/media/HMSxyzyXkAAMH_v?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1260\" height=\"1321\" style=\"\" src=\"https://pbs.twimg.com/media/HMSxyzzXMAAYKfA?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
+    },
+    {
       "title": "You can now listen to all Industry Primers as audio podcasts https://thewrap.in",
       "link": "https://x.com/itsTarH/status/2072953713325666553",
       "date": "2026-07-03T08:00:53+00:00",
@@ -3607,20 +3635,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Tax season is upon us<br><br>if you're looking for a CA to help out and file your ITR  you may reach out to<br><br>@CaMayursinh at +91-8209-105-955   <br><br>Been using his services for many years now \ud83e\udd1d #TaxSeason"
-    },
-    {
-      "title": "Hawkish Fed = Profit Booking",
-      "link": "https://x.com/itsTarH/status/2069471652640080353",
-      "date": "2026-06-23T17:24:25+00:00",
-      "tweet_id": "2069471652640080353",
-      "source": "Tar \u26a1",
-      "publisher": "TarH",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HLg9D_waEAAPC9r?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Hawkish Fed = Profit Booking<br><img width=\"712\" height=\"267\" style=\"\" src=\"https://pbs.twimg.com/media/HLg9D_waEAAPC9r?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Tar \u26a1:\u2002All bull markets in all of history have ended the same way<br><br>With US Fed raising interest rates<br><br>Inflation was inching higher thanks to oil and Iran war<br><br>Now jobs report further elevates the probability of interest rate hikes<br><br>How much, when and if the Fed raises rates, we will<br><br><img width=\"933\" height=\"789\" style=\"\" src=\"https://pbs.twimg.com/media/HKGcz1BbEAAm04z?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
       "title": "Powerful scene from the Made in India TV Series - The scene where JRD Tata removes his watch and says, \"I will not wear a watch until the Titan team m...",
@@ -4519,6 +4533,20 @@
       "description_html": "RT\u2002SOIC Research<br>Today we are going to discuss a very unique 2W OEM that has been able to built a product that is built to last in 10+ years. For context - They had no legacy nothing and have built the business ground up from nothing (product first distribution later) <br><br>Ather invested in the things that compound and are hard to copy i.e. design IP, software, brand, charging network and rented the things that don't (cell manufacturing). That is why it spends less than Ola yet has better unit economics, and why the moat is earned rather than bought.<br><br>And this is the fruits of investing in building technology and a superior product for years before just thinking about scaling distribution. At the end of the day we can see the result that the product won that did not catch fire :)<br><br>But here today we will get into details of how they created this MOAT and how it is now able to win a superior market share and show such a strong growth at the same time when competition did not decrease in fact it has gone up!<br><img width=\"1736\" height=\"978\" style=\"\" src=\"https://pbs.twimg.com/media/HLZX78casAApbn5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Prof Philippe Ciais has been \u201ccompletely impressed\u201d in his experience working with Chinese climate scientists. Prof Ciais is the world\u2019s most highl...",
+      "link": "https://x.com/CarbonBrief/status/2073069460940796220",
+      "date": "2026-07-03T15:40:49+00:00",
+      "tweet_id": "2073069460940796220",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2073068568543961088/img/Ss33Iw35qZ8hUJUC.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Prof Philippe Ciais has been \u201ccompletely impressed\u201d in his experience working with Chinese climate scientists.<br><br>Prof Ciais is the world\u2019s most highly cited climate scientist according to Carbon Brief\u2019s Cosmos database.<br><br>Full interview here: https://buff.ly/xu5BB8e<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2073068568543961088/vid/avc1/1080x1920/s0b-POyOozIJzVz_.mp4?tag=28\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2073068568543961088/img/Ss33Iw35qZ8hUJUC.jpg\"></video>"
+    },
+    {
       "title": "NEW \u2013 Q&A: How will the World Bank\u2019s abandoned finance goal affect climate action? \u270d\ufe0f written by Josh Gabbatiss \ud83d\udcac with comments from @joethw8s ...",
       "link": "https://x.com/CarbonBrief/status/2073053375248187502",
       "date": "2026-07-03T14:36:54+00:00",
@@ -4741,62 +4769,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Six charts show how clean power was world\u2019s largest source of new energy in 2025 <br><br>\u270d\ufe0f Written by @DrSimEvans<br><br>\ud83d\udcca Data analysis by Ho Woo Nam <br><br>Read here: <br>https://buff.ly/H0vXbD9<br><img width=\"2048\" height=\"1179\" style=\"\" src=\"https://pbs.twimg.com/media/HMN-WYQXkAApadL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "\ud83d\udea8 Introducing Project Cosmos, the world\u2019s largest database of climate change research. Carbon Brief has mapped the academic literature and evidenc...",
-      "link": "https://x.com/CarbonBrief/status/2072631374452756676",
-      "date": "2026-07-02T10:40:01+00:00",
-      "tweet_id": "2072631374452756676",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HMN3QCBW0AAA_0Q?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\ud83d\udea8 Introducing Project Cosmos, the world\u2019s largest database of climate change research.<br><br>Carbon Brief has mapped the academic literature and evidence that underpins humanity's knowledge of climate change.<br><br>The Cosmos database includes 1.8 million studies.<br><br>Explore the database here \u2b07\ufe0f<br>https://buff.ly/rguAbpt<br><img width=\"1550\" height=\"1032\" style=\"\" src=\"https://pbs.twimg.com/media/HMN3QCBW0AAA_0Q?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Analysis: UK newspapers have already printed 63 editorials in 2026 backing North Sea drilling \u270d\ufe0f Josh Gabbatiss Read here: https://buff.ly/TlR4Ovg",
-      "link": "https://x.com/CarbonBrief/status/2072622105024180380",
-      "date": "2026-07-02T10:03:11+00:00",
-      "tweet_id": "2072622105024180380",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HMNu0gxWYAAWHeC?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Analysis: UK newspapers have already printed 63 editorials in 2026 backing North Sea drilling <br><br>\u270d\ufe0f Josh Gabbatiss <br><br>Read here: https://buff.ly/TlR4Ovg<br><img width=\"784\" height=\"1178\" style=\"\" src=\"https://pbs.twimg.com/media/HMNu0gxWYAAWHeC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Daily Briefing: Ocean \u2018record heat\u2019 | US and Europe bake | \u2018Retrofit the planet\u2019 Read today's briefing here \u27a1\ufe0f https://buff.ly/wnxIzvK Sign up t...",
-      "link": "https://x.com/CarbonBrief/status/2072607172161044828",
-      "date": "2026-07-02T09:03:51+00:00",
-      "tweet_id": "2072607172161044828",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2072607161125834752/pu/img/ocNR4oriChhX2WMf.jpg",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Daily Briefing: Ocean \u2018record heat\u2019 | US and Europe bake | \u2018Retrofit the planet\u2019 <br><br>Read today's briefing here \u27a1\ufe0f https://buff.ly/wnxIzvK <br><br>Sign up to our email briefings \u27a1\ufe0f http://buff.ly/k84LIFK<br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/ext_tw_video/2072607161125834752/pu/vid/avc1/1280x720/EG2Dk7BoaNVVzZl9.mp4?tag=12\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2072607161125834752/pu/img/ocNR4oriChhX2WMf.jpg\"></video>"
-    },
-    {
-      "title": "The Carbon Brief Profile: France | @josh_gabbatiss @joejgoodman @tomoprater #CBarchive Read here: https://buff.ly/OdMtUeT",
-      "link": "https://x.com/CarbonBrief/status/2072547315865268384",
-      "date": "2026-07-02T05:06:00+00:00",
-      "tweet_id": "2072547315865268384",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The Carbon Brief Profile: France | @josh_gabbatiss @joejgoodman @tomoprater #CBarchive<br><br>Read here: https://buff.ly/OdMtUeT"
     },
     {
       "title": "Asia-Pacific has been the main driver of growing fossil consumption, but it is still below the world average per capita as electrification accelerates...",
@@ -5093,6 +5065,20 @@
       "description_html": "This paper is relevant once again given the recent excellent debate on R&amp;D in India.<div class=\"rsshub-quote\"><br><br>Pranay Kotasthane:\u2002.@PSarthak19 &amp; I have a @mercatus paper titled India\u2019s Climb up the Innovation Ladder: Policy Enablers and Impediments. <br><br>#thread<br><br><img width=\"920\" height=\"579\" style=\"\" src=\"https://pbs.twimg.com/media/GXWUDnFXkAAsOhx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
+      "title": "A private hospital delivery costs Rs 39,000 on average\u201417 times more than in a public facility. In Tamil Nadu, private #childbirth costs nearly Rs 70...",
+      "link": "https://x.com/IndiaSpend/status/2073066736937472072",
+      "date": "2026-07-03T15:30:00+00:00",
+      "tweet_id": "2073066736937472072",
+      "source": "IndiaSpend",
+      "publisher": "IndiaSpend",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "A private hospital delivery costs Rs 39,000 on average\u201417 times more than in a public facility. In Tamil Nadu, private #childbirth costs nearly Rs 70,000, about 50 times the public-hospital cost. Commercialisation, rising #Csections are to blame: https://www.indiaspend.com/health/why-c-section-deliveries-are-rising-in-india-987410"
+    },
+    {
       "title": "40.5% of urban #births in India are by #Csection, compared to 22.8% in rural areas. Experts say private maternity care is increasingly the default eve...",
       "link": "https://x.com/IndiaSpend/status/2073036541195145538",
       "date": "2026-07-03T13:30:01+00:00",
@@ -5357,20 +5343,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The world\u2019s 12th most polluting landfill is in #Mumbai. Despite multiple laws and rules over the years, the city has failed to prevent its wet waste from reaching #landfills which contributes not only to pollution but also global warming #methane https://www.indiaspend.com/earthcheckindia/how-mumbais-poor-waste-segregation-contributes-to-methane-emission-spikes-987223"
-    },
-    {
-      "title": "Methane is responsible for around a quarter of #globalwarming. One big source of methane emissions are landfills and dumping grounds. #Secunderabad an...",
-      "link": "https://x.com/IndiaSpend/status/2071069137032679503",
-      "date": "2026-06-28T03:12:15+00:00",
-      "tweet_id": "2071069137032679503",
-      "source": "IndiaSpend",
-      "publisher": "IndiaSpend",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Methane is responsible for around a quarter of #globalwarming. One big source of methane emissions are landfills and dumping grounds. #Secunderabad and #Mumbai have among the most polluting landfills in the world https://www.indiaspend.com/earthcheckindia/how-mumbais-poor-waste-segregation-contributes-to-methane-emission-spikes-987223"
     },
     {
       "title": "RT Megha Patnaik: Happy to see my work in @thewire_in GST\u2019s key feature: it\u2019s self-enforcing. Firms need invoices to claim credits \u2192 they demand co...",
@@ -7361,6 +7333,20 @@
       "description_html": "We\u2019re launching Trade DB to track India\u2019s trade at the HS code level by value or quantity, across imports, exports, and also detailed category and subcategory data for our trade partners. See this for more:  https://www.youtube.com/watch?v=KdwhLPaU3Fw  #India #Trade #Exports #Imports"
     },
     {
+      "title": "Foreign investors are piling into US equities at a record pace: Cumulative year-to-date inflows from global investment funds into US equities are up t...",
+      "link": "https://x.com/KobeissiLetter/status/2073062710305013771",
+      "date": "2026-07-03T15:14:00+00:00",
+      "tweet_id": "2073062710305013771",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HMTwF7TXkAAD2Gd?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Foreign investors are piling into US equities at a record pace:<br><br>Cumulative year-to-date inflows from global investment funds into US equities are up to ~2.5% of their total assets under management.<br><br>This percentage has more than DOUBLED since May alone.<br><br>This is also significantly above the 2002-2025 average of -0.3% in outflows for this point in the year.<br><br>By comparison, excluding the top 10% with the largest inflows and the bottom 10% with the largest outflows of the 2002-2025 period, global fund inflows averaged just ~1.5% by this point in the year.<br><br>The YTD pace has already exceeded the full-year total recorded in the middle 50% of years since 2002.<br><br>Current demand for US equities is unprecedented.<br><img width=\"974\" height=\"910\" style=\"\" src=\"https://pbs.twimg.com/media/HMTwF7TXkAAD2Gd?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "What is happening with the US labor market? The difference between nonfarm payrolls and the household survey was a massive 564,000 jobs in June. This ...",
       "link": "https://x.com/KobeissiLetter/status/2073045447011160440",
       "date": "2026-07-03T14:05:24+00:00",
@@ -7611,20 +7597,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BREAKING: Total US production of crude oil and petroleum products rose by +254,000 barrels per day in April, to a record 21.84 million barrels per day.<br><br>YoY, total production surged +1.01 million barrels per day, or +4.9%.<br><br>Crude oil production alone increased by +216,000 barrels per day in April, to a record 13.93 million barrels per day.<br><br>Since the 2008 Financial Crisis, total US petroleum output has QUADRUPLED.<br><br>Over the same period, crude oil production has soared +250%.<br><br>US oil production is booming.<br><img width=\"974\" height=\"648\" style=\"\" src=\"https://pbs.twimg.com/media/HMJel2aWIAA09MI?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "BREAKING: The Republican Party is now expected to win the US Senate in the 2026 midterm elections. After briefly flipping the projection, the Democrat...",
-      "link": "https://x.com/KobeissiLetter/status/2072383529120354658",
-      "date": "2026-07-01T18:15:11+00:00",
-      "tweet_id": "2072383529120354658",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HMKV1lLXsAAChad?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: The Republican Party is now expected to win the US Senate in the 2026 midterm elections.<br><br>After briefly flipping the projection, the Democrats' odds of winning the Senate have declined to 42%.<br><img width=\"557\" height=\"508\" style=\"\" src=\"https://pbs.twimg.com/media/HMKV1lLXsAAChad?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT CNBC-TV18: Editors' Roundtable The week's biggest #market conversations: \ud83d\udc49 AI pricing under scrutiny\u2014what does it mean for Indian IT? \ud83d\udc49 Lead...",
@@ -8369,6 +8341,20 @@
       "description_html": "RT\u2002CNBC-TV18<br>While India\u2019s private banks navigate a wave of talent churn, the numbers tell an interesting story.<br><br>\ud83d\udcc8 PSU banks have outpaced private banks in the returns race.<br><br>Veterans like Uday Kotak warn: \u201cThe days of lazy banking are over.\u201d<br><br>As private banks rethink their growth playbook, one question remains:<br><br>\ud83d\udd39 Can technology become the new moat?<br>\ud83d\udd39 Is the next phase of banking about scale, speed and digital advantage?<br><br>@ShereenBhan @_RituSingh @_prashantnair @nimeshscnbc @iyer_sriram<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2071958853755731968/vid/avc1/1080x1920/ZruP3EVZ1cFEbYge.mp4?tag=28\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2071958853755731968/img/DXmr1qqIy0D1QUEN.jpg\"></video>"
     },
     {
+      "title": "RT ValueEquity: Windlas Biotech , reading this annual report today Capacity Utilization stands at 66% as in comparison to 59% last year , Plant 5 cert...",
+      "link": "https://x.com/EquityValueIn/status/2073058955560202321",
+      "date": "2026-07-03T13:15:01+00:00",
+      "tweet_id": "2073058955560202321",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HMTiT1QbsAA1_H0?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002ValueEquity<br>Windlas Biotech , reading this annual report today <br><br>Capacity Utilization stands at 66% as in comparison to 59% last year , Plant 5 certifications received and plant 6 commercial in the next 2 quarters <br><br>They are focusing on deepening wallet shares , increasing exports options and even on R&amp;D last quarter I had asked them on call they continue to  focus on customer led initiatives that help them to keep deploying incremental capital in the right way <br><br>Also one more thing I also noticed while reading is the delta of hiring in the Quality Control teams <br><br>FY25 Total : 177<br>FY26: 250 ( 41% increase in just 1 year for the new plants and capability ramp up  ) .<br>Mechanical completion achieved Plant 6 in FY26 and we are on track for commercialization by H1 FY27, Integrate Plant-6 into digital planning and QMS systems from day one Deploy Plant-6 capacity across all three verticals to reduce lead times and improve customer responsiveness<br><br>The Company has built expertise in multi-drug formulations, fixed dosage combinations (FDCs), and modified-release formats - capabilities increasingly valued by pharmaceutical partners<br><br>In FY26, R&amp;D expenditure grew to  83 Millions from  63 Millions in FY 25 ( 24% increase )<br><img width=\"1298\" height=\"670\" style=\"\" src=\"https://pbs.twimg.com/media/HMTiT1QbsAA1_H0?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"600\" height=\"822\" style=\"\" src=\"https://pbs.twimg.com/media/HMTinlvbMAAJM1K?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"500\" height=\"647\" style=\"\" src=\"https://pbs.twimg.com/media/HMTjCxybwAAtCcJ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"349\" height=\"220\" style=\"\" src=\"https://pbs.twimg.com/media/HMTjRG0bEAAOlRh?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Windlas Biotech , reading this annual report today Capacity Utilization stands at 66% as in comparison to 59% last year , Plant 5 certifications recei...",
       "link": "https://x.com/EquityValueIn/status/2073032767424893010",
       "date": "2026-07-03T13:15:01+00:00",
@@ -8635,20 +8621,6 @@
       "description_html": "Biocon , my latest thoughts and why things might be turning this year <br><br>Yesintek ( Stelara Biosimilar ) - 11% Market share in just 1  year of  $7B market , now add to this aflibercept and then the Insulin ARR  , adds up pretty well<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Biocon, my latest thoughts and Why things might be turning this year <br><br>The elephant may be able to dance , there is a clear tactical shift in how management is talking and the re focus on aligning to the path of profitable growth that may see a comeback post a very painful last<br><br><img width=\"750\" height=\"484\" style=\"\" src=\"https://pbs.twimg.com/media/HLfmp5LbUAA_3tY?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"841\" height=\"469\" style=\"\" src=\"https://pbs.twimg.com/media/HLfmq5QbAAArzVL?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
-      "title": "Indegene , Coforge , Persistent Systems and Rategain tech , mapping the acquisitions over the last decade Only thing now is to add the Big Nagarro Tra...",
-      "link": "https://x.com/EquityValueIn/status/2072304478645338270",
-      "date": "2026-07-01T13:01:03+00:00",
-      "tweet_id": "2072304478645338270",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HMJNwA7agAACzEx?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Indegene , Coforge , Persistent Systems and Rategain tech , mapping the acquisitions over the last decade <br><br>Only thing now is to add the Big Nagarro Transaction to Persistent , which I have very mixed opinion about<br><img width=\"928\" height=\"748\" style=\"\" src=\"https://pbs.twimg.com/media/HMJNwA7agAACzEx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1267\" height=\"709\" style=\"\" src=\"https://pbs.twimg.com/media/HMJNxFbaoAAo9uA?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"793\" height=\"587\" style=\"\" src=\"https://pbs.twimg.com/media/HMJNyQAawAA2gOs?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"816\" height=\"514\" style=\"\" src=\"https://pbs.twimg.com/media/HMJNzp9aIAAoXOI?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
       "title": "If anybody has connect in YouTube India Please dm us need help",
       "link": "https://x.com/BeatTheStreet10/status/2070188187172118579",
       "date": "2026-06-25T16:51:40+00:00",
@@ -8899,34 +8871,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "This exhibit shows the expected growth outlook &amp; market size across different lending segments from FY25-28<br><br>It highlights which loan categories are expected to grow faster &amp; how large each segment can become by FY28<br><br>src : MOFSL<br><img width=\"2048\" height=\"1121\" style=\"\" src=\"https://pbs.twimg.com/media/HMMg3p6bsAA_byt?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Brent crude is now back near $71 All the panic around crude seems to have cooled off for now Just a few days back, there was a lot of noise around ene...",
-      "link": "https://x.com/EquityInsightss/status/2072359342716879045",
-      "date": "2026-07-01T16:39:04+00:00",
-      "tweet_id": "2072359342716879045",
-      "source": "Equity Insights Elite",
-      "publisher": "Equity Insights",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HMJ_1huagAIYS1u?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Brent crude is now back near $71<br><br>All the panic around crude seems to have cooled off for now<br><br>Just a few days back, there was a lot of noise around energy prices, inflation risk &amp; macro pressure<br><br>For India, lower crude is always a big positive.<br><br>It helps on multiple fronts:<br>- inflation pressure reduces<br>- current account pressure eases<br>- rupee gets some support<br>- input cost pressure comes down for many sectors<br>- overall macro sentiment improves<br><img width=\"1064\" height=\"1233\" style=\"\" src=\"https://pbs.twimg.com/media/HMJ_1huagAIYS1u?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "CRISIL\u2019s latest on Affordable Housing finance Affordable housing lenders are expected to maintain steady AUM growth of 19-20% in FY27 & FY28 A very i...",
-      "link": "https://x.com/EquityInsightss/status/2072355766435246513",
-      "date": "2026-07-01T16:24:51+00:00",
-      "tweet_id": "2072355766435246513",
-      "source": "Equity Insights Elite",
-      "publisher": "Equity Insights",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HMJ8lUSbYAApARR?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "CRISIL\u2019s latest on Affordable Housing finance<br><br>Affordable housing lenders are expected to maintain steady AUM growth of 19-20% in FY27 &amp; FY28<br><br>A very important point highlighted by CRISIL is that more than 75% of industry wide loans below Rs 35 lakh come from Tier 2 &amp; smaller markets<br><br>We covered the leading players in detail\u23ec<br><img width=\"1200\" height=\"684\" style=\"\" src=\"https://pbs.twimg.com/media/HMJ8lUSbYAApARR?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Equity Insights Elite:\u2002Affordable Housing Finance - Q4FY26 Key Insights<br><br>Now let\u2019s discuss each company in detail, one by one -<br><br>1\ufe0f\u20e3Aadhar Housing Finance<br>2\ufe0f\u20e3AAVAS Financiers<br>3\ufe0f\u20e3Aptus Value Housing<br>4\u20e3Home First Finance<br>5\u20e3India Shelter Finance<br><br>Aadhar Housing Finance - FY26 highlights<br>AUM - 30,571 Cr, up<br><br><img width=\"2048\" height=\"995\" style=\"\" src=\"https://pbs.twimg.com/media/HKmYusOaIAANJ-E?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
       "title": "RT Value Research: Wealth Insight \u27a1\ufe0f 20 years of independent stock research for long-term wealth creation.",
@@ -9923,6 +9867,90 @@
       "description_html": "One thing we always wanted to screen for are managements who show following traits in concalls<br><br>- Speaks from the shop floor, not a script<br>- Volunteers hard numbers unprompted<br>- Says \"can't share\" plainly \u2014 no fudging<br>- Admits \"I don't know\" live<br>- Explains bad numbers , not stories<br><img width=\"643\" height=\"774\" style=\"\" src=\"https://pbs.twimg.com/media/HKjYg1oa8AAsUM7?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "HARYANA GOVT TO FOCUS ON MODERN, SUSTAINABLE AGRICULTURE TO ENHANCE FARMERS\u2019 INCOME",
+      "link": "https://x.com/REDBOXINDIA/status/2073066651097198728",
+      "date": "2026-07-03T15:29:39+00:00",
+      "tweet_id": "2073066651097198728",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "HARYANA GOVT TO FOCUS ON MODERN, SUSTAINABLE AGRICULTURE TO ENHANCE FARMERS\u2019 INCOME"
+    },
+    {
+      "title": "FM SITHARAMAN SAYS INDIA\u2019S MIDDLE CLASS DRIVING ECONOMIC GROWTH THROUGH RISING CONSUMPTION",
+      "link": "https://x.com/REDBOXINDIA/status/2073063650626343310",
+      "date": "2026-07-03T15:17:44+00:00",
+      "tweet_id": "2073063650626343310",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "FM SITHARAMAN SAYS INDIA\u2019S MIDDLE CLASS DRIVING ECONOMIC GROWTH THROUGH RISING CONSUMPTION"
+    },
+    {
+      "title": "FII/DII ACTIVITY FOR THE DAY AND WEEK",
+      "link": "https://x.com/REDBOXINDIA/status/2073062654059683956",
+      "date": "2026-07-03T15:13:47+00:00",
+      "tweet_id": "2073062654059683956",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HMT_f4EbYAA0sbh?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "FII/DII ACTIVITY FOR THE DAY AND WEEK<br><img width=\"1220\" height=\"1062\" style=\"\" src=\"https://pbs.twimg.com/media/HMT_f4EbYAA0sbh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1220\" height=\"1061\" style=\"\" src=\"https://pbs.twimg.com/media/HMT_f27aoAEzEVM?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "PIYUSH GOYAL SAYS INDIA TO GROW MERCHANDISE EXPORTS 17% AND SERVICES EXPORTS 11% IN FY27",
+      "link": "https://x.com/REDBOXINDIA/status/2073061018402730016",
+      "date": "2026-07-03T15:07:17+00:00",
+      "tweet_id": "2073061018402730016",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "PIYUSH GOYAL SAYS INDIA TO GROW MERCHANDISE EXPORTS 17% AND SERVICES EXPORTS 11% IN FY27"
+    },
+    {
+      "title": "VISA ISSUES AFFECTING INDIAN STUDENTS TO BE DISCUSSED DURING PM MODI\u2019S AUSTRALIA VISIT, MEA CONFIRMS",
+      "link": "https://x.com/REDBOXINDIA/status/2073060913805168984",
+      "date": "2026-07-03T15:06:52+00:00",
+      "tweet_id": "2073060913805168984",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "VISA ISSUES AFFECTING INDIAN STUDENTS TO BE DISCUSSED DURING PM MODI\u2019S AUSTRALIA VISIT, MEA CONFIRMS"
+    },
+    {
+      "title": "VEDANTA OIL & GAS: CO Q1 GROSS OPERATED PRODUCTION FALLS 17% YOY TO 77.7 KBOEPD; CAMBAY OUTPUT JUMPS 21% QOQ, RAJASTHAN PRODUCTION AT 63.1 KBOEPD, FOC...",
+      "link": "https://x.com/REDBOXINDIA/status/2073060328330674532",
+      "date": "2026-07-03T15:04:32+00:00",
+      "tweet_id": "2073060328330674532",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "VEDANTA OIL &amp; GAS: CO Q1 GROSS OPERATED PRODUCTION FALLS 17% YOY TO 77.7 KBOEPD; CAMBAY OUTPUT JUMPS 21% QOQ, RAJASTHAN PRODUCTION AT 63.1 KBOEPD, FOCUSES ON EOR &amp; EXPLORATION TO DRIVE GROWTH"
+    },
+    {
       "title": "GOVT SAYS ETHANOL BLENDING PROGRAMME BACKED BY GLOBAL PRACTICE, SCIENTIFIC STUDIES",
       "link": "https://x.com/REDBOXINDIA/status/2073051818301808876",
       "date": "2026-07-03T14:30:43+00:00",
@@ -10117,90 +10145,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "AWL AGRI BUSINESS: CO Q1 VOLUME GROWS MID-SINGLE DIGITS; FOOD &amp; FMCG REVENUE UP 20%+, RICE SALES SURGE 40%+, ALTERNATE CHANNELS GROW 27%, BRANDED EXPORTS JUMP 87% YOY"
-    },
-    {
-      "title": "SEBI: EXEMPTION ORDER GRANTED TO C.T. DOSHI FAMILY TRUST WITH RESPECT TO PROPOSED ACQUISITION IN WAAREE ENERGIES",
-      "link": "https://x.com/REDBOXINDIA/status/2073039051339518083",
-      "date": "2026-07-03T13:39:59+00:00",
-      "tweet_id": "2073039051339518083",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SEBI: EXEMPTION ORDER GRANTED TO C.T. DOSHI FAMILY TRUST WITH RESPECT TO PROPOSED ACQUISITION IN WAAREE ENERGIES"
-    },
-    {
-      "title": "INDIA GOVT: MAERSK PLACES ORDER FOR 1000 ADDITIONAL INDIA-MANUFACTURED SHIPPING CONTAINERS WITH DCM SHRIRAM GROUP",
-      "link": "https://x.com/REDBOXINDIA/status/2073028919289315654",
-      "date": "2026-07-03T12:59:44+00:00",
-      "tweet_id": "2073028919289315654",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "INDIA GOVT: MAERSK PLACES ORDER FOR 1000 ADDITIONAL INDIA-MANUFACTURED SHIPPING CONTAINERS WITH DCM SHRIRAM GROUP"
-    },
-    {
-      "title": "SPICE ISLANDS INDUSTRIES: CO APPROVES STOCK SPLIT OF 1 EQUITY SHARE INTO 5 SHARES",
-      "link": "https://x.com/REDBOXINDIA/status/2073028578485391415",
-      "date": "2026-07-03T12:58:22+00:00",
-      "tweet_id": "2073028578485391415",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SPICE ISLANDS INDUSTRIES: CO APPROVES STOCK SPLIT OF 1 EQUITY SHARE INTO 5 SHARES"
-    },
-    {
-      "title": "HARDEEP SINGH PURI SAYS COUNTRY GETTING NEW GREENFIELD REFINERY AFTER 10 YEARS",
-      "link": "https://x.com/REDBOXINDIA/status/2073024607964328331",
-      "date": "2026-07-03T12:42:36+00:00",
-      "tweet_id": "2073024607964328331",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "HARDEEP SINGH PURI SAYS COUNTRY GETTING NEW GREENFIELD REFINERY AFTER 10 YEARS"
-    },
-    {
-      "title": "MAHARASHTRA BANS ENERGY DRINK SALES WITHIN 500M OF SCHOOLS, STING AMONG PRODUCTS UNDER SCANNER",
-      "link": "https://x.com/REDBOXINDIA/status/2073020049368166862",
-      "date": "2026-07-03T12:24:29+00:00",
-      "tweet_id": "2073020049368166862",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "MAHARASHTRA BANS ENERGY DRINK SALES WITHIN 500M OF SCHOOLS, STING AMONG PRODUCTS UNDER SCANNER"
-    },
-    {
-      "title": "MEA SAYS PAKISTAN MUST CREDIBLY, IRREVOCABLY ABJURE SUPPORT FOR CROSS\u2011BORDER TERRORISM",
-      "link": "https://x.com/REDBOXINDIA/status/2073020014073127071",
-      "date": "2026-07-03T12:24:20+00:00",
-      "tweet_id": "2073020014073127071",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "MEA SAYS PAKISTAN MUST CREDIBLY, IRREVOCABLY ABJURE SUPPORT FOR CROSS\u2011BORDER TERRORISM"
     },
     {
       "title": "http://x.com/i/article/2072251998758645760",
@@ -10945,6 +10889,20 @@
       "description_html": "Also worth noting that 11-year-old Shadowfax is now valued higher than 42-year-old Blue Dart.<br><br>Current market capitalisation:<br><br>Delhivery: Rs 34,800 crore<br>Shadowfax: Rs 13,000 crore<br>Blue Dart: Rs 11,800 crore<br><br>Shadowfax is also growing much faster (69% vs 8%) despite Blue Dart generating higher revenue (Rs 6,150 crore vs Rs 4,200 crore).<br><br>Meanwhile, Delhivery's revenue crossed Rs 10,000 crore in FY26.<div class=\"rsshub-quote\"><br><br>Madhav Chanchani:\u2002Delhivery's Sahil Barua says that he doesn't see a place in the market for a fourth independent logistics player beyond the three listed players.<br><br>He is taking a shot at XpressBees, backed by Blackstone.<br><br>\"There's still room for one or two players to exit the market gracefully.\"<br><br><img width=\"1316\" height=\"920\" style=\"\" src=\"https://pbs.twimg.com/media/HL8mJljbcAA8RCh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
+      "title": "The American economy has grown in its 250 years through its sustained excellence in promoting change. If it does not change course now, the country wi...",
+      "link": "https://x.com/PIIE/status/2073067497243255069",
+      "date": "2026-07-03T15:33:01+00:00",
+      "tweet_id": "2073067497243255069",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The American economy has grown in its 250 years through its sustained excellence in promoting change. If it does not change course now, the country will find itself increasingly bypassed in commerce &amp; technology, @AdamPosen writes. https://www.piie.com/commentary/op-eds/2026/americas-future-post-american-world-economy"
+    },
+    {
       "title": "Trump administration policies to restrict & repel international students en masse, if sustained, would constrict a key supply of science & engineering...",
       "link": "https://x.com/PIIE/status/2073052899450478715",
       "date": "2026-07-03T14:35:01+00:00",
@@ -11209,20 +11167,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "An unsung chapter in the American narrative is the founding of the world trading system, an achievement of immense consequence for global prosperity &amp; peace. It is a remarkable story, Alan Wolff writes, worthy of a place of honor in our history books. https://www.piie.com/blogs/realtime-economics/2026/international-trade-policy-americas-250th-birthday"
-    },
-    {
-      "title": "Costs from dismantling the US global talent pipeline won't show up in next quarter's GDP release. They will compound slowly, as businesses never found...",
-      "link": "https://x.com/PIIE/status/2072332158933274672",
-      "date": "2026-07-01T14:51:03+00:00",
-      "tweet_id": "2072332158933274672",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Costs from dismantling the US global talent pipeline won't show up in next quarter's GDP release. They will compound slowly, as businesses never founded, cures never discovered, industrial leadership opportunities lost, &amp; other forgone benefits to America.https://www.piie.com/blogs/realtime-economics/2026/us-driving-away-international-students-long-term-economic-cost"
     }
   ]
 }
