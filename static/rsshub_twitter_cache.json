@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T17:10:42.825901+00:00",
+  "generated_at": "2026-07-03T17:46:45.626229+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -6320,9 +6320,9 @@
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
-      "is_quote": true,
+      "is_quote": false,
       "is_reply": false,
-      "description_html": "This has interesting tax characteristics. If your employer pays higher than 1800 (to match your contribution, voluntarily) then they reduce your effective salary to that extent, since CTC remains the same. This probably leads to lower tax outflow since employer contributions aren't taxable upto Rs. 7.5 lakh per year.<div class=\"rsshub-quote\"><br><br>Sonal Bhutra:\u2002EPFO just announced a new PF scheme for 2026. Here's what's actually changing.<br><br>Your mandatory PF contribution stays at 1,800 a month. That doesn't change, no matter your salary.<br><br>What's new is that anything you save above that amount is now optional. Before, a lot of employers<br></div>"
+      "description_html": "This has interesting tax characteristics. If your employer pays higher than 1800 (to match your contribution, voluntarily) then they reduce your effective salary to that extent, since CTC remains the same. This probably leads to lower tax outflow since employer contributions aren't taxable upto Rs. 7.5 lakh per year."
     },
     {
       "title": "RT Shobhit Bakliwal: Re @deepakshenoy jarvislabs Simplismart Pipeshift",
