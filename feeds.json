@@ -1920,5 +1920,14 @@
     "category": "Reports",
     "region": "Indian",
     "publisher": "CRISIL Ratings"
+  },
+  {
+    "id": "niti-division-reports",
+    "name": "NITI Aayog — Division Reports",
+    "url": "https://www.niti.gov.in/publications/division-reports",
+    "feed": "niti:niti-division-reports",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "NITI Aayog"
   }
 ]

@@ -1261,6 +1261,73 @@ def fetch_piie_cache(feed_config):
     return articles
 
 
+# ── NITI Aayog (Division Reports) ─────────────────────────────────────
+
+@scraper
+def fetch_niti_aayog(feed_config):
+    """Fetch reports from NITI Aayog's publications listing.
+
+    niti.gov.in (Drupal Views) renders reports as a server-side HTML table
+    (<table class="cols-5">). Each <tr> has parallel cells: title, date,
+    division ("vertical"), and a PDF download anchor. Dates are month-only
+    (e.g. "July 2026"), so we anchor them to the 15th as a midpoint — the
+    same convention fetch_crisil_reports uses for month-granularity sources.
+    """
+    articles = []
+    content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
+
+    # Extract parallel lists from the consistent 5-column table structure.
+    # The <th> header cells share the same classes as the <td> data cells, so
+    # we key data cells on their `headers="..."` attribute to skip the header row.
+    titles = re.findall(
+        r'headers="view-title-table-column"[^>]*>(.*?)</td>', content, re.DOTALL
+    )
+    dates = re.findall(
+        r'headers="view-field-publication-date-papers-table-column"[^>]*>(.*?)</td>',
+        content, re.DOTALL,
+    )
+    divisions = re.findall(
+        r'headers="view-field-vertical-table-column"[^>]*>(.*?)</td>', content, re.DOTALL
+    )
+    links = re.findall(
+        r'headers="view-nothing-table-column"[^>]*>\s*<a\s+href="([^"]+)"',
+        content, re.DOTALL,
+    )
+
+    count = min(len(titles), len(dates), len(links))
+    seen = set()
+    for i in range(count):
+        title = html.unescape(_strip_html(titles[i])).strip()
+        if not title or len(title) < 5:
+            continue
+
+        href = links[i].strip()
+        if not href or href in seen:
+            continue
+        seen.add(href)
+        link = href if href.startswith("http") else "https://www.niti.gov.in" + href
+
+        # Date is month-only ("July 2026"); anchor to the 15th as a midpoint.
+        dt = None
+        date_str = _strip_html(dates[i]).strip()
+        if date_str:
+            try:
+                dt = datetime.strptime(date_str, "%B %Y").replace(
+                    day=15, tzinfo=IST_TZ
+                )
+            except ValueError:
+                dt = _parse_date_flexible(date_str)
+        if not _is_fresh(dt):
+            continue
+
+        division = html.unescape(_strip_html(divisions[i])).strip() if i < len(divisions) else ""
+        desc = f"[{division}]" if division else ""
+
+        articles.append(_make_article(title, link, dt, desc, feed_config))
+
+    return articles
+
+
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
@@ -1283,6 +1350,7 @@ REPORT_FETCHERS = {
     "ssga:": fetch_ssga_insights,
     "kpler:": fetch_kpler,
     "piie:": fetch_piie_cache,
+    "niti:": fetch_niti_aayog,
 }
 
 
