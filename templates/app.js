@@ -2099,21 +2099,15 @@
                 }
             }
 
-            // Extract high-signal official items for "From The Source" section
-            var officialItems = [];
-            var regularFeed = [];
-            for (var fi = 0; fi < feed.length; fi++) {
-                if (feed[fi].source_tier === 'official' && feed[fi].high_signal) {
-                    officialItems.push(feed[fi]);
-                } else {
-                    regularFeed.push(feed[fi]);
-                }
-            }
+            // Keep high-signal official items out of the news feed — they surface in the
+            // dedicated "From The Source" slider (sourced separately from NEWS_ARTICLES).
+            var regularFeed = feed.filter(function(c) {
+                return !(c.source_tier === 'official' && c.high_signal);
+            });
 
             return {
                 clusters: clusters,
                 feed: regularFeed,
-                officialItems: officialItems,
                 youtube: youtubeMerged.map(toSliderItem),
                 reports: reportsMerged.map(toSliderItem),
                 twitter: twitterMerged.map(toSliderItem),
