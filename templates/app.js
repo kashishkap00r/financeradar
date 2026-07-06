@@ -2344,14 +2344,51 @@
                 .slice(0, 15);
         }
 
-        function buildSebiSlider(items) {
+        // "From The Source" = every official-channel news item + SEBI notices, merged.
+        // Official channels mirror the News tab's "official-channels" desk, matched by
+        // publisher (fallback source) substring — see NEWS_DESKS['official-channels'].
+        var OFFICIAL_CHANNEL_NAMES = ['RBI', 'SEBI', 'ECB', 'ADB', 'FRED', 'PIB', 'MoSPI'];
+        function isOfficialChannelArticle(a) {
+            var pub = (a && (a.publisher || a.source)) || '';
+            for (var i = 0; i < OFFICIAL_CHANNEL_NAMES.length; i++) {
+                if (pub.indexOf(OFFICIAL_CHANNEL_NAMES[i]) !== -1) return true;
+            }
+            return false;
+        }
+
+        function getFromSourceItems() {
+            var out = [];
+            var seen = {};
+            function add(title, url, publisher, date) {
+                if (!title) return;
+                var key = String(url || '').toLowerCase().trim();
+                if (key && seen[key]) return;
+                if (key) seen[key] = true;
+                out.push({ title: title, url: url || '', publisher: publisher || 'Source', date: date || null });
+            }
+            // All official-channel news items (RBI/SEBI/PIB/MoSPI/ECB/ADB/FRED etc.)
+            (NEWS_ARTICLES || []).forEach(function(a) {
+                if (!isOfficialChannelArticle(a)) return;
+                add(a.title, a.link || a.source_url || '', a.publisher || a.source, a.date);
+            });
+            // SEBI enforcement / adjudication notices (deduped against the above)
+            getSebiNotices().forEach(function(n) {
+                add(n.title, n.link || n.source_url || '', n.source, n.date);
+            });
+            out.sort(function(a, b) {
+                return new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
+            });
+            return out.slice(0, 25);
+        }
+
+        function buildFromSourceSlider(items) {
             if (!items || !items.length) return '';
             const cards = items.map(function(n) {
                 const title = escapeHtml(cleanHomeTitle(n.title));
-                const url = sanitizeUrl(n.link || n.source_url || '');
-                const src = escapeHtml(n.source || 'SEBI');
+                const url = sanitizeUrl(n.url || '');
+                const src = escapeHtml(n.publisher || 'Source');
                 const dateStr = n.date ? escapeHtml(new Date(n.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
-                const bk = npBookmarkBtn(url, title, 'SEBI');
+                const bk = npBookmarkBtn(url, title, src);
                 return '<div class="slider-card slider-sebi"><div class="slider-card-body">'
                     + '<div class="slider-card-header"><div><div class="rp-publisher">' + src + '</div>'
                     + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
@@ -2359,7 +2396,7 @@
                     + '</div>' + bk + '</div></div></div>';
             }).join('');
             return '<section class="slider-section">'
-                + '<div class="slider-header"><h2 class="slider-label">SEBI Notices</h2>'
+                + '<div class="slider-header"><h2 class="slider-label">From The Source</h2>'
                 + '<div class="slider-nav">' + sliderArrows('sebi-track') + '</div></div>'
                 + '<div class="slider-track" id="sebi-track">' + cards + '</div></section>';
         }
@@ -2543,30 +2580,6 @@
             return '<div class="section-divider"><span class="section-label">' + escapeHtml(text) + '</span><span class="section-rule"></span></div>';
         }
 
-        function renderFromTheSource(items) {
-            if (!items || !items.length) return '';
-            var html = '<div class="section-divider"><span class="section-label">From The Official Source</span><span class="section-rule"></span></div>'
-                + '<section class="from-source-section">';
-            for (var i = 0; i < items.length; i++) {
-                var item = items[i];
-                var bkId = 'fts-bk-' + i;
-                var bkBtn = '<button class="from-source-bk" id="' + bkId + '" aria-label="Bookmark"'
-                    + ' onclick="toggleBookmark(\'' + escapeAttr(item.url) + '\', \'' + escapeAttr(item.title) + '\', this)">'
-                    + '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
-                    + '<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>';
-                html += '<div class="from-source-item">'
-                    + '<span class="from-source-icon">\u25C6</span>'
-                    + '<div class="from-source-body">'
-                    + '<div class="from-source-title"><a href="' + escapeAttr(item.url) + '" target="_blank" rel="noopener">'
-                    + escapeHtml(item.title) + '</a></div>'
-                    + '<div class="from-source-meta">'
-                    + '<span class="from-source-publisher">' + escapeHtml(item.meta) + '</span>'
-                    + '<span class="official-badge">Primary Source</span>'
-                    + '</div></div>' + bkBtn + '</div>';
-            }
-            html += '</section>';
-            return html;
-        }
 
         // ==================== RENDER HOME TAB (Newspaper — AI-curated) ====================
         function renderHomeTab() {
@@ -2586,7 +2599,6 @@
 
             var feed = result.feed;
             var clusters = result.clusters || [];
-            var officialItems = result.officialItems || [];
 
             // Split feed across 4 pattern sections
             const s1 = feed.slice(0, 15);
@@ -2601,37 +2613,40 @@
                 breakers.push(wswClusters[i] ? buildWswBreaker(wswClusters[i]) : '');
             }
 
-            // Build the full newspaper layout with AI-curated sliders
+            // Build the full newspaper layout with AI-curated sliders.
+            // Order: Big Stories → Reports → (feed label) → news → Company → news →
+            // Watch → news → From The Source → news → Voices. Each slider is preceded
+            // by a WSW breaker and separated from the next by a news block, so no two
+            // sliders sit adjacent (From The Source stays far from Company announcements).
             const parts = [];
 
-            // Insert cluster section at the top if clusters exist
+            // Big Stories at the very top
             if (clusters.length > 0) {
                 parts.push(renderBigStories(clusters));
             }
-            // Insert official source section between clusters and feed
-            if (officialItems.length > 0) {
-                parts.push(renderFromTheSource(officialItems));
-            }
-            if (clusters.length > 0 || officialItems.length > 0) {
+
+            // Research Reports leads the sliders, then the feed label
+            parts.push(
+                breakers[0],
+                buildRpSlider(result.reports)
+            );
+            if (clusters.length > 0 || result.reports.length > 0) {
                 parts.push(renderSectionLabel('From The Feed'));
             }
 
             parts.push(
                 renderPatternA(s1),
-                breakers[0],
-                buildYtSlider(result.youtube),
                 breakers[1],
-                buildSebiSlider(getSebiNotices()),
                 buildMegaCapSlider(getMegaCapCompanies()),
                 renderPatternB(s3),
                 breakers[2],
-                buildRpSlider(result.reports),
-                breakers[3],
+                buildYtSlider(result.youtube),
                 renderPatternC(s5),
+                breakers[3],
+                buildFromSourceSlider(getFromSourceItems()),
+                renderPatternD(s7),
                 breakers[4],
-                buildTwSlider(result.twitter),
-                breakers[5],
-                renderPatternD(s7)
+                buildTwSlider(result.twitter)
             );
             const html = parts.filter(Boolean).join('');
 

@@ -2450,6 +2450,13 @@
             padding: 1rem 0 0.75rem;
         }
 
+        /* From The Source slider card (official channels + SEBI notices) — reuses .rp-* typography.
+           Fixed width + .rp-title's 3-line clamp keep long notice titles from blowing out the track. */
+        .slider-sebi {
+            width: 300px;
+            padding: 1rem 0 0.75rem;
+        }
+
         /* ═══ Companies tab ═══ */
         .company-chip-row {
             display: flex;
@@ -2845,7 +2852,7 @@
             }
             .slider-section { padding: 1.5rem 1.25rem; margin: 0 -1.25rem; }
             .slider-yt { width: 240px; }
-            .slider-rp, .slider-tw, .slider-pp, .slider-megacap { width: 260px; }
+            .slider-rp, .slider-tw, .slider-pp, .slider-megacap, .slider-sebi { width: 260px; }
             .wsw-quote { padding: 1rem; }
             .wsw-quote p { font-size: 1rem; }
             .hero-title { font-size: 1.3rem; }
