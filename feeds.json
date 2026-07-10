@@ -80,6 +80,14 @@
     "publisher": "Data For India"
   },
   {
+    "id": "indiaspend-news",
+    "name": "IndiaSpend",
+    "url": "https://www.indiaspend.com/",
+    "feed": "https://news.google.com/rss/search?q=site:indiaspend.com&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "News",
+    "publisher": "IndiaSpend"
+  },
+  {
     "id": "ideas-for-india",
     "name": "Ideas For India",
     "url": "https://www.ideasforindia.in/",
