@@ -1,26 +1,86 @@
 {
-  "generated_at": "2026-07-10T23:50:21.960816+05:30",
+  "generated_at": "2026-07-11T01:19:51.168530+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 47,
       "feeds_failed": 2,
-      "items_raw": 1199,
-      "resolve_attempted": 1158,
-      "resolve_resolved": 1157,
-      "resolve_cache_hits": 1138
+      "items_raw": 1200,
+      "resolve_attempted": 1155,
+      "resolve_resolved": 1154,
+      "resolve_cache_hits": 1141
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.1,
-      "items": 778,
+      "age_hours": 0.0,
+      "items": 779,
       "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-07-10T23:50:21.960758+05:30"
+    "generated_at": "2026-07-11T01:19:51.168453+05:30"
   },
   "items": [
+    {
+      "title": "BREAKING: The Bank of Japan's total assets dropped -$146 billion in Q2 2026, to $3.97 trillion, the lowest since Q1 2020. This also marks the largest ...",
+      "link": "https://x.com/KobeissiLetter/status/2075666934713237593",
+      "date": "2026-07-10T19:42:15+00:00",
+      "tweet_id": "2075666934713237593",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HM5AE6MWQAAvqZl?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: The Bank of Japan's total assets dropped -$146 billion in Q2 2026, to $3.97 trillion, the lowest since Q1 2020.<br><br>This also marks the largest quarterly decline since the Quantitative Tightening (QT) program began in August 2024.<br><br>Since the Q1 2024 peak, the BoJ has reduced its balance sheet by -$726 billion, or -15.6%.<br><br>Japanese government bond holdings fell -$78 billion in Q2, to $3.22 trillion, the lowest since Q3 2020.<br><br>Since the 2023 peak, JGB holdings have dropped -$459 billion, or -12.5%.<br><br>The BoJ also sold -$74 million in equity ETFs and J-REITs last quarter, bringing its holdings down by -1.0%, to $234 billion, the lowest since 2022.<br><br>Japan\u2019s bond market is poised for more volatility.<br><img width=\"975\" height=\"773\" style=\"\" src=\"https://pbs.twimg.com/media/HM5AE6MWQAAvqZl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "US states are at different levels of economic risk if the USMCA is terminated & Canada & Mexico impose retaliatory tariffs on US exports. 9/10 states ...",
+      "link": "https://x.com/PIIE/status/2075654312089305241",
+      "date": "2026-07-10T18:52:06+00:00",
+      "tweet_id": "2075654312089305241",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HM40lLNWYAAxmNG?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US states are at different levels of economic risk if the USMCA is terminated &amp; Canada &amp; Mexico impose retaliatory tariffs on US exports. 9/10 states with the highest share of exports to Canada &amp; Mexico as a share of the state's total exports voted for Trump in 2024. #PIIECharts<br><img width=\"1836\" height=\"2047\" style=\"\" src=\"https://pbs.twimg.com/media/HM40lLNWYAAxmNG?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "INDIA IS TARGETING USD 150 BILLION IN ELECTRONICS EXPORTS BY 2030. TO PUT THAT IN CONTEXT INDIA'S TOTAL ELECTRONICS EXPORTS LAST YEAR WERE JUST USD 29...",
+      "link": "https://x.com/REDBOXINDIA/status/2075647959610675365",
+      "date": "2026-07-10T18:26:51+00:00",
+      "tweet_id": "2075647959610675365",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "INDIA IS TARGETING USD 150 BILLION IN ELECTRONICS EXPORTS BY 2030. TO PUT THAT IN CONTEXT INDIA'S TOTAL ELECTRONICS EXPORTS LAST YEAR WERE JUST USD 29 BILLION",
+      "category": "Twitter"
+    },
+    {
+      "title": "INDIA SAVED RS 1.90 LAKH CRORE IN OIL IMPORTS AND CUT 930 LAKH TONNES OF CO2 THROUGH ETHANOL BLENDING SINCE 2014",
+      "link": "https://x.com/REDBOXINDIA/status/2075647462187143558",
+      "date": "2026-07-10T18:24:53+00:00",
+      "tweet_id": "2075647462187143558",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "INDIA SAVED RS 1.90 LAKH CRORE IN OIL IMPORTS AND CUT 930 LAKH TONNES OF CO2 THROUGH ETHANOL BLENDING SINCE 2014",
+      "category": "Twitter"
+    },
     {
       "title": "Tomorrow's market sense note , businesses that I am reading this week note is going to be interesting , do read it folks , will launch tom morning , e...",
       "link": "https://x.com/EquityValueIn/status/2075642680449908904",
@@ -67,6 +127,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Margaret Brennan: Two officials from the region tell me that Iranian officials will travel to Oman for talks on Saturday regarding the Strait of Ho...",
+      "link": "https://x.com/JavierBlas/status/2075658863018213654",
+      "date": "2026-07-10T17:07:58+00:00",
+      "tweet_id": "2075658863018213654",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Margaret Brennan<br>Two officials from the region tell me that Iranian officials will travel to Oman for talks on Saturday regarding the Strait of Hormuz, and the dispute over the lanes for shipping that cross their territorial waters. Qatari mediators just left Mashad, Iran. Iranian official tells me that this Qatari-Iranian meeting was an attempt to de-escalate.",
+      "category": "Twitter"
+    },
+    {
       "title": "#SKHynix shares jump 14% in debut on US stock market riding on AI wave https://economictimes.indiatimes.com/markets/us-stocks/news/sk-hynix-shares-jum...",
       "link": "https://x.com/ETMarkets/status/2075626864538992888",
       "date": "2026-07-10T17:03:02+00:00",
@@ -109,6 +184,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "IRAN'S TOP NEGOTIATOR QALIBAF: RECENT CONFLICT WILL NEVER END WITH IRAN'S SURRENDER",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Film Updates: Christopher Nolan on AI: \u201cI\u2019ve never seen a more rapid wholesale dismissal of a supposedly foundational jump in technology in my li...",
+      "link": "https://x.com/madhavchanchani/status/2075668009532960942",
+      "date": "2026-07-10T16:39:07+00:00",
+      "tweet_id": "2075668009532960942",
+      "source": "Madhav Chanchani",
+      "publisher": "Madhav Chanchani",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HM4WJxkbYAAAi0I?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Film Updates<br>Christopher Nolan on AI:<br><br>\u201cI\u2019ve never seen a more rapid wholesale dismissal of a supposedly foundational jump in technology in my lifetime. So much energy has been expended on bringing in AI, but if you look at that generation\u2019s reaction, they\u2019re utterly rejecting it. [My children\u2019s] judgment of AI slop has been immediate and harsh. They see it for what it is very quickly \u2013 and it\u2019s much easier for them to identify it, because it grew out of an online world they know really well. And while that doesn\u2019t mean that every aspect of the technology is useless or meaningless, in film-making it\u2019s hitting at exactly the wrong time. After years of driving towards heavily virtual environments, we\u2019re seeing a renewed interest in more tactile, more real forms of storytelling.\u201d<br><br>\ud83d\udd17 https://www.telegraph.co.uk/films/2026/07/10/christopher-nolan-interview-odyssey-backlash/<br><img width=\"960\" height=\"960\" style=\"\" src=\"https://pbs.twimg.com/media/HM4WJxkbYAAAi0I?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -622,6 +712,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Bloomberg New Economy: NEW: How will emerging economies shape the future of AI, energy, and global influence? Today, #BloombergNewEconomy launches ...",
+      "link": "https://x.com/menakadoshi/status/2075653520616030683",
+      "date": "2026-07-10T14:00:50+00:00",
+      "tweet_id": "2075653520616030683",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HM3x6-rW8AANYo1?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Bloomberg New Economy<br>NEW: How will emerging economies shape the future of AI, energy, and global influence?<br><br>Today, #BloombergNewEconomy launches Emerging, a new podcast hosted by @MenakaDoshi and @haslindatv, featuring conversations with the leaders and thinkers driving the world's fastest-rising economies.<br><br>The first episode explores how India can gain an edge in the global AI race.<br><br>\ud83c\udfa7 Listen now:<br>http://bloom.bg/3Rad6yd<br><img width=\"1200\" height=\"630\" style=\"\" src=\"https://pbs.twimg.com/media/HM3x6-rW8AANYo1?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "#FinoPaymentsBank June Update: New accounts surge 31%, loan referral jump 3.5x @jpullokaran https://www.cnbctv18.com/market/stocks/fino-payments-bank-...",
       "link": "https://x.com/CNBCTV18Live/status/2075580780391407792",
       "date": "2026-07-10T13:59:55+00:00",
@@ -1114,36 +1219,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Comment<br><br>India-Japan co-operation is transitioning from a development partnership to a geo-economic alliance<br><br>This convergence carries significance beyond bilateral gains, offering a pathway to co-create resilient, secure, and sustainable value chains across the Indo-Pacific, write Pooja Teotia and&nbsp;Pravakar Sahoo<br><br>https://www.downtoearth.org.in/economy/india-japan-co-operation-is-transitioning-from-a-development-partnership-to-a-geo-economic-alliance<br><img width=\"1246\" height=\"689\" style=\"\" src=\"https://pbs.twimg.com/media/HM3eH6DaEAAdiR-?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "PIYUSH GOYAL CHAIRS REVIEW WITH NATIONAL PRODUCTIVITY COUNCIL TO BOOST INTER\u2011DEPARTMENTAL TIES, IMPROVE SERVICE DELIVERY",
-      "link": "https://x.com/REDBOXINDIA/status/2075559190681239849",
-      "date": "2026-07-10T12:34:07+00:00",
-      "tweet_id": "2075559190681239849",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "PIYUSH GOYAL CHAIRS REVIEW WITH NATIONAL PRODUCTIVITY COUNCIL TO BOOST INTER\u2011DEPARTMENTAL TIES, IMPROVE SERVICE DELIVERY",
-      "category": "Twitter"
-    },
-    {
-      "title": "COMMERCE SECRETARY RAJESH AGRAWAL SAYS INNOVATION KEY TO MAKING INDIA A NET ELECTRONICS EXPORTER",
-      "link": "https://x.com/REDBOXINDIA/status/2075559167054774608",
-      "date": "2026-07-10T12:34:02+00:00",
-      "tweet_id": "2075559167054774608",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "COMMERCE SECRETARY RAJESH AGRAWAL SAYS INNOVATION KEY TO MAKING INDIA A NET ELECTRONICS EXPORTER",
       "category": "Twitter"
     },
     {
@@ -4852,21 +4927,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: US CENTCOM announces that the US has begun conducting additional strikes in Iran. These strikes are intended to \"further degrade Iran's abil...",
-      "link": "https://x.com/KobeissiLetter/status/2074951602364977609",
-      "date": "2026-07-08T20:19:47+00:00",
-      "tweet_id": "2074951602364977609",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: US CENTCOM announces that the US has begun conducting additional strikes in Iran.<br><br>These strikes are intended to \"further degrade Iran's ability to threaten freedom of navigation in the Strait of Hormuz,\" CENTCOM says.",
-      "category": "Twitter"
-    },
-    {
       "title": "RT U.S. Central Command: At the direction of the Commander in Chief, U.S. Central Command forces have started conducting additional strikes against Ir...",
       "link": "https://x.com/JavierBlas/status/2074962213215879595",
       "date": "2026-07-08T20:15:26+00:00",
@@ -4894,21 +4954,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT @BabakVahdad: Al Arabiya claims that Pakistan\u2019s Army Chief, General Asim Munir, held talks with senior Iranian officials regarding the l\u2026",
-      "category": "Twitter"
-    },
-    {
-      "title": "Iran and Qatari top diplomats held a phone call to discuss what Tehran described as \u201crecent events in the Strait of Hormuz\u201d (\u201cevents\u201d is quite the...",
-      "link": "https://x.com/JavierBlas/status/2074933729240231952",
-      "date": "2026-07-08T19:08:46+00:00",
-      "tweet_id": "2074933729240231952",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Iran and Qatari top diplomats held a phone call to discuss what Tehran described as \u201crecent events in the Strait of Hormuz\u201d <br><br>(\u201cevents\u201d is quite the word to describe what happened: Iranian drones hit a laden Qatari LNG tanker in Omani territorial waters)",
       "category": "Twitter"
     },
     {
@@ -6277,21 +6322,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Most of Cultfit's gym business appears to be concentrated in Bengaluru and Hyderabad. - 56% of its total 708 fitness centres are located in these two ...",
-      "link": "https://x.com/madhavchanchani/status/2074521604797993108",
-      "date": "2026-07-07T15:51:07+00:00",
-      "tweet_id": "2074521604797993108",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HMouRWia4AA2T4F?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Most of Cultfit's gym business appears to be concentrated in Bengaluru and Hyderabad.<br><br>- 56% of its total 708 fitness centres are located in these two cities (247 in Bengaluru and 149 in Hyderabad).<br><br>- 59% of its 987,000 paid members are from these two cities (385,430 in Bengaluru and 192,916 in Hyderabad).<br><br>The company said top four metros (Delhi-NCR, Mumbai, Bengaluru and Hyderabad) accounted for 90.44% of gym business revenue, up from 85.9% two years ago.<br><br>Though according to the company's DRHP, citing a Redseer report, India's top four cities account for 40%\u201342% of the country's overall fitness services market.<br><img width=\"1408\" height=\"430\" style=\"\" src=\"https://pbs.twimg.com/media/HMouRWia4AA2T4F?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Mercatus Center: Alex Tabarrok's new guide brings together a century of research on rent control, from Friedman and Stigler to the latest empirical...",
       "link": "https://x.com/srajagopalan/status/2074527412046504188",
       "date": "2026-07-07T15:47:00+00:00",
@@ -7624,21 +7654,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "By far the heaviest bout of Mumbai rain and wind we\u2019ve seen in a day in years.<br><img width=\"2048\" height=\"1536\" style=\"\" src=\"https://pbs.twimg.com/media/HMd2qX-a4AAsNn2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "One industry and two cities are powering growth across India\u2019s real estate sector so far this year. Read India Edition \ud83d\udc47\ud83c\udffd https://www.bloomberg...",
-      "link": "https://x.com/menakadoshi/status/2073695614676988376",
-      "date": "2026-07-05T09:08:56+00:00",
-      "tweet_id": "2073695614676988376",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HMc_JNGbkAEY_r6?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "One industry and two cities are powering growth across India\u2019s real estate sector so far this year.<br><br>Read India Edition \ud83d\udc47\ud83c\udffd<br>https://www.bloomberg.com/news/newsletters/2026-06-30/forget-mumbai-delhi-gccs-drive-real-estate-growth-in-bengaluru-and-hyderabad?srnd=undefined<br><img width=\"1080\" height=\"1074\" style=\"\" src=\"https://pbs.twimg.com/media/HMc_JNGbkAEY_r6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
