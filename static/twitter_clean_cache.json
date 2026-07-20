@@ -1,26 +1,86 @@
 {
-  "generated_at": "2026-07-21T01:00:02.288563+05:30",
+  "generated_at": "2026-07-21T02:19:07.878001+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 48,
       "feeds_failed": 1,
-      "items_raw": 1197,
-      "resolve_attempted": 1195,
-      "resolve_resolved": 1193,
-      "resolve_cache_hits": 1191
+      "items_raw": 1198,
+      "resolve_attempted": 1196,
+      "resolve_resolved": 1194,
+      "resolve_cache_hits": 1192
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.7,
-      "items": 777,
+      "age_hours": 0.0,
+      "items": 779,
       "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-07-21T01:00:02.288503+05:30"
+    "generated_at": "2026-07-21T02:19:07.877937+05:30"
   },
   "items": [
+    {
+      "title": "Tariff exemptions demonstrate the limits of US protectionism. 44% of Brazil's exports to the US are exempted from the tariffs the Trump administration...",
+      "link": "https://x.com/PIIE/status/2079303082014355585",
+      "date": "2026-07-20T20:31:00+00:00",
+      "tweet_id": "2079303082014355585",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Tariff exemptions demonstrate the limits of US protectionism.<br>44% of Brazil's exports to the US are exempted from the tariffs the Trump administration recently imposed, including coffee, orange juice, beef, cocoa, nuts &amp; tropical fruit, petroleum, &amp; more. https://www.piie.com/blogs/realtime-economics/2026/trumps-new-tariffs-brazil-reflect-weakness-us-trade-strategy",
+      "category": "Twitter"
+    },
+    {
+      "title": "US stocks today: S&P 500 edges down with #Iran and #earnings season in focus https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-tod...",
+      "link": "https://x.com/ETMarkets/status/2079297542052032734",
+      "date": "2026-07-20T20:09:00+00:00",
+      "tweet_id": "2079297542052032734",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US stocks today: S&amp;P 500 edges down with #Iran and #earnings season in focus<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-today-sp-500-edges-down-with-iran-and-earnings-season-in-focus/articleshow/132523900.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "Trump's Agreements on Reciprocal Trade with 9 trading partners construct a legal architecture to pull US trade partners away from China & to constrain...",
+      "link": "https://x.com/PIIE/status/2079283988451958811",
+      "date": "2026-07-20T19:15:08+00:00",
+      "tweet_id": "2079283988451958811",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Trump's Agreements on Reciprocal Trade with 9 trading partners construct a legal architecture to pull US trade partners away from China &amp; to constrain China economically\u2014setting a framework to mold global value chains around US strategic preferences. https://www.piie.com/blogs/realtime-economics/2026/us-reciprocal-trade-deals-built-push-americas-trade-partners-away",
+      "category": "Twitter"
+    },
+    {
+      "title": "Leverage is rapidly unwinding across Chinese stocks: Margin debt on the Shanghai and Shenzhen exchanges fell -2.8% on Friday, or -$11.7 billion, to $4...",
+      "link": "https://x.com/KobeissiLetter/status/2079277296507322750",
+      "date": "2026-07-20T18:48:33+00:00",
+      "tweet_id": "2079277296507322750",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HNrFEOaWYAAb4gb?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Leverage is rapidly unwinding across Chinese stocks:<br><br>Margin debt on the Shanghai and Shenzhen exchanges fell -2.8% on Friday, or -$11.7 billion, to $405 billion, the largest daily decline since January 2016.<br><br>This also marks the 4th consecutive daily decrease, totaling -$36.9 billion.<br><br>This comes as the Star 50 Index, which tracks Chinese technology stocks, plunged -7.1% on Friday, its 2nd-largest daily drop this year, while the CSI 300 fell -3.6%.<br><br>Memory chip stocks were at the center of the selloff after attracting the highest levels of margin borrowing.<br><br>As a result, their sharp selloff triggered margin calls, forcing investors to sell and accelerating the broader market decline.<br><br>Chip stocks have become a global amplifier of market volatility.<br><img width=\"975\" height=\"548\" style=\"\" src=\"https://pbs.twimg.com/media/HNrFEOaWYAAb4gb?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
     {
       "title": "Trump administration policies to restrict & repel international students en masse, if sustained, would constrict a key supply of science & engineering...",
       "link": "https://x.com/PIIE/status/2079274647317598249",
@@ -1819,21 +1879,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#MarketClose | Stock Market Highlights: #Nifty slips below 24,250, #Sensex falls 430 pts as private banks drag<br><br>https://www.cnbctv18.com/market/stock-market-live-updates-sensex-nifty-50-today-nifty-bank-ril-hdfc-icici-kotak-axis-crude-oil-hpcl-share-price-liveblog-19949025.htm",
-      "category": "Twitter"
-    },
-    {
-      "title": "#SouthKorea's #Kospi, the world's best-performing major equity benchmark in 2026, has slumped over 30% in just a month, with analysts highlighting how...",
-      "link": "https://x.com/ETMarkets/status/2079153321668149336",
-      "date": "2026-07-20T10:35:55+00:00",
-      "tweet_id": "2079153321668149336",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#SouthKorea's #Kospi, the world's best-performing major equity benchmark in 2026, has slumped over 30% in just a month, with analysts highlighting how the country's single-stock derivative products tied to chipmakers Samsung Electronics and SK Hynix wiped off major portions of gains recorded by retail investors this year.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/news/is-korean-stock-market-turning-into-open-casino-how-retail-leverage-is-fueling-wild-swings/articleshow/132512407.cms",
       "category": "Twitter"
     },
     {
@@ -4609,21 +4654,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "For those who dare to dream, there is a whole world to win!<div class=\"rsshub-quote\"><br><br>Vaibhav Bodana:\u2002Meet Pawan Kumar Chandana, the man who scored 51 marks in maths as a schoolboy and went on to build India's first private rocket.<br><br>Born in 1991 and raised in Visakhapatnam, Chandana grew up in a middle class household. Maths was a weak spot until entrance exam prep turned it into<br><br><img width=\"817\" height=\"646\" style=\"\" src=\"https://pbs.twimg.com/media/HNeoB11aUAA2xn-?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"434\" height=\"548\" style=\"\" src=\"https://pbs.twimg.com/media/HNeoMC3agAAPZi0?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "Never before have so many Americans been outside the labor force: The number of Americans who are not in the labor force rose by +832,000 in June, to ...",
-      "link": "https://x.com/KobeissiLetter/status/2078614038729064652",
-      "date": "2026-07-18T22:53:00+00:00",
-      "tweet_id": "2078614038729064652",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HNiAlXgWwAA6KA_?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Never before have so many Americans been outside the labor force:<br><br>The number of Americans who are not in the labor force rose by +832,000 in June, to 105.8 million, an all-time high.<br><br>These are people who are neither employed nor actively looking for work.<br><br>This is now 2.2 million above the 2020 pandemic peak, when the global economy was shut down.<br><br>So far in 2026, 2.5 million Americans have exited the labor force.<br><br>By comparison, 68.7 million Americans were not in the labor force at the beginning of this century.<br><br>As a % of the population aged 16+, this figure is up to 38.5%, the highest since the 1970s, excluding the pandemic period.<br><br>The US job market is weak under the surface.<br><img width=\"975\" height=\"494\" style=\"\" src=\"https://pbs.twimg.com/media/HNiAlXgWwAA6KA_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
