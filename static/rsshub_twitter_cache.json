@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T19:47:27.733638+00:00",
+  "generated_at": "2026-07-20T20:46:43.355953+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 48,
     "handles_empty": 0,
     "handles_error": 1,
-    "items_total": 778
+    "items_total": 779
   },
   "items": [
     {
@@ -2517,6 +2517,20 @@
       "description_html": "#MarketClose | Stock Market Highlights: #Nifty slips below 24,250, #Sensex falls 430 pts as private banks drag<br><br>https://www.cnbctv18.com/market/stock-market-live-updates-sensex-nifty-50-today-nifty-bank-ril-hdfc-icici-kotak-axis-crude-oil-hpcl-share-price-liveblog-19949025.htm"
     },
     {
+      "title": "US stocks today: S&P 500 edges down with #Iran and #earnings season in focus https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-tod...",
+      "link": "https://x.com/ETMarkets/status/2079297542052032734",
+      "date": "2026-07-20T20:09:00+00:00",
+      "tweet_id": "2079297542052032734",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US stocks today: S&amp;P 500 edges down with #Iran and #earnings season in focus<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-today-sp-500-edges-down-with-iran-and-earnings-season-in-focus/articleshow/132523900.cms"
+    },
+    {
       "title": "#Paytm #Q1Results: Profit soars 79% YoY to Rs 220 crore; board decides not to go with bonus proposal https://economictimes.indiatimes.com/markets/stoc...",
       "link": "https://x.com/ETMarkets/status/2079252067752042708",
       "date": "2026-07-20T17:08:18+00:00",
@@ -2767,20 +2781,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The escalating conflict in the Gulf lifted oil and gas prices on Monday, fanning fears of inflation, sending bonds lower and leaving stocks on edge as a packed week of major tech earnings is set to further test the artificial intelligence trade.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/bonds/bonds-unsettled-as-oil-and-gas-climb-earnings-loom-for-ai/articleshow/132513173.cms"
-    },
-    {
-      "title": "#SouthKorea's #Kospi, the world's best-performing major equity benchmark in 2026, has slumped over 30% in just a month, with analysts highlighting how...",
-      "link": "https://x.com/ETMarkets/status/2079153321668149336",
-      "date": "2026-07-20T10:35:55+00:00",
-      "tweet_id": "2079153321668149336",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#SouthKorea's #Kospi, the world's best-performing major equity benchmark in 2026, has slumped over 30% in just a month, with analysts highlighting how the country's single-stock derivative products tied to chipmakers Samsung Electronics and SK Hynix wiped off major portions of gains recorded by retail investors this year.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/news/is-korean-stock-market-turning-into-open-casino-how-retail-leverage-is-fueling-wild-swings/articleshow/132512407.cms"
     },
     {
       "title": "Looking at Ultratech -- Ambuja Cement should also do well in Q1 results Entire Cement pack now trades at days high !!!",
@@ -10663,6 +10663,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "So India is the third country in the world with private orbital launch capability after US and China as Skyroot\u2019s Vikram 1 has completed all four stages completed as planned \ud83d\ude80 \ud83c\uddee\ud83c\uddf3<br><img width=\"642\" height=\"369\" style=\"\" src=\"https://pbs.twimg.com/media/HNfemtcbQAAakiY?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "Tariff exemptions demonstrate the limits of US protectionism. 44% of Brazil's exports to the US are exempted from the tariffs the Trump administration...",
+      "link": "https://x.com/PIIE/status/2079303082014355585",
+      "date": "2026-07-20T20:31:00+00:00",
+      "tweet_id": "2079303082014355585",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Tariff exemptions demonstrate the limits of US protectionism.<br>44% of Brazil's exports to the US are exempted from the tariffs the Trump administration recently imposed, including coffee, orange juice, beef, cocoa, nuts &amp; tropical fruit, petroleum, &amp; more. https://www.piie.com/blogs/realtime-economics/2026/trumps-new-tariffs-brazil-reflect-weakness-us-trade-strategy"
     },
     {
       "title": "Trump's Agreements on Reciprocal Trade with 9 trading partners construct a legal architecture to pull US trade partners away from China & to constrain...",
