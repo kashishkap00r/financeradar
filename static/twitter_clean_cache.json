@@ -1,26 +1,56 @@
 {
-  "generated_at": "2026-07-21T02:35:11.321895+05:30",
+  "generated_at": "2026-07-21T04:23:29.981794+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 48,
       "feeds_failed": 1,
-      "items_raw": 1198,
-      "resolve_attempted": 1196,
-      "resolve_resolved": 1194,
-      "resolve_cache_hits": 1195
+      "items_raw": 1195,
+      "resolve_attempted": 1193,
+      "resolve_resolved": 1191,
+      "resolve_cache_hits": 1193
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.3,
-      "items": 779,
+      "age_hours": 0.1,
+      "items": 781,
       "handles_ok": 48
     },
     "warning": "",
-    "generated_at": "2026-07-21T02:35:11.321829+05:30"
+    "generated_at": "2026-07-21T04:23:29.981737+05:30"
   },
   "items": [
+    {
+      "title": "BREAKING: President Trump is imposing an additional 50% tariff on a range of Canadian goods in response to \"trade discrimination.\" Details include: 1....",
+      "link": "https://x.com/KobeissiLetter/status/2079312046923940275",
+      "date": "2026-07-20T21:06:38+00:00",
+      "tweet_id": "2079312046923940275",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: President Trump is imposing an additional 50% tariff on a range of Canadian goods in response to \"trade discrimination.\"<br><br>Details include:<br><br>1. President Trump signed 3 proclamations today targeting different sets of Canadian imports<br><br>2. The tariffs are targeting separate areas where the US says it has experienced discrimination <br><br>3. The tariffs fall under Section 338 of the Tariff Act of 1930<br><br>These tariffs are set to take effect in 30 days.",
+      "category": "Twitter"
+    },
+    {
+      "title": "The AI boom is creating a generational divide in software jobs: US software developer employment for those aged 22-25 has declined -23% since November...",
+      "link": "https://x.com/KobeissiLetter/status/2079307547610366340",
+      "date": "2026-07-20T20:48:45+00:00",
+      "tweet_id": "2079307547610366340",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HNrEhMUXIAAXfP6?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The AI boom is creating a generational divide in software jobs:<br><br>US software developer employment for those aged 22-25 has declined -23% since November 2022, when ChatGPT was launched.<br><br>At the same time, the 26-30 age group has seen a decrease of -5%.<br><br>By comparison, employment among software developers aged 41-49 has risen +18% over the same period.<br><br>This creates a 41 percentage point gap between the youngest and one of the most experienced groups within the same profession.<br><br>Meanwhile, early-career workers in the most AI-exposed jobs have experienced a -16% decline in employment relative to less-exposed occupations and more experienced peers since November 2022, even after adjusting for firm-specific shocks.<br><br>By contrast, employment among workers in less AI-exposed fields, as well as more experienced workers within the same occupations, has remained steady or continued to grow.<br><br>The AI revolution is wiping out entry-level tech jobs.<br><img width=\"975\" height=\"766\" style=\"\" src=\"https://pbs.twimg.com/media/HNrEhMUXIAAXfP6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
     {
       "title": "Tariff exemptions demonstrate the limits of US protectionism. 44% of Brazil's exports to the US are exempted from the tariffs the Trump administration...",
       "link": "https://x.com/PIIE/status/2079303082014355585",
@@ -4507,21 +4537,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Ember: \ud83d\udea8 Europe\u2019s reliance on fossil fuels and exposure to their volatile prices is costly In the 100 days since the start of the US-Israel war...",
-      "link": "https://x.com/ember_energy/status/2079237372705964303",
-      "date": "2026-07-19T06:00:14+00:00",
-      "tweet_id": "2079237372705964303",
-      "source": "Ember",
-      "publisher": "Ember Energy",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2078721528020062208/pu/img/qtg0B_xaQtawr-Gx.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Ember<br>\ud83d\udea8 Europe\u2019s reliance on fossil fuels and exposure to their volatile prices is costly <br><br>In the 100 days since the start of the US-Israel war with Iran, the EU had to pay an additional 37 billion euros due to the fossil fuel price shock<br><br>Enter electrification \ud83d\udc47<br>\ud83e\uddf51/3<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/ext_tw_video/2078721528020062208/pu/vid/avc1/720x1280/Bd0nbx-w4gl9FVS0.mp4?tag=12\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2078721528020062208/pu/img/qtg0B_xaQtawr-Gx.jpg\"></video>",
-      "category": "Twitter"
-    },
-    {
       "title": "End of week gupshup with Anish Tawakley of @dspmf ! Enjoyed the chat which was pretty fundamental across sectors. Link to full interview below. - time...",
       "link": "https://x.com/_prashantnair/status/2078717376334614735",
       "date": "2026-07-19T05:43:37+00:00",
@@ -7924,6 +7939,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Home Credit India, part of TVS VENU, agrees to acquire 100% stake in Varthana Finance Pvt Ltd through an all-cash transaction, subject to receipt of applicable regulatory approvals, including approval from RBI and fulfilment of customary closing conditions.",
+      "category": "Twitter"
+    },
+    {
+      "title": "\ud83d\udd08 Ember's Daan Walter joins the @climate_pod to discuss how the latest fossil shock is accelerating a consumer-led #energytransition. Tune in to th...",
+      "link": "https://x.com/ember_energy/status/2077407904148181200",
+      "date": "2026-07-15T15:00:15+00:00",
+      "tweet_id": "2077407904148181200",
+      "source": "Ember",
+      "publisher": "Ember Energy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\ud83d\udd08 Ember's Daan Walter joins the @climate_pod to discuss how the latest fossil shock is accelerating a consumer-led #energytransition.<br><br>Tune in to the full episode: https://www.climateoptimists.co/episodes/the-hormuz-opportunity",
       "category": "Twitter"
     },
     {
