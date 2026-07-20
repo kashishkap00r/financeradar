@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T20:46:43.355953+00:00",
+  "generated_at": "2026-07-20T21:47:48.832692+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 48,
     "handles_empty": 0,
     "handles_error": 1,
-    "items_total": 779
+    "items_total": 781
   },
   "items": [
     {
@@ -7219,6 +7219,34 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "We\u2019re launching Trade DB to track India\u2019s trade at the HS code level by value or quantity, across imports, exports, and also detailed category and subcategory data for our trade partners. See this for more:  https://www.youtube.com/watch?v=KdwhLPaU3Fw  #India #Trade #Exports #Imports"
+    },
+    {
+      "title": "BREAKING: President Trump is imposing an additional 50% tariff on a range of Canadian goods in response to \"trade discrimination.\" Details include: 1....",
+      "link": "https://x.com/KobeissiLetter/status/2079312046923940275",
+      "date": "2026-07-20T21:06:38+00:00",
+      "tweet_id": "2079312046923940275",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: President Trump is imposing an additional 50% tariff on a range of Canadian goods in response to \"trade discrimination.\"<br><br>Details include:<br><br>1. President Trump signed 3 proclamations today targeting different sets of Canadian imports<br><br>2. The tariffs are targeting separate areas where the US says it has experienced discrimination <br><br>3. The tariffs fall under Section 338 of the Tariff Act of 1930<br><br>These tariffs are set to take effect in 30 days."
+    },
+    {
+      "title": "The AI boom is creating a generational divide in software jobs: US software developer employment for those aged 22-25 has declined -23% since November...",
+      "link": "https://x.com/KobeissiLetter/status/2079307547610366340",
+      "date": "2026-07-20T20:48:45+00:00",
+      "tweet_id": "2079307547610366340",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HNrEhMUXIAAXfP6?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The AI boom is creating a generational divide in software jobs:<br><br>US software developer employment for those aged 22-25 has declined -23% since November 2022, when ChatGPT was launched.<br><br>At the same time, the 26-30 age group has seen a decrease of -5%.<br><br>By comparison, employment among software developers aged 41-49 has risen +18% over the same period.<br><br>This creates a 41 percentage point gap between the youngest and one of the most experienced groups within the same profession.<br><br>Meanwhile, early-career workers in the most AI-exposed jobs have experienced a -16% decline in employment relative to less-exposed occupations and more experienced peers since November 2022, even after adjusting for firm-specific shocks.<br><br>By contrast, employment among workers in less AI-exposed fields, as well as more experienced workers within the same occupations, has remained steady or continued to grow.<br><br>The AI revolution is wiping out entry-level tech jobs.<br><img width=\"975\" height=\"766\" style=\"\" src=\"https://pbs.twimg.com/media/HNrEhMUXIAAXfP6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Leverage is rapidly unwinding across Chinese stocks: Margin debt on the Shanghai and Shenzhen exchanges fell -2.8% on Friday, or -$11.7 billion, to $4...",
