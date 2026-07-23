@@ -851,7 +851,7 @@ def fetch_careratings(feed_config):
         page_id = int(parts[1])
         section_id = int(parts[2]) if len(parts) > 2 else 5034
         year = datetime.now().year
-        api_url = f"https://www.careratings.com/insightspagedata?PageId={page_id}&SectionId={section_id}&YearID={year}&MonthID=0"
+        api_url = f"https://www.careratings.com/insightsindustry?PageId={page_id}&SectionId={section_id}&YearID={year}&MonthID=0"
 
         req = urllib.request.Request(api_url, headers={
             "User-Agent": DEFAULT_USER_AGENT,
@@ -879,10 +879,14 @@ def fetch_careratings(feed_config):
             pub_date = None
             date_str = item.get("Date") or item.get("Aborad_Date") or ""
             if date_str:
-                try:
-                    pub_date = datetime.strptime(date_str, "%d-%m-%Y").replace(tzinfo=IST_TZ)
-                except ValueError:
-                    pass
+                # CareEdge switched from DD-MM-YYYY to YYYY-MM-DD in mid-2026;
+                # try the new format first, fall back to the old one.
+                for fmt in ("%Y-%m-%d", "%d-%m-%Y"):
+                    try:
+                        pub_date = datetime.strptime(date_str, fmt).replace(tzinfo=IST_TZ)
+                        break
+                    except ValueError:
+                        continue
 
             desc = item.get("Description") or ""
             desc = re.sub(r'<[^>]+>', '', desc).strip()
