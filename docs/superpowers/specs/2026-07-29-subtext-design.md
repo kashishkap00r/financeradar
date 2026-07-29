@@ -55,10 +55,14 @@ a sixth person is a JSON edit, not a code change.
 | Channel | Result |
 |---|---|
 | Google News name query, unscoped | **Works.** 100 items Tamal, 56 Ananth, 25 Sandeep, 13 Bhargavi, 9 Ajay+GTRI |
-| Google News `site:` scoped | **Works.** `site:business-standard.com "Tamal Bandyopadhyay"` → 100; `site:finseclaw.com` → 100; `site:gtri.co.in` → 13 |
+| Google News `site:` scoped | **Works.** `site:business-standard.com "Tamal Bandyopadhyay"` → 100; `site:finseclaw.com` → 100; `site:livemint.com "Tamal…"` → 91; `site:gtri.co.in` → 13 |
+| Google News `site:linkedin.com` | **Works.** 100 items for all five. Tamal's `/pulse/` essays are genuine long-form |
+| **`spparekh.blogspot.com`** — Sandeep's personal blog *"Initial Private Opinion"* | **Works.** Native Blogger feed, 25 posts, latest 27 Jul 2026. Redirects to `feeds.feedburner.com/blogspot/xTAN` — harmless, `fetch_feed()` follows redirects |
 | LEAP Blogger author-label RSS | **Works.** `/feeds/posts/default/-/author:%20Bhargavi%20Zaveri?alt=rss` returns her court/regulation posts |
-| Business Standard author pages | **HTTP 403** — Akamai WAF. Reached via Google News instead |
+| Business Standard author pages | **HTTP 403 on every RSS variant** (`/rss`, `/rss/author/…`, `?format=rss`) — Akamai WAF. No feed exists; the archive's *contents* arrive via the `site:` Google query instead |
 | GTRI / Finsec native feeds | **404** — no RSS. Google News is the only route |
+| Bhargavi's personal site (Google Sites) | No feed available; Google Sites exposes none. Covered by LEAP + ThePrint + BS |
+| Personal blog / Substack, Ajay & Ananth | None exists as of 2026-07-29 |
 
 No new fetch infrastructure needed. Every channel resolves to a URL that the existing
 `fetch_feed()` can retrieve, inheriting the Cloudflare RSS proxy, curl-on-403 fallback,
@@ -90,8 +94,9 @@ Bandopadhyay, Ananth / Anant). Attribution matches every alias, never just `name
 | Field | Purpose |
 |---|---|
 | `kind` | `owned` or `discovered` — the trust level |
-| `type` | `x`, `google`, `blogger`, `internal` |
+| `type` | `x`, `rss`, `google`, `blogger`, `internal` |
 | `handle` | X handle, for `type: x` |
+| `url` | Direct feed URL, for `type: rss` — personal blogs, Substacks |
 | `site` | Domain to scope a Google query. `null` = unscoped name search |
 | `host` + `label` | Blogger host and author label, for `type: blogger` |
 | `query_extra` | Extra terms appended to the Google query (disambiguation) |
@@ -119,6 +124,9 @@ Blogger feed. A firm's own site is **not** owned: `finseclaw.com` publishes Sand
         { "kind": "owned",      "type": "x",      "handle": "TamalBandyo" },
         { "kind": "discovered", "type": "google", "site": "business-standard.com",
           "require_path": ["/opinion/", "/columns/"] },
+        { "kind": "discovered", "type": "google", "site": "livemint.com" },
+        { "kind": "discovered", "type": "google", "site": "linkedin.com",
+          "require_path": ["/pulse/"] },
         { "kind": "discovered", "type": "google", "site": null },
         { "kind": "discovered", "type": "internal" }
       ]
@@ -138,6 +146,10 @@ Blogger feed. A firm's own site is **not** owned: `finseclaw.com` publishes Sand
           "require_path": ["/opinion/", "/columns/"] },
         { "kind": "discovered", "type": "google", "site": "thehindubusinessline.com",
           "require_path": ["/opinion/"] },
+        { "kind": "discovered", "type": "google", "site": "thecore.in" },
+        { "kind": "discovered", "type": "google", "site": "linkedin.com",
+          "require_path": ["/pulse/"],
+          "require_terms": ["GTRI", "trade", "tariff", "FTA", "export", "import", "WTO"] },
         { "kind": "discovered", "type": "google", "site": null,
           "query_extra": "GTRI",
           "require_terms": ["GTRI", "trade", "tariff", "FTA", "export", "import", "WTO"] },
@@ -154,12 +166,17 @@ Blogger feed. A firm's own site is **not** owned: `finseclaw.com` publishes Sand
       "author_slugs": [],
       "channels": [
         { "kind": "owned",      "type": "x",      "handle": "SandeepParekh" },
+        { "kind": "owned",      "type": "rss",
+          "url": "https://spparekh.blogspot.com/feeds/posts/default?alt=rss",
+          "label": "Initial Private Opinion" },
         { "kind": "discovered", "type": "google", "site": "finseclaw.com",
           "require_terms": ["Sandeep Parekh"] },
         { "kind": "discovered", "type": "google", "site": "economictimes.indiatimes.com",
           "require_path": ["/opinion/", "/blogs/"] },
         { "kind": "discovered", "type": "google", "site": "financialexpress.com",
           "require_path": ["/opinion/"] },
+        { "kind": "discovered", "type": "google", "site": "linkedin.com",
+          "require_path": ["/pulse/"] },
         { "kind": "discovered", "type": "google", "site": null },
         { "kind": "discovered", "type": "internal" }
       ]
@@ -178,6 +195,8 @@ Blogger feed. A firm's own site is **not** owned: `finseclaw.com` publishes Sand
         { "kind": "discovered", "type": "google",  "site": "theprint.in" },
         { "kind": "discovered", "type": "google",  "site": "business-standard.com",
           "require_path": ["/opinion/", "/columns/"] },
+        { "kind": "discovered", "type": "google",  "site": "linkedin.com",
+          "require_path": ["/pulse/"] },
         { "kind": "discovered", "type": "google",  "site": null },
         { "kind": "discovered", "type": "internal" }
       ]
@@ -192,6 +211,8 @@ Blogger feed. A firm's own site is **not** owned: `finseclaw.com` publishes Sand
       "author_slugs": [],
       "channels": [
         { "kind": "owned",      "type": "x",      "handle": "ananthng" },
+        { "kind": "discovered", "type": "google", "site": "linkedin.com",
+          "require_path": ["/pulse/"] },
         { "kind": "discovered", "type": "google", "site": null },
         { "kind": "discovered", "type": "internal" }
       ]
@@ -227,12 +248,28 @@ unit-testable without mocks or fixtures.
 
 | `type` | Resolves to |
 |---|---|
+| `rss` | `url` verbatim — personal blogs, Substacks, FeedBurner |
 | `google`, `site` set | `news.google.com/rss/search?q=site:{site}+"{name}"{+query_extra}&hl=en-IN&gl=IN&ceid=IN:en` |
 | `google`, `site: null` | `news.google.com/rss/search?q="{name}"{+query_extra}&hl=en-IN&gl=IN&ceid=IN:en` |
 | `blogger` | `https://{host}/feeds/posts/default/-/{urlquote(label)}?alt=rss` |
 | `x` | Filter the passed-in Twitter pool by handle; fall back to `site:x.com/{handle}/status` Google query if absent |
 | `internal` | No fetch — scan `pools` |
 | unknown | `None`, logged and skipped |
+
+`type: rss` is the escape hatch that keeps templatization honest: any future personal blog or
+newsletter is one config line, with no new code. Note that Sandeep's blog 302s to FeedBurner —
+`urllib` follows redirects by default, so no special handling is needed, but a direct fetch
+*without* redirect-following returns zero bytes and looks like a dead feed.
+
+### LinkedIn precision
+
+LinkedIn returns 100 items per person, but much of that is other people resharing their work.
+Two guards handle it. First, `require_path: ["/pulse/"]` admits only published long-form essays
+and drops `/posts/` reshare chatter. Second, the scoring rule does the rest — verified against
+Tamal's live LinkedIn results, where five items were his own essays (*"The Invisible Heist"*,
+*"A Quiet Exodus"*, *"Much Ado About Tata Sons Listing?"*, *"Cash Crunch"*) and the single item
+that was somebody summarising his column is also the only one carrying his name in the title.
+No special-casing required; these six become regression fixtures.
 
 `build_channel_feed_config` emits the same dict shape `feeds.py` already consumes, so
 `fetch_feed()` handles the rest.
