@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T10:47:33.340650+00:00",
+  "generated_at": "2026-07-31T11:46:39.785013+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,9 +7,23 @@
     "handles_ok": 46,
     "handles_empty": 2,
     "handles_error": 1,
-    "items_total": 807
+    "items_total": 806
   },
   "items": [
+    {
+      "title": "Yicai: \"China\u2019s debt-to-GDP ratio fell in the second quarter for the first time in four and a half years. The macro leverage ratio shrank to 308.2 pe...",
+      "link": "https://x.com/michaelxpettis/status/2083144059867001051",
+      "date": "2026-07-31T10:53:41+00:00",
+      "tweet_id": "2083144059867001051",
+      "source": "Michael Pettis",
+      "publisher": "Michael Pettis",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Yicai: \"China\u2019s debt-to-GDP ratio fell in the second quarter for the first time in four and a half years. The macro leverage ratio shrank to 308.2 percent in the three months ended June 30 from 309.3 percent in the previous quarter.\"<br><br>My measure of debt to GDP also shows a quarter-to-quarter decline in the second quarter, from 322% to 321%, compared to 315% at the end of 2025. The question is whether China can cause growth to revive over the rest of the year without a further sharp increase in the country's debt burden.<br>https://www.yicaiglobal.com/news/chinas-macro-leverage-ratio-posts-first-quarterly-drop-since-early-2022-in-second-quarter"
+    },
     {
       "title": "Xinhua: \"The PMI for China's manufacturing sector stood at 49.2 in July, down 1.1 percentage points from June. Despite the overall decline, equipment ...",
       "link": "https://x.com/michaelxpettis/status/2083140874255450229",
@@ -151,20 +165,6 @@
       "description_html": "RT\u2002Martin Anota<br>\"L'exc\u00e9dent commercial de la Chine refl\u00e8te un mod\u00e8le de d\u00e9veloppement autrefois tr\u00e8s performant qui a comprim\u00e9 la part des m\u00e9nages dans le revenu national\"<br><br>Ma traduction<br>\ud83d\udc49 https://annotationsbis.blogspot.com/2026/07/une-reevaluation-du-yuan-chinois.html<div class=\"rsshub-quote\"><br><br>Michael Pettis:\u2002In my latest substack piece I argue, against Gopinath, Gourinchas and Rey, that the relevant debate is not whether currency appreciation works, but rather which mechanism of income redistribution is politically, economically acceptable to China and \u2013 above all \u2013 which is the more<br></div>"
     },
     {
-      "title": "RT Nick Johnson: The essence of political economy: \"The real problem...is not that currency revaluation, higher wages, higher social transfers, etc, d...",
-      "link": "https://x.com/michaelxpettis/status/2082416346877350035",
-      "date": "2026-07-29T09:34:36+00:00",
-      "tweet_id": "2082416346877350035",
-      "source": "Michael Pettis",
-      "publisher": "Michael Pettis",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Nick Johnson<br>The essence of political economy: \"The real problem...is not that currency revaluation, higher wages, higher social transfers, etc, don't work, but rather that they work by creating costs for the non-household sector that Beijing is very reluctant to contemplate.\"<div class=\"rsshub-quote\"><br><br>Michael Pettis:\u2002@SanderTordoir I think the problem, Sander, is that too many analysts, especially perhaps at the IMF, fail to understand that currency appreciation is just one of many ways to rebalance income. China can rebalance (i.e. shift income from producers to households) by raising the value of the<br></div>"
-    },
-    {
       "title": "RT Sander Tordoir: Good piece from Pettis. The exchange rate - especially in the case of China, where it is actively managed - is one of several polic...",
       "link": "https://x.com/michaelxpettis/status/2082416388841304258",
       "date": "2026-07-29T09:30:18+00:00",
@@ -205,6 +205,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Martin Chorzempa \u9a6c\u6c38\u54f2<br>Always interesting to see what Caixin is able to gather (and able to report) on such sensitive issues, more detail here than other media stories @vshih2 <br>https://www.caixinglobal.com/2026-07-27/in-profile-wall-streets-go-to-regulator-in-china-swept-up-in-anti-graft-dragnet-102468539.html"
+    },
+    {
+      "title": "RT CNN: Spain estimates 49,000 migrants crossed from Morocco into its North African territory Ceuta in a single day. https://cnn.it/4hHw2PL",
+      "link": "https://x.com/menakadoshi/status/2083156605529735431",
+      "date": "2026-07-31T09:09:29+00:00",
+      "tweet_id": "2083156605529735431",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOi4nXqXAAEwVj9?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNN<br>Spain estimates 49,000 migrants crossed from Morocco into its North African territory Ceuta in a single day. https://cnn.it/4hHw2PL<br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HOi4nXqXAAEwVj9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT CNN Breaking News: AI company Anthropic says that during routine testing some of its models accessed the internet and hacked into three separate or...",
@@ -471,20 +485,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The Central Reserve Police Force (CRPF) is learnt to have found that a person from its Rapid Action Force (RAF), who was deployed in Connaught Place area during the July 20 protest march to Parliament, fired at least seven rounds from his pellet gun. Five rounds hit protesters, while two struck the ground, sources told The Indian Express.<br><br>https://indianexpress.com/article/cities/delhi/cjp-parliament-march-student-protest-crpf-raf-pellet-gun-injury-probe-10804898/?utm_term=Autofeed&amp;utm_medium=Social&amp;utm_source=Twitter#Echobox=1785198866"
-    },
-    {
-      "title": "RT Internet Freedom Foundation (IFF): Hey friends, the IFF team has been working incredibly hard, but we've got to be honest about where we stand this...",
-      "link": "https://x.com/menakadoshi/status/2081777433901208010",
-      "date": "2026-07-27T09:22:53+00:00",
-      "tweet_id": "2081777433901208010",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Internet Freedom Foundation (IFF)<br>Hey friends, the IFF team has been working incredibly hard, but we've got to be honest about where we stand this month: we've got \u20b94,90,682.81 in income against \u20b99,76,575.77 in expenses (\u20b91,26,575.77 already spent + \u20b98,50,000 in upcoming salaries), leaving us with a \u20b94,85,892.96 deficit. <br><br>We haven't paid our colleagues their salaries yet, so if you're able to chip in, it would truly mean the world, no amount is too small, and even sharing this helps. <br><br>Thank you for being in our corner.<br><br>Donate: http://internetfreedom.in/donate"
     },
     {
       "title": "Fastest finger first will turn into regrets. Your base has to be grounded in fundamentals",
@@ -1047,6 +1047,48 @@
       "description_html": "Bubble in small and mid<div class=\"rsshub-quote\"><br><br>Stable Investor:\u2002Over the years, the % share of largecaps (Nifty50 and Next50 stocks) in overall marketcap has been coming down steadily. Based on AMFI's half-yearly marketcap data, the share of largecaps in the overall listed space is down from 67.3% in mid-2018 to 59.3% by early-2026.<br><br>The 2nd<br><br><img width=\"481\" height=\"620\" style=\"\" src=\"https://pbs.twimg.com/media/HJP-tUObwAAE9IS?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
+      "title": "RT CSEINDIA: We are happy to announce the winners of the Summer Edition of 'My Food Story Contest'. From more than 80 entries received from across Ind...",
+      "link": "https://x.com/down2earthindia/status/2083155820347539691",
+      "date": "2026-07-31T11:37:36+00:00",
+      "tweet_id": "2083155820347539691",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjaeRfa8AAc90P?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CSEINDIA<br>We are happy to announce the winners of the Summer Edition of  'My Food Story Contest'.<br><br>From more than 80 entries received from across India, six stories stood out. Our Super Six come from different regions, cultures and culinary traditions, but they all shared one thing in common: a cherished summer memory brought to life through food.<br><br>Meet the winners and explore their recipes here: https://www.cseindia.org/savour-the-summer-the-winners-are-here--13197<br><br>Over the coming week, we will be featuring each of the winning recipes. Stay tuned!<br><br>Explore our My Food Story recipe dashboard here:https://www.cseindia.org/myfoodstory/index.html<br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HOjaeRfa8AAc90P?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "By Sorit Gupto",
+      "link": "https://x.com/down2earthindia/status/2083149154193420753",
+      "date": "2026-07-31T11:13:56+00:00",
+      "tweet_id": "2083149154193420753",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjVG48aAAAErLf?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "By Sorit Gupto<br><img width=\"1377\" height=\"1347\" style=\"\" src=\"https://pbs.twimg.com/media/HOjVG48aAAAErLf?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "The raging climate change-triggered heatwave in Europe has begun to affect the continent\u2019s nuclear energy sources after wreaking havoc by generating ...",
+      "link": "https://x.com/down2earthindia/status/2083147828491399357",
+      "date": "2026-07-31T11:08:39+00:00",
+      "tweet_id": "2083147828491399357",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjT5J5bAAAymrp?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The raging climate change-triggered heatwave in Europe has begun to affect the continent\u2019s nuclear energy sources after wreaking havoc by generating wildfires and drought.<br><br>https://www.downtoearth.org.in/energy/europes-heatwave-drought-and-wildfires-are-now-affecting-its-nuclear-power-plants<br><img width=\"1099\" height=\"683\" style=\"\" src=\"https://pbs.twimg.com/media/HOjT5J5bAAAymrp?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Parliament digest | July 30, 2026 From environmental clearances in protected areas and forest diversion proposals to El Ni\u00f1o, recycling capacity, Del...",
       "link": "https://x.com/down2earthindia/status/2083130433173381148",
       "date": "2026-07-31T09:59:32+00:00",
@@ -1271,46 +1313,18 @@
       "description_html": "\ud83d\udccc \u2018Wake-up call\u2019, say experts as India gets second lowest global ranking on Yale\u2019s environment performance index; also raise questions on methodology<br><br>\ud83d\udcccIndia, which has consistently remained among the worst-performing countries over the last decade, has done poorly on environmental health, air pollution, and biodiversity, but performed better in climate change<br><br>\ud83d\udd8a\ufe0f @jayantabasuenv <br><br>https://www.downtoearth.org.in/environment/wake-up-call-say-experts-as-india-gets-second-lowest-global-ranking-on-yales-environment-performance-index-also-raise-questions-on-methodology<br><img width=\"1091\" height=\"682\" style=\"\" src=\"https://pbs.twimg.com/media/HOdxJ_8a8AAJVtx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "Is this the new normal? Across July, three very different climatic phenomena have occurred over the \u2018Old World\u2019 of Afro-Eurasia. @PulahaRoy maps it ...",
-      "link": "https://x.com/down2earthindia/status/2082755682517041659",
-      "date": "2026-07-30T09:10:25+00:00",
-      "tweet_id": "2082755682517041659",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
+      "title": "Live concalls dashboard at @stockscansin Detailed Transcripts, Summary and sentiment analysis available within 5 mins of the concall ending here https...",
+      "link": "https://x.com/soicfinance/status/2083153266301628427",
+      "date": "2026-07-31T11:30:16+00:00",
+      "tweet_id": "2083153266301628427",
+      "source": "Intrinsic Compounding",
+      "publisher": "SOIC",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOdu93zbsAA9wao?format=jpg&name=orig",
+      "image": "https://pbs.twimg.com/media/HOjYrZJaAAA1Qr4?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "Is this the new normal? Across July, three very different climatic phenomena have occurred over the \u2018Old World\u2019 of Afro-Eurasia. @PulahaRoy maps it out<br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HOdu93zbsAA9wao?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "One year since the ICJ climate advisory opinion: UNEP urges stronger laws & active courts for a just transition https://www.downtoearth.org.in/environ...",
-      "link": "https://x.com/down2earthindia/status/2082746355425169599",
-      "date": "2026-07-30T08:33:21+00:00",
-      "tweet_id": "2082746355425169599",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOdmwMsaMAAoEae?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "One year since the ICJ climate advisory opinion: UNEP urges stronger laws &amp; active courts for a just transition https://www.downtoearth.org.in/environment/one-year-since-icj-climate-advisory-opinion-unep-urges-stronger-laws-active-courts-for-a-just-transition<br><img width=\"1254\" height=\"836\" style=\"\" src=\"https://pbs.twimg.com/media/HOdmwMsaMAAoEae?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "\ud83d\udcccDrought caused Late Bronze Age civilisations like Mycenaeans, Minoans and the Hittite Empire to collapse. Scientists now know how \ud83d\udcccAligning cli...",
-      "link": "https://x.com/down2earthindia/status/2082738217644884003",
-      "date": "2026-07-30T08:01:01+00:00",
-      "tweet_id": "2082738217644884003",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOdfWmcbIAAuDha?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\ud83d\udcccDrought caused Late Bronze Age civilisations like Mycenaeans, Minoans and the Hittite Empire to collapse. Scientists now know how<br><br>\ud83d\udcccAligning climate cycles pushed the Eastern Mediterranean where they were located beyond a critical threshold, according to a new paper<br><br>https://www.downtoearth.org.in/climate-change/drought-caused-late-bronze-age-civilisations-like-mycenaeans-minoans-and-the-hittite-empire-to-collapse-scientists-now-know-how<br><img width=\"1094\" height=\"685\" style=\"\" src=\"https://pbs.twimg.com/media/HOdfWmcbIAAuDha?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "Live concalls dashboard at @stockscansin <br><br>Detailed Transcripts, Summary and sentiment analysis available within 5 mins of the concall ending here<br><br>https://www.stockscans.in/concall-scans<br><img width=\"2048\" height=\"1151\" style=\"\" src=\"https://pbs.twimg.com/media/HOjYrZJaAAA1Qr4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Amazon's concall : If the demand isn't there , we won't spend the capital for servers and networking equipment . Demand visiblity from Hyperscalers co...",
@@ -1563,20 +1577,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "40% of Generic GLP1 drugs sold in India are manufactured at One Source Pharma's manufacturing site.<br><br>Interesting insight from the concall below<br><img width=\"2048\" height=\"1022\" style=\"\" src=\"https://pbs.twimg.com/media/HOI6zUtboAAXsx2?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "A short note on Precision Engineering in India and why is different vs normal manufacturing/engineering businesses? -Precision Manufacturing is concer...",
-      "link": "https://x.com/soicfinance/status/2081033635034267743",
-      "date": "2026-07-25T15:07:36+00:00",
-      "tweet_id": "2081033635034267743",
-      "source": "Intrinsic Compounding",
-      "publisher": "SOIC",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "A short note on Precision Engineering in India and why is different vs normal manufacturing/engineering businesses?<br><br>-Precision Manufacturing is concerned with manufacturing and assembling items with exceptionally low tolerance and are required to perform consistently over longer repeat cycles. <br><br>-Accuracy and margin of error are crucial for engineering and production. Any deviation in dimensions can lead to loss of performance or even catastrophic failure of the system.<br><br>-Precision manufacturing entails producing and assembling components with micron- level tolerances and high repeat-cycle reliability, typically involving long qualification cycles and significant upfront investment in tooling, and process capabilities.<br><br>-Unlike conventional engineering, precision manufacturing is a capital-intensive, long-cycle business, characterised by dependence on a few OEMs and lumpy revenue profiles. <br><br>-While Indian players have delivered strong growth in recent years, most remain sub-scale, typically with revenues below 1000 crores and PAT under Rs.150 crores. Scaling beyond this level requires continuous reinvestment in capacity, certifications, and customer-dedicated lines, largely funded so far through external capital.<br><br>-The shift in Indian Precision engineering industry is evident given the imports of CNC machines in India is growing at CAGR of 17% CAGR since Post covid.<br><br>-Aggregate revenues of Indian aerospace assemblers and component manufacturers have grown at a 20%+ CAGR over the last three years; despite this, India still accounts for &lt;1% of global commercial aerospace exports, underscoring a long runway for growth. <br><br>-Incrementally, Boeing and Airbus are targeting to double India sourcing over the next five years, while engine OEMs are accelerating JVs, deeper localisation, and the establishment of assembly lines.<br><br>-India Currently has less than 4% market share in Precision Engineering Industry in the world. <br><br>What constitutes of PM demand in India?<br><br>51%: Auto<br>14%: Aerospace &amp; Defence<br>12%: Engineered Goods<br>6%: Power<br>4%: Semicon<br>4%: Commercial Aviation<br>9%: Others like Oil&amp;Gas<br><br>Why is Precision Engineering hard to crack?<br><br>Precision manufacturing demands obsessive attention to detail for micron-level tolerances, zero-defect mindsets, and deep process know- how that only comes from engineers and operators who genuinely care about the craft. Success depends on continuous learning, repeated trials, and relentless quality discipline, where pride in execution matters as much as cost or speed.<br><br>It's like the CDMO business which requires deep domain knowledge and a multi year process of Qualifications. <br><br>How are the Unit Economics?<br><br>1. A Typical Precision engineering co can earn between 20-30% Ebitda Margins.<br><br>2. Asset turns are low at 0.8x to 1.5x.<br><br>3. Higher Working capital days at 150-200. <br><br>4. Roce at Maturity is between 15-25%.<br><br>Some Examples of Precision engineering companies in India<br><br>1. Azad Engineering in Turbines/Jet engines<br>2. Omnitech Engineering in Oil &amp; Gas consumables<br>3. Aequs in Aerospace &amp; Consumer parts<br>4. KDDL in Watches &amp; Aerospace<br>5. Sona BLW in Robotics<br>6. Indo MIM (upcoming IPO) in Aerospace &amp; Defence etc.<br>7. Sansera Engineering in Aerospace, Defence &amp; Semicon.<br>8. Motherson Sumi in Aerospace. <br>9. Tata Electronics in Electronics components for Apple.<br>10. Titan Engineering and Automation Limited (TEAL) for Aerospace &amp; Defence etc. <br><br>Many more such companies will emerge. It's our job as investors to keep a watch out for them.<br><br>As very few Indian businesses are working to crack Precision engineering at scale. One industry which one can watch out for the future given the nicheness &amp; barriers to entry here. <br><br>Disclaimer: No recommendation to buy or sell."
     },
     {
       "title": "SAP adopts Anthropic as a default reasoning vendor across its AI products. Don't confuse with code & coWork, that's not what it is. Just the LLM will ...",
@@ -2391,6 +2391,48 @@
       "description_html": "RT\u2002Capt Venkat \ud83c\uddee\ud83c\uddf3<br>My wife wasn\u2019t keen on online schooling or homeschooling Laksh.<br><br>I didn\u2019t argue.<br>Laksh and I kept building. Every day. For four years.<br><br>Today she says,<br>\u201cRegular school isn\u2019t helping him. Let\u2019s give him a better platform.\u201d<br><br>Consistency wins. \ud83d\ude07"
     },
     {
+      "title": "#ForexData | Total Reserves In Week-Ended July 24, Up $6.12 Bn At $682.35 Bn Foreign Currency Assets In Week-Ended July 24, Up $4.87 Bn At $555.93 Bn",
+      "link": "https://x.com/CNBCTV18Live/status/2083155846855610846",
+      "date": "2026-07-31T11:40:31+00:00",
+      "tweet_id": "2083155846855610846",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjbL1Za8AAL5k6?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#ForexData | Total Reserves In Week-Ended July 24, Up $6.12 Bn At $682.35 Bn<br><br>Foreign Currency Assets In Week-Ended July 24, Up $4.87 Bn At $555.93 Bn<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HOjbL1Za8AAL5k6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "Coming up @5 PM | #NewsCentre #CECAppointment Panel Row SC questions the exclusion of the #CJI from the panel. Centre defends the #CEC appointment law...",
+      "link": "https://x.com/CNBCTV18Live/status/2083153769500672131",
+      "date": "2026-07-31T11:32:16+00:00",
+      "tweet_id": "2083153769500672131",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjZTvjacAAWvJt?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Coming up @5 PM | #NewsCentre<br><br>#CECAppointment Panel Row<br><br>SC questions the exclusion of the #CJI from the panel. Centre defends the #CEC appointment law &amp; 3-member committee, saying elected institutions deserve trust.<br><br>@AshmitTejKumar discusses this with former CEC TS Krishnamurthy and senior advocate @sanjayuvacha<br><img width=\"1280\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HOjZTvjacAAWvJt?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "This #Delhi-#NCR #yarn maker expects profit to jump 30% in FY27 @sonalbhutra @VivekIyer72 https://www.cnbctv18.com/market/earnings/filatex-india-guide...",
+      "link": "https://x.com/CNBCTV18Live/status/2083143761958473788",
+      "date": "2026-07-31T10:52:30+00:00",
+      "tweet_id": "2083143761958473788",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "This #Delhi-#NCR #yarn maker expects profit to jump 30% in FY27<br><br>@sonalbhutra @VivekIyer72 <br><br>https://www.cnbctv18.com/market/earnings/filatex-india-guides-rs-4700-crore-revenue-sees-30-percent-profit-growth-fy27-q1-earnings-results-boardroom-crude-oil-prices-19958978.htm"
+    },
+    {
       "title": "#JustIn | April-June Fiscal Deficit At \u20b93.1 Lk Cr Vs \u20b92.81 Lk Cr (YoY)",
       "link": "https://x.com/CNBCTV18Live/status/2083141208487203039",
       "date": "2026-07-31T10:42:21+00:00",
@@ -2503,60 +2545,32 @@
       "description_html": "#1QWithCNBCTV18 | #Dixontech reports its Q1 results;<br><br>Net Profit At \u20b9663 Cr Vs CNBC-TV18 Poll Of \u20b9240 Cr <br><br>Revenue At \u20b915,548 Cr Vs CNBC-TV18 Poll Of \u20b914,769 Cr<br><br>EBITDA At \u20b9464 Cr Vs CNBC-TV18 Poll Of \u20b9499 Cr <br><br>Margin At 2.98% Vs CNBC-TV18 Poll Of 3.4%<br><img width=\"1290\" height=\"644\" style=\"\" src=\"https://pbs.twimg.com/media/HOjCAetaMAAUmBs?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "#SJVN Q1 revenue jumps 52%, but margin squeeze caps #Navratna PSU's profit @sheersh0510 https://www.cnbctv18.com/market/sjvn-q1-results-revenue-jumps-...",
-      "link": "https://x.com/CNBCTV18Live/status/2083127489652756847",
-      "date": "2026-07-31T09:47:50+00:00",
-      "tweet_id": "2083127489652756847",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "#ITC Q1 Results Standalone revenue grows 28% YoY to Rs 26,943 cr, but profit falls 27% #ETMarkets https://economictimes.indiatimes.com/markets/stocks/...",
+      "link": "https://x.com/ETMarkets/status/2083153806200868959",
+      "date": "2026-07-31T11:32:25+00:00",
+      "tweet_id": "2083153806200868959",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HOjZVmfbEAAJ1B0?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#SJVN Q1 revenue jumps 52%, but margin squeeze caps #Navratna PSU's profit<br><br>@sheersh0510 <br><br>https://www.cnbctv18.com/market/sjvn-q1-results-revenue-jumps-52-pc-margin-squeeze-caps-navratna-psu-profit-19958861.htm"
+      "description_html": "#ITC Q1 Results<br><br>Standalone revenue grows 28% YoY to Rs 26,943 cr, but profit falls 27%<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/stocks/earnings/itc-q1-results-standalone-profit-falls-27-yoy-to-rs-3579-crore-but-revenue-grows-28/articleshow/132765792.cms<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HOjZVmfbEAAJ1B0?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "GAIL Q1 Results: PSU stock jumps 4% on strong margin expansion; announces Konkan LNG merger @senmeghna https://www.cnbctv18.com/market/gail-q1-results...",
-      "link": "https://x.com/CNBCTV18Live/status/2083120106746663255",
-      "date": "2026-07-31T09:18:30+00:00",
-      "tweet_id": "2083120106746663255",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "#MarutiSuzuki Q1 Results Profit falls 11% YoY to Rs 3,352 crore; revenue rises 36% #ETMarkets https://economictimes.indiatimes.com/markets/stocks/earn...",
+      "link": "https://x.com/ETMarkets/status/2083153537010426276",
+      "date": "2026-07-31T11:31:21+00:00",
+      "tweet_id": "2083153537010426276",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HOjZF2AbAAAOWsw?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "GAIL Q1 Results: PSU stock jumps 4% on strong margin expansion; announces Konkan LNG merger<br><br>@senmeghna <br><br>https://www.cnbctv18.com/market/gail-q1-results-psu-stock-jumps-on-strong-margin-expansion-announces-konkan-lng-merger-19958799.htm"
-    },
-    {
-      "title": "#CNBCTV18Market | #Nifty50 slips below the 24,400 mark",
-      "link": "https://x.com/CNBCTV18Live/status/2083117497168101450",
-      "date": "2026-07-31T09:08:08+00:00",
-      "tweet_id": "2083117497168101450",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOi4AEjbcAAZcYT?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#CNBCTV18Market |  #Nifty50 slips below the 24,400 mark<br><img width=\"602\" height=\"335\" style=\"\" src=\"https://pbs.twimg.com/media/HOi4AEjbcAAZcYT?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "#1QWithCNBCTV18 | #SJVN reports its Q1 results: \ud83d\udc49Profit Down 1% At \u20b9225 Cr Vs \u20b9228 Cr (YoY) \ud83d\udc49Revenue Up 52% At \u20b91,394 Cr Vs \u20b9917 Cr (YoY) \ufffd...",
-      "link": "https://x.com/CNBCTV18Live/status/2083114844367270149",
-      "date": "2026-07-31T08:57:35+00:00",
-      "tweet_id": "2083114844367270149",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOi1qCSbMAAx0-W?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#1QWithCNBCTV18 | #SJVN reports its Q1 results:<br><br>\ud83d\udc49Profit Down 1% At \u20b9225 Cr Vs \u20b9228 Cr (YoY)<br><br>\ud83d\udc49Revenue Up 52% At \u20b91,394 Cr Vs \u20b9917 Cr (YoY)<br><br>\ud83d\udc49EBITDA Up 19% At \u20b9884 Cr Vs \u20b9742 Cr (YoY)<br><br>\ud83d\udc49Margin At 63% Vs 81% (YoY)<br><img width=\"608\" height=\"341\" style=\"\" src=\"https://pbs.twimg.com/media/HOi1qCSbMAAx0-W?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "#MarutiSuzuki Q1 Results<br>Profit falls 11% YoY to Rs 3,352 crore; revenue rises 36%<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/stocks/earnings/maruti-suzuki-q1-results-profit-falls-11-yoy-to-rs-3352-crore-despite-36-surge-in-revenue/articleshow/132765690.cms<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HOjZF2AbAAAOWsw?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "The Indian #rupee ended stronger on Friday, with persistent central bank interventions boosting the currency to its strongest weekly gain since March....",
@@ -2809,34 +2823,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#AI Boost: Amazon shares jump on blockbuster earnings, upbeat outlook<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/ai-boost-amazon-shares-jump-on-blockbuster-earnings-upbeat-outlook/amazon-crushes-q2-estimates-stock-jumps/slideshow/132758195.cms"
-    },
-    {
-      "title": "Global Market: Chinese tech stocks surge as AI optimism returns, policy support lifts markets #ETMarkets https://economictimes.indiatimes.com/markets/...",
-      "link": "https://x.com/ETMarkets/status/2083087767060594881",
-      "date": "2026-07-31T07:10:00+00:00",
-      "tweet_id": "2083087767060594881",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Global Market: Chinese tech stocks surge as AI optimism returns, policy support lifts markets<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-chinese-tech-stocks-surge-as-ai-optimism-returns-policy-support-lifts-markets/articleshow/132757656.cms"
-    },
-    {
-      "title": "Why did #Apple shares drop despite a stellar earnings beat #ETMarkets https://economictimes.indiatimes.com/markets/us-stocks/news/why-did-apple-shares...",
-      "link": "https://x.com/ETMarkets/status/2083082733740306903",
-      "date": "2026-07-31T06:50:00+00:00",
-      "tweet_id": "2083082733740306903",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Why did #Apple shares drop despite a stellar earnings beat<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/why-did-apple-shares-drop-despite-a-stellar-earnings-beat/apple-tops-estimates-but-investors-stay-cautious/slideshow/132757992.cms"
     },
     {
       "title": "DIXON margins down 3% vs 3.7% YoY Weak results",
@@ -3525,6 +3511,20 @@
       "description_html": "Sigh<br><img width=\"1502\" height=\"856\" style=\"\" src=\"https://pbs.twimg.com/media/HNo2-2vaQAAps0T?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Don't just read blue chip company concalls Read the smaller company concalls - A lot of great business knowledge is being shared there You would be su...",
+      "link": "https://x.com/aditya_kondawar/status/2083152395576766974",
+      "date": "2026-07-31T11:26:48+00:00",
+      "tweet_id": "2083152395576766974",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Don't just read blue chip company concalls <br><br>Read the smaller company concalls - A lot of great business knowledge is being shared there<br><br>You would be surprised to know how well these smaller company managements speak on their business and sector <br><br>Bullish on smaller companies for sure :)"
+    },
+    {
       "title": "Fun Fact - Mahindra & Mahindra (M&M), through its subsidiary Mahindra Aerostructures, is a global supplier contracted to manufacture the main fuselage...",
       "link": "https://x.com/aditya_kondawar/status/2083140365771747606",
       "date": "2026-07-31T10:39:00+00:00",
@@ -3789,20 +3789,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Aankh band karta hoon toh L&amp;T ko order mil jaata hain - <br><br>Memory Giant Micron picks L&amp;T for 2.75bn $ Sanand plant Phase 2 as general contractor (ATMP unit where Tata projects was the phase 1 contractor)<br><br>Today - L&amp;T Secures Framework Agreement (Ultra-Mega*) with TenneT for 2 GW Offshore Wind Programme - 15000 cr + order value, damn<br><br>Yesterday - The Residential, Commercial Buildings &amp; Factories (RCF) business vertical of L&amp;T secured a major order (Rs 5000-10000 cr) from a reputed client for a large-scale housing redevelopment project in Mumbai<br><br>Its order book is 7.4 lakh cr, and winning 50000 cr orders worth in just 24 hours is crazy! Also shows capex happening in India!<br><br>no reco"
-    },
-    {
-      "title": "Use Case of AI, Car trade Q4FY26 concall \u2013 \"We're moving to agentic AI with Elite Buyer. So it's got a very unique matchmaking tool, which has gone l...",
-      "link": "https://x.com/aditya_kondawar/status/2081983228353917290",
-      "date": "2026-07-28T06:00:57+00:00",
-      "tweet_id": "2081983228353917290",
-      "source": "Aditya Kondawar",
-      "publisher": "Aditya Kondawar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Use Case of AI, Car trade Q4FY26 concall \u2013<br><br>\"We're moving to agentic AI with Elite Buyer. So it's got a very unique matchmaking tool, which has gone live. So if you are looking to buy a product, it helps you find that product and match makes it to exactly what you want, which enables you to do transactions. <br><br>It's of course using what we call a matchmaking agent which has been built grounds up. It is moving also as we've disclosed earlier presentations to various other agents. <br><br>Suppose you're buying any used product, it will help you price it. So if you don't know what price to pay, it will instantly tell you what price you should pay for it. <br><br>And in many products, it will also give you a condition check. So what we're able to do today with photographic image recognition, we're able to judge condition\"<br><br>no reco"
     },
     {
       "title": "There's a lot of discussion about Energy Security. Not enough about Edible oil security. India imports 60% of all our seed oils, and 90% of Palm oils ...",
@@ -4407,6 +4393,20 @@
       "description_html": "RT\u2002SOIC Research<br>In just 3 years, ~72 MTPA of capacity changed hands -almost the same as ~82 MTPA over the entire FY12\u201322 decade. <br><br>That\u2019s not noise; that\u2019s a structural reset that\u2019s pushing the top-5 share toward ~62% by FY27 and hard-coding discipline into the sector\u2019s DNA.<br><br>Lets' try and understand how this boring sector is suddenly in the lime light<br><img width=\"335\" height=\"255\" style=\"\" src=\"https://pbs.twimg.com/media/G11SkjsWIAAW86N?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "World falling short on 22 of 23 nature targets for 2030, says draft UN report | @daisydunnesci @orladwyer_ @aruna_sekhar Read here: https://buff.ly/D2...",
+      "link": "https://x.com/CarbonBrief/status/2083148429765550168",
+      "date": "2026-07-31T11:11:03+00:00",
+      "tweet_id": "2083148429765550168",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjUdRiXAAA9glV?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "World falling short on 22 of 23 nature targets for 2030, says draft UN report | @daisydunnesci @orladwyer_ @aruna_sekhar<br><br>Read here: https://buff.ly/D2XVoGo<br><img width=\"1550\" height=\"1034\" style=\"\" src=\"https://pbs.twimg.com/media/HOjUdRiXAAA9glV?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Factcheck: No, Europe is not having its \u2018quietest\u2019 year for wildfires \u270d\ufe0f @GAViglione and @rtmcswee Read here: https://buff.ly/pDQGTR3",
       "link": "https://x.com/CarbonBrief/status/2083140624920772933",
       "date": "2026-07-31T10:40:02+00:00",
@@ -4671,20 +4671,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "28 quotes from new UK leader Andy Burnham on climate, net-zero and fossil fuels | @daisydunnesci @orladwyer_<br><br>Read here: https://buff.ly/KHPwaaw<br><img width=\"2048\" height=\"1365\" style=\"\" src=\"https://pbs.twimg.com/media/HOaucz4XMAEIqVN?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "UK withdraws millions in funding from world\u2019s second-largest rainforest in Congo \u270d\ufe0f Written by Josh Gabbatiss Read here \u27a1\ufe0f https://buff.ly/CfCfzo...",
-      "link": "https://x.com/CarbonBrief/status/2082537147156902201",
-      "date": "2026-07-29T18:42:02+00:00",
-      "tweet_id": "2082537147156902201",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOaof7tWMAAqpSH?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "UK withdraws millions in funding from world\u2019s second-largest rainforest in Congo <br><br>\u270d\ufe0f Written by Josh Gabbatiss <br><br>Read here \u27a1\ufe0f https://buff.ly/CfCfzoO<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HOaof7tWMAAqpSH?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Battery storage in the EU is set to QUADRUPLE from 43 GW in 2025 to 178 GW by 2030 \ud83d\udd0b This could enable far more wind and solar power to be absorbed...",
@@ -6157,6 +6143,20 @@
       "description_html": "Vedanta Iron &amp; Steel \ud83d\udc47<br><br>Good Q1FY27<br>- Revenue driven by higher volumes &amp; realizations<br>- EBITDA by stronger operational efficiency<br>-PAT boosted by lower debt, inter-company payable settlement <br><br>EBITDA/tn<br>Steel: \u20b95,864 vs \u20b93,668 YoY \ud83d\udcc8<br>Iron Ore: \u20b91,226 vs \u20b9992 YoY<br><br>Net debt reduced to \u20b92,733 cr<br>Stock trades at ~7x annualized EV/EBITDA<br><br>Big trigger ahead:  Steel capacity: 5 mtpa by FY29 vs 2.8 mtpa<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002#1QWithCNBCTV18 | #Vedanta Iron &amp; Steel reports its Q1 <br><br>Net Profit At \u20b9121 Cr Vs Loss Of \u20b91,939 Cr (QoQ)<br><br>Revenue Down 5.2% At \u20b93,662 Cr Vs \u20b93,863 Cr (QoQ)<br><br>EBITDA Down 8.1% At \u20b9508 Cr Vs \u20b9553 Cr (QoQ)<br><br>Margin At 14% Vs 14.3% (QoQ)<br><br><img width=\"1280\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HOZRIKKbIAAnJqI?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
+      "title": "This isn't what it seems All ndf positions are notionally counted but because it's non deliverable it's not an actual exposure. Also all the swaps tha...",
+      "link": "https://x.com/deepakshenoy/status/2083144280550330511",
+      "date": "2026-07-31T10:54:34+00:00",
+      "tweet_id": "2083144280550330511",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOhMVUcbIAE5xch?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "This isn't what it seems<br><br>All ndf positions are notionally counted but because it's non deliverable it's not an actual exposure.<br><br>Also all the swaps that have come in now will be (deliverable) forward sales. So expect this number to increase.<div class=\"rsshub-quote\"><br><br>Patterns:\u2002JUST IN: \ud83c\uddee\ud83c\uddf3 RBI is holding a $106 billion short US dollar forward position to defend Rupee fall <br><br>\u2022 Largest short position in the data going back to 2023<br><br><img width=\"2048\" height=\"865\" style=\"\" src=\"https://pbs.twimg.com/media/HOhMVUcbIAE5xch?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
+    },
+    {
       "title": "I had COVID in end March 2021. I was prescribed Ivermectin. No remdesavir... Was told specifically it was not required unless things got substantially...",
       "link": "https://x.com/deepakshenoy/status/2082801975293329760",
       "date": "2026-07-30T12:14:22+00:00",
@@ -6379,20 +6379,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "The Economist does to India all the time, peddling stuff that isn't true, so I'm glad they are getting to face it on the other side.<div class=\"rsshub-quote\"><br><br>Squawk Box:\u2002.@TheEconomist Editor-In-Chief @zannymb on her wide-ranging interview with @elonmusk:<br>\"It's irresponsible for someone who has 240 million followers to propagate things that are simply not true.\" https://cnb.cx/4fz6t0A<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2080655091355258880/vid/avc1/1280x720/no_MZsJJenkxU5VY.mp4?tag=14\" controls=\"controls\" poster=\"https://pbs.twimg.com/media/HN_4z2oXQAASu31?format=jpg&amp;name=orig\"></video></div>"
-    },
-    {
-      "title": "Didn't notice this till now in the Sebi pms consultation paper but thank you. I did an mba just to comply with the 2020 regulation that required a deg...",
-      "link": "https://x.com/deepakshenoy/status/2081256413528010967",
-      "date": "2026-07-26T05:52:51+00:00",
-      "tweet_id": "2081256413528010967",
-      "source": "Deepak Shenoy",
-      "publisher": "Deepak Shenoy",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOIbq_9aQAAd2aL?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Didn't notice this till now in the Sebi pms consultation paper but thank you. I did an mba just to comply with the 2020 regulation that required a degree in finance or such. Now they have removed the need thank goodness<br><img width=\"792\" height=\"592\" style=\"\" src=\"https://pbs.twimg.com/media/HOIbq_9aQAAd2aL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT ANI: #WATCH | Mumbai, Maharashtra: Speaking on how much Fed pauses and Bank of Japan moves restrict the RBI's headroom to cut rates in India, CareE...",
@@ -6661,6 +6647,20 @@
       "description_html": "RT\u2002ANI<br>#WATCH | Mumbai, Maharashtra | CareEdge Ratings Chief Economist Rajani Sinha says, \u201cIf you look at the latest data, the trade deficit has widened in June, and it's because of all components. It's not just oil imports which flared up in June, but it's also because of a sharp increase in non-oil imports and also because of a rise in gold imports\u2026 I would say that while trade deficit we expect it to remain high, overall we expect CAD (Current Account Deficit) to still remain comfortable\u2026 Overall exports have grown by a good 16%. The important point to note is that the very good growth in non-oil imports is a good indication\u2026 We are expecting CAD in the range of 0.8 to 1.2% of GDP, which basically means that we are factoring in good growth in goods exports. We expect a healthy momentum in services exports to continue, and also remittances have remained healthy. So broadly, I would say that even with trade widening and trade deficit widening, I don't find it very concerning. CAD is likely to remain in the range of 0.8 to 1.2% of GDP in FY27.\u201d<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2076992943819493376/vid/avc1/1920x1080/ZH2ZGGk68SFWpcLD.mp4?tag=28\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2076992943819493376/img/n6MHDr9eO-gkunIU.jpg\"></video>"
     },
     {
+      "title": "BIG OIL 2Q EARNINGS: @Chevron comfortably beats expectations, with net income of >$12 billion in part thanks to what CEO Mike Wirth described as \"exce...",
+      "link": "https://x.com/JavierBlas/status/2083147786736869830",
+      "date": "2026-07-31T11:08:30+00:00",
+      "tweet_id": "2083147786736869830",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjTlowWYAAD7Hs?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BIG OIL 2Q EARNINGS: @Chevron comfortably beats expectations, with net income of &gt;$12 billion in part thanks to what CEO Mike Wirth described as \"exceptional reliability across key assets\" (the company run its refineries very, very strongly). Good progress in cost cutting.<br><img width=\"1233\" height=\"591\" style=\"\" src=\"https://pbs.twimg.com/media/HOjTlowWYAAD7Hs?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "In June, the 2nd largest oil supplier to Japan was the US. \ud83e\udd2f (About 1/3 of all the oil that Japan imported last month came from the US.)",
       "link": "https://x.com/JavierBlas/status/2083107040214343700",
       "date": "2026-07-31T08:26:35+00:00",
@@ -6913,18 +6913,32 @@
       "description_html": "US military @CENTCOM says that \"since early May,\" it has assisted \"shipments totaling 500 million barrels of crude oil in transiting\" the Strait of Hormuz.<br><br>If calculating it from, to be safe, May 1 to date, that's 89 days, or ~5.6 million barrels a day via the Strait of Hormuz."
     },
     {
-      "title": "CHART OF THE DAY: Iran is trying to impose an intolerable economic cost on Trump via oil prices. by shutting Hormuz. For now, not only oil prices have...",
-      "link": "https://x.com/JavierBlas/status/2082498171502989740",
-      "date": "2026-07-29T16:07:09+00:00",
-      "tweet_id": "2082498171502989740",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
+      "title": "Data centres vs housing: how London became a central battleground https://ft.trib.al/Id2wHTA",
+      "link": "https://x.com/ftenergy/status/2083154225597423722",
+      "date": "2026-07-31T11:34:05+00:00",
+      "tweet_id": "2083154225597423722",
+      "source": "FT Energy",
+      "publisher": "FT Energy",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOaEW7YWcAAVyVJ?format=png&name=orig",
+      "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "CHART OF THE DAY: Iran is trying to impose an intolerable economic cost on Trump via oil prices.  by shutting Hormuz.<br><br>For now, not only oil prices haven't risen enough in nominal terms to do so, but adjusted by inflation remain at levels that can only be described as moderate.<br><img width=\"1594\" height=\"871\" style=\"\" src=\"https://pbs.twimg.com/media/HOaEW7YWcAAVyVJ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "Data centres vs housing: how London became a central battleground https://ft.trib.al/Id2wHTA"
+    },
+    {
+      "title": "Chevron and Exxon earnings soar as Trump threatens price interventions https://ft.trib.al/IZwWnYN",
+      "link": "https://x.com/ftenergy/status/2083154222246146375",
+      "date": "2026-07-31T11:34:04+00:00",
+      "tweet_id": "2083154222246146375",
+      "source": "FT Energy",
+      "publisher": "FT Energy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Chevron and Exxon earnings soar as Trump threatens price interventions https://ft.trib.al/IZwWnYN"
     },
     {
       "title": "Coal back in favour as US plant bidding war highlights rising demand to power AI https://ft.trib.al/iIytwS1",
@@ -7177,34 +7191,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Nuclear revival needs $250bn a year, industry says https://ft.trib.al/neOaVIT"
-    },
-    {
-      "title": "Rio Tinto buoyant on AI demand for metals as earnings soar https://ft.trib.al/ZQ5o0hL",
-      "link": "https://x.com/ftenergy/status/2082278673529368732",
-      "date": "2026-07-29T01:34:57+00:00",
-      "tweet_id": "2082278673529368732",
-      "source": "FT Energy",
-      "publisher": "FT Energy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Rio Tinto buoyant on AI demand for metals as earnings soar https://ft.trib.al/ZQ5o0hL"
-    },
-    {
-      "title": "World\u2019s biggest EV battery maker pivots to AI, grids and ships https://ft.trib.al/FmgEYoJ",
-      "link": "https://x.com/ftenergy/status/2082222013494542452",
-      "date": "2026-07-28T21:49:48+00:00",
-      "tweet_id": "2082222013494542452",
-      "source": "FT Energy",
-      "publisher": "FT Energy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "World\u2019s biggest EV battery maker pivots to AI, grids and ships https://ft.trib.al/FmgEYoJ"
     },
     {
       "title": "Credit growth continues to tick up, Migration from India slows down, Services exports continue to remain resilient and Wireless subscriber additions c...",
@@ -8439,6 +8425,34 @@
       "description_html": "RT\u2002CNBC-TV18<br>#1QWithCNBCTV18 | #TamilnadMercantile Q1<br><br>--Net Profit Up 35% At Rs 411.5 Cr  Vs Rs 305 Cr (YoY)<br>--NII Up 32% At Rs 765.4 Cr Vs Rs 579 Cr (YoY)<br>--Gross NPA At 0.69% Vs 0.73% QoQ<br>--Net NPA At 0.17% Vs 0.18% QoQ<br>--Provisions At Rs 54 Cr Vs  Rs 19 Cr QoQ &amp; Vs Rs 8 Cr YoY<br><img width=\"611\" height=\"338\" style=\"\" src=\"https://pbs.twimg.com/media/HOOGx9PbcAASHdn?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "RT ValueEquity: Indegene Q1FY27 concall notes , my notes from the call concluded early this morning Margins normalization in H2 , seeing good growth c...",
+      "link": "https://x.com/EquityValueIn/status/2083153858914927004",
+      "date": "2026-07-31T11:00:01+00:00",
+      "tweet_id": "2083153858914927004",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjGKl7aoAApz1Y?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002ValueEquity<br>Indegene Q1FY27 concall notes , my notes from the call concluded early this morning <br><br>Margins normalization in H2 , seeing good growth coming back as deals reach ramp up phase , integration of AI is almost into all of our offerings and we are seeing customer level engagements also improve on adoption , it is there but it is not as fast as people think in the Pharma space , company constantly focusing on deepening wallet shares with the top and new incremental customers <br><br>disc: this is not investment advice or financial reco, this is just notes on public information , consider me biased , do your own due diligence<br><img width=\"595\" height=\"646\" style=\"\" src=\"https://pbs.twimg.com/media/HOjGKl7aoAApz1Y?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Indegene Q4FY26 concall notes , my notes from the call concluded <br><br>disc: biased , no reco , no financial advice<br><br><img width=\"596\" height=\"472\" style=\"\" src=\"https://pbs.twimg.com/media/HHI6GfQbgAAiX_8?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"615\" height=\"370\" style=\"\" src=\"https://pbs.twimg.com/media/HHI6GjJaQAAba7l?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
+    },
+    {
+      "title": "Indegene Q1FY27 concall notes , my notes from the call concluded early this morning Margins normalization in H2 , seeing good growth coming back as de...",
+      "link": "https://x.com/EquityValueIn/status/2083145652117332436",
+      "date": "2026-07-31T11:00:01+00:00",
+      "tweet_id": "2083145652117332436",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjGKl7aoAApz1Y?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Indegene Q1FY27 concall notes , my notes from the call concluded early this morning <br><br>Margins normalization in H2 , seeing good growth coming back as deals reach ramp up phase , integration of AI is almost into all of our offerings and we are seeing customer level engagements also improve on adoption , it is there but it is not as fast as people think in the Pharma space , company constantly focusing on deepening wallet shares with the top and new incremental customers <br><br>disc: this is not investment advice or financial reco, this is just notes on public information , consider me biased , do your own due diligence<br><img width=\"595\" height=\"646\" style=\"\" src=\"https://pbs.twimg.com/media/HOjGKl7aoAApz1Y?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Indegene Q4FY26 concall notes , my notes from the call concluded <br><br>disc: biased , no reco , no financial advice<br><br><img width=\"596\" height=\"472\" style=\"\" src=\"https://pbs.twimg.com/media/HHI6GfQbgAAiX_8?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"615\" height=\"370\" style=\"\" src=\"https://pbs.twimg.com/media/HHI6GjJaQAAba7l?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
+    },
+    {
       "title": "Intellect , overall decent set , some key milestones being crossed ,again a story of internals being better than the Numbers Cash and Cash equivalents...",
       "link": "https://x.com/EquityValueIn/status/2083126232406012197",
       "date": "2026-07-31T09:42:51+00:00",
@@ -8451,6 +8465,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Intellect , overall decent set , some key milestones being crossed ,again a story of internals being better than the Numbers <br><br>Cash and Cash equivalents are INR 1269 Cr as against INR 976 Cr in Q1 FY26<br><br>eMACH .ai accelerates growth with 19 new customers choosing Intellect for their AI-first transformation journey <br><br>License-linked revenue (License + Platform + AMC) is INR 457 Cr as against INR 389 Cr in Q1 FY26<br><br>Overall ME region is growing well for them , it will be important to see what commentary is on emach and Purple fabric commercial level , call notes at 6 pm<br><img width=\"675\" height=\"787\" style=\"\" src=\"https://pbs.twimg.com/media/HOi_X6UaEAAlqfZ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"653\" height=\"822\" style=\"\" src=\"https://pbs.twimg.com/media/HOi_wYJaIAA5kqg?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "RT ValueEquity: 100% true , do not buy /sell on one quarter blips or suprises , always give the structural story of the earnings in the context of the...",
+      "link": "https://x.com/EquityValueIn/status/2083154451305828490",
+      "date": "2026-07-31T09:38:39+00:00",
+      "tweet_id": "2083154451305828490",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002ValueEquity<br>100% true , do not buy /sell on one quarter blips or suprises , always give the structural story of the earnings  in the context of the thesis and incremental ability to sustain or grow more importance than one quarter surprise/miss<br><br>There is a new rise of quarter investors whose average time period is one to two quarters , yes it can give you excitement , but will not give you any real returns to move the needle in your net worth ! <br><br>Focus on mapping real structural growth and profit pools , stay away from market commentators who call themselves analysts !<div class=\"rsshub-quote\"><br><br>Prabhakar Kudva:\u2002The \"PEAD\" or \"earnings surprise\"  investors who are  selling stocks based QoQ declines or price action post earnings, will be learning some expensive lessons. So many examples in the last one month.<br><br>Buying an earnings surprise and selling one are completely different playbooks.<br></div>"
     },
     {
       "title": "100% true , do not buy /sell on one quarter blips or suprises , always give the structural story of the earnings in the context of the thesis and incr...",
@@ -8675,48 +8703,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002ValueEquity<br>MTAR Technologies Q1FY27 concall notes , my notes from the call just concluded this morning  <br><br>disc: this is no buy/sell recommendation or financial advice ,do your own due diligence and research , just notes on public information<br><img width=\"597\" height=\"618\" style=\"\" src=\"https://pbs.twimg.com/media/HOdMM1LbYAA36gL?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002MTAR Technologies Q4FY26 concall notes , my notes from the call this morning<br><br><img width=\"601\" height=\"428\" style=\"\" src=\"https://pbs.twimg.com/media/HIMr_5-bAAAvsAg?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"628\" height=\"442\" style=\"\" src=\"https://pbs.twimg.com/media/HIMtFGFaYAEZ8K_?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "MTAR Technologies Q1FY27 concall notes , my notes from the call just concluded this morning disc: this is no buy/sell recommendation or financial advi...",
-      "link": "https://x.com/EquityValueIn/status/2082717338684760242",
-      "date": "2026-07-30T06:38:03+00:00",
-      "tweet_id": "2082717338684760242",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOdMM1LbYAA36gL?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "MTAR Technologies Q1FY27 concall notes , my notes from the call just concluded this morning  <br><br>disc: this is no buy/sell recommendation or financial advice ,do your own due diligence and research , just notes on public information<br><img width=\"597\" height=\"618\" style=\"\" src=\"https://pbs.twimg.com/media/HOdMM1LbYAA36gL?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002MTAR Technologies Q4FY26 concall notes , my notes from the call this morning<br><br><img width=\"601\" height=\"428\" style=\"\" src=\"https://pbs.twimg.com/media/HIMr_5-bAAAvsAg?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"628\" height=\"442\" style=\"\" src=\"https://pbs.twimg.com/media/HIMtFGFaYAEZ8K_?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "Samvardhana Motherson International has seen more than 3x growth in their Aerospace business Expanded product portfolio across platforms, securing ord...",
-      "link": "https://x.com/EquityValueIn/status/2082689538556936588",
-      "date": "2026-07-30T04:47:35+00:00",
-      "tweet_id": "2082689538556936588",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOcy595bsAA9pBl?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Samvardhana Motherson International has seen more than 3x growth in their Aerospace business   Expanded product portfolio across platforms, securing orders for metallic parts, subassemblies and wiring harnesses in business jets and rotary-wing aircrafts, they are still in the lower tier of business , but it will be interesting to see how they will grow in this space , certifications and capability depth , aerospace business needs time to build !<br><br>Now again we will be tracking capability depth here to see if they are able to get that higher quality business !<br><img width=\"900\" height=\"447\" style=\"\" src=\"https://pbs.twimg.com/media/HOcy595bsAA9pBl?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Indegene , my annual report notes , numbers today !",
-      "link": "https://x.com/EquityValueIn/status/2082688534918709648",
-      "date": "2026-07-30T04:43:35+00:00",
-      "tweet_id": "2082688534918709648",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HNgxSugbkAAJjcq?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Indegene , my annual report notes , numbers today !<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Indegene , reading this annual report today , some key notes and insights <br><br>1) AI in life sciences is not a horizontal technology problem. It is a deeply domain-intensive one. Every workflow is regulated. Every decision must be auditable. Every output is accountable to a patient.<br><br><img width=\"1540\" height=\"839\" style=\"\" src=\"https://pbs.twimg.com/media/HNgxSugbkAAJjcq?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"717\" height=\"827\" style=\"\" src=\"https://pbs.twimg.com/media/HNgy6HOaUAA3MwY?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1140\" height=\"850\" style=\"\" src=\"https://pbs.twimg.com/media/HNgz7YOaIAEXfLf?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"805\" height=\"693\" style=\"\" src=\"https://pbs.twimg.com/media/HNg1yDwb0AIeiG5?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
       "title": "Every once in a while, an SME company completely surprises you with its execution. Monolithish is proving to be one of those rare outliers. \ud83e\uddf5 What ...",
@@ -9993,6 +9979,48 @@
       "description_html": "Reliance vs Starlink<br><br>If you're wondering where Starlink-like LEO satellites fit into Reliance's strategy and why they are investing in this segment so heavily<br><br>Answer is last mile connectivity for broadband business, especially rural India<br><img width=\"657\" height=\"628\" style=\"\" src=\"https://pbs.twimg.com/media/HLFDy3ZbYAAqTjJ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "RAM RATNA WIRES: Q1 CONS NET PROFIT 352M RUPEES VS 155M (YOY) RAM RATNA WIRES: Q1 REVENUE 18.53B RUPEES VS 9.8B (YOY) RAM RATNA WIRES: Q1 EBITDA 896M ...",
+      "link": "https://x.com/REDBOXINDIA/status/2083155932507435130",
+      "date": "2026-07-31T11:40:52+00:00",
+      "tweet_id": "2083155932507435130",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RAM RATNA WIRES: Q1 CONS NET PROFIT 352M RUPEES VS 155M (YOY)<br><br>RAM RATNA WIRES: Q1 REVENUE 18.53B RUPEES VS 9.8B (YOY)<br><br>RAM RATNA WIRES: Q1 EBITDA 896M RUPEES VS 429M (YOY) || Q1 EBITDA MARGIN 4.83% VS 4.36% (YOY)"
+    },
+    {
+      "title": "MARUTI SUZUKI: Q1 SL NET PROFIT 33.52B RUPEES VS 37.1B (YOY); EST 32.64B MARUTI SUZUKI: Q1 REVENUE 524.56B RUPEES VS 384B (YOY); EST 525.8B MARUTI SUZ...",
+      "link": "https://x.com/REDBOXINDIA/status/2083149853715230925",
+      "date": "2026-07-31T11:16:42+00:00",
+      "tweet_id": "2083149853715230925",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "MARUTI SUZUKI: Q1 SL NET PROFIT 33.52B RUPEES VS 37.1B (YOY); EST 32.64B<br><br>MARUTI SUZUKI: Q1 REVENUE 524.56B RUPEES VS 384B (YOY); EST 525.8B<br><br>MARUTI SUZUKI: Q1 EBITDA 43.11B RUPEES VS 39.95B (YOY); EST 51.7B || Q1 EBITDA MARGIN 8.22% VS 10.4% (YOY); EST 9.8%"
+    },
+    {
+      "title": "ITC: Q1 SL NET PROFIT 35.79B RUPEES VS 49B (YOY); EST 40B ITC: Q1 REVENUE 169.1B RUPEES VS 197B (YOY); EST 173.6B ITC: Q1 EBITDA 45.14B RUPEES VS 63B ...",
+      "link": "https://x.com/REDBOXINDIA/status/2083148380017136087",
+      "date": "2026-07-31T11:10:51+00:00",
+      "tweet_id": "2083148380017136087",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "ITC: Q1 SL NET PROFIT 35.79B RUPEES VS 49B (YOY); EST 40B<br><br>ITC: Q1 REVENUE 169.1B RUPEES VS 197B (YOY); EST 173.6B <br><br>ITC: Q1 EBITDA 45.14B RUPEES VS 63B (YOY); EST 49.66B || Q1 EBITDA MARGIN 26.70% VS 31.7% (YOY); EST 28.6%"
+    },
+    {
       "title": "INDIA INFORMATION MINISTER: CABINET APPROVES 3.16T RUPEES TOWARDS FARMER CASH HANDOUT",
       "link": "https://x.com/REDBOXINDIA/status/2083141621286396395",
       "date": "2026-07-31T10:44:00+00:00",
@@ -10229,48 +10257,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "ZUARI AGRO CHEMICALS: Q1 CONS NET PROFIT 1.2B RUPEES VS 1.3B (YOY)<br><br>ZUARI AGRO CHEMICALS: Q1 EBITDA 591M RUPEES VS 1.4B (YOY) || Q1 EBITDA MARGIN 9.6% VS 11.3% (YOY)"
-    },
-    {
-      "title": "TATA STEEL: TV NARENDRAN SAYS EBITDA/TONNE WILL DIP IN Q2FY27 BUT VOLUME WILL BE HIGHER IN INDIA QOQ - TV INTERVIEWS",
-      "link": "https://x.com/REDBOXINDIA/status/2083102412160868850",
-      "date": "2026-07-31T08:08:11+00:00",
-      "tweet_id": "2083102412160868850",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "TATA STEEL: TV NARENDRAN SAYS EBITDA/TONNE WILL DIP IN Q2FY27 BUT VOLUME WILL BE HIGHER IN INDIA QOQ - TV INTERVIEWS"
-    },
-    {
-      "title": "VOLTAMP TRANSFORMERS: Q1 SL NET PROFIT 912M RUPEES VS 795M (YOY) VOLTAMP TRANSFORMERS: Q1 EBITDA 803M RUPEES VS 726M (YOY) || Q1 EBITDA MARGIN 14.77% ...",
-      "link": "https://x.com/REDBOXINDIA/status/2083101234098319398",
-      "date": "2026-07-31T08:03:31+00:00",
-      "tweet_id": "2083101234098319398",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "VOLTAMP TRANSFORMERS: Q1 SL NET PROFIT 912M RUPEES VS 795M (YOY)<br><br>VOLTAMP TRANSFORMERS: Q1 EBITDA 803M RUPEES VS 726M (YOY) || Q1 EBITDA MARGIN 14.77% VS 17.2% (YOY)"
-    },
-    {
-      "title": "GUJARAT MINERAL DEVELOPMENT CORPORATION: Q1 CONS NET PROFIT 1.63B RUPEES VS 1.64B (YOY) GUJARAT MINERAL DEVELOPMENT CORPORATION: Q1 EBITDA 1.9B RUPEES...",
-      "link": "https://x.com/REDBOXINDIA/status/2083099626811650301",
-      "date": "2026-07-31T07:57:07+00:00",
-      "tweet_id": "2083099626811650301",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "GUJARAT MINERAL DEVELOPMENT CORPORATION: Q1 CONS NET PROFIT 1.63B RUPEES VS 1.64B (YOY)<br><br>GUJARAT MINERAL DEVELOPMENT CORPORATION: Q1 EBITDA 1.9B RUPEES VS 1.7B (YOY) || Q1 EBITDA MARGIN 21.1% VS 23.1% (YOY)"
     },
     {
       "title": "14% Of GDP Is The Number To Doubt Corporate profit share has never stayed at these levels. Either labour, competition or tax eventually takes it back,...",
@@ -10819,6 +10805,34 @@
       "description_html": "Glaring and growing inequalities. The system finds it easier to offer identity-based politics as an opiate, than what is most important for millions of hard pressed people: The hope of a better future. Inimitable TN Ninan in \u2066@bsindia\u2069<br><img width=\"1161\" height=\"1203\" style=\"\" src=\"https://pbs.twimg.com/media/HN9qx8waEAA31Oq?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Urban Company says it expects 30\u201340 transactions per household per year (3 per month) for its instant home services business in steady state. \"For mo...",
+      "link": "https://x.com/madhavchanchani/status/2083146656183181697",
+      "date": "2026-07-31T11:04:00+00:00",
+      "tweet_id": "2083146656183181697",
+      "source": "Madhav Chanchani",
+      "publisher": "Madhav Chanchani",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjP6FhaEAAa0Wa?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Urban Company says it expects 30\u201340 transactions per household per year (3 per month) for its instant home services business in steady state. <br><br>\"For most households, the service is likely to remain a backup rather than a daily default, primarily due to pricing,\" it says in the shareholder letter.<br><br>Offline help costs Rs 80\u2013120 an hour, while price online will be Rs 200 an hour, according to its estimates.<br><br>Overall, size of the market is expected at Rs 7,000-8,000 crore across top 15 metros.<br><br>For context, rivals Snabbit and Pronto have collectively raised over $170 million (over Rs 1,600 crore) over the last two years.<br><img width=\"908\" height=\"414\" style=\"\" src=\"https://pbs.twimg.com/media/HOjP6FhaEAAa0Wa?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "Urban Company's instant home services biz saw adjusted EBITDA loss of Rs 132 crore in April-June, up 11% from Rs 119 crore in Jan-March quarter. AOV w...",
+      "link": "https://x.com/madhavchanchani/status/2083142576094482480",
+      "date": "2026-07-31T10:47:47+00:00",
+      "tweet_id": "2083142576094482480",
+      "source": "Madhav Chanchani",
+      "publisher": "Madhav Chanchani",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOjOBF3bAAAVYCn?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Urban Company's instant home services biz saw adjusted EBITDA loss of Rs 132 crore in April-June, up 11% from Rs 119 crore in Jan-March quarter.<br><br>AOV went down amid high competition as co says it is \"prioritising market leadership over everything else.\"<br><br>Instahelp's metrics \ud83d\udc47<br><img width=\"920\" height=\"476\" style=\"\" src=\"https://pbs.twimg.com/media/HOjOBF3bAAAVYCn?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>The Arc:\u2002\ud83d\udea8 Urban Company\u2019s operating revenue rose 44% YoY and 24% QoQ to Rs 528 crore in Q1 FY27.<br><br>It reported a net loss of Rs 92 crore versus a profit of Rs 7 crore a year earlier. <br><br>Sequentially, the loss narrowed 43% from Rs 161 crore.<br><br>Detailed numbers \ud83d\udc47<br><br><img width=\"952\" height=\"612\" style=\"\" src=\"https://pbs.twimg.com/media/HOjMe7YboAAV1S_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"936\" height=\"770\" style=\"\" src=\"https://pbs.twimg.com/media/HOjMe7Yb0AAWh6r?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
+    },
+    {
       "title": "RT The Arc: \ud83d\udea8 Shadowfax\u2019s operating revenue jumped 65% YoY and 10% QoQ to Rs 1,358 crore in Q1 FY27. Net profit surged over 8x YoY and 17% QoQ to ...",
       "link": "https://x.com/madhavchanchani/status/2083131819516649507",
       "date": "2026-07-31T07:21:45+00:00",
@@ -11055,34 +11069,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Paras Chopra<br>I\u2019ve said this before and I\u2019ll say it again:<br><br>Using LLMs-written content professionally will spoil your career, especially if you\u2019re in early stages. Everyone worth their salt that I know is hugely aversive to reading slop and despite your smart attempts, they can sense signatures of AI writing (even if they can\u2019t articulate what gave it away).<br><br>When you delegate writing, you delegate thinking and that delegation takes away from you the very thing you need for your future career advancement: careful thinking.<br><br>I often hear.. \u201cbut my writing is bad\u201d. Well, if you keep on delegating, how will it get better? It\u2019s like complaining that you don\u2019t go to gym because you\u2019re unfit.<br><br>Write the first damn draft yourself and then take feedback from AI. Do not ask it to rewrite, but rather ask it point errors and suggestions for improvement.<br><br>Writing using LLMs is analogous to binge watching short videos, or eating junk food. Pleasurable dopamine hits in the short term, but complete dependence in the long term."
-    },
-    {
-      "title": "RT Pratik Bhakta: Pine Labs is eyeing the meal voucher/expense card and employee gift card space. Coming up: Pine Labs vs Pluxee (Sodexo) vs Zaggle CE...",
-      "link": "https://x.com/madhavchanchani/status/2082310074522026400",
-      "date": "2026-07-29T03:38:58+00:00",
-      "tweet_id": "2082310074522026400",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOUmQUnbsAAkjMh?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Pratik Bhakta<br>Pine Labs is eyeing the meal voucher/expense card and employee gift card space.<br><br>Coming up: Pine Labs vs Pluxee (Sodexo) vs Zaggle<br><br>CEO Amrish Rau: Pine Labs can win in this space because of two major factors:<br><br>1. Major presence in the grocery/supermarket/fuel merchant segments<br><br>2. Pine Labs has steadily become stronger in the issuing side. The issuing biz saw a 30% on-year growth in revenue to Rs 237 crore.<div class=\"rsshub-quote\"><br><br>Pratik Bhakta:\u2002Pine Labs June quarter FY27  net profit up 4-times to Rs 19.5 crore. <br><br>What worked?<br><br>\ud83d\udc49Revenue up almost 20% on-year to Rs 736 crore<br><br>\ud83d\udc49Control over employee expenses (down 8%)<br><br>\ud83d\udc49Operating expenses under check: Indirect costs fell to 55% of revenue, compared with 62% a year ago<br><br><img width=\"1370\" height=\"938\" style=\"\" src=\"https://pbs.twimg.com/media/HOUmQUnbsAAkjMh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "RT Patrick OShaughnessy: Sam on Kimi, distillation, and open source: \u201cI have always assumed that there are going to be great cheap models in the worl...",
-      "link": "https://x.com/madhavchanchani/status/2082137437099471278",
-      "date": "2026-07-28T14:02:02+00:00",
-      "tweet_id": "2082137437099471278",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2082103680946343936/img/KjlQyj64WBZ4a5e0.jpg",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Patrick OShaughnessy<br>Sam on Kimi, distillation, and open source:<br><br>\u201cI have always assumed that there are going to be great cheap models in the world, and we better be the greatest and the cheapest.<br><br>You get a better deal today, at least at a particular latency, using OpenAI's models than Kimi. We distill our own models. That\u2019s how we make smaller, cheaper models. That\u2019s a very good thing to do.<br><br>There will clearly be an important place for open source models in the world and people that will want their own weights.<br><br>We have so much usage of our models that we do not need to be a gigantically high-margin business to be able to afford model training.<br><br>I would rather people not distill from us, for sure. But this is not in my top ten list of worries.\u201d<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2082103680946343936/vid/avc1/1920x1080/wn8y8-PerUJo8dgB.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2082103680946343936/img/KjlQyj64WBZ4a5e0.jpg\"></video><div class=\"rsshub-quote\"><br><br>Patrick OShaughnessy:\u2002My conversation with Sam Altman (@sama), CEO of OpenAI.<br><br>We discuss:<br>- Kimi, distillation, and open source<br>- OpenAI's compute bets<br>- The Hugging Face incident<br>- What happens after AGI<br>- Raising kids in an age of abundant intelligence<br>- And much more<br><br>Enjoy!<br><br>TIMESTAMPS<br>0:00 Intro<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2081859137906888705/vid/avc1/1920x1080/p5xJnXIvkyP42PxJ.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2081859137906888705/img/o35xMC2TsSnN4cKy.jpg\"></video></div>"
     },
     {
       "title": "The Trump admin's new rule on student visas gives admin officials discretion to decimate the largest single channel of high-skill immigration to the U...",
