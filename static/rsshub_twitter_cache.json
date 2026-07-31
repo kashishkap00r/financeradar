@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T19:47:07.520496+00:00",
+  "generated_at": "2026-07-31T20:58:28.292978+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 46,
     "handles_empty": 2,
     "handles_error": 1,
-    "items_total": 801
+    "items_total": 803
   },
   "items": [
     {
@@ -2629,6 +2629,20 @@
       "description_html": "#JustIn | IMD Says Aug-Sept Monsoon Rainfall Forecast Below Normal, Below 94% of Long Period Average<br><img width=\"668\" height=\"668\" style=\"\" src=\"https://pbs.twimg.com/media/HOjrUwobUAAdxJa?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "US stocks: US market ends higher as Amazon soothes AI jitters #ETMarkets https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-us-mark...",
+      "link": "https://x.com/ETMarkets/status/2083284746763997659",
+      "date": "2026-07-31T20:12:43+00:00",
+      "tweet_id": "2083284746763997659",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US stocks: US market ends higher as Amazon soothes AI jitters<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-us-market-ends-higher-as-amazon-soothes-ai-jitters/articleshow/132776618.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
+    },
+    {
       "title": "Apple shares tumble 9% on supply worries, on track for worst single-day fall in over 6 years #ETMarkets https://economictimes.indiatimes.com/markets/u...",
       "link": "https://x.com/ETMarkets/status/2083241001708326913",
       "date": "2026-07-31T17:18:54+00:00",
@@ -2893,20 +2907,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Sony Group posted a 32% rise in fiscal first-quarter profit, driven by strong performances in its music, gaming, and imaging businesses, while cautioning that it is still evaluating the financial impact of the powerful earthquake that struck Japan's Kumamoto region earlier this week, Reuters reported.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-sony-q1-profit-jumps-32-earthquake-impact-yet-to-be-assessed/articleshow/132761263.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
-    },
-    {
-      "title": "Shares of 2026 multibagger #MTARTechnologies hit the 5% upper circuit for the second session in a row at Rs 5,714 after the company reported a 364.5% ...",
-      "link": "https://x.com/ETMarkets/status/2083111674815578232",
-      "date": "2026-07-31T08:45:00+00:00",
-      "tweet_id": "2083111674815578232",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Shares of 2026 multibagger #MTARTechnologies hit the 5% upper circuit for the second session in a row at Rs 5,714 after the company reported a 364.5% year-on-year jump in Q1 net profit to Rs 50.2 crore from Rs 10.8 crore.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/mtar-tech-shares-hit-5-upper-circuit-again-whats-behind-the-renewed-optimism/articleshow/132760907.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
     },
     {
       "title": "DIXON margins down 3% vs 3.7% YoY Weak results",
@@ -7333,6 +7333,34 @@
       "description_html": "We\u2019re launching Trade DB to track India\u2019s trade at the HS code level by value or quantity, across imports, exports, and also detailed category and subcategory data for our trade partners. See this for more:  https://www.youtube.com/watch?v=KdwhLPaU3Fw  #India #Trade #Exports #Imports"
     },
     {
+      "title": "BREAKING: Fed Chair Warsh is considering reducing the amount of times that the Fed meets in a year, per NYT. Details include: 1. The FOMC has met eigh...",
+      "link": "https://x.com/KobeissiLetter/status/2083290968854233335",
+      "date": "2026-07-31T20:37:27+00:00",
+      "tweet_id": "2083290968854233335",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: Fed Chair Warsh is considering reducing the amount of times that the Fed meets in a year, per NYT.<br><br>Details include:<br><br>1. The FOMC has met eight times annually since 1981, with Federal law requiring at least four meetings per year<br><br>2. Fed Chair Warsh has reportedly not proposed a specific number of meetings<br><br>3. Fewer meetings would mean fewer scheduled rate votes and less frequent policy decisions<br><br>A major shift is underway at the Fed."
+    },
+    {
+      "title": "BREAKING: Amazon, $AMZN, ends the day +15.3% higher, posting its best day in 14 years. The stock added +$390 billion in market cap today.",
+      "link": "https://x.com/KobeissiLetter/status/2083283494675837114",
+      "date": "2026-07-31T20:07:45+00:00",
+      "tweet_id": "2083283494675837114",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOlPCDHWgAAwsS9?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: Amazon, $AMZN, ends the day +15.3% higher, posting its best day in 14 years.<br><br>The stock added +$390 billion in market cap today.<br><img width=\"437\" height=\"598\" style=\"\" src=\"https://pbs.twimg.com/media/HOlPCDHWgAAwsS9?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Retail investors are selling US tech stocks at a record pace: Retail investors sold -$316 million of US-listed information technology stocks on Wednes...",
       "link": "https://x.com/KobeissiLetter/status/2083276023953781099",
       "date": "2026-07-31T19:38:04+00:00",
@@ -7569,34 +7597,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BREAKING: The S&amp;P 500 extends gains to over +100 points on the day as dip buyers rotate into technology and chip stocks.<br><img width=\"441\" height=\"566\" style=\"\" src=\"https://pbs.twimg.com/media/HOfjlNvWMAAO0uU?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "BREAKING: Hedge funds sold the most global information technology equities in the 3 days ending July 28th since data began in 2016. Hedge funds also r...",
-      "link": "https://x.com/KobeissiLetter/status/2082869831322222755",
-      "date": "2026-07-30T16:44:00+00:00",
-      "tweet_id": "2082869831322222755",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOfJbdPW8AAjR_G?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "BREAKING: Hedge funds sold the most global information technology equities in the 3 days ending July 28th since data began in 2016.<br><br>Hedge funds also recorded the largest 3-day reduction in total equity exposure since November 2022, with selling pressure spreading across all sectors.<br><br>The unwind was primarily driven by short covering in macro products, such as index futures and ETFs.<br><br>Furthermore, single stocks posted the 5th-largest 3-day sale over the last 5 years.<br><br>Among regions, North America accounted for the majority of sales, followed by Europe.<br><br>Hedge funds are aggressively moving to the sidelines.<br><img width=\"970\" height=\"645\" style=\"\" src=\"https://pbs.twimg.com/media/HOfJbdPW8AAjR_G?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>The Kobeissi Letter:\u2002The Situational Awareness situation.<br><br>It is now being reported that the AI hedge fund has exited its entire public equity portfolio this month.<br><br>But, what does this really mean?<br><br>As of July 1st, the Net Asset Value (NAV) of the fund is now being reported to have been ~$45<br></div>"
-    },
-    {
-      "title": "BREAKING: Situational Awareness sold \"the bulk\" of its stock portfolio to Citadel after \"big losses in AI,\" per WSJ. The hedge fund, which reportedly ...",
-      "link": "https://x.com/KobeissiLetter/status/2082854581315215472",
-      "date": "2026-07-30T15:43:24+00:00",
-      "tweet_id": "2082854581315215472",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "BREAKING: Situational Awareness sold \"the bulk\" of its stock portfolio to Citadel after \"big losses in AI,\" per WSJ.<br><br>The hedge fund, which reportedly had a net asset value of $45 billion on July 1st, is now in \"crisis mode,\" WSJ reports.<div class=\"rsshub-quote\"><br><br>The Kobeissi Letter:\u2002The Situational Awareness situation.<br><br>It is now being reported that the AI hedge fund has exited its entire public equity portfolio this month.<br><br>But, what does this really mean?<br><br>As of July 1st, the Net Asset Value (NAV) of the fund is now being reported to have been ~$45<br></div>"
     },
     {
       "title": "Anish Shah, M&M -> \"This is a business today which is a multi-engine business & one that will benefit from synergies across businesses. The power of t...",
@@ -8003,6 +8003,34 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Leave it to the Chinese to build complicated machines in no time<div class=\"rsshub-quote\"><br><br>*Walter Bloomberg:\u2002CHIP STOCKS DROP ON CHINA DUV REPORT<br><br>ASML and U.S. chip equipment stocks fell after a report said a state-backed Chinese firm has begun mass-producing domestic DUV lithography machines.<br><br>Investors fear the breakthrough could reduce China's reliance on ASML and other Western<br></div>"
+    },
+    {
+      "title": "Re Link for the Waste Management webinar: https://superprofile.bio/course/09e66271-f016-4d31-acc9-23d6143d0170",
+      "link": "https://x.com/ShashankUdupa1/status/2081734332155326648",
+      "date": "2026-07-27T13:31:56+00:00",
+      "tweet_id": "2081734332155326648",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Re Link for the Waste Management webinar: https://superprofile.bio/course/09e66271-f016-4d31-acc9-23d6143d0170"
+    },
+    {
+      "title": "Ganesha Ecosphere recycles 16\u201318% of India's PET bottle waste and has already recycled 8+ billion bottles. From FY26, downstream polymer products mus...",
+      "link": "https://x.com/ShashankUdupa1/status/2081733846752510047",
+      "date": "2026-07-27T13:30:00+00:00",
+      "tweet_id": "2081733846752510047",
+      "source": "Shashank Udupa - SEBI RA",
+      "publisher": "Shashank Udupa",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOOdJimaoAAGtk8?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Ganesha Ecosphere recycles 16\u201318% of India's PET bottle waste and has already recycled 8+ billion bottles.<br><br>From FY26, downstream polymer products must contain at least 30% recycled plastic, moving to 60% by FY29.<br><br>Sometimes, a policy can quietly become the biggest growth driver.<br><br>We have discussed this in our webinar.<br><img width=\"1573\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HOOdJimaoAAGtk8?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Another order win for Sigma Advanced Systems. The company has secured a $104.9 million export order (~\u20b91,013 crore) to supply next-gen Extended Range...",
