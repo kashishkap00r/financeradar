@@ -1937,5 +1937,23 @@
     "category": "Reports",
     "region": "Indian",
     "publisher": "NITI Aayog"
+  },
+  {
+    "id": "ieefa-reports",
+    "name": "IEEFA — Reports",
+    "url": "https://ieefa.org/research-hub?keys=&tid_1%5B6%5D=6",
+    "feed": "ieefa:reports",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "IEEFA"
+  },
+  {
+    "id": "ieefa-insights",
+    "name": "IEEFA — Insights",
+    "url": "https://ieefa.org/research-hub?keys=&tid_1%5B583%5D=583",
+    "feed": "ieefa:insights",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "IEEFA"
   }
 ]

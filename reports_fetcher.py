@@ -12,12 +12,13 @@ import os
 import re
 import ssl
 import socket
+import threading
 import time
 import urllib.parse
 import urllib.request
 import urllib.error
 import subprocess
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 
@@ -1328,6 +1329,184 @@ def fetch_niti_aayog(feed_config):
     return articles
 
 
+# ── IEEFA (Institute for Energy Economics and Financial Analysis) ─────
+
+_IEEFA_RSS_URL = "https://ieefa.org/rss.xml"
+_IEEFA_CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "ieefa_cache.json")
+_IEEFA_CACHE_WINDOW_DAYS = 35  # a little wider than the 30-day freshness cutoff
+_IEEFA_LOCK = threading.Lock()  # both IEEFA feeds run on separate aggregator threads
+_ieefa_refreshed = False        # network refresh happens once per process, not per feed
+
+# Labels used by the research hub's "Type" filter. The RSS description embeds
+# the label as a bare <div>; matching against this closed vocabulary beats
+# positional parsing, because press releases (/articles/) carry no label at all.
+_IEEFA_RESOURCE_TYPES = frozenset({
+    "Report",
+    "Insights",
+    "Briefing Note",
+    "Testimony | Submission",
+    "Fact Sheet",
+    "Public Comment",
+    "Slides",
+})
+
+# feed id → the single resource type that feed surfaces.
+# tid_1[6]=6 is "Report", tid_1[583]=583 is "Insights" in the research hub URLs.
+_IEEFA_FEED_TYPES = {
+    "ieefa-reports": "Report",
+    "ieefa-insights": "Insights",
+}
+
+
+def _ieefa_resource_type(description):
+    """Return the resource-type label embedded in an RSS description, or ""."""
+    for raw in re.findall(r"<div>([^<>]*)</div>", description):
+        label = raw.strip()
+        if label in _IEEFA_RESOURCE_TYPES:
+            return label
+    return ""
+
+
+def _ieefa_parse_rss(content):
+    """Parse ieefa.org/rss.xml into cache rows, keeping only typed resources."""
+    rows = []
+    for block in re.findall(r"<item>(.*?)</item>", content, re.DOTALL):
+        link_m = re.search(r"<link>(.*?)</link>", block, re.DOTALL)
+        title_m = re.search(r"<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", block, re.DOTALL)
+        if not link_m or not title_m:
+            continue
+        link = html.unescape(link_m.group(1).strip())
+        title = html.unescape(_strip_html(title_m.group(1)).strip())
+        if not link or not title:
+            continue
+
+        desc_m = re.search(r"<description>(.*?)</description>", block, re.DOTALL)
+        res_type = _ieefa_resource_type(html.unescape(desc_m.group(1))) if desc_m else ""
+        if not res_type:  # press releases and untyped nodes
+            continue
+
+        dt = None
+        date_m = re.search(r"<pubDate>(.*?)</pubDate>", block, re.DOTALL)
+        if date_m:
+            try:
+                dt = parsedate_to_datetime(date_m.group(1).strip())
+            except (TypeError, ValueError):
+                dt = None
+
+        rows.append({
+            "title": title,
+            "link": link,
+            "date": dt.isoformat() if dt else None,
+            "type": res_type,
+        })
+    return rows
+
+
+def _ieefa_coerce_date(raw):
+    """Parse an ISO date string from the cache into a tz-aware datetime."""
+    if not raw:
+        return None
+    try:
+        dt = datetime.fromisoformat(raw)
+    except (TypeError, ValueError):
+        return None
+    return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
+
+
+def _ieefa_load_cache():
+    """Load the rolling cache as a {link: row} dict."""
+    try:
+        with open(_IEEFA_CACHE_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+    items = data.get("items", []) if isinstance(data, dict) else []
+    return {
+        item["link"]: item
+        for item in items
+        if isinstance(item, dict) and item.get("link") and item.get("title")
+    }
+
+
+def _ieefa_prune(by_link):
+    """Drop rows older than the cache window. Undated rows are kept."""
+    cutoff = datetime.now(timezone.utc) - timedelta(days=_IEEFA_CACHE_WINDOW_DAYS)
+    kept = {}
+    for link, item in by_link.items():
+        if not item.get("date"):
+            kept[link] = item
+            continue
+        dt = _ieefa_coerce_date(item["date"])
+        if dt and dt >= cutoff:
+            kept[link] = item
+    return kept
+
+
+def _ieefa_refresh_cache(feed_config):
+    """Merge the newest RSS items into the rolling cache and persist it.
+
+    ieefa.org/research-hub sits behind a Cloudflare JS challenge (403 to any
+    non-browser client), but ieefa.org/rss.xml returns 200 — same trade as
+    CEEW. The catch is that rss.xml is a 10-item sitewide firehose with no
+    paging, roughly three days of output, so one read cannot fill the 30-day
+    Reports window. Accumulating across hourly runs does; ieefa_local_fetch.py
+    seeds/backfills the same file with a real browser.
+
+    A failed fetch is non-fatal — we serve whatever the cache already holds.
+    """
+    global _ieefa_refreshed
+
+    by_link = _ieefa_load_cache()
+    try:
+        content = _fetch_url(
+            _IEEFA_RSS_URL,
+            accept="application/rss+xml, application/xml, text/xml",
+            feed_config=feed_config,
+        ).decode("utf-8", errors="replace")
+        for row in _ieefa_parse_rss(content):
+            by_link[row["link"]] = row  # freshest metadata wins
+    except Exception as e:
+        print(f"  [WARN] IEEFA RSS refresh failed ({str(e)[:80]}); serving cache only")
+
+    by_link = _ieefa_prune(by_link)
+
+    try:
+        os.makedirs(os.path.dirname(_IEEFA_CACHE_FILE), exist_ok=True)
+        payload = {
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "items": sorted(by_link.values(), key=lambda i: i.get("date") or "", reverse=True),
+        }
+        with open(_IEEFA_CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=True, indent=2)
+    except OSError as e:
+        print(f"  [WARN] IEEFA cache write failed: {str(e)[:80]}")
+
+    _ieefa_refreshed = True
+    return by_link
+
+
+@scraper
+def fetch_ieefa(feed_config):
+    """Fetch IEEFA reports/insights from the rolling RSS-fed cache."""
+    wanted = _IEEFA_FEED_TYPES.get(feed_config.get("id", ""))
+    if not wanted:
+        return []
+
+    # Serialised so the two IEEFA feeds share one network call and one writer.
+    with _IEEFA_LOCK:
+        by_link = _ieefa_load_cache() if _ieefa_refreshed else _ieefa_refresh_cache(feed_config)
+
+    articles = []
+    for item in sorted(by_link.values(), key=lambda i: i.get("date") or "", reverse=True):
+        if item.get("type") != wanted:
+            continue
+        dt = _ieefa_coerce_date(item.get("date"))
+        if not _is_fresh(dt):
+            continue
+        articles.append(_make_article(item.get("title", ""), item["link"], dt, "", feed_config))
+    return articles
+
+
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
@@ -1351,6 +1530,7 @@ REPORT_FETCHERS = {
     "kpler:": fetch_kpler,
     "piie:": fetch_piie_cache,
     "niti:": fetch_niti_aayog,
+    "ieefa:": fetch_ieefa,
 }
 
 
