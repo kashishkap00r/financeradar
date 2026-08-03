@@ -1402,6 +1402,35 @@ def _ieefa_parse_rss(content):
     return rows
 
 
+def _atomic_write_json(path, payload, label):
+    """Write JSON via a temp file + rename, so readers never see a partial file.
+
+    These caches are read and written by the same pipeline (and, locally, by a
+    systemd timer doing git operations alongside it), so a half-written file is
+    a real failure mode rather than a theoretical one.
+    """
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        tmp = f"{path}.tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=True, indent=2)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp, path)
+        return True
+    except OSError as e:
+        print(f"  [WARN] {label} write failed: {str(e)[:80]}")
+        return False
+
+
+def _ieefa_cache_file_looks_populated(min_bytes=200):
+    """True if the cache file exists with real content — used as a loss guard."""
+    try:
+        return os.path.getsize(_IEEFA_CACHE_FILE) > min_bytes
+    except OSError:
+        return False
+
+
 def _coerce_iso_date(raw):
     """Parse an ISO date string from the cache into a tz-aware datetime."""
     if not raw:
@@ -1457,6 +1486,7 @@ def _ieefa_refresh_cache(feed_config):
     global _ieefa_refreshed
 
     by_link = _ieefa_load_cache()
+    loaded_count = len(by_link)
     try:
         content = _fetch_url(
             _IEEFA_RSS_URL,
@@ -1470,16 +1500,21 @@ def _ieefa_refresh_cache(feed_config):
 
     by_link = _ieefa_prune(by_link)
 
-    try:
-        os.makedirs(os.path.dirname(_IEEFA_CACHE_FILE), exist_ok=True)
-        payload = {
-            "generated_at": datetime.now(timezone.utc).isoformat(),
-            "items": sorted(by_link.values(), key=lambda i: i.get("date") or "", reverse=True),
-        }
-        with open(_IEEFA_CACHE_FILE, "w", encoding="utf-8") as f:
-            json.dump(payload, f, ensure_ascii=True, indent=2)
-    except OSError as e:
-        print(f"  [WARN] IEEFA cache write failed: {str(e)[:80]}")
+    # Guard the accumulation. A load that comes back empty while the file on
+    # disk is clearly populated means we caught it mid-write or mid-checkout —
+    # writing then would replace a month of history with one RSS window. Skip
+    # the write and let the next run pick it up. (This has actually happened,
+    # via the local rsshub timer's git operations racing an aggregator run.)
+    if loaded_count == 0 and _ieefa_cache_file_looks_populated():
+        print("  [WARN] IEEFA cache unreadable but non-empty on disk; skipping write to avoid data loss")
+        _ieefa_refreshed = True
+        return by_link
+
+    payload = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "items": sorted(by_link.values(), key=lambda i: i.get("date") or "", reverse=True),
+    }
+    _atomic_write_json(_IEEFA_CACHE_FILE, payload, "IEEFA cache")
 
     _ieefa_refreshed = True
     return by_link
@@ -1568,6 +1603,123 @@ def fetch_ember_cache(feed_config):
     return articles
 
 
+# ── IEA (International Energy Agency) ─────────────────────────────────
+
+@scraper
+def fetch_iea(feed_config):
+    """Fetch IEA reports from the analysis listing.
+
+    iea.org renders the listing server-side, so no browser is needed — but
+    Cloudflare challenges on request *rate*, not per request. We therefore
+    make exactly one call per run and treat a challenge page as a failure so
+    the reports cache fills in, rather than silently parsing zero cards out of
+    the interstitial. Page one reaches back roughly nine months, well past the
+    30-day window, so there is nothing to gain from paginating.
+    """
+    content = _fetch_url(feed_config["url"], feed_config=feed_config).decode("utf-8", errors="replace")
+    if "Just a moment" in content[:2000] or "challenges.cloudflare.com" in content[:2000]:
+        raise Exception("Cloudflare challenge served instead of the listing")
+
+    # The nav mega-menu reuses the same card markup — drop it before parsing.
+    listing = content.split("m-card-listing--nav")[-1]
+
+    articles = []
+    seen = set()
+    for block in re.findall(r'<li class="m-card-listing-item[^"]*"[^>]*>(.*?)</li>', listing, re.DOTALL):
+        href_m = re.search(r'href="([^"]+)"', block)
+        title_m = re.search(r'class="[^"]*m-card__title"[^>]*>(.*?)</h2>', block, re.DOTALL)
+        if not href_m or not title_m:
+            continue
+
+        href = href_m.group(1).strip()
+        if not href or href in seen:  # a featured block repeats items further down
+            continue
+        seen.add(href)
+
+        title = html.unescape(_strip_html(title_m.group(1))).strip()
+        if not title:
+            continue
+        link = href if href.startswith("http") else "https://www.iea.org" + href
+
+        # One node packs both kind and date: "Fuel report   —   10 July 2026".
+        kind, dt = "", None
+        type_m = re.search(r'class="m-card__type"[^>]*>(.*?)</p>', block, re.DOTALL)
+        if type_m:
+            text = re.sub(r"\s+", " ", html.unescape(_strip_html(type_m.group(1)))).strip()
+            parts = re.split(r"\s+[—–]\s+", text)
+            kind = parts[0].strip()
+            if len(parts) > 1:
+                dt = _parse_date_flexible(parts[-1].strip())
+
+        if not _is_fresh(dt):
+            continue
+        articles.append(_make_article(title, link, dt, kind, feed_config))
+
+    # The featured block at the top is not in date order, so sort explicitly.
+    articles.sort(key=lambda a: a["date"] or datetime.min.replace(tzinfo=IST_TZ), reverse=True)
+    return articles
+
+
+# ── CSEP (Centre for Social and Economic Progress) ────────────────────
+
+# Each publication kind is its own WordPress post type, so the listing page's
+# "posttypes=all" means one REST call per type. `multimedia` and `interactives`
+# are deliberately excluded — they are media and tools, not reports.
+_CSEP_POST_TYPES = (
+    "reports",
+    "working-paper",
+    "flagship-paper",
+    "policy-brief",
+    "discussion-note",
+    "technical-note",
+    "impact-paper",
+    "opinion-commentary",
+)
+
+
+@scraper
+def fetch_csep(feed_config):
+    """Fetch CSEP publications across every publication post type.
+
+    csep.org leaves the WordPress REST API open, so we read that instead of
+    the admin-ajax call its /publication/ page makes — structured JSON with
+    real dates beats scraping a 1.5MB listing. All types pool into one CSEP
+    source. A type that errors is skipped rather than failing the whole feed.
+    """
+    articles = []
+    for post_type in _CSEP_POST_TYPES:
+        url = (
+            f"https://csep.org/wp-json/wp/v2/{post_type}"
+            "?per_page=10&orderby=date&order=desc&_fields=title,link,date,excerpt"
+        )
+        try:
+            payload = json.loads(
+                _fetch_url(url, accept="application/json", feed_config=feed_config)
+            )
+        except Exception as e:
+            print(f"  [WARN] CSEP {post_type}: {str(e)[:70]}")
+            continue
+        if not isinstance(payload, list):
+            continue
+
+        for post in payload:
+            if not isinstance(post, dict):
+                continue
+            title = html.unescape(_strip_html((post.get("title") or {}).get("rendered", ""))).strip()
+            link = (post.get("link") or "").strip()
+            if not title or not link:
+                continue
+            # WordPress reports site-local time; CSEP is Delhi-based, so IST.
+            dt = _parse_date_flexible(post.get("date") or "")
+            if not _is_fresh(dt):
+                continue
+            desc = html.unescape(_strip_html((post.get("excerpt") or {}).get("rendered", ""))).strip()
+            articles.append(_make_article(title, link, dt, desc, feed_config))
+
+    articles.sort(key=lambda a: a["date"] or datetime.min.replace(tzinfo=IST_TZ), reverse=True)
+    return articles
+
+
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
@@ -1593,6 +1745,8 @@ REPORT_FETCHERS = {
     "niti:": fetch_niti_aayog,
     "ieefa:": fetch_ieefa,
     "ember:": fetch_ember_cache,
+    "iea:": fetch_iea,
+    "csep:": fetch_csep,
 }
 
 

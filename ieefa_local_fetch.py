@@ -205,9 +205,15 @@ def main():
         "items": sorted(by_link.values(), key=lambda i: i.get("date") or "", reverse=True),
     }
 
+    # Temp file + rename: the pipeline reads this concurrently, so a reader
+    # must never catch a half-written file.
     os.makedirs(os.path.dirname(CACHE_PATH), exist_ok=True)
-    with open(CACHE_PATH, "w", encoding="utf-8") as f:
+    tmp = CACHE_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=True, indent=2)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, CACHE_PATH)
 
     print(f"\nScraped {scraped}, cache now holds {len(by_link)} items → static/ieefa_cache.json")
 
