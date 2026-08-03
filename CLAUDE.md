@@ -227,7 +227,17 @@ RSSHub runs locally as a systemd user service for Twitter feed enrichment:
 - Config: `~/.config/systemd/user/rsshub*.service|timer`
 - Scripts: `~/.local/bin/start-rsshub.sh`, `~/.local/bin/fetch-rsshub.sh`
 - Check status: `systemctl --user status rsshub.service rsshub-fetch.timer`
-- View logs: `journalctl --user -u rsshub-fetch.service --since "1 hour ago"`
+
+Cache refresh for the two sources CI cannot reach (IEA, Ember):
+- `financeradar-caches.timer`: Mon/Thu 09:30, runs `refresh_local_caches.py` → refreshes both caches, commits, pushes
+- Offset from the `:15` rsshub timer and shares `/tmp/financeradar-git.lock`, so the two never push over each other
+- Refuses to overwrite a cache with an empty result — a failed run leaves things exactly as they were
+- Check status: `systemctl --user list-timers financeradar-caches.timer`
+- Run now: `systemctl --user start financeradar-caches.service`
+
+**Logs: this user cannot read journald** (not in `adm`/`systemd-journal`), so `journalctl --user` returns nothing for any unit. `financeradar-caches` writes to `~/.local/state/financeradar-caches.log` instead — `tail ~/.local/state/financeradar-caches.log`. The rsshub units still log only to journald, so their output is effectively invisible; give them `StandardOutput=append:` too if you ever need to debug them.
+
+**The local checkout must stay on `main`.** `fetch-rsshub.sh` runs `git pull origin main` regardless of the checked-out branch and then a bare `git push`. On a feature branch that merges main in hourly and pushes nowhere — which stranded 33 cache commits and left production on a 5-day-stale RSSHub cache. Do feature work in a worktree, or expect to babysit it.
 
 ## Config (config.py)
 
