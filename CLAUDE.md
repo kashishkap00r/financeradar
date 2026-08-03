@@ -17,6 +17,7 @@ python3 aggregator.py                # Fetch 220+ feeds → index.html + static/
 python3 reports_fetcher.py           # (called by aggregator.py, rarely run standalone)
 python3 twitter_fetcher.py           # (called by aggregator.py, rarely run standalone)
 python3 paper_fetcher.py             # Academic papers → static/papers_cache.json
+python3 ieefa_local_fetch.py         # IEEFA backfill (headed Chrome, one manual Turnstile tick)
 
 # AI ranking (requires API keys)
 OPENROUTER_API_KEY="..." python3 ai_ranker.py      # → static/ai_rankings.json
@@ -46,7 +47,7 @@ Static-site news aggregator: Python scripts fetch RSS/scraped data → filter/de
 INGESTION (parallel, 10 workers)
 ├─ feeds.json (220+ feeds) ──→ aggregator.py ──→ News / Videos / Twitter / Reports routing
 ├─ telegram_channels.json ──→ telegram_fetcher.py ──→ static/telegram_reports.json
-├─ reports_fetcher.py (16 scrapers) ──→ static/reports_cache.json
+├─ reports_fetcher.py (20 scrapers) ──→ static/reports_cache.json
 ├─ twitter_fetcher.py (dual-source) ──→ static/tab_twitter.json
 ├─ paper_fetcher.py ──→ static/papers_cache.json
 └─ rsshub_local_fetch.py (local only) ──→ static/rsshub_twitter_cache.json
@@ -126,7 +127,7 @@ Last resort: static/twitter_clean_cache.json snapshot
 
 Reports feeds dispatch by feed field prefix. There are two separate handlers:
 
-**`reports_fetcher.py`** — 16 `@scraper`-decorated functions for HTML/API scraping. The decorator handles errors, 30-day freshness, article limits, and retries. Dispatched via `REPORT_FETCHERS` dict.
+**`reports_fetcher.py`** — 20 `@scraper`-decorated functions for HTML/API scraping. The decorator handles errors, 30-day freshness, article limits, and retries. Dispatched via `REPORT_FETCHERS` dict.
 
 **`feeds.py` → `fetch_careratings()`** — CareEdge uses a separate API-based fetcher (`insightspagedata` endpoint), NOT `reports_fetcher.py`. Dispatched in `aggregator.py` via `feed_field.startswith("careratings:")`.
 
@@ -149,7 +150,7 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 |--------|------|-----------|
 | `aggregator.py` (1463L) | Main pipeline: fetch → filter → dedup → group → generate HTML | Standalone / hourly.yml |
 | `feeds.py` (829L) | Feed loading, RSS fetching, date parsing, **CareEdge API** | aggregator.py |
-| `reports_fetcher.py` (1250L) | 16 `@scraper` functions for institutional reports | aggregator.py |
+| `reports_fetcher.py` (1420L) | 20 `@scraper` functions for institutional reports | aggregator.py |
 | `articles.py` (220L) | Dedup, grouping, HTML cleaning, JSON export | aggregator.py |
 | `filters.py` (356L) | 126 title regex + 24 URL patterns | aggregator.py |
 | `twitter_fetcher.py` (345L) | Dual-source Twitter (RSSHub + Google RSS) | aggregator.py |
@@ -158,6 +159,7 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 | `wsw_ranker.py` (418L) | "Who Said What" debate clusters | ai-ranking.yml (after ai_ranker) |
 | `telegram_fetcher.py` (580L) | HTML scraping + Telethon MTProto | Standalone / hourly.yml |
 | `piie_local_fetch.py` (210L) | Playwright scraper → `static/piie_cache.json` | Local only (manual) |
+| `ieefa_local_fetch.py` (205L) | Playwright backfill → tops up `static/ieefa_cache.json` | Local only (manual) |
 | `config.py` (86L) | All magic numbers and tunables | Imported by most modules |
 
 Frontend: `templates/app.js` (~4080L) + `templates/style.css` (~3100L). Tests: 18 modules in `tests/`.
@@ -171,7 +173,9 @@ All files in `static/` and `index.html` are auto-generated. Edit source scripts 
 When editing HTML/CSS/JS templates inside `aggregator.py` (which uses Python f-strings), escape literal braces: `{{` and `}}`. The `templates/` files use normal braces.
 
 ### Git Conflicts on Generated Files
-Generated files conflict often between local pushes and GH Actions commits. Resolve by taking remote:
+Generated files conflict often between local pushes and GH Actions commits. A third actor is easy to miss: the local `rsshub-fetch.timer` commits and pulls on the hour, so a long local `aggregator.py` run straddling :15 can come back to a half-merged index. Check `git diff --diff-filter=U` before blaming your own changes; clear it with `git checkout HEAD -- <generated files>` and regenerate.
+
+Resolve conflicts by taking remote:
 ```bash
 git checkout --theirs index.html static/articles.json static/tab_*.json
 git add index.html static/articles.json static/tab_*.json
@@ -189,6 +193,7 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 - Start with `curl` + browser-like headers (`User-Agent`, `Accept`, `Accept-Language`). Many financial sites (Akamai WAF, Cloudflare) block basic HTTP clients.
 - Fall back to Playwright only if curl fails.
 - For Cloudflare JS-challenge sites (e.g., PIIE), use the cache-based pattern: scrape locally with a real browser → save to `static/*_cache.json` → pipeline reads cache.
+- Before falling back to a browser, check whether the site publishes an `/rss.xml` that the WAF lets through — CEEW and IEEFA both block their listing pages but serve RSS at 200. If that feed is a short sitewide firehose, accumulate it into a rolling cache instead of reading it fresh each run (see `fetch_ieefa`).
 
 ## UI Development
 - Edit `templates/app.js` and `templates/style.css`, then `python3 aggregator.py` to regenerate.
