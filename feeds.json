@@ -1982,5 +1982,23 @@
     "category": "Reports",
     "region": "International",
     "publisher": "Ember"
+  },
+  {
+    "id": "iea-reports",
+    "name": "IEA — Reports",
+    "url": "https://www.iea.org/analysis?type=report",
+    "feed": "iea:reports",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "IEA"
+  },
+  {
+    "id": "csep-publications",
+    "name": "CSEP — Publications",
+    "url": "https://csep.org/publication/?search=&posttypes=all&topicparent=all&topicchild=all&pub_author=all&postyear=all",
+    "feed": "csep:publications",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "CSEP"
   }
 ]

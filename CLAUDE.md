@@ -48,7 +48,7 @@ Static-site news aggregator: Python scripts fetch RSS/scraped data → filter/de
 INGESTION (parallel, 10 workers)
 ├─ feeds.json (220+ feeds) ──→ aggregator.py ──→ News / Videos / Twitter / Reports routing
 ├─ telegram_channels.json ──→ telegram_fetcher.py ──→ static/telegram_reports.json
-├─ reports_fetcher.py (21 scrapers) ──→ static/reports_cache.json
+├─ reports_fetcher.py (23 scrapers) ──→ static/reports_cache.json
 ├─ twitter_fetcher.py (dual-source) ──→ static/tab_twitter.json
 ├─ paper_fetcher.py ──→ static/papers_cache.json
 └─ rsshub_local_fetch.py (local only) ──→ static/rsshub_twitter_cache.json
@@ -128,7 +128,7 @@ Last resort: static/twitter_clean_cache.json snapshot
 
 Reports feeds dispatch by feed field prefix. There are two separate handlers:
 
-**`reports_fetcher.py`** — 21 `@scraper`-decorated functions for HTML/API scraping. The decorator handles errors, 30-day freshness, article limits, and retries. Dispatched via `REPORT_FETCHERS` dict.
+**`reports_fetcher.py`** — 23 `@scraper`-decorated functions for HTML/API scraping. The decorator handles errors, 30-day freshness, article limits, and retries. Dispatched via `REPORT_FETCHERS` dict.
 
 **`feeds.py` → `fetch_careratings()`** — CareEdge uses a separate API-based fetcher (`insightspagedata` endpoint), NOT `reports_fetcher.py`. Dispatched in `aggregator.py` via `feed_field.startswith("careratings:")`.
 
@@ -151,7 +151,7 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 |--------|------|-----------|
 | `aggregator.py` (1463L) | Main pipeline: fetch → filter → dedup → group → generate HTML | Standalone / hourly.yml |
 | `feeds.py` (829L) | Feed loading, RSS fetching, date parsing, **CareEdge API** | aggregator.py |
-| `reports_fetcher.py` (1480L) | 21 `@scraper` functions for institutional reports | aggregator.py |
+| `reports_fetcher.py` (1660L) | 23 `@scraper` functions for institutional reports | aggregator.py |
 | `articles.py` (220L) | Dedup, grouping, HTML cleaning, JSON export | aggregator.py |
 | `filters.py` (356L) | 126 title regex + 24 URL patterns | aggregator.py |
 | `twitter_fetcher.py` (345L) | Dual-source Twitter (RSSHub + Google RSS) | aggregator.py |
@@ -198,6 +198,8 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 - Before falling back to a browser, check whether the site publishes an `/rss.xml` that the WAF lets through — CEEW and IEEFA both block their listing pages but serve RSS at 200. If that feed is a short sitewide firehose, accumulate it into a rolling cache instead of reading it fresh each run (see `fetch_ieefa`).
 - If the site is WordPress, try `/wp-json/wp/v2/<type>` from inside a cleared browser session before scraping the DOM. Ember exposes `insight_page` plus an `insight_type` taxonomy that way — structured JSON with real dates and categories. `?_fields=` keeps the payload small.
 - Ember is the strictest case in the repo: every path including `robots.txt` is challenged, so **nothing** refreshes in CI. `fetch_ember_cache` is a pure reader with no TTL — items carry their own dates and the 30-day window filters them, so a neglected cache empties itself rather than serving stale reports. It warns past 7 days.
+- Some sites challenge on request *rate*, not per request — IEA serves 200s until you fetch twice quickly, then returns an interstitial. Fetch once per run and detect the challenge explicitly (`fetch_iea`), or you will parse zero cards out of the interstitial and cache that as a real empty result.
+- Any cache the pipeline both reads and writes must be written atomically (`_atomic_write_json`). A half-written file read back as `{}` will silently wipe an accumulating cache — this happened to `ieefa_cache.json` when the rsshub timer's git operations raced an aggregator run. `fetch_ieefa` also refuses to write when the load came back empty but the file on disk is populated.
 
 ## UI Development
 - Edit `templates/app.js` and `templates/style.css`, then `python3 aggregator.py` to regenerate.

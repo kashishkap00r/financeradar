@@ -150,9 +150,15 @@ def main():
         "meta": {"source": "ember_wp_rest", "items_total": len(items)},
         "items": sorted(items, key=lambda i: i.get("date") or "", reverse=True),
     }
+    # Temp file + rename: the pipeline reads this concurrently, so a reader
+    # must never catch a half-written file.
     os.makedirs(os.path.dirname(CACHE_PATH), exist_ok=True)
-    with open(CACHE_PATH, "w", encoding="utf-8") as f:
+    tmp = CACHE_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=True, indent=2)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, CACHE_PATH)
 
     print(f"\nSaved {len(items)} items to static/ember_cache.json")
 

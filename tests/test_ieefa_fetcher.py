@@ -157,6 +157,46 @@ class TestIeefaFetcher(unittest.TestCase):
         self.assertEqual(fetch_ieefa({**REPORTS_CFG, "id": "ieefa-slides"}), [])
         mock_fetch.assert_not_called()
 
+    @patch("reports_fetcher._fetch_url")
+    def test_unreadable_cache_does_not_clobber_accumulation(self, mock_fetch):
+        """A transient bad read must not replace months of history with one RSS window.
+
+        Regression: the local rsshub systemd timer's git operations raced an
+        aggregator run, the load came back empty, and the refresh wrote back
+        only the 8 items then in the firehose — destroying the accumulation.
+        """
+        recent = (datetime.now(timezone.utc) - timedelta(days=2)).isoformat()
+        self._write_cache([
+            {"title": f"Accumulated {i}", "link": f"https://ieefa.org/resources/acc-{i}",
+             "date": recent, "type": "Report"}
+            for i in range(20)
+        ])
+        mock_fetch.return_value = _rss(_item("Only fresh one", "fresh", 1, "Report")).encode("utf-8")
+
+        with patch.object(reports_fetcher, "_ieefa_load_cache", return_value={}):
+            fetch_ieefa(REPORTS_CFG)
+
+        with open(self.cache_path, encoding="utf-8") as f:
+            self.assertEqual(len(json.load(f)["items"]), 20)
+
+    @patch("reports_fetcher._fetch_url")
+    def test_empty_cache_file_still_gets_written(self, mock_fetch):
+        """The guard must not block the legitimate first write."""
+        mock_fetch.return_value = _rss(_item("First report", "first", 1, "Report")).encode("utf-8")
+
+        self.assertEqual(len(fetch_ieefa(REPORTS_CFG)), 1)
+        with open(self.cache_path, encoding="utf-8") as f:
+            self.assertEqual(len(json.load(f)["items"]), 1)
+
+    @patch("reports_fetcher._fetch_url")
+    def test_write_is_atomic_and_leaves_no_temp_file(self, mock_fetch):
+        mock_fetch.return_value = _rss(_item("A report", "a-report", 1, "Report")).encode("utf-8")
+
+        fetch_ieefa(REPORTS_CFG)
+
+        self.assertFalse(os.path.exists(self.cache_path + ".tmp"))
+        self.assertTrue(os.path.exists(self.cache_path))
+
     def test_registered_in_dispatcher(self):
         self.assertIs(reports_fetcher.get_report_fetcher("ieefa:reports"), fetch_ieefa)
         self.assertIs(reports_fetcher.get_report_fetcher("ieefa:insights"), fetch_ieefa)
