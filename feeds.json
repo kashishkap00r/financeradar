@@ -1955,5 +1955,32 @@
     "category": "Reports",
     "region": "International",
     "publisher": "IEEFA"
+  },
+  {
+    "id": "ember-analysis",
+    "name": "Ember — Analysis",
+    "url": "https://ember-energy.org/insights/#analysis",
+    "feed": "ember:analysis",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "Ember"
+  },
+  {
+    "id": "ember-commentary",
+    "name": "Ember — Commentary",
+    "url": "https://ember-energy.org/insights/#commentary",
+    "feed": "ember:commentary",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "Ember"
+  },
+  {
+    "id": "ember-policy-papers",
+    "name": "Ember — Policy Papers",
+    "url": "https://ember-energy.org/insights/#policy-papers",
+    "feed": "ember:policy-papers",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "Ember"
   }
 ]

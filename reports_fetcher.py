@@ -1402,7 +1402,7 @@ def _ieefa_parse_rss(content):
     return rows
 
 
-def _ieefa_coerce_date(raw):
+def _coerce_iso_date(raw):
     """Parse an ISO date string from the cache into a tz-aware datetime."""
     if not raw:
         return None
@@ -1436,7 +1436,7 @@ def _ieefa_prune(by_link):
         if not item.get("date"):
             kept[link] = item
             continue
-        dt = _ieefa_coerce_date(item["date"])
+        dt = _coerce_iso_date(item["date"])
         if dt and dt >= cutoff:
             kept[link] = item
     return kept
@@ -1500,10 +1500,71 @@ def fetch_ieefa(feed_config):
     for item in sorted(by_link.values(), key=lambda i: i.get("date") or "", reverse=True):
         if item.get("type") != wanted:
             continue
-        dt = _ieefa_coerce_date(item.get("date"))
+        dt = _coerce_iso_date(item.get("date"))
         if not _is_fresh(dt):
             continue
         articles.append(_make_article(item.get("title", ""), item["link"], dt, "", feed_config))
+    return articles
+
+
+# ── Ember (Playwright cache) ──────────────────────────────────────────
+
+_EMBER_CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "ember_cache.json")
+_EMBER_STALE_WARN_DAYS = 7
+
+# ember-energy.org `insight_type` taxonomy → feed id. Term ids live in
+# ember_local_fetch.py; the label is what gets stored in the cache.
+_EMBER_FEED_TYPES = {
+    "ember-analysis": "Analysis",
+    "ember-commentary": "Commentary",
+    "ember-policy-papers": "Policy papers",
+}
+
+
+@scraper
+def fetch_ember_cache(feed_config):
+    """Read Ember insights from the locally-generated Playwright cache.
+
+    Every path on ember-energy.org is Cloudflare-challenged — robots.txt and
+    the WordPress REST API included — so unlike IEEFA there is no CI-reachable
+    feed to top this up. `ember_local_fetch.py` refreshes it from a real
+    browser; the pipeline only ever reads.
+
+    There is deliberately no cache TTL. Each item carries its own date and the
+    30-day Reports window already filters on it, so a cache that stops being
+    refreshed empties itself rather than serving stale reports — a TTL would
+    just blank the source early. We warn instead.
+    """
+    wanted = _EMBER_FEED_TYPES.get(feed_config.get("id", ""))
+    if not wanted:
+        return []
+
+    try:
+        with open(_EMBER_CACHE_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+    generated = _coerce_iso_date(data.get("generated_at"))
+    if generated:
+        age_days = (datetime.now(timezone.utc) - generated).days
+        if age_days > _EMBER_STALE_WARN_DAYS:
+            print(f"  [WARN] Ember cache is {age_days}d old — run python3 ember_local_fetch.py")
+
+    articles = []
+    for item in data.get("items", []):
+        if not isinstance(item, dict) or item.get("type") != wanted:
+            continue
+        title = html.unescape((item.get("title") or "").strip())
+        link = (item.get("link") or "").strip()
+        if not title or not link:
+            continue
+        dt = _coerce_iso_date(item.get("date"))
+        if not _is_fresh(dt):
+            continue
+        articles.append(_make_article(title, link, dt, item.get("description", ""), feed_config))
+
+    articles.sort(key=lambda a: a["date"] or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
     return articles
 
 
@@ -1531,6 +1592,7 @@ REPORT_FETCHERS = {
     "piie:": fetch_piie_cache,
     "niti:": fetch_niti_aayog,
     "ieefa:": fetch_ieefa,
+    "ember:": fetch_ember_cache,
 }
 
 
