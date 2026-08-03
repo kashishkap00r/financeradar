@@ -197,6 +197,21 @@ class TestIeefaFetcher(unittest.TestCase):
         self.assertFalse(os.path.exists(self.cache_path + ".tmp"))
         self.assertTrue(os.path.exists(self.cache_path))
 
+    def test_atomic_write_cleans_up_after_an_unserializable_payload(self):
+        """A cache write must never raise, nor strand a partial .tmp file."""
+        target = os.path.join(self.tmpdir, "nested", "out.json")
+
+        ok = reports_fetcher._atomic_write_json(target, {"bad": datetime.now()}, "test")
+
+        self.assertFalse(ok)
+        self.assertFalse(os.path.exists(target + ".tmp"))
+        self.assertFalse(os.path.exists(target))
+
+        # And a subsequent good write still succeeds into the same location.
+        self.assertTrue(reports_fetcher._atomic_write_json(target, {"good": 1}, "test"))
+        with open(target, encoding="utf-8") as f:
+            self.assertEqual(json.load(f), {"good": 1})
+
     def test_registered_in_dispatcher(self):
         self.assertIs(reports_fetcher.get_report_fetcher("ieefa:reports"), fetch_ieefa)
         self.assertIs(reports_fetcher.get_report_fetcher("ieefa:insights"), fetch_ieefa)

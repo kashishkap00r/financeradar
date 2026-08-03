@@ -1409,17 +1409,25 @@ def _atomic_write_json(path, payload, label):
     systemd timer doing git operations alongside it), so a half-written file is
     a real failure mode rather than a theoretical one.
     """
+    tmp = f"{path}.tmp"
     try:
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        tmp = f"{path}.tmp"
+        parent = os.path.dirname(path)
+        if parent:
+            os.makedirs(parent, exist_ok=True)
         with open(tmp, "w", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=True, indent=2)
             f.flush()
             os.fsync(f.fileno())
         os.replace(tmp, path)
         return True
-    except OSError as e:
+    except Exception as e:
+        # Catch broadly: a cache write must never take the pipeline down, and
+        # json.dump raises TypeError (not OSError) on an unserializable value.
         print(f"  [WARN] {label} write failed: {str(e)[:80]}")
+        try:
+            os.remove(tmp)  # don't leave a partial file behind
+        except OSError:
+            pass
         return False
 
 

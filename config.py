@@ -64,10 +64,16 @@ SCRAPER_RETRY_BACKOFF = 1.5      # seconds between retries
 SCRAPER_TIMEOUT_OVERRIDES = {    # source-specific timeout overrides by feed id
     "baroda-etrade-str": 8,
     "baroda-etrade-sor": 8,
+    # CSEP makes one call per publication post type (8 of them), so the
+    # defaults would compound to ~6 min of worst-case stall on one worker.
+    "csep-publications": 8,
 }
 SCRAPER_RETRY_OVERRIDES = {      # source-specific retry overrides by feed id
     "baroda-etrade-str": 0,
     "baroda-etrade-sor": 0,
+    # A single type failing is already non-fatal (it is skipped), and there
+    # are eight independent attempts, so retries buy little here.
+    "csep-publications": 0,
 }
 
 # ── Telegram fetcher ──────────────────────────────────────────────────
