@@ -13,6 +13,15 @@ being run. That is safe rather than silently wrong: every item carries a date
 and the 30-day Reports window filters on it, so a neglected cache empties
 itself instead of serving old reports. The pipeline warns past 7 days.
 
+KNOWN LIMITATION (Aug 2026): Cloudflare currently refuses to clear for this
+script at all. Playwright sets navigator.webdriver, and Ember blocks on that
+before offering any challenge — no Turnstile iframe appears, so there is
+nothing a human at the window can click. Masking the flag would work but
+deliberately defeats a protection the operator set site-wide, so we do not.
+The cache must therefore be seeded another way and will drain as items age
+out. The durable fix is feed or API access from Ember. This script is kept
+because it works the moment such access exists, or if their config relaxes.
+
 Usage:
     python3 ember_local_fetch.py                # fetch + save
     python3 ember_local_fetch.py --per-type 60  # pull deeper history
