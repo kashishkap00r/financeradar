@@ -1,26 +1,206 @@
 {
-  "generated_at": "2026-08-10T19:48:54.216234+05:30",
+  "generated_at": "2026-08-10T21:26:12.392650+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
       "feeds_ok": 47,
       "feeds_failed": 2,
-      "items_raw": 1185,
-      "resolve_attempted": 1155,
-      "resolve_resolved": 1155,
+      "items_raw": 1190,
+      "resolve_attempted": 1159,
+      "resolve_resolved": 1159,
       "resolve_cache_hits": 1135
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.5,
+      "age_hours": 1.2,
       "items": 777,
-      "handles_ok": 48
+      "handles_ok": 47
     },
     "warning": "",
-    "generated_at": "2026-08-10T19:48:54.216177+05:30"
+    "generated_at": "2026-08-10T21:26:12.392596+05:30"
   },
   "items": [
+    {
+      "title": "#JustIn | #BSE To Be Added To #NSE #Nifty50 Index In September \u23e9#Wipro To Be Removed From Nifty 50 Index",
+      "link": "https://x.com/CNBCTV18Live/status/2086825706739400824",
+      "date": "2026-08-10T14:43:14+00:00",
+      "tweet_id": "2086825706739400824",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HPXkpIdaYAEDcfR?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#JustIn | #BSE To Be Added To #NSE #Nifty50 Index In September<br><br>\u23e9#Wipro To Be Removed From Nifty 50 Index<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HPXkpIdaYAEDcfR?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Correcting climate \u2018misperceptions\u2019 may not boost climate action | Jess Milligan Read here \u27a1\ufe0f https://buff.ly/u8rqNF4",
+      "link": "https://x.com/CarbonBrief/status/2086823642151727413",
+      "date": "2026-08-10T14:35:02+00:00",
+      "tweet_id": "2086823642151727413",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HPXjCwEXYAADxpU?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Correcting climate \u2018misperceptions\u2019 may not boost climate action | Jess Milligan<br><br>Read here \u27a1\ufe0f https://buff.ly/u8rqNF4<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HPXjCwEXYAADxpU?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "#NiftyOutlook for August 11: Can index break past 24,800 hurdle this week? @senmeghna https://www.cnbctv18.com/market/nifty-outlook-tuesday-august-11-...",
+      "link": "https://x.com/CNBCTV18Live/status/2086822406061244426",
+      "date": "2026-08-10T14:30:07+00:00",
+      "tweet_id": "2086822406061244426",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#NiftyOutlook for August 11: Can index break past 24,800 hurdle this week?<br><br>@senmeghna <br><br>https://www.cnbctv18.com/market/nifty-outlook-tuesday-august-11-can-index-break-past-24800-hurdle-this-week-19965934.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "Interesting. So then this would have potentially depressed agricultural wages ? (If there was more supply of labour that would have otherwise done MGN...",
+      "link": "https://x.com/dugalira/status/2086820143070605375",
+      "date": "2026-08-10T14:21:08+00:00",
+      "tweet_id": "2086820143070605375",
+      "source": "Ira Dugal",
+      "publisher": "Ira Dugal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Interesting. So then this would have potentially depressed agricultural wages ? (If there was more supply of labour that would have otherwise done MGNREGA work?)<div class=\"rsshub-quote\"><br><br>Business Standard:\u2002#VBGRAMG generated 77.6 mn person-days in July, nearly 49% lower than #MGNREGA\u2019s 153.3 mn person-days a year earlier.<br><br>The govt attributed the decline to the new scheme\u2019s \u201cAgriculture Pause Period\u201d during peak farm activity.<br><br>#ruralunemployment <br>https://mybs.in/2g8SKIL<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": ".@nicolas_veron & Juan Mejino-L\u00f3pez find the EU does not need to ease requirements on its megabanks re: the US current deregulatory drive. EU policym...",
+      "link": "https://x.com/PIIE/status/2086819612952260632",
+      "date": "2026-08-10T14:19:01+00:00",
+      "tweet_id": "2086819612952260632",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": ".@nicolas_veron &amp; Juan Mejino-L\u00f3pez find the EU does not need to ease requirements on its megabanks re: the US current deregulatory drive. EU policymakers should prioritize actions to address the current banking policy fragmentation along national lines. https://www.piie.com/publications/policy-briefs/2026/eu-capital-requirements-megabanks-low-road-or-high-road",
+      "category": "Twitter"
+    },
+    {
+      "title": "Apar Industries Ltd. | QIP Launch Indicative Issue Size: * *Value INR c. 2500 cr (US$ 262.37 million)* * * *Shares : 1,688,618 shares* * Last Closing ...",
+      "link": "https://x.com/yatinmota/status/2086816900970103033",
+      "date": "2026-08-10T14:08:15+00:00",
+      "tweet_id": "2086816900970103033",
+      "source": "Yatin Mota",
+      "publisher": "Yatin Mota",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Apar Industries Ltd. | QIP Launch<br><br>Indicative Issue Size: <br>* *Value INR c. 2500 cr (US$ 262.37 million)* *<br>*  *Shares : 1,688,618 shares* *<br> <br>Last Closing Price : INR 16,448.00 per share on NSE as of 10th Aug 2026<br> <br>SEBI Floor Price: INR 14,801.25 per Equity Share<br> <br>Indicative Issue Price : INR 14,805.00 / Equity Share<br> <br>*Implied Discount: 9.99% to last closing price as on* 10th Aug 2026<br> <br>Share Issue Type: 100% Primary <br> <br>Exchange Rate Used: US$ 1 = INR 95.2825",
+      "category": "Twitter"
+    },
+    {
+      "title": "#JustIn | #NewsBreak Confirmed; \u23e9#Airbus Confirms Team Of Specialists Is Being Dispatched To Assist #AAIB With The AI2379 Investigation \ud83d\udea8Alert: AA...",
+      "link": "https://x.com/CNBCTV18Live/status/2086816342431424810",
+      "date": "2026-08-10T14:06:01+00:00",
+      "tweet_id": "2086816342431424810",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HPXbb9_agAAGjjW?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "#JustIn | #NewsBreak Confirmed;<br><br>\u23e9#Airbus Confirms Team Of Specialists Is Being Dispatched To Assist #AAIB With The AI2379 Investigation<br><br>\ud83d\udea8Alert: AAIB Is Aircraft Accident Investigation Bureau<br><img width=\"636\" height=\"494\" style=\"\" src=\"https://pbs.twimg.com/media/HPXbb9_agAAGjjW?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002#CNBCTV18Exclusive | #France's air accident investigation agency BEA to participate in the AI2379 probe<br><br><img width=\"630\" height=\"636\" style=\"\" src=\"https://pbs.twimg.com/media/HPWo4HEawAAj2bo?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Intel plans $15 billion share sale as turnaround rally lifts stock #ETMarkets https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide...",
+      "link": "https://x.com/ETMarkets/status/2086815770261262354",
+      "date": "2026-08-10T14:03:45+00:00",
+      "tweet_id": "2086815770261262354",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Intel plans $15 billion share sale as turnaround rally lifts stock<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/intel-plans-15-billion-share-sale-as-turnaround-rally-lifts-stock/articleshow/133109095.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "#1QWithCNBCTV18 | #VodaIdea reports Q1 results; \u23e9Net Loss At \u20b93,754 Cr Vs Profit Of \u20b951,970 Cr (QoQ) \u23e9Q4FY26 Exceptional Gain Of \u20b957,491 Cr, Exce...",
+      "link": "https://x.com/CNBCTV18Live/status/2086815664938086705",
+      "date": "2026-08-10T14:03:20+00:00",
+      "tweet_id": "2086815664938086705",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HPXZf7CaoAAjkZI?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#1QWithCNBCTV18 | #VodaIdea reports Q1 results;<br><br>\u23e9Net Loss At \u20b93,754 Cr Vs Profit Of \u20b951,970 Cr (QoQ)<br><br>\u23e9Q4FY26 Exceptional Gain Of \u20b957,491 Cr, Exceptional Gain In Q1FY27 At \u20b91,611 Cr<br><br>\u23e9Revenue Up 3.2% At \u20b911,689 Cr Vs \u20b911,332 Cr (QoQ)<br><br>\u23e9EBITDA Up 3% At \u20b95,034 Cr Vs \u20b94,889 Cr (QoQ)<br><br>\u23e9Margin At 43.07% Vs 43.14% (QoQ)<br><br>\u23e9ARPU At \u20b9195 vs \u20b9177 (QoQ)<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HPXZf7CaoAAjkZI?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Vodafone Idea Q1 Results: Loss narrows to Rs 3,754 crore; revenue rises 6% YoY #ETMarkets https://economictimes.indiatimes.com/markets/stocks/earnings...",
+      "link": "https://x.com/ETMarkets/status/2086815613285240942",
+      "date": "2026-08-10T14:03:08+00:00",
+      "tweet_id": "2086815613285240942",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Vodafone Idea Q1 Results: Loss narrows to Rs 3,754 crore; revenue rises 6% YoY<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/stocks/earnings/vodafone-idea-q1-results-loss-narrows-to-rs-3754-crore-revenue-rises-6-yoy/articleshow/133110086.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Shereen Bhan: CNBCTV18 NewsBreak confirmed. Airbus team to join the ongoing probe into the #AirIndia Delhi -Phuket flight incident as reported by @...",
+      "link": "https://x.com/CNBCTV18Live/status/2086816656467324957",
+      "date": "2026-08-10T13:59:51+00:00",
+      "tweet_id": "2086816656467324957",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Shereen Bhan<br>CNBCTV18 NewsBreak confirmed. Airbus team to join the ongoing probe into the #AirIndia Delhi -Phuket flight incident as reported by @madeehamedia <br> \u201cIn accordance with ICAO Annex 13, Airbus is providing technical assistance to the relevant investigating authorities. We are actively supporting the airline and will provide further information as it becomes available. A team of specialists is being dispatched to assist with the investigation.\u201d @CNBCTV18News @CNBCTV18Live @Airbus @airindia #Aviation #CNBCTV18Exclusive<div class=\"rsshub-quote\"><br><br>Shereen Bhan:\u2002France\u2019s Air Accident agency to join the Air India Phuket-Delhi incident probe @madeehamedia exclusive report @CNBCTV18Live @CNBCTV18News #AirIndia #Aviation<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Nasdaq | US Stock Market Today | Live: US stocks subdued at open as traders monitor Hormuz developments #ETMarkets https://economictimes.indiatimes.co...",
+      "link": "https://x.com/ETMarkets/status/2086812346861887554",
+      "date": "2026-08-10T13:50:09+00:00",
+      "tweet_id": "2086812346861887554",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Nasdaq | US Stock Market Today | Live: US stocks subdued at open as traders monitor Hormuz developments<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/dow-jones-stock-market-live-updates-nasdaq-sp-500-us-iran-israel-war-deal-crude-oil-fed-warsh-rate-hike-intel-spacex-amd-chip-stock-price-news-10th-august-2026/liveblog/133105183.cms",
+      "category": "Twitter"
+    },
     {
       "title": "VODAFONE IDEA: Q1 CONS NET LOSS 37.54B RUPEES VS LOSS 66B (YOY) VODAFONE IDEA: Q1 REVENUE 116.6B RUPEES VS 110B (YOY) VODAFONE IDEA: Q1 EBITDA 50.34B ...",
       "link": "https://x.com/REDBOXINDIA/status/2086811384663437606",
@@ -184,6 +364,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "UN report: Five charts explaining the rise of global food insecurity | @YanineQuiroz @gaviglione #CBarchive<br><br>Read here: https://buff.ly/LhONOi6<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HPXTBa_WMAANWHC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Hetal Rach: The letter from @deepakshenoy got me thinking - which is the first and last town/city in India, alphabetically? He has investors from A...",
+      "link": "https://x.com/deepakshenoy/status/2086825898960113690",
+      "date": "2026-08-10T13:24:28+00:00",
+      "tweet_id": "2086825898960113690",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Hetal Rach<br>The letter from @deepakshenoy  got me thinking - which is the first and last town/city in India, alphabetically? He has investors from Abhlod to Zira.<br><br>@grok would you know?",
       "category": "Twitter"
     },
     {
@@ -697,21 +892,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#Zostel suffers fresh setback in #PRISM dispute as Delhi HC dismisses latest plea https://www.cnbctv18.com/business/zostel-suffers-fresh-setback-in-pr...",
-      "link": "https://x.com/CNBCTV18Live/status/2086786011313611053",
-      "date": "2026-08-10T12:05:30+00:00",
-      "tweet_id": "2086786011313611053",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Zostel suffers fresh setback in #PRISM dispute as Delhi HC dismisses latest plea<br><br>https://www.cnbctv18.com/business/zostel-suffers-fresh-setback-in-prism-dispute-as-delhi-hc-dismisses-latest-plea-19965822.htm",
-      "category": "Twitter"
-    },
-    {
       "title": "FUSION FINANCE: Q1 SL NET PROFIT 624M RUPEES VS LOSS 922.5M (YOY) FUSION FINANCE: Q1 REVENUE 3.92B RUPEES VS 4.22B (YOY)",
       "link": "https://x.com/REDBOXINDIA/status/2086784745665593452",
       "date": "2026-08-10T12:00:28+00:00",
@@ -739,21 +919,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Random Fun fact - <br><br>I am sure a lot of us have seen WAG 12B by Alstom <br><br>After its induction, the Indian Railways found a limitation with this engine. This engine produces 12000 horsepower, but on gradients, it struggles to pull the weight of freight due to its BO-BO axle configuration<br><br>And thus, Indian Railways developed the WAG 9 twin by combining two 9000-horsepower engines, producing 12000 horsepower. This had a better tractive force on gradients due to its CO-CO axle configuration.<br><br>See, even their colour scheme is quite similar. WAG 9 twin is developed &amp; manufactured by Chittaranjan Loco Works<br><br>The more the wheels are powered, the higher the tractive effort<br><img width=\"1332\" height=\"507\" style=\"\" src=\"https://pbs.twimg.com/media/HPW99lVbsAEOpCt?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"418\" height=\"379\" style=\"\" src=\"https://pbs.twimg.com/media/HPW-CkEbIAAfcXs?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Today at 5:30 PM \u201cAny future #UPI #MDR would apply only to select merchants, not consumers.\u201d Big clarification from the Govt days after Lok Sabha pa...",
-      "link": "https://x.com/CNBCTV18Live/status/2086782408146444624",
-      "date": "2026-08-10T11:51:11+00:00",
-      "tweet_id": "2086782408146444624",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPW9dYjaUAAFCan?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Today at 5:30 PM<br><br>\u201cAny future #UPI #MDR would apply only to select merchants, not consumers.\u201d<br><br>Big clarification from the Govt days after Lok Sabha passed a bill to end the zero-MDR regime.<br><br>@FinMinIndia says the proposed change to Section 10A is merely \u201can enabling provision\u201d and does not itself impose an MDR.<br><br>So, how can the Indian govt ensure UPI\u2019s long-term sustainability without toppling the apple cart?<br><br>What should be the priorities to make UPI truly future-ready?<br><br>@_RituSingh speaks to former SBI Chairman Dinesh Khara and two of India\u2019s leading fintech voices: @MobiKwik Co-Founder &amp; CFO Upasana Taku and @billdesk Co-Founder MN Srinivasu<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HPW9dYjaUAAFCan?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -787,21 +952,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#ICICIBank threatens to dislodge #HDFCBank as India\u2019s most valuable private bank @imFmoharkan https://www.cnbctv18.com/business/companies/icici-bank-...",
-      "link": "https://x.com/CNBCTV18Live/status/2086780318045057118",
-      "date": "2026-08-10T11:42:52+00:00",
-      "tweet_id": "2086780318045057118",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#ICICIBank threatens to dislodge #HDFCBank as India\u2019s most valuable private bank<br><br>@imFmoharkan <br><br>https://www.cnbctv18.com/business/companies/icici-bank-threatens-to-dislodge-hdfc-bank-as-indias-most-valuable-private-bank-19965738.htm",
-      "category": "Twitter"
-    },
-    {
       "title": "RT ValueEquity: Aarti Pharmalabs Q1FY27 concall notes , my notes from the call just concluded , my thoughts and notes : Atali and Xanthine ramp up has...",
       "link": "https://x.com/EquityValueIn/status/2086784310951174282",
       "date": "2026-08-10T11:39:42+00:00",
@@ -832,33 +982,18 @@
       "category": "Twitter"
     },
     {
-      "title": "#1QWithCNBCTV18 | #LumaxAuto reports its Q1 results; Net Profit \u20b986.6 Cr Vs \u20b941.4 Cr (YoY) Revenue Up 33% At \u20b91,363.6 Cr Vs \u20b91,026.4 Cr (YoY) EBIT...",
-      "link": "https://x.com/CNBCTV18Live/status/2086778153016684561",
-      "date": "2026-08-10T11:34:16+00:00",
-      "tweet_id": "2086778153016684561",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "RT Sujeet Indap: can\u2019t believe Ruchir Sharma got this line through FT fact-checking: https://www.ft.com/content/36d87659-ceb8-4dab-84fa-2f84ba3fbb53?...",
+      "link": "https://x.com/madhavchanchani/status/2086815456388915376",
+      "date": "2026-08-10T11:38:11+00:00",
+      "tweet_id": "2086815456388915376",
+      "source": "Madhav Chanchani",
+      "publisher": "Madhav Chanchani",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPW5qHda4AAXoMY?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
+      "image": "https://pbs.twimg.com/media/HPW6kYZWgAAnthO?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
       "is_reply": false,
-      "description_html": "#1QWithCNBCTV18 | #LumaxAuto reports its Q1 results;<br><br>Net Profit \u20b986.6 Cr Vs \u20b941.4 Cr (YoY)<br><br>Revenue Up 33% At \u20b91,363.6 Cr Vs \u20b91,026.4 Cr (YoY)<br><br>EBITDA Down 52.3% At \u20b9190.1 Cr Vs \u20b9124.8 Cr (YoY)<br><br>Margin At 14% Vs 12.2% (YoY)<br><img width=\"750\" height=\"490\" style=\"\" src=\"https://pbs.twimg.com/media/HPW5qHda4AAXoMY?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "COMING UP AT 5:15 PM | #AviationSentimeter Can airport operators also own airlines? AAI has received a letter from #Adani seeking a waiver of contract...",
-      "link": "https://x.com/CNBCTV18Live/status/2086777661859459401",
-      "date": "2026-08-10T11:32:19+00:00",
-      "tweet_id": "2086777661859459401",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPW5MovbUAAiCns?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "COMING UP AT 5:15 PM | #AviationSentimeter<br><br>Can airport operators also own airlines?<br><br>AAI has received a letter from #Adani seeking a waiver of contractual restrictions to enter the #airline business.<br><br>The govt says there is no policy barring them from holding substantial equity in commercial airlines. <br><br>But, what could this mean for India\u2019s aviation landscape?<br><br>Aviation expert @sjlazars &amp; Rajani Associates' Prem Rajani join @AshmitTejKumar &amp; @madeehamedia<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HPW5MovbUAAiCns?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "description_html": "RT\u2002Sujeet Indap<br>can\u2019t believe Ruchir Sharma got this line through FT fact-checking:<br><br>https://www.ft.com/content/36d87659-ceb8-4dab-84fa-2f84ba3fbb53?shareType=nongift<br><img width=\"1125\" height=\"717\" style=\"\" src=\"https://pbs.twimg.com/media/HPW6kYZWgAAnthO?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Financial Times:\u2002New York is having a summer for the ages https://ft.trib.al/lHdR8tY<br></div>",
       "category": "Twitter"
     },
     {
@@ -874,21 +1009,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Meri Gland Jawaani \ud83d\udc83\ud83c\udffb<br><br>Revenue: +20% YoY<br>EBITDA: +34% YoY<br>PAT: +47% YoY<br>Another quarter of record revenue.<br><br>Gland Pharma seems to be finding its groove. \ud83d\ude04<br><br>Another green zone company (pinned X)<br>Invested. Biased. No recommendation.",
-      "category": "Twitter"
-    },
-    {
-      "title": "#1QWithCNBCTV18 | #ZeeEnt reports its Q1 results; Net Profit Down 46.9% At \u20b976.3 Cr Vs \u20b9143.7 Cr (YoY) Revenue Up 4.5% At \u20b91,907.3 Cr Vs \u20b91,824.8 ...",
-      "link": "https://x.com/CNBCTV18Live/status/2086777268333084760",
-      "date": "2026-08-10T11:30:45+00:00",
-      "tweet_id": "2086777268333084760",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPW42c0aYAAciuy?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#1QWithCNBCTV18 | #ZeeEnt reports its Q1 results;<br><br>Net Profit Down 46.9% At \u20b976.3 Cr Vs \u20b9143.7 Cr (YoY)<br><br>Revenue Up 4.5% At \u20b91,907.3 Cr Vs \u20b91,824.8 Cr (YoY)<br><br>EBITDA Down 58.3% At \u20b9100 Cr Vs \u20b9239 Cr (YoY)<br><br>Margin At 5.2% Vs 13.1 (YoY)<br><img width=\"770\" height=\"433\" style=\"\" src=\"https://pbs.twimg.com/media/HPW42c0aYAAciuy?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -964,6 +1084,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Solar Pump Companies - A Classic B2G Problem<br><br>Both Shakti Pumps &amp; Oswal Pumps are down significantly from their ATHs<br><br>A key issue with this sector is the heavy dependence on B2G business<br><br>Growth is linked not just to demand, but also to government scheme launches, tender timelines, state level execution &amp; payment cycles<br><br>The delay in PM KUSUM 2.0 has pushed order inflows, while aggressive tender pricing &amp; higher raw material costs have compressed margins<br><br>Receivables are another major concern. In B2G businesses, even when execution remains strong, delayed government payments can lock up significant working capital &amp; weaken cash conversion<br><img width=\"2048\" height=\"1147\" style=\"\" src=\"https://pbs.twimg.com/media/HPW2gmfa8AAdSOk?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1059\" style=\"\" src=\"https://pbs.twimg.com/media/HPW2gmWasAA2v7K?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Equity Insights Elite:\u2002This is the transcript of the first concall of Oswal Pumps\u23ec<br><br>(would highly recommend going through it)<br><br>Everything sounded too good to be true<br>Management: \u201cUnable to see any big negative factor.\u201d<br><br>Fast forward to now \u2192 margin pressure, receivable stretch, pricing pressure,<br><br><img width=\"1348\" height=\"1830\" style=\"\" src=\"https://pbs.twimg.com/media/HAii2tDacAAcjDI?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1596\" height=\"1810\" style=\"\" src=\"https://pbs.twimg.com/media/HAii2tCacAkLpQo?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Karl Schamotta: Well put: \u201cAmerica must also adjust its own fiscal policy to narrow the deficit that attracts global capital. Developing countries...",
+      "link": "https://x.com/dugalira/status/2086822229376164089",
+      "date": "2026-08-10T11:19:52+00:00",
+      "tweet_id": "2086822229376164089",
+      "source": "Ira Dugal",
+      "publisher": "Ira Dugal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Karl Schamotta<br>Well put: \u201cAmerica must also adjust its own fiscal policy to narrow the deficit that attracts global capital. Developing countries are squeezed from both directions: China\u2019s excess capacity crowds out their own manufacturers, while American deficits draw investment away from them instead\u201d <br>https://www.economist.com/by-invitation/2026/08/10/the-yuan-is-more-than-a-symptom-of-global-imbalances",
       "category": "Twitter"
     },
     {
@@ -1279,6 +1414,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Deepak Nitrite Q1FY27 concall notes , my notes from the call concluded   <br><br>Again one of the best managements in this business , PC FY28 expected to be a great IRR plant , their technology partner is their anchor customer as well , hence commercialization basic issues should not be a concern   <br><br>The utilization at which they run their plants are genuinely really good and this called they have shared some interesting insights on the fluorination and flow chemistry also   <br><br>Post F28 this is going to be a different beast !  <br><br> disc: no reco , no financial advice<br><img width=\"592\" height=\"607\" style=\"\" src=\"https://pbs.twimg.com/media/HPWaaTgbEAAMbpy?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Ritu Singh: #MDR on UPI: \u25aa\ufe0fWhat\u2019s the right MDR to make UPI sustainable? \u25aa\ufe0fWhat\u2019s stopping merchants from passing on fee to customers? \u25aa\ufe0fWi...",
+      "link": "https://x.com/yatinmota/status/2086816924382700005",
+      "date": "2026-08-10T10:28:17+00:00",
+      "tweet_id": "2086816924382700005",
+      "source": "Yatin Mota",
+      "publisher": "Yatin Mota",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2086705905601773568/img/VdJeOyXARt9_ET26.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Ritu Singh<br>#MDR on UPI:<br><br>\u25aa\ufe0fWhat\u2019s the right MDR to make UPI sustainable?<br><br>\u25aa\ufe0fWhat\u2019s stopping merchants from passing on fee to customers?<br><br>\u25aa\ufe0fWill MDR encourage more innovation?<br><br>That &amp; more in this chat with ex SBI Chief Dinesh Khara &amp; Mobikwik Co-founder Upasana Taku<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2086705905601773568/vid/avc1/1920x1080/_p85f_VxFqPY0ala.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2086705905601773568/img/VdJeOyXARt9_ET26.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -1717,21 +1867,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Vedanta Oil and Gas shares surge 12% to fresh record high. What should investors do? #ETMarkets https://economictimes.indiatimes.com/markets/stocks/ne...",
-      "link": "https://x.com/ETMarkets/status/2086734294937207116",
-      "date": "2026-08-10T08:40:00+00:00",
-      "tweet_id": "2086734294937207116",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Vedanta Oil and Gas shares surge 12% to fresh record high. What should investors do?<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/vedanta-oil-and-gas-shares-surge-12-to-fresh-record-high-what-should-investors-do/articleshow/133090903.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst",
-      "category": "Twitter"
-    },
-    {
       "title": "German chemical companies including Covestro and BASF are now starting to issue force majeure letters to clients as ultra low waters in the Rhine (Kau...",
       "link": "https://x.com/JavierBlas/status/2086734076048732372",
       "date": "2026-08-10T08:39:08+00:00",
@@ -1792,21 +1927,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Shanghai & Hong Kong stocks rose on Monday, while China's blue-chip index declined as gains in consumer and property shares were offset by a sell-off ...",
-      "link": "https://x.com/ETMarkets/status/2086731779554377768",
-      "date": "2026-08-10T08:30:00+00:00",
-      "tweet_id": "2086731779554377768",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Shanghai &amp; Hong Kong stocks rose on Monday, while China's blue-chip index declined as gains in consumer and property shares were offset by a sell-off in technology stocks, with investors assessing fresh inflation data for clues on the country's policy outlook. <br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-market-shanghai-hong-kong-stocks-rise-as-consumer-gains-offset-tech-weakness/articleshow/133090625.cms",
-      "category": "Twitter"
-    },
-    {
       "title": "BEML says FY27 Guidance Revenue growth: +30% Margins: 11\u201312% Order inflow target: \u20b920,000cr @BEMLltd https://www.youtube.com/watch?v=GQgI6iMkPbg",
       "link": "https://x.com/Nigel__DSouza/status/2086731483042210107",
       "date": "2026-08-10T08:28:49+00:00",
@@ -1849,21 +1969,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Ali Hashem \u0639\u0644\u064a \u0647\u0627\u0634\u0645<br>Re Full story on the SNSC shakeup, the tanker war, and where Rezaee fits into Iran\u2019s shifting political map in my latest for @amwajmedia.<br>\u201cAn old new man in Iran's war room\u201d <br><br>https://amwaj.media/en/article/an-old-new-man-in-irans-war-room via @amwajmedia",
-      "category": "Twitter"
-    },
-    {
-      "title": "The case for the Bank of Japan to raise interest rates as soon as September has strengthened, with a growing number of policymakers calling for a fast...",
-      "link": "https://x.com/ETMarkets/status/2086726745344938105",
-      "date": "2026-08-10T08:10:00+00:00",
-      "tweet_id": "2086726745344938105",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The case for the Bank of Japan to raise interest rates as soon as September has strengthened, with a growing number of policymakers calling for a faster response to mounting inflation risks, according to a summary of opinions from the central bank\u2019s July meeting released on Monday.<br>#ETMarkets #BoJ <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-market-boj-rate-hike-case-strengthens-as-policymakers-warn-of-rising-inflation-risks/articleshow/133090142.cms",
       "category": "Twitter"
     },
     {
@@ -2134,6 +2239,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Shereen Bhan<br>#MMDRABill in Parliament - <br>Centre to introduce the bill, likely to prescribe additional conditions, for State Govts to levy tax, cess or levies on mining rights, mineral bearing lands @AshmitTejKumar reports <br><br>Bill allows Centre the power to prescribe conditions for States to levy of such a tax, cess or levy.<br><br>Bill comes after a 2024 SC judgment (bench of 9 judges) upheld the power of States to levy royalty.<br><br>In 2024, 9-judge-bench of SC had held that under the existing MMDR Act there was no restriction on powers of states to charge Royalty.<br><br>SC judgment had provided that Parliament could consider restrictions under a new law @CNBCTV18Live @CNBCTV18News #Mines #States #Parliament",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Dr Arvind Virmani: \ud83c\udfaf",
+      "link": "https://x.com/sanjeevsanyal/status/2086822963819815043",
+      "date": "2026-08-10T06:33:54+00:00",
+      "tweet_id": "2086822963819815043",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Dr Arvind Virmani<br>\ud83c\udfaf<div class=\"rsshub-quote\"><br><br>Amar Govindarajan:\u2002Half of America's WW2 wartime research budget went to three institutions. MIT, Harvard, Caltech. <br><br>Guess who were the men handing out the money through the govt grants? The SAME people who ran MIT, Harvard, Caltech etc.<br><br>Their chairman, Vannevar Bush, had been dean of engineering<br></div>",
       "category": "Twitter"
     },
     {
@@ -4912,21 +5032,6 @@
       "category": "Twitter"
     },
     {
-      "title": "China's private sector is rebounding. Of 27 newcomers to China's 100 largest listed companies by market value, 26 are little-known upstream suppliers ...",
-      "link": "https://x.com/PIIE/status/2085752349750890720",
-      "date": "2026-08-07T15:38:06+00:00",
-      "tweet_id": "2085752349750890720",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPIUsWGWQAA921z?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "China's private sector is rebounding. Of 27 newcomers to China's 100 largest listed companies by market value, 26 are little-known upstream suppliers of chips, components, materials, &amp; equipment for semiconductors, advanced electronics, optical communications, &amp; AI. #PIIECharts<br><img width=\"2048\" height=\"1886\" style=\"\" src=\"https://pbs.twimg.com/media/HPIUsWGWQAA921z?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Sona Comstar did a 10x in their revenue in 10 years, from Rs 345 cr in FY15 to 3550 cr in FY25 They want to do a 10x in revenue again to Rs 35500 Cr b...",
       "link": "https://x.com/aditya_kondawar/status/2085752273582641656",
       "date": "2026-08-07T15:37:48+00:00",
@@ -5122,21 +5227,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RBI asks for comments on draft regulation that removes overdraft style on-demand take/repay loans by NBFCs. The deeper look. http://x.com/i/article/20...",
-      "link": "https://x.com/deepakshenoy/status/2085709504243503240",
-      "date": "2026-08-07T12:47:51+00:00",
-      "tweet_id": "2085709504243503240",
-      "source": "Deepak Shenoy",
-      "publisher": "Deepak Shenoy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RBI asks for comments on draft regulation that removes overdraft style on-demand take/repay loans by NBFCs. The deeper look. http://x.com/i/article/2085708975853490176",
-      "category": "Twitter"
-    },
-    {
       "title": "In July, higher onion, vegetable oil & LPG prices pushed up cost of a home-cooked veg thali by 4% on-year. The increase in overall cost was partly off...",
       "link": "https://x.com/TamalBandyo/status/2085700488897692002",
       "date": "2026-08-07T12:12:01+00:00",
@@ -5224,21 +5314,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Swaraj Dhanjal<br>After a decade of riding government capex, India\u2019s EPC majors are seeing private projects gain ground. Private work now forms 40% of L&amp;T\u2019s domestic order book, excluding realty, up from 27%; Tata Projects\u2019 implied share has risen to 55% from 39%.<br><br>Is a private-capex cycle taking shape? https://www.moneycontrol.com/news/business/private-capex-is-reshaping-epc-order-books-after-decade-of-govt-led-spending-binge-13997795.html",
-      "category": "Twitter"
-    },
-    {
-      "title": "Update: I am told that Benne already had a Bangalore-based investor in Miten Sampat of Cred. Peercheque, the investment firm he started with Aakrit Va...",
-      "link": "https://x.com/madhavchanchani/status/2085677500039090240",
-      "date": "2026-08-07T10:40:40+00:00",
-      "tweet_id": "2085677500039090240",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPGS3MKa8AEgkaf?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Update: I am told that Benne already had a Bangalore-based investor in Miten Sampat of Cred.<br><br>Peercheque, the investment firm he started with Aakrit Vaish, were the first investors in Benne..<div class=\"rsshub-quote\"><br><br>Madhav Chanchani:\u2002Dosa chain Benne valued at Rs 364 crore in new funding round, as per Entrackr.<br><br>Also, gets a Bangalore-based investor :)<br><br><img width=\"1208\" height=\"909\" style=\"\" src=\"https://pbs.twimg.com/media/HPGS3MKa8AEgkaf?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -6094,21 +6169,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Bloomberg Opinion<br>Digital lenders are preying on India's consumers, writes @andymukherjee70. It's past time for regulators to step in https://www.bloomberg.com/opinion/articles/2026-08-06/lending-apps-are-a-debt-trap-for-indian-consumers?taid=6a74f95cfbc22200014f4d23&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Anand Ranganathan: Doctors per million Indian population: 931. NGOs per million Indian population: 2357. There are more NGOs in India than there ar...",
-      "link": "https://x.com/sanjeevsanyal/status/2085936841656787180",
-      "date": "2026-08-06T17:58:55+00:00",
-      "tweet_id": "2085936841656787180",
-      "source": "Sanjeev Sanyal",
-      "publisher": "Sanjeev Sanyal",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Anand Ranganathan<br>Doctors per million Indian population: 931. NGOs per million Indian population: 2357.<br><br>There are more NGOs in India than there are doctors.",
       "category": "Twitter"
     },
     {
@@ -7927,36 +7987,6 @@
       "category": "Twitter"
     },
     {
-      "title": "India's new stock closing auction leaves traders nervous before derivatives expiry https://www.reuters.com/world/india/indias-new-stock-closing-auctio...",
-      "link": "https://x.com/dugalira/status/2084530082299920763",
-      "date": "2026-08-04T06:41:14+00:00",
-      "tweet_id": "2084530082299920763",
-      "source": "Ira Dugal",
-      "publisher": "Ira Dugal",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "India's new stock closing auction leaves traders nervous before derivatives expiry https://www.reuters.com/world/india/indias-new-stock-closing-auction-leaves-traders-nervous-before-derivatives-2026-08-04/",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Reuters: India's Nifty 50 falls as new closing mechanism-led surge unwinds http://reut.rs/4g9wvZM http://reut.rs/4g9wvZM",
-      "link": "https://x.com/dugalira/status/2084529845686743530",
-      "date": "2026-08-04T05:40:08+00:00",
-      "tweet_id": "2084529845686743530",
-      "source": "Ira Dugal",
-      "publisher": "Ira Dugal",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Reuters<br>India's Nifty 50 falls as new closing mechanism-led surge unwinds http://reut.rs/4g9wvZM http://reut.rs/4g9wvZM",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Vinay Kesari: Good move, and hope it succeeds! Reality check: This amendment would create an *enabling mechanism* to more easily tweak MDR structur...",
       "link": "https://x.com/dugalira/status/2084549358104748259",
       "date": "2026-08-04T05:02:57+00:00",
@@ -8959,36 +8989,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The AI memory crash comes on the back of last quarter record profits.<br><br>Samsung chip division's single-year profits beat its past 40 years total profit. Last quarter &gt; Last 2 years. Stock has halved in a month.<br><br>Micron grew profits by 1400%, stock down 40-45%. Projections talk of record numbers for next 2 years as well. TTM PE hardly 4-5x. <br><br>So, why the panic and correction?<br><br>1. One obvious reason is profit booking, with record leverage in system amplifying the fall. What unfolded the sell-off was fear - China's Open source model and DRAM buildup fears, bond market pressure etc.<br><br>2. The other is valuation mistake. Is trailing P/E the right metric for extraordinary earnings cycle? The risks are in future, not in trail. The lesser variables you have that can impact earnings visibility the better. Here, there are more than what an analyst can predict with confidence.<br><br>Is this a buying opportunity? Is there more correction left? I don't know. But I know that basing investment decision solely on the fall from peak is often a mistake. <br><br>#FearandGreed",
-      "category": "Twitter"
-    },
-    {
-      "title": "Re What do maximum and minimum temperature anomalies look like across states in India? Read Juhi Chatterjee\u2019s piece to find out. https://www.datafori...",
-      "link": "https://x.com/dataforin/status/2082307681612869750",
-      "date": "2026-07-29T03:30:13+00:00",
-      "tweet_id": "2082307681612869750",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Re What do maximum and minimum temperature anomalies look like across states in India? Read Juhi Chatterjee\u2019s piece to find out.&nbsp;https://www.dataforindia.com/regional-temperature-trends-in-india/?utm_source=twitter&amp;utm_medium=post",
-      "category": "Twitter"
-    },
-    {
-      "title": "\ud83e\uddf5 India is warming, but not evenly. Geography, elevation, land-use patterns, urbanisation and regional climatic conditions all shape how warming is...",
-      "link": "https://x.com/dataforin/status/2082307672079319294",
-      "date": "2026-07-29T03:30:11+00:00",
-      "tweet_id": "2082307672079319294",
-      "source": "Data For India",
-      "publisher": "Data For India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOXXyJubMAAnyv4?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\ud83e\uddf5 India is warming, but not evenly. Geography, elevation, land-use patterns, urbanisation and regional climatic conditions all shape how warming is experienced locally, leading to considerable variation across states.<br><br>Temperature anomalies, defined as deviations from a historical baseline, provide a clearer picture of how warming has evolved over time and across regions. Meaningful temperature anomalies depend on a clearly defined and standardised baseline.&nbsp;The current official baseline used by the India Meteorological Department (IMD) is the average for the period from 1991-2020.<br><br>To examine whether recent years are warmer than in the past, we look at two periods - the decade from 1970-1980 and the decade from 2015-2025 - and compare both with the IMD\u2019s baseline temperatures.<br><br>We find that most states in India recorded negative anomalies relative to the 1991\u20132020 baseline, averaging around \u22120.3\u00b0C, during the 1970s. This means that this decade was colder than the current baseline, across most of the country.<br><br>Conversely, the period between 2015 and 2025 is dominated by widespread positive anomalies (averaging around +0.32\u00b0C nationally), with temperatures across most states consistently exceeding the baseline.<br><br>The strongest warming is concentrated across northern and northeastern India. Parts of Jammu and Kashmir, Himachal Pradesh, Uttarakhand, Assam and Arunachal Pradesh record mean temperature anomalies of +0.5\u00b0C to +0.8\u00b0C above the 1991\u20132020 baseline.<br><br>Mountainous and ecologically sensitive regions experience particularly pronounced temperature increases.<br><br>#Climate #Temperature #Heat #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HOXXyJubMAAnyv4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HOXXylda0AAQWma?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
