@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-11T05:08:23.266048+00:00",
+  "generated_at": "2026-08-11T05:47:05.196447+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
     "handles_total": 49,
-    "handles_ok": 47,
-    "handles_empty": 1,
+    "handles_ok": 48,
+    "handles_empty": 0,
     "handles_error": 1,
-    "items_total": 784
+    "items_total": 787
   },
   "items": [
     {
@@ -2265,6 +2265,62 @@
       "description_html": "RT\u2002Sarvam<br>Yesterday, we released Sarvam 30B and Sarvam 105B. Built from scratch, both models leverage a Mixture of Experts (MoE) architecture, delivering stronger performance at scale while using compute more efficiently."
     },
     {
+      "title": "#FIBAC2026 | #RBI Governor Sanjay Malhotra speaking at FIBAC 2026: AI is being seen as what globalisation was for the \u201990s in this decade The AI jour...",
+      "link": "https://x.com/CNBCTV18Live/status/2087051124125970937",
+      "date": "2026-08-11T05:38:58+00:00",
+      "tweet_id": "2087051124125970937",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HPaw05ca0AAMUT8?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#FIBAC2026 | #RBI Governor Sanjay Malhotra speaking at FIBAC 2026:<br><br>AI is being seen as what globalisation was for the \u201990s in this decade<br><br>The AI journey is expected to be shaped rather than allowed to shape us<br><br>RBI Governor says Basel III guidelines are on track to be implemented from FY28 with the given glide path. A shift in the evaluation of risk is being called for by AI. Regulatory burden on banks has been reduced<br><br>#CNBCTV18 #RBI #AI #Banking #BaselIII<br><img width=\"636\" height=\"635\" style=\"\" src=\"https://pbs.twimg.com/media/HPaw05ca0AAMUT8?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#1QWithCNBCTV18 | Maintained mid-teens growth as guidance, but confident of beating it In 3 years, India will account for 40% of turnover. Will partia...",
+      "link": "https://x.com/CNBCTV18Live/status/2087048667383697564",
+      "date": "2026-08-11T05:29:12+00:00",
+      "tweet_id": "2087048667383697564",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HPavicZa0AAhm6s?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#1QWithCNBCTV18 | Maintained mid-teens growth as guidance, but confident of beating it<br><br>In 3 years, India will account for 40% of turnover. Will partially de-pledge promoter holding in FY27<br><br>Vikas Chadha, #TVSSupplyChain To CNBC-TV18<br><img width=\"900\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HPavicZa0AAhm6s?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#JustIn | #Parliamentary Committee Recommendations On Health: \ud83d\udc49Strict Govt Review Of FDI Limits In Existing Healthcare Facilities \ud83d\udc49Govt Must Int...",
+      "link": "https://x.com/CNBCTV18Live/status/2087046474089783585",
+      "date": "2026-08-11T05:20:29+00:00",
+      "tweet_id": "2087046474089783585",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HPatsxOa0AAvG_9?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#JustIn | #Parliamentary Committee Recommendations On Health: <br><br>\ud83d\udc49Strict Govt Review Of FDI Limits In Existing Healthcare Facilities<br><br>\ud83d\udc49Govt Must Introduce A Framework That Redirects Foreign Investments Towards Domestic Mfg<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HPatsxOa0AAvG_9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#IPOUpdate | #DhootTransmission IPO Fully Subscribed On Day 2",
+      "link": "https://x.com/CNBCTV18Live/status/2087043735586808095",
+      "date": "2026-08-11T05:09:36+00:00",
+      "tweet_id": "2087043735586808095",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HParFlibEAA4t5q?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#IPOUpdate | #DhootTransmission IPO Fully Subscribed On Day 2<br><img width=\"543\" height=\"368\" style=\"\" src=\"https://pbs.twimg.com/media/HParFlibEAA4t5q?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "#JustIn | #Flair Writing Arm Expands Stainless Steel Bottle Mfg Capacity With Order For Fourth Production Line \ud83d\udc49Fourth Production Line Expected To ...",
       "link": "https://x.com/CNBCTV18Live/status/2087041835214700740",
       "date": "2026-08-11T05:02:03+00:00",
@@ -2447,46 +2503,60 @@
       "description_html": "#CNBCTV18Market | #KoltePatil surges over 12% on Q1 results impact<br><img width=\"612\" height=\"345\" style=\"\" src=\"https://pbs.twimg.com/media/HPaZUSFbUAAhUr9?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "#1QWithCNBCTV18 | #GlandPharma, #Bosch shares rise on strong Q1 results, #AntonyWaste slips in trade by over 4% on earning impact",
-      "link": "https://x.com/CNBCTV18Live/status/2087023905567650247",
-      "date": "2026-08-11T03:50:48+00:00",
-      "tweet_id": "2087023905567650247",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "#Singapore raised its economic growth forecast for 2026 on Tuesday, citing stronger-than-expected global investment in artificial intelligence and a m...",
+      "link": "https://x.com/ETMarkets/status/2087051592508076165",
+      "date": "2026-08-11T05:40:49+00:00",
+      "tweet_id": "2087051592508076165",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPaY-aGbYAAHQ1_?format=png&name=orig",
+      "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#1QWithCNBCTV18 | #GlandPharma, #Bosch shares rise on strong Q1 results, #AntonyWaste slips in trade by over 4% on earning impact<br><img width=\"612\" height=\"340\" style=\"\" src=\"https://pbs.twimg.com/media/HPaY-aGbYAAHQ1_?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "#Singapore raised its economic growth forecast for 2026 on Tuesday, citing stronger-than-expected global investment in artificial intelligence and a milder-than-feared impact from the Middle East conflict, Reuters reported.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-market-singapore-raises-2026-growth-forecast-on-ai-boom-resilient-global-economy/articleshow/133142372.cms"
     },
     {
-      "title": "#CNBCTV18Market | Market opens flat, #Nifty above 24,550",
-      "link": "https://x.com/CNBCTV18Live/status/2087022441663193200",
-      "date": "2026-08-11T03:44:59+00:00",
-      "tweet_id": "2087022441663193200",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "Infosys, Vedanta among 10 stocks that saw the sharpest decrease in LIC holdings in Q1. See full list #ETMarkets https://economictimes.indiatimes.com/m...",
+      "link": "https://x.com/ETMarkets/status/2087051437314556167",
+      "date": "2026-08-11T05:40:12+00:00",
+      "tweet_id": "2087051437314556167",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPaXwViboAAm30N?format=png&name=orig",
+      "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#CNBCTV18Market | Market opens flat, #Nifty above 24,550<br><img width=\"606\" height=\"338\" style=\"\" src=\"https://pbs.twimg.com/media/HPaXwViboAAm30N?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "Infosys, Vedanta among 10 stocks that saw the sharpest decrease in LIC holdings in Q1. See full list<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/infosys-vedanta-among-10-stocks-that-saw-the-sharpest-decrease-in-lic-holdings-in-q1-see-full-list/out-of-favour/slideshow/133142456.cms"
     },
     {
-      "title": "#1QWithCNBCTV18 | Vimal Kejriwal, of #KECInternational on CNBC-TV18: \ud83d\udd38Labour availability improves to 90% of needs; EBITDA margin expected at 6.5-7...",
-      "link": "https://x.com/CNBCTV18Live/status/2087021909762584783",
-      "date": "2026-08-11T03:42:52+00:00",
-      "tweet_id": "2087021909762584783",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "#BSE shares to join rival NSE's benchmark index Nifty 50. What this means for shareholders #ETMarkets https://economictimes.indiatimes.com/markets/sto...",
+      "link": "https://x.com/ETMarkets/status/2087048867561033937",
+      "date": "2026-08-11T05:30:00+00:00",
+      "tweet_id": "2087048867561033937",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPaWSS5bQAAziPE?format=jpg&name=orig",
+      "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#1QWithCNBCTV18 | Vimal Kejriwal, of #KECInternational on CNBC-TV18: <br><br>\ud83d\udd38Labour availability improves to 90% of needs; EBITDA margin expected at 6.5-7% by Q3<br>\ud83d\udd38FY27 revenue growth guidance maintained at 12-15%, with around 10% growth expected in FY28<br>\ud83d\udd38West Asia tender pipeline stands at \u20b930,000-40,000 cr<br><br>#CNBCTV18 #Infrastructure #EPC #WestAsiaMarket<br><img width=\"900\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HPaWSS5bQAAziPE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "#BSE shares to join rival NSE's benchmark index Nifty 50. What this means for shareholders<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/bse-shares-to-join-rival-nses-benchmark-index-nifty-50-what-this-means-for-shareholders/articleshow/133142094.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
+    },
+    {
+      "title": "India's mainboard IPO market is seeing a busy week after a quiet spell, with five companies looking to raise a combined Rs 7,479 crore by August 12. T...",
+      "link": "https://x.com/ETMarkets/status/2087046351293141071",
+      "date": "2026-08-11T05:20:00+00:00",
+      "tweet_id": "2087046351293141071",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "India's mainboard IPO market is seeing a busy week after a quiet spell, with five companies looking to raise a combined Rs 7,479 crore by August 12. The lineup includes Dhoot Transmission, Molbio Diagnostics, Milky Mist Dairy Food, Shiprocket and Behari Lal Engineering, giving investors a mix of auto components, diagnostics, dairy, e-commerce logistics and engineering plays.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/ipos/fpos/dhoot-milky-mist-or-molbio-what-should-investors-pick-in-rs-7000-crore-ipo-rush-this-week/articleshow/133142167.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
     },
     {
       "title": "Retail investors used the June quarter decline in some of India\u2019s biggest companies to mount an estimated Rs 17,914 crore contrarian bet, accumulatin...",
@@ -2711,62 +2781,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#AegeusTechnologies shares to debut today: GMP signals 11% premium ahead of BSE SME listing<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/aegeus-technologies-shares-to-debut-today-gmp-signals-11-premium-ahead-of-bse-sme-listing/articleshow/133141246.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
-    },
-    {
-      "title": "#DhootTransmission IPO Day 2; GMP signals 30% listing gain - Should you subscribe? #ETMarkets https://economictimes.indiatimes.com/markets/ipos/fpos/d...",
-      "link": "https://x.com/ETMarkets/status/2087017440912015556",
-      "date": "2026-08-11T03:25:07+00:00",
-      "tweet_id": "2087017440912015556",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#DhootTransmission IPO Day 2; GMP signals 30% listing gain - Should you subscribe?<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/ipos/fpos/dhoot-transmission-ipo-day-2-gmp-signals-30-listing-gain-should-you-subscribe/articleshow/133141011.cms"
-    },
-    {
-      "title": "Stocks to buy in 2026 for long term: Indian Metal & Ferro Alloys, SBI among 5 stocks that could give 10-30% return #ETMarkets https://economictimes.in...",
-      "link": "https://x.com/ETMarkets/status/2087017249551118644",
-      "date": "2026-08-11T03:24:21+00:00",
-      "tweet_id": "2087017249551118644",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Stocks to buy in 2026 for long term: Indian Metal &amp; Ferro Alloys, SBI among 5 stocks that could give 10-30% return<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/stocks-to-buy-in-2026-for-long-term-indian-metal-amp-ferro-alloys-sbi-among-5-stocks-that-could-give-10-30-return/brokerage-recommendations/slideshow/133140812.cms"
-    },
-    {
-      "title": "Milky Mist Dairy Food #IPO opens today: GMP signals a 15% listing gain \u2014 Should you subscribe? #ETMarkets https://economictimes.indiatimes.com/market...",
-      "link": "https://x.com/ETMarkets/status/2087017082903036032",
-      "date": "2026-08-11T03:23:42+00:00",
-      "tweet_id": "2087017082903036032",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Milky Mist Dairy Food #IPO opens today: GMP signals a 15% listing gain \u2014 Should you subscribe?<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/ipos/fpos/milky-mist-dairy-food-ipo-opens-today-gmp-signals-a-15-listing-gain-should-you-subscribe/articleshow/133140641.cms"
-    },
-    {
-      "title": "Gold rose for a third straight session on Tuesday to hit a more than two-month high, while market participants focused on upcoming inflation data for ...",
-      "link": "https://x.com/ETMarkets/status/2087005180244132296",
-      "date": "2026-08-11T02:36:24+00:00",
-      "tweet_id": "2087005180244132296",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Gold rose for a third straight session on Tuesday to hit a more than two-month high, while market participants focused on upcoming inflation data for signals on the U.S. interest-rate outlook. https://economictimes.indiatimes.com/markets/commodities/news/gold-rises-for-third-straight-session-inflation-prints-in-focus/articleshow/133140296.cms"
     },
     {
       "title": "Fund raise for expansion Anchorage Capital and Enam Akash Bhanshali Participate in CCD issue No reco",
@@ -3803,6 +3817,34 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "One of the best running spots in Pune<br><br>Monsoon adds an all different charm to it<br><br>Nothing comes close - <br><br>The Shree Shiv Chhatrapati Sports Complex, also known as Balewadi Stadium<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HPFavNEa8AAEP0s?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HPFavNKaIAAXQFh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "Re What do maximum and minimum temperature anomalies look like across states in India? Read Juhi Chatterjee\u2019s piece to find out. https://www.datafori...",
+      "link": "https://x.com/dataforin/status/2082307681612869750",
+      "date": "2026-07-29T03:30:13+00:00",
+      "tweet_id": "2082307681612869750",
+      "source": "Data For India",
+      "publisher": "Data For India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Re What do maximum and minimum temperature anomalies look like across states in India? Read Juhi Chatterjee\u2019s piece to find out.&nbsp;https://www.dataforindia.com/regional-temperature-trends-in-india/?utm_source=twitter&amp;utm_medium=post"
+    },
+    {
+      "title": "\ud83e\uddf5 India is warming, but not evenly. Geography, elevation, land-use patterns, urbanisation and regional climatic conditions all shape how warming is...",
+      "link": "https://x.com/dataforin/status/2082307672079319294",
+      "date": "2026-07-29T03:30:11+00:00",
+      "tweet_id": "2082307672079319294",
+      "source": "Data For India",
+      "publisher": "Data For India",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HOXXyJubMAAnyv4?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\ud83e\uddf5 India is warming, but not evenly. Geography, elevation, land-use patterns, urbanisation and regional climatic conditions all shape how warming is experienced locally, leading to considerable variation across states.<br><br>Temperature anomalies, defined as deviations from a historical baseline, provide a clearer picture of how warming has evolved over time and across regions. Meaningful temperature anomalies depend on a clearly defined and standardised baseline.&nbsp;The current official baseline used by the India Meteorological Department (IMD) is the average for the period from 1991-2020.<br><br>To examine whether recent years are warmer than in the past, we look at two periods - the decade from 1970-1980 and the decade from 2015-2025 - and compare both with the IMD\u2019s baseline temperatures.<br><br>We find that most states in India recorded negative anomalies relative to the 1991\u20132020 baseline, averaging around \u22120.3\u00b0C, during the 1970s. This means that this decade was colder than the current baseline, across most of the country.<br><br>Conversely, the period between 2015 and 2025 is dominated by widespread positive anomalies (averaging around +0.32\u00b0C nationally), with temperatures across most states consistently exceeding the baseline.<br><br>The strongest warming is concentrated across northern and northeastern India. Parts of Jammu and Kashmir, Himachal Pradesh, Uttarakhand, Assam and Arunachal Pradesh record mean temperature anomalies of +0.5\u00b0C to +0.8\u00b0C above the 1991\u20132020 baseline.<br><br>Mountainous and ecologically sensitive regions experience particularly pronounced temperature increases.<br><br>#Climate #Temperature #Heat #India #DataForIndia<br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HOXXyJubMAAnyv4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1638\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HOXXylda0AAQWma?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "#Catalyst mindset",
@@ -5807,6 +5849,20 @@
       "description_html": "RT\u2002Shruti Rajagopalan<br>\ud83d\udce2Thrilled to continue the young scholars series on the @IdeasofIndia podcast at @mercatus, where we invite scholars entering the academic job market whose research focuses on India to discuss their work. We have a handful of 30-minute recording slots for 2026. Please spread the word! <br><br>To be considered, please use this google form (takes about 5-7 minutes).<br>https://forms.gle/f5nVA9hiUbcVGw9d9<br><br>Applications are open until August 10, 2026. All submissions received by the deadline will be considered together. We will make our decisions by August 18 and send out invitations thereafter. Recordings will take place in August and September.<br><br>Past editions of the series have featured some fantastic scholars across disciplines.<br><br>The 2025 series featured Kartik Srivasatva, Sunny Rai @snyrai_&nbsp; Chetana Sabnis, @asad__tariq, Karthik Narayan @asknarayan, @nayantara_ Biswas, @Lavanya__Ammu <br><br>The 2024 series featured @RollyKapoor, @DeepikaPadmanab, @sukrit_puri, @deepti_sharma8, Steven @BrownstoneEcon, Aarushi Kalra @chidiya_, Abishek Choutagunta @kaapi_croissant, @Kushagr_Bakshi, Atanu Chatterjee @atanu_xahs<br><br>The 2023 series featured @rajatkochhar, Vani Swarupa Murali, @KartikeyaBatra, @kumar_rithika, @Vanisha49, @dunc_webb, @i_sarathpillai, @vatsalecon.<br><br>The 2022 series featured Khushdeep Malhotra, Anoop Jain @Fruit_noops, @aliz_toth, @raamadhok, @mahimavasishth, @BanerjeeShweta, @nish_vats.<br><br>The 2021 series featured @arkdevghosh, @tiwari_chhavi, Gaurav Mittal @geo_mittal, Bhumi Purohit, @AshishKumarSed1, @karsha, @Dr_NehaG, @KaranBabbar19, @KimFeCramer, @ArchanaDang1, @apuravbhatiya, @radhi_jain.<br><br>And it all started in 2020 when we featured work by @vaishnavisur, @RohitTicku, @tanu_kumar1, @DrRayProma, @VaidehiTandel, Kunal Mangal @mrgunalan.<br><br>I answered a few questions related to the job market series in 2024 (Please take note of points 1 and 3). Here\u2019s the link https://x.com/srajagopalan/status/1823009248067916269<div class=\"rsshub-quote\"><br><br>Shruti Rajagopalan:\u2002I have received some questions about the job market series. Answers below, please RT. <br><br>1. We have a handful of spots and try to accommodate as many scholars as we can. There are no real criteria for selection: it should be something I find interesting and can engage with. And if<br></div>"
     },
     {
+      "title": "Astra Microwave Products recovers from days low Management says Targeting 15%-20% Revenue growth for this year vs 10-15% mentioned in press release! @...",
+      "link": "https://x.com/Nigel__DSouza/status/2087046320565678307",
+      "date": "2026-08-11T05:19:52+00:00",
+      "tweet_id": "2087046320565678307",
+      "source": "Nigel D'Souza",
+      "publisher": "Nigel D'Souza",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Astra Microwave Products recovers from days low<br><br>Management says Targeting 15%-20% Revenue growth for this year vs 10-15% mentioned in press release!<br><br>@CNBCTV18Live"
+    },
+    {
       "title": "Nifty in consolidation mode for last few sessions. Weekly expiry could bring some spice \ud83e\udd14",
       "link": "https://x.com/Nigel__DSouza/status/2087011800411996670",
       "date": "2026-08-11T03:02:42+00:00",
@@ -6071,20 +6127,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Nazara Technologies outlines its medium-term roadmap<br><br>\ud83c\udfae FY27 revenue target: \u20b93500\u20134000 Cr<br>\ud83d\udcb0 Debt of \u20b9500\u2013600 Cr may be raised to fund the Bluetile &amp; BestPlay acquisitions.<br>\ud83d\udcc8 NODWIN Gaming IPO could be targeted for 2028<br><br>https://www.youtube.com/watch?v=ROv0pWRvFgw&amp;t=1s"
-    },
-    {
-      "title": "RT Ritu Singh: \ud83e\uddf5#BajajFinance stock under pressure today: \u25b6\ufe0fRBI issues draft amendment directions on NBFC credit facilities \u25b6\ufe0fProposes ban on r...",
-      "link": "https://x.com/Nigel__DSouza/status/2085581011266752854",
-      "date": "2026-08-07T04:12:28+00:00",
-      "tweet_id": "2085581011266752854",
-      "source": "Nigel D'Souza",
-      "publisher": "Nigel D'Souza",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Ritu Singh<br>\ud83e\uddf5#BajajFinance stock under pressure today:<br><br>\u25b6\ufe0fRBI issues draft amendment directions on NBFC credit facilities<br>\u25b6\ufe0fProposes ban on revolving credit facilities by NBFCs<br>\u25b6\ufe0fNBFCs can offer only term loan products<br>\u25b6\ufe0fExempts credit card issuing NBFCs from proposed revolving credit ban"
     },
     {
       "title": "RT Hetal Rach: The letter from @deepakshenoy got me thinking - which is the first and last town/city in India, alphabetically? He has investors from A...",
@@ -7543,6 +7585,20 @@
       "description_html": "BREAKING: President Trump has been floating the idea privately to senior aides that he's willing to \"walk away\" from the Iran War without a nuclear deal should Iran fully reopen the Strait of Hormuz, per WSJ.<br><br>Details include:<br><br>1. This objective reportedly became \"more difficult\" yesterday when Iran insisted on its highest price yet for reopening the Strait of Hormuz<br><br>2. Iran is now seeking billions of dollars in US payments, the removal of US troops from the region, among other things to reopen Hormuz<br><br>3. US officials said Trump is patient and expected to ride out the latest developments as long as gas prices remain where they are<br><br>4. Trump has reportedly told senior aides that Iran is likely unable to revive its nuclear work during his presidency<br><br>The Iran War negotiations are becoming increasingly complicated."
     },
     {
+      "title": "IMPORTANT ! Parliamentary Standing Committee\u2019s report on affordability & accessibility of healthcare. Main Reccomendations\ud83d\udc47 1. Create a statutory ...",
+      "link": "https://x.com/_prashantnair/status/2087047589153960018",
+      "date": "2026-08-11T05:24:55+00:00",
+      "tweet_id": "2087047589153960018",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "IMPORTANT !<br><br>Parliamentary Standing Committee\u2019s report on affordability &amp; accessibility of healthcare.<br><br>Main Reccomendations\ud83d\udc47<br><br>1. Create a statutory body to set rigid caps on essential procedures &amp; diagnostics &amp; require hospitals to publish a unified Schedule of Charges<br><br>2. In large metros, basic hospital room tariff should not exceed the average tariff of nearby 3-star hotels<br><br>3. Tertiary hospitals should provide a legally binding comprehensive cost est before complex/prolonged treatment<br><br>4. IRDAI should explicitly prohibit dual pricing between insured and uninsured patients<br><br>5. Major private hospitals should earmark a portion of premium-paying/HNW revenues to subsidise poorer patients<br><br>#Hospitals #Nifty #HealthcareForAll #BankNifty #Trading"
+    },
+    {
       "title": "Chat with KEC International. Q1 was subdued due to disruptions in M-East, labour shortages & water projects (delayed payments) etc. Mgmt guides to, 1....",
       "link": "https://x.com/_prashantnair/status/2087029944358666427",
       "date": "2026-08-11T04:14:48+00:00",
@@ -7793,20 +7849,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Sensex During Closing Auction<br><br>Last 4 days: Avg % diff b/w 3.30 &amp; 3.15 PM = +0.10%<br><br>CAS turnover today (weekly expiry) = Rs.127 crore<br><br>#Nifty #BankNifty #CAS #ClosingAuction<br><img width=\"1054\" height=\"459\" style=\"\" src=\"https://pbs.twimg.com/media/HPCOhW-bkAATD6W?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT CNBC-TV18: What's the most popular song ever in the TIPS Music library? Kumar Taurani tells Prashant Nair but you'd qualify as a Bollywood Nerd, if...",
-      "link": "https://x.com/_prashantnair/status/2085236104186519763",
-      "date": "2026-08-06T04:59:42+00:00",
-      "tweet_id": "2085236104186519763",
-      "source": "Prashant Nair",
-      "publisher": "Prashant Nair",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2085222062919151616/img/sQ2LwF9qTie0WXft.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002CNBC-TV18<br>What's the most popular song ever in the TIPS Music library?<br><br>Kumar Taurani tells Prashant Nair but you'd qualify as a Bollywood Nerd, if you recognise it right away!<br><br>@_prashantnair #Music @tipsofficial @kumartaurani<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2085222062919151616/vid/avc1/1080x1920/efeaInaMgITc9_yQ.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2085222062919151616/img/sQ2LwF9qTie0WXft.jpg\"></video>"
     },
     {
       "title": "RT CNBC-TV18: BSE WEEKLY EXPIRY TODAY ! CAS may be working as designed, but linking expiry settlement to the 3:30 PM price can turn options trading in...",
@@ -8621,6 +8663,20 @@
       "description_html": "Piccadily Agro <br><br>Transforming from a commodity business of sugar and ethanol to a premium branded alcohol business<br><br>The demerger of the sugar business is in process<br><br>Company expects a 50-70% jump in revenue, close to an additional revenue of INR 500-700 Cr from expanded capacity<br><img width=\"1398\" height=\"729\" style=\"\" src=\"https://pbs.twimg.com/media/HNFmv4jbgAAypaI?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1263\" height=\"697\" style=\"\" src=\"https://pbs.twimg.com/media/HNFmxnxaEAAPTsU?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1155\" style=\"\" src=\"https://pbs.twimg.com/media/HNFnlkyaoAAzihc?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"829\" height=\"745\" style=\"\" src=\"https://pbs.twimg.com/media/HNFn0qObIAADHTn?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Yatharth Hospitals - Execution Continues to Impress Q1FY27 REV: 393 Cr (+51% YoY) EBITDA: 92 Cr (+39% YoY) PAT: 45 Cr (+8% YoY) New hospitals are incr...",
+      "link": "https://x.com/EquityInsightss/status/2087043616632197351",
+      "date": "2026-08-11T05:09:08+00:00",
+      "tweet_id": "2087043616632197351",
+      "source": "Equity Insights Elite",
+      "publisher": "Equity Insights",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HPap2fXboAEzWYK?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Yatharth Hospitals - Execution Continues to Impress<br><br>Q1FY27<br>REV: 393 Cr (+51% YoY)<br>EBITDA: 92 Cr (+39% YoY)<br>PAT: 45 Cr (+8% YoY)<br><br>New hospitals are increasingly becoming the growth engine. Their contribution to group REV increased to 27% in Q1FY27 from just 9% in Q1FY26, while the existing hospitals grew 22% YoY.<br><br>The current reported margin understates the underlying profitability of the network. Cons. EBITDA margin is ~23%, but excluding the ramp-up losses of Model Town &amp; Faridabad Sector-20, Adj EBITDA margin stands at ~28%. As the new hospitals move towards breakeven &amp; maturity, this gap should progressively narrow.<br><br>Faridabad Sector-20 has been a strong proof of Yatharth's acquisition &amp; integration capabilities. The 400 bed hospital achieved EBITDA breakeven in just 9 months. Latest monthly REV has already reached ~12-13 Cr with ARPOB of ~40k.<br><br>Model Town, Delhi is also ramping up strongly. Latest monthly REV is ~8 Cr &amp; ARPOB has already moved close to 50k. Management expects the hospital to achieve EBITDA breakeven in H2FY27.<br><br>Agra has performed particularly well, delivering &gt;20% EBITDA margin in its first full quarter of integration. Latest monthly REV is already ~9-10 Cr with ARPOB above 30k.<br><br>Group ARPOB increased 7% YoY to ~35k<br><br>Yatharth has built a network of 2,800+ beds including the upcoming Gurugram hospital &amp; has laid out a roadmap to reach ~5,000 beds over the next 3 years.<br><br>The upcoming 250 bed hospital in Gurgaon is expected to commence operations in Q1FY28, with management indicating ARPOB potential of ~50k+.<br><br>Yatharth's journey over the last few quarters has been exceptional. The company has expanded aggressively through acquisitions, but the real positive is the pace at which the newly acquired hospitals are scaling up &amp; moving towards profitability. A solid wealth creator since listing !<br><img width=\"2048\" height=\"1146\" style=\"\" src=\"https://pbs.twimg.com/media/HPap2fXboAEzWYK?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1136\" style=\"\" src=\"https://pbs.twimg.com/media/HPap34ga4AAxkO4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Solid Set from Lumax Twins",
       "link": "https://x.com/EquityInsightss/status/2087041347362738469",
       "date": "2026-08-11T05:00:07+00:00",
@@ -8815,20 +8871,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Strong results reaction across many names today esp on upside<br><img width=\"2048\" height=\"1285\" style=\"\" src=\"https://pbs.twimg.com/media/HPHLW_xbMAAeUcP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Tata Tech standing out compared to peers Commentary was extremely strong, mentioned in detail below\u23ec Also visible in the price action.",
-      "link": "https://x.com/EquityInsightss/status/2085670036719677553",
-      "date": "2026-08-07T10:11:01+00:00",
-      "tweet_id": "2085670036719677553",
-      "source": "Equity Insights Elite",
-      "publisher": "Equity Insights",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPHJkWqasAIDCgE?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Tata Tech standing out compared to peers<br><br>Commentary was extremely strong, mentioned in detail below\u23ec<br><br>Also visible in the price action.<br><img width=\"2048\" height=\"776\" style=\"\" src=\"https://pbs.twimg.com/media/HPHJkWqasAIDCgE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Equity Insights Elite:\u2002Tata Technologies Q1FY27: Strong start, Management calls FY27 a breakout year<br><br>In CC, REV grew 4% QoQ &amp; 25% YoY\ud83d\udd25<br><br>REV \ud83d\udd3c34% - 1,665 Cr<br>EBITDA \ud83d\udd3c34% - 267 Cr<br>EBIT \ud83d\udd3c31%  - 239 Cr<br><br>EBITDA margin stood at 16.1%, up 10 bps QoQ<br><br>Services remains the core growth engine, contributing<br><br><img width=\"2048\" height=\"1132\" style=\"\" src=\"https://pbs.twimg.com/media/HNfdKdgacAAj_hQ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
       "title": "RT Value Research: Celebrate 20 years of independent stock research. Subscribe now and receive the Collector's Anniversary Issue FREE. Available only ...",
@@ -9797,6 +9839,20 @@
       "description_html": "RT\u2002Tijori<br>A company that might be worth digging is Aegis Logistics<br><br>-Promoter is buying again from the open market<br>-Company aims to double earnings in 3 years<br>-EV by EBITDA of ~14 which is less than its long term <br>  average<br><br>You can check out deep dives on this company by @ScientificInve6 and @anishmoonka in the Knowledge base section<br><img width=\"1403\" height=\"506\" style=\"\" src=\"https://pbs.twimg.com/media/F7aj1C5WkAAwHmR?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "EMBDL: THE BOARD APPROVED A PREFERENTIAL ALLOTMENT OF CONVERTIBLE WARRANTS WORTH ~\u20b9363 CRORE TO EMBASSY GROUP AT AN EXERCISE PRICE OF \u20b9111.51 PER SH...",
+      "link": "https://x.com/REDBOXINDIA/status/2087050709133083056",
+      "date": "2026-08-11T05:37:19+00:00",
+      "tweet_id": "2087050709133083056",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "EMBDL: THE BOARD APPROVED A PREFERENTIAL ALLOTMENT OF CONVERTIBLE WARRANTS WORTH ~\u20b9363 CRORE TO EMBASSY GROUP AT AN EXERCISE PRICE OF \u20b9111.51 PER SHARE"
+    },
+    {
       "title": "FLAIR WRITING INDUSTRIES: CO'S UNIT EXPANDS STAINLESS STEEL BOTTLE MANUFACTURING CAPACITY WITH ORDER FOR FOURTH PRODUCTION LINE",
       "link": "https://x.com/REDBOXINDIA/status/2087040197762695571",
       "date": "2026-08-11T04:55:33+00:00",
@@ -10061,20 +10117,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "LEMON TREE HOTELS: CO. SIGNS TWO NEW LICENSE AGREEMENTS FOR LEMON TREE PREMIER MADURAI AND KEYS SELECT MCLEODGANJ EXPANDING SOUTH INDIA PORTFOLIO"
-    },
-    {
-      "title": "U.S. JUDGE HAS DISMISSED THE JUSTICE DEPARTMENT'S CRIMINAL CASE AGAINST INDIAN BILLIONAIRE GAUTAM ADANI.",
-      "link": "https://x.com/REDBOXINDIA/status/2086899130153287750",
-      "date": "2026-08-10T19:34:59+00:00",
-      "tweet_id": "2086899130153287750",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "U.S. JUDGE HAS DISMISSED THE JUSTICE DEPARTMENT'S CRIMINAL CASE AGAINST INDIAN BILLIONAIRE GAUTAM ADANI."
     },
     {
       "title": "\"India Cast the Widest Net; Now It Has to Catch Something Big\" Where Taiwan narrows to AI hardware and Korea backs \"national champions,\" India spreads...",
