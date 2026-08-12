@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T05:22:13.520758+00:00",
+  "generated_at": "2026-08-12T05:47:00.098061+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,9 +7,23 @@
     "handles_ok": 47,
     "handles_empty": 1,
     "handles_error": 1,
-    "items_total": 786
+    "items_total": 780
   },
   "items": [
+    {
+      "title": "FT: \"China\u2019s central bank has appointed Deutsche Bank to be the first European clearing house for renminbi as Beijing seeks to increase the internati...",
+      "link": "https://x.com/michaelxpettis/status/2087413539426169262",
+      "date": "2026-08-12T05:39:04+00:00",
+      "tweet_id": "2087413539426169262",
+      "source": "Michael Pettis",
+      "publisher": "Michael Pettis",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "FT: \"China\u2019s central bank has appointed Deutsche Bank to be the first European clearing house for renminbi as Beijing seeks to increase the international use of its currency.\"<br><br>It's probably not a coincidence that this happened just as EU-China trade disputes were heating up.<br>https://www.ft.com/content/d891285a-e581-45b7-8cb0-80411669c1eb"
+    },
     {
       "title": "Bloomberg: China's robust car exports, up 88% year-on-year in July, contrast with the overall slump in domestic sales, which dropped 21%.\" https://www...",
       "link": "https://x.com/michaelxpettis/status/2087401132502946248",
@@ -149,34 +163,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Korea Times: \"The South Korean surplus totaled $49.73 billion in June, up from the previous record of $38.61 billion in May.\"<br><br>These are incredibly large surpluses. This is why I have long argued that the problem isn't China. It is a global trading system that allows, and even rewards, countries that choose to suppress domestic demand in order to make their manufacturing sectors more competitive than those of their trading partners.<br><br>It does this by allowing them with no penalty to run the trade surpluses that force their trade partners to absorb the costs of their domestic policies. This is precisely what Keynes argued against at Bretton Woods.<br>https://www.koreatimes.co.kr/economy/20260806/korea-posts-record-high-current-account-surplus-again-in-june-on-strong-chip-exports"
-    },
-    {
-      "title": "Consumer prices in China seem once again to be facing entrenched deflationary pressures. CPI was up 0.5% year on year in July, its lowest reading sinc...",
-      "link": "https://x.com/michaelxpettis/status/2086388238952898572",
-      "date": "2026-08-09T09:44:54+00:00",
-      "tweet_id": "2086388238952898572",
-      "source": "Michael Pettis",
-      "publisher": "Michael Pettis",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Consumer prices in China seem once again to be facing entrenched deflationary pressures. CPI was up 0.5% year on year in July, its lowest reading since January, and was down 0.1% month on month, the third time in a row it has been down, and the fourth time this year. PPI was up 3.5% year on year in July and down 0.7% month on month.<br>https://english.news.cn/20260809/8be0d452f506494a9f38e66505a186da/c.html"
-    },
-    {
-      "title": "RT Michael Pettis: For years while economists both inside and outside China have called on Beijing to fight off delation and raise the consumption sha...",
-      "link": "https://x.com/michaelxpettis/status/2086495483153768543",
-      "date": "2026-08-09T04:01:38+00:00",
-      "tweet_id": "2086495483153768543",
-      "source": "Michael Pettis",
-      "publisher": "Michael Pettis",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Michael Pettis<br>For years while economists both inside and outside China have called on Beijing to fight off delation and raise the consumption share of GDP by lowering interest rates and expanding credit, I have argued that this is the wrong solution, based on mistakenly assuming that China's financial system works like that of the US.<br><br>In fact it works in a very different way. Chinese banks mostly borrow from households to lend to businesses and government. Households are overwhelmingly net creditors to the banks while businesses and government net borrowers.<br><br>Lowering interest rates, in other words, rather mechanically reduces the household income share of GDP and expand the business and government shares, which means it tends to expand production faster than consumption.<br><br>We saw this most obviously in the 2000s, when Beijing engineered highly negative real interest rates to help clean up bad debt, and saw a near-collapse of the household share of GDP (and with it, the consumption share).<br><br>That's why, I argued, credit expansion and lower interest rates in China actually reduce consumption and are likely to be deflationary. This, by the way, was a similar story in Japan in the 1980s and 1990s.<br><br>Jinfan Zhang and Wei Xiong have just published an NBER paper that makes a very similar point. They write: \"This paper investigates why China\u2019s recurrent credit expansions have coincided with persistently weak inflation. We argue that this pattern reflects the country\u2019s production-oriented monetary regime.\"<br><br>\"Credit expansion in China,\" they continue, \"tends to sustain production and balance sheets rather than stimulate final demand. As a result, monetary policy operates less as a conventional tool for demand management and durable reflation, and more as a mechanism for preserving production capacity and supporting growth.\"<br><br>If they are right (and I think they clearly are right), this has the seemingly counter-intuitive implication that rebalancing the economy towards a greater reliance on domestic consumption requires higher, not lower interest rates.<br><br>Of course given how heavily indebted government and businesses are, raising interest rates will be extremely painful for the production side of the economy, but this simply reinforces what we already know from the historical precedents \u2013 that it is necessary, but extremely painful, to rebalance an economy with very low consumption.<br><br>That's because the income transfers needed to rebalance an economy towards consumption must come from a production side that had previously benefitted from the reverse transfers. This almost always results in a growth contraction on the production side. That is probably why rebalancing is always put off for so long.<br>https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7223302"
     },
     {
       "title": "On taxpayer money.",
@@ -2265,6 +2251,62 @@
       "description_html": "RT\u2002Sarvam<br>Yesterday, we released Sarvam 30B and Sarvam 105B. Built from scratch, both models leverage a Mixture of Experts (MoE) architecture, delivering stronger performance at scale while using compute more efficiently."
     },
     {
+      "title": "#NChandrasekaran tenders resignation, will complete term, not seek reappointment: #Sources #BREAKING #TataSons https://www.cnbctv18.com/business/compa...",
+      "link": "https://x.com/CNBCTV18Live/status/2087412187254153468",
+      "date": "2026-08-12T05:33:42+00:00",
+      "tweet_id": "2087412187254153468",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#NChandrasekaran tenders resignation, will complete term, not seek reappointment: #Sources<br><br>#BREAKING #TataSons <br>https://www.cnbctv18.com/business/companies/tata-sons-shares-n-chandrasekaran-tenders-resignation-will-complete-term-not-seek-reappointment-sources-19967313.htm"
+    },
+    {
+      "title": "#BREAKING | N CHANDRA TENDERS HIS RESIGNATION AS #TATASONS CHAIRMAN \ud83d\udd34N CHANDRA WILL COMPLETE TERM, NOT SEEK RE-APPOINTMENT \ud83d\udd34ALERT: N CHANDRA TER...",
+      "link": "https://x.com/CNBCTV18Live/status/2087411202750337053",
+      "date": "2026-08-12T05:29:47+00:00",
+      "tweet_id": "2087411202750337053",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HPf5HbcaYAAR4OU?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#BREAKING | N CHANDRA TENDERS HIS RESIGNATION AS #TATASONS CHAIRMAN<br><br>\ud83d\udd34N CHANDRA WILL COMPLETE TERM, NOT SEEK RE-APPOINTMENT<br><br>\ud83d\udd34ALERT: N CHANDRA TERM AS TATA SONS CHAIRMAN ENDS IN FEB 2027<br><img width=\"720\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HPf5HbcaYAAR4OU?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "RT @ShereenBhan: #Breaking Tata Sons Chairman N Chandra resigns, will complete his term. Will not seek reappointment @CNBCTV18Live @CNBCTV1\u2026",
+      "link": "https://x.com/CNBCTV18Live/status/2087410832812761103",
+      "date": "2026-08-12T05:28:19+00:00",
+      "tweet_id": "2087410832812761103",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT @ShereenBhan: #Breaking Tata Sons Chairman N Chandra resigns, will complete his term. Will not seek reappointment @CNBCTV18Live @CNBCTV1\u2026"
+    },
+    {
+      "title": "#CNBCTV18Market | #ApolloHospitals Under Pressure Ahead of Earnings",
+      "link": "https://x.com/CNBCTV18Live/status/2087410581204881900",
+      "date": "2026-08-12T05:27:19+00:00",
+      "tweet_id": "2087410581204881900",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HPf3iKRasAAWKxv?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#CNBCTV18Market | #ApolloHospitals Under Pressure Ahead of Earnings<br><img width=\"580\" height=\"323\" style=\"\" src=\"https://pbs.twimg.com/media/HPf3iKRasAAWKxv?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Kolkata-based #BalrampurChini says sugar stocks are adequate, no word on ethanol diversion curbs @Reematendulkar @Nigel__DSouza @_prashantnair https:/...",
       "link": "https://x.com/CNBCTV18Live/status/2087407186569990502",
       "date": "2026-08-12T05:13:50+00:00",
@@ -2419,34 +2461,6 @@
       "description_html": "#OnCNBCTV18 | Abhijit Akella, of #KotakInstlEq weighs in on chemical sector dynamics &amp; top picks<br><br>\ud83d\udcc8Q1 reality check: Cos held low-cost inventory ahead of Q1; strong performance may not be sustainable long-term<br>\ud83c\udfafMarket mood: Investors actively rewarding strong earnings visibility across chemical names<br>\ud83e\uddeaSector trends: Focus remains heavily on valuation attractiveness and specialty business health<br><br>#ChemicalSector #Investing #EarningsSeason #StocksToWatch<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HPfrXfPbcAAzW8Z?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "Explained - Why shares of #NALCO, #Hindalco, #VedantaAluminium surged up to 8% today @Nigel__DSouza https://www.cnbctv18.com/market/nalco-hindalco-ved...",
-      "link": "https://x.com/CNBCTV18Live/status/2087395157536899090",
-      "date": "2026-08-12T04:26:02+00:00",
-      "tweet_id": "2087395157536899090",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Explained - Why shares of #NALCO, #Hindalco, #VedantaAluminium surged up to 8% today<br><br>@Nigel__DSouza <br>https://www.cnbctv18.com/market/nalco-hindalco-vedanta-aluminium-share-price-why-are-stocks-rising-explained-norsk-hydro-19967213.htm"
-    },
-    {
-      "title": "RT CNBC-TV18: #TataSons AGM On Aug 18 | Will there be a leadership change? Sources Say - Chairman N Chandrasekaran weighs exit - Feb meeting deferred ...",
-      "link": "https://x.com/CNBCTV18Live/status/2087395162532245549",
-      "date": "2026-08-12T04:25:51+00:00",
-      "tweet_id": "2087395162532245549",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2087395045146308608/img/KuJo_eZE3lDp4fZt.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002CNBC-TV18<br>#TataSons AGM On Aug 18 | Will there be a leadership change? <br><br>Sources Say<br>- Chairman N Chandrasekaran weighs exit<br>- Feb meeting deferred Chairman renewal, took up turnaround of 5 Tata cos<br>- Resignation may be option amid no quorum on his reappointment as Director<br><br>@r_dhanrajani @CNBCTV18News #CNBCTV18News @tatatrusts<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2087395045146308608/vid/avc1/1920x1080/SIAArhRytmN_GmCK.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2087395045146308608/img/KuJo_eZE3lDp4fZt.jpg\"></video>"
-    },
-    {
       "title": "RT Nigel D'Souza: Nalco \ud83d\udcc8 as global alumina supply tightens Norsk Hydro\u2019s Alunorte cuts alumina output to ~50% capacity due to a gas shortage. \u2192 ...",
       "link": "https://x.com/CNBCTV18Live/status/2087399562025775264",
       "date": "2026-08-12T04:22:41+00:00",
@@ -2461,74 +2475,32 @@
       "description_html": "RT\u2002Nigel D'Souza<br>Nalco \ud83d\udcc8 as global alumina supply tightens<br><br>Norsk Hydro\u2019s Alunorte cuts alumina output to ~50% capacity due to a gas shortage.<br><br>\u2192 Global alumina market could swing into deficit vs surplus expected earlier<br><br>Positive rub off for Hindalco &amp; Vedanta Aluminum<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2087389704861921280/vid/avc1/1920x1080/Dvta9nqzNXnpDu_V.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2087389704861921280/img/4HJME4n9iT-LvR6i.jpg\"></video>"
     },
     {
-      "title": "#1QWithCNBCTV18 | Pramod Patwari, of #BalrampurChini to CNBC-TV18: \ud83d\udd38No Govt communication received yet on restricting sugarcane supplies for ethano...",
-      "link": "https://x.com/CNBCTV18Live/status/2087393685680034245",
-      "date": "2026-08-12T04:20:11+00:00",
-      "tweet_id": "2087393685680034245",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPfoT_7bYAAT3xz?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#1QWithCNBCTV18 | Pramod Patwari, of #BalrampurChini to CNBC-TV18:<br><br>\ud83d\udd38No Govt communication received yet on restricting sugarcane supplies for ethanol<br>\ud83d\udd38Monsoon assessment requires waiting until Aug-Sep to see the full impact<br>\ud83d\udd38Early crushing encouraged by Govt by around 15 days to release next year's supply<br>\ud83d\udd38PLA plant largely on track, to be commissioned in Dec<br><br>#SugarIndustry #Ethanol #Earnings #CNBCTV18<br><img width=\"900\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HPfoT_7bYAAT3xz?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "#CNBCTV18Market | #Hindalco, #Nalco shares surge over 3% & 8% respectively after Norsk Hydro\u2019s Alunorte cuts alumina output due to gas shortage",
-      "link": "https://x.com/CNBCTV18Live/status/2087391165125632043",
-      "date": "2026-08-12T04:10:10+00:00",
-      "tweet_id": "2087391165125632043",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPfmAL7acAAVtxH?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#CNBCTV18Market | #Hindalco, #Nalco shares surge over 3% &amp; 8% respectively after Norsk Hydro\u2019s Alunorte cuts alumina output due to gas shortage<br><img width=\"611\" height=\"341\" style=\"\" src=\"https://pbs.twimg.com/media/HPfmAL7acAAVtxH?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT CNBC-TV18: Nalco: Positive Newsflow - Norsk Hydro's Alunorte Refinery output cut to 50% capacity due to gas shortage - Global alumina surplus set t...",
-      "link": "https://x.com/CNBCTV18Live/status/2087395189317058835",
-      "date": "2026-08-12T04:04:49+00:00",
-      "tweet_id": "2087395189317058835",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2087389704861921280/img/4HJME4n9iT-LvR6i.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002CNBC-TV18<br>Nalco: Positive Newsflow<br>- Norsk Hydro's Alunorte Refinery output cut to 50% capacity due to gas shortage<br>- Global alumina surplus set to shrink fast to 1.60 mt in 2026 and to 0.50 mt in 2027 <br><br> @Nigel__DSouza  @NALCO_India @Hindalco_World @VedantaAluminum #AlumiumStocks #NorskHydro #CNBCTV18Market<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2087389704861921280/vid/avc1/1920x1080/Dvta9nqzNXnpDu_V.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2087389704861921280/img/4HJME4n9iT-LvR6i.jpg\"></video>"
-    },
-    {
-      "title": "#TennecoClean Air India shares fall 5% as \u20b91,699 crore block deal changes hands @senmeghna https://www.cnbctv18.com/market/tenneco-clean-air-india-sh...",
-      "link": "https://x.com/CNBCTV18Live/status/2087389372236927368",
-      "date": "2026-08-12T04:03:02+00:00",
-      "tweet_id": "2087389372236927368",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "#Lenskart, #Delhivery, among 10 stocks with highest increase in DII holdings in Q1. See full list #ETMarkets https://economictimes.indiatimes.com/mark...",
+      "link": "https://x.com/ETMarkets/status/2087412513876906491",
+      "date": "2026-08-12T05:35:00+00:00",
+      "tweet_id": "2087412513876906491",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#TennecoClean Air India shares fall 5% as \u20b91,699 crore block deal changes hands<br><br>@senmeghna <br>https://www.cnbctv18.com/market/tenneco-clean-air-india-shares-fall-as-1699-crore-block-deal-changes-hands-19967225.htm"
+      "description_html": "#Lenskart, #Delhivery, among 10 stocks with highest increase in DII holdings in Q1. See full list<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/lenskart-delhivery-among-10-stocks-with-highest-increase-in-dii-holdings-in-q1-see-full-list/in-spotlight/slideshow/133170949.cms"
     },
     {
-      "title": "#1QWithCNBCTV18 | Bata, Man Industries shares gain on Q1 results, while Senco falls over 8% on weak Q1 earnings impact",
-      "link": "https://x.com/CNBCTV18Live/status/2087389250539205096",
-      "date": "2026-08-12T04:02:33+00:00",
-      "tweet_id": "2087389250539205096",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "44 bullish & bearish stock picks across sectors for August by Axis Direct #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/44-bulli...",
+      "link": "https://x.com/ETMarkets/status/2087409997391274353",
+      "date": "2026-08-12T05:25:00+00:00",
+      "tweet_id": "2087409997391274353",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPflIZeawAA9fTX?format=png&name=orig",
+      "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#1QWithCNBCTV18 | Bata, Man Industries shares gain on Q1 results, while Senco falls over 8% on weak Q1 earnings impact<br><img width=\"609\" height=\"339\" style=\"\" src=\"https://pbs.twimg.com/media/HPflIZeawAA9fTX?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "44 bullish &amp; bearish stock picks across sectors for August by Axis Direct<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/44-bullish-amp-bearish-stock-picks-across-sectors-for-august-by-axis-direct/buy-on-dips-strategy/slideshow/133170643.cms"
     },
     {
       "title": "Norway\u2019s $2.3 trillion sovereign wealth fund held a 0.05% stake in SpaceX worth $1.22 billion as of June 30, according to an updated list of holdings...",
@@ -2739,34 +2711,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Ardee Industries is all set to make its stock market debut on the BSE and NSE today, with grey market sentiment pointing to a potentially strong listing. The IPO is currently commanding a 27% grey market premium (GMP), signalling that the shares could list well above their issue price.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/ipos/fpos/ardee-industries-ipo-set-to-debut-today-27-gmp-points-to-strong-listing-gains/articleshow/133168112.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
-    },
-    {
-      "title": "Stocks to buy in 2026 for long term: Gland Pharma, Star Cement among 5 stocks that could give 10-30% return #ETMarkets https://economictimes.indiatime...",
-      "link": "https://x.com/ETMarkets/status/2087376163111088558",
-      "date": "2026-08-12T03:10:33+00:00",
-      "tweet_id": "2087376163111088558",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Stocks to buy in 2026 for long term: Gland Pharma, Star Cement among 5 stocks that could give 10-30% return<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/stocks-to-buy-in-2026-for-long-term-gland-pharma-star-cement-among-5-stocks-that-could-give-10-30-return/brokerage-recommendations/slideshow/133168232.cms"
-    },
-    {
-      "title": "#Shiprocket IPO opens for subscription today: GMP signals 31% listing gains. Should you subscribe? #ETMarkets https://economictimes.indiatimes.com/mar...",
-      "link": "https://x.com/ETMarkets/status/2087375717915091244",
-      "date": "2026-08-12T03:08:47+00:00",
-      "tweet_id": "2087375717915091244",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Shiprocket IPO opens for subscription today: GMP signals 31% listing gains. Should you subscribe?<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/ipos/fpos/shiprocket-ipo-opens-for-subscription-today-gmp-signals-31-listing-gains-should-you-subscribe/articleshow/133168073.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
     },
     {
       "title": "NALCO up 7%, HINDALCO up 3% Global Alumina disruption drivers for stock today Alunorte reduces alumina production on natural gas supply disruptions Al...",
@@ -5765,6 +5709,20 @@
       "description_html": "RT\u2002Shruti Rajagopalan<br>\ud83d\udce2Thrilled to continue the young scholars series on the @IdeasofIndia podcast at @mercatus, where we invite scholars entering the academic job market whose research focuses on India to discuss their work. We have a handful of 30-minute recording slots for 2026. Please spread the word! <br><br>To be considered, please use this google form (takes about 5-7 minutes).<br>https://forms.gle/f5nVA9hiUbcVGw9d9<br><br>Applications are open until August 10, 2026. All submissions received by the deadline will be considered together. We will make our decisions by August 18 and send out invitations thereafter. Recordings will take place in August and September.<br><br>Past editions of the series have featured some fantastic scholars across disciplines.<br><br>The 2025 series featured Kartik Srivasatva, Sunny Rai @snyrai_&nbsp; Chetana Sabnis, @asad__tariq, Karthik Narayan @asknarayan, @nayantara_ Biswas, @Lavanya__Ammu <br><br>The 2024 series featured @RollyKapoor, @DeepikaPadmanab, @sukrit_puri, @deepti_sharma8, Steven @BrownstoneEcon, Aarushi Kalra @chidiya_, Abishek Choutagunta @kaapi_croissant, @Kushagr_Bakshi, Atanu Chatterjee @atanu_xahs<br><br>The 2023 series featured @rajatkochhar, Vani Swarupa Murali, @KartikeyaBatra, @kumar_rithika, @Vanisha49, @dunc_webb, @i_sarathpillai, @vatsalecon.<br><br>The 2022 series featured Khushdeep Malhotra, Anoop Jain @Fruit_noops, @aliz_toth, @raamadhok, @mahimavasishth, @BanerjeeShweta, @nish_vats.<br><br>The 2021 series featured @arkdevghosh, @tiwari_chhavi, Gaurav Mittal @geo_mittal, Bhumi Purohit, @AshishKumarSed1, @karsha, @Dr_NehaG, @KaranBabbar19, @KimFeCramer, @ArchanaDang1, @apuravbhatiya, @radhi_jain.<br><br>And it all started in 2020 when we featured work by @vaishnavisur, @RohitTicku, @tanu_kumar1, @DrRayProma, @VaidehiTandel, Kunal Mangal @mrgunalan.<br><br>I answered a few questions related to the job market series in 2024 (Please take note of points 1 and 3). Here\u2019s the link https://x.com/srajagopalan/status/1823009248067916269<div class=\"rsshub-quote\"><br><br>Shruti Rajagopalan:\u2002I have received some questions about the job market series. Answers below, please RT. <br><br>1. We have a handful of spots and try to accommodate as many scholars as we can. There are no real criteria for selection: it should be something I find interesting and can engage with. And if<br></div>"
     },
     {
+      "title": "RT @ShereenBhan: #Breaking Tata Sons Chairman N Chandra resigns, will complete his term. Will not seek reappointment @CNBCTV18Live @CNBCTV1\u2026",
+      "link": "https://x.com/Nigel__DSouza/status/2087413649988333856",
+      "date": "2026-08-12T05:39:31+00:00",
+      "tweet_id": "2087413649988333856",
+      "source": "Nigel D'Souza",
+      "publisher": "Nigel D'Souza",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT @ShereenBhan: #Breaking Tata Sons Chairman N Chandra resigns, will complete his term. Will not seek reappointment @CNBCTV18Live @CNBCTV1\u2026"
+    },
+    {
       "title": "RT CNBC-TV18: Explained - Why shares of #NALCO, #Hindalco, #VedantaAluminium surged up to 8% today @Nigel__DSouza https://www.cnbctv18.com/market/nalc...",
       "link": "https://x.com/Nigel__DSouza/status/2087396339172921519",
       "date": "2026-08-12T04:26:02+00:00",
@@ -6029,20 +5987,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Kaynes Technologies says<br><br>FY27 Guidance: Revenue +30%, Margins: 16\u201317% &amp; Cash flows to turn positive<br><br>Smart Metering-Realignment: Evaluating divestment/outsourcing of installation &amp; servicing part of biz, decision by Q3FY27<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002#1QWithCNBCTV18 | Kaynes Technology Posts Good #Q1FY27 Results   <br><br>Executive Vice Chairman, Ramesh Kunhikannan To @CNBCTV18News   <br>- OSAT &amp; PCB biz will contribute approximately Rs 500 cr to revenue in FY27           <br>- See good growth momentum for EMS biz in the next 3-4 years<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2086658482993012737/vid/avc1/1920x1080/xsA5EsJo5_RCZUF_.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2086658482993012737/img/fTo1WlUFIlYM67qv.jpg\"></video></div>"
-    },
-    {
-      "title": "Sep\u201926 Nifty Rejig Source: Nuvama Alternative & Quant Research A) Nifty 50: \ud83d\udd39 Inclusion: BSE \ud83d\udd3b Exclusion: Wipro BSE moves from Nifty Midcap 150...",
-      "link": "https://x.com/Nigel__DSouza/status/2086656326340403701",
-      "date": "2026-08-10T03:30:11+00:00",
-      "tweet_id": "2086656326340403701",
-      "source": "Nigel D'Souza",
-      "publisher": "Nigel D'Souza",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Sep\u201926 Nifty Rejig<br>Source: Nuvama Alternative &amp; Quant Research<br><br>A) Nifty 50:<br>\ud83d\udd39 Inclusion: BSE<br>\ud83d\udd3b Exclusion: Wipro<br><br>BSE moves from Nifty Midcap 150 to Nifty 100, with its higher free-float market cap making it a strong candidate for Nifty 50 inclusion.<br><br>\ud83d\udccc Estimated flows: $741mn inflow into BSE vs $246mn outflow from Wipro<br><br>If not BSE \u2192 TVS Motor could be the likely contender, should the Nifty 50 methodology be changed.<br><br>B) Nifty Next 50:<br>Inclusions: Wipro, Vedanta Aluminium, Hitachi Energy, Idea, Polycab, BHEL<br>Exclusions: Indian Hotels, REC, United Spirits, Shree Cement, Lodha, Mazagon Docks<br><br>@CNBCTV18Live"
     },
     {
       "title": "The AWE mutual fund approach at the @capitalmind_in PMS has been a wealth builder for many investors, as it crossed 4 years in existence. Take a look:",
@@ -6395,20 +6339,6 @@
       "description_html": "RT\u2002ORF<br>Spotlight Session | Reframing Risk, Unlocking Growth: An Africa India Priority for the Emerging Global Order  <br><br>Featuring: Mehul Pandya, Managing Director &amp; Group Chief Executive Officer, @CareEdge_Group, India  <br><br>Follow this thread for key takeaways!<br><br>#ORFxCDRC<br><br>@orfonline @CDRCEthiopia<br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HOTYWbHXkAA5wTk?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "Speaker Announcement \ud83d\udce2 We're pleased to announce the distinguished panel of speakers for CareEdge Ratings' upcoming webinar, \"Microfinance: Out of ...",
-      "link": "https://x.com/CareEdge_Group/status/2081973532108726723",
-      "date": "2026-07-28T05:22:25+00:00",
-      "tweet_id": "2081973532108726723",
-      "source": "CareEdge",
-      "publisher": "CareEdge",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HOSn22UbkAAj0fI?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Speaker Announcement \ud83d\udce2<br><br>We're pleased to announce the distinguished panel of speakers for CareEdge Ratings' upcoming webinar, \"Microfinance: Out of the Woods? The Road Ahead.\"<br><br>\ud83d\udcc5 Wednesday, July 29, 2026<br>\ud83d\udd53 4:00 PM \u2013 5:00 PM IST<br><br>Register Now: https://events.zoom.us/ev/AixQaio5asJ57SCS2MEdWogoFvkJWqGuqAhIf1aQtslyGQcJj4oi~ApgW9OVK9VSnrF_mfIKIe4PbHVZi7HrQZdAbEvBk66VyYdYUeG-QNDR8Vg<br><br>Join us for an engaging discussion featuring:<br><br>Mr. Vineet Chattree, Managing Director, Svatantra Microfin Limited<br><br>Mr. Venkatesh Krishnan, MD &amp; CEO, Spandana Sphoorty Financial Limited<br><br>Mr. Kiran Kumar, ED &amp; CEO, Svamaan Financial Services Pvt. Ltd.<br><br>Dr. Dr. Abhishek Agrawal, Managing Partner, Accion Digital Transformation Fund<br><br>The session will be moderated by Shreekiran Rao, Director, CareEdge Ratings, and will also feature a presentation by Ravi Nayak, Assistant Director, CareEdge Ratings, offering key insights into the current state and future outlook of the microfinance sector.<br><br>Don't miss this opportunity to gain valuable perspectives on the trends, challenges, and opportunities shaping India's microfinance industry.<br><br>#CareEdgeRatings #Microfinance #FinancialInclusion #NBFC #BFSI #IndiaEconomy #FinancialServices #Banking #Webinar #Credit<br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HOSn22UbkAAj0fI?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
       "title": "RT ORF: Re Mehul Pandya, Managing Director & Group Chief Executive Officer, CareEdge Group, India, will join us at the conference \"Partners for Progre...",
       "link": "https://x.com/CareEdge_Group/status/2083099633866412276",
       "date": "2026-07-25T12:16:25+00:00",
@@ -6423,18 +6353,18 @@
       "description_html": "RT\u2002ORF<br>Re Mehul Pandya, Managing Director &amp; Group Chief Executive Officer, CareEdge Group, India, will join us at the conference \"Partners for Progress: Africa and India in the Emerging Global Order,\" co-hosted by @orfonline and the @CDRCEthiopia at Addis Ababa.<br><br>Know more\ud83d\udc49  https://or-f.org/39707<br><br>#ORFxCDRC<br>@orfonline @CDRCEthiopia<br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HOEpx2jbEAAW7UO?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "\ud835\uddde\ud835\uddf2\ud835\uddfb\ud835\ude06\ud835\uddee'\ud835\ude00 \ud835\ude01\ud835\uddee\ud835\ude05 \ud835\uddff\ud835\uddf2\ud835\uddf3\ud835\uddfc\ud835\uddff\ud835\uddfa\ud835\ude00 \ud835\uddee\ud835\uddfb\ud835\uddf1 \ud835\ude00\ud835\uddfd\ud835\uddf2\ud835\uddfb\ud835\uddf1\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\uddf1\ud835\uddf6\ud835\ude00\ud835\uddf0\ud835\uddf6\ud835\uddfd\ud835\uddf9\ud835\uddf6\ud835\uddfb...",
-      "link": "https://x.com/CareEdge_Group/status/2080628210354868531",
-      "date": "2026-07-24T12:16:36+00:00",
-      "tweet_id": "2080628210354868531",
-      "source": "CareEdge",
-      "publisher": "CareEdge",
+      "title": "RT \u0645\u062d\u0633\u0646 \u0631\u0636\u0627\u06cc\u06cc: IRAN\u2019s message is clear: the Strait of Hormuz will not reopen until the U.S. ends the war and blockade, releases Iran\u2019s froz...",
+      "link": "https://x.com/JavierBlas/status/2087409230001180889",
+      "date": "2026-08-11T17:02:30+00:00",
+      "tweet_id": "2087409230001180889",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2080627873644494848/img/yYN3oEEAvs645Cee.jpg",
-      "is_retweet": false,
+      "image": "",
+      "is_retweet": true,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "\ud835\uddde\ud835\uddf2\ud835\uddfb\ud835\ude06\ud835\uddee'\ud835\ude00 \ud835\ude01\ud835\uddee\ud835\ude05 \ud835\uddff\ud835\uddf2\ud835\uddf3\ud835\uddfc\ud835\uddff\ud835\uddfa\ud835\ude00 \ud835\uddee\ud835\uddfb\ud835\uddf1 \ud835\ude00\ud835\uddfd\ud835\uddf2\ud835\uddfb\ud835\uddf1\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\uddf1\ud835\uddf6\ud835\ude00\ud835\uddf0\ud835\uddf6\ud835\uddfd\ud835\uddf9\ud835\uddf6\ud835\uddfb\ud835\uddf2 \ud835\ude01\ud835\uddfc \ud835\ude00\ud835\ude02\ud835\uddfd\ud835\uddfd\ud835\uddfc\ud835\uddff\ud835\ude01 \ud835\uddf3\ud835\uddf6\ud835\ude00\ud835\uddf0\ud835\uddee\ud835\uddf9 \ud835\uddf0\ud835\uddfc\ud835\uddfb\ud835\ude00\ud835\uddfc\ud835\uddf9\ud835\uddf6\ud835\uddf1\ud835\uddee\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb<br><br>Kenya's fiscal deficit is estimated to have remained elevated in FY26, widening to 6.4% of GDP as recurrent expenditure, particularly interest payments, wages and pension obligations, continued to outpace revenue gains.<br><br>Ongoing tax administration reforms and tighter spending controls are projected to narrow the deficit to 5.5% of GDP in FY27. However, the success of this consolidation will depend on the government's ability to contain recurrent spending, strengthen revenue mobilisation, and deliver planned expenditure reforms.<br><br>Link to the report: https://lnkd.in/ddY4WSAq<br><br>#Kenya #FiscalPolicy #TaxReforms #PublicFinance #EconomicOutlook #FiscalConsolidation #RevenueMobilisation #GovernmentSpending #EastAfrica #AfricaEconomy #Macroeconomics #CareEdgeGlobal #EconomicResearch #GlobalEconomy #CareEdgeRatings<br><video width=\"1080\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2080627873644494848/vid/avc1/1080x1080/5Adj5DhjvGapnyOZ.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2080627873644494848/img/yYN3oEEAvs645Cee.jpg\"></video>"
+      "description_html": "RT\u2002\u0645\u062d\u0633\u0646 \u0631\u0636\u0627\u06cc\u06cc<br>IRAN\u2019s message is clear: the Strait of Hormuz will not reopen until the U.S. ends the war and blockade, releases Iran\u2019s frozen assets, and agrees to a region-wide ceasefire, including in Lebanon and Gaza. Until all conditions are met, the Strait will remain closed."
     },
     {
       "title": "US claims that almost 9m b/d of oil is leaving via the Strait of Hormuz (not counting bypass pipelines) on a 7-day average. That's well above what mos...",
@@ -6687,20 +6617,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Dennis Ross<br>Iran is under pressure from the blockade and its economy is in freefall. But they have the leverage of the Straits, their ability to threaten the energy facilities of their neighbors, and know Pres Trump is desperate to end the war. Thus,their conditions to reopen  the Straits."
-    },
-    {
-      "title": "Iran Supreme Leader Mojtaba Khamenei says he met with President Masoud Pezeshkian to discuss economic conditions and the war. Maybe it\u2019s random, but ...",
-      "link": "https://x.com/JavierBlas/status/2086407458755346509",
-      "date": "2026-08-09T11:01:16+00:00",
-      "tweet_id": "2086407458755346509",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Iran Supreme Leader Mojtaba Khamenei says he met with President Masoud Pezeshkian to discuss economic conditions and the war. Maybe it\u2019s random, but the first item mentioned in the read out is \u201cthe provision of the people's livelihood needs.\u201d<br><br>The meeting follows significant tension between Iranian political factions about the negotiations with the White House."
     },
     {
       "title": "JD Vance asked Ukraine to halt strikes on tankers using Russian port https://ft.trib.al/hO6ycwC",
@@ -7459,6 +7375,20 @@
       "description_html": "BREAKING: Taiwan Semiconductor, $TSM, reported a +45% YoY increase in sales in July, to $14.5 billion, driven by explosive demand for AI chips.<br><br>$TSM, the primary chip manufacturer used by companies such as Nvidia, $NVDA, and Apple, $AAPL, generated $89.1 billion in revenue in the first 7 months of the year, up +37% YoY.<br><br>The chipmaker also raised its 2026 CapEx outlook to a record $60-64 billion range and expects full-year sales to grow slightly above +40% YoY.<br><br>For the current quarter, the company is estimated to deliver +47% YoY sales growth.<br><br>Meanwhile, $TSM shares listed in Taiwan are up +50% year-to-date, more than double the +20% gain in $NVDA.<br><br>Demand for AI chips shows no signs of slowing.<br><img width=\"975\" height=\"731\" style=\"\" src=\"https://pbs.twimg.com/media/HPXT4tfWQAAyyKC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "RT @ShereenBhan: #Breaking Tata Sons Chairman N Chandra resigns, will complete his term. Will not seek reappointment @CNBCTV18Live @CNBCTV1\u2026",
+      "link": "https://x.com/_prashantnair/status/2087411342466756985",
+      "date": "2026-08-12T05:30:20+00:00",
+      "tweet_id": "2087411342466756985",
+      "source": "Prashant Nair",
+      "publisher": "Prashant Nair",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT @ShereenBhan: #Breaking Tata Sons Chairman N Chandra resigns, will complete his term. Will not seek reappointment @CNBCTV18Live @CNBCTV1\u2026"
+    },
+    {
       "title": "RT CNBC-TV18: Spotlight On Chemicals Sector | Four Value Bets Worth Watching Abhijit Akella Of Kotak Institutional Equities To @CNBCTV18News - #Jubila...",
       "link": "https://x.com/_prashantnair/status/2087394496464216471",
       "date": "2026-08-12T04:23:12+00:00",
@@ -7723,20 +7653,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002CNBC-TV18<br>Does CAS make closing-price manipulation easier ?<br><br>@ananthng argues the opposite - the auction creates a clearer &amp; more concentrated surveillance trail. He explains why to @_prashantnair<br><br>#Nifty #BankNifty #Trading #CAS #Sensex #Options<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2085380553986162688/vid/avc1/1920x1080/FQ5Qt_l5BKmCgRrG.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2085380553986162688/img/20OdIawh4CLrfyfJ.jpg\"></video>"
-    },
-    {
-      "title": "RT CNBC-TV18: Should derivatives settlement be delinked from the CAS-discovered cash close ? Ananth Narayan\u2019s answer is an emphatic no. He explains t...",
-      "link": "https://x.com/_prashantnair/status/2085386681478463838",
-      "date": "2026-08-06T15:23:00+00:00",
-      "tweet_id": "2085386681478463838",
-      "source": "Prashant Nair",
-      "publisher": "Prashant Nair",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2085386003792252928/img/E0UmLufSmq86H44I.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002CNBC-TV18<br>Should derivatives settlement be delinked from the CAS-discovered cash close ?<br><br>Ananth Narayan\u2019s answer is an emphatic no. He explains the 'umbilical cord' to @_prashantnair<br><br>#Nifty #BankNifty #Trading #CAS #Sensex #Options<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2085386003792252928/vid/avc1/1920x1080/aEhpYh99uDzOfgJX.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2085386003792252928/img/E0UmLufSmq86H44I.jpg\"></video>"
     },
     {
       "title": "This goes in next month for another vote with the House before it becomes a law. This is mainly for countried that imported cheap Russian Crude Hopefu...",
@@ -9293,6 +9209,20 @@
       "description_html": "RT\u2002Andy Mukherjee<br>A link to my latest column \ud83d\udc47 https://www.bloomberg.com/opinion/articles/2026-08-04/the-giant-sucking-sound-of-us-profits-is-leaving-asia-dry?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc4NTg3NDgzNSwiZXhwIjoxNzg2NDc5NjM1LCJhcnRpY2xlSWQiOiJUSjlCQzNLR0lGUTMwMCIsImJjb25uZWN0SWQiOiJFRUJBOTlENEY5NkE0QTY4QUZGQUQ3RUNCNEE3QjRDMyJ9.6q8v6A9U8Qu89Ma5W8N7WUc38RklfbKTnGqOnWof0z8<div class=\"rsshub-quote\"><br><br>Bloomberg Opinion:\u2002An Asian premium in shareholder returns has given way to an American landslide, writes @andymukherjee70. Local firms need to stop playing it safe and fight back https://www.bloomberg.com/opinion/articles/2026-08-04/the-giant-sucking-sound-of-us-profits-is-leaving-asia-dry?taid=6a722c2b167422000186be9e&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter<br></div>"
     },
     {
+      "title": "Chair of India's Tata Sons may step down ahead amid tensions with Tata Trusts https://www.reuters.com/world/india/indias-tata-sons-chairman-chandrasek...",
+      "link": "https://x.com/dugalira/status/2087412717212856746",
+      "date": "2026-08-12T05:35:48+00:00",
+      "tweet_id": "2087412717212856746",
+      "source": "Ira Dugal",
+      "publisher": "Ira Dugal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Chair of India's Tata Sons may step down ahead amid tensions with Tata Trusts<br><br> https://www.reuters.com/world/india/indias-tata-sons-chairman-chandrasekaran-may-step-down-ahead-shareholder-meeting-2026-08-12/"
+    },
+    {
       "title": "Decades of farm gains, inventories strengthen food system against 'super' El Nino. Interesting analysis by Reuters Naveen Thukral and @MayankBhardwaj9...",
       "link": "https://x.com/dugalira/status/2087385816746361086",
       "date": "2026-08-12T03:48:55+00:00",
@@ -9559,20 +9489,6 @@
       "description_html": "Short, sweet uneventful monetary policy review.<br><br>\ud83d\udfe2Sharp cut in core inflation forecast to 4.3% should be seen as borderline dovish. No hurry to hike rates.<br><br>\ud83d\udfe2Growth comfort reflected in comments. Growth will lower than last year but a 6.7% number against this backdrop is strong.<br><br>\ud83d\udfe2Exchange rate comfort in commentary. Mild change in stated view with Malhotra saying central bank will ensure it is \u201cin sync with fundamentals\u201d and \u201cnot disruptive of economic activity\u201d.<br><br>https://www.reuters.com/world/india/indian-central-bank-holds-rates-expected-taking-comfort-still-modest-inflation-2026-08-05/<br><img width=\"1206\" height=\"1277\" style=\"\" src=\"https://pbs.twimg.com/media/HO75YmvbYAA7wc-?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "RT Sumit Behal: The biggest beneficiaries of the Closing Auction Session were Arbitrage Funds and this is visible in the change of fund NAVs on 3rd Au...",
-      "link": "https://x.com/dugalira/status/2084632903158514113",
-      "date": "2026-08-04T12:18:58+00:00",
-      "tweet_id": "2084632903158514113",
-      "source": "Ira Dugal",
-      "publisher": "Ira Dugal",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Sumit Behal<br>The biggest beneficiaries of the Closing Auction Session were Arbitrage Funds and this is visible in the change of fund NAVs on 3rd August <br><br>Arbitrage funds recorded their highest daily return (~0.50%) in history by delivering 8\u201310 times their average daily returns (~0.05%)<br><br>UTI Arbitrage Fund : +0.40%<br>Tata Arbitrage Fund : 0.43%<br>SBI Arbitrage Fund : +0.51%<br>Edelweiss Arb Fund : +0.45%<br>ICICI Arbitrage Fund : +0.44%<br>Kotak Arbitrage Fund : +0.48% <br>HDFC Arbitrage Fund : +0.53%<br>Aditya Birla Arb Fund : +0.48%<br>Nippon India Arb Fund : +0.48%<br>Invesco Arbitrage Fund : +0.42%<br><br>7 of 10 funds recorded their highest daily percentage gain in the last decade on the first day of the Closing Auction Session<br><br>These funds saw a very rare rise in their net asset values across the category, averaging 0.46%. This was about 7.3 standard deviations higher than their usual daily movement<br><br>Arbitrage funds are mutual funds that make money by buying a stock cheaply in the cash market and selling it at a higher price in the derivatives (futures) market at the same time"
-    },
-    {
       "title": "Why Gland Pharma is up +10% after last evenings concall",
       "link": "https://x.com/Tijori1/status/2087037772611891344",
       "date": "2026-08-11T04:45:54+00:00",
@@ -9725,6 +9641,62 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Tijori<br>A company that might be worth digging is Aegis Logistics<br><br>-Promoter is buying again from the open market<br>-Company aims to double earnings in 3 years<br>-EV by EBITDA of ~14 which is less than its long term <br>  average<br><br>You can check out deep dives on this company by @ScientificInve6 and @anishmoonka in the Knowledge base section<br><img width=\"1403\" height=\"506\" style=\"\" src=\"https://pbs.twimg.com/media/F7aj1C5WkAAwHmR?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "EIH LTD: CO ANNOUNCED A ROBUST LONG-TERM EXPANSION STRATEGY TARGETING THE OPERATIONAL ROLLOUT OF APPROXIMATELY 30 NEW PROPERTIES BY THE YEAR 2031.",
+      "link": "https://x.com/REDBOXINDIA/status/2087414605039755566",
+      "date": "2026-08-12T05:43:18+00:00",
+      "tweet_id": "2087414605039755566",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "EIH LTD: CO ANNOUNCED A ROBUST LONG-TERM EXPANSION STRATEGY TARGETING THE OPERATIONAL ROLLOUT OF APPROXIMATELY 30 NEW PROPERTIES BY THE YEAR 2031."
+    },
+    {
+      "title": "VIVIANA POWER TECH LIMITED: CO. CONFIRMED AS L1 STAGE SUCCESSFUL BIDDER FOR TWO PROJECTS WORTH \u20b9113 CRORES; CO MCAP 600 CR RS",
+      "link": "https://x.com/REDBOXINDIA/status/2087413928125145208",
+      "date": "2026-08-12T05:40:37+00:00",
+      "tweet_id": "2087413928125145208",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "VIVIANA POWER TECH LIMITED: CO. CONFIRMED AS L1 STAGE SUCCESSFUL BIDDER FOR TWO PROJECTS WORTH \u20b9113 CRORES; CO MCAP 600 CR RS"
+    },
+    {
+      "title": "N CHANDRA TATA SONS CHAIRMAN RESIGNS - CNBC TV18 ( TATA CHEMICALS )",
+      "link": "https://x.com/REDBOXINDIA/status/2087410525626077389",
+      "date": "2026-08-12T05:27:06+00:00",
+      "tweet_id": "2087410525626077389",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "N CHANDRA TATA SONS CHAIRMAN RESIGNS - CNBC TV18 ( TATA CHEMICALS )"
+    },
+    {
+      "title": "BAJEL PROJECTS: CO WINS ULTRA MEGA EPC ORDER WORTH 400 CR RS; CO MCAP 2200 CR RS",
+      "link": "https://x.com/REDBOXINDIA/status/2087410241667530794",
+      "date": "2026-08-12T05:25:58+00:00",
+      "tweet_id": "2087410241667530794",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BAJEL PROJECTS: CO WINS ULTRA MEGA EPC ORDER WORTH 400 CR RS; CO MCAP 2200 CR RS"
     },
     {
       "title": "DECCAN GOLD MINES: CO PLANS TO APPLY FOR THE BHALUKONA MINING LICENCE BY 2028.",
@@ -9935,62 +9907,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "ACME SOLAR HOLDINGS: CO HAS SUCCESSFULLY REFINANCED \u20b92,147 CRORE THROUGH DOMESTIC FINANCING, ENABLING THE FULL REDEMPTION OF NCDS ISSUED BY 12 OPERATIONAL SPVS REPRESENTING A CUMULATIVE 450 MW CAPACITY"
-    },
-    {
-      "title": "KEC International: Guidance - - Concall Update \u2022 Management maintains its FY27 revenue growth guidance of 12% to 15%, acknowledging potential slight ...",
-      "link": "https://x.com/REDBOXINDIA/status/2087383187395924123",
-      "date": "2026-08-12T03:38:28+00:00",
-      "tweet_id": "2087383187395924123",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "KEC International: Guidance - - Concall Update<br><br>\u2022 Management maintains its FY27 revenue growth guidance of 12% to 15%, acknowledging potential slight variations due to geopolitical factors, and expects stronger execution in Q3 and Q4 given the robust order book and L1 position of over INR40,000 crores.<br><br>\u2022 The company targets INR30,000 crores in order inflows for FY27, with 60% to 70% expected from the T&amp;D business and INR9,000 crores to INR10,000 crores from international markets, a significant portion of which will come from West Asia.<br><br>\u2022 Management aims to reduce net debt by approximately INR1,200 crores in FY27, targeting INR5,500 crores by March FY27 from INR6,700 crores at the beginning of the year, supported by expected collections from Afghanistan (INR300 crores), water projects (INR300-400 crores), and claims in railways (INR150-200 crores).<br><br>\u2022 The company expects to achieve 110 working capital days by the end of FY27, an improvement from the previously targeted 120 days by September.<br><br>\u2022 While no specific margin guidance was provided for FY27, management anticipates improvement from Q3 onwards, with high single-digit margins potentially achievable by FY28, and expects T&amp;D business margins to remain double-digit or very close to it."
-    },
-    {
-      "title": "Lumax Industries: Guidance - - Concall Update \u2022 Management updated the CapEx guidance for FY27 to INR200 crore to INR250 crore, primarily due to new ...",
-      "link": "https://x.com/REDBOXINDIA/status/2087381609666527633",
-      "date": "2026-08-12T03:32:12+00:00",
-      "tweet_id": "2087381609666527633",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Lumax Industries: Guidance - - Concall Update<br><br>\u2022 Management updated the CapEx guidance for FY27 to INR200 crore to INR250 crore, primarily due to new order wins, an increase from the previously mentioned INR100 crore to INR150 crore.<br><br>\u2022 The full-year FY27 EBITDA margin forecast remains at 10.5% to 11%, with an endeavor to reach close to 13% EBITDA in a three to four-year horizon, implying approximately a 100 bps annual increase.<br><br>\u2022 The company is confident in delivering an above-industry revenue CAGR of 15% to 20% over the next three to five years, targeting INR9,000 crore or upwards revenue by FY30-31.<br><br>\u2022 Mold sales are targeted to be INR250 crore to INR300 crore for the full year, up from INR185 crore last year, with the majority of these revenues planned for H2, specifically Q3 or Q4.<br><br>\u2022 Localization efforts, particularly in electronics, are expected to increase from the current 40-50% to 70-80% for bare PCBs and from 24% to 40-50% for connectors, potentially yielding a 70 bps to 90 bps margin gain over the next two to three years."
-    },
-    {
-      "title": "SURYA ROSHNI: TOTAL EXPORTS FOR FY '27 ARE PROJECTED TO BE AROUND 3 LAKH TONNES, WITH THE U.S. MARKET CONTRIBUTING APPROXIMATELY 1,20,000 TO 1,25,000 ...",
-      "link": "https://x.com/REDBOXINDIA/status/2087380833674097138",
-      "date": "2026-08-12T03:29:07+00:00",
-      "tweet_id": "2087380833674097138",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SURYA ROSHNI: TOTAL EXPORTS FOR FY '27 ARE PROJECTED TO BE AROUND 3 LAKH TONNES, WITH THE U.S. MARKET CONTRIBUTING APPROXIMATELY 1,20,000 TO 1,25,000 TONNES."
-    },
-    {
-      "title": "Yatharth Hospital & Trauma Care Services: Guidance - - Concall Update \u2022 The company is on track for its FY27 guidance, expecting to surpass last year...",
-      "link": "https://x.com/REDBOXINDIA/status/2087380622574837786",
-      "date": "2026-08-12T03:28:16+00:00",
-      "tweet_id": "2087380622574837786",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Yatharth Hospital &amp; Trauma Care Services: Guidance - - Concall Update<br><br>\u2022 The company is on track for its FY27 guidance, expecting to surpass last year's revenue growth and achieve an EBITDA margin upwards of 24%.<br><br>\u2022 Management expects ARPOB to grow 9% to 10% year-over-year for FY27 and beyond.<br><br>\u2022 The target of 5,000 beds is expected to be achieved in less than three years, potentially around 2.5 years, with 3,200 beds already announced.<br><br>\u2022 New hospitals are projected to reach 15% to 20% EBITDA margins within 15-18 months post-breakeven, and over 25% within two years.<br><br>\u2022 CapEx per bed for the next 1,800 beds is estimated at INR75 lakhs to INR80 lakhs, with Gurugram costing nearly INR1 crore per bed."
     },
     {
       "title": "Overall competitiveness - Is the China leader at least on-par with its overseas peer? The Last Wall Isn't Technology. It's Trust On certification and ...",
