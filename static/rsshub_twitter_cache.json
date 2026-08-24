@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T11:47:32.302198+00:00",
+  "generated_at": "2026-08-24T12:48:58.550788+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,9 +7,37 @@
     "handles_ok": 46,
     "handles_empty": 2,
     "handles_error": 1,
-    "items_total": 787
+    "items_total": 786
   },
   "items": [
+    {
+      "title": "Caixin: \"China\u2019s fiscal revenue jumped 11.7% year-on-year in July, marking the fastest monthly growth since late 2024, though government spending rem...",
+      "link": "https://x.com/michaelxpettis/status/2091862453537689606",
+      "date": "2026-08-24T12:17:28+00:00",
+      "tweet_id": "2091862453537689606",
+      "source": "Michael Pettis",
+      "publisher": "Michael Pettis",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Caixin: \"China\u2019s fiscal revenue jumped 11.7% year-on-year in July, marking the fastest monthly growth since late 2024, though government spending remained sluggish.\"<br>https://www.caixinglobal.com/2026-08-24/chinas-fiscal-revenue-surges-as-state-spending-stagnates-102477375.html"
+    },
+    {
+      "title": "Xinhua: \"China's tech evolution is accelerating alongside its growing humanoid robot industry. A report by California-based research firm Smart Analyt...",
+      "link": "https://x.com/michaelxpettis/status/2091861445013049833",
+      "date": "2026-08-24T12:13:28+00:00",
+      "tweet_id": "2091861445013049833",
+      "source": "Michael Pettis",
+      "publisher": "Michael Pettis",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Xinhua: \"China's tech evolution is accelerating alongside its growing humanoid robot industry. A report by California-based research firm Smart Analytics Global indicates that global humanoid robot shipments totaled approximately 19,100 units in the first half of 2026, with Chinese-made units accounting for over 97 percent of the total.\"<br>https://english.news.cn/20260823/ef305dca6aba449580ec853203c2e532/c.html"
+    },
     {
       "title": "According to Bloomberg, domestic sales of forklifts in China in the first seven months of 2026 are up 15.3% from a year earlier. This might suggest an...",
       "link": "https://x.com/michaelxpettis/status/2091506260415832147",
@@ -233,34 +261,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "The story told in this graph is important. If you set a GDP growth target and you cannot get consumption to grow faster than the target, then you also cannot allow investment to grow more slowly than the target except to the extent that a rising trade surplus takes up the slack.<br><br>By the late 2010s China was already worried about excess manufacturing capacity and the private sector was cutting back on manufacturing investment.<br><br>But the collapse in property investment after 2021 changed all of that. In order to keep overall investment from slowing, the authorities forced a massive increase in manufacturing investment whose purpose was not to satisfy unmet demand but rather to balance the decline in property investment.<br><br>The consequence shouldn't have been nearly as surprising as it was for many: excess manufacturing capacity exploded into the problem of involution. But as involution forces down the growth rate of manufacturing investment, even as the growth rate of consumption continues to lag, this leaves China with three possible outcomes:<br><br>1. Miss the GDP growth target, which is what has been happening in recent momths, but this is probably politically unacceptable.<br><br>2. Increase non-manufacturing investment, although with property investment still declining, this basically means more infrastructure investment. I expect this will happen in the second half of 2026, but given that China already so much excess capacity in infrastructure, it isn't east to find investment projects that aren't value-destroying in the aggregate. As one of my academic friends said jokingly last week, thank god for the terrible rainstorms.<br><br>3. Run ever larger trade surpluses.<br><br>The arithmetic is pretty easy to set out. China must get investment growth to slow sharply, perhaps even to go negative, if it has any hope of reining in debt, but there are only two ways this can happens.<br><br>One way is with a surge in consumption growth that balances the slowdown in investment growth by enough to meet its long-term 4% growth target, but this seems unlikely, at best. The other way is without a surge in consumption, which means allowing GDP growth to drop.<br><br>Until then, we can think of the growing trade surplus as effectively a residual consequence of the attempt to rein in debt (i.e. non-productive investment) without reducing GDP growth.<div class=\"rsshub-quote\"><br><br>Brad Setser:\u2002China's current economic malaise in a nutshell -- rising investment in manufacturing can no longer offset the fall in investment in real estate.<br><br>The absolute level of investment in manufacturing is still absurdly high.  But it is now shrinking not growing.<br><br><img width=\"1422\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HQBL1enXgAAr_DY?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "For what it's worth, I just retuned from tonight's improvised collaboration by Cao Pu and Yang Haisong, and it was a really great show. Luckily, He Fa...",
-      "link": "https://x.com/michaelxpettis/status/2089736723890630793",
-      "date": "2026-08-18T15:30:35+00:00",
-      "tweet_id": "2089736723890630793",
-      "source": "Michael Pettis",
-      "publisher": "Michael Pettis",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HP7RKRaWkAA0fg9?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "For what it's worth, I just retuned from tonight's improvised collaboration by Cao Pu and Yang Haisong, and it was a really great show. Luckily, He Fan decided to record the whole thing, so we might release it as an album.<div class=\"rsshub-quote\"><br><br>Michael Pettis:\u2002To my friends in Beijing, no one has had a bigger impact on the Chinese indie music scene in the past three decades than Yang Haisong, as leader of PK 14, experimental musician, producer, writer, and head of Bing Ma Si records. He will perform at Sally Can't Dance Tuesday night.<br><br><img width=\"1280\" height=\"1811\" style=\"\" src=\"https://pbs.twimg.com/media/HP7RKRaWkAA0fg9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "FT: \"China\u2019s 10-year bond yield has fallen to its lowest level in more than a year as weak economic growth pushes investors into the country\u2019s sover...",
-      "link": "https://x.com/michaelxpettis/status/2089671310011994579",
-      "date": "2026-08-18T11:10:39+00:00",
-      "tweet_id": "2089671310011994579",
-      "source": "Michael Pettis",
-      "publisher": "Michael Pettis",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "FT: \"China\u2019s 10-year bond yield has fallen to its lowest level in more than a year as weak economic growth pushes investors into the country\u2019s sovereign debt.\"<br>https://www.ft.com/content/c3223b7c-6683-42df-9e60-9dbd2dbdfe07 via @ft"
     },
     {
       "title": "RT Anuradha SenGupta: Mumbai showing up at the Neville D\u2019souza football turf. It\u2019s about football, open spaces and our rights as Mumbaikars. Come al...",
@@ -1047,6 +1047,20 @@
       "description_html": "Equity return at index will be 4-6% above long bond returns. Anything more is  wrong expectation"
     },
     {
+      "title": "By Sorit Gupto",
+      "link": "https://x.com/down2earthindia/status/2091858070754459662",
+      "date": "2026-08-24T12:00:03+00:00",
+      "tweet_id": "2091858070754459662",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQe6U-nawAATS-K?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "By Sorit Gupto<br><img width=\"1377\" height=\"1347\" style=\"\" src=\"https://pbs.twimg.com/media/HQe6U-nawAATS-K?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Court digest | August 21, 2026 From Kerala High Court\u2019s call for an SOP to support children with chronic neurodevelopmental disabilities to Bombay Hi...",
       "link": "https://x.com/down2earthindia/status/2091842972421681465",
       "date": "2026-08-24T11:00:03+00:00",
@@ -1297,20 +1311,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "\ud83d\udcccEnvironmentalists, residents and others took part in a rally on August 22, 2026, to demand stronger protection for Madayippara in northern Kerala\u2019s Kannur district.<br><br>\ud83d\udcccThe rally was the culmination of months of growing anxiety about the safety of one of northern Kerala\u2019s richest laterite ecosystems.<br><br>\ud83d\udcccMadayippara stands above the Kuppam river near Pazhayangadi in the Kannur district of northern Kerala, where the coastal plains rise gently towards the Western Ghats.<br><br>\ud83d\udcccIts colours and character change with the seasons, turning intensely green with the monsoon, erupting into flowers and later drying into a vast golden grassland.<br><br>\ud83d\udcccThis landscape is now becoming a victim of its own beauty.&nbsp;Madayippara has emerged as one of Kannur\u2019s most popular day-trip destinations. Increasing visitor numbers, vehicles, waste,&nbsp;and commercial activity are creating a new threat for the unique landscape.<br><br>\ud83d\udd8a\ufe0f @KAShaji123 <br><br>https://www.downtoearth.org.in/wildlife-biodiversity/overtourism-in-india-in-northern-keralas-kannur-people-are-protesting-against-a-rich-laterite-ecosystem-being-loved-to-death<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HQYfXJvaEAAz8o_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1100\" height=\"618\" style=\"\" src=\"https://pbs.twimg.com/media/HQYfZZda0AASLXU?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1100\" height=\"633\" style=\"\" src=\"https://pbs.twimg.com/media/HQYfaTkbMAAxglX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1100\" height=\"657\" style=\"\" src=\"https://pbs.twimg.com/media/HQYfbb3bAAAlLdl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Daily weather tracker by Dayanidhi \ud83d\udcccHeavy to very heavy rainfall is expected in eastern Madhya Pradesh, with the weather department issuing an oran...",
-      "link": "https://x.com/down2earthindia/status/2091059233676832944",
-      "date": "2026-08-22T07:05:45+00:00",
-      "tweet_id": "2091059233676832944",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQTvNmibAAAs2eu?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Daily weather tracker by Dayanidhi<br><br>\ud83d\udcccHeavy to very heavy rainfall is expected in eastern Madhya Pradesh, with the weather department issuing an orange alert.<br><br>\ud83d\udcccDelhi-NCR, Uttar Pradesh, Bihar, Chhattisgarh and Odisha may receive heavy showers, thunderstorms and strong winds during Saturday.<br><br>\ud83d\udcccFlash flood risks remain high across parts of Madhya Pradesh, Chhattisgarh, Jharkhand and several Himalayan states.<br><br>\ud83d\udcccThunderstorms and lightning may affect Madhya Pradesh, Chhattisgarh and Uttarakhand, prompting residents to avoid open and exposed areas.<br><br>\ud83d\udcccFarmers are advised to improve drainage, protect crops and livestock, and avoid outdoor work during heavy rain and thunderstorms.<br><br>https://www.downtoearth.org.in/climate-change/daily-weather-tracker-heavy-rainfall-alert-as-low-pressure-system-intensifies-across-central-and-northern-india<br><img width=\"1097\" height=\"722\" style=\"\" src=\"https://pbs.twimg.com/media/HQTvNmibAAAs2eu?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Ratnamani just won a big order for spooling business. What differentiates spooling vs normal piping business? -Plain pipe is a spread business on a pa...",
@@ -1859,6 +1859,20 @@
       "description_html": "Who else could have seen this back in 2025 end. No wonder.<br><br>https://www.barchart.com/story/news/36830347/nvidia-just-officially-bought-5-billion-worth-of-intel-stock-should-you-buy-intc-too"
     },
     {
+      "title": "Superforecasting AI: From Software to Physical AI How to estimate the economic consequences of a wildly uncertain future? Strictly no cloning or recom...",
+      "link": "https://x.com/unseenvalue/status/2091858424518607005",
+      "date": "2026-08-24T12:01:27+00:00",
+      "tweet_id": "2091858424518607005",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQfF0biXIAAQKoR?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Superforecasting AI: From Software to Physical AI<br><br>How to estimate the economic consequences of a wildly uncertain future?<br><br>Strictly no cloning or recommendation.<br><br>https://antifragilethinking.substack.com/p/superforecasting-ai-from-software<br><img width=\"1529\" height=\"1020\" style=\"\" src=\"https://pbs.twimg.com/media/HQfF0biXIAAQKoR?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Entero Health: 25 Nov 2025 | ROCE > 20% now \ud83d\ude4c https://antifragilethinking.substack.com/p/the-drum-of-competition-enteros-adaptive Inspired by Skyfa...",
       "link": "https://x.com/unseenvalue/status/2091833568280363363",
       "date": "2026-08-24T10:22:41+00:00",
@@ -2377,6 +2391,90 @@
       "description_html": "Exactly 10 years ago in May 2016, i went to a session on bootstrapping at TiE event in Santa Clara. That changed my life.<br><br>When i spent time in bay area working on advanced sensing technologies in semicon space, everything was there in life(money, granted patents, travelling to new country every month, wife, so called good life) but it still felt empty within. <br><br>Was burning a lot of midnight oil trying to build something, failed twice trying to build in US. Those failures hit hard and made me realise that everthing that i had was only beacuse of the company that i was working for, i was zero outside of it.<br><br>During this phase is when i first met @svembu ji, did not know who he was, did not know about zoho. He was wearing a plain simple green kurtha, jeans and slippers gving a session on bootstraping his company. I asked \"can we bootstrap a hardware business too ?\" And he said \" why not ? \" <br><br>This along with zoho story, made my conviction of moving back to India stronger, it took almost a week for me to digest what zoho was and what was built without raising a single dime from VCs and i felt so proud and blessed to have met the man behind.<br><br>Moved back to India same year in October. It was only about building something here which makes sense in long term, something which was ignored by people for a long time.<br><br>Ofcourse it came at a cost, divorce, hard time telling people not to worry about me or my personal life, making sure that my parents are not suffering, isolating all the peronal stuff with the vision of building strong electronics manufacutring ecosystem in India.<br><br>10 years FF- we are a strong team of 200+, bootstrapped, growing fast, building factories in India which can compete globally soon. On a personal level, i still hardly spend few thousand rupess everymonth, lead a minimal life, have a loving wife who belives in me and a kid who is growing fast, parents who are proud that i am doing something in India.<br><br>There is no multimillion dollars in my bank as safety, my kid and wife are Indians with Indian passport and my parents were teachers/avg govt employee without any background in business.<br><br>I dont feel empty inside me, anymore. Fire inside me is for building India's electronics manufacturing capacity that can compete globally, a strong ecosystem for next gen to build products from India and a strong team that can run this beyond me.<br><br>Jai Hind!\ud83c\uddee\ud83c\uddf3"
     },
     {
+      "title": "#FundFlow | FIIs Net Buy \u20b91,181.66 Cr While DIIs Net Buy \u20b92,493.41 Cr In Equities Today (Provisional)",
+      "link": "https://x.com/CNBCTV18Live/status/2091868946836410561",
+      "date": "2026-08-24T12:43:16+00:00",
+      "tweet_id": "2091868946836410561",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQfPgjxa4AALcG5?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#FundFlow | FIIs Net Buy \u20b91,181.66 Cr While DIIs Net Buy \u20b92,493.41 Cr In Equities Today (Provisional)<br><img width=\"1277\" height=\"717\" style=\"\" src=\"https://pbs.twimg.com/media/HQfPgjxa4AALcG5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#JustIn | #AfconsInfra Receives \u20b9336 Cr Arbitral Award In Its Favour From UPEIDA Alert: UPEIDA Is Uttar Pradesh Expressways Industrial Development Au...",
+      "link": "https://x.com/CNBCTV18Live/status/2091863184143773993",
+      "date": "2026-08-24T12:20:22+00:00",
+      "tweet_id": "2091863184143773993",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQfJeCZbIAAzNJh?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#JustIn | #AfconsInfra Receives \u20b9336 Cr Arbitral Award In Its Favour From UPEIDA<br><br>Alert: UPEIDA Is Uttar Pradesh Expressways Industrial Development Authority<br><img width=\"1280\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HQfJeCZbIAAzNJh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#JustIn | S&P Assigns `BBB\u2019 Rating To #ICICIBank\u2019s $1 Bn Sr Unsecured Notes",
+      "link": "https://x.com/CNBCTV18Live/status/2091862648912843230",
+      "date": "2026-08-24T12:18:15+00:00",
+      "tweet_id": "2091862648912843230",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQfJ27raMAAdtud?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#JustIn | S&amp;P Assigns `BBB\u2019 Rating To #ICICIBank\u2019s $1 Bn Sr Unsecured Notes<br><img width=\"2048\" height=\"1168\" style=\"\" src=\"https://pbs.twimg.com/media/HQfJ27raMAAdtud?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#IPO-bound #SwaraBaby to invest \u20b9558 crore in new #MadhyaPradesh plant https://www.cnbctv18.com/business/companies/ipo-bound-swara-baby-to-invest-rs-...",
+      "link": "https://x.com/CNBCTV18Live/status/2091859215644279010",
+      "date": "2026-08-24T12:04:36+00:00",
+      "tweet_id": "2091859215644279010",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#IPO-bound #SwaraBaby to invest \u20b9558 crore in new #MadhyaPradesh plant<br><br>https://www.cnbctv18.com/business/companies/ipo-bound-swara-baby-to-invest-rs-558-crore-in-new-madhya-pradesh-plant-19975827.htm"
+    },
+    {
+      "title": "ON NEWSMAKER | Now On #CNBCTV18 #DPWorld's Yuvraj Narayan speaks to @AshmitTejKumar on the #WestAsia crisis and its impact on global trade. \u2018Trade Is...",
+      "link": "https://x.com/CNBCTV18Live/status/2091858708741669190",
+      "date": "2026-08-24T12:02:35+00:00",
+      "tweet_id": "2091858708741669190",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQfGGm-acAAnRhr?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "ON NEWSMAKER | Now On #CNBCTV18<br><br>#DPWorld's Yuvraj Narayan speaks to @AshmitTejKumar on the #WestAsia crisis and its impact on global trade.<br><br>\u2018Trade Is Being Weaponised\u2019<br><br>\u2018Hoping Dangerous Precedents Aren\u2019t Set Around #Hormuz\u2019<br><br>\u2018Losing Access to the Strait Will Cripple Global Trade\u2019<br><br>\u2018A New World Order Will Emerge\u2019<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HQfGGm-acAAnRhr?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#UPI completes 10 years, clocks nearly 13,000-fold rise in transaction volume https://www.cnbctv18.com/technology/upi-completes-10-years-clocks-nearly...",
+      "link": "https://x.com/CNBCTV18Live/status/2091855844065661307",
+      "date": "2026-08-24T11:51:12+00:00",
+      "tweet_id": "2091855844065661307",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#UPI completes 10 years, clocks nearly 13,000-fold rise in transaction volume<br><br>https://www.cnbctv18.com/technology/upi-completes-10-years-clocks-nearly-13000-fold-rise-in-transaction-volume-19975814.htm"
+    },
+    {
       "title": "#JustIn | #TCS Board Approves 100% Acqn Of #Porche Arm #MHP For 320 Million Euros \u23e9TCS, Porsche Sign Five-year Strategic Deal Worth 1.25 Bn Euros \u23e9C...",
       "link": "https://x.com/CNBCTV18Live/status/2091853544039276957",
       "date": "2026-08-24T11:42:04+00:00",
@@ -2517,88 +2615,18 @@
       "description_html": "#CNBCTV18Exclusive | Sources Say #RBI Seeks Data From #NBFCs On Flexi #Loans<br><br>\ud83d\udc49RBI Can Choose To Set Layer-based Limits On Flexi-loans<br><br>\ud83d\udc49NBFCs To Highlight Impact On #MSMEs To Defend Flexi-Loans<br><br>\ud83d\udc49MSMEs Account For 75% Of All Flexi-Loans, Helps Cash Flow Management<br><br>\ud83d\udc49Alert: RBI Discussion Paper Proposed A Ban On All Flexi-Loans<br><br>\ud83d\udc49Alert: #FIDC Stands For #Finance Industry Development Council<br><br>\ud83d\udc49Alert: FIDC Represents Top Two Layers Of NBFCs In India<br><img width=\"668\" height=\"669\" style=\"\" src=\"https://pbs.twimg.com/media/HQen7HybsAAVFUJ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "#JustIn | #FinoPaymentsBank Extends Ketan Merchant\u2019s Tenure As Interim CEO For 3 Months \ud83d\udc49Alert: Ketan Merchant Has Been Interim #CEO Of Co Since F...",
-      "link": "https://x.com/CNBCTV18Live/status/2091822438070001939",
-      "date": "2026-08-24T09:38:28+00:00",
-      "tweet_id": "2091822438070001939",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQelWPIagAEYPNk?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#JustIn | #FinoPaymentsBank Extends Ketan Merchant\u2019s Tenure As Interim CEO For 3 Months<br><br>\ud83d\udc49Alert: Ketan Merchant Has Been Interim #CEO Of Co  Since February 27, 2026<br><img width=\"657\" height=\"366\" style=\"\" src=\"https://pbs.twimg.com/media/HQelWPIagAEYPNk?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "The regulatory threat to a $26 billion loanbook triggers panic beyond shadow #banks @imFmoharkan https://www.cnbctv18.com/business/finance/the-regulat...",
-      "link": "https://x.com/CNBCTV18Live/status/2091821832475418798",
-      "date": "2026-08-24T09:36:03+00:00",
-      "tweet_id": "2091821832475418798",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "Dow Jones| Nasdaq | S&P 500 | US Stock Market Today | Live Updates: #USstock index futures slip as high-stakes #Iran, #inflation tests loom https://ec...",
+      "link": "https://x.com/ETMarkets/status/2091865636121297171",
+      "date": "2026-08-24T12:30:07+00:00",
+      "tweet_id": "2091865636121297171",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "The regulatory threat to a $26 billion loanbook triggers panic beyond shadow #banks<br><br>@imFmoharkan <br><br>https://www.cnbctv18.com/business/finance/the-regulatory-threat-to-a-26-billion-loanbook-triggers-panic-beyond-shadow-banks-19975629.htm"
-    },
-    {
-      "title": "India lifts #wheat export ban with immediate effect, DGFT says @ranimegha229 https://www.cnbctv18.com/economy/india-lifts-wheat-export-ban-with-immedi...",
-      "link": "https://x.com/CNBCTV18Live/status/2091814139937341811",
-      "date": "2026-08-24T09:05:29+00:00",
-      "tweet_id": "2091814139937341811",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "India lifts #wheat export ban with immediate effect, DGFT says<br><br>@ranimegha229 <br>https://www.cnbctv18.com/economy/india-lifts-wheat-export-ban-with-immediate-effect-dgft-19975627.htm"
-    },
-    {
-      "title": "#Xiaomi launches new #Xring #chip, partners with TSMC for production, sources say https://www.cnbctv18.com/technology/xiaomi-launches-new-xring-chip-p...",
-      "link": "https://x.com/CNBCTV18Live/status/2091812917947809824",
-      "date": "2026-08-24T09:00:38+00:00",
-      "tweet_id": "2091812917947809824",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Xiaomi launches new #Xring #chip, partners with TSMC for production, sources say<br><br>https://www.cnbctv18.com/technology/xiaomi-launches-new-xring-chip-partners-with-tsmc-for-production-sources-say-19975623.htm"
-    },
-    {
-      "title": "#RBI #forex swap inflows near $73 billion, but rupee barely moves: Here\u2019s why @_RituSingh https://www.cnbctv18.com/market/currency/rbi-forex-swap-inf...",
-      "link": "https://x.com/CNBCTV18Live/status/2091810523310706736",
-      "date": "2026-08-24T08:51:07+00:00",
-      "tweet_id": "2091810523310706736",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#RBI #forex swap inflows near $73 billion, but rupee barely moves: Here\u2019s why<br><br>@_RituSingh <br>https://www.cnbctv18.com/market/currency/rbi-forex-swap-inflows-rupee-fcnrb-deposits-19975580.htm"
-    },
-    {
-      "title": "#JustIN | #RatnamaniMetals: Arm bags export orders worth $286 m (around \u20b92,700 cr) for supply of spools/hangers",
-      "link": "https://x.com/CNBCTV18Live/status/2091809289094779258",
-      "date": "2026-08-24T08:46:13+00:00",
-      "tweet_id": "2091809289094779258",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQeZQ8DacAAxs8C?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#JustIN | #RatnamaniMetals: Arm bags export orders worth $286 m (around \u20b92,700 cr) for supply of spools/hangers<br><img width=\"609\" height=\"343\" style=\"\" src=\"https://pbs.twimg.com/media/HQeZQ8DacAAxs8C?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "Dow Jones| Nasdaq | S&amp;P 500 | US Stock Market Today | Live Updates: #USstock index futures slip as high-stakes #Iran, #inflation tests loom<br>https://economictimes.indiatimes.com/markets/us-stocks/news/us-stock-futures-slip-as-iran-tensions-nvidia-earnings-and-inflation-data-loom/liveblog/133465988.cms"
     },
     {
       "title": "Quote of the day by #TomRusso: \"Sadly, on Wall Street, rewards for acting with self-interest and to disadvantage public shareholders often prove to be...",
@@ -2865,20 +2893,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Global Market: #Shein valuation falls 70% from peak as Hong Kong IPO targets $1.77 billion<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-market-shein-valuation-falls-70-from-peak-as-hong-kong-ipo-targets-1-77-billion/articleshow/133454295.cms"
-    },
-    {
-      "title": "#UrbanCompany shares surge 7% to 11-month high, rally 16% in 2 sessions. Here are 2 reasons why #ETMarkets https://economictimes.indiatimes.com/market...",
-      "link": "https://x.com/ETMarkets/status/2091784206301143300",
-      "date": "2026-08-24T07:06:32+00:00",
-      "tweet_id": "2091784206301143300",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#UrbanCompany shares surge 7% to 11-month high, rally 16% in 2 sessions. Here are 2 reasons why<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/urban-company-shares-surge-7-to-11-month-high-rally-16-in-2-sessions-here-are-2-reasons-why/articleshow/133454609.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
     },
     {
       "title": "GREAT EASTERN SHIPPING: CO BOARD TO CONSIDER BUYBACK PROPOSAL ON AUGUST 27",
@@ -3595,6 +3609,20 @@
       "description_html": "After a gap of 601 days<br><br>small cap index has finally made a new all time high today"
     },
     {
+      "title": "I am sure we all read about this news - The Indian Ministry of Defence issued a \u20b91 lakh crore (~$10.5 billion) tender on August 12, 2026, to acquire ...",
+      "link": "https://x.com/aditya_kondawar/status/2091868541616329150",
+      "date": "2026-08-24T12:41:40+00:00",
+      "tweet_id": "2091868541616329150",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "I am sure we all read about this news - The Indian Ministry of Defence issued a \u20b91 lakh crore (~$10.5 billion) tender on August 12, 2026, to acquire 60 multirole transport aircraft for the Indian Air Force<br><br>Out of 60, 12 aircraft are likely to be purchased in flyaway condition, while the balance 48 will be manufactured in India.<br><br>3 entities have received RFPs \u2013 Mahindra Defence, Tata Advanced Systems, and Hindustan Aeronautics.<br><br>So the original MTA requirement is a little old, and HAL had proposed to make an MTA from the ground up, and that was an endeavour which never took off.<br><br>This MTA requirement is for a payload capacity of 18-30 metric tons. Some time back, there was speculation that the Airbus 400M would also take part in the tender process, but that has a payload capacity of 42 tons. As per the latest document, they are out.<br><br>Three proposals are being submitted <br><br>1. The Lockheed &amp; Tata proposal is talking about upgrading the C130J capability to increase its current payload capacity from 18-20 metric tons to maybe 22 at the max.<br><br>The problem here is its low payload capacity. The new light battle tanks designed for forward deployments in hilly areas weigh 25 tons. They will for sure be testing the capacity to deploy the light tank in forward areas.<br> <br>The C130J has a few advantages. Firstly, it can fly to and from unprepared runways, plus the turboprop configuration gives it a shorter takeoff length. Secondly, as the AIR FORCE already operates 12 of them, induction and operationalisation will be quick. Thirdly, turboprop aircraft suffer a smaller performance penalty during take-off from high-altitude airports compared with comparable jet aircraft<br><br>2. Embraer &amp; Mahindra proposal of C390 Millennium has a payload capacity of 30 metric tons. Hits the sweet spot and can carry the light battle tanks. Embraer has said it can land and take off from unprepared runways, but the capability needs to be proved.<br><br>The C390 has certain advantages compared to the Tata proposal. Firstly, only the engine is American, and the rest of the aircraft is pretty much all Brazilian. Secondly, the C390 can be converted into temporary air refuelers. Thirdly, the aircraft requires no modification plus has additional headroom in terms of load capability, and not to forget it\u2019s a much more modern platform.<br><br>3. HAL &amp; Russian proposal for a re-engined version of the IL-76 with some structural changes to increase its current payload.<br><br>Sounds good on paper, but the aircraft will take atleast a few years to be developed and then go for testing. This proposal looks difficult<br> <br>Now you do the math as to who is likely to win the tender, plus Embraer has proposed complete transfer of technology and setting up the entire supply chain<br><br>No reco, end-of-work-day thoughts :)"
+    },
+    {
       "title": "TCS will establish a dedicated AI Mobility Centre of Excellence for Porsche to drive innovation across manufacturing, engineering, operations, and cus...",
       "link": "https://x.com/aditya_kondawar/status/2091853689774559688",
       "date": "2026-08-24T11:42:39+00:00",
@@ -3845,20 +3873,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "DRDO has invited private companies to co-develop and manufacture missile &amp; bomb weapon systems under its Development-cum-Production Partner model<br><br>This is a step up from private companies being vendors/component suppliers \u2192 becoming development + production partners for complex strategic systems<br><br>Could open up a much larger opportunity for India\u2019s private defence ecosystem as DRDO looks to build multiple production sources and scale manufacturing capacity<br><br>At least 2 companies will be selected for each project, creating multiple production sources instead of dependence on a single manufacturer<br><br>DRDO will also evaluate whether these companies can undertake bulk production of 50\u2013100+ units \u2014 so this is not merely prototype development; the intent is to build serious private-sector manufacturing capacity for strategic weapons<br><br>no reco<br><img width=\"871\" height=\"1279\" style=\"\" src=\"https://pbs.twimg.com/media/HQOu_oMbMAAC_T6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Sona BLW on tech in their products - \"Our suspension motor product has 2 million lines of code. Almost nothing we make today is just metal; it is meta...",
-      "link": "https://x.com/aditya_kondawar/status/2090689509117907145",
-      "date": "2026-08-21T06:36:36+00:00",
-      "tweet_id": "2090689509117907145",
-      "source": "Aditya Kondawar",
-      "publisher": "Aditya Kondawar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Sona BLW on tech in their products -<br><br>\"Our suspension motor product has 2 million lines of code. Almost nothing we make today is just metal; it is metal and a few lines of code. <br><br>If you look at the car, a car today has over a million lines of code, even a regular one. The more advanced electric vehicles do have 5 million plus, and robotaxis are actually physical AI products.<br><br>Robotaxis, now, what you want to classify them as is up to you as an analyst. But to be honest, a lot of these devices have already crossed that border.\"<br><br>Src \u2013 Q1 Concall, no reco"
     },
     {
       "title": "India would be a developed market when investors start asking for Sharpe Ratio and Sortino Ratio, and not just returns. This is a good post by @Ramkum...",
@@ -4393,6 +4407,20 @@
       "description_html": "RT\u2002SOIC Research<br>In just 3 years, ~72 MTPA of capacity changed hands -almost the same as ~82 MTPA over the entire FY12\u201322 decade. <br><br>That\u2019s not noise; that\u2019s a structural reset that\u2019s pushing the top-5 share toward ~62% by FY27 and hard-coding discipline into the sector\u2019s DNA.<br><br>Lets' try and understand how this boring sector is suddenly in the lime light<br><img width=\"335\" height=\"255\" style=\"\" src=\"https://pbs.twimg.com/media/G11SkjsWIAAW86N?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Analysis: The two largest reservoirs in the US have hit record-low levels | @GAViglione w/ comment from Jack Schmidt Read here \u27a1\ufe0f https://buff.ly/iw...",
+      "link": "https://x.com/CarbonBrief/status/2091861340973375514",
+      "date": "2026-08-24T12:13:03+00:00",
+      "tweet_id": "2091861340973375514",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQfIzbpXQAAhcPA?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Analysis: The two largest reservoirs in the US have hit record-low levels | @GAViglione w/ comment from Jack Schmidt  <br><br>Read here \u27a1\ufe0f https://buff.ly/iwTZJ0Y<br><img width=\"2048\" height=\"1322\" style=\"\" src=\"https://pbs.twimg.com/media/HQfIzbpXQAAhcPA?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Q&A: What is \u2018long-duration energy storage\u2019 \u2013 and why does the UK need it? \u270d\ufe0f written by Molly Lempriere \ud83d\udcac With comments from Sir Chris Llewel...",
       "link": "https://x.com/CarbonBrief/status/2091845732441510299",
       "date": "2026-08-24T11:11:01+00:00",
@@ -4615,20 +4643,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The Carbon Brief Profile: United States | @josh_gabbatiss @joejgoodman #CBarchive<br><br>Read here: https://j.mp/3nbVbE2"
-    },
-    {
-      "title": "Q&A: What is \u2018long-duration energy storage\u2019 \u2013 and why does the UK need it? \u270d\ufe0f written by Molly Lempriere \ud83d\udcac With comments from Sir Chris Llewel...",
-      "link": "https://x.com/CarbonBrief/status/2090792292068073549",
-      "date": "2026-08-21T13:25:02+00:00",
-      "tweet_id": "2090792292068073549",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQP8gniXwAAB8Cw?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Q&amp;A: What is \u2018long-duration energy storage\u2019 \u2013 and why does the UK need it? <br><br>\u270d\ufe0f written by Molly Lempriere <br>\ud83d\udcac With comments from Sir Chris Llewellyn Smith, George Martin, Seamus Garvey and @souderjas <br><br>Read here: https://buff.ly/WDc5qPc<br><img width=\"1550\" height=\"1033\" style=\"\" src=\"https://pbs.twimg.com/media/HQP8gniXwAAB8Cw?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "SOON | What's really driving #Africa\u2019s solar boom?\u2600\ufe0f Joint experts from Ember & African Tech Futures Lab as we introduce a methodology to estimate ...",
@@ -6255,6 +6269,20 @@
       "description_html": "RT\u2002CNBC-TV18<br>Deepak Shenoy's Capitalmind MF clocks \u20b9600 crore AUM a year after launch, eyes mid- and small-cap funds<br><br>@anshul91_m <br><br>https://www.cnbctv18.com/personal-finance/deepak-shenoy-capitalmind-mutual-fund-first-year-rs-600-crore-aum-four-schemes-19968501.htm?utm_medium=social&amp;utm_source=x&amp;utm_campaign=regular-editorial"
     },
     {
+      "title": "CareEdge is hosting a webinar on \"Affordable Housing Finance: Growth, Asset Quality and the Road Ahead.\" \ud83d\udcc5 27 August 2026 \u23f0 4:00 PM to 5:00 PM IST...",
+      "link": "https://x.com/CareEdge_Group/status/2091861302746792167",
+      "date": "2026-08-24T12:12:54+00:00",
+      "tweet_id": "2091861302746792167",
+      "source": "CareEdge",
+      "publisher": "CareEdge",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQfIuzgbcAARKQ-?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "CareEdge is hosting a webinar on \"Affordable Housing Finance: Growth, Asset Quality and the Road Ahead.\"<br><br>\ud83d\udcc5 27 August 2026<br>\u23f0 4:00 PM to 5:00 PM IST<br><br>Register now:&nbsp;https://lnkd.in/dFJG7DQY<br><br>Affordable housing finance continues to play a pivotal role in advancing financial inclusion, supported by increasing urbanisation, growing formalisation of incomes, and rising aspirations for home ownership.<br><br>Key Topics of Discussion:<br>\u2022 Key Growth Drivers and Challenges<br>\u2022 Asset Quality Trends<br>\u2022 Impact on Margins and Profitability<br>\u2022 CareEdge Ratings' Outlook on the Sector<br><br>Join our experts as they share insights on the sector's growth trajectory, evolving asset quality trends, profitability dynamics, and the outlook for affordable housing finance in the coming years.<br><br>#CareEdgeRatings #Webinar #AffordableHousingFinance #HousingFinance #FinancialInclusion #NBFC #HFC #CreditRatings #IndianEconomy #IndustryInsights #FinanceSector #ThoughtLeadership<br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HQfIuzgbcAARKQ-?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "At CareEdge Conversations: Infrastructure Landscape \u2013 Vision for Viksit Bharat, industry leaders, policymakers, investors, and infrastructure experts...",
       "link": "https://x.com/CareEdge_Group/status/2090745869482262631",
       "date": "2026-08-21T10:20:34+00:00",
@@ -6465,34 +6493,6 @@
       "description_html": "Rajani Sinha, Chief Economist, CareEdge Ratings, shares her perspective on the latest CPI data.<br><br>View Report: https://www.careratings.com/uploads/newsfiles/1786543740_CPI%20July%202026.pdf<br><br>Sarbartho Mukherjee | Tanya Singh<br><br>#RajaniSinha #CareEdgeRatings #CPI #Inflation #CPIData #IndianEconomy #Economy #EconomicOutlook #MonetaryPolicy #RBI #CareEdge #EconomicInsights<br><img width=\"1200\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HPiArIxaUAAPgNs?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1200\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HPiArIoa4AA9d5O?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1200\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HPiArI4acAAF2J0?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1200\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HPiArI7aQAA57zQ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "Re",
-      "link": "https://x.com/CareEdge_Group/status/2087414952189706474",
-      "date": "2026-08-12T05:44:41+00:00",
-      "tweet_id": "2087414952189706474",
-      "source": "CareEdge",
-      "publisher": "CareEdge",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPf8wSmbAAAQOF-?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Re <br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HPf8wSmbAAAQOF-?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HPf8wSFbgAAph9X?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HPf8wfmaAAAn3tT?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "CareEdge Ratings recently hosted an insightful roundtable discussion on \u201c\ud835\ude4f\ud835\ude5d\ud835\ude5a \ud835\ude40\ud835\ude6b\ud835\ude64\ud835\ude61\ud835\ude6b\ud835\ude5e\ud835\ude63\ud835\ude5c \ud835\ude47\ud835\ude56\ud835\ude63\ud835\ude59\ud835\ude68\ud835\ude58\ud835\ude56\ufffd...",
-      "link": "https://x.com/CareEdge_Group/status/2087414945210106353",
-      "date": "2026-08-12T05:44:39+00:00",
-      "tweet_id": "2087414945210106353",
-      "source": "CareEdge",
-      "publisher": "CareEdge",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HPf8us9aUAA7ns0?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "CareEdge Ratings recently hosted an insightful roundtable discussion on \u201c\ud835\ude4f\ud835\ude5d\ud835\ude5a \ud835\ude40\ud835\ude6b\ud835\ude64\ud835\ude61\ud835\ude6b\ud835\ude5e\ud835\ude63\ud835\ude5c \ud835\ude47\ud835\ude56\ud835\ude63\ud835\ude59\ud835\ude68\ud835\ude58\ud835\ude56\ud835\ude65\ud835\ude5a \ud835\ude56\ud835\ude63\ud835\ude59 \ud835\ude4a\ud835\ude6a\ud835\ude69\ud835\ude61\ud835\ude64\ud835\ude64\ud835\ude60 \ud835\ude64\ud835\ude5b \ud835\ude44\ud835\ude63\ud835\ude59\ud835\ude5e\ud835\ude56\u2019\ud835\ude68 \ud835\ude44\ud835\ude63\ud835\ude5b\ud835\ude67\ud835\ude56\ud835\ude68\ud835\ude69\ud835\ude67\ud835\ude6a\ud835\ude58\ud835\ude69\ud835\ude6a\ud835\ude67\ud835\ude5a \ud835\ude4e\ud835\ude5a\ud835\ude58\ud835\ude69\ud835\ude64\ud835\ude67\u201d in Ahmedabad, bringing together leading infrastructure companies and lending institutions to exchange perspectives on the opportunities and challenges shaping the sector's next phase of growth.<br><br>The session commenced with a welcome address, CareEdge Group overview, and context-setting remarks by Alap Mehta, Director, followed by an in-depth sector analysis presentation by Palak Gandhi Vyas, Associate Director. The discussion was expertly moderated by Rajashree Murkute, Senior Director, and Maulesh Desai, Director, fostering meaningful dialogue on industry trends, funding dynamics, project execution, and the future growth trajectory of India's infrastructure ecosystem.<br><br>A sincere thank you to all participants for contributing valuable insights and making the discussion highly engaging and impactful.<br><br>#CareEdgeRatings #Infrastructure #IndiaInfrastructure #InfrastructureGrowth #Ahmedabad #ConstructionSector #RoadsAndHighways #ProjectFinance #LendingInstitutions #EconomicGrowth #IndustryInsights #CareEdgeEvents #InfrastructureDevelopment #ThoughtLeadership<br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HPf8us9aUAA7ns0?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HPf8ufhaUAAxfyP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HPf8usTbMAAU3Op?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HPf8u9uaAAArVfP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
       "title": "Sachin Gupta, ED & CRO, CareEdge Ratings, shares his insights in The Hindu @businessline on the RBI's FCNR(B) Deposit Scheme 2026 and its implications...",
       "link": "https://x.com/CareEdge_Group/status/2087155848959475912",
       "date": "2026-08-11T12:35:06+00:00",
@@ -6521,20 +6521,6 @@
       "description_html": "Vineet Jain, Senior Director, CareEdge Ratings, shared his perspectives with @latha_venkatesh of @CNBCTV18Live regarding the RBI's draft directions on revolving credit facilities and their potential implications for the NBFC sector.<br><br>View Full Interview: https://youtu.be/IP-_KhUm4uE<br><br>#CareEdgeRatings #CNBCTV18 #VineetJain #NBFC #RBI #FinancialServices #CreditMarkets #BankingAndFinance #RiskManagement #RegulatoryUpdates #FinancialSector #MarketInsights #ThoughtLeadership<br><video width=\"640\" height=\"480\" src=\"https://video.twimg.com/amplify_video/2086747838336438272/vid/avc1/640x480/GJcYUleUu0Yhnp9q.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2086747838336438272/img/M1GWIQAOWlWzBQse.jpg\"></video>"
     },
     {
-      "title": "RT ANI: #WATCH | Delhi: On the impact of the US tariff bill on the Indian economy, Chief Rating Officer at CareEdge Ratings, Sachin Gupta, says, \u201cIt ...",
-      "link": "https://x.com/CareEdge_Group/status/2086720117837308171",
-      "date": "2026-08-08T08:13:40+00:00",
-      "tweet_id": "2086720117837308171",
-      "source": "CareEdge",
-      "publisher": "CareEdge",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2086002443205394432/img/Qr5V-WetBy62D8Kf.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002ANI<br>#WATCH | Delhi: On the impact of the US tariff bill on the Indian economy, Chief Rating Officer at CareEdge Ratings, Sachin Gupta, says, \u201cIt will have a multi-order impact on the Indian economy. First of all, we have yet to see how the US implements it, because there is a lot of back-and-forth that happens with many of these US regulations. But assuming that there is indeed a 100% tariff levied, we can analyse this impact at two or three levels. One is the most direct impact, which will be on US imports or Indian exports\u2026if there is indeed a 100% tariff, it becomes unviable\u2026if Russian crude oil supply is excluded from the overall global crude market, where total global crude demand is around 100 million barrels a day, with the Strait of Hormuz accounting for 20 million barrels and Russia accounting for about 9 million barrels, of which India and China take roughly 75% and if both India and China decide not to import from Russia at all due to these 100% tariffs, removing up to 30% of global supply will cause a significant impact. While crude prices have recently been relatively benign at around $70 to $85 a barrel, if this scenario becomes a reality, prices could easily go beyond $100 or even $110 to $120 a barrel, causing India's current account deficit to easily more than double from last year's levels strictly on account of crude. Furthermore, at $110 to $120 a barrel, the government would have to pass on those price rises to the fuel pumps, creating a secondary inflationary impact across the broader economy\u2026\u201d<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2086002443205394432/vid/avc1/1920x1080/v4otitDTt2kY2g9j.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2086002443205394432/img/Qr5V-WetBy62D8Kf.jpg\"></video>"
-    },
-    {
       "title": "Shell CEO Wael Sawan says petroleum \u201cproducts markets are more squeezed\u201d than crude oil. He warns that market shock absorbers are getting wore down.",
       "link": "https://x.com/JavierBlas/status/2091841086759043169",
       "date": "2026-08-24T10:52:34+00:00",
@@ -6561,6 +6547,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "TotalEnergies CEO Patrick Pouyanne describes the supply and demand fundamentals for crude oil \u2014 emphasis on crude \u2014 as \u201ccompletely bearish.\u201d <br><br>But he warns the real oil shortage is in petroleum refined products, saying the outlook for diesel is \u201cvery bullish.\u201d"
+    },
+    {
+      "title": "RT Russian Oil & Gas Monitor: \u27a1\ufe0f Very interesting numbers on the cost of running Hormuz from someone in place to know \ud83d\udc47 \u27a1\ufe0f Per TotalEnergies\u2019 ...",
+      "link": "https://x.com/JavierBlas/status/2091861261143146669",
+      "date": "2026-08-24T10:15:20+00:00",
+      "tweet_id": "2091861261143146669",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Russian Oil &amp; Gas Monitor<br>\u27a1\ufe0f Very interesting numbers on the cost of running Hormuz from someone in place to know \ud83d\udc47<br>\u27a1\ufe0f Per TotalEnergies\u2019 CEO, it\u2019s $10/bbl ($20 mn per round-trip for a 2 mn-bbl VLCC). This is significantly LOWER than we\u2019d have expected. <br>\u27a1\ufe0f Iraq a few weeks ago were offering $25-$30/bbl discounts for anyone willing to make the run and pick up the oil FOB at its ports. That\u2019s a longer run than only the Strait of Hormuz, but still, $10/bbl tends to confirm indications that Hormuz flows are picking up. <br>#oott<div class=\"rsshub-quote\"><br><br>Javier Blas:\u2002TotalEnergies CEO Patrick Pouyanne says oil is flowing the Strait of Hormuz \u201cvery quietly,\u201d and his company is largest trader of Iraqi/Qatari crude. <br><br>Pouyanne says it costs ~$20 million per VLCC per SoH passage (including return) in freight and insurance. TotalEnergies is buying<br></div>"
     },
     {
       "title": "Coal to get a \u201cboost\u201d from Middle East war \u2014 @IEA head Fatih Birol",
@@ -6745,18 +6745,18 @@
       "description_html": "The Trump administration is authorizing an early shift to the sale of wintertime gasoline blends, its latest move to blunt fuel costs and supply concerns stoked by the war in Iran. <br>https://www.bloomberg.com/news/articles/2026-08-20/us-allows-early-sales-of-winter-gasoline-to-help-curb-prices?utm_source=website&amp;utm_medium=share&amp;utm_campaign=twitter"
     },
     {
-      "title": "RT John Kemp: PANAMA CANAL to cut transits as El Ni\u00f1o lowers water supply: https://www.ft.com/content/25715859-f7a6-4da8-9e75-775610080b94",
-      "link": "https://x.com/JavierBlas/status/2090684784485785911",
-      "date": "2026-08-21T05:37:55+00:00",
-      "tweet_id": "2090684784485785911",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
+      "title": "US plans nuclear-powered merchant fleet to challenge China\u2019s shipbuilding dominance https://ft.trib.al/pTsN2i1",
+      "link": "https://x.com/ftenergy/status/2091859924418519379",
+      "date": "2026-08-24T12:07:25+00:00",
+      "tweet_id": "2091859924418519379",
+      "source": "FT Energy",
+      "publisher": "FT Energy",
       "source_mode": "rsshub",
       "image": "",
-      "is_retweet": true,
+      "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "RT\u2002John Kemp<br>PANAMA CANAL to cut transits as El Ni\u00f1o lowers water supply: https://www.ft.com/content/25715859-f7a6-4da8-9e75-775610080b94"
+      "description_html": "US plans nuclear-powered merchant fleet to challenge China\u2019s shipbuilding dominance https://ft.trib.al/pTsN2i1"
     },
     {
       "title": "Iran threatens 46 ships in Strait of Hormuz transit crackdown https://ft.trib.al/7Dn8svp",
@@ -7025,20 +7025,6 @@
       "description_html": "Harold Hamm launches multibillion-dollar plan to drill Argentine shale https://ft.trib.al/gZwHPQJ"
     },
     {
-      "title": "Demand for tankers soars as Gulf oil producers search for ways to export cargoes https://ft.trib.al/ByZFquP",
-      "link": "https://x.com/ftenergy/status/2090314766942122437",
-      "date": "2026-08-20T05:47:31+00:00",
-      "tweet_id": "2090314766942122437",
-      "source": "FT Energy",
-      "publisher": "FT Energy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Demand for tankers soars as Gulf oil producers search for ways to export cargoes https://ft.trib.al/ByZFquP"
-    },
-    {
       "title": "Credit growth continues to tick up, Migration from India slows down, Services exports continue to remain resilient and Wireless subscriber additions c...",
       "link": "https://x.com/IndiaDataHub/status/2061139509170012524",
       "date": "2026-05-31T17:35:27+00:00",
@@ -7233,6 +7219,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "We\u2019re launching Trade DB to track India\u2019s trade at the HS code level by value or quantity, across imports, exports, and also detailed category and subcategory data for our trade partners. See this for more:  https://www.youtube.com/watch?v=KdwhLPaU3Fw  #India #Trade #Exports #Imports"
+    },
+    {
+      "title": "BREAKING: The US Treasury is considering using its $950 billion General Account to help fund its increased purchases of long-term government bonds, pe...",
+      "link": "https://x.com/KobeissiLetter/status/2091859386176090296",
+      "date": "2026-08-24T12:05:17+00:00",
+      "tweet_id": "2091859386176090296",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: The US Treasury is considering using its $950 billion General Account to help fund its increased purchases of long-term government bonds, per CNBC.<br><br>Once again, the era of bond market intervention officially began on August 19th.<br><br>This is a top priority for the Trump Administration."
     },
     {
       "title": "BREAKING: Gold futures surge above $4,700/oz for the first time since May 14th. Asset owners are the only winners in this market.",
@@ -7471,20 +7471,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "You are not watching the bond market closely enough.<br><br>President Trump is now threatening that the US Military could be utilized for further intervention to lower US Treasury yields.<br><br>\"The ultimate intervention is our military, and if we have to use that we will.\"<br><br>Watch bonds.<br><video width=\"1280\" height=\"720\" src=\"https://video.twimg.com/amplify_video/2091166372680060928/vid/avc1/1280x720/3IRidtGozX6u4CZT.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2091166372680060928/img/kXlZdw_nIvp0vM9S.jpg\"></video>"
-    },
-    {
-      "title": "The crypto market situation is strange. Between May 1st and August 19th, for 110-straight days, the crypto market was effectively frozen. This week, o...",
-      "link": "https://x.com/KobeissiLetter/status/2091149924779864105",
-      "date": "2026-08-22T13:06:08+00:00",
-      "tweet_id": "2091149924779864105",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQVBUPDWEAAooRQ?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The crypto market situation is strange.<br><br>Between May 1st and August 19th, for 110-straight days, the crypto market was effectively frozen.<br><br>This week, on the same day of President Trump's \"Crypto Summit,\" that completely changed.<br><br>Beginning at 8:30 AM on August 19th, crypto began trading sharply higher without any major headlines.<br><br>By 7:00 AM ET on August 20th, we had seen the 7th largest crypto liquidation event in history.<br><br>Just 36 hours after that, crypto had added +$500 billion in market cap from its low and the rally began gaining momentum on Friday night amid thin volume.<br><br>Then, at 12:30 AM ET today, crypto erased -$110 billion in market cap in 20 minutes.<br><br>Yet, we have not seen single market-moving headline for crypto in days.<br><br>What is happening here?<br><img width=\"1344\" height=\"1222\" style=\"\" src=\"https://pbs.twimg.com/media/HQVBUPDWEAAooRQ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT CNBC-TV18: #CNBCTV18Exclusive | Sources Say #RBI Seeks Data From #NBFCs On Flexi #Loans \ud83d\udc49RBI Can Choose To Set Layer-based Limits On Flexi-loans...",
@@ -7879,6 +7865,20 @@
       "description_html": "TD Power Systems has signed a 10-year deal with Siemens Energy\u2019s US arm to manufacture large 2-pole generators.<br><br>The interesting part is Siemens\u2019 factories are already full, so TD Power is effectively becoming an outsourced manufacturing partner for the AI/data-cententre power boom. But there are no orders booked yet, with revenue likely starting around FY29.<br><br>Interesting to see how this changes into actual order inflows over the next few years.<br><br>We have discussed this in our webinar.<br><img width=\"1125\" height=\"560\" style=\"\" src=\"https://pbs.twimg.com/media/HP7V3DEagAEnCml?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "RT CNBC-TV18: RBI\u2019s forex swap window has drawn nearly $73 billion, but the rupee is yet to strengthen. With the window closing soon, how much more c...",
+      "link": "https://x.com/_RituSingh/status/2091861748978798597",
+      "date": "2026-08-24T11:58:16+00:00",
+      "tweet_id": "2091861748978798597",
+      "source": "Ritu Singh",
+      "publisher": "Ritu Singh",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2091856913470529536/img/XwTAFiDfzumHARVK.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>RBI\u2019s forex swap window has drawn nearly $73 billion, but the rupee is yet to strengthen. With the window closing soon, how much more could flow in &amp; why hasn\u2019t the rupee gained? @_RituSingh reports<br>#banks #rupee<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2091856913470529536/vid/avc1/1920x1080/u-xk24ESmgb1nXu1.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2091856913470529536/img/XwTAFiDfzumHARVK.jpg\"></video>"
+    },
+    {
       "title": "RT CNBC-TV18: \ud83e\udd1d #TataCapital and Japan\u2019s #ResonaBank are joining hands to help Japanese companies expand their footprint in #India. \ud83c\uddee\ud83c\uddf3 The p...",
       "link": "https://x.com/_RituSingh/status/2091845150888927237",
       "date": "2026-08-24T11:07:16+00:00",
@@ -8089,18 +8089,18 @@
       "description_html": "RT\u2002CNBC-TV18<br>\ud83c\udfe2 Who will succeed #NChandrasekaran at #TataSons? The answer may have to wait.<br><br>In this #CNBCAccess article, @_RituSingh reports that the succession process is caught in a governance maze, with restrictions on the #SirRatanTataTrust creating hurdles in forming the selection committee.<br><br>https://www.cnbctv18.com/business/companies/tata-sons-search-for-n-chandrasekarans-successor-caught-in-a-governance-maze-19974424.htm?utm_medium=social&amp;utm_source=x&amp;utm_campaign=regular-editorial"
     },
     {
-      "title": "RT CNBC-TV18: #JustIn | #ICICIBank Board Approves Overseas Borrowing Of Up To $5 Bn",
-      "link": "https://x.com/_RituSingh/status/2090676717597937664",
-      "date": "2026-08-21T05:34:58+00:00",
-      "tweet_id": "2090676717597937664",
-      "source": "Ritu Singh",
-      "publisher": "Ritu Singh",
+      "title": "RT ValueEquity: Urban Company , intresting that incremental core business growth is now higher in Tier 2 cities as well and the flywheel they are usin...",
+      "link": "https://x.com/EquityValueIn/status/2091868542320910465",
+      "date": "2026-08-24T11:18:33+00:00",
+      "tweet_id": "2091868542320910465",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQOQe6IawAARt5j?format=png&name=orig",
+      "image": "https://pbs.twimg.com/media/HQe8UxvbMAAtAER?format=png&name=orig",
       "is_retweet": true,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "RT\u2002CNBC-TV18<br>#JustIn | #ICICIBank Board Approves Overseas Borrowing Of Up To $5 Bn<br><img width=\"606\" height=\"343\" style=\"\" src=\"https://pbs.twimg.com/media/HQOQe6IawAARt5j?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "RT\u2002ValueEquity<br>Urban Company , intresting that incremental core business growth is now higher in Tier 2 cities as well and the flywheel they are using : <br><br>Reliability feeds demand, demand supports supply, and the densification flywheel takes hold: the same playbook that built our metro business in the early part <br><br>I think another business I am reading now , more on substack audio notes <br><br>If you haven't followed our work there already , do check it out folks <br>https://substack.com/@valueequityin<br><img width=\"883\" height=\"775\" style=\"\" src=\"https://pbs.twimg.com/media/HQe8UxvbMAAtAER?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Urban Company , intresting that incremental core business growth is now higher in Tier 2 cities as well and the flywheel they are using : Reliability ...",
@@ -8353,20 +8353,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Everyone talks about finding a large winner , but no one talks about the lumpiness of returns over a 5-7 year cycle <br><br>1) First ask yourself , how many stocks in your portfolio you have owned for more than 5 years ? <br><br>2) Most businesses are not worth owning for 7-10 years, some business we are renting , and some we are buying , I would say maybe 30% of the portfolio is what you reallistcally can own for 7 years , while the rest 70% can be changing according to cyles , opportunities , and sector based themes where tailwinds are larger that last for 2-3 years <br><br>3) Be dynamic and agile to understand the capital returns in the sector first , and then see the correlation , broadly every industry has the cycle , business cycle , returns cycle and consolidation <br><br>Keep it simple and actually ask thge right question , if I own a multibagger today , it is already up 5x in 3 years , can it keep compoudning that capital incrementally , very few businesses can !"
-    },
-    {
-      "title": "RT ValueEquity: Deep value can remain deep value if there is no inflection point or trigger , just because a stock is cheap run by a good management c...",
-      "link": "https://x.com/EquityValueIn/status/2091058844676075803",
-      "date": "2026-08-22T04:30:21+00:00",
-      "tweet_id": "2091058844676075803",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002ValueEquity<br>Deep value can remain deep value if there is no inflection point or trigger , just because a stock is cheap run by a good management cannot be the only reason to buy , the question is what is the future rate of change that leads this company to discover the value and unlock a newer earnings trajectory<br><br>What moves the needle? What induces incrmental rate of change ? focus on asking the right questions"
     },
     {
       "title": "RT ValueEquity: Semiconductor and Electronics Companies in India and mapping the value chain , the capability mapping for the players source: internal...",
@@ -9335,6 +9321,20 @@
       "description_html": "\u201cRam \u2026 told officials he would consider cutting back (on fertilizer usage) on a small portion of his land. Contacted a few weeks later, he said he plans to apply urea as usual.\u201d Do read this important in-depth report by Pratik Parija and Sara Bapat \ud83d\udc47  https://www.bloomberg.com/news/features/2026-08-14/india-s-modi-urges-farmers-to-cut-fertilizer-use-as-subsidy-costs-surge"
     },
     {
+      "title": "REC will issue India's first tokenised bond next month, on the sidelines of the global fintech forum in Mumbai. Bond tokenisation is being seen as a w...",
+      "link": "https://x.com/dugalira/status/2091857632663588955",
+      "date": "2026-08-24T11:58:19+00:00",
+      "tweet_id": "2091857632663588955",
+      "source": "Ira Dugal",
+      "publisher": "Ira Dugal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "REC will issue India's first tokenised bond next month, on the sidelines of the global fintech forum in Mumbai.<br><br>Bond tokenisation is being seen as a way to speed up settlements of bond transactions.<br><br>Interesting move. Reuters Khushi Malhotra reports.<br><br>https://www.reuters.com/world/india-plans-first-tokenised-bond-issue-september-sources-say-2026-08-24/"
+    },
+    {
       "title": "\ud83d\udc4f",
       "link": "https://x.com/dugalira/status/2091164860625351142",
       "date": "2026-08-22T14:05:29+00:00",
@@ -9587,20 +9587,6 @@
       "description_html": "MPC minutesmore hawkish than the policy itself.  (Correcting for communication at the policy time which may have been inadvertently dovish?)<br><br>Key points:<br><br>\u2666\ufe0fGov Malhotra: Both average headline and average core inflation have risen. This may suggest recalibration of policy rate. But prefer to wait for more evidence.<br><br>\u2666\ufe0fDG Gupta:  Given that the headline<br>inflation is projected to peak to a level as high as 5.9%  in Q3, a case<br>for a hike may emerge during the course of the year<br><br>\ud83d\udd38ED Bhattacharyya is more balanced: pointing to the higher headline but also that 69% of CPI weighted items had less than 4% inflation. Also points to the importance of understanding the framework and the central bank\u2019s reaction function rather than looking for an explicit single point guidance. \u201cA pause preserves flexibility on timing;<br>it does not necessarily imply an extended pause.\u201d<br><br>\u2666\ufe0f MPC Member S. Bhattacharya:  Persistence of high fuel prices is likely to feed into second round inflation. <br><br>MPC Members Nagesh Kumar and Ram Kumar more neutral in their comments."
     },
     {
-      "title": "PSBs asked to focus on \u2018banking for youth\u2019 Up next: board approved strategy for Instagram page. (Please don\u2019t troll me, it\u2019s a joke)",
-      "link": "https://x.com/dugalira/status/2089743663551447300",
-      "date": "2026-08-18T15:58:09+00:00",
-      "tweet_id": "2089743663551447300",
-      "source": "Ira Dugal",
-      "publisher": "Ira Dugal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2089694983544782848/img/P-sB-FK7UcMu-0_5.jpg",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "PSBs asked to focus on \u2018banking for youth\u2019<br><br>Up next: board approved strategy for Instagram page.<br><br>(Please don\u2019t troll me, it\u2019s a joke)<div class=\"rsshub-quote\"><br><br>Press Trust of India:\u2002News Alert! Public sector banks operating with considerable strength, task now is to use it with greater ambition: FM Nirmala Sitharaman<br><br>FM Sitharaman at PSB Confluence asks banks to launch month-long 'Banking for Youth' campaign beginning October 2<br><br>Banks should focus on<br><br><video width=\"848\" height=\"478\" src=\"https://video.twimg.com/amplify_video/2089694983544782848/vid/avc1/848x478/b7mPDpUakfEz6kD9.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2089694983544782848/img/P-sB-FK7UcMu-0_5.jpg\"></video></div>"
-    },
-    {
       "title": "Welspun Corp got a mega billion dollar order and held a sudden concall about the same. Transcript , recording , summary are all available in Tijori St...",
       "link": "https://x.com/Tijori1/status/2090773056595898734",
       "date": "2026-08-21T12:08:36+00:00",
@@ -9811,6 +9797,90 @@
       "description_html": "RT\u2002Tijori<br>A company that might be worth digging is Aegis Logistics<br><br>-Promoter is buying again from the open market<br>-Company aims to double earnings in 3 years<br>-EV by EBITDA of ~14 which is less than its long term <br>  average<br><br>You can check out deep dives on this company by @ScientificInve6 and @anishmoonka in the Knowledge base section<br><img width=\"1403\" height=\"506\" style=\"\" src=\"https://pbs.twimg.com/media/F7aj1C5WkAAwHmR?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "IRAN IS COMPLETELY COLLAPSING!!! PRESIDENT DJT",
+      "link": "https://x.com/REDBOXINDIA/status/2091869060955038030",
+      "date": "2026-08-24T12:43:43+00:00",
+      "tweet_id": "2091869060955038030",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "IRAN IS COMPLETELY COLLAPSING!!! PRESIDENT DJT"
+    },
+    {
+      "title": "COAL INDIA: CO INCORPORATES SINGAPORE-BASED WHOLLY OWNED SUBSIDIARY CIL GLOBAL TO ACQUIRE CRITICAL MINERAL ASSETS",
+      "link": "https://x.com/REDBOXINDIA/status/2091867152374784488",
+      "date": "2026-08-24T12:36:08+00:00",
+      "tweet_id": "2091867152374784488",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "COAL INDIA: CO INCORPORATES SINGAPORE-BASED WHOLLY OWNED SUBSIDIARY CIL GLOBAL TO ACQUIRE CRITICAL MINERAL ASSETS"
+    },
+    {
+      "title": "UCO BANK: CO BOARD APPROVES FOREIGN CURRENCY FUND RAISE OF USD 1 BILLION THROUGH MTN PROGRAMME",
+      "link": "https://x.com/REDBOXINDIA/status/2091866935868919949",
+      "date": "2026-08-24T12:35:17+00:00",
+      "tweet_id": "2091866935868919949",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "UCO BANK: CO BOARD APPROVES FOREIGN CURRENCY FUND RAISE OF USD 1 BILLION THROUGH MTN PROGRAMME"
+    },
+    {
+      "title": "U.S. TREASURY EXPECTED TO ANNOUNCE IT WILL BROADEN SCOPE OF SECONDARY SANCTIONS ON COUNTRIES, ENTITIES DOING BUSINESS WITH IRAN -SOURCE FAMILIAR WITH ...",
+      "link": "https://x.com/REDBOXINDIA/status/2091866735423180954",
+      "date": "2026-08-24T12:34:29+00:00",
+      "tweet_id": "2091866735423180954",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "U.S. TREASURY EXPECTED TO ANNOUNCE IT WILL BROADEN SCOPE OF SECONDARY SANCTIONS ON COUNTRIES, ENTITIES DOING BUSINESS WITH IRAN -SOURCE FAMILIAR WITH BESSENT'S PLANS || U.S. TREASURY TO MAKE ANY ACTIVITY IN CERTAIN IRAN SECTORS SUBJECT TO SECONDARY SANCTIONS-SOURCE"
+    },
+    {
+      "title": "AFCONS INFRASTRUCTURE: CO RECEIVES ARBITRAL AWARD OF \u20b9335.50 CRORE IN FAVOUR AGAINST UPEIDA",
+      "link": "https://x.com/REDBOXINDIA/status/2091859157142151598",
+      "date": "2026-08-24T12:04:22+00:00",
+      "tweet_id": "2091859157142151598",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "AFCONS INFRASTRUCTURE: CO RECEIVES ARBITRAL AWARD OF \u20b9335.50 CRORE IN FAVOUR AGAINST UPEIDA"
+    },
+    {
+      "title": "PACE DIGITEK: CO SECURES \u20b992.9 CRORE BESS ORDER FROM KALPA POWER",
+      "link": "https://x.com/REDBOXINDIA/status/2091857706332328411",
+      "date": "2026-08-24T11:58:36+00:00",
+      "tweet_id": "2091857706332328411",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "PACE DIGITEK: CO SECURES \u20b992.9 CRORE BESS ORDER FROM KALPA POWER"
+    },
+    {
       "title": "TRSY SEC BESSENT COULD TAP NEAR $1 TRILLION TREASURY GENERAL ACCOUNT TO FUND BOND BUYBACKS, SOURCES SAID",
       "link": "https://x.com/REDBOXINDIA/status/2091853499072147470",
       "date": "2026-08-24T11:41:53+00:00",
@@ -10005,90 +10075,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RAMCO CEMENTS: CO IS NOT REQUIRED TO PAY 160 RUPEES PER LIMESTONE, TOWARDS MINERAL BEARING LAND TAX, EFFECTIVE AUG 22"
-    },
-    {
-      "title": "HIND ZINC: CO'S OFFICIALS MET DIPAM LAST WEEK || CO OFS COULD FETCH RS 4000-5000 CR - TV",
-      "link": "https://x.com/REDBOXINDIA/status/2091825615603404897",
-      "date": "2026-08-24T09:51:05+00:00",
-      "tweet_id": "2091825615603404897",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "HIND ZINC: CO'S OFFICIALS MET DIPAM LAST WEEK || CO OFS COULD FETCH RS 4000-5000 CR - TV"
-    },
-    {
-      "title": "HIND ZINC: GOVT PLANS TO SELL 1.5-2% IN COO VIA OFS - TV",
-      "link": "https://x.com/REDBOXINDIA/status/2091824550862520481",
-      "date": "2026-08-24T09:46:51+00:00",
-      "tweet_id": "2091824550862520481",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "HIND ZINC: GOVT PLANS TO SELL 1.5-2% IN COO VIA OFS - TV"
-    },
-    {
-      "title": "RBI SEEKS DATA FROM NBFCS ON FLEXI LOANS TV",
-      "link": "https://x.com/REDBOXINDIA/status/2091823016691040485",
-      "date": "2026-08-24T09:40:46+00:00",
-      "tweet_id": "2091823016691040485",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RBI SEEKS DATA FROM NBFCS ON FLEXI LOANS TV"
-    },
-    {
-      "title": "INDIA GOVT. CAN IMPOSE A CAP ON THE MAXIMUM PRICE OF SUGAR",
-      "link": "https://x.com/REDBOXINDIA/status/2091822831940382949",
-      "date": "2026-08-24T09:40:01+00:00",
-      "tweet_id": "2091822831940382949",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "INDIA GOVT. CAN IMPOSE A CAP ON THE MAXIMUM PRICE OF SUGAR"
-    },
-    {
-      "title": "INDIA PROPOSES AMENDMENTS TO MEDICAL DEVICES RULES",
-      "link": "https://x.com/REDBOXINDIA/status/2091812386303082874",
-      "date": "2026-08-24T08:58:31+00:00",
-      "tweet_id": "2091812386303082874",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "INDIA PROPOSES AMENDMENTS TO MEDICAL DEVICES RULES"
-    },
-    {
-      "title": "\ud83d\udea8 We're building something bigger on Telegram. Get the fastest market updates, IPO news, brokerage target prices, and visual market content\u2014all in...",
-      "link": "https://x.com/REDBOXINDIA/status/2091810296142897586",
-      "date": "2026-08-24T08:50:13+00:00",
-      "tweet_id": "2091810296142897586",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\ud83d\udea8 We're building something bigger on Telegram.<br><br>Get the fastest market updates, IPO news, brokerage target prices, and visual market content\u2014all in one place.<br><br>Follow us on Telegram.<br>https://t.me/Indiaredboxglobal<br><br>Stay ahead. Stay informed."
     },
     {
       "title": "Nuvama || Recent IPOs in India : Unveiling share lock-in expiry dates for Investors Between 24th Aug 2026, and 29th Dec 2026, a total of 80 companies ...",
