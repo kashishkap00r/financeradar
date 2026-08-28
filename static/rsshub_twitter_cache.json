@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T16:41:20.624532+00:00",
+  "generated_at": "2026-08-28T17:48:03.916733+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 45,
     "handles_empty": 3,
     "handles_error": 1,
-    "items_total": 782
+    "items_total": 785
   },
   "items": [
     {
@@ -261,6 +261,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Xinhua: \"China's EV charging infrastructure has continued to expand swiftly, with the total number of charging points reaching 23.68 million by the end of July 2026, up 41.9 percent year on year.\"<br>https://english.news.cn/20260825/2151ca29e1094556b9e59f82a1e61669/c.html"
+    },
+    {
+      "title": "RT menaka doshi: Gaggan Anand Has Changed. So Has India. The prodigal chef returns. https://www.bloomberg.com/news/newsletters/2026-08-27/chef-gaggan-...",
+      "link": "https://x.com/menakadoshi/status/2093389802133758387",
+      "date": "2026-08-28T06:54:30+00:00",
+      "tweet_id": "2093389802133758387",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2093230697486094336/img/pEEWt0P0QCS-N_f5.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002menaka doshi<br>Gaggan Anand Has Changed. <br>So Has India.<br><br>The prodigal chef returns. <br>https://www.bloomberg.com/news/newsletters/2026-08-27/chef-gaggan-anand-s-delhi-restaurant-raga-tests-india-s-appetite-for-fine-dining?srnd=undefined<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2093230697486094336/vid/avc1/1080x1920/lmVXaLpMGseiMoCZ.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2093230697486094336/img/pEEWt0P0QCS-N_f5.jpg\"></video>"
     },
     {
       "title": "Gaggan Anand Has Changed. So Has India. The prodigal chef returns. https://www.bloomberg.com/news/newsletters/2026-08-27/chef-gaggan-anand-s-delhi-res...",
@@ -527,20 +541,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "\"The interventions we\u2019ve been seeing are diversions. The problem is much deeper and deserving of more serious attention. When Bessent says we can grow our way out of our $40 trillion debt burden, that is not a credible strategy or solution, it\u2019s wishful thinking.\"<br><br>Good read on The Perils of an Interventionist Treasury and a Passive Fed - by Bill Dudley<br><br>https://www.bloomberg.com/opinion/articles/2026-08-24/fiscal-reform-not-treasury-intervention-is-needed-to-fix-us-debt?srnd=homepage-americas"
-    },
-    {
-      "title": "Reconciling manufacturing data - @arvindsubraman and team",
-      "link": "https://x.com/menakadoshi/status/2091870402364719497",
-      "date": "2026-08-24T12:49:03+00:00",
-      "tweet_id": "2091870402364719497",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQfFMjcXUAAUaK3?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Reconciling manufacturing data - @arvindsubraman and team<div class=\"rsshub-quote\"><br><br>Arvind Subramanian:\u2002Our @IndianExpress piece asks 3 questions on manufacturing (mfg.) in the recently revised national income accounts. Why:<br><br>-mfg. deflator growth was negative<br>-mfg. value added (GVA) growth is twice that of Index of Industrial Production (IIP) &amp;<br>-GVA &amp; IIP are weakly correlated<br><br>1/<br><br><img width=\"984\" height=\"862\" style=\"\" src=\"https://pbs.twimg.com/media/HQfFMjcXUAAUaK3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
       "title": "Someone or other will be making money faster than you. Learn to enjoy the sport. It's a single player game where we can collaborate and coordinate wit...",
@@ -2041,6 +2041,20 @@
       "description_html": "#SaiLife<br><br>https://antifragilethinking.substack.com/p/shraddha-saburi-and-34-molecules<br><br>Disclaimer: Invested. Sai was my first Substack post. No advice.<br><img width=\"683\" height=\"1023\" style=\"\" src=\"https://pbs.twimg.com/media/HQtlfXJWEAAb2y6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "RT Capt Venkat \ud83c\uddee\ud83c\uddf3: Happy to share that the first idea from PBL Robotics to receive support is Laksh\u2019s air controller. @LionCircuits and @PcbCup...",
+      "link": "https://x.com/MuraliSrinivasa/status/2093390991738966355",
+      "date": "2026-08-28T05:35:04+00:00",
+      "tweet_id": "2093390991738966355",
+      "source": "Murali Srinivasa",
+      "publisher": "Murali Srinivasan",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQyT4kMbEAIZ8OR?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Capt Venkat \ud83c\uddee\ud83c\uddf3<br>Happy to share that the first idea from PBL Robotics to receive support is Laksh\u2019s air controller.<br><br>@LionCircuits  and @PcbCupid  are supporting the design, fabrication, boards and build process. Grateful to @MuraliSrinivasa, @buildwithsrini  and their teams for believing in the idea and helping move it forward.<br><br>The objective is simple: pilot 100 devices and get them into the hands of real users.<br><br>Laksh will keep innovating, fine-tuning the code, and building the interface and agentic software behind it. I will help take it to market.<br><br>We will announce pre-booking soon.<br><br>Real work. Real results. Real failures or successes.<br><br>Make things work.<br><br>https://lakshveer.com/robotics/builds/air-gaming-controller<br><img width=\"2048\" height=\"1117\" style=\"\" src=\"https://pbs.twimg.com/media/HQyT4kMbEAIZ8OR?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Capt Venkat \ud83c\uddee\ud83c\uddf3:\u2002We  built a new page - PBL Robotics. https://lakshveer.com/robotics<br><br>Whatever Laksh builds next - robots, drones, offline-AI devices, physical-AI experiments and more - will be shared publicly there, and documented on his personal website in the Builds section. https://Lakshveer.com.<br><br><img width=\"2048\" height=\"819\" style=\"\" src=\"https://pbs.twimg.com/media/HQyAC8mbQAE-QIg?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
+    },
+    {
       "title": "RT Capt Venkat \ud83c\uddee\ud83c\uddf3: We built a new page - PBL Robotics. https://lakshveer.com/robotics Whatever Laksh builds next - robots, drones, offline-AI de...",
       "link": "https://x.com/MuraliSrinivasa/status/2093196484288327731",
       "date": "2026-08-28T04:08:34+00:00",
@@ -2305,20 +2319,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Sridhar ji highlights three very important areas in the podcast related to hardware which is also applicable for PCB manufacturing-<br><br>1. Speciality chemicals used in PCB.<br>We have been working closely with few R&amp;D startups in this space- copper nanomaterials(Anuna Labs) and others. Its very important that we build this in India. Huge gap/opportunity.<br><br>2. CAD used in PCB- Spell from @PcbCupid is one step in this direction with a larger vision of building our own CAD tools for PCB. Team has made good progress on autorouting recently.<br><br>3. Test and Measurement Tools - Huge gap in this space and almostly entirely imported products today. TDR used in impedance measurment for example is a low hanging fruit in PCB space if someone wants to start.<br><br>All of these are important for building a strong electronics ecosystem in \ud83c\uddee\ud83c\uddf3<div class=\"rsshub-quote\"><br><br>Sridhar Vembu:\u2002One company I hugely admire is NPCI, and every time I use UPI, I think of their work and the massive impact! So it is an honour to do the podcast  with their CEO Shri Dilip Asbe. Thank you Dilip-ji\ud83d\ude4f<br></div>"
-    },
-    {
-      "title": "Yash came back to India and is building high tech robotics with a lot of elements from scratch. I felt inspired to see what he has built after coming ...",
-      "link": "https://x.com/MuraliSrinivasa/status/2048995983607148558",
-      "date": "2026-04-28T05:21:25+00:00",
-      "tweet_id": "2048995983607148558",
-      "source": "Murali Srinivasa",
-      "publisher": "Murali Srinivasan",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Yash came back to India and is building high tech robotics with a lot of elements from scratch.<br><br>I felt inspired to see what he has built after coming back to India.<br><br>There are a lot of problems for sure, we need to build a better tomorrow.<div class=\"rsshub-quote\"><br><br>Yashodhan:\u2002@MuraliSrinivasa https://x.com/yashodhannn/status/2048964627862782175<br></div>"
     },
     {
       "title": "#Pernia\u2019s Pop Up parent gets a legal notice ahead of #IPO @blitzkreigm https://www.cnbctv18.com/market/purple-style-labs-ipo-managers-get-a-shocking-...",
@@ -3945,6 +3945,20 @@
       "description_html": "RT\u2002Prasanna Viswanathan<br>A Worse Monsoon Than 2015's, A Better Sowing Season: What Changed In India's Kharif Math<br><br>Despite a mid-teen monsoon deficit this season, kharif sowing has held up far better than in previous drought years. Programmes like PM Krishi Sinchayee Yojana, micro-irrigation and accelerated irrigation projects appear to be making Indian agriculture more resilient.<br><br> But this protection has not reached everywhere yet, especially for pulses, coarse cereals, and regions with India's most depleted groundwater. @nishthaanushree  https://swarajyamag.com/economy/a-worse-monsoon-than-2015s-a-better-sowing-season-what-changed-in-indias-kharif-math"
     },
     {
+      "title": "On Narali Purima - when Indian sailors traditionally returned to the sea after the monsoons - visited the Ajanta painting that inspired INSV Kaundinya...",
+      "link": "https://x.com/sanjeevsanyal/status/2093379085460451832",
+      "date": "2026-08-28T16:44:01+00:00",
+      "tweet_id": "2093379085460451832",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQ0tLEYaMAk-ZRB?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "On Narali Purima - when Indian sailors traditionally returned to the sea after the monsoons - visited the Ajanta painting that inspired INSV Kaundinya.<br><img width=\"1600\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQ0tLEYaMAk-ZRB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "https://timesofindia.indiatimes.com/world/south-asia/second-flood-imminent-nepal-halts-rescue-ops-as-china-border-lake-begins-overflowing/articleshow/...",
       "link": "https://x.com/sanjeevsanyal/status/2093371125971722520",
       "date": "2026-08-28T16:12:24+00:00",
@@ -4111,20 +4125,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002IIT Madras<br>What does the university of the future look like?<br><br>According to Mr Sanjeev Sanyal, member of the Economic Advisory Council to the Prime Minister of India, IIT Madras offers a glimpse.<br><br>Speaking on the ANI Podcast with Ms Smita Prakash, he described IIT Madras as \u201cthe most interesting intellectual cluster in India right now,\u201d pointing to its vibrant ecosystem of research, deep-tech innovation and entrepreneurship.<br><br>From brain-mapping and Agnikul\u2019s space rockets to e-planes, drone taxis and indigenous marine-engine development, the Institute is creating an environment where ideas move from research to real-world applications.<br>Mr Sanyal also highlighted a key strength: learning beyond the classroom. With laboratories, prototyping facilities, research projects and startups on campus, students gain experience by building, testing and innovating.<br><br>He suggested that universities across India could draw from this model by placing greater emphasis on experiential learning, research, industry collaboration, and entrepreneurship.<br><br>\ud83c\udfa5 Watch the full conversation: https://www.youtube.com/watch?v=VVGPauwLVJ4 <br><br>@sanjeevsanyal  @iitmadras @smitaprakash  @ANI <br><br>#IITMadras #Innovation #HigherEducation #ExperientialLearning #SanjeevSanyal #ANI<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2092885701511852032/vid/avc1/1920x1080/j4Bt-O1Cq3K3t19F.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2092885701511852032/img/mGXJoVoy7aAZSi3d.jpg\"></video>"
-    },
-    {
-      "title": "RT The Dossier: Most of us have been conditioned to believe that a nation\u2019s destiny shifts only through seismic, \u201cBig Bang\u201d legislation\u2014massive, s...",
-      "link": "https://x.com/sanjeevsanyal/status/2092927362866552932",
-      "date": "2026-08-27T09:18:14+00:00",
-      "tweet_id": "2092927362866552932",
-      "source": "Sanjeev Sanyal",
-      "publisher": "Sanjeev Sanyal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQt9jwgawAAwTCn?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002The Dossier<br>Most of us have been conditioned to believe that a nation\u2019s destiny shifts only through seismic, \u201cBig Bang\u201d legislation\u2014massive, sweeping laws that completely overhaul the system, dominating evening broadcasts and shaking parliament. Yet, per Sanjeev Sanyal (@sanjeevsanyal), Member of the Economic Advisory Council to the Prime Minister, the truest foundation for a developed India is being laid far away from the limelight. It is being built on a quiet, relentless machinery of Process Reforms\u2014the day-to-day administrative fixes that smooth out how the government actually functions. <br><br>Relying on the Pareto Principle\u2014the economic rule of thumb suggesting that 80% of positive outcomes stem from just 20% of well-targeted efforts\u2014Sanyal observes that building a world-class economy does not always require colossal new laws. Sometimes, it simply requires clarity and the meticulous scrubbing of outdated regulations.<br><br>By Avi Modi<br><br>https://thedossier.in/process-reforms-developed-india/<br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HQt9jwgawAAwTCn?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT Promita Mukherjee\ud83c\uddee\ud83c\uddf3: Have you subscribed to our YouTube channel yet? https://youtube.com/@thebengalinc?si=k7PzMxJ01O2wHm8q",
@@ -4687,6 +4687,34 @@
       "description_html": "Book signing at our friendly neighbourhood bookstore Goobe's. Go buy, read, gift Fiscal Fables :). After reading, you will be able to analyse your state's budget and analyse Indian public finances at https://fiscalplayground.in <br><br>@PSarthak19 @karthik_venk @PenguinIndia<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HQz4kGSaUAAMBtB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HQz4kF3bYAA5G8p?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"2045\" style=\"\" src=\"https://pbs.twimg.com/media/HQz5wLja8AApLd7?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Re https://publicpolicy.substack.com/p/333-the-ai-debate",
+      "link": "https://x.com/pranaykotas/status/2093282959604568506",
+      "date": "2026-08-28T10:22:03+00:00",
+      "tweet_id": "2093282959604568506",
+      "source": "Pranay Kotasthane",
+      "publisher": "Pranay Kotas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Re https://publicpolicy.substack.com/p/333-the-ai-debate"
+    },
+    {
+      "title": "Nice. I call 1 as the Stimulative Effect and 2 as the Substitution Effect.",
+      "link": "https://x.com/pranaykotas/status/2093282734500425909",
+      "date": "2026-08-28T10:21:09+00:00",
+      "tweet_id": "2093282734500425909",
+      "source": "Pranay Kotasthane",
+      "publisher": "Pranay Kotas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Nice. I call 1 as the Stimulative Effect and 2 as the Substitution Effect.<div class=\"rsshub-quote\"><br><br>Navin Kabra:\u2002There is a fight going on between two AIs in your device:<br><br>1. The AI that's the best tool ever to learn something<br>2. The AI that's the best tool ever to avoid having to learn something<br><br>Which one wins?<br>The one you choose, of course...<br></div>"
+    },
+    {
       "title": "RT Amit Varma: Do you care about what is being done with YOUR money? We do. In episode 5 of Watching the Wheels, @pranaykotas gives @srajagopalan & me...",
       "link": "https://x.com/pranaykotas/status/2093253969640628568",
       "date": "2026-08-28T06:42:29+00:00",
@@ -4769,6 +4797,34 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Amit Varma<br>Since 2020, over 3000 people have attended my online course, The Art of Clear Writing.<br><br>Registration is now open for Cohort 37, which starts Sep 5.<br><br>Four Saturdays, four webinars, a community for life. A focus on both craft &amp; process.\ud83d\udcaa<br><br>Enroll here: https://indiauncut.com/clearwriting/<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HQuDsIObsAAvWs8?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HQuDtcLa8AAAcfU?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HQuDu55bcAAJpyN?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HQuDwBEaQAA2a7u?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "Re Please see this @DKShivakumar @GBAChiefComm @byrathi_suresh @BABasavaraja",
+      "link": "https://x.com/pranaykotas/status/2092813798575091998",
+      "date": "2026-08-27T03:17:46+00:00",
+      "tweet_id": "2092813798575091998",
+      "source": "Pranay Kotasthane",
+      "publisher": "Pranay Kotas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Re Please see this @DKShivakumar @GBAChiefComm @byrathi_suresh @BABasavaraja"
+    },
+    {
+      "title": "This work was supposed to finish by June 15. The CM came and inspected the work. It's not even half-done. The contractor Ocean Constructions has left ...",
+      "link": "https://x.com/pranaykotas/status/2092803038293717254",
+      "date": "2026-08-27T02:35:01+00:00",
+      "tweet_id": "2092803038293717254",
+      "source": "Pranay Kotasthane",
+      "publisher": "Pranay Kotas",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQshPGPbkAAlnc9?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "This work was supposed to finish by June 15. The CM came and inspected the work. It's not even half-done. The contractor Ocean Constructions has left things half-completed posing risks to people. Won't even complete in the next two years. @krishnabgowda @BECCUPDates<br><img width=\"900\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQshPGPbkAAlnc9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HQsg3eHaoAAdN5d?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"900\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQshPKAa4AEnOq2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1198\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQshPO7aEAA8pBh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Pranay Kotasthane:\u2002State of the Hennur Bagalur Road where whitetopping is supposed to complete by June 15. CM @siddaramaiah had visited this segment and ordered speedy completion. But the condition has hardly improved. @GBAChiefComm   @HennurT<br><br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HJKewV3bIAAs3X6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HJKe0MjboAAeAVx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HJKe2aTaIAImd-_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
       "title": "RT Dr Y Nithiyanandam: A major update changes the Bhote Koshi story. The M4.4 \u201cearthquake\u201d reported yesterday has now been reclassified by USGS as a...",
@@ -7067,6 +7123,20 @@
       "description_html": "We\u2019re launching Trade DB to track India\u2019s trade at the HS code level by value or quantity, across imports, exports, and also detailed category and subcategory data for our trade partners. See this for more:  https://www.youtube.com/watch?v=KdwhLPaU3Fw  #India #Trade #Exports #Imports"
     },
     {
+      "title": "BREAKING: Spot gold falls below $4,500/oz as Fed Chair Warsh says price stability is now the Fed's \"predominant focus.\" 5 years later, and inflation i...",
+      "link": "https://x.com/KobeissiLetter/status/2093391393569861879",
+      "date": "2026-08-28T17:32:56+00:00",
+      "tweet_id": "2093391393569861879",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQ04C39WoAAf94x?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: Spot gold falls below $4,500/oz as Fed Chair Warsh says price stability is now the Fed's \"predominant focus.\"<br><br>5 years later, and inflation is still not back below 2%.<br><br>Inflation is the new normal.<br><img width=\"440\" height=\"527\" style=\"\" src=\"https://pbs.twimg.com/media/HQ04C39WoAAf94x?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "BREAKING: Bitcoin falls -$3,000 in 60 minutes as $200 million worth of levered longs are liquidated.",
       "link": "https://x.com/KobeissiLetter/status/2093376075246031190",
       "date": "2026-08-28T16:32:04+00:00",
@@ -7303,34 +7373,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "We are seeing a historic surge in corporate profits.<br><br>US corporate profits surged +22.8% YoY in Q2 2026, to a record $4.8 trillion.<br><br>This marks the largest annual increase since Q4 2021.<br><br>Excluding the 2020 pandemic recovery and the 2008 Financial Crisis recovery, this is the largest YoY increase in 21 years.<br><br>Since Q2 2020, corporate profits have surged +$2.7 trillion, or +131%.<br><br>As a % of GDP, corporate profits jumped +1.0 percentage point in Q2, to 14.9%, an all-time high.<br><br>US companies are more profitable than at any point in history.<br><img width=\"1028\" height=\"567\" style=\"\" src=\"https://pbs.twimg.com/media/HQvQL-vWcAAHIrF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>The Kobeissi Letter:\u2002Most people don't realize what just happened.<br><br>Nvidia just posted what we believe are the most impressive earnings in history, with market-wide implications.<br><br>This implies $670+ BILLION in revenue next year, up +2,390% from FY2023.<br><br>What's happening? Let us explain.<br><br>(a thread)<br><br><img width=\"776\" height=\"480\" style=\"\" src=\"https://pbs.twimg.com/media/HQvClXGW0AAwL0l?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "BREAKING: Nvidia stock, $NVDA, extends gains to over +8% on the day, now on track to add +$410 billion in market cap today. Nvidia is now on track to ...",
-      "link": "https://x.com/KobeissiLetter/status/2092996810620932170",
-      "date": "2026-08-27T15:25:00+00:00",
-      "tweet_id": "2092996810620932170",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQvM275WcAEmv3G?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "BREAKING: Nvidia stock, $NVDA, extends gains to over +8% on the day, now on track to add +$410 billion in market cap today.<br><br>Nvidia is now on track to post the 3rd largest single-day market cap gain by a stock in history.<br><img width=\"441\" height=\"528\" style=\"\" src=\"https://pbs.twimg.com/media/HQvM275WcAEmv3G?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>The Kobeissi Letter:\u2002Most people don't realize what just happened.<br><br>Nvidia just posted what we believe are the most impressive earnings in history, with market-wide implications.<br><br>This implies $670+ BILLION in revenue next year, up +2,390% from FY2023.<br><br>What's happening? Let us explain.<br><br>(a thread)<br><br><img width=\"776\" height=\"480\" style=\"\" src=\"https://pbs.twimg.com/media/HQvClXGW0AAwL0l?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "RT Adam Kobeissi: The growth of AI is being vastly underestimated. At its core, Nvidia's earnings report confirmed that AI is not just growing. It's a...",
-      "link": "https://x.com/KobeissiLetter/status/2092993226042913083",
-      "date": "2026-08-27T15:10:16+00:00",
-      "tweet_id": "2092993226042913083",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQvClXGW0AAwL0l?format=png&name=orig",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Adam Kobeissi<br>The growth of AI is being vastly underestimated.<br><br>At its core, Nvidia's earnings report confirmed that AI is not just growing. It's accelerating.<br><br>The company now sees its next-year sales growth surging to +70%, crushing already high expectations<br><br>This implies $673 billion in revenue next year.<br><br>Nvidia's growth has market-wide implications, and somehow, it still seems early.<br><br>Read our full analysis below.<div class=\"rsshub-quote\"><br><br>The Kobeissi Letter:\u2002Most people don't realize what just happened.<br><br>Nvidia just posted what we believe are the most impressive earnings in history, with market-wide implications.<br><br>This implies $670+ BILLION in revenue next year, up +2,390% from FY2023.<br><br>What's happening? Let us explain.<br><br>(a thread)<br><br><img width=\"776\" height=\"480\" style=\"\" src=\"https://pbs.twimg.com/media/HQvClXGW0AAwL0l?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
       "title": "RT The Kobeissi Letter: Most people don't realize what just happened. Nvidia just posted what we believe are the most impressive earnings in history, ...",
@@ -9629,6 +9671,20 @@
       "description_html": "RT\u2002Tijori<br>A company that might be worth digging is Aegis Logistics<br><br>-Promoter is buying again from the open market<br>-Company aims to double earnings in 3 years<br>-EV by EBITDA of ~14 which is less than its long term <br>  average<br><br>You can check out deep dives on this company by @ScientificInve6 and @anishmoonka in the Knowledge base section<br><img width=\"1403\" height=\"506\" style=\"\" src=\"https://pbs.twimg.com/media/F7aj1C5WkAAwHmR?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "PM MODI PLANS TO ATTEND EU SUMMIT IN DECEMBER: POLITICO",
+      "link": "https://x.com/REDBOXINDIA/status/2093392813883101530",
+      "date": "2026-08-28T17:38:34+00:00",
+      "tweet_id": "2093392813883101530",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "PM MODI PLANS TO ATTEND EU SUMMIT IN DECEMBER: POLITICO"
+    },
+    {
       "title": "DHANUKA AGRITECH: CO INCORPORATES WHOLLY OWNED SUBSIDIARY DHANUKA AGRITECH EUROPE IN IRELAND",
       "link": "https://x.com/REDBOXINDIA/status/2093364382218756102",
       "date": "2026-08-28T15:45:36+00:00",
@@ -9893,20 +9949,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "ASTER DM QUALITY CARE: CO SUBSIDIARY CHEMISTRY INTERMEDIATE HOLDINGS ACQUIRES 14.21% STAKE IN STS HOLDINGS FOR USD 44.11 MILLION"
-    },
-    {
-      "title": "POWER GRID CORPORATION OF INDIA: CO ACQUIRES FATEHGARH II TRANSMISSION LIMITED FOR \u20b919.11 CRORE",
-      "link": "https://x.com/REDBOXINDIA/status/2093325004587102609",
-      "date": "2026-08-28T13:09:07+00:00",
-      "tweet_id": "2093325004587102609",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "POWER GRID CORPORATION OF INDIA: CO ACQUIRES FATEHGARH II TRANSMISSION LIMITED FOR \u20b919.11 CRORE"
     },
     {
       "title": "RT Exencial Research Partners: Where Are We Seeing Signs of Weather Transmission? We see El Ni\u00f1o-related conditions becoming more visible, led by Ind...",
@@ -10455,6 +10497,20 @@
       "description_html": "Informal sector suffers sharpest contraction in June quarter. \u2066@bsindia\u2069<br><img width=\"1705\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HQTRjE3bIAAIFH3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "RT TBPN: BREAKING: TIME Magazine declares that Jensen Huang is NOT one of the 100 most influential people in AI",
+      "link": "https://x.com/madhavchanchani/status/2093387870774169664",
+      "date": "2026-08-28T16:45:48+00:00",
+      "tweet_id": "2093387870774169664",
+      "source": "Madhav Chanchani",
+      "publisher": "Madhav Chanchani",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQ0tlzBWQAAw5oR?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002TBPN<br>BREAKING: TIME Magazine declares that Jensen Huang is NOT one of the 100 most influential people in AI<br><img width=\"1639\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HQ0tlzBWQAAw5oR?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Singapore's GIC sold the stake to Hero in the block deal today. GIC had first backed Ather in 2022 when it was valued at about Rs 6,000 crore, and the...",
       "link": "https://x.com/madhavchanchani/status/2093345380293628237",
       "date": "2026-08-28T14:30:05+00:00",
@@ -10693,18 +10749,18 @@
       "description_html": "RT\u2002Aditi Shrivastava<br>Blinkit leads the dark-store count across the top 10 cities, with 969 stores, accounting for 27% of the total 3,536. It has the largest network in seven cities, with Delhi and Bangalore as its biggest bases.<br><br>Zepto is next with 828 stores, or 23%, and has the largest dark-store network in Hyderabad, Mumbai &amp; Chennai.<br><br>Flipkart Minutes ranks third with 627 stores, or 18%, and leads in Kolkata.<br><br>Swiggy Instamart is fourth with 615 stores, or 17%.<br><br>Source: CLSA<br><br>Dark-store count \u2260 revenue or market share<br><img width=\"1672\" height=\"864\" style=\"\" src=\"https://pbs.twimg.com/media/HQn6A9lbcAARKXs?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "RT Kyle Clark: COMMENTARY: A whole lot of celebrities are loved. Dolly Parton loved you back.",
-      "link": "https://x.com/madhavchanchani/status/2092460741685375208",
-      "date": "2026-08-26T01:33:43+00:00",
-      "tweet_id": "2092460741685375208",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
+      "title": "Trump has forced Canadians to ponder separating from America instead of working with America to separate from China. By @ChadBown in @nytopinion: http...",
+      "link": "https://x.com/PIIE/status/2093394941061878271",
+      "date": "2026-08-28T17:47:02+00:00",
+      "tweet_id": "2093394941061878271",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2092425099819237376/img/Nfdx5j25UjtYKMny.jpg",
-      "is_retweet": true,
+      "image": "",
+      "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "RT\u2002Kyle Clark<br>COMMENTARY: A whole lot of celebrities are loved. Dolly Parton loved you back.<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2092425099819237376/vid/avc1/1280x720/arXqBAAnaPsszPGx.mp4?tag=14\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2092425099819237376/img/Nfdx5j25UjtYKMny.jpg\"></video>"
+      "description_html": "Trump has forced Canadians to ponder separating from America instead of working with America to separate from China.<br>By @ChadBown in @nytopinion: <br>https://www.nytimes.com/2026/08/26/opinion/us-canada-trade-cars-trucks-china.html?unlocked_article_code=1.8VA.duAT.-shy7S6-0yWK&amp;smid=url-share"
     },
     {
       "title": "With US tariffs in the 7\u201311% range on Asia Pacific countries looking durable through at least 2029, China stands to emerge as the main beneficiary as...",
@@ -10929,20 +10985,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002WTO<br>At #WTOPublicForum, our partner @PIIE asks: what could a new equilibrium for global trade look like?<br><br>Explore how to rethink global trade without deepening fragmentation, and the WTO\u2019s role in building a more resilient global economy.<br><br>More: https://bit.ly/3Ug5sng<br><img width=\"1280\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HQujSiDW8AAPdi6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT Chad P. Bown: Yes, there is one really big winner from Trump's new trade war with Canada. But only one. Thanks to the @nytimes for publishing my ne...",
-      "link": "https://x.com/PIIE/status/2092774951895924906",
-      "date": "2026-08-26T19:59:47+00:00",
-      "tweet_id": "2092774951895924906",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQrGox-XgAEvr2I?format=png&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Chad P. Bown<br>Yes, there is one really big winner from Trump's new trade war with Canada. But only one.<br><br>Thanks to the @nytimes for publishing my new essay.<br><br>Gift Link: https://www.nytimes.com/2026/08/26/opinion/us-canada-trade-cars-trucks-china.html?unlocked_article_code=1.8VA.duAT.-shy7S6-0yWK&amp;smid=url-share<br><img width=\"838\" height=\"784\" style=\"\" src=\"https://pbs.twimg.com/media/HQrGox-XgAEvr2I?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT Peterson Institute: NEW: @arvindsubraman & @shoumitro_c respond to \"China Squeeze\" critics, addressing five incorrect propositions. \u274cThe China Squ...",
