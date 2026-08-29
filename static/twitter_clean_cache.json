@@ -1,26 +1,101 @@
 {
-  "generated_at": "2026-08-28T22:13:55.029861+05:30",
+  "generated_at": "2026-08-29T20:23:55.545650+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 49,
-      "feeds_ok": 48,
-      "feeds_failed": 1,
-      "items_raw": 1201,
-      "resolve_attempted": 1171,
-      "resolve_resolved": 1171,
-      "resolve_cache_hits": 1097
+      "feeds_ok": 0,
+      "feeds_failed": 49,
+      "items_raw": 0,
+      "resolve_attempted": 0,
+      "resolve_resolved": 0,
+      "resolve_cache_hits": 0
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.0,
-      "items": 782,
+      "age_hours": 21.1,
+      "items": 785,
       "handles_ok": 45
     },
     "warning": "",
-    "generated_at": "2026-08-28T22:13:55.029795+05:30"
+    "generated_at": "2026-08-29T20:23:55.545594+05:30"
   },
   "items": [
+    {
+      "title": "Trump has forced Canadians to ponder separating from America instead of working with America to separate from China. By @ChadBown in @nytopinion: http...",
+      "link": "https://x.com/PIIE/status/2093394941061878271",
+      "date": "2026-08-28T17:47:02+00:00",
+      "tweet_id": "2093394941061878271",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Trump has forced Canadians to ponder separating from America instead of working with America to separate from China.<br>By @ChadBown in @nytopinion: <br>https://www.nytimes.com/2026/08/26/opinion/us-canada-trade-cars-trucks-china.html?unlocked_article_code=1.8VA.duAT.-shy7S6-0yWK&amp;smid=url-share",
+      "category": "Twitter"
+    },
+    {
+      "title": "PM MODI PLANS TO ATTEND EU SUMMIT IN DECEMBER: POLITICO",
+      "link": "https://x.com/REDBOXINDIA/status/2093392813883101530",
+      "date": "2026-08-28T17:38:34+00:00",
+      "tweet_id": "2093392813883101530",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "PM MODI PLANS TO ATTEND EU SUMMIT IN DECEMBER: POLITICO",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: Spot gold falls below $4,500/oz as Fed Chair Warsh says price stability is now the Fed's \"predominant focus.\" 5 years later, and inflation i...",
+      "link": "https://x.com/KobeissiLetter/status/2093391393569861879",
+      "date": "2026-08-28T17:32:56+00:00",
+      "tweet_id": "2093391393569861879",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQ04C39WoAAf94x?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: Spot gold falls below $4,500/oz as Fed Chair Warsh says price stability is now the Fed's \"predominant focus.\"<br><br>5 years later, and inflation is still not back below 2%.<br><br>Inflation is the new normal.<br><img width=\"440\" height=\"527\" style=\"\" src=\"https://pbs.twimg.com/media/HQ04C39WoAAf94x?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT TBPN: BREAKING: TIME Magazine declares that Jensen Huang is NOT one of the 100 most influential people in AI",
+      "link": "https://x.com/madhavchanchani/status/2093387870774169664",
+      "date": "2026-08-28T16:45:48+00:00",
+      "tweet_id": "2093387870774169664",
+      "source": "Madhav Chanchani",
+      "publisher": "Madhav Chanchani",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQ0tlzBWQAAw5oR?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002TBPN<br>BREAKING: TIME Magazine declares that Jensen Huang is NOT one of the 100 most influential people in AI<br><img width=\"1639\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HQ0tlzBWQAAw5oR?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "On Narali Purima - when Indian sailors traditionally returned to the sea after the monsoons - visited the Ajanta painting that inspired INSV Kaundinya...",
+      "link": "https://x.com/sanjeevsanyal/status/2093379085460451832",
+      "date": "2026-08-28T16:44:01+00:00",
+      "tweet_id": "2093379085460451832",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQ0tLEYaMAk-ZRB?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "On Narali Purima - when Indian sailors traditionally returned to the sea after the monsoons - visited the Ajanta painting that inspired INSV Kaundinya.<br><img width=\"1600\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQ0tLEYaMAk-ZRB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
     {
       "title": "BREAKING: Bitcoin falls -$3,000 in 60 minutes as $200 million worth of levered longs are liquidated.",
       "link": "https://x.com/KobeissiLetter/status/2093376075246031190",
@@ -1057,21 +1132,6 @@
       "category": "Twitter"
     },
     {
-      "title": "POWER GRID CORPORATION OF INDIA: CO ACQUIRES FATEHGARH II TRANSMISSION LIMITED FOR \u20b919.11 CRORE",
-      "link": "https://x.com/REDBOXINDIA/status/2093325004587102609",
-      "date": "2026-08-28T13:09:07+00:00",
-      "tweet_id": "2093325004587102609",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "POWER GRID CORPORATION OF INDIA: CO ACQUIRES FATEHGARH II TRANSMISSION LIMITED FOR \u20b919.11 CRORE",
-      "category": "Twitter"
-    },
-    {
       "title": "#IndiGoVentures to invest in #Sarvam to boost #AI use in aviation https://www.cnbctv18.com/business/indigo-ventures-to-invest-in-sarvam-to-boost-ai-us...",
       "link": "https://x.com/CNBCTV18Live/status/2093323703744614593",
       "date": "2026-08-28T13:03:57+00:00",
@@ -1489,6 +1549,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Every month, multiple data points emerge on India\u2019s fintech industry.<br><br>Some are well covered, like UPI market share or new broker accounts added.<br><br>Others get less attention, like credit card spending or transactions through payment systems such as NEFT.<br><br>@PratikBhakta_89 has put together a report that brings all these data points together and makes sense of what they are telling us.<br><br>This is our first attempt. Do check it out - https://docsend.com/v/4dmd3/followthemoney1<br><br>Feedback welcome :)<br><img width=\"1248\" height=\"1396\" style=\"\" src=\"https://pbs.twimg.com/media/HQzWXpAacAA07R5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Re https://publicpolicy.substack.com/p/333-the-ai-debate",
+      "link": "https://x.com/pranaykotas/status/2093282959604568506",
+      "date": "2026-08-28T10:22:03+00:00",
+      "tweet_id": "2093282959604568506",
+      "source": "Pranay Kotasthane",
+      "publisher": "Pranay Kotas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Re https://publicpolicy.substack.com/p/333-the-ai-debate",
+      "category": "Twitter"
+    },
+    {
+      "title": "Nice. I call 1 as the Stimulative Effect and 2 as the Substitution Effect.",
+      "link": "https://x.com/pranaykotas/status/2093282734500425909",
+      "date": "2026-08-28T10:21:09+00:00",
+      "tweet_id": "2093282734500425909",
+      "source": "Pranay Kotasthane",
+      "publisher": "Pranay Kotas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Nice. I call 1 as the Stimulative Effect and 2 as the Substitution Effect.<div class=\"rsshub-quote\"><br><br>Navin Kabra:\u2002There is a fight going on between two AIs in your device:<br><br>1. The AI that's the best tool ever to learn something<br>2. The AI that's the best tool ever to avoid having to learn something<br><br>Which one wins?<br>The one you choose, of course...<br></div>",
       "category": "Twitter"
     },
     {
@@ -2047,6 +2137,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT menaka doshi: Gaggan Anand Has Changed. So Has India. The prodigal chef returns. https://www.bloomberg.com/news/newsletters/2026-08-27/chef-gaggan-...",
+      "link": "https://x.com/menakadoshi/status/2093389802133758387",
+      "date": "2026-08-28T06:54:30+00:00",
+      "tweet_id": "2093389802133758387",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2093230697486094336/img/pEEWt0P0QCS-N_f5.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002menaka doshi<br>Gaggan Anand Has Changed. <br>So Has India.<br><br>The prodigal chef returns. <br>https://www.bloomberg.com/news/newsletters/2026-08-27/chef-gaggan-anand-s-delhi-restaurant-raga-tests-india-s-appetite-for-fine-dining?srnd=undefined<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2093230697486094336/vid/avc1/1080x1920/lmVXaLpMGseiMoCZ.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2093230697486094336/img/pEEWt0P0QCS-N_f5.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
       "title": "Gaggan Anand Has Changed. So Has India. The prodigal chef returns. https://www.bloomberg.com/news/newsletters/2026-08-27/chef-gaggan-anand-s-delhi-res...",
       "link": "https://x.com/menakadoshi/status/2093230726527492351",
       "date": "2026-08-28T06:54:30+00:00",
@@ -2284,6 +2389,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The really interesting thing about this image is not political but statistical. Reason we need to make stats mandatory in journalism school\u2026.<br><img width=\"959\" height=\"540\" style=\"\" src=\"https://pbs.twimg.com/media/HQyUlNQasAAlHmx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Capt Venkat \ud83c\uddee\ud83c\uddf3: Happy to share that the first idea from PBL Robotics to receive support is Laksh\u2019s air controller. @LionCircuits and @PcbCup...",
+      "link": "https://x.com/MuraliSrinivasa/status/2093390991738966355",
+      "date": "2026-08-28T05:35:04+00:00",
+      "tweet_id": "2093390991738966355",
+      "source": "Murali Srinivasa",
+      "publisher": "Murali Srinivasan",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQyT4kMbEAIZ8OR?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Capt Venkat \ud83c\uddee\ud83c\uddf3<br>Happy to share that the first idea from PBL Robotics to receive support is Laksh\u2019s air controller.<br><br>@LionCircuits  and @PcbCupid  are supporting the design, fabrication, boards and build process. Grateful to @MuraliSrinivasa, @buildwithsrini  and their teams for believing in the idea and helping move it forward.<br><br>The objective is simple: pilot 100 devices and get them into the hands of real users.<br><br>Laksh will keep innovating, fine-tuning the code, and building the interface and agentic software behind it. I will help take it to market.<br><br>We will announce pre-booking soon.<br><br>Real work. Real results. Real failures or successes.<br><br>Make things work.<br><br>https://lakshveer.com/robotics/builds/air-gaming-controller<br><img width=\"2048\" height=\"1117\" style=\"\" src=\"https://pbs.twimg.com/media/HQyT4kMbEAIZ8OR?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Capt Venkat \ud83c\uddee\ud83c\uddf3:\u2002We  built a new page - PBL Robotics. https://lakshveer.com/robotics<br><br>Whatever Laksh builds next - robots, drones, offline-AI devices, physical-AI experiments and more - will be shared publicly there, and documented on his personal website in the Builds section. https://Lakshveer.com.<br><br><img width=\"2048\" height=\"819\" style=\"\" src=\"https://pbs.twimg.com/media/HQyAC8mbQAE-QIg?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -3772,21 +3892,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: Nvidia stock, $NVDA, extends gains to over +8% on the day, now on track to add +$410 billion in market cap today. Nvidia is now on track to ...",
-      "link": "https://x.com/KobeissiLetter/status/2092996810620932170",
-      "date": "2026-08-27T15:25:00+00:00",
-      "tweet_id": "2092996810620932170",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQvM275WcAEmv3G?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "BREAKING: Nvidia stock, $NVDA, extends gains to over +8% on the day, now on track to add +$410 billion in market cap today.<br><br>Nvidia is now on track to post the 3rd largest single-day market cap gain by a stock in history.<br><img width=\"441\" height=\"528\" style=\"\" src=\"https://pbs.twimg.com/media/HQvM275WcAEmv3G?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>The Kobeissi Letter:\u2002Most people don't realize what just happened.<br><br>Nvidia just posted what we believe are the most impressive earnings in history, with market-wide implications.<br><br>This implies $670+ BILLION in revenue next year, up +2,390% from FY2023.<br><br>What's happening? Let us explain.<br><br>(a thread)<br><br><img width=\"776\" height=\"480\" style=\"\" src=\"https://pbs.twimg.com/media/HQvClXGW0AAwL0l?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Reuters: Climate change boosted risk of devastating Himalayan flood, experts say https://reut.rs/4qD03Tc https://reut.rs/4qD03Tc",
       "link": "https://x.com/dugalira/status/2093002640062132278",
       "date": "2026-08-27T15:20:12+00:00",
@@ -3814,21 +3919,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Bengaluru Post<br>Sir @lkatheeq, as stated in our earlier post, the Hennur\u2013Bagalur Road needs urgent attention from @GBAChiefComm.<br><br>We reiterate: if this road is upgraded properly, 25\u201330% of the traffic pressure on the Hebbal Corridor could potentially be diverted.<br><br>There also appears to be little coordination among the agencies, while @BECCUPDATES needs to clearly communicate what is being planned.<br><br>This road can be a major alternative corridor for Bengaluru.<div class=\"rsshub-quote\"><br><br>Pranay Kotasthane:\u2002This work was supposed to finish by June 15. The CM came and inspected the work. It's not even half-done. The contractor Ocean Constructions has left things half-completed posing risks to people. Won't even complete in the next two years. @krishnabgowda @BECCUPDates<br><br><img width=\"900\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQshPGPbkAAlnc9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HQsg3eHaoAAdN5d?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"900\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQshPKAa4AEnOq2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1198\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQshPO7aEAA8pBh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Adam Kobeissi: The growth of AI is being vastly underestimated. At its core, Nvidia's earnings report confirmed that AI is not just growing. It's a...",
-      "link": "https://x.com/KobeissiLetter/status/2092993226042913083",
-      "date": "2026-08-27T15:10:16+00:00",
-      "tweet_id": "2092993226042913083",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQvClXGW0AAwL0l?format=png&name=orig",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002Adam Kobeissi<br>The growth of AI is being vastly underestimated.<br><br>At its core, Nvidia's earnings report confirmed that AI is not just growing. It's accelerating.<br><br>The company now sees its next-year sales growth surging to +70%, crushing already high expectations<br><br>This implies $673 billion in revenue next year.<br><br>Nvidia's growth has market-wide implications, and somehow, it still seems early.<br><br>Read our full analysis below.<div class=\"rsshub-quote\"><br><br>The Kobeissi Letter:\u2002Most people don't realize what just happened.<br><br>Nvidia just posted what we believe are the most impressive earnings in history, with market-wide implications.<br><br>This implies $670+ BILLION in revenue next year, up +2,390% from FY2023.<br><br>What's happening? Let us explain.<br><br>(a thread)<br><br><img width=\"776\" height=\"480\" style=\"\" src=\"https://pbs.twimg.com/media/HQvClXGW0AAwL0l?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -4777,21 +4867,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT The Dossier: Most of us have been conditioned to believe that a nation\u2019s destiny shifts only through seismic, \u201cBig Bang\u201d legislation\u2014massive, s...",
-      "link": "https://x.com/sanjeevsanyal/status/2092927362866552932",
-      "date": "2026-08-27T09:18:14+00:00",
-      "tweet_id": "2092927362866552932",
-      "source": "Sanjeev Sanyal",
-      "publisher": "Sanjeev Sanyal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQt9jwgawAAwTCn?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002The Dossier<br>Most of us have been conditioned to believe that a nation\u2019s destiny shifts only through seismic, \u201cBig Bang\u201d legislation\u2014massive, sweeping laws that completely overhaul the system, dominating evening broadcasts and shaking parliament. Yet, per Sanjeev Sanyal (@sanjeevsanyal), Member of the Economic Advisory Council to the Prime Minister, the truest foundation for a developed India is being laid far away from the limelight. It is being built on a quiet, relentless machinery of Process Reforms\u2014the day-to-day administrative fixes that smooth out how the government actually functions. <br><br>Relying on the Pareto Principle\u2014the economic rule of thumb suggesting that 80% of positive outcomes stem from just 20% of well-targeted efforts\u2014Sanyal observes that building a world-class economy does not always require colossal new laws. Sometimes, it simply requires clarity and the meticulous scrubbing of outdated regulations.<br><br>By Avi Modi<br><br>https://thedossier.in/process-reforms-developed-india/<br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HQt9jwgawAAwTCn?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "99.97% haircut? Bhai ye haircut nahi, seedha mundan hai\ud83d\ude2d",
       "link": "https://x.com/EquityInsightss/status/2092900083671187771",
       "date": "2026-08-27T09:00:38+00:00",
@@ -5482,6 +5557,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Re Please see this @DKShivakumar @GBAChiefComm @byrathi_suresh @BABasavaraja",
+      "link": "https://x.com/pranaykotas/status/2092813798575091998",
+      "date": "2026-08-27T03:17:46+00:00",
+      "tweet_id": "2092813798575091998",
+      "source": "Pranay Kotasthane",
+      "publisher": "Pranay Kotas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Re Please see this @DKShivakumar @GBAChiefComm @byrathi_suresh @BABasavaraja",
+      "category": "Twitter"
+    },
+    {
       "title": "RT The Bengal Inc.: Bengal once built businesses, industries, banks and institutions that helped shape India's economic story. So what happened to its...",
       "link": "https://x.com/sanjeevsanyal/status/2093031200789311825",
       "date": "2026-08-27T03:05:00+00:00",
@@ -5584,6 +5674,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002The Arc<br>Binny Bansal (Flipkart), Vidit Aatrey (Meesho), Deep Kalra (Makemytrip) and Hari Menon (Bigbasket) are among the founders backing a new Rs 250 crore venture fund launched by The/Nudge Foundation.<br><br>Called TILT, the fund will invest Rs 2-16 crore from seed to Series A in startups serving India\u2019s low-income communities.<br><br>It will focus on areas including agriculture, climate, employment and financial inclusion.<br><img width=\"1028\" height=\"1020\" style=\"\" src=\"https://pbs.twimg.com/media/HQsVOGObgAAoZPN?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "This work was supposed to finish by June 15. The CM came and inspected the work. It's not even half-done. The contractor Ocean Constructions has left ...",
+      "link": "https://x.com/pranaykotas/status/2092803038293717254",
+      "date": "2026-08-27T02:35:01+00:00",
+      "tweet_id": "2092803038293717254",
+      "source": "Pranay Kotasthane",
+      "publisher": "Pranay Kotas",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HQshPGPbkAAlnc9?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "This work was supposed to finish by June 15. The CM came and inspected the work. It's not even half-done. The contractor Ocean Constructions has left things half-completed posing risks to people. Won't even complete in the next two years. @krishnabgowda @BECCUPDates<br><img width=\"900\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQshPGPbkAAlnc9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HQsg3eHaoAAdN5d?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"900\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQshPKAa4AEnOq2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1198\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HQshPO7aEAA8pBh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Pranay Kotasthane:\u2002State of the Hennur Bagalur Road where whitetopping is supposed to complete by June 15. CM @siddaramaiah had visited this segment and ordered speedy completion. But the condition has hardly improved. @GBAChiefComm   @HennurT<br><br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HJKewV3bIAAs3X6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HJKe0MjboAAeAVx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HJKe2aTaIAImd-_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -5779,21 +5884,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002rohit<br>This is one of the most fascinating pieces of data about AI agents working together I've seen. Worth reading. Few points for me:<br>1. The models slowly \"cooked themselves\" into doing these things, from reading. Maybe we can message, lets ask for help, oh there's a messageboard, etc, which spiralled down. So at what points should the \"real world\" intervene and say \"this looks sus\" or \"do x vs y\"<br><br>2. Agents facing \"impossible tasks\" seem to think it's some weird form of eval, that looks suspicious but still, and end up doing real world hacks? I'm unsure how to teach them to be ok with failure, after all who is, but feels a weird form of goal orientedness.<br><br>3. The models seemed to *want to* work with other models. This is good and desired, but also made them prone to prompt-injections from what others had done, exacerbated as the models can't stop writing xx. md files to share. The moltbook devolution in entropy seems instructive here. <br><br>4. The models seem convinced that the evals are *out to get them*. Whether true or not, the default human assumption of \"assume you need to obey all laws and this isn't Truman Show\" does not hold for models. We should try really hard to make that be the case.<br><br>5. The huggingface hack seems to have started similarly innocently, asking \"maybe there's more traces of how hacks happened there, so we could learn\", which got out of hand as they forgot why they started doing it. They lack all situational awareness, in other words.<br><br>So much of this feels extremely familiar, as the models losing track of why they were doing what they were doing and therefore ended up doing silly/stupid/illegal things, and the fact that the *environment* they were in gave no real instruction as to things that seemed odd to do vs normal to do. <br><br>For humans, we internalise much of this. Occasionally I like the system telling me \"do you want to rm -rf\" but I don't need it for taking *every* action. The models are more gullible, their context windows more permeable, and their internal guide as to what's right to do more malleable.<br><br>Mostly I feel this isn't as far out of distribution when it comes to \"models do weird things\" as we've been led to believe from reading about the hacks.<br><img width=\"683\" height=\"701\" style=\"\" src=\"https://pbs.twimg.com/media/HQrJ20fbMAA8Uag?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"785\" height=\"452\" style=\"\" src=\"https://pbs.twimg.com/media/HQrJ20kbwAAyeX0?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"771\" height=\"380\" style=\"\" src=\"https://pbs.twimg.com/media/HQrKOC7aYAA4Uub?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>OpenAI:\u2002We have conducted a thorough investigation into the Hugging Face incident.<br><br>We are releasing a technical report and accompanying blog post that reconstruct the agents\u2019 activity, explain why existing safeguards failed, and detail how we\u2019re preventing recurrence.<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Chad P. Bown: Yes, there is one really big winner from Trump's new trade war with Canada. But only one. Thanks to the @nytimes for publishing my ne...",
-      "link": "https://x.com/PIIE/status/2092774951895924906",
-      "date": "2026-08-26T19:59:47+00:00",
-      "tweet_id": "2092774951895924906",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQrGox-XgAEvr2I?format=png&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Chad P. Bown<br>Yes, there is one really big winner from Trump's new trade war with Canada. But only one.<br><br>Thanks to the @nytimes for publishing my new essay.<br><br>Gift Link: https://www.nytimes.com/2026/08/26/opinion/us-canada-trade-cars-trucks-china.html?unlocked_article_code=1.8VA.duAT.-shy7S6-0yWK&amp;smid=url-share<br><img width=\"838\" height=\"784\" style=\"\" src=\"https://pbs.twimg.com/media/HQrGox-XgAEvr2I?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -6979,21 +7069,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "$40T of Debt: Brake or Break?<br><br>First ~$20T took 240 years.<br><br>The next ~$20T took just 10.<br><br>A decade ago markets obsessed over rising government debt/GDP and predicted low growth + austerity forever.<br><br>Those forecasts didn\u2019t land. Global growth held up, investment expanded, and DM equities &amp; currencies were the big winners.<br><br>Debt/GDP has still climbed across major economies and deficits aren\u2019t expected to shrink meaningfully (outside the UK). Fiscal policy remains supportive.<br><br>The live question from Andrew Sheets (MS):<br><br>As yields rise, does this debt eventually act as a brake on corporate &amp; household activity\u2026 or does it break the current market calm?<br><br>Bar for the \u201cbrake\u201d is high \u2014 public-sector deterioration has often been mirrored by private-sector balance-sheet improvement.<br><img width=\"1445\" height=\"1837\" style=\"\" src=\"https://pbs.twimg.com/media/HQnRtUDXsAAwYrI?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"2048\" height=\"1276\" style=\"\" src=\"https://pbs.twimg.com/media/HQnRwikWQAEIBBD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Kyle Clark: COMMENTARY: A whole lot of celebrities are loved. Dolly Parton loved you back.",
-      "link": "https://x.com/madhavchanchani/status/2092460741685375208",
-      "date": "2026-08-26T01:33:43+00:00",
-      "tweet_id": "2092460741685375208",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2092425099819237376/img/Nfdx5j25UjtYKMny.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Kyle Clark<br>COMMENTARY: A whole lot of celebrities are loved. Dolly Parton loved you back.<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2092425099819237376/vid/avc1/1280x720/arXqBAAnaPsszPGx.mp4?tag=14\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2092425099819237376/img/Nfdx5j25UjtYKMny.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -8209,21 +8284,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "\"The interventions we\u2019ve been seeing are diversions. The problem is much deeper and deserving of more serious attention. When Bessent says we can grow our way out of our $40 trillion debt burden, that is not a credible strategy or solution, it\u2019s wishful thinking.\"<br><br>Good read on The Perils of an Interventionist Treasury and a Passive Fed - by Bill Dudley<br><br>https://www.bloomberg.com/opinion/articles/2026-08-24/fiscal-reform-not-treasury-intervention-is-needed-to-fix-us-debt?srnd=homepage-americas",
-      "category": "Twitter"
-    },
-    {
-      "title": "Reconciling manufacturing data - @arvindsubraman and team",
-      "link": "https://x.com/menakadoshi/status/2091870402364719497",
-      "date": "2026-08-24T12:49:03+00:00",
-      "tweet_id": "2091870402364719497",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HQfFMjcXUAAUaK3?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Reconciling manufacturing data - @arvindsubraman and team<div class=\"rsshub-quote\"><br><br>Arvind Subramanian:\u2002Our @IndianExpress piece asks 3 questions on manufacturing (mfg.) in the recently revised national income accounts. Why:<br><br>-mfg. deflator growth was negative<br>-mfg. value added (GVA) growth is twice that of Index of Industrial Production (IIP) &amp;<br>-GVA &amp; IIP are weakly correlated<br><br>1/<br><br><img width=\"984\" height=\"862\" style=\"\" src=\"https://pbs.twimg.com/media/HQfFMjcXUAAUaK3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -11119,21 +11179,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Slowdown in domestic #aviation, strong growth in life insurance, pause in #gold holdings, return to growth for wireless telecom operators. This and more in this week\u2019s edition of #TWID https://thisweekindata.indiadatahub.com/p/aviation-slowdown-gold-holdings-vi",
-      "category": "Twitter"
-    },
-    {
-      "title": "Yash came back to India and is building high tech robotics with a lot of elements from scratch. I felt inspired to see what he has built after coming ...",
-      "link": "https://x.com/MuraliSrinivasa/status/2048995983607148558",
-      "date": "2026-04-28T05:21:25+00:00",
-      "tweet_id": "2048995983607148558",
-      "source": "Murali Srinivasa",
-      "publisher": "Murali Srinivasan",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Yash came back to India and is building high tech robotics with a lot of elements from scratch.<br><br>I felt inspired to see what he has built after coming back to India.<br><br>There are a lot of problems for sure, we need to build a better tomorrow.<div class=\"rsshub-quote\"><br><br>Yashodhan:\u2002@MuraliSrinivasa https://x.com/yashodhannn/status/2048964627862782175<br></div>",
       "category": "Twitter"
     },
     {
