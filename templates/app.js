@@ -45,6 +45,10 @@
             if (tab === 'papers' && !PAPER_ARTICLES) {
                 loads.push(_safeLoad('papers', 'static/tab_papers.json', function(d) { PAPER_ARTICLES = d; }));
             }
+            // Load companies for its own tab AND the homepage (the cap strip lives on home).
+            if ((tab === 'companies' || tab === 'home') && !COMPANIES_DATA) {
+                loads.push(_safeLoad('companies', 'static/tab_companies.json', function(d) { COMPANIES_DATA = d; }));
+            }
             if ((tab === 'news' || tab === 'home') && !NEWS_ARTICLES) {
                 loads.push(_safeLoad('news', 'static/tab_news.json', function(d) { NEWS_ARTICLES = d; }));
             }
@@ -405,6 +409,8 @@
                 filterYoutube();
             } else if (tab === 'twitter') {
                 filterTwitter();
+            } else if (tab === 'companies') {
+                filterCompanies();
             } else {
                 filterArticles();
             }
@@ -658,6 +664,8 @@
                 switchTab('youtube');
             } else if (e.key === '6') {
                 switchTab('twitter');
+            } else if (e.key === '7') {
+                switchTab('companies');
             }
         });
 
@@ -1806,6 +1814,16 @@
         let selectedResearchPublishers = new Set();
         let researchRegionFilter = 'all'; // 'all' | 'indian' | 'international'
 
+        // ==================== COMPANIES TAB (vars) ====================
+        let companiesRendered = false;
+        let filteredCompanies = [];
+        let companiesPage = 1;
+        const COMPANIES_PAGE_SIZE = 20;
+        let selectedCompanyCaps = new Set();      // empty = all cap tiers
+        let selectedCompanyExchs = new Set();     // empty = both exchanges
+        let companyCategoryFilter = '';           // '' = all filing tags
+        let companySortMode = 'relevance';        // 'relevance' (Market Tide score) | 'recent' (date)
+
         // ==================== PAPERS TAB (vars) ====================
         let papersRendered = false;
         let paperSessionPool = [];
@@ -1917,6 +1935,12 @@
                         twitterRendered = true;
                     }
                     filterTwitter();
+                } else if (tab === 'companies') {
+                    if (!companiesRendered) {
+                        renderMainCompanies();
+                        companiesRendered = true;
+                    }
+                    filterCompanies();
                 } else {
                     if (!newsRendered) {
                         renderNewsFromJSON();
@@ -2371,6 +2395,51 @@
                 + '<div class="slider-track" id="sebi-track">' + cards + '</div></section>';
         }
 
+        // NSE items carry a real symbol (PRESTIGE); BSE items carry a numeric scrip
+        // code (544277), which reads as noise in a label slot. Prefer the symbol,
+        // fall back to the exchange name.
+        function companyTickerLabel(c) {
+            var t = (c && c.ticker) || '';
+            if (t && !/^\d+$/.test(t)) return t;
+            return (c && c.exchange) || '';
+        }
+
+        // Mega + Large cap companies (Market Tide) — chronological, NOT AI-ranked. Mirrors the SEBI slider.
+        var COMPANY_STRIP_CAPS = { 'Mega cap': true, 'Large cap': true };
+        function getMegaCapCompanies() {
+            if (!COMPANIES_DATA || !COMPANIES_DATA.length) return [];
+            return COMPANIES_DATA
+                .filter(function(c) { return c && COMPANY_STRIP_CAPS[c.cap]; })
+                .slice()
+                .sort(function(a, b) {
+                    return new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
+                })
+                .slice(0, 15);
+        }
+
+        function buildMegaCapSlider(items) {
+            if (!items || !items.length) return '';
+            const cards = items.map(function(c) {
+                const title = escapeHtml(cleanHomeTitle(c.title));
+                const url = sanitizeUrl(c.link || c.source_url || '');
+                const ticker = escapeHtml(companyTickerLabel(c));
+                const sector = escapeHtml(c.sector || '');
+                const dateStr = c.date ? escapeHtml(new Date(c.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
+                const meta = [sector, dateStr].filter(Boolean).join(' · ');
+                const bk = npBookmarkBtn(url, title, ticker || 'Market Tide');
+                return '<div class="slider-card slider-megacap"><div class="slider-card-body">'
+                    + '<div class="slider-card-header"><div>'
+                    + (ticker ? '<div class="rp-publisher">' + ticker + '</div>' : '')
+                    + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                    + (meta ? '<span class="rp-region">' + meta + '</span>' : '')
+                    + '</div>' + bk + '</div></div></div>';
+            }).join('');
+            return '<section class="slider-section">'
+                + '<div class="slider-header"><h2 class="slider-label">Company announcements</h2>'
+                + '<div class="slider-nav">' + sliderArrows('megacap-track') + '</div></div>'
+                + '<div class="slider-track" id="megacap-track">' + cards + '</div></section>';
+        }
+
         function buildPpSlider(items) {
             if (!items.length) return '';
             const cards = items.map(p => {
@@ -2548,10 +2617,10 @@
             }
 
             // Build the full newspaper layout with AI-curated sliders.
-            // Order: Big Stories → Reports → (feed label) → news → Watch → news →
-            // From The Source → news → Voices. Each slider is preceded by a WSW
-            // breaker and separated from the next by a news block, so no two
-            // sliders sit adjacent.
+            // Order: Big Stories → Reports → (feed label) → news → Company → news →
+            // Watch → news → From The Source → news → Voices. Each slider is preceded
+            // by a WSW breaker and separated from the next by a news block, so no two
+            // sliders sit adjacent (From The Source stays far from Company announcements).
             const parts = [];
 
             // Big Stories at the very top
@@ -2571,6 +2640,7 @@
             parts.push(
                 renderPatternA(s1),
                 breakers[1],
+                buildMegaCapSlider(getMegaCapCompanies()),
                 renderPatternB(s3),
                 breakers[2],
                 buildYtSlider(result.youtube),
@@ -3490,6 +3560,171 @@
             syncResearchCheckboxes();
             syncResearchPublisherSummary();
             filterResearch();
+        }
+
+        // ==================== COMPANIES TAB (functions) ====================
+        // Data: Market Tide filings (static/tab_companies.json). Default sort =
+        // relevance (their score desc, newest as tiebreak). Filters: cap tier and
+        // exchange (multi-select chips) plus filing tag (single-select dropdown).
+        // Not AI-ranked.
+        //
+        // The card leads with the company, not the filing headline: headlines are
+        // regulatory boilerplate ("Disclosure under Regulation 30 of SEBI (LODR)...")
+        // repeated across hundreds of filings. Market Tide's own summaries are not
+        // rendered — see the note in companies_fetcher.py.
+        function sortCompanies(list) {
+            if (companySortMode === 'recent') {
+                // Newest first; relevance score as tiebreak.
+                return list.sort(function(a, b) {
+                    var dd = new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
+                    if (dd !== 0) return dd;
+                    return (b.score || 0) - (a.score || 0);
+                });
+            }
+            // Default: Market Tide relevance score desc, newest as tiebreak.
+            return list.sort(function(a, b) {
+                var ds = (b.score || 0) - (a.score || 0);
+                if (ds !== 0) return ds;
+                return new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
+            });
+        }
+
+        function setCompaniesSort(value) {
+            companySortMode = value === 'recent' ? 'recent' : 'relevance';
+            filterCompanies();
+        }
+
+        function buildCompanyCapFilters() {
+            var box = document.getElementById('companies-cap-filters');
+            if (!box || !window.COMPANIES_CAPS) return;
+            box.innerHTML = COMPANIES_CAPS.map(function(cap) {
+                return '<button class="company-chip" type="button" data-cap="' + escapeForAttr(cap) + '" onclick="toggleCompanyCap(this)">' + escapeHtml(cap) + '</button>';
+            }).join('');
+        }
+
+        function buildCompanyExchFilters() {
+            var box = document.getElementById('companies-exch-filters');
+            if (!box || !window.COMPANIES_EXCHANGES) return;
+            box.innerHTML = COMPANIES_EXCHANGES.map(function(ex) {
+                return '<button class="company-chip company-chip-cat" type="button" data-exch="' + escapeForAttr(ex) + '" onclick="toggleCompanyExch(this)">' + escapeHtml(ex) + '</button>';
+            }).join('');
+        }
+
+        function buildCompanyCategoryOptions() {
+            var sel = document.getElementById('companies-cat-select');
+            if (!sel || !window.COMPANIES_CATEGORIES) return;
+            var opts = ['<option value="">All filing types</option>'];
+            COMPANIES_CATEGORIES.forEach(function(c) {
+                opts.push('<option value="' + escapeForAttr(c) + '">' + escapeHtml(c) + '</option>');
+            });
+            sel.innerHTML = opts.join('');
+            sel.value = companyCategoryFilter;
+        }
+
+        function renderMainCompanies() {
+            buildCompanyCapFilters();
+            buildCompanyExchFilters();
+            buildCompanyCategoryOptions();
+            filteredCompanies = sortCompanies((COMPANIES_DATA || []).slice());
+            companiesPage = 1;
+            applyCompaniesPagination();
+        }
+
+        function toggleCompanyCap(btn) {
+            var cap = btn.getAttribute('data-cap');
+            if (selectedCompanyCaps.has(cap)) { selectedCompanyCaps.delete(cap); btn.classList.remove('active'); }
+            else { selectedCompanyCaps.add(cap); btn.classList.add('active'); }
+            filterCompanies();
+        }
+
+        function toggleCompanyExch(btn) {
+            var ex = btn.getAttribute('data-exch');
+            if (selectedCompanyExchs.has(ex)) { selectedCompanyExchs.delete(ex); btn.classList.remove('active'); }
+            else { selectedCompanyExchs.add(ex); btn.classList.add('active'); }
+            filterCompanies();
+        }
+
+        function setCompaniesCategory(value) {
+            companyCategoryFilter = value || '';
+            filterCompanies();
+        }
+
+        function filterCompanies() {
+            var query = (document.getElementById('search-input').value || '').toLowerCase().trim();
+            var list = (COMPANIES_DATA || []).filter(function(c) {
+                if (!c) return false;
+                var matchesCap = selectedCompanyCaps.size === 0 || selectedCompanyCaps.has(c.cap);
+                var matchesExch = selectedCompanyExchs.size === 0 || selectedCompanyExchs.has(c.exchange);
+                var matchesCat = !companyCategoryFilter || c.category === companyCategoryFilter;
+                var hay = ((c.title || '') + ' ' + (c.ticker || '') + ' ' + (c.sector || '') + ' ' + (c.category || '')).toLowerCase();
+                var matchesSearch = !query || hay.indexOf(query) !== -1;
+                return matchesCap && matchesExch && matchesCat && matchesSearch;
+            });
+            filteredCompanies = sortCompanies(list);
+            companiesPage = 1;
+            applyCompaniesPagination();
+        }
+
+        function capTierClass(cap) {
+            return 'cap-' + String(cap || '').toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
+        }
+
+        function applyCompaniesPagination() {
+            var totalPages = Math.max(1, Math.ceil(filteredCompanies.length / COMPANIES_PAGE_SIZE));
+            if (companiesPage > totalPages) companiesPage = totalPages;
+            var countEl = document.getElementById('companies-visible-count');
+            if (countEl) countEl.textContent = filteredCompanies.length;
+
+            var start = (companiesPage - 1) * COMPANIES_PAGE_SIZE;
+            var pageItems = filteredCompanies.slice(start, start + COMPANIES_PAGE_SIZE);
+            var container = document.getElementById('companies-container');
+            if (!container) return;
+            if (pageItems.length === 0) {
+                container.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">No filings match these filters.</div>';
+                renderCompaniesPagination(totalPages);
+                return;
+            }
+
+            var html = pageItems.map(function(c) {
+                var title = escapeHtml(c.title || '');
+                var url = sanitizeUrl(c.link || c.source_url || '');
+                var ticker = escapeHtml(companyTickerLabel(c) === (c.exchange || '') ? '' : (c.ticker || ''));
+                var exch = escapeHtml(c.exchange || '');
+                var cap = escapeHtml(c.cap || '');
+                var cat = escapeHtml(c.category || '');
+                var filing = escapeHtml(c.sector || '');
+                var dateStr = c.date ? escapeHtml(formatResearchDate(c.date)) : '';
+                var capCls = capTierClass(c.cap);
+                var titleHtml = url
+                    ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener" class="company-title">' + title + '</a>'
+                    : '<span class="company-title">' + title + '</span>';
+                var bk = '<button class="bookmark-btn" data-url="' + escapeForAttr(url) + '" data-title="' + escapeForAttr(c.title || '') + '" data-source="Market Tide" onclick="toggleGenericBookmark(this)" aria-label="Bookmark filing" title="Bookmark"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>';
+                return '<div class="company-card" data-cap="' + escapeForAttr(c.cap || '') + '" data-cat="' + escapeForAttr(c.category || '') + '" data-exch="' + escapeForAttr(c.exchange || '') + '">'
+                    + '<div class="company-card-head">'
+                    + '<div class="company-tags">'
+                    + (ticker ? '<span class="company-ticker">' + ticker + '</span>' : '')
+                    + (exch ? '<span class="company-exch">' + exch + '</span>' : '')
+                    + (cap ? '<span class="company-cap ' + capCls + '">' + cap + '</span>' : '')
+                    + (cat ? '<span class="company-cat">' + cat + '</span>' : '')
+                    + '</div>'
+                    + '<div class="company-card-right">'
+                    + (dateStr ? '<span class="company-date">' + dateStr + '</span>' : '')
+                    + bk + '</div></div>'
+                    + '<div class="company-title-row">' + titleHtml + '</div>'
+                    + (filing ? '<div class="company-sector">' + filing + '</div>' : '')
+                    + '</div>';
+            }).join('');
+            container.innerHTML = html;
+            syncBookmarkState();
+            renderCompaniesPagination(totalPages);
+        }
+
+        function renderCompaniesPagination(totalPages) {
+            buildPagination('companies-pagination-bottom', companiesPage, totalPages, function(page) {
+                companiesPage = page;
+                applyCompaniesPagination();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
         }
 
         // ==================== PAPERS TAB (functions) ====================

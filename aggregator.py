@@ -28,6 +28,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
 REPORTS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "reports_cache.json")
 PAPERS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "papers_cache.json")
+COMPANIES_CACHE_PATH = os.path.join(SCRIPT_DIR, "static", "companies_cache.json")
 PUBLISHED_SNAPSHOT_FILE = os.path.join(SCRIPT_DIR, "static", "published_snapshot.json")
 
 # Filters extracted to filters.py for independent editing and testing
@@ -46,10 +47,14 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 # Report scrapers
 from reports_fetcher import get_report_fetcher
 from paper_fetcher import fetch_papers, load_papers_cache, save_papers_cache
+from companies_fetcher import (fetch_companies, load_companies_cache,
+                               save_companies_cache, companies_cache_age_days,
+                               CAP_TIERS, COMPANIES_SOURCE_LABEL)
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
                     TWITTER_HIGH_SIGNAL_WINDOW_HOURS, TWITTER_HIGH_SIGNAL_TARGET,
-                    REPORTS_FRESHNESS_DAYS,
+                    REPORTS_FRESHNESS_DAYS, COMPANIES_STALE_AFTER_DAYS,
+                    COMPANIES_SITE_BASE,
                     FEED_FAILURE_ALERT_THRESHOLD)
 from log_utils import FeedLogger
 from twitter_signal import build_twitter_lanes
@@ -283,6 +288,7 @@ def generate_html(
     paper_articles=None,
     twitter_high_signal=None,
     twitter_lane_meta=None,
+    companies_articles=None,
 ):
     """Generate the static HTML website."""
 
@@ -475,6 +481,40 @@ def generate_html(
         )
     )
 
+    # Prepare companies data (Market Tide filings — chronological/score-ranked client-side)
+    if companies_articles is None:
+        companies_articles = []
+    companies_articles_json = json.dumps([{
+        "title": c.get("title", ""),
+        "link": c.get("link", ""),
+        "date": c["date"].isoformat() if c.get("date") else None,
+        "time": c.get("time", ""),
+        "source": c.get("source", COMPANIES_SOURCE_LABEL),
+        "source_url": c.get("source_url", ""),
+        "ticker": c.get("ticker", ""),
+        "exchange": c.get("exchange", ""),
+        "sector": c.get("sector", ""),
+        "cap": c.get("cap", ""),
+        "category": c.get("category", ""),
+        "score": c.get("score", 0),
+    } for c in companies_articles])
+    companies_count = len(companies_articles)
+    # Cap tiers in display order, restricted to those actually present.
+    _present_caps = set(c.get("cap", "") for c in companies_articles if c.get("cap"))
+    companies_caps_json = json.dumps([t for t in CAP_TIERS if t in _present_caps])
+    # Exchange is a 3-value chip row (NSE / BSE / NSE + BSE); the filing tag has
+    # ~24 values so it reads better as a dropdown than as a chip row.
+    _exch_order = ["NSE", "BSE", "NSE + BSE"]
+    _present_exch = set(c.get("exchange", "") for c in companies_articles if c.get("exchange"))
+    companies_exchanges_json = json.dumps([e for e in _exch_order if e in _present_exch])
+    companies_categories_json = json.dumps(
+        sorted(set(c.get("category", "") for c in companies_articles if c.get("category")))
+    )
+    # Credit is not optional here: the filings are public exchange documents but
+    # the curation, banding and tagging are Market Tide's work.
+    companies_label = COMPANIES_SOURCE_LABEL
+    companies_site = COMPANIES_SITE_BASE
+
     # Write tab data to separate JSON files for lazy loading
     static_dir = os.path.join(SCRIPT_DIR, "static")
     # Build news tab data with all fields needed for client rendering
@@ -508,6 +548,7 @@ def generate_html(
         "tab_twitter_hs.json": json.loads(twitter_high_signal_json),
         "tab_research.json": json.loads(research_reports_json),
         "tab_papers.json": json.loads(paper_articles_json),
+        "tab_companies.json": json.loads(companies_articles_json),
         "tab_ai_rankings.json": json.loads(ai_rankings_bootstrap_json) if ai_rankings_bootstrap_json != "null" else None,
     }
     for fname, data in _tab_data.items():
@@ -545,7 +586,7 @@ def generate_html(
     <link rel="preload" href="static/tab_research.json" as="fetch" crossorigin>
     <script data-cfasync="false">
     window.__preloaded={{}};
-    ['tab_news','tab_telegram','tab_youtube','tab_research','tab_papers','tab_twitter','tab_twitter_hs','tab_ai_rankings'].forEach(function(k){{
+    ['tab_news','tab_telegram','tab_youtube','tab_research','tab_papers','tab_twitter','tab_twitter_hs','tab_companies','tab_ai_rankings'].forEach(function(k){{
       window.__preloaded[k]=fetch('static/'+k+'.json').then(function(r){{return r.json()}});
     }});
     // Reveal body only after data + fonts ready — app.js calls window.__reveal()
@@ -645,6 +686,7 @@ def generate_html(
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="papers"><span class="cat-dot" style="background:#7A6B8F"></span> Papers <span class="tab-count">{paper_count}</span></button>
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="youtube"><span class="cat-dot" style="background:#A86565"></span> YouTube <span class="tab-count">{video_count}</span></button>
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="twitter"><span class="cat-dot" style="background:#4A8A9A"></span> Twitter <span class="tab-count">{twitter_count}</span></button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="companies"><span class="cat-dot" style="background:#6E8B3D"></span> Companies <span class="tab-count">{companies_count}</span></button>
         </nav>
 
         <div id="tab-home" class="tab-content active">
@@ -932,6 +974,42 @@ def generate_html(
             <div id="twitter-pagination-bottom" class="pagination bottom"></div>
         </div><!-- /tab-twitter -->
 
+        <div id="tab-companies" class="tab-content">
+            <div class="filter-card">
+                <div class="filter-head">
+                    <div class="stats">
+                        <span><strong id="companies-visible-count">{companies_count}</strong> filings</span>
+                        <span>curated by <a href="{companies_site}" target="_blank" rel="noopener"><strong>{companies_label}</strong></a></span>
+                    </div>
+                    <div class="filter-head-actions">
+                        <span class="update-time" id="companies-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
+                        <script>
+                        (function(){{
+                            var el=document.getElementById('companies-update-time'),t=el&&el.getAttribute('data-time');
+                            if(!t)return;
+                            var d=Math.floor((new Date()-new Date(t))/60000);
+                            el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
+                        }})();
+                        </script>
+                        <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
+                            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-controls" id="companies-filter-controls">
+                    <div class="company-chip-row" id="companies-cap-filters" aria-label="Market cap"></div>
+                    <div class="company-chip-row" id="companies-exch-filters" aria-label="Exchange"></div>
+                    <select id="companies-cat-select" class="company-sector-select" onchange="setCompaniesCategory(this.value)" aria-label="Filing type"></select>
+                    <select id="companies-sort-select" class="company-sector-select" onchange="setCompaniesSort(this.value)" aria-label="Sort by">
+                        <option value="relevance" selected>Sort: Relevance</option>
+                        <option value="recent">Sort: Recent</option>
+                    </select>
+                </div>
+            </div>
+            <div id="companies-container"></div>
+            <div id="companies-pagination-bottom" class="pagination bottom"></div>
+        </div><!-- /tab-companies -->
+
 """
 
     html += f"""        <footer>
@@ -977,6 +1055,10 @@ def generate_html(
         var RESEARCH_REPORTS = null;
         var RESEARCH_PUBLISHERS = {research_publishers_json};
         var PAPER_ARTICLES = null;
+        var COMPANIES_DATA = null;
+        var COMPANIES_CAPS = {companies_caps_json};
+        var COMPANIES_EXCHANGES = {companies_exchanges_json};
+        var COMPANIES_CATEGORIES = {companies_categories_json};
         var NEWS_ARTICLES = null;
         var TODAY_ISO = "{today_iso}";
         var SITE_GENERATED_AT = "{now_ist.isoformat()}";
@@ -1418,6 +1500,44 @@ def main():
         )
     )
 
+    # Companies (Market Tide filings) — live fetch with cache fallback so a CI
+    # hiccup never blanks the tab. The fallback is deliberately noisy: the
+    # previous provider died silently behind exactly this path for ~8 weeks.
+    companies_articles = []
+    cached_companies, _ = load_companies_cache(COMPANIES_CACHE_PATH)
+    try:
+        companies_articles = fetch_companies()
+        if companies_articles:
+            save_companies_cache(COMPANIES_CACHE_PATH, companies_articles)
+            logger.info(f"Companies: fetched {len(companies_articles)} filings from {COMPANIES_SOURCE_LABEL}")
+            logger.add_articles(len(companies_articles))
+        elif cached_companies:
+            companies_articles = cached_companies
+            logger.warn("Companies", f"Live fetch returned 0 items; loaded {len(cached_companies)} cached filings")
+            logger.add_articles(len(cached_companies))
+        else:
+            logger.warn("Companies", "Live fetch returned 0 items and no cache exists yet")
+    except Exception as e:
+        if cached_companies:
+            companies_articles = cached_companies
+            logger.warn("Companies", f"Live fetch failed ({str(e)[:80]}); loaded {len(cached_companies)} cached filings")
+            logger.add_articles(len(cached_companies))
+        else:
+            logger.warn("Companies", f"Live fetch failed ({str(e)[:80]}) and no cache exists yet")
+
+    # Serving the cache is fine for a run or two; serving it for weeks is the
+    # failure that hid the last outage. Say so in the run log either way.
+    _companies_age = companies_cache_age_days(companies_articles)
+    if _companies_age is None:
+        if companies_articles:
+            logger.warn("Companies", "No dated filings — cannot tell whether the source is live")
+    elif _companies_age > COMPANIES_STALE_AFTER_DAYS:
+        logger.warn(
+            "Companies",
+            f"STALE: newest filing is {_companies_age}d old "
+            f"(> {COMPANIES_STALE_AFTER_DAYS}d) — {COMPANIES_SOURCE_LABEL} may have stopped publishing",
+        )
+
     # Filter out twitter articles older than configured days
     twitter_cutoff = datetime.now(IST_TZ) - timedelta(days=TWITTER_FRESHNESS_DAYS)
     twitter_articles = [t for t in twitter_articles
@@ -1521,6 +1641,7 @@ def main():
         paper_articles,
         twitter_high_signal=twitter_high_signal,
         twitter_lane_meta=twitter_lane_stats,
+        companies_articles=companies_articles,
     )
     export_articles_json(article_groups)
     export_published_snapshot(

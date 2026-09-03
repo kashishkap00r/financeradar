@@ -1,9 +1,25 @@
 """
-Fetcher for the Companies tab, sourced from Tipsheet (https://tipsheet.markets).
+Fetcher for the Companies tab, sourced from Market Tide (https://markettide.in).
 
-Tipsheet turns BSE/NSE filings into annotated notes tagged with a market-cap
-tier. Its `search-index.json` endpoint is the only public source that exposes
-the cap tier per filing, so that is what we consume here.
+Market Tide reads the corporate announcements companies file with NSE and BSE,
+drops the routine paperwork, and scores what is left. Its /api/announcements
+endpoint is public and unauthenticated, and the default (curated) scope returns
+the filings it considers worth reading.
+
+Replaces the previous Tipsheet integration: tipsheet.markets stopped resolving
+in DNS in mid-2026 and the tab served a frozen snapshot for weeks before anyone
+noticed, so this module treats staleness as a first-class failure (see
+companies_cache_age_days) rather than letting the cache fallback hide it.
+
+What we take and what we deliberately leave behind
+--------------------------------------------------
+Market Tide's terms draw an explicit line: the underlying filings are public
+exchange documents that they do not claim to own, while their summaries,
+scoring and categorisation are their own work. So the card is built from the
+filing's own facts — company, ticker, exchange, date, filing type and a link to
+the original PDF — plus their market-cap band and tag for filtering. Their
+prose fields (summary, why_it_matters, impact, key_numbers) are fetched but
+never stored or rendered, and every view credits Market Tide with a link back.
 
 Mirrors the resilient live-fetch-with-cache-fallback pattern of paper_fetcher.py:
 a successful fetch refreshes static/companies_cache.json; on failure or empty
@@ -16,58 +32,80 @@ from datetime import datetime, timedelta
 
 from articles import IST_TZ
 from config import (
+    COMPANIES_ANNOUNCEMENTS_URL,
     COMPANIES_FETCH_TIMEOUT,
     COMPANIES_FRESHNESS_DAYS,
     COMPANIES_MAX_ITEMS,
-    COMPANIES_SEARCH_INDEX_URL,
     COMPANIES_SITE_BASE,
     DEFAULT_USER_AGENT,
 )
 
-COMPANIES_FEED_ID = "tipsheet"
-COMPANIES_SOURCE_LABEL = "Tipsheet"
+COMPANIES_FEED_ID = "markettide"
+COMPANIES_SOURCE_LABEL = "Market Tide"
 
-# Canonical cap-tier labels as published by Tipsheet (used for filtering/UI).
-CAP_TIERS = ["Mega cap", "Large cap", "Mid cap", "Small cap", "Micro cap", "Nano cap"]
+# Cap-tier labels in display order. Market Tide bands by market cap in rupees
+# crore; these are the thresholds its own dashboard filters on ("Above Rs 1
+# lakh cr", "Rs 50,000 cr - 1 lakh cr", and so on down). Items carry a raw
+# `mcap` number rather than a band, so the banding happens here — one request
+# for everything instead of one request per band.
+CAP_TIERS = ["Mega cap", "Large cap", "Mid cap", "Small cap", "Micro cap"]
+
+CAP_BANDS = (
+    (100_000, "Mega cap"),
+    (50_000, "Large cap"),
+    (10_000, "Mid cap"),
+    (1_000, "Small cap"),
+    (0, "Micro cap"),
+)
+
+# Fields that are Market Tide's own editorial work. Fetched as part of the
+# payload, never persisted to the cache and never rendered.
+RESERVED_FIELDS = ("summary", "why_it_matters", "impact", "key_numbers")
 
 
-def _parse_tipsheet_date(raw):
-    """Parse Tipsheet's naive 'YYYY-MM-DD HH:MM:SS' timestamp as IST-aware."""
-    if not raw:
+def cap_for_mcap(mcap):
+    """Map a market cap in rupees crore to a display tier."""
+    if not isinstance(mcap, (int, float)) or mcap <= 0:
+        return ""
+    for floor, label in CAP_BANDS:
+        if mcap >= floor:
+            return label
+    return ""
+
+
+def _parse_markettide_date(day, time_str):
+    """Combine Market Tide's date ("2026-09-03") and time ("03 Sep, 11:59").
+
+    The time field is display text, not a parseable stamp on its own, so the
+    date carries the day and the time is only mined for HH:MM. A filing with an
+    unreadable time still keeps its date rather than being dropped.
+    """
+    if not day:
         return None
-    raw = str(raw).strip()
-    # The `t` field is naive local (IST); `published`-style ISO may also appear.
-    for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M:%S"):
-        try:
-            return datetime.strptime(raw, fmt).replace(tzinfo=IST_TZ)
-        except ValueError:
-            continue
     try:
-        dt = datetime.fromisoformat(raw)
-        return dt if dt.tzinfo else dt.replace(tzinfo=IST_TZ)
+        base = datetime.strptime(str(day).strip()[:10], "%Y-%m-%d")
     except ValueError:
         return None
 
+    hour = minute = 0
+    if time_str:
+        tail = str(time_str).split(",")[-1].strip()
+        parts = tail.split(":")
+        if len(parts) == 2 and parts[0].isdigit() and parts[1][:2].isdigit():
+            hour, minute = int(parts[0]), int(parts[1][:2])
+            if not (0 <= hour <= 23 and 0 <= minute <= 59):
+                hour = minute = 0
 
-def _absolute_url(path):
-    if not path:
-        return ""
-    path = str(path).strip()
-    if path.startswith("http://") or path.startswith("https://"):
-        return path
-    if not path.startswith("/"):
-        path = "/" + path
-    return COMPANIES_SITE_BASE + path
+    return base.replace(hour=hour, minute=minute, tzinfo=IST_TZ)
 
 
 def _extract_items(payload):
-    """search-index.json may be a bare array or wrapped in an object."""
+    """/api/announcements returns {items: [...]}; tolerate a bare array too."""
     if isinstance(payload, list):
         return payload
     if isinstance(payload, dict):
         if isinstance(payload.get("items"), list):
             return payload["items"]
-        # Fall back to the first list value present.
         for value in payload.values():
             if isinstance(value, list):
                 return value
@@ -75,51 +113,67 @@ def _extract_items(payload):
 
 
 def parse_companies(payload, now=None):
-    """Map the search-index payload into normalized company-filing objects."""
+    """Map the announcements payload into normalized company-filing objects."""
     now = now or datetime.now(IST_TZ)
     cutoff = now - timedelta(days=COMPANIES_FRESHNESS_DAYS)
 
     companies = []
-    seen_links = set()
+    seen_keys = set()
     for item in _extract_items(payload):
         if not isinstance(item, dict):
             continue
-        if item.get("s") != "filing":
+
+        company = (item.get("company") or "").strip()
+        # The filing PDF is the primary link: it is the public document itself.
+        # page_url points at the exchange quote page, which is a weaker target.
+        link = (item.get("pdf_url") or item.get("page_url") or "").strip()
+        if not company or not link:
             continue
 
-        title = (item.get("h") or "").strip()
-        link = _absolute_url(item.get("u"))
-        if not title or not link:
+        # A filing can be filed on both exchanges; id is stable, link is not.
+        dedupe_key = (item.get("id") or link).strip().lower()
+        if dedupe_key in seen_keys:
             continue
 
-        link_key = link.lower().rstrip("/")
-        if link_key in seen_links:
-            continue
-
-        date_value = _parse_tipsheet_date(item.get("t"))
+        date_value = _parse_markettide_date(item.get("date") or item.get("day"),
+                                            item.get("time"))
         if date_value is not None and date_value < cutoff:
             continue
 
         try:
-            score = int(item.get("sc")) if item.get("sc") is not None else 0
+            score = int(item.get("score")) if item.get("score") is not None else 0
         except (TypeError, ValueError):
             score = 0
 
-        seen_links.add(link_key)
+        mcap = item.get("mcap")
+        try:
+            mcap = float(mcap) if mcap is not None else None
+        except (TypeError, ValueError):
+            mcap = None
+
+        seen_keys.add(dedupe_key)
         companies.append(
             {
-                "title": title,
+                # The company is what the card leads with. The filing's own
+                # headline is regulatory boilerplate ("Disclosure under
+                # Regulation 30 of SEBI (LODR)...") repeated across hundreds of
+                # filings, so it reads as the description, not the title.
+                "title": company,
                 "link": link,
                 "source": COMPANIES_SOURCE_LABEL,
-                "source_url": link,
+                "source_url": COMPANIES_SITE_BASE,
                 "publisher": COMPANIES_SOURCE_LABEL,
-                "description": "",
+                "description": (item.get("headline") or "").strip(),
                 "date": date_value,
                 "time": date_value.strftime("%I:%M %p").lstrip("0") if date_value else "",
-                "ticker": (item.get("sym") or "").strip(),
-                "sector": (item.get("sec") or "").strip(),
-                "cap": (item.get("cap") or "").strip(),
-                "category": (item.get("cat") or "").strip(),
+                "ticker": (item.get("ticker") or "").strip(),
+                "exchange": (item.get("exchange") or "").strip(),
+                # Occupies the old sector slot: the specific filing type, which
+                # is the most informative short label available per item.
+                "sector": (item.get("category") or "").strip(),
+                "cap": cap_for_mcap(mcap),
+                "mcap": mcap,
+                "category": (item.get("tag") or "").strip(),
                 "score": score,
                 "feed_id": COMPANIES_FEED_ID,
             }
@@ -136,8 +190,9 @@ def parse_companies(payload, now=None):
     return companies[:COMPANIES_MAX_ITEMS]
 
 
-def fetch_companies(url=COMPANIES_SEARCH_INDEX_URL, timeout=COMPANIES_FETCH_TIMEOUT, now=None):
-    """Fetch and parse Tipsheet filings. Returns a list (empty on failure)."""
+def fetch_companies(url=COMPANIES_ANNOUNCEMENTS_URL, timeout=COMPANIES_FETCH_TIMEOUT,
+                    now=None):
+    """Fetch and parse Market Tide filings. Returns a list (empty on failure)."""
     req = urllib.request.Request(
         url,
         headers={
@@ -155,8 +210,12 @@ def save_companies_cache(cache_file, companies):
     """Persist companies to cache with ISO datetime serialization."""
     payload = {
         "generated_at": datetime.now(IST_TZ).isoformat(),
+        "source": COMPANIES_SOURCE_LABEL,
         "companies": [
-            {**c, "date": c["date"].isoformat() if c.get("date") else None}
+            {
+                **{k: v for k, v in c.items() if k not in RESERVED_FIELDS},
+                "date": c["date"].isoformat() if c.get("date") else None,
+            }
             for c in (companies or [])
         ],
     }
@@ -196,15 +255,34 @@ def load_companies_cache(cache_file):
     return companies, generated_at
 
 
+def companies_cache_age_days(companies, now=None):
+    """Days since the newest cached filing, or None if nothing is dated.
+
+    Exists because the Tipsheet outage was invisible: the fetch failed, the
+    cache fallback served two-month-old filings, and the run stayed green. The
+    caller warns loudly once this passes the freshness window.
+    """
+    now = now or datetime.now(IST_TZ)
+    stamps = []
+    for c in companies or []:
+        d = c.get("date")
+        if isinstance(d, datetime):
+            stamps.append(d if d.tzinfo else d.replace(tzinfo=IST_TZ))
+    if not stamps:
+        return None
+    return (now - max(stamps)).days
+
+
 if __name__ == "__main__":
     from collections import Counter
 
     from config import COMPANIES_CACHE_FILE
 
     items = fetch_companies()
-    print(f"Fetched {len(items)} company filings from Tipsheet")
+    print(f"Fetched {len(items)} company filings from {COMPANIES_SOURCE_LABEL}")
     if items:
-        caps = Counter(c.get("cap") or "?" for c in items)
-        print("By cap tier:", dict(caps))
+        print("By cap tier:", dict(Counter(c.get("cap") or "?" for c in items)))
+        print("By exchange:", dict(Counter(c.get("exchange") or "?" for c in items)))
+        print("Newest filing age (days):", companies_cache_age_days(items))
         save_companies_cache(COMPANIES_CACHE_FILE, items)
         print(f"Saved cache -> {COMPANIES_CACHE_FILE}")
