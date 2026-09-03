@@ -2450,6 +2450,25 @@
             padding: 1rem 0 0.75rem;
         }
 
+        /* Company strip meta: the filing tag (accent badge) plus the date.
+           The tag is the strip's main signal now that the card carries no
+           description, so it reuses the Reports slider's .rp-region badge. */
+        .megacap-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.6rem;
+        }
+        .megacap-meta .rp-region {
+            margin-top: 0;
+        }
+        .megacap-date {
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
         /* From The Source slider card (official channels + SEBI notices) — reuses .rp-* typography.
            Fixed width + .rp-title's 3-line clamp keep long notice titles from blowing out the track. */
         .slider-sebi {
@@ -2549,12 +2568,19 @@
             border-radius: 2px;
             padding: 0.1rem 0.3rem;
         }
+        /* The filing tag ("Acquisition", "Dividend", "Buyback") is what tells
+           you what the filing is about, so it reads as the card's key label
+           rather than muted metadata. */
         .company-cat {
             font-size: 0.62rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: var(--text-secondary);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 2px;
+            padding: 0.1rem 0.35rem;
+            background: rgba(196, 90, 53, 0.06);
         }
         .company-card-right {
             display: flex;
@@ -2573,19 +2599,6 @@
             text-decoration: none;
         }
         .company-title:hover { color: var(--accent); }
-        /* Holds what the filing is about, taken from the filing's own text.
-           Some run to 250+ characters, so clamp to two lines to keep the cards
-           an even height. */
-        .company-sector {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-top: 0.3rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
         /* Tabs */
         /* ═══ Tab bar ═══ */
         .tab-bar {
