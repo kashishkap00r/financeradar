@@ -10,6 +10,7 @@ from companies_fetcher import (
     _parse_markettide_date,
     cap_for_mcap,
     companies_cache_age_days,
+    filing_subtitle,
     parse_companies,
 )
 
@@ -136,6 +137,139 @@ class TestParseCompanies(unittest.TestCase):
         out = parse_companies({"items": [_item(score="high", mcap="big")]}, now=NOW)
         self.assertEqual(out[0]["score"], 0)
         self.assertEqual(out[0]["cap"], "")
+
+
+class TestFilingSubtitle(unittest.TestCase):
+    """The card title is the company, so the subtitle must say what happened.
+
+    Exchange filings bury the substance behind stock phrasing — these are the
+    real shapes from /api/announcements, not invented ones.
+    """
+
+    def test_strips_has_informed_the_exchange_lead_in(self):
+        self.assertEqual(
+            filing_subtitle(
+                "Astron Paper & Board Mill Limited has informed the Exchange about "
+                "Corporate Insolvency Resolution Process",
+                "Astron Paper & Board Mill Ltd", "Nclt"),
+            "Corporate Insolvency Resolution Process")
+
+    def test_handles_had_as_well_as_has(self):
+        out = filing_subtitle(
+            "Foo Limited had informed the Exchange regarding change in directorate",
+            "Foo Limited", "Change In Management")
+        self.assertEqual(out, "Change in directorate")
+
+    def test_tames_all_caps_filings(self):
+        out = filing_subtitle(
+            "MILLWORKS TECHNOLOGIES LIMITED HAS INFORMED THE EXCHANGE REGARDING "
+            "THE ACQUISITION OF VIDWAN AERONAUTICS PRIVATE LIMITED",
+            "Millworks Technologies Ltd", "Acquisition")
+        self.assertNotEqual(out, out.upper())
+        self.assertIn("acquisition of vidwan", out.lower())
+
+    def test_keeps_acronyms_readable_when_lowercasing(self):
+        out = filing_subtitle("UPDATE ON SEBI AND NCLT PROCEEDINGS FOR THE COMPANY",
+                              "Foo Ltd", "Legal/Reg")
+        self.assertIn("SEBI", out)
+        self.assertIn("NCLT", out)
+
+    def test_rewrites_clarification_queries_rather_than_dropping_the_verb(self):
+        out = filing_subtitle(
+            "The Exchange has sought clarification from Marsons Limited for the "
+            "quarter ended 30-Jun-2026 with respect to Regulation 33 of the SEBI "
+            "(LODR) Regulations, 2015",
+            "Marsons Limited", "Results")
+        self.assertTrue(out.lower().startswith("exchange sought clarification"), out)
+        self.assertIn("30-Jun-2026", out)
+
+    def test_strips_submitted_to_the_exchange_and_stranded_auxiliary(self):
+        out = filing_subtitle(
+            "SBI Capital Markets Ltd has submitted to the Exchange a copy of "
+            "Post offer advertisement",
+            "SBI Capital Markets Ltd", "Open Offer")
+        self.assertEqual(out, "Post offer advertisement")
+
+    def test_keeps_substance_after_a_regulation_30_prefix(self):
+        out = filing_subtitle(
+            "Disclosure under Regulation 30 of SEBI (Listing Obligations and "
+            "Disclosure Requirements) Regulations, 2015 - Intimation of "
+            "Participation in Alpha Ideas Conference",
+            "Exato Technologies Ltd", "Investor Meet")
+        self.assertIn("Participation in Alpha Ideas", out)
+        self.assertNotIn("Regulation 30", out)
+
+    def test_falls_back_to_category_for_a_bare_citation(self):
+        for headline in (
+            "Pursuant to Regulation 30 read with Schedule III of the SEBI (LODR) "
+            "Regulations, 2015",
+            "Regulation 30",
+            "As enclosed.",
+            "'update'",
+            "",
+        ):
+            self.assertEqual(filing_subtitle(headline, "Foo Ltd", "Board Meeting"),
+                             "Board Meeting", headline)
+
+    def test_never_returns_a_wordless_subtitle(self):
+        """Cutting a citation at an interior comma once left just '2015'."""
+        out = filing_subtitle("Pursuant to Regulation 30 of SEBI LODR Regulations, 2015",
+                              "Foo Ltd", "Dividend")
+        self.assertGreaterEqual(sum(1 for ch in out if ch.isalpha()), 3)
+
+    def test_passes_through_an_already_informative_headline(self):
+        for headline in ("Record Date for Dividend Distribution",
+                         "Acquisition of additional stake in Step-Down Subsidiary",
+                         "Company Received a Show Cause Notice"):
+            self.assertEqual(filing_subtitle(headline, "Foo Ltd", "Other"), headline)
+
+    def test_does_not_restate_the_company_name(self):
+        out = filing_subtitle("Nila Spaces Limited has informed the Exchange regarding "
+                              "allotment of equity shares",
+                              "Nila Spaces Limited", "Pref")
+        self.assertNotIn("nila spaces", out.lower())
+
+    def test_long_citation_chain_does_not_hang(self):
+        """A nested quantifier here used to backtrack catastrophically."""
+        headline = "Regulation 30 read with schedule iii read with clause 5 " * 8
+        filing_subtitle(headline, "Foo Ltd", "Other")  # must simply return
+
+    def test_extracts_the_press_release_title_as_the_gist(self):
+        """A press release's substance is its title, not the dateline."""
+        self.assertEqual(
+            filing_subtitle('A press release dated September 03, 2026, titled '
+                            '"Prestige Group Expands Into Chennai"',
+                            "Prestige Estates Projects Limited", "Press Release"),
+            "Prestige Group Expands Into Chennai")
+
+    def test_press_release_dateline_may_contain_several_commas(self):
+        out = filing_subtitle('A press release dated August 29, 2026, titled '
+                              '"Foo wins a contract"', "Bar Ltd", "Press Release")
+        self.assertEqual(out, "Foo wins a contract")
+
+    def test_bare_press_release_headline_falls_back(self):
+        self.assertEqual(filing_subtitle("Press Release", "Foo Ltd", "Press Release"),
+                         "Press Release")
+
+    def test_disclosure_under_reg_30_is_a_citation_not_a_subtitle(self):
+        for headline in ("Disclosure under reg 30", "Intimation under Regulation 30",
+                         "Disclosure under Regulation 10(7) in respect of acquisition"):
+            self.assertEqual(filing_subtitle(headline, "Foo Ltd", "Acquisition"),
+                             "Acquisition", headline)
+
+    def test_strips_a_stranded_year_from_a_cut_citation(self):
+        out = filing_subtitle("2015, we are enclosing herewith a Press Release titled "
+                              "'Tata Motors launches Harrier EV'",
+                              "Tata Motors Passenger Vehicles Ltd", "Press Release")
+        self.assertEqual(out, "Tata Motors launches Harrier EV")
+
+    def test_subtitle_reaches_the_parsed_payload(self):
+        out = parse_companies({"items": [_item(
+            headline="Bharti Airtel Ltd has informed the Exchange about "
+                     "acquisition of spectrum",
+        )]}, now=NOW)
+        self.assertEqual(out[0]["subtitle"], "Acquisition of spectrum")
+        self.assertEqual(out[0]["title"], "Bharti Airtel Ltd")
 
 
 class TestReservedFields(unittest.TestCase):

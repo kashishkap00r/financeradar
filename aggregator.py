@@ -493,6 +493,7 @@ def generate_html(
         "source_url": c.get("source_url", ""),
         "ticker": c.get("ticker", ""),
         "exchange": c.get("exchange", ""),
+        "subtitle": c.get("subtitle", ""),
         "sector": c.get("sector", ""),
         "cap": c.get("cap", ""),
         "category": c.get("category", ""),

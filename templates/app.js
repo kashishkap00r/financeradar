@@ -2423,7 +2423,8 @@
                 const title = escapeHtml(cleanHomeTitle(c.title));
                 const url = sanitizeUrl(c.link || c.source_url || '');
                 const ticker = escapeHtml(companyTickerLabel(c));
-                const sector = escapeHtml(c.sector || '');
+                const gist = (c.subtitle || c.sector || '');
+                const sector = escapeHtml(gist.length > 72 ? gist.slice(0, 71).trimEnd() + '…' : gist);
                 const dateStr = c.date ? escapeHtml(new Date(c.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
                 const meta = [sector, dateStr].filter(Boolean).join(' · ');
                 const bk = npBookmarkBtn(url, title, ticker || 'Market Tide');
@@ -3656,7 +3657,7 @@
                 var matchesCap = selectedCompanyCaps.size === 0 || selectedCompanyCaps.has(c.cap);
                 var matchesExch = selectedCompanyExchs.size === 0 || selectedCompanyExchs.has(c.exchange);
                 var matchesCat = !companyCategoryFilter || c.category === companyCategoryFilter;
-                var hay = ((c.title || '') + ' ' + (c.ticker || '') + ' ' + (c.sector || '') + ' ' + (c.category || '')).toLowerCase();
+                var hay = ((c.title || '') + ' ' + (c.ticker || '') + ' ' + (c.subtitle || '') + ' ' + (c.sector || '') + ' ' + (c.category || '')).toLowerCase();
                 var matchesSearch = !query || hay.indexOf(query) !== -1;
                 return matchesCap && matchesExch && matchesCat && matchesSearch;
             });
@@ -3692,7 +3693,8 @@
                 var exch = escapeHtml(c.exchange || '');
                 var cap = escapeHtml(c.cap || '');
                 var cat = escapeHtml(c.category || '');
-                var filing = escapeHtml(c.sector || '');
+                // What the update is about, from the filing's own text.
+                var filing = escapeHtml(c.subtitle || c.sector || '');
                 var dateStr = c.date ? escapeHtml(formatResearchDate(c.date)) : '';
                 var capCls = capTierClass(c.cap);
                 var titleHtml = url
