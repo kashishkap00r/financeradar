@@ -2423,16 +2423,19 @@
                 const title = escapeHtml(cleanHomeTitle(c.title));
                 const url = sanitizeUrl(c.link || c.source_url || '');
                 const ticker = escapeHtml(companyTickerLabel(c));
-                const gist = (c.subtitle || c.sector || '');
-                const sector = escapeHtml(gist.length > 72 ? gist.slice(0, 71).trimEnd() + '…' : gist);
+                const cat = escapeHtml(c.category || '');
                 const dateStr = c.date ? escapeHtml(new Date(c.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
-                const meta = [sector, dateStr].filter(Boolean).join(' · ');
                 const bk = npBookmarkBtn(url, title, ticker || 'Market Tide');
                 return '<div class="slider-card slider-megacap"><div class="slider-card-body">'
                     + '<div class="slider-card-header"><div>'
                     + (ticker ? '<div class="rp-publisher">' + ticker + '</div>' : '')
                     + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
-                    + (meta ? '<span class="rp-region">' + meta + '</span>' : '')
+                    + '<div class="megacap-meta">'
+                    // .rp-region is the accent badge the Reports slider uses; the
+                    // filing tag is the strip's main signal, so it gets that slot.
+                    + (cat ? '<span class="rp-region">' + cat + '</span>' : '')
+                    + (dateStr ? '<span class="megacap-date">' + dateStr + '</span>' : '')
+                    + '</div>'
                     + '</div>' + bk + '</div></div></div>';
             }).join('');
             return '<section class="slider-section">'
@@ -3657,7 +3660,7 @@
                 var matchesCap = selectedCompanyCaps.size === 0 || selectedCompanyCaps.has(c.cap);
                 var matchesExch = selectedCompanyExchs.size === 0 || selectedCompanyExchs.has(c.exchange);
                 var matchesCat = !companyCategoryFilter || c.category === companyCategoryFilter;
-                var hay = ((c.title || '') + ' ' + (c.ticker || '') + ' ' + (c.subtitle || '') + ' ' + (c.sector || '') + ' ' + (c.category || '')).toLowerCase();
+                var hay = ((c.title || '') + ' ' + (c.ticker || '') + ' ' + (c.sector || '') + ' ' + (c.category || '')).toLowerCase();
                 var matchesSearch = !query || hay.indexOf(query) !== -1;
                 return matchesCap && matchesExch && matchesCat && matchesSearch;
             });
@@ -3693,8 +3696,6 @@
                 var exch = escapeHtml(c.exchange || '');
                 var cap = escapeHtml(c.cap || '');
                 var cat = escapeHtml(c.category || '');
-                // What the update is about, from the filing's own text.
-                var filing = escapeHtml(c.subtitle || c.sector || '');
                 var dateStr = c.date ? escapeHtml(formatResearchDate(c.date)) : '';
                 var capCls = capTierClass(c.cap);
                 var titleHtml = url
@@ -3713,7 +3714,6 @@
                     + (dateStr ? '<span class="company-date">' + dateStr + '</span>' : '')
                     + bk + '</div></div>'
                     + '<div class="company-title-row">' + titleHtml + '</div>'
-                    + (filing ? '<div class="company-sector">' + filing + '</div>' : '')
                     + '</div>';
             }).join('');
             container.innerHTML = html;
