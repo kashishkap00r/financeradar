@@ -41,16 +41,20 @@ from articles import (group_similar_articles, clean_html, get_sort_timestamp,
 
 # Feed loading and fetching
 from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
-                   fetch_rbi_press_releases, INVIDIOUS_INSTANCES, YOUTUBE_BUCKETS)
+                   fetch_rbi_press_releases, fetch_beehiiv,
+                   INVIDIOUS_INSTANCES, YOUTUBE_BUCKETS)
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher
 from paper_fetcher import fetch_papers, load_papers_cache, save_papers_cache
-from companies_fetcher import fetch_companies, load_companies_cache, save_companies_cache
+from companies_fetcher import (fetch_companies, load_companies_cache,
+                               save_companies_cache, companies_cache_age_days,
+                               CAP_TIERS, COMPANIES_SOURCE_LABEL)
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
                     TWITTER_HIGH_SIGNAL_WINDOW_HOURS, TWITTER_HIGH_SIGNAL_TARGET,
-                    REPORTS_FRESHNESS_DAYS,
+                    REPORTS_FRESHNESS_DAYS, COMPANIES_STALE_AFTER_DAYS,
+                    COMPANIES_SITE_BASE,
                     FEED_FAILURE_ALERT_THRESHOLD)
 from log_utils import FeedLogger
 from twitter_signal import build_twitter_lanes
@@ -333,7 +337,7 @@ def generate_html(
     publisher_presets = {
         "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express", "Power Line Magazine"],
         "World Desk": ["BBC", "CNBC", "WSJ", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World", "Techmeme"],
-        "Indie Voices": ["Finshots", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data", "Noah Smith", "Ideas For India", "The India Forum", "Neel Chhabra", "Ember"],
+        "Indie Voices": ["Finshots", "This Week in Fintech", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data", "Noah Smith", "Ideas For India", "The India Forum", "Neel Chhabra", "Ember"],
         "Official Channels": ["RBI", "SEBI", "ECB", "ADB", "FRED"]
     }
 
@@ -477,7 +481,7 @@ def generate_html(
         )
     )
 
-    # Prepare companies data (Tipsheet filings — lightweight, chronological/score-ranked client-side)
+    # Prepare companies data (Market Tide filings — chronological/score-ranked client-side)
     if companies_articles is None:
         companies_articles = []
     companies_articles_json = json.dumps([{
@@ -485,9 +489,11 @@ def generate_html(
         "link": c.get("link", ""),
         "date": c["date"].isoformat() if c.get("date") else None,
         "time": c.get("time", ""),
-        "source": c.get("source", "Tipsheet"),
+        "source": c.get("source", COMPANIES_SOURCE_LABEL),
         "source_url": c.get("source_url", ""),
         "ticker": c.get("ticker", ""),
+        "exchange": c.get("exchange", ""),
+        "subtitle": c.get("subtitle", ""),
         "sector": c.get("sector", ""),
         "cap": c.get("cap", ""),
         "category": c.get("category", ""),
@@ -495,15 +501,20 @@ def generate_html(
     } for c in companies_articles])
     companies_count = len(companies_articles)
     # Cap tiers in display order, restricted to those actually present.
-    _cap_order = ["Mega cap", "Large cap", "Mid cap", "Small cap", "Micro cap", "Nano cap"]
     _present_caps = set(c.get("cap", "") for c in companies_articles if c.get("cap"))
-    companies_caps_json = json.dumps([t for t in _cap_order if t in _present_caps])
+    companies_caps_json = json.dumps([t for t in CAP_TIERS if t in _present_caps])
+    # Exchange is a 3-value chip row (NSE / BSE / NSE + BSE); the filing tag has
+    # ~24 values so it reads better as a dropdown than as a chip row.
+    _exch_order = ["NSE", "BSE", "NSE + BSE"]
+    _present_exch = set(c.get("exchange", "") for c in companies_articles if c.get("exchange"))
+    companies_exchanges_json = json.dumps([e for e in _exch_order if e in _present_exch])
     companies_categories_json = json.dumps(
         sorted(set(c.get("category", "") for c in companies_articles if c.get("category")))
     )
-    companies_sectors_json = json.dumps(
-        sorted(set(c.get("sector", "") for c in companies_articles if c.get("sector")))
-    )
+    # Credit is not optional here: the filings are public exchange documents but
+    # the curation, banding and tagging are Market Tide's work.
+    companies_label = COMPANIES_SOURCE_LABEL
+    companies_site = COMPANIES_SITE_BASE
 
     # Write tab data to separate JSON files for lazy loading
     static_dir = os.path.join(SCRIPT_DIR, "static")
@@ -969,7 +980,7 @@ def generate_html(
                 <div class="filter-head">
                     <div class="stats">
                         <span><strong id="companies-visible-count">{companies_count}</strong> filings</span>
-                        <span>via <a href="https://tipsheet.markets/" target="_blank" rel="noopener"><strong>Tipsheet</strong></a></span>
+                        <span>curated by <a href="{companies_site}" target="_blank" rel="noopener"><strong>{companies_label}</strong></a></span>
                     </div>
                     <div class="filter-head-actions">
                         <span class="update-time" id="companies-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
@@ -988,8 +999,8 @@ def generate_html(
                 </div>
                 <div class="filter-controls" id="companies-filter-controls">
                     <div class="company-chip-row" id="companies-cap-filters" aria-label="Market cap"></div>
-                    <div class="company-chip-row" id="companies-cat-filters" aria-label="Category"></div>
-                    <select id="companies-sector-select" class="company-sector-select" onchange="setCompaniesSector(this.value)" aria-label="Sector"></select>
+                    <div class="company-chip-row" id="companies-exch-filters" aria-label="Exchange"></div>
+                    <select id="companies-cat-select" class="company-sector-select" onchange="setCompaniesCategory(this.value)" aria-label="Filing type"></select>
                     <select id="companies-sort-select" class="company-sector-select" onchange="setCompaniesSort(this.value)" aria-label="Sort by">
                         <option value="relevance" selected>Sort: Relevance</option>
                         <option value="recent">Sort: Recent</option>
@@ -999,6 +1010,7 @@ def generate_html(
             <div id="companies-container"></div>
             <div id="companies-pagination-bottom" class="pagination bottom"></div>
         </div><!-- /tab-companies -->
+
 """
 
     html += f"""        <footer>
@@ -1046,8 +1058,8 @@ def generate_html(
         var PAPER_ARTICLES = null;
         var COMPANIES_DATA = null;
         var COMPANIES_CAPS = {companies_caps_json};
+        var COMPANIES_EXCHANGES = {companies_exchanges_json};
         var COMPANIES_CATEGORIES = {companies_categories_json};
-        var COMPANIES_SECTORS = {companies_sectors_json};
         var NEWS_ARTICLES = null;
         var TODAY_ISO = "{today_iso}";
         var SITE_GENERATED_AT = "{now_ist.isoformat()}";
@@ -1141,6 +1153,8 @@ def main():
                 futures[executor.submit(fetch_careratings, feed)] = feed
             elif feed_field.startswith("rbi-scraper:"):
                 futures[executor.submit(fetch_rbi_press_releases, feed)] = feed
+            elif feed_field.startswith("beehiiv:"):
+                futures[executor.submit(fetch_beehiiv, feed)] = feed
             else:
                 report_fetcher = get_report_fetcher(feed_field)
                 if report_fetcher:
@@ -1487,14 +1501,16 @@ def main():
         )
     )
 
-    # Companies (Tipsheet filings) — live fetch with cache fallback so a CI hiccup never blanks the tab
+    # Companies (Market Tide filings) — live fetch with cache fallback so a CI
+    # hiccup never blanks the tab. The fallback is deliberately noisy: the
+    # previous provider died silently behind exactly this path for ~8 weeks.
     companies_articles = []
     cached_companies, _ = load_companies_cache(COMPANIES_CACHE_PATH)
     try:
         companies_articles = fetch_companies()
         if companies_articles:
             save_companies_cache(COMPANIES_CACHE_PATH, companies_articles)
-            logger.info(f"Companies: fetched {len(companies_articles)} filings from Tipsheet")
+            logger.info(f"Companies: fetched {len(companies_articles)} filings from {COMPANIES_SOURCE_LABEL}")
             logger.add_articles(len(companies_articles))
         elif cached_companies:
             companies_articles = cached_companies
@@ -1509,6 +1525,19 @@ def main():
             logger.add_articles(len(cached_companies))
         else:
             logger.warn("Companies", f"Live fetch failed ({str(e)[:80]}) and no cache exists yet")
+
+    # Serving the cache is fine for a run or two; serving it for weeks is the
+    # failure that hid the last outage. Say so in the run log either way.
+    _companies_age = companies_cache_age_days(companies_articles)
+    if _companies_age is None:
+        if companies_articles:
+            logger.warn("Companies", "No dated filings — cannot tell whether the source is live")
+    elif _companies_age > COMPANIES_STALE_AFTER_DAYS:
+        logger.warn(
+            "Companies",
+            f"STALE: newest filing is {_companies_age}d old "
+            f"(> {COMPANIES_STALE_AFTER_DAYS}d) — {COMPANIES_SOURCE_LABEL} may have stopped publishing",
+        )
 
     # Filter out twitter articles older than configured days
     twitter_cutoff = datetime.now(IST_TZ) - timedelta(days=TWITTER_FRESHNESS_DAYS)

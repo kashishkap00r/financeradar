@@ -47,13 +47,18 @@ RSSHUB_CACHE_FILE = "static/rsshub_twitter_cache.json"  # RSSHub local fetch cac
 RSSHUB_CACHE_MAX_AGE_HOURS = 24  # treat RSSHub cache as stale after this (needs headroom for overnight/laptop-off gaps)
 RSSHUB_BASE_URL = "http://localhost:1200"  # local RSSHub instance
 
-# ── Companies (Tipsheet integration) ──────────────────────────────────
-COMPANIES_SEARCH_INDEX_URL = "https://tipsheet.markets/search-index.json"  # source feed
-COMPANIES_SITE_BASE = "https://tipsheet.markets"  # prepend to relative item URLs
+# ── Companies (Market Tide integration) ───────────────────────────────
+# Public, unauthenticated JSON. The default scope is Market Tide's curated set
+# ("worth reading"); ?scope=all returns everything but truncates at 600.
+COMPANIES_ANNOUNCEMENTS_URL = "https://markettide.in/api/announcements"  # source feed
+COMPANIES_SITE_BASE = "https://markettide.in"  # credit link target
 COMPANIES_CACHE_FILE = "static/companies_cache.json"  # cache fallback (CI safety)
-COMPANIES_FETCH_TIMEOUT = 20     # seconds, HTTP timeout for search-index fetch
+COMPANIES_FETCH_TIMEOUT = 20     # seconds, HTTP timeout for the announcements fetch
 COMPANIES_FRESHNESS_DAYS = 30    # discard filings older than this
 COMPANIES_MAX_ITEMS = 500        # cap total items kept in the tab payload
+# Warn once the newest cached filing passes this age. The Tipsheet outage hid
+# behind the cache fallback for ~8 weeks precisely because nothing checked.
+COMPANIES_STALE_AFTER_DAYS = 3
 
 # ── Report scrapers ───────────────────────────────────────────────────
 SCRAPER_MAX_ARTICLES = 30        # max articles per scraper invocation
