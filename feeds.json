@@ -246,14 +246,6 @@
     "publisher": "ET"
   },
   {
-    "id": "wsj-business-rss",
-    "name": "WSJ — Business",
-    "url": "https://www.wsj.com/business",
-    "feed": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-    "category": "News",
-    "publisher": "WSJ"
-  },
-  {
     "id": "wsj-economy-google-rss",
     "name": "WSJ — Economy",
     "url": "https://www.wsj.com/economy",
@@ -957,24 +949,6 @@
     "publisher": "CareEdge"
   },
   {
-    "id": "careratings-building",
-    "name": "CareEdge — Building",
-    "url": "https://www.careratings.com/industry-research",
-    "feed": "careratings:12",
-    "category": "Reports",
-    "region": "Indian",
-    "publisher": "CareEdge"
-  },
-  {
-    "id": "careratings-capital-goods",
-    "name": "CareEdge — Capital Goods",
-    "url": "https://www.careratings.com/industry-research",
-    "feed": "careratings:13",
-    "category": "Reports",
-    "region": "Indian",
-    "publisher": "CareEdge"
-  },
-  {
     "id": "careratings-infrastructure",
     "name": "CareEdge — Infrastructure",
     "url": "https://www.careratings.com/industry-research",
@@ -988,15 +962,6 @@
     "name": "CareEdge — Manufacturing",
     "url": "https://www.careratings.com/industry-research",
     "feed": "careratings:15",
-    "category": "Reports",
-    "region": "Indian",
-    "publisher": "CareEdge"
-  },
-  {
-    "id": "careratings-metals",
-    "name": "CareEdge — Metals",
-    "url": "https://www.careratings.com/industry-research",
-    "feed": "careratings:16",
     "category": "Reports",
     "region": "Indian",
     "publisher": "CareEdge"
@@ -1590,14 +1555,6 @@
     "publisher": "IndiaSpend"
   },
   {
-    "id": "x-ila-patnaik",
-    "name": "Ila Patnaik (X)",
-    "url": "https://x.com/IlaPatnaik",
-    "feed": "https://news.google.com/rss/search?q=site:x.com/IlaPatnaik/status&hl=en-IN&gl=IN&ceid=IN:en",
-    "category": "Twitter",
-    "publisher": "Ila Patnaik"
-  },
-  {
     "id": "x-ideas-for-india",
     "name": "Ideas For India (X)",
     "url": "https://x.com/Ideas4India",
@@ -1652,14 +1609,6 @@
     "feed": "https://news.google.com/rss/search?q=site:x.com/ftenergy/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "FT Energy"
-  },
-  {
-    "id": "x-india-data-hub",
-    "name": "India Data Hub (X)",
-    "url": "https://x.com/IndiaDataHub",
-    "feed": "https://news.google.com/rss/search?q=site:x.com/IndiaDataHub/status&hl=en-IN&gl=IN&ceid=IN:en",
-    "category": "Twitter",
-    "publisher": "India Data Hub"
   },
   {
     "id": "x-kobeissi-letter",
@@ -1910,15 +1859,6 @@
     "category": "Reports",
     "region": "International",
     "publisher": "Goldman Sachs"
-  },
-  {
-    "id": "kpler-blog",
-    "name": "Kpler",
-    "url": "https://www.kpler.com/pt/resources/blog",
-    "feed": "kpler:blog",
-    "category": "Reports",
-    "region": "International",
-    "publisher": "Kpler"
   },
   {
     "id": "crisil-ratings-reports",
