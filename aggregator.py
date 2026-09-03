@@ -40,7 +40,8 @@ from articles import (group_similar_articles, clean_html, get_sort_timestamp,
 
 # Feed loading and fetching
 from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
-                   fetch_rbi_press_releases, INVIDIOUS_INSTANCES, YOUTUBE_BUCKETS)
+                   fetch_rbi_press_releases, fetch_beehiiv,
+                   INVIDIOUS_INSTANCES, YOUTUBE_BUCKETS)
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher
@@ -330,7 +331,7 @@ def generate_html(
     publisher_presets = {
         "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express", "Power Line Magazine"],
         "World Desk": ["BBC", "CNBC", "WSJ", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World", "Techmeme"],
-        "Indie Voices": ["Finshots", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data", "Noah Smith", "Ideas For India", "The India Forum", "Neel Chhabra", "Ember"],
+        "Indie Voices": ["Finshots", "This Week in Fintech", "Filter Coffee", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "AlphaEcon", "Market Bites", "Capital Quill", "This Week In Data", "Noah Smith", "Ideas For India", "The India Forum", "Neel Chhabra", "Ember"],
         "Official Channels": ["RBI", "SEBI", "ECB", "ADB", "FRED"]
     }
 
@@ -1069,6 +1070,8 @@ def main():
                 futures[executor.submit(fetch_careratings, feed)] = feed
             elif feed_field.startswith("rbi-scraper:"):
                 futures[executor.submit(fetch_rbi_press_releases, feed)] = feed
+            elif feed_field.startswith("beehiiv:"):
+                futures[executor.submit(fetch_beehiiv, feed)] = feed
             else:
                 report_fetcher = get_report_fetcher(feed_field)
                 if report_fetcher:

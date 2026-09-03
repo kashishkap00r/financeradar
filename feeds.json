@@ -794,6 +794,14 @@
     "publisher": "Finshots"
   },
   {
+    "id": "this-week-in-fintech",
+    "name": "This Week in Fintech",
+    "url": "https://www.thisweekinfintech.com/",
+    "feed": "beehiiv:www.thisweekinfintech.com",
+    "category": "News",
+    "publisher": "This Week in Fintech"
+  },
+  {
     "id": "marketbites-substack",
     "name": "Market Bites",
     "url": "https://marketbites.substack.com",

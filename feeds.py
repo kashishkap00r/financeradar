@@ -840,6 +840,137 @@ def fetch_the_ken(feed_config):
     return []
 
 
+def _beehiiv_extract_posts(html_text):
+    """Pull the post list out of a beehiiv page's embedded SSR payload.
+
+    beehiiv renders its archive from a JSON blob containing a "posts" array,
+    each entry carrying web_title / slug / override_scheduled_at. There is no
+    public feed on these publications, so this blob is the only place a real
+    title and publish time appear together.
+    """
+    posts = []
+    seen_slugs = set()
+    # The blob is minified and deeply nested, so scan for post objects rather
+    # than trying to parse the whole payload.
+    for match in re.finditer(r'\{"id":"[0-9a-f-]{36}","web_title":', html_text):
+        start = match.start()
+        depth = 0
+        end = None
+        for i in range(start, min(start + 20000, len(html_text))):
+            c = html_text[i]
+            if c == '{':
+                depth += 1
+            elif c == '}':
+                depth -= 1
+                if depth == 0:
+                    end = i + 1
+                    break
+        if end is None:
+            continue
+        try:
+            obj = json.loads(html_text[start:end])
+        except json.JSONDecodeError:
+            continue
+        slug = obj.get("slug")
+        title = obj.get("web_title")
+        if not slug or not title or slug in seen_slugs:
+            continue
+        if obj.get("hide_from_feed"):
+            continue
+        seen_slugs.add(slug)
+        posts.append(obj)
+    return posts
+
+
+def fetch_beehiiv(feed_config):
+    """Fetch a beehiiv publication that exposes no RSS feed.
+
+    feed field: "beehiiv:<host>", e.g. "beehiiv:www.thisweekinfintech.com".
+
+    Resilient in the same shape as fetch_the_ken: archive payload first
+    (real titles + publish times), then the news sitemap, then Google News.
+    """
+    feed_name = feed_config["name"]
+    source_url = feed_config.get("url", "")
+    host = feed_config["feed"].split(":", 1)[1].strip("/")
+    base = f"https://{host}"
+
+    def _article(title, link, date, desc=""):
+        return {
+            "title": html.unescape(title).strip(),
+            "link": link,
+            "date": date,
+            "description": desc,
+            "source": feed_name,
+            "source_url": source_url,
+            "category": feed_config.get("category", "News"),
+            "publisher": feed_config.get("publisher", ""),
+            "source_tier": feed_config.get("source_tier", ""),
+        }
+
+    # 1) Archive page SSR payload — the only source with titles and dates together.
+    try:
+        content = _fetch_url_bytes(f"{base}/archive", timeout=25)
+        text = content.decode("utf-8", "replace") if content else ""
+        articles = []
+        for post in _beehiiv_extract_posts(text):
+            raw_date = (post.get("override_scheduled_at")
+                        or post.get("scheduled_at")
+                        or post.get("published_at"))
+            articles.append(_article(
+                post["web_title"],
+                f"{base}/p/{post['slug']}",
+                parse_date(raw_date, feed_name) if raw_date else None,
+                (post.get("web_subtitle") or "").strip(),
+            ))
+        articles = _dedupe_articles(articles)
+        if articles:
+            print(f"  [OK] {feed_name}: {len(articles)} articles (beehiiv archive)")
+            return articles
+    except Exception as e:
+        print(f"  [WARN] {feed_name}: beehiiv archive failed ({str(e)[:60]})")
+
+    # 2) News sitemap — only the last ~48h are marked up, but they are clean.
+    try:
+        content = _fetch_url_bytes(f"{base}/sitemap.xml", timeout=25)
+        root = ET.fromstring(content)
+        ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9",
+              "news": "http://www.google.com/schemas/sitemap-news/0.9"}
+        articles = []
+        for url_el in root.findall("s:url", ns):
+            news_el = url_el.find("news:news", ns)
+            if news_el is None:
+                continue
+            loc = url_el.findtext("s:loc", default="", namespaces=ns)
+            title = news_el.findtext("news:title", default="", namespaces=ns)
+            pub = news_el.findtext("news:publication_date", default="", namespaces=ns)
+            if not loc or not title:
+                continue
+            articles.append(_article(title, loc, parse_date(pub, feed_name) if pub else None))
+        articles = _dedupe_articles(articles)
+        if articles:
+            print(f"  [OK] {feed_name}: {len(articles)} articles (news sitemap)")
+            return articles
+    except Exception as e:
+        print(f"  [WARN] {feed_name}: sitemap failed ({str(e)[:60]})")
+
+    # 3) Google News, as elsewhere in this module — noisy dates, but non-empty.
+    try:
+        domain = host[4:] if host.startswith("www.") else host
+        gn = (f"https://news.google.com/rss/search?q=site:{domain}"
+              f"&hl=en-IN&gl=IN&ceid=IN:en")
+        content = _fetch_url_bytes(gn, timeout=20)
+        articles = _dedupe_articles(_parse_feed_content(content, feed_config))
+        if articles:
+            print(f"  [OK] {feed_name}: {len(articles)} articles (Google News fallback)")
+            return articles
+    except Exception as e:
+        print(f"  [WARN] {feed_name}: Google News fallback failed ({str(e)[:60]})")
+
+    print(f"  [FAIL] {feed_name}: no beehiiv source reachable")
+    return []
+
+
 def fetch_careratings(feed_config):
     """Fetch articles from CareRatings industry research JSON API."""
     feed_name = feed_config["name"]
