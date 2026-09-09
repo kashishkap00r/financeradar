@@ -1,26 +1,86 @@
 {
-  "generated_at": "2026-09-08T22:29:53.301071+05:30",
+  "generated_at": "2026-09-09T06:28:22.270393+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 47,
-      "feeds_ok": 47,
-      "feeds_failed": 0,
-      "items_raw": 1125,
-      "resolve_attempted": 1058,
-      "resolve_resolved": 1058,
-      "resolve_cache_hits": 1051
+      "feeds_ok": 43,
+      "feeds_failed": 4,
+      "items_raw": 1055,
+      "resolve_attempted": 986,
+      "resolve_resolved": 986,
+      "resolve_cache_hits": 968
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.2,
+      "age_hours": 7.2,
       "items": 752,
       "handles_ok": 43
     },
     "warning": "",
-    "generated_at": "2026-09-08T22:29:53.301020+05:30"
+    "generated_at": "2026-09-09T06:28:22.270338+05:30"
   },
   "items": [
+    {
+      "title": "Ahead of Market: 10 things that will decide #stockmarket action on Wednesday https://economictimes.indiatimes.com/markets/stocks/news/ahead-of-market-...",
+      "link": "https://x.com/ETMarkets/status/2097380365640085564",
+      "date": "2026-09-08T17:43:41+00:00",
+      "tweet_id": "2097380365640085564",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Ahead of Market: 10 things that will decide #stockmarket action on Wednesday<br><br>https://economictimes.indiatimes.com/markets/stocks/news/ahead-of-market-10-things-that-will-decide-stock-market-action-on-wednesday/articleshow/133932341.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "#NSE set to price India #IPO at Rs 1,700 to Rs 1,785 a share https://economictimes.indiatimes.com/markets/ipos/fpos/nse-set-to-price-india-ipo-at-rs-1...",
+      "link": "https://x.com/ETMarkets/status/2097380043177836931",
+      "date": "2026-09-08T17:42:24+00:00",
+      "tweet_id": "2097380043177836931",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#NSE set to price India #IPO at Rs 1,700 to Rs 1,785 a share<br><br>https://economictimes.indiatimes.com/markets/ipos/fpos/nse-set-to-price-india-ipo-at-rs-1700-to-rs-1785-a-share/articleshow/133935920.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "The yuan overall still punches far below China's economic weight. Far from ditching the dollar, China is still tightly tied up in dollar-based global ...",
+      "link": "https://x.com/PIIE/status/2097368624046412283",
+      "date": "2026-09-08T16:57:01+00:00",
+      "tweet_id": "2097368624046412283",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The yuan overall still punches far below China's economic weight. Far from ditching the dollar, China is still tightly tied up in dollar-based global financial networks.<br>https://www.piie.com/blogs/realtime-economics/2026/has-chinese-yuans-rise-global-usage-hit-wall",
+      "category": "Twitter"
+    },
+    {
+      "title": "IRANIAN MEDIA: TEHRAN SETS NEW CONDITIONS FOR RESUMING TALKS WITH WASHINGTON",
+      "link": "https://x.com/REDBOXINDIA/status/2097368324967702688",
+      "date": "2026-09-08T16:55:50+00:00",
+      "tweet_id": "2097368324967702688",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "IRANIAN MEDIA: TEHRAN SETS NEW CONDITIONS FOR RESUMING TALKS WITH WASHINGTON",
+      "category": "Twitter"
+    },
     {
       "title": "G KISHAN REDDY: INDIA HAS 123 MILLION TONNES OF COAL STOCK, ENOUGH TO LAST 51 DAYS",
       "link": "https://x.com/REDBOXINDIA/status/2097363696523825360",
@@ -109,6 +169,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "FOOD MINISTRY, FCI SIGN MOU TO MODERNISE FOODGRAIN MANAGEMENT AND BOOST OPERATIONAL EFFICIENCY",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Alexander Berger: We started a Substack! http://coefficientgiving.substack.com One of my favorite things about working at @coeff_giving is how much...",
+      "link": "https://x.com/srajagopalan/status/2097369757674578124",
+      "date": "2026-09-08T16:10:41+00:00",
+      "tweet_id": "2097369757674578124",
+      "source": "Shruti Rajagopalan",
+      "publisher": "Shruti Rajagopalan",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HRtPCtJaYAA7E17?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Alexander Berger<br>We started a Substack! http://coefficientgiving.substack.com<br><br>One of my favorite things about working at @coeff_giving is how much good public writing our staff produces. A few of my favorites from the past year:<br><br>1\ufe0f\u20e3 @Lewis_Bollard's great end-of-year newsletter on big wins for farmed animals:<br>https://farmanimalwelfare.substack.com/p/ten-big-wins-in-2025-for-farmed-animals<br><br>2\ufe0f\u20e3 @deenamousa on why there aren't more AI radiologists, in @WorksInProgMag:<br>https://worksinprogress.co/issue/the-algorithm-will-see-you-now/<br><br>3\ufe0f\u20e3 Andrew Snyder-Beattie on four pillars for countering catastrophic biological risk, from our biosecurity team's new blog:<br>https://defensesindepth.bio/the-four-pillars-a-hypothesis-for-countering-catastrophic-biological-risk/<br><br>None of those are on our website, so you would've had to know where to look. Now, posts like that will all be in one place.<br><img width=\"1456\" height=\"1048\" style=\"\" src=\"https://pbs.twimg.com/media/HRtPCtJaYAA7E17?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -1417,21 +1492,6 @@
       "category": "Twitter"
     },
     {
-      "title": "GENNEX LABORATORIES: CO SUBSIDIARY DECCAN REMEDIES GETS ANDHRA PRADESH DRUG LICENSE APPROVAL FOR ADDITIONAL PRODUCTS",
-      "link": "https://x.com/REDBOXINDIA/status/2097298640645796140",
-      "date": "2026-09-08T12:18:56+00:00",
-      "tweet_id": "2097298640645796140",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "GENNEX LABORATORIES: CO SUBSIDIARY DECCAN REMEDIES GETS ANDHRA PRADESH DRUG LICENSE APPROVAL FOR ADDITIONAL PRODUCTS",
-      "category": "Twitter"
-    },
-    {
       "title": "Switching models is not only about regression anymore but also about cost increase. Anthropic caches entire history for a specific model & it is resen...",
       "link": "https://x.com/Finstor85/status/2097298498072776954",
       "date": "2026-09-08T12:18:22+00:00",
@@ -1852,21 +1912,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#Eurozone government bond yields held near multi-year highs on Tuesday as investors weighed rising energy prices, political uncertainty in Germany and...",
-      "link": "https://x.com/ETMarkets/status/2097263676252471601",
-      "date": "2026-09-08T10:00:00+00:00",
-      "tweet_id": "2097263676252471601",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Eurozone government bond yields held near multi-year highs on Tuesday as investors weighed rising energy prices, political uncertainty in Germany and renewed volatility in Japan ahead of this week's European Central Bank policy meeting, according to a report by Reuters.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-eurozone-bond-yields-hold-near-multi-year-highs-as-markets-await-ecb-decision/articleshow/133918411.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst",
-      "category": "Twitter"
-    },
-    {
       "title": "Analysis: UK solar power hits record high over summer 2026 \u270d\ufe0f Written by Molly Lempriere \ud83d\udcca Data analysis by Ho Woo Nam Read here \u27a1\ufe0f https://buf...",
       "link": "https://x.com/CarbonBrief/status/2097263182100271104",
       "date": "2026-09-08T09:58:02+00:00",
@@ -1879,21 +1924,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Analysis: UK solar power hits record high over summer 2026 <br><br>\u270d\ufe0f Written by Molly Lempriere <br>\ud83d\udcca Data analysis by Ho Woo Nam <br><br>Read here \u27a1\ufe0f https://buff.ly/g7fZyp6<br><img width=\"2048\" height=\"1336\" style=\"\" src=\"https://pbs.twimg.com/media/HRr5v6XXEAA624h?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "#IDBIBank shares crash 11% amid price concerns as Fairfax deal moves closer #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/idbi-b...",
-      "link": "https://x.com/ETMarkets/status/2097262921705558047",
-      "date": "2026-09-08T09:57:00+00:00",
-      "tweet_id": "2097262921705558047",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#IDBIBank shares crash 11% amid price concerns as Fairfax deal moves closer<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/idbi-bank-shares-crash-11-amid-price-concerns-as-fairfax-deal-moves-closer/articleshow/133918985.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst",
       "category": "Twitter"
     },
     {
@@ -5917,21 +5947,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Trump's new tariffs on Canada set a new record for lack of credibility. They invoke a zombie authority found in the notorious & discredited Smoot-Hawl...",
-      "link": "https://x.com/PIIE/status/2096260821219221670",
-      "date": "2026-09-05T15:35:01+00:00",
-      "tweet_id": "2096260821219221670",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Trump's new tariffs on Canada set a new record for lack of credibility. They invoke a zombie authority found in the notorious &amp; discredited Smoot-Hawley Act, which deepened the Great Depression. The courts should reject these tariffs as patently illegal. https://www.piie.com/blogs/realtime-economics/2026/trump-invoked-zombie-statute-justify-tariffs-canada",
-      "category": "Twitter"
-    },
-    {
       "title": "Markets itself is one of the greatest teachers It teaches patience, discipline, humility, risk management & the importance of learning from mistakes A...",
       "link": "https://x.com/EquityInsightss/status/2096258706145149103",
       "date": "2026-09-05T15:26:36+00:00",
@@ -7864,21 +7879,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Aditya Kalra<br>Is India GDP growth really 7.8%? Government says yes, some say no. What's the controversy all about? India's opposition has seized \u2060on the controversy to criticise PM Narendra Modi. <br><br>A Reuters Explainer. <br><br>https://www.reuters.com/world/india/why-indias-strong-gdp-growth-is-raising-eyebrows-2026-09-03/ @ShubhsBatra, @dugalira, @BillyMallard",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Kumar: I studied the traffic flow at the TIDEL Park signal this morning and identified a major cause of the morning congestion towards Madhya Kaila...",
-      "link": "https://x.com/srajagopalan/status/2095517723392369091",
-      "date": "2026-09-03T13:58:32+00:00",
-      "tweet_id": "2095517723392369091",
-      "source": "Shruti Rajagopalan",
-      "publisher": "Shruti Rajagopalan",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2095507282515972096/img/QTRuQuha0jEmYh6t.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Kumar<br>I studied the traffic flow at the TIDEL Park signal this morning and identified a major cause of the morning congestion towards Madhya Kailash.<br><br>Within approximately 100 metres, traffic from six lanes is forced into just two narrow lanes because of Metro construction.<br><br>This sudden bottleneck creates a queue extending 300\u2013400 metres. \ud83e\uddf5<br><br>@ChennaiTraffic @chennaicorp @CMOTamilnadu @AadhavArjuna @sameerangs @MtcChennai @CumtaOfficial @UpdatesChennai @OMRupdates @ArchitectSam76 @omjasvinMD @rajeshamlw @jvidyasagar @reclaimchennai <br> #chennai #omr #traffic #tidel #tidelpark #thiruvanmiyur<br><video width=\"2048\" height=\"1152\" src=\"https://video.twimg.com/amplify_video/2095507282515972096/vid/avc1/3840x2160/mu7WlbPgUgUuUuDz.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2095507282515972096/img/QTRuQuha0jEmYh6t.jpg\"></video><br><video width=\"2048\" height=\"1152\" src=\"https://video.twimg.com/amplify_video/2095507451688923136/vid/avc1/3840x2160/IeYd3Eez9-AkxjCZ.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2095507451688923136/img/LnNdtq2GO72HugH4.jpg\"></video><br><video width=\"2048\" height=\"1152\" src=\"https://video.twimg.com/amplify_video/2095507588637208577/vid/avc1/3840x2160/Ld345f3ax61QGXVL.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2095507588637208577/img/bpYCCNbuAhD-yv8f.jpg\"></video><br><video width=\"2048\" height=\"1152\" src=\"https://video.twimg.com/amplify_video/2095507759580291072/vid/avc1/3840x2160/5AgKMSluz9Nh1uqp.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2095507759580291072/img/2mSBartDrkgS2Gil.jpg\"></video>",
       "category": "Twitter"
     },
     {
