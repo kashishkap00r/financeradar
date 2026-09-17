@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T11:01:11.411025+05:30",
+  "generated_at": "2026-09-17T11:25:24.246417+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
@@ -7,9 +7,9 @@
       "feeds_ok": 46,
       "feeds_failed": 1,
       "items_raw": 1147,
-      "resolve_attempted": 1053,
-      "resolve_resolved": 1053,
-      "resolve_cache_hits": 1038
+      "resolve_attempted": 1052,
+      "resolve_resolved": 1052,
+      "resolve_cache_hits": 1051
     },
     "rsshub_stats": {
       "status": "loaded",
@@ -18,9 +18,144 @@
       "handles_ok": 43
     },
     "warning": "",
-    "generated_at": "2026-09-17T11:01:11.410964+05:30"
+    "generated_at": "2026-09-17T11:25:24.246365+05:30"
   },
   "items": [
+    {
+      "title": "\u201c\u2026 his conspicuous absence has become an increasing source of bafflement and suspicion inside Iran, where the presence and authority of the supreme ...",
+      "link": "https://x.com/JavierBlas/status/2100461289843617880",
+      "date": "2026-09-17T05:46:10+00:00",
+      "tweet_id": "2100461289843617880",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\u201c\u2026 his conspicuous absence has become an increasing source of bafflement and suspicion inside Iran, where the presence and authority of the supreme leader has been a core pillar of the regime\u2019s power\u2026\u201d<br><br>https://www.ft.com/content/ffe402ca-564a-457f-a861-18083a361e50?syn-25a6b1a6=1",
+      "category": "Twitter"
+    },
+    {
+      "title": "#IPOUpdate | #NSEIPO: Total Subscription: 0.16x, NIIs: 0.25x, Retail: 0.21x, Employee: 0.43x, As Of 11:09 am On Day 1",
+      "link": "https://x.com/CNBCTV18Live/status/2100460545174565183",
+      "date": "2026-09-17T05:43:13+00:00",
+      "tweet_id": "2100460545174565183",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HSZVcvdacAAw2tz?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#IPOUpdate | #NSEIPO: Total Subscription: 0.16x, NIIs: 0.25x, Retail: 0.21x, Employee: 0.43x, As Of 11:09 am On Day 1<br><img width=\"1024\" height=\"512\" style=\"\" src=\"https://pbs.twimg.com/media/HSZVcvdacAAw2tz?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "#CNBCTV18Exclusive | \u201cTrump Is In A Trap Of His Own Making,\u201d says Chris Wood, adding that he expects Iran to maintain its stance into the US midterm...",
+      "link": "https://x.com/CNBCTV18Live/status/2100459463753019838",
+      "date": "2026-09-17T05:38:55+00:00",
+      "tweet_id": "2100459463753019838",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HSZUg-caMAAwAKx?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#CNBCTV18Exclusive | \u201cTrump Is In A Trap Of His Own Making,\u201d says Chris Wood, adding that he expects Iran to maintain its stance into the US midterms.<br><br>Wood says the key market takeaway is energy, noting: \u201cThe thing to do is to own energy.\u201d Oil remains a major focus as the Iran-US conflict continues.<br><br>#ChrisWood #Jefferies #Iran #Trump #CrudeOil #Energy #Markets #CNBCTV18<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HSZUg-caMAAwAKx?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "HCL TECHNOLOGIES: CO. LAUNCHES HCLTECH PULSE TO ACCELERATE AI-LED TRANSFORMATION FOR FAST-SCALING ENTERPRISES; TARGETS ORGANIZATIONS WITH REVENUES BET...",
+      "link": "https://x.com/REDBOXINDIA/status/2100459448791916546",
+      "date": "2026-09-17T05:38:51+00:00",
+      "tweet_id": "2100459448791916546",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "HCL TECHNOLOGIES: CO. LAUNCHES HCLTECH PULSE TO ACCELERATE AI-LED TRANSFORMATION FOR FAST-SCALING ENTERPRISES; TARGETS ORGANIZATIONS WITH REVENUES BETWEEN $500M AND $5B; FOCUSES ON INTEGRATED AI STRATEGY AND MODERNIZATION SERVICES.",
+      "category": "Twitter"
+    },
+    {
+      "title": "NSE'S INDIA IPO GETS 15% SUBSCRIPTION IN FIRST HOUR",
+      "link": "https://x.com/REDBOXINDIA/status/2100458367852699812",
+      "date": "2026-09-17T05:34:34+00:00",
+      "tweet_id": "2100458367852699812",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "NSE'S INDIA IPO GETS 15% SUBSCRIPTION IN FIRST HOUR",
+      "category": "Twitter"
+    },
+    {
+      "title": "#ChrisWood says owning #energy stocks is the best hedge as West Asia tensions keep oil risks elevated #CNBCTV18Exclusive https://www.cnbctv18.com/vide...",
+      "link": "https://x.com/CNBCTV18Live/status/2100457324213318137",
+      "date": "2026-09-17T05:30:25+00:00",
+      "tweet_id": "2100457324213318137",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#ChrisWood says owning #energy stocks is the best hedge as West Asia tensions keep oil risks elevated<br><br>#CNBCTV18Exclusive https://www.cnbctv18.com/videos/market/chris-wood-energy-market-west-asia-crude-oil-prices-risk-us-midterms-jefferies-fed-trump-geopolitics-19992599.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "Federal Reserve Chair Kevin Warsh said rising bond yields were being driven primarily by economic strength, heavy capital investment and geopolitical ...",
+      "link": "https://x.com/ETMarkets/status/2100457218751496375",
+      "date": "2026-09-17T05:30:00+00:00",
+      "tweet_id": "2100457218751496375",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Federal Reserve Chair Kevin Warsh said rising bond yields were being driven primarily by economic strength, heavy capital investment and geopolitical uncertainty, rather than concerns about the central bank's ability to control inflation.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/us-market-feds-warsh-points-to-ai-investment-geopolitical-risks-for-higher-yields/articleshow/134302106.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "SEBI CHAIRMAN SAYS NSE WILL LIST AND TRADE ON BSE THERE IS NO LETTER FROM NSE TO TRADE THE SHARES ON NSE: TV INTERVIEW",
+      "link": "https://x.com/REDBOXINDIA/status/2100456949343207656",
+      "date": "2026-09-17T05:28:55+00:00",
+      "tweet_id": "2100456949343207656",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "SEBI CHAIRMAN SAYS NSE WILL LIST AND TRADE ON BSE <br><br>THERE IS NO LETTER FROM NSE TO TRADE THE SHARES ON NSE: TV INTERVIEW",
+      "category": "Twitter"
+    },
+    {
+      "title": "#JustIN | Capital market stocks in focus after #SEBI Chairman says: \u2018To look into concerns raised by #brokers on new #UPI charges' #UPIMDR",
+      "link": "https://x.com/CNBCTV18Live/status/2100456727674319167",
+      "date": "2026-09-17T05:28:03+00:00",
+      "tweet_id": "2100456727674319167",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HSZSImTboAALdbg?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "#JustIN | Capital market stocks in focus after #SEBI Chairman says: \u2018To look into concerns raised by #brokers on new #UPI charges'<br><br>#UPIMDR<br><img width=\"609\" height=\"336\" style=\"\" src=\"https://pbs.twimg.com/media/HSZSImTboAALdbg?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002#JustIn | #SEBI Chairman Tuhin Kanta Pandey Says, To Look Into Concerns Raised By Brokers On New #UPI Charges<br><br><img width=\"1280\" height=\"720\" style=\"\" src=\"https://pbs.twimg.com/media/HSZQ7hVa8AAwKVE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
     {
       "title": "SEBI- EXAMINING CONCERNS RAISED BY BROKERS ON FEE IMPOSED ON UPI TRANSACTIONS",
       "link": "https://x.com/REDBOXINDIA/status/2100455489079570509",
@@ -607,21 +742,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#CNBCTV18Alert | Rupee sees sharp recovery from opening level of 96/$, now at 95.81/$",
-      "link": "https://x.com/CNBCTV18Live/status/2100440482241499589",
-      "date": "2026-09-17T04:23:29+00:00",
-      "tweet_id": "2100440482241499589",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HSZDRnGa0AA1Yd3?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#CNBCTV18Alert | Rupee sees sharp recovery from opening level of 96/$, now at 95.81/$<br><img width=\"610\" height=\"340\" style=\"\" src=\"https://pbs.twimg.com/media/HSZDRnGa0AA1Yd3?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Takshashila Institution: America is not a system you can read off the headlines alone. Tariff decisions arrive by executive order. Alliance commitm...",
       "link": "https://x.com/pranaykotas/status/2100443068382290332",
       "date": "2026-09-17T04:23:27+00:00",
@@ -652,21 +772,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#Gems and #jewellery exports rise over 3% in August: How lab-grown diamonds and studded gold fared @anshul91_m https://www.cnbctv18.com/market/commodi...",
-      "link": "https://x.com/CNBCTV18Live/status/2100440007978963287",
-      "date": "2026-09-17T04:21:36+00:00",
-      "tweet_id": "2100440007978963287",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Gems and #jewellery exports rise over 3% in August: How lab-grown diamonds and studded gold fared<br><br>@anshul91_m <br>https://www.cnbctv18.com/market/commodities/gems-jewellery-exports-rise-3-pc-august-lab-grown-diamonds-studded-gold-19992505.htm",
-      "category": "Twitter"
-    },
-    {
       "title": "#RelianceIndustries shares in focus as govt slashes windfall tax on fuel exports; stock down 21% in 2026 so far #ETMarkets https://economictimes.india...",
       "link": "https://x.com/ETMarkets/status/2100439602813423825",
       "date": "2026-09-17T04:20:00+00:00",
@@ -679,21 +784,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#RelianceIndustries shares in focus as govt slashes windfall tax on fuel exports; stock down 21% in 2026 so far<br>#ETMarkets  <br><br>https://economictimes.indiatimes.com/markets/stocks/news/reliance-industries-shares-in-focus-as-govt-slashes-windfall-tax-on-fuel-exports-stock-down-21-in-2026-so-far/articleshow/134301211.cms",
-      "category": "Twitter"
-    },
-    {
-      "title": "#JustIN | Yashish Dahiya, Group CEO Of #PBFintech To CNBC-TV18: 'Rumour Of Stepping Down As CEO Is Absolutely False. Will Continue To Remain In The Sa...",
-      "link": "https://x.com/CNBCTV18Live/status/2100438440919831019",
-      "date": "2026-09-17T04:15:23+00:00",
-      "tweet_id": "2100438440919831019",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HSZBQUkaYAAS6Eb?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#JustIN | Yashish Dahiya, Group CEO Of #PBFintech To CNBC-TV18: 'Rumour Of Stepping Down As CEO Is Absolutely False. Will Continue To Remain In The Same Role In Co'<br><img width=\"610\" height=\"340\" style=\"\" src=\"https://pbs.twimg.com/media/HSZBQUkaYAAS6Eb?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -724,21 +814,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "PB FINTECH: CO CEO OUTRIGHTLY DENYS RUMOUR OF HIM QUITING AS CEO",
-      "category": "Twitter"
-    },
-    {
-      "title": "These #oil and #gas stocks will be impacted after #export levy revision on #petrol, #diesel and #ATF @sudarshankr https://www.cnbctv18.com/market/oil-...",
-      "link": "https://x.com/CNBCTV18Live/status/2100435466277486745",
-      "date": "2026-09-17T04:03:34+00:00",
-      "tweet_id": "2100435466277486745",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "These #oil and #gas stocks will be impacted after #export levy revision on #petrol, #diesel and #ATF<br><br>@sudarshankr <br>https://www.cnbctv18.com/market/oil-and-gas-stocks-petrol-diesel-atf-saed-cut-ril-mrpl-hpcl-bpcl-ioc-share-price-move-19992474.htm",
       "category": "Twitter"
     },
     {
@@ -1057,21 +1132,6 @@
       "category": "Twitter"
     },
     {
-      "title": "The US Federal Reserve has raised interest rates for the first time since 2023, stepping in to tackle stubborn inflation that remains well above its l...",
-      "link": "https://x.com/ETMarkets/status/2100423698583003150",
-      "date": "2026-09-17T03:16:48+00:00",
-      "tweet_id": "2100423698583003150",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The US Federal Reserve has raised interest rates for the first time since 2023, stepping in to tackle stubborn inflation that remains well above its long-term target and ending a prolonged period of policy stability.<br>#ETMarkets #FED <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/explained-what-us-feds-first-25-bps-rate-hike-in-3-years-means-for-indian-stock-market/articleshow/134300284.cms",
-      "category": "Twitter"
-    },
-    {
       "title": "Big Gains for NSE Selling Shareholders IPO coming at Rs 1700-1785 Acquisition prices are crazy for some shareholders! SBI price is Rs 0.8, NIA is 0.32...",
       "link": "https://x.com/aditya_kondawar/status/2100422779640463783",
       "date": "2026-09-17T03:13:09+00:00",
@@ -1222,36 +1282,6 @@
       "category": "Twitter"
     },
     {
-      "title": "SKYWAYS AIR SERVICES: CO RETAINS NO. 1 POSITION AS INDIA\u2019S AIR FREIGHT FORWARDER; GLOBAL RANKING AT 44TH, WHILE INDIA MARKET SHARE RISES TO 6.2% FROM...",
-      "link": "https://x.com/REDBOXINDIA/status/2100402119618822370",
-      "date": "2026-09-17T01:51:03+00:00",
-      "tweet_id": "2100402119618822370",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SKYWAYS AIR SERVICES: CO RETAINS NO. 1 POSITION AS INDIA\u2019S AIR FREIGHT FORWARDER; GLOBAL RANKING AT 44TH, WHILE INDIA MARKET SHARE RISES TO 6.2% FROM 5.9% QOQ.",
-      "category": "Twitter"
-    },
-    {
-      "title": "PUNJAB NATIONAL BANK: BANK ESTABLISHES EURO MEDIUM TERM NOTE PROGRAMME WORTH USD 1.50 BILLION; COMPLIES WITH SEBI REGULATIONS",
-      "link": "https://x.com/REDBOXINDIA/status/2100398026007396405",
-      "date": "2026-09-17T01:34:47+00:00",
-      "tweet_id": "2100398026007396405",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "PUNJAB NATIONAL BANK: BANK ESTABLISHES EURO MEDIUM TERM NOTE PROGRAMME WORTH USD 1.50 BILLION; COMPLIES WITH SEBI REGULATIONS",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Shereen Bhan: #TrumpUpdate US House clears the sweeping Russia sanctions bill introduced by the late Sen. Lindsey Graham, Bill now goes to Presiden...",
       "link": "https://x.com/Nigel__DSouza/status/2100400736060543299",
       "date": "2026-09-17T01:31:05+00:00",
@@ -1279,21 +1309,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Overnight- US Fed hikes interest rates for the first time since 2023<div class=\"rsshub-quote\"><br><br>CNBC:\u2002The Federal Reserve on Wednesday approved its first interest rate hike in more than three years and indicated another to come, as part of an effort aimed at combating inflation brought on by spiraling oil prices and other factors. https://www.cnbc.com/2026/09/16/fed-rate-decision-september-2026.html?__source=twitter|main<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "AYE FINANCE: CO APPOINTS NISHIT SHRIVASTAVA AS CHIEF TECHNOLOGY OFFICER; HE PREVIOUSLY WORKED AT MUTHOOT FINCORP.",
-      "link": "https://x.com/REDBOXINDIA/status/2100393681689927903",
-      "date": "2026-09-17T01:17:31+00:00",
-      "tweet_id": "2100393681689927903",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "AYE FINANCE: CO APPOINTS NISHIT SHRIVASTAVA AS CHIEF TECHNOLOGY OFFICER; HE PREVIOUSLY WORKED AT MUTHOOT FINCORP.",
       "category": "Twitter"
     },
     {
@@ -6844,21 +6859,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "What should be the P/E for a system that will probably generate 80% EPS CAGR over the next 3 years?",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT \u0648\u0632\u0627\u0631\u0629 \u0627\u0644\u062e\u0627\u0631\u062c\u064a\u0629: \u062a\u0642\u0631\u0651\u0631 \u062a\u0623\u062c\u064a\u0644 \u0627\u0644\u0627\u062c\u062a\u0645\u0627\u0639 \u0627\u0644\u0625\u0642\u0644\u064a\u0645\u064a \u0627\u0644\u0630\u064a \u0643\u0627\u0646 \u0645\u0642\u0631\u0651\u0631\u0627\u064b \u0639\u0642\u062f\u0647 \u064a\u0648\u0645 \u063a\u062f\u064d \u0627\u0644\u0625\u062b...",
-      "link": "https://x.com/JavierBlas/status/2099219511094247792",
-      "date": "2026-09-13T19:12:10+00:00",
-      "tweet_id": "2099219511094247792",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002\u0648\u0632\u0627\u0631\u0629 \u0627\u0644\u062e\u0627\u0631\u062c\u064a\u0629<br>\u062a\u0642\u0631\u0651\u0631 \u062a\u0623\u062c\u064a\u0644 \u0627\u0644\u0627\u062c\u062a\u0645\u0627\u0639 \u0627\u0644\u0625\u0642\u0644\u064a\u0645\u064a \u0627\u0644\u0630\u064a \u0643\u0627\u0646 \u0645\u0642\u0631\u0651\u0631\u0627\u064b \u0639\u0642\u062f\u0647 \u064a\u0648\u0645 \u063a\u062f\u064d \u0627\u0644\u0625\u062b\u0646\u064a\u0646 \u0641\u064a \u0645\u062f\u064a\u0646\u0629 \u0635\u0644\u0627\u0644\u0629 \u0628\u0633\u0644\u0637\u0646\u0629 \u0639\u064f\u0645\u0627\u0646 \u0625\u0644\u0649 \u0645\u0648\u0639\u062f \u0644\u0627\u062d\u0642\u060c \u062d\u0631\u0635\u0627\u064b \u0639\u0644\u0649 \u062a\u0647\u064a\u0626\u0629 \u0627\u0644\u0638\u0631\u0648\u0641 \u0627\u0644\u0645\u0644\u0627\u0626\u0645\u0629 \u0644\u062d\u0648\u0627\u0631 \u0628\u0646\u0651\u0627\u0621 \u064a\u0633\u0647\u0645 \u0641\u064a \u062a\u062d\u0642\u064a\u0642 \u062a\u0641\u0627\u0647\u0645\u0627\u062a \u0645\u0633\u062a\u062f\u0627\u0645\u0629 \u062a\u062f\u0639\u0645 \u0623\u0645\u0646 \u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0648\u0627\u0633\u062a\u0642\u0631\u0627\u0631\u0647\u0627 \u0648\u062a\u0644\u0628\u0651\u064a \u062a\u0637\u0644\u0639\u0627\u062a \u0634\u0639\u0648\u0628\u0647\u0627 \u0625\u0644\u0649 \u0627\u0644\u062a\u0639\u0627\u0648\u0646 \u0648\u0627\u0644\u0633\u0644\u0627\u0645.",
       "category": "Twitter"
     },
     {
