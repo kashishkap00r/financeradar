@@ -21,8 +21,18 @@ import subprocess
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
+import xml.etree.ElementTree as ET
 
 from articles import IST_TZ
+# Google News RSS helpers, reused so the CREA news fallback resolves redirect
+# links and strips source suffixes exactly like every other Google-backed feed.
+# feeds.py does not import this module, so the dependency stays one-way.
+from feeds import (
+    _dedupe_articles,
+    _fetch_url_bytes,
+    _parse_feed_content,
+    _post_process_google_rss_articles,
+)
 from config import (
     DEFAULT_USER_AGENT,
     FEED_CURL_TIMEOUT,
@@ -75,8 +85,12 @@ def scraper(func):
     return wrapper
 
 
-def _fetch_url(url, accept="text/html", timeout=None, feed_config=None):
-    """Shared URL fetcher with urllib + curl fallback and retry logic."""
+def _fetch_url(url, accept="text/html", timeout=None, feed_config=None, data=None, extra_headers=None):
+    """Shared URL fetcher with urllib + curl fallback and retry logic.
+
+    Passing `data` (bytes) makes it a POST — needed for Drupal's /views/ajax,
+    which is the only machine-readable route into some listing pages.
+    """
     feed_id = (feed_config or {}).get("id", "")
     effective_timeout = timeout if timeout is not None else SCRAPER_FETCH_TIMEOUT
     if feed_id in SCRAPER_TIMEOUT_OVERRIDES:
@@ -84,31 +98,35 @@ def _fetch_url(url, accept="text/html", timeout=None, feed_config=None):
 
     max_retries = SCRAPER_RETRY_OVERRIDES.get(feed_id, SCRAPER_RETRY_ATTEMPTS)
 
+    headers = {
+        "User-Agent": UA,
+        "Accept": accept,
+        "Accept-Language": "en-US,en;q=0.9",
+    }
+    headers.update(extra_headers or {})
+
     for attempt in range(max_retries + 1):
         try:
             try:
-                req = urllib.request.Request(url, headers={
-                    "User-Agent": UA,
-                    "Accept": accept,
-                    "Accept-Language": "en-US,en;q=0.9",
-                })
+                req = urllib.request.Request(url, data=data, headers=headers)
                 try:
                     with urllib.request.urlopen(req, timeout=effective_timeout, context=SSL_CONTEXT) as resp:
                         return resp.read()
                 except ssl.SSLCertVerificationError:
                     print(f"  [WARN] TLS verification failed for {url}, falling back to unverified")
-                    req = urllib.request.Request(url, headers={
-                        "User-Agent": UA,
-                        "Accept": accept,
-                        "Accept-Language": "en-US,en;q=0.9",
-                    })
+                    req = urllib.request.Request(url, data=data, headers=headers)
                     with urllib.request.urlopen(req, timeout=effective_timeout, context=SSL_CONTEXT_NOVERIFY) as resp:
                         return resp.read()
             except urllib.error.HTTPError as e:
                 if e.code == 403:
                     for ua in ["FeedFetcher/1.0", "Mozilla/5.0 (compatible; RSS Reader)"]:
+                        cmd = ["curl", "-sL", "-A", ua]
+                        if data is not None:
+                            # Without this the retry would silently downgrade to
+                            # a GET and parse whatever the bare URL returns.
+                            cmd += ["--data-binary", data.decode("utf-8", "replace")]
                         result = subprocess.run(
-                            ["curl", "-sL", "-A", ua, url],
+                            cmd + [url],
                             capture_output=True, timeout=FEED_CURL_TIMEOUT
                         )
                         if result.returncode == 0 and result.stdout:
@@ -1728,6 +1746,282 @@ def fetch_csep(feed_config):
     return articles
 
 
+# ── CREA (Centre for Research on Energy and Clean Air) ────────────────
+
+# CREA runs WordPress with Polylang. Two things make the REST API the only
+# sane route here:
+#   - /publications/feed/ looks like a content feed and returns HTTP 200,
+#     but it is the *comments* feed for that page ("Comments on: Publications")
+#     and is permanently empty. There is no RSS for the publication CPT.
+#   - Without lang=en, wp/v2/posts interleaves zh/ua translations of the same
+#     story, which would land in the News tab as duplicates.
+_CREA_API_BASE = "https://energyandcleanair.org/wp-json/wp/v2"
+
+# feed suffix → WordPress rest_base. `publication` is a custom post type
+# (the /publications/ page); `posts` is the regular blog (the /news/ page).
+_CREA_ENDPOINTS = {
+    "publications": "publication",
+    "news": "posts",
+}
+
+_CREA_GOOGLE_NEWS_RSS = (
+    "https://news.google.com/rss/search?q=site:energyandcleanair.org"
+    "&hl=en-IN&gl=IN&ceid=IN:en"
+)
+
+# Google labels some CREA items " - energyandcleanair.org" instead of " - CREA".
+_CREA_DOMAIN_SUFFIX_RE = re.compile(r"\s*[-–—]\s*energyandcleanair\.org\s*$", re.IGNORECASE)
+
+
+def _parse_crea_gmt(raw):
+    """Parse WordPress date_gmt, which is naive ISO but always UTC.
+
+    Deliberately not _parse_date_flexible: that helper stamps IST_TZ on every
+    date it parses (correct for the Indian report sites it was written for),
+    which would shift each CREA timestamp 5h30m earlier than it happened.
+    """
+    if not raw:
+        return None
+    try:
+        dt = datetime.strptime(str(raw).strip()[:19], "%Y-%m-%dT%H:%M:%S")
+    except ValueError:
+        return None
+    return dt.replace(tzinfo=timezone.utc)
+
+
+def _parse_crea_items(payload, feed_config):
+    """Map WordPress REST objects onto the standard article dict."""
+    articles = []
+    for post in payload:
+        if not isinstance(post, dict):
+            continue
+        title = html.unescape(_strip_html((post.get("title") or {}).get("rendered", ""))).strip()
+        link = (post.get("link") or "").strip()
+        if not title or not link:
+            continue
+        # date_gmt is always UTC; the sibling `date` field is naive site-local
+        # time with no offset, which silently skews the Reports freshness cut.
+        dt = _parse_crea_gmt(post.get("date_gmt"))
+        if not _is_fresh(dt):
+            continue
+        # _strip_html leaves a space per removed tag, so inline markup in the
+        # excerpt ("<b>without</b>") turns into doubled spaces on the card.
+        desc = re.sub(
+            r"\s+", " ",
+            html.unescape(_strip_html((post.get("excerpt") or {}).get("rendered", ""))),
+        ).strip()
+        articles.append(_make_article(title, link, dt, desc, feed_config))
+    return articles
+
+
+def _fetch_crea_google_fallback(feed_config):
+    """Last-resort route for the News feed: Google's index of the site.
+
+    energyandcleanair.org sits behind Cloudflare, so a datacenter IP can lose
+    access to the REST API without warning. News articles get no cache
+    fallback (only Reports are persisted to reports_cache.json), so this is
+    the only thing standing between a Cloudflare block and an empty tab.
+    """
+    content = _fetch_url_bytes(_CREA_GOOGLE_NEWS_RSS, timeout=20)
+    articles = _dedupe_articles(_parse_feed_content(content, feed_config))
+    # Strips the " - CREA" suffix Google appends and unwraps the
+    # news.google.com/rss/articles/ redirect back to the real URL where it can.
+    _post_process_google_rss_articles(articles, feed_config)
+
+    cleaned = []
+    for article in articles:
+        # Google labels roughly half of CREA's items by domain rather than by
+        # publisher name, which the shared publisher-alias strip above misses.
+        title = _CREA_DOMAIN_SUFFIX_RE.sub("", article.get("title", "")).strip()
+        if not title or not article.get("link"):
+            continue
+        article["title"] = title
+        cleaned.append(article)
+    return cleaned
+
+
+@scraper
+def fetch_crea(feed_config):
+    """Fetch CREA publications or news from the WordPress REST API."""
+    suffix = feed_config["feed"].split(":", 1)[1].strip()
+    rest_base = _CREA_ENDPOINTS.get(suffix)
+    if not rest_base:
+        raise ValueError(f"unknown CREA feed suffix: {suffix!r}")
+
+    url = (
+        f"{_CREA_API_BASE}/{rest_base}"
+        f"?per_page={_MAX_PER_SCRAPER}&lang=en&orderby=date&order=desc"
+        "&_fields=date_gmt,link,title,excerpt"
+    )
+
+    articles = []
+    try:
+        payload = json.loads(_fetch_url(url, accept="application/json", feed_config=feed_config))
+        if isinstance(payload, list):
+            articles = _parse_crea_items(payload, feed_config)
+    except Exception as e:
+        if suffix != "news":
+            raise
+        print(f"  [WARN] {feed_config['name']}: REST API failed ({str(e)[:60]}), trying Google")
+
+    # Only the News feed falls back. Reports already have reports_cache.json,
+    # and Google News does not index the /publication/ post type.
+    if not articles and suffix == "news":
+        articles = _fetch_crea_google_fallback(feed_config)
+        if articles:
+            # The @scraper wrapper prints the final post-cap count after this.
+            print(f"  [INFO] {feed_config['name']}: served via Google fallback")
+
+    articles.sort(key=lambda a: a["date"] or datetime.min.replace(tzinfo=IST_TZ), reverse=True)
+    return articles
+
+
+# ── Global Energy Monitor (Reports & Briefings) ───────────────────────
+
+# GEM is Drupal, not WordPress: there is no /feed/, no /jsonapi, and the
+# listing page ships zero report links in its HTML — the cards arrive via a
+# Views AJAX call. That endpoint is unauthenticated and returns the full
+# listing, so it is the only structured route in.
+_GEM_ORIGIN = "https://globalenergymonitor.org"
+_GEM_AJAX_URL = f"{_GEM_ORIGIN}/views/ajax"
+_GEM_RSS_URL = f"{_GEM_ORIGIN}/rss.xml"
+
+# Scraped from the listing page's drupalSettings. view_args is an internal
+# taxonomy id, so if GEM re-numbers their content types this could start
+# returning a *different* listing rather than failing — hence the explicit
+# "is this tagged as a report" check in _gem_parse_cards().
+_GEM_VIEW = {
+    "view_name": "resource_listing",
+    "view_display_id": "block_2",
+    "view_args": "8",
+    "view_path": "/node/1462",
+    "page": "0",
+}
+
+_GEM_REPORT_TAGS = frozenset({"report", "briefing"})
+
+_GEM_CARD_RE = re.compile(
+    r'<a\s+href="(/research/[^"]+)"[^>]*class="card\b.*?</a>', re.DOTALL | re.IGNORECASE
+)
+_GEM_TAG_RE = re.compile(r'<div class="tag">\s*(.*?)\s*</div>', re.DOTALL)
+_GEM_TITLE_RE = re.compile(r'<div class="card-title">(.*?)</div>', re.DOTALL)
+_GEM_DATE_RE = re.compile(r'<div class="card-date">\s*(.*?)\s*</div>', re.DOTALL)
+
+
+def _gem_month_start(date_text):
+    """Resolve GEM's month-only card date ("September 2026") to the 1st, UTC.
+
+    The cards carry no day. Anchoring to the 1st never makes a report look
+    newer than it is, so the 30-day Reports window may retire an item early
+    but will never hold a stale one. Where rss.xml covers the report we use
+    its exact pubDate instead and this approximation never applies.
+    """
+    text = _strip_html(date_text or "").strip()
+    if not text:
+        return None
+    for fmt in ("%B %Y", "%b %Y"):
+        try:
+            return datetime.strptime(text, fmt).replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+    return None
+
+
+def _gem_parse_cards(html_str):
+    """Pull report cards out of the Views AJAX markup."""
+    cards = []
+    for block in _GEM_CARD_RE.finditer(html_str or ""):
+        href = block.group(1)
+        body = block.group(0)
+        tags = [_strip_html(t).strip() for t in _GEM_TAG_RE.findall(body)]
+        tags = [t for t in tags if t]
+        if not tags or tags[0].lower() not in _GEM_REPORT_TAGS:
+            # Not a report/briefing — either a different card type or the view
+            # argument has drifted onto another listing. Skip rather than guess.
+            continue
+        title_match = _GEM_TITLE_RE.search(body)
+        title = html.unescape(_strip_html(title_match.group(1) if title_match else "")).strip()
+        title = re.sub(r"\s+", " ", title)
+        if not title:
+            continue
+        date_match = _GEM_DATE_RE.search(body)
+        cards.append({
+            "slug": href.rsplit("/", 1)[-1],
+            "link": urllib.parse.urljoin(_GEM_ORIGIN, href),
+            "title": title,
+            "date_text": _strip_html(date_match.group(1) if date_match else "").strip(),
+            "topics": tags[1:],
+        })
+    return cards
+
+
+def _gem_exact_dates():
+    """Map slug → exact pubDate from the sitewide RSS feed.
+
+    rss.xml only carries the 10 newest items sitewide, but those are exactly
+    the ones sitting near the 30-day cutoff where a month-only guess does the
+    most damage. Best-effort: a failure here just means coarser dates.
+    """
+    dates = {}
+    try:
+        content = _fetch_url_bytes(_GEM_RSS_URL, timeout=20)
+        root = ET.fromstring(content)
+    except Exception as e:
+        print(f"  [WARN] GEM rss.xml unavailable ({str(e)[:60]}); using month-only dates")
+        return dates
+
+    for item in root.findall(".//item"):
+        link = (item.findtext("link") or "").strip()
+        if "/research/" not in link:
+            continue
+        try:
+            dt = parsedate_to_datetime(item.findtext("pubDate") or "")
+        except (TypeError, ValueError):
+            continue
+        if dt is None:
+            continue
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        dates[link.rstrip("/").rsplit("/", 1)[-1]] = dt
+    return dates
+
+
+@scraper
+def fetch_gem(feed_config):
+    """Fetch reports and briefings from Global Energy Monitor."""
+    body = urllib.parse.urlencode(_GEM_VIEW).encode("utf-8")
+    payload = _fetch_url(
+        _GEM_AJAX_URL,
+        accept="application/json",
+        feed_config=feed_config,
+        data=body,
+        extra_headers={
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "X-Requested-With": "XMLHttpRequest",
+        },
+    )
+
+    markup = "".join(
+        cmd.get("data") or ""
+        for cmd in json.loads(payload)
+        if isinstance(cmd, dict) and cmd.get("command") == "insert"
+    )
+    cards = _gem_parse_cards(markup)
+    exact = _gem_exact_dates() if cards else {}
+
+    articles = []
+    for card in cards:
+        dt = exact.get(card["slug"]) or _gem_month_start(card["date_text"])
+        if not _is_fresh(dt):
+            continue
+        articles.append(
+            _make_article(card["title"], card["link"], dt, ", ".join(card["topics"]), feed_config)
+        )
+
+    articles.sort(key=lambda a: a["date"] or datetime.min.replace(tzinfo=IST_TZ), reverse=True)
+    return articles
+
+
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
@@ -1755,6 +2049,8 @@ REPORT_FETCHERS = {
     "ember:": fetch_ember_cache,
     "iea:": fetch_iea,
     "csep:": fetch_csep,
+    "crea:": fetch_crea,
+    "gem:": fetch_gem,
 }
 
 

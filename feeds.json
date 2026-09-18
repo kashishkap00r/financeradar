@@ -674,6 +674,14 @@
     "publisher": "Carbon Brief"
   },
   {
+    "id": "crea-news",
+    "name": "CREA",
+    "url": "https://energyandcleanair.org/news/",
+    "feed": "crea:news",
+    "category": "News",
+    "publisher": "CREA"
+  },
+  {
     "id": "business-standard-india",
     "name": "Business Standard — India",
     "url": "https://www.business-standard.com/india-news",
@@ -1930,6 +1938,24 @@
     "category": "Reports",
     "region": "International",
     "publisher": "Ember"
+  },
+  {
+    "id": "crea-publications",
+    "name": "CREA — Publications",
+    "url": "https://energyandcleanair.org/publications/",
+    "feed": "crea:publications",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "CREA"
+  },
+  {
+    "id": "gem-reports",
+    "name": "Global Energy Monitor — Reports",
+    "url": "https://globalenergymonitor.org/reports-and-briefings/",
+    "feed": "gem:reports",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "Global Energy Monitor"
   },
   {
     "id": "iea-reports",
