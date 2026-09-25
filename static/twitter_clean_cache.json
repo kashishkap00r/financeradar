@@ -1,26 +1,116 @@
 {
-  "generated_at": "2026-09-25T16:57:46.723580+05:30",
+  "generated_at": "2026-09-25T18:02:13.033345+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 47,
       "feeds_ok": 47,
       "feeds_failed": 0,
-      "items_raw": 1095,
-      "resolve_attempted": 1028,
-      "resolve_resolved": 1022,
-      "resolve_cache_hits": 1015
+      "items_raw": 1096,
+      "resolve_attempted": 1029,
+      "resolve_resolved": 1023,
+      "resolve_cache_hits": 1020
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.0,
+      "age_hours": 0.7,
       "items": 748,
       "handles_ok": 45
     },
     "warning": "",
-    "generated_at": "2026-09-25T16:57:46.723525+05:30"
+    "generated_at": "2026-09-25T18:02:13.033282+05:30"
   },
   "items": [
+    {
+      "title": "#ForexData | Total Reserves In Week-Ended Sept 18, Down $14.88 Bn At $765.90 Bn \ud83d\udc49Foreign Currency Assets In Week-Ended Sept 18, Down $14.82 Bn At $...",
+      "link": "https://x.com/CNBCTV18Live/status/2103449491991113782",
+      "date": "2026-09-25T11:40:13+00:00",
+      "tweet_id": "2103449491991113782",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HTDz_NkbMAAK36l?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#ForexData | Total Reserves In Week-Ended Sept 18, Down $14.88 Bn At $765.90 Bn<br><br>\ud83d\udc49Foreign Currency Assets In Week-Ended Sept 18, Down $14.82 Bn At $630.98 Bn<br><img width=\"1254\" height=\"1254\" style=\"\" src=\"https://pbs.twimg.com/media/HTDz_NkbMAAK36l?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "INDIA FX RESERVES, USD ACTUAL: 765.90B VS 780.78B PREVIOUS",
+      "link": "https://x.com/REDBOXINDIA/status/2103447964429754846",
+      "date": "2026-09-25T11:34:09+00:00",
+      "tweet_id": "2103447964429754846",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "INDIA FX RESERVES, USD ACTUAL: 765.90B VS 780.78B PREVIOUS",
+      "category": "Twitter"
+    },
+    {
+      "title": "#Bitcoin traded near the $84,000 mark on Friday after witnessing some profit booking from recent highs. The cryptocurrency was trading at the $84,658 ...",
+      "link": "https://x.com/ETMarkets/status/2103447799912382894",
+      "date": "2026-09-25T11:33:30+00:00",
+      "tweet_id": "2103447799912382894",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Bitcoin traded near the $84,000 mark on Friday after witnessing some profit booking from recent highs. The cryptocurrency was trading at the $84,658 level.<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/cryptocurrency/crypto-news/bitcoin-trades-around-84000-after-profit-booking-as-rising-us-treasury-yields-pressure-crypto-markets/articleshow/134484052.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst",
+      "category": "Twitter"
+    },
+    {
+      "title": "Engineers India among 7 stocks hitting 52-week highs; shares rallied up to 25% in a month #ETMarkets https://economictimes.indiatimes.com/markets/stoc...",
+      "link": "https://x.com/ETMarkets/status/2103447198222753803",
+      "date": "2026-09-25T11:31:06+00:00",
+      "tweet_id": "2103447198222753803",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Engineers India among 7 stocks hitting 52-week highs; shares rallied up to 25% in a month<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/engineers-india-among-7-stocks-hitting-52-week-highs-shares-rallied-up-to-25-in-a-month/d-street-stars/slideshow/134484033.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "Now that India can see its farms, what next? https://www.downtoearth.org.in/agriculture/now-that-india-can-see-its-farms-what-next",
+      "link": "https://x.com/down2earthindia/status/2103446921700421812",
+      "date": "2026-09-25T11:30:00+00:00",
+      "tweet_id": "2103446921700421812",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HTDnF2EaIAA0QBa?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Now that India can see its farms, what next? https://www.downtoearth.org.in/agriculture/now-that-india-can-see-its-farms-what-next<br><img width=\"1000\" height=\"667\" style=\"\" src=\"https://pbs.twimg.com/media/HTDnF2EaIAA0QBa?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "#HDFCBank #CEO Announcement Live Updates: New MD & CEO appointment expected soon https://www.cnbctv18.com/market/hdfc-bank-new-ceo-announcement-live-u...",
+      "link": "https://x.com/CNBCTV18Live/status/2103446881728958731",
+      "date": "2026-09-25T11:29:51+00:00",
+      "tweet_id": "2103446881728958731",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#HDFCBank #CEO Announcement Live Updates: New MD &amp; CEO appointment expected soon<br><br>https://www.cnbctv18.com/market/hdfc-bank-new-ceo-announcement-live-updates-rbi-decision-anup-bagchi-kaizad-bharucha-race-liveblog-19998704.htm",
+      "category": "Twitter"
+    },
     {
       "title": "Japanese investors have sharply increased their purchases of domestic government bonds in the first five months of the fiscal year, while foreign dema...",
       "link": "https://x.com/ETMarkets/status/2103445550389739790",
@@ -787,21 +877,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#CNBCTV18Exclusive | Sources Say Federal Bank-JanaSFB Deal Likely In Final Stages, May Be Announced Soon \ud83d\udc49#FederalBank Seen Acquiring Controlling S...",
-      "link": "https://x.com/CNBCTV18Live/status/2103413324612329915",
-      "date": "2026-09-25T09:16:30+00:00",
-      "tweet_id": "2103413324612329915",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HTDRr2ubIAAeTf6?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#CNBCTV18Exclusive | Sources Say Federal Bank-JanaSFB Deal Likely In Final Stages, May Be Announced Soon<br><br>\ud83d\udc49#FederalBank Seen Acquiring Controlling Stake In #JanaSFB<br><br>\ud83d\udc49Federal Bank-Jana SFB Deal May Be Done At 15-20% Prem To CMP Of Jana SFB<br><br>\ud83d\udc49Alert: As On June 30, Promoter Jana Holdings Held 16.9% In Jana SFB<br><br>\ud83d\udc49Alert: Promoter Divested 4.9% Stake In Q1FY27 &amp; Intends To Further Monetise Stake<br><br>\ud83d\udc49Alert: Promoter To Seek Reclassification To Public Category Once Stake Falls &lt;9.99%<br><img width=\"678\" height=\"679\" style=\"\" src=\"https://pbs.twimg.com/media/HTDRr2ubIAAeTf6?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "ENDURANCE TECHNOLOGIES LIMITED: COMMENCEMENT OF COMMERCIAL PRODUCTION AT AURIC SHENDRA PLANT; MANUFACTURING ALUMINIUM DIE CASTING COMPONENTS FOR AUTOM...",
       "link": "https://x.com/REDBOXINDIA/status/2103412438804894170",
       "date": "2026-09-25T09:12:59+00:00",
@@ -814,21 +889,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "ENDURANCE TECHNOLOGIES LIMITED: COMMENCEMENT OF COMMERCIAL PRODUCTION AT AURIC SHENDRA PLANT; MANUFACTURING ALUMINIUM DIE CASTING COMPONENTS FOR AUTOMOTIVE AND NON-AUTOMOTIVE SECTORS; INITIAL CAPACITY OF 900 MT PER MONTH, EXPANDABLE TO 1,100 MT.",
-      "category": "Twitter"
-    },
-    {
-      "title": "#Trump-#Xi state dinner: Inside the White House evening with tech giants, red decor and a bald eagle gift https://www.cnbctv18.com/photos/world/trump-...",
-      "link": "https://x.com/CNBCTV18Live/status/2103411855716933635",
-      "date": "2026-09-25T09:10:40+00:00",
-      "tweet_id": "2103411855716933635",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Trump-#Xi state dinner: Inside the White House evening with tech giants, red decor and a bald eagle gift<br><br>https://www.cnbctv18.com/photos/world/trump-xi-state-dinner-white-house-guests-menu-bald-eagle-gift-19998525.htm",
       "category": "Twitter"
     },
     {
@@ -889,21 +949,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Govt approves \u201cpremature termination\u201d of Dinesh Pant, MD of LIC \u201cwith effect from the date of issue of the notification on account of his retirement on voluntary basis.\u201d This is on DFS website. What does this mean? @LICIndiaForever @DFS_India<br><img width=\"2048\" height=\"1756\" style=\"\" src=\"https://pbs.twimg.com/media/HTDPHj6bkAAWn7U?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "#Audi starts Q3 assembly in #India; new #SUV to launch on October 16 @ViekDubey https://www.cnbctv18.com/auto/audi-starts-q3-assembly-in-india-new-suv...",
-      "link": "https://x.com/CNBCTV18Live/status/2103407520304046220",
-      "date": "2026-09-25T08:53:26+00:00",
-      "tweet_id": "2103407520304046220",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Audi starts Q3 assembly in #India; new #SUV to launch on October 16<br><br>@ViekDubey <br><br>https://www.cnbctv18.com/auto/audi-starts-q3-assembly-in-india-new-suv-to-launch-on-october-16-19998575.htm",
       "category": "Twitter"
     },
     {
@@ -1192,21 +1237,6 @@
       "category": "Twitter"
     },
     {
-      "title": "CESC LIMITED: ENTERS POWER PURCHASE AGREEMENT WITH PRISM JOHNSON FOR 49.5 MW WIND PROJECT; PJL TO INVEST UP TO \u20b940 CRORES FOR 26.5% STAKE IN KUS RENE...",
-      "link": "https://x.com/REDBOXINDIA/status/2103390995639673314",
-      "date": "2026-09-25T07:47:47+00:00",
-      "tweet_id": "2103390995639673314",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "CESC LIMITED: ENTERS POWER PURCHASE AGREEMENT WITH PRISM JOHNSON FOR 49.5 MW WIND PROJECT; PJL TO INVEST UP TO \u20b940 CRORES FOR 26.5% STAKE IN KUS RENEWABLE PRIVATE LIMITED; PROJECT TO SUPPLY RENEWABLE POWER FOR 25 YEARS",
-      "category": "Twitter"
-    },
-    {
       "title": "This is such an important read. First, what's a stablecoin? Think of a casino chip. You hand over $1, you get a $1 chip, and you can cash it back anyt...",
       "link": "https://x.com/Finstor85/status/2103390446986662357",
       "date": "2026-09-25T07:45:36+00:00",
@@ -1357,21 +1387,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Shares of #PBFintech swung 12% from the day\u2019s high to trade 5% lower at Rs 1,115 on the BSE on Friday, a day after the stock plunged 36% in a single ...",
-      "link": "https://x.com/ETMarkets/status/2103382525012029726",
-      "date": "2026-09-25T07:14:07+00:00",
-      "tweet_id": "2103382525012029726",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Shares of #PBFintech swung 12% from the day\u2019s high to trade 5% lower at Rs 1,115 on the BSE on Friday, a day after the stock plunged 36% in a single session, breaching multiple lower circuits. Nearly 16 lakh shares worth Rs 188 crore changed hands on the BSE during Friday\u2019s session.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/how-to-trade-pb-fintech-shares-after-falling-12-from-days-high-this-technical-analyst-explains/articleshow/134477427.cms",
-      "category": "Twitter"
-    },
-    {
       "title": "India doesn't plan huge changes to dispute resolution with foreign companies following the review of the model Bilateral Investment Treaty. Reuters @N...",
       "link": "https://x.com/dugalira/status/2103380835034697943",
       "date": "2026-09-25T07:07:24+00:00",
@@ -1414,21 +1429,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Aditi Shrivastava<br>As 10-minute delivery &amp; large product assortments become standard in quick commerce, platforms are running out of ways to tie in users. <br><br>Swiggy is betting that what Instamart sells can provide the difference, driving customers to choose it over six rival apps.<br><br>Under a strategy called Switch, Swiggy Instamart is adding its own brands and exclusive products co-created with other companies. These products are marketed as higher-quality or better-for-you items.<br><br>This is not the usual private-label model built around lower prices. For example, two Swiggy-owned brands, Noice and Nectr, sit slightly above the mass market and sell on quality. The company believes customers will pay a little extra if the product feels sufficiently premium.<br><br>Private labels have already become a key part of Instamart. Around the time of Swiggy\u2019s IPO in 2024, analysts and company insiders estimated that they accounted for 4-5% of gross order value. <br><br>That share has since increased to 8-9%, said people familiar with the business. Instamart\u2019s GOV, meanwhile, grew from Rs 8,069 crore in FY24 to Rs 28,496 crore in FY26.<br><br>Our deep-dive https://www.thearcweb.com/article/swiggy-instamart-pushes-own-brands-as-fast-delivery-loses-novelty-80ixxHrbJFvx6w3T",
-      "category": "Twitter"
-    },
-    {
-      "title": "#Nebius shares rally up to 8%: What\u2019s driving the AI rally? #ETMarkets https://economictimes.indiatimes.com/markets/us-stocks/news/nebius-shares-rall...",
-      "link": "https://x.com/ETMarkets/status/2103375196094644729",
-      "date": "2026-09-25T06:45:00+00:00",
-      "tweet_id": "2103375196094644729",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Nebius shares rally up to 8%: What\u2019s driving the AI rally?<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/nebius-shares-rally-up-to-8-whats-driving-the-ai-rally/nebius-stock-surges/slideshow/134477402.cms",
       "category": "Twitter"
     },
     {
@@ -2632,6 +2632,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT menaka doshi: SEBI amends settlement regulations to include \ud83d\udea8Misrepresentation of financial statements and diversion or siphoning of funds It ha...",
+      "link": "https://x.com/menakadoshi/status/2103447354296959302",
+      "date": "2026-09-24T14:39:40+00:00",
+      "tweet_id": "2103447354296959302",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002menaka doshi<br>SEBI amends settlement regulations to include<br><br>\ud83d\udea8Misrepresentation of financial statements and diversion or <br>siphoning of funds<br><br>It has also approved <br><br>A new formula to compute settlement amount<br><br>Fast track settlement<br><br>Settlement notice before show cause notice<br><br>Separate treatment for wrongful gains<br><br>One time opportunity to settle before new regulation applies<br><br>Seems to me that the regulator is comfortable settling more cases versus prosecuting them. As one law firm put it - \"Settlement is a rule and rejection is an exception\u2014a principle now proposed to be incorporated.\" <br><br>I'm surprised something as grave as misrepresentation of financial statements and diversion/siphoning of funds can now be settled.",
+      "category": "Twitter"
+    },
+    {
       "title": "SEBI amends settlement regulations to include \ud83d\udea8Misrepresentation of financial statements and diversion or siphoning of funds It has also approved A...",
       "link": "https://x.com/menakadoshi/status/2103132262233727127",
       "date": "2026-09-24T14:39:40+00:00",
@@ -3788,9 +3803,9 @@
     },
     {
       "title": "RT menaka doshi: Chandra or Noel \u2014 who is the government backing? My latest India Edition (gift link) https://www.bloomberg.com/news/newsletters/2026...",
-      "link": "https://x.com/menakadoshi/status/2103373679166185603",
+      "link": "https://x.com/menakadoshi/status/2103447576704139599",
       "date": "2026-09-24T07:58:33+00:00",
-      "tweet_id": "2103373679166185603",
+      "tweet_id": "2103447576704139599",
       "source": "menaka doshi",
       "publisher": "Menaka Doshi",
       "source_mode": "rsshub",
@@ -7324,21 +7339,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Bookworm Bookstore, Blr<br>Special Book Signing session tomorrow \ud83d\udce2<br>Join authors @PSarthak19 &amp; @pranaykotas as they interact with readers and sign copies of their best selling book, FISCAL FABLES: A Citizen's Guide to Public Finance.<br>Wednesday, 23 Sept, 2:30pm at Bookworm.<br><img width=\"1254\" height=\"1254\" style=\"\" src=\"https://pbs.twimg.com/media/HSza8YMa8AAZZzZ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "#Editorial: \u2018We need ways to monitor soil health so that we don\u2019t discount the wealth beneath our feet\u2019 https://www.downtoearth.org.in/agriculture/...",
-      "link": "https://x.com/down2earthindia/status/2102293154787733846",
-      "date": "2026-09-22T07:05:21+00:00",
-      "tweet_id": "2102293154787733846",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HSzXy1cacAAyagv?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Editorial: \u2018We need ways to monitor soil health so that we don\u2019t discount the wealth beneath our feet\u2019 https://www.downtoearth.org.in/agriculture/we-need-ways-to-monitor-soil-health-so-that-we-dont-discount-the-wealth-beneath-our-feet<br><br>\ud83d\udd8a\ufe0f@sunitanar<br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HSzXy1cacAAyagv?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
