@@ -2022,6 +2022,125 @@ def fetch_gem(feed_config):
     return articles
 
 
+# ── Apollo (Insights + Daily Spark) ───────────────────────────────────
+
+_APOLLO_BASE = "https://www.apollo.com"
+_APOLLO_DAILY_SPARK_PAGE = f"{_APOLLO_BASE}/insights-news/insights/daily-spark"
+# The servlet behind the insights card grid, newest first. pageOffset is
+# 1-based: pageOffset=0 answers HTTP 500. So does server-side format
+# filtering (selectedFilter=apollo:format/...), so the unfiltered list is
+# fetched and formats are filtered here instead.
+_APOLLO_INSIGHTS_API = (
+    f"{_APOLLO_BASE}/api/int.insight.json"
+    "?selectedFilter=&pageOffset=1&listLimit=30&showBento=false&bentoListLimit=3"
+    "&currentPagePath=/content/apolloaem/global/en/general-public/insights-news/insights"
+    "&isHiderecentArticle=false&authoredTags=&authoredAndTags=&dateFormat=MMMM%20dd,%20yyyy"
+)
+# Reports keeps the written research; podcasts and videos go to the
+# YouTube tab via the separate apollo:media feed.
+_APOLLO_REPORT_FORMATS = {"apollo:format/whitepaper", "apollo:format/article"}
+_APOLLO_MEDIA_FORMATS = {"apollo:format/podcast", "apollo:format/video"}
+# Matches what a YouTube channel feed contributes to the tab.
+_APOLLO_MEDIA_LIMIT = 15
+_APOLLO_SPARK_CARD_RE = re.compile(
+    r'<div class="blog-detail">.*?'
+    r'blog-detail-info-eyebrow-text">(?P<eyebrow>[^<]*)</span>.*?'
+    r'blog-detail-info-date">(?P<date>[^<]*)</p>.*?'
+    r'<a class="blog-detail-info-title" href="(?P<href>[^"]+)">(?P<title>.*?)</a>',
+    re.DOTALL,
+)
+
+
+def _fetch_apollo_insight_items(feed_config):
+    """Fetch the newest insight.json cards; [] if the payload shape changed."""
+    raw = _fetch_url(_APOLLO_INSIGHTS_API, accept="application/json", feed_config=feed_config)
+    payload = json.loads(raw)
+    if not isinstance(payload, list):
+        print(f"  [WARN] {feed_config['name']}: unexpected payload type {type(payload).__name__}")
+        return []
+    return payload
+
+
+def _parse_apollo_insights(payload, feed_config, keep_formats):
+    """Map insight.json cards of the given formats onto the standard article dict."""
+    articles = []
+    for item in payload:
+        if not isinstance(item, dict) or item.get("format") not in keep_formats:
+            continue
+        title = html.unescape(item.get("title") or "").strip()
+        path = (item.get("contentPath") or "").strip()
+        if not title or not path:
+            continue
+        link = urllib.parse.urljoin(_APOLLO_BASE, path)
+        dt = _parse_date_flexible(item.get("releaseDate"))
+        desc = html.unescape(_strip_html(item.get("description") or "")).strip()
+        article = _make_article(title, link, dt, desc, feed_config)
+        if feed_config.get("category") == "Videos":
+            # The YouTube tab renders `thumbnail` and filters on `youtube_bucket`;
+            # feeds.py sets both for RSS videos, so mirror that here.
+            image = (item.get("featuredImage") or "").strip()
+            article["thumbnail"] = urllib.parse.urljoin(_APOLLO_BASE, image) if image else ""
+            article["youtube_bucket"] = feed_config.get("youtube_bucket", "")
+        articles.append(article)
+    return articles
+
+
+def _parse_apollo_daily_spark(page_html, feed_config):
+    """Parse the server-rendered Daily Spark listing (10 newest posts)."""
+    articles = []
+    for m in _APOLLO_SPARK_CARD_RE.finditer(page_html):
+        title = html.unescape(_strip_html(m.group("title"))).strip()
+        if not title:
+            continue
+        link = urllib.parse.urljoin(_APOLLO_BASE, m.group("href").strip())
+        dt = _parse_date_flexible(m.group("date"))
+        # The category eyebrow is the only descriptive text on a card.
+        desc = html.unescape(m.group("eyebrow")).strip()
+        articles.append(_make_article(title, link, dt, desc, feed_config))
+    if not articles:
+        # Zero cards from a 200 page means the markup changed, not a quiet day.
+        print(f"  [WARN] {feed_config['name']}: no Daily Spark cards found — page layout may have changed")
+    return articles
+
+
+@scraper
+def fetch_apollo(feed_config):
+    """Fetch Apollo insights (Reports) or Daily Spark (News)."""
+    suffix = feed_config["feed"].split(":", 1)[1].strip()
+    if suffix == "insights":
+        articles = _parse_apollo_insights(
+            _fetch_apollo_insight_items(feed_config), feed_config, _APOLLO_REPORT_FORMATS,
+        )
+    elif suffix == "daily-spark":
+        raw = _fetch_url(_APOLLO_DAILY_SPARK_PAGE, feed_config=feed_config)
+        articles = _parse_apollo_daily_spark(raw.decode("utf-8", errors="replace"), feed_config)
+    else:
+        raise ValueError(f"unknown Apollo feed suffix: {suffix!r}")
+
+    articles.sort(key=lambda a: a["date"] or datetime.min.replace(tzinfo=IST_TZ), reverse=True)
+    return articles
+
+
+def fetch_apollo_media(feed_config):
+    """Fetch Apollo podcasts and videos for the YouTube tab.
+
+    Deliberately not @scraper: that wrapper applies the 30-day Reports window,
+    but the YouTube tab keeps a channel's latest items whatever their age.
+    Error handling and logging mirror the wrapper.
+    """
+    try:
+        articles = _parse_apollo_insights(
+            _fetch_apollo_insight_items(feed_config), feed_config, _APOLLO_MEDIA_FORMATS,
+        )
+        articles.sort(key=lambda a: a["date"] or datetime.min.replace(tzinfo=IST_TZ), reverse=True)
+        articles = articles[:_APOLLO_MEDIA_LIMIT]
+        print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
+        return articles
+    except Exception as e:
+        print(f"  [FAIL] {feed_config['name']}: {str(e)[:120]}")
+        return []
+
+
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
@@ -2051,6 +2170,9 @@ REPORT_FETCHERS = {
     "csep:": fetch_csep,
     "crea:": fetch_crea,
     "gem:": fetch_gem,
+    # Before "apollo:": get_report_fetcher matches prefixes in insertion order.
+    "apollo:media": fetch_apollo_media,
+    "apollo:": fetch_apollo,
 }
 
 

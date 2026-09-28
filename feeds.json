@@ -1958,6 +1958,32 @@
     "publisher": "Global Energy Monitor"
   },
   {
+    "id": "apollo-daily-spark",
+    "name": "Apollo Daily Spark",
+    "url": "https://www.apollo.com/insights-news/insights/daily-spark",
+    "feed": "apollo:daily-spark",
+    "category": "News",
+    "publisher": "Apollo"
+  },
+  {
+    "id": "apollo-insights",
+    "name": "Apollo — Insights",
+    "url": "https://www.apollo.com/insights-news/insights",
+    "feed": "apollo:insights",
+    "category": "Reports",
+    "region": "International",
+    "publisher": "Apollo"
+  },
+  {
+    "id": "apollo-media",
+    "name": "Apollo — Podcasts & Videos",
+    "url": "https://www.apollo.com/insights-news/insights",
+    "feed": "apollo:media",
+    "category": "Videos",
+    "publisher": "Apollo",
+    "youtube_bucket": "Educational/Explainers"
+  },
+  {
     "id": "iea-reports",
     "name": "IEA — Reports",
     "url": "https://www.iea.org/analysis?type=report",
