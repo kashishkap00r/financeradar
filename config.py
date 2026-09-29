@@ -38,6 +38,31 @@ TWITTER_HIGH_SIGNAL_WINDOW_HOURS = 24  # Twitter high-signal window
 TWITTER_HIGH_SIGNAL_TARGET = 25        # Twitter high-signal lane size
 REPORTS_FRESHNESS_DAYS = 30      # Reports tab: discard reports older than this
 VIDEO_FRESHNESS_DAYS = 10        # YouTube tab (used by CLAUDE.md, not code)
+
+# ── Slow Reads (homepage strip) ───────────────────────────────────────
+# Indie Voices that post weekly or slower, so the 5-day news window hides them
+# most of the time. Matched on feed name (article["source"]), not publisher —
+# OWID's Data Insights feed is daily and would crowd out its own articles.
+# Chronological, not AI-ranked. Output: static/tab_slow_reads.json
+SLOW_READS_SOURCES = (
+    "India Dispatch",
+    "Musings on Markets — Markets",
+    "By the Numbers",
+    "SOIC",
+    "SOIC Wisdom Board",
+    "Ideas For India",
+    "Ember Energy",
+    "The LEAP Blog",
+    "Business Standard",             # BS Number Wise
+    "Market Bites",
+    "Capital Quill",
+    "Our World in Data",
+    "The Morning Context",
+    "The India Forum",
+)
+SLOW_READS_WINDOW_DAYS = 30      # look back this far (news tab uses 5)
+SLOW_READS_MAX_PER_SOURCE = 2    # every source gets its newest first; 2nd posts only fill spare slots
+SLOW_READS_MAX_ITEMS = 20        # strip length (>= number of sources, so none is crowded out)
 TWITTER_RESOLVE_WORKERS = 8      # concurrent Google->X resolve workers
 
 # ── Twitter/X ingestion ───────────────────────────────────────────────

@@ -25,6 +25,16 @@ class TestGoogleRssHelpers(unittest.TestCase):
             "A big business move",
         )
 
+    def test_normalize_google_source_suffix_domain(self):
+        self.assertEqual(
+            _normalize_google_source_suffix(
+                "The electro-fortification of Britain - ember-energy.org",
+                "Ember",
+                "https://ember-energy.org/",
+            ),
+            "The electro-fortification of Britain",
+        )
+
     def test_normalize_google_source_suffix_economist(self):
         self.assertEqual(
             _normalize_google_source_suffix("Global markets cool off - The Economist", "The Economist"),

@@ -430,8 +430,12 @@ def _decode_google_article_token(token):
     return _extract_first_non_google_url(decoded_text)
 
 
-def _normalize_google_source_suffix(title, publisher):
-    """Strip trailing source suffix in Google RSS titles (e.g., ' - WSJ')."""
+def _normalize_google_source_suffix(title, publisher, site_url=""):
+    """Strip trailing source suffix in Google RSS titles (e.g., ' - WSJ').
+
+    Google sometimes uses the bare domain as the suffix instead of the name
+    (' - ember-energy.org'), so the feed's own host is stripped too.
+    """
     cleaned = (title or "").strip()
     if not cleaned:
         return ""
@@ -440,6 +444,11 @@ def _normalize_google_source_suffix(title, publisher):
     normalized_publisher = (publisher or "").strip()
     if normalized_publisher:
         aliases.append(normalized_publisher)
+    host = urllib.parse.urlparse(site_url or "").netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    if host:
+        aliases.append(host)
     if normalized_publisher.upper() == "WSJ":
         aliases.extend(["The Wall Street Journal", "Wall Street Journal"])
     if normalized_publisher.lower() == "the economist":
@@ -485,7 +494,9 @@ def _post_process_google_rss_articles(articles, feed_config):
     resolved_count = 0
     attempted_count = 0
     for article in articles:
-        article["title"] = _normalize_google_source_suffix(article.get("title", ""), publisher)
+        article["title"] = _normalize_google_source_suffix(
+            article.get("title", ""), publisher, feed_config.get("url", "")
+        )
         original_link = article.get("link", "")
         if "news.google.com/rss/articles/" in original_link:
             attempted_count += 1
