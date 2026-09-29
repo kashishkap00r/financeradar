@@ -2141,6 +2141,101 @@ def fetch_apollo_media(feed_config):
         return []
 
 
+# ── Filter Coffee (News, Stories, This Is Business) ───────────────────
+
+_FILTERCOFFEE_BASE = "https://www.filtercoffee.co"
+# A Next.js front end over a Ghost CMS whose own RSS is switched off. The
+# /stories page loads posts through a server action ("ghostPosts") that
+# forwards a Ghost Content API query string. Its ID changes on every site
+# deploy, so it is read out of the page's JS chunk on each run.
+_FILTERCOFFEE_ACTION_PAGE = f"{_FILTERCOFFEE_BASE}/stories"
+# The daily newsletter (primary tag newsletter-2) already arrives through
+# the filtercoffee.substack.com RSS feed, so Ghost leaves it out here.
+_FILTERCOFFEE_NEWSLETTER_TAG = "newsletter-2"
+_FILTERCOFFEE_QUERY = (
+    "limit=40&include=tags&fields=title,slug,published_at,custom_excerpt"
+    f"&filter=primary_tag:-{_FILTERCOFFEE_NEWSLETTER_TAG}"
+)
+_FILTERCOFFEE_CHUNK_RE = re.compile(r'src="(/_next/static/chunks/app/[^"]+\.js)"')
+_FILTERCOFFEE_ACTION_RE = re.compile(
+    r'createServerReference\)\("([0-9a-f]{20,})"[^)]*"ghostPosts"\)'
+)
+_FILTERCOFFEE_FLIGHT_RE = re.compile(r'self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)')
+
+
+def _filtercoffee_action_posts(feed_config):
+    """Query Ghost through the site's ghostPosts server action."""
+    page = _fetch_url(_FILTERCOFFEE_ACTION_PAGE, feed_config=feed_config).decode("utf-8", "replace")
+    action_id = None
+    for chunk in _FILTERCOFFEE_CHUNK_RE.findall(page):
+        js = _fetch_url(_FILTERCOFFEE_BASE + chunk, accept="*/*", feed_config=feed_config)
+        m = _FILTERCOFFEE_ACTION_RE.search(js.decode("utf-8", "replace"))
+        if m:
+            action_id = m.group(1)
+            break
+    if not action_id:
+        raise ValueError("ghostPosts action ID not found in page JS")
+
+    raw = _fetch_url(
+        _FILTERCOFFEE_ACTION_PAGE,
+        accept="text/x-component",
+        feed_config=feed_config,
+        data=json.dumps([_FILTERCOFFEE_QUERY]).encode("utf-8"),
+        extra_headers={"Next-Action": action_id, "Content-Type": "text/plain;charset=UTF-8"},
+    ).decode("utf-8", "replace")
+    # React Server Components stream; line "1:" holds [result, error].
+    for line in raw.split("\n"):
+        if line.startswith("1:["):
+            result, error = json.loads(line[2:])[:2]
+            if error or not isinstance(result, dict):
+                raise ValueError(f"ghostPosts returned an error: {str(error)[:80]}")
+            return result.get("posts") or []
+    raise ValueError("ghostPosts response had no result line")
+
+
+def _filtercoffee_blog_posts(feed_config):
+    """Fallback: the six newest posts streamed into the /blog page."""
+    page = _fetch_url(f"{_FILTERCOFFEE_BASE}/blog", feed_config=feed_config).decode("utf-8", "replace")
+    flight = "".join(json.loads(s) for s in _FILTERCOFFEE_FLIGHT_RE.findall(page))
+    start = flight.find('"posts":[')
+    if start < 0:
+        return []
+    posts, _ = json.JSONDecoder().raw_decode(flight, start + len('"posts":'))
+    return posts
+
+
+@scraper
+def fetch_filtercoffee(feed_config):
+    """Fetch Filter Coffee's non-newsletter posts (News, Stories, This Is Business)."""
+    try:
+        posts = _filtercoffee_action_posts(feed_config)
+    except Exception as e:
+        print(f"  [WARN] {feed_config['name']}: server action failed ({str(e)[:80]}), using /blog")
+        posts = _filtercoffee_blog_posts(feed_config)
+
+    articles = []
+    for post in posts:
+        tags = post.get("tags") or []
+        # Ghost lists the primary tag first; it is also the URL's section.
+        section = (tags[0].get("slug") if tags else "") or ""
+        slug = (post.get("slug") or "").strip()
+        title = html.unescape(post.get("title") or "").strip()
+        if not section or not slug or not title or section == _FILTERCOFFEE_NEWSLETTER_TAG:
+            continue
+        link = f"{_FILTERCOFFEE_BASE}/{section}/{slug}"
+        # Ghost stamps UTC with an offset ("…T04:01:15.000+00:00");
+        # _parse_date_flexible would drop the offset and read it as IST.
+        try:
+            dt = datetime.fromisoformat(post.get("published_at") or "").astimezone(IST_TZ)
+        except ValueError:
+            dt = None
+        desc = (post.get("custom_excerpt") or post.get("excerpt") or "").strip()
+        articles.append(_make_article(title, link, dt, desc, feed_config))
+
+    articles.sort(key=lambda a: a["date"] or datetime.min.replace(tzinfo=IST_TZ), reverse=True)
+    return articles
+
+
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
@@ -2173,6 +2268,7 @@ REPORT_FETCHERS = {
     # Before "apollo:": get_report_fetcher matches prefixes in insertion order.
     "apollo:media": fetch_apollo_media,
     "apollo:": fetch_apollo,
+    "filtercoffee:": fetch_filtercoffee,
 }
 
 

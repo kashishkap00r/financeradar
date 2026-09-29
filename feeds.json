@@ -762,6 +762,15 @@
     "publisher": "Filter Coffee"
   },
   {
+    "id": "filtercoffee-site",
+    "name": "Filter Coffee — News & Stories",
+    "url": "https://www.filtercoffee.co/news",
+    "feed": "filtercoffee:site",
+    "category": "News",
+    "region": "Indian",
+    "publisher": "Filter Coffee"
+  },
+  {
     "id": "finshots",
     "name": "Finshots",
     "url": "https://finshots.in",
