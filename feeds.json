@@ -82,8 +82,8 @@
   {
     "id": "indiaspend-news",
     "name": "IndiaSpend",
-    "url": "https://www.indiaspend.com/",
-    "feed": "https://news.google.com/rss/search?q=site:indiaspend.com&hl=en-IN&gl=IN&ceid=IN:en",
+    "url": "https://www.isignal.in/latest-news",
+    "feed": "https://www.isignal.in/latest-news/feed",
     "category": "News",
     "publisher": "IndiaSpend"
   },
@@ -102,14 +102,6 @@
     "feed": "https://news.google.com/rss/search?q=site:theindiaforum.in&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
     "publisher": "The India Forum"
-  },
-  {
-    "id": "neel-chhabra-substack",
-    "name": "Neel Chhabra",
-    "url": "https://neelchhabra.substack.com/",
-    "feed": "https://neelchhabra.substack.com/feed",
-    "category": "News",
-    "publisher": "Neel Chhabra"
   },
   {
     "id": "downtoearth",
@@ -250,14 +242,6 @@
     "name": "WSJ — Economy",
     "url": "https://www.wsj.com/economy",
     "feed": "https://news.google.com/rss/search?q=site:wsj.com/economy&hl=en-IN&gl=IN&ceid=IN:en",
-    "category": "News",
-    "publisher": "WSJ"
-  },
-  {
-    "id": "wsj-india-google-rss",
-    "name": "WSJ — India",
-    "url": "https://www.wsj.com/world/india",
-    "feed": "https://news.google.com/rss/search?q=site:wsj.com/world/india&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
     "publisher": "WSJ"
   },
@@ -495,14 +479,6 @@
     "feed": "https://www.thehindu.com/business/feeder/default.rss",
     "category": "News",
     "publisher": "The Hindu"
-  },
-  {
-    "id": "this-week-in-data",
-    "name": "This Week In Data — Data",
-    "url": "https://thisweekindata.indiadatahub.com",
-    "feed": "https://thisweekindata.indiadatahub.com/feed",
-    "category": "News",
-    "publisher": "This Week In Data"
   },
   {
     "id": "a-wealth-of-common-sense",
@@ -776,14 +752,6 @@
     "feed": "https://news.google.com/rss/search?q=site:bloomberg.com+india&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
     "publisher": "Bloomberg"
-  },
-  {
-    "id": "alphaecon-substack",
-    "name": "AlphaEcon",
-    "url": "https://dhananjaysinha1.substack.com",
-    "feed": "https://dhananjaysinha1.substack.com/feed",
-    "category": "News",
-    "publisher": "AlphaEcon"
   },
   {
     "id": "filtercoffee-substack",
