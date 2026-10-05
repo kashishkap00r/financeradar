@@ -396,7 +396,7 @@ def generate_html(
     publisher_presets = {
         "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express", "Power Line Magazine", "Filter Coffee"],
         "World Desk": ["BBC", "CNBC", "WSJ", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "Rest of World", "Techmeme"],
-        "Indie Voices": ["Finshots", "This Week in Fintech", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "Market Bites", "Capital Quill", "Noah Smith", "Ideas For India", "The India Forum", "Ember", "CREA"],
+        "Indie Voices": ["Finshots", "This Week in Fintech", "SOIC", "The Ken", "The Morning Context", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "Market Bites", "Capital Quill", "Noah Smith", "Ideas For India", "The India Forum", "Takshashila", "Ember", "CREA"],
         "Official Channels": ["RBI", "SEBI", "ECB", "ADB", "FRED"]
     }
 

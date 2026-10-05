@@ -104,6 +104,14 @@
     "publisher": "The India Forum"
   },
   {
+    "id": "takshashila-publications",
+    "name": "Takshashila",
+    "url": "https://takshashila.org.in/pages/publications/",
+    "feed": "https://takshashila.org.in/pages/publications/index.xml",
+    "category": "News",
+    "publisher": "Takshashila"
+  },
+  {
     "id": "downtoearth",
     "name": "downtoearth",
     "url": "https://www.downtoearth.org.in",

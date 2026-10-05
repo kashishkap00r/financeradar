@@ -363,7 +363,7 @@ def _parse_feed_content(content, feed_config):
                 "title": title.text if title is not None and title.text else "No title",
                 "link": link_text,
                 "date": parse_date(pub_date.text if pub_date is not None else "", feed_name),
-                "description": description.text[:300] if description is not None and description.text else "",
+                "description": _clean_html_text(description.text)[:300] if description is not None and description.text else "",
                 "source": feed_name,
                 "source_url": source_url,
                 "category": feed_config.get("category", "News"),
@@ -383,7 +383,8 @@ def _clean_html_text(raw):
     """Strip tags/entities and collapse whitespace."""
     if not raw:
         return ""
-    text = re.sub(r"<[^>]+>", " ", raw)
+    text = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", raw)
+    text = re.sub(r"<[^>]+>", " ", text)
     text = html.unescape(text)
     return re.sub(r"\s+", " ", text).strip()
 
