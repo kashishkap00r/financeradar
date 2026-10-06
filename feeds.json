@@ -112,6 +112,14 @@
     "publisher": "Takshashila"
   },
   {
+    "id": "prosperiti-insights",
+    "name": "Prosperiti Insights",
+    "url": "https://prosperiti.substack.com",
+    "feed": "https://prosperiti.substack.com/feed",
+    "category": "News",
+    "publisher": "Prosperiti Insights"
+  },
+  {
     "id": "downtoearth",
     "name": "downtoearth",
     "url": "https://www.downtoearth.org.in",
