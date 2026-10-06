@@ -454,6 +454,14 @@
     "publisher": "Rest of World"
   },
   {
+    "id": "csis-analysis",
+    "name": "CSIS",
+    "url": "https://www.csis.org/analysis",
+    "feed": "https://news.google.com/rss/search?q=site:csis.org/analysis&hl=en-US&gl=US&ceid=US:en",
+    "category": "News",
+    "publisher": "CSIS"
+  },
+  {
     "id": "sebi-rss",
     "name": "SEBI — Press Releases",
     "url": "https://www.sebi.gov.in/sebirss.xml",

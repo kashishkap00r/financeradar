@@ -41,6 +41,22 @@ class TestGoogleRssHelpers(unittest.TestCase):
             "Global markets cool off",
         )
 
+    def test_normalize_google_source_suffix_full_site_title(self):
+        self.assertEqual(
+            _normalize_google_source_suffix(
+                "What Is Space Superiority? - CSIS | Center for Strategic and International Studies",
+                "CSIS",
+            ),
+            "What Is Space Superiority?",
+        )
+
+    def test_normalize_google_source_suffix_keeps_pipe_in_headline(self):
+        # A pipe that isn't right after the publisher suffix is part of the headline.
+        self.assertEqual(
+            _normalize_google_source_suffix("States Weekly | Sept 30 - CSIS", "CSIS"),
+            "States Weekly | Sept 30",
+        )
+
     def test_extract_google_article_token(self):
         link = "https://news.google.com/rss/articles/CBMiABCdef_123?oc=5&hl=en-IN"
         self.assertEqual(_extract_google_article_token(link), "CBMiABCdef_123")

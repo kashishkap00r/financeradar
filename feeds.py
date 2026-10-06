@@ -435,7 +435,8 @@ def _normalize_google_source_suffix(title, publisher, site_url=""):
     """Strip trailing source suffix in Google RSS titles (e.g., ' - WSJ').
 
     Google sometimes uses the bare domain as the suffix instead of the name
-    (' - ember-energy.org'), so the feed's own host is stripped too.
+    (' - ember-energy.org'), so the feed's own host is stripped too. It may
+    also copy the site's full <title> tail (' - CSIS | Center for ...').
     """
     cleaned = (title or "").strip()
     if not cleaned:
@@ -456,7 +457,7 @@ def _normalize_google_source_suffix(title, publisher, site_url=""):
         aliases.append("Economist")
 
     for alias in aliases:
-        cleaned = re.sub(rf"\s*-\s*{re.escape(alias)}\s*$", "", cleaned, flags=re.IGNORECASE).strip()
+        cleaned = re.sub(rf"\s*-\s*{re.escape(alias)}(?:\s*\|[^|]*)?\s*$", "", cleaned, flags=re.IGNORECASE).strip()
     return cleaned
 
 
