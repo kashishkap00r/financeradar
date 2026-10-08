@@ -2375,8 +2375,8 @@
                 + '<div class="slider-track" id="sebi-track">' + cards + '</div></section>';
         }
 
-        // Slow Reads — Indie Voices that post weekly or slower (SLOW_READS_SOURCES in
-        // config.py), over a 30-day window. Chronological, NOT AI-ranked. Mirrors From The Source.
+        // Slow Reads — SLOW_READS_SOURCES in config.py: every post from the last 7 days, plus
+        // quieter sources' newest from 30 days. Chronological, NOT AI-ranked. Mirrors From The Source.
         function buildSlowReadsSlider(items) {
             if (!items || !items.length) return '';
             const cards = items.map(function(n) {

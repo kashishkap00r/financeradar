@@ -68,8 +68,8 @@ SLOW_READS_SOURCES = (
     "The Core",                      # daily, but its RSS only holds ~2 days (kept 30 via keep_days)
 )
 SLOW_READS_WINDOW_DAYS = 30      # look back this far (news tab uses 5)
-SLOW_READS_MAX_PER_SOURCE = 2    # every source gets its newest first; 2nd posts only fill spare slots
-SLOW_READS_MAX_ITEMS = 24        # strip length (>= number of sources, so none is crowded out)
+SLOW_READS_ALL_POSTS_DAYS = 7    # every post from the last week shows, uncapped; quieter
+                                 # sources fall back to their newest post in the 30-day window
 TWITTER_RESOLVE_WORKERS = 8      # concurrent Google->X resolve workers
 
 # ── Twitter/X ingestion ───────────────────────────────────────────────

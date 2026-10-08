@@ -8,8 +8,7 @@ from datetime import datetime, timezone, timedelta
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from aggregator import select_slow_reads
-from config import (SLOW_READS_MAX_PER_SOURCE, SLOW_READS_MAX_ITEMS, SLOW_READS_WINDOW_DAYS,
-                    SLOW_READS_SOURCES)
+from config import SLOW_READS_WINDOW_DAYS, SLOW_READS_ALL_POSTS_DAYS
 
 NOW = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
 
@@ -27,10 +26,6 @@ def art(source, days_ago, title=None, link=None, publisher=""):
 
 class TestSelectSlowReads(unittest.TestCase):
 
-    def test_strip_has_a_slot_for_every_source(self):
-        # Otherwise a source's newest post can be crowded out by the others
-        self.assertGreaterEqual(SLOW_READS_MAX_ITEMS, len(SLOW_READS_SOURCES))
-
     def test_keeps_posts_older_than_news_window(self):
         picked = select_slow_reads([art("The LEAP Blog", 6)], now=NOW)
         self.assertEqual(len(picked), 1)
@@ -46,12 +41,22 @@ class TestSelectSlowReads(unittest.TestCase):
                                     art("Economic Times — Latest", 1)], now=NOW)
         self.assertEqual(picked, [])
 
-    def test_caps_per_source(self):
-        batch = [art("The India Forum", d) for d in range(1, 6)]
+    def test_keeps_every_post_from_the_last_week(self):
+        # Daily sources aren't capped: everything inside the week shows
+        batch = [art("Finshots", d) for d in range(0, SLOW_READS_ALL_POSTS_DAYS)]
         picked = select_slow_reads(batch, now=NOW)
-        self.assertEqual(len(picked), SLOW_READS_MAX_PER_SOURCE)
-        # and keeps the newest ones
-        self.assertEqual(picked[0]["title"], "The India Forum post 1")
+        self.assertEqual(len(picked), SLOW_READS_ALL_POSTS_DAYS)
+        self.assertEqual(picked[0]["title"], "Finshots post 0")
+
+    def test_older_posts_dropped_when_source_has_a_recent_one(self):
+        batch = [art("The India Forum", 2), art("The India Forum", 10), art("The India Forum", 20)]
+        picked = select_slow_reads(batch, now=NOW)
+        self.assertEqual([p["title"] for p in picked], ["The India Forum post 2"])
+
+    def test_quiet_source_keeps_only_its_newest_older_post(self):
+        batch = [art("India Dispatch", 12), art("India Dispatch", 20)]
+        picked = select_slow_reads(batch, now=NOW)
+        self.assertEqual([p["title"] for p in picked], ["India Dispatch post 12"])
 
     def test_sorted_newest_first_across_sources(self):
         picked = select_slow_reads([art("India Dispatch", 12), art("The LEAP Blog", 6),
@@ -59,24 +64,18 @@ class TestSelectSlowReads(unittest.TestCase):
         self.assertEqual([p["source"] for p in picked],
                          ["Ember Energy", "The LEAP Blog", "India Dispatch"])
 
-    def test_caps_total_items(self):
+    def test_no_cap_on_total_items(self):
         sources = ["India Dispatch", "By the Numbers", "SOIC", "Ideas For India", "Ember Energy",
                    "The LEAP Blog", "Business Standard", "Market Bites", "Capital Quill",
-                   "Our World in Data", "The Morning Context", "The India Forum"]
-        many = [art(s, d) for s in sources for d in (1, 2)]
-        self.assertEqual(len(select_slow_reads(many, now=NOW)), SLOW_READS_MAX_ITEMS)
-
-    def test_slowest_source_not_crowded_out_by_frequent_ones(self):
-        # 12 sources each with a fresh 2nd post would fill 20 slots on recency alone;
-        # India Dispatch's single 25-day-old post must still get its slot.
-        sources = ["By the Numbers", "SOIC", "Ideas For India", "Ember Energy",
-                   "The LEAP Blog", "Business Standard", "Market Bites", "Capital Quill",
                    "Our World in Data", "The Morning Context", "The India Forum",
-                   "SOIC Wisdom Board"]
-        busy = [art(s, d) for s in sources for d in (1, 2)]
+                   "The Ken", "Finshots", "The Core", "The Arc"]
+        many = [art(s, d) for s in sources for d in range(0, 7)]
+        self.assertEqual(len(select_slow_reads(many, now=NOW)), len(many))
+
+    def test_quiet_source_not_crowded_out_by_busy_week(self):
+        busy = [art(s, d) for s in ("The Ken", "Finshots", "The Core") for d in range(0, 7)]
         picked = select_slow_reads(busy + [art("India Dispatch", 25)], now=NOW)
-        self.assertIn("India Dispatch", [p["source"] for p in picked])
-        self.assertEqual(picked[-1]["source"], "India Dispatch")  # still date-ordered
+        self.assertEqual(picked[-1]["source"], "India Dispatch")  # included, still date-ordered
 
     def test_skips_titles_that_are_just_the_site_name(self):
         junk = art("Ideas For India", 1, title="ideasforindia", publisher="Ideas For India")

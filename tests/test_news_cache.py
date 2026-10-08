@@ -15,6 +15,8 @@ NOW = datetime(2026, 10, 8, 12, 0, tzinfo=timezone.utc)
 FEEDS = [
     {"id": "thecore", "name": "The Core", "category": "News", "keep_days": 30},
     {"id": "et", "name": "ET", "category": "News"},
+    {"id": "finshots", "name": "Finshots", "category": "News"},  # in SLOW_READS_SOURCES
+    {"id": "yt-finshots", "name": "Finshots", "category": "Videos"},
 ]
 
 
@@ -71,6 +73,16 @@ class TestMergeNewsCache(unittest.TestCase):
         self.run_merge([art("et", "et-story", 1)])
         out = self.run_merge([])
         self.assertEqual(out, [])
+
+    def test_slow_reads_sources_cached_without_keep_days(self):
+        # A failed fetch (finshots.in SSL error) mustn't empty its week in Slow Reads
+        self.run_merge([art("finshots", "fs-story", 2)])
+        out = self.run_merge([])
+        self.assertEqual([a["link"] for a in out], ["https://example.com/fs-story"])
+
+    def test_slow_reads_name_match_is_news_only(self):
+        self.run_merge([art("yt-finshots", "video", 1)])
+        self.assertEqual(self.run_merge([]), [])
 
     def test_corrupt_cache_file_is_ignored(self):
         with open(self.path, "w") as f:

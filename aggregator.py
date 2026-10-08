@@ -53,7 +53,7 @@ from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     REPORTS_FRESHNESS_DAYS,
                     FEED_FAILURE_ALERT_THRESHOLD,
                     SLOW_READS_SOURCES, SLOW_READS_WINDOW_DAYS,
-                    SLOW_READS_MAX_PER_SOURCE, SLOW_READS_MAX_ITEMS)
+                    SLOW_READS_ALL_POSTS_DAYS)
 from log_utils import FeedLogger
 from twitter_signal import build_twitter_lanes
 from twitter_fetcher import fetch_twitter_articles
@@ -287,12 +287,13 @@ def _is_site_name_title(title, article):
 
 
 def select_slow_reads(articles, now=None):
-    """Latest posts from slow Indie Voices, over a window longer than the news tab's.
+    """Every post from the Slow Reads sources in the last week, plus quieter ones.
 
-    Runs on filtered articles *before* the news freshness cut, so a weekly or
-    fortnightly source is still visible between posts. Every source's newest
-    post is guaranteed a slot before any source gets a second one; the strip is
-    then ordered newest first.
+    Runs on filtered articles *before* the news freshness cut. Everything from
+    the last SLOW_READS_ALL_POSTS_DAYS shows, with no per-source or total cap.
+    A source with nothing that recent still shows its newest post from the
+    SLOW_READS_WINDOW_DAYS window, so weekly-or-slower writers stay visible
+    between posts. Ordered newest first.
     """
     now = now or datetime.now(IST_TZ)
     cutoff = now - timedelta(days=SLOW_READS_WINDOW_DAYS)
@@ -318,13 +319,11 @@ def select_slow_reads(articles, now=None):
     for posts in by_source.values():
         posts.sort(key=lambda pair: pair[0], reverse=True)
 
-    # Round-robin by depth: every source's newest, then every source's 2nd, ...
-    # Within a round, newer posts win the remaining slots.
+    recent_cutoff = now - timedelta(days=SLOW_READS_ALL_POSTS_DAYS)
     picked = []
-    for depth in range(SLOW_READS_MAX_PER_SOURCE):
-        round_posts = [posts[depth] for posts in by_source.values() if len(posts) > depth]
-        round_posts.sort(key=lambda pair: pair[0], reverse=True)
-        picked.extend(round_posts[:SLOW_READS_MAX_ITEMS - len(picked)])
+    for posts in by_source.values():
+        recent = [pair for pair in posts if pair[0] >= recent_cutoff]
+        picked.extend(recent or posts[:1])
     picked.sort(key=lambda pair: pair[0], reverse=True)
 
     out = []
@@ -341,7 +340,8 @@ def select_slow_reads(articles, now=None):
 
 
 def merge_news_cache(articles, feeds, cache_path, now=None):
-    """Keep posts from short rolling feeds for `keep_days` (set per feed in feeds.json).
+    """Keep posts from short rolling feeds for `keep_days` (set per feed in feeds.json),
+    and from every Slow Reads source for SLOW_READS_WINDOW_DAYS.
 
     Some publishers (The Core) only keep ~2 days in their RSS, so a story vanished
     from the 5-day news tab and the 30-day Slow Reads strip long before it should.
@@ -351,6 +351,11 @@ def merge_news_cache(articles, feeds, cache_path, now=None):
     """
     now = now or datetime.now(IST_TZ)
     keep_days = {f["id"]: f["keep_days"] for f in feeds if f.get("keep_days")}
+    # Slow Reads sources too, so one failed fetch doesn't empty their week on the strip
+    slow = set(SLOW_READS_SOURCES)
+    for f in feeds:
+        if f.get("category") == "News" and f.get("name") in slow:
+            keep_days.setdefault(f["id"], SLOW_READS_WINDOW_DAYS)
 
     try:
         with open(cache_path, "r", encoding="utf-8") as f:
