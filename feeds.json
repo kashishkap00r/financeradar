@@ -883,20 +883,13 @@
     "publisher": "Swarajya"
   },
   {
-    "id": "thecore-economy",
-    "name": "The Core — Economy",
-    "url": "https://www.thecore.in/economy",
-    "feed": "https://www.thecore.in/category/economy/google_feeds.xml",
+    "id": "thecore",
+    "name": "The Core",
+    "url": "https://www.thecore.in",
+    "feed": "https://www.thecore.in/feed",
     "category": "News",
-    "publisher": "The Core"
-  },
-  {
-    "id": "thecore-business",
-    "name": "The Core — Business",
-    "url": "https://www.thecore.in/business",
-    "feed": "https://www.thecore.in/category/business/google_feeds.xml",
-    "category": "News",
-    "publisher": "The Core"
+    "publisher": "The Core",
+    "keep_days": 30
   },
   {
     "id": "noahpinion",
@@ -1198,6 +1191,15 @@
     "category": "Videos",
     "publisher": "Upstox",
     "youtube_bucket": "Educational/Explainers"
+  },
+  {
+    "id": "yt-the-core",
+    "name": "The Core",
+    "url": "https://www.youtube.com/@thecore_in",
+    "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCzXJw6XkwZulY4nigdtvs4Q",
+    "category": "Videos",
+    "publisher": "The Core",
+    "youtube_bucket": "Traditional Media"
   },
   {
     "id": "yt-bloomberg-originals",

@@ -78,7 +78,7 @@ The homepage **exclusively shows AI-ranked content** from `static/ai_rankings.js
 - News + Telegram interleave in the newspaper feed (3:1 ratio); YouTube, Reports, Twitter render in dedicated slider sections
 - WSW breakers auto-select the provider with the most clusters
 - If AI data is unavailable, homepage shows an empty-state message directing users to tabs
-- Two sliders are NOT AI-ranked, both chronological: **From The Source** (official channels + SEBI orders, from `tab_news.json`) and **Slow Reads** (`static/tab_slow_reads.json`). Slow Reads covers Indie Voices that post weekly or slower (`SLOW_READS_SOURCES` in `config.py`, matched on feed name). `select_slow_reads()` picks them *before* the 5-day news cut, using a 30-day window. Each source's newest post is guaranteed a slot before any source gets a second
+- Two sliders are NOT AI-ranked, both chronological: **From The Source** (official channels + SEBI orders, from `tab_news.json`) and **Slow Reads** (`static/tab_slow_reads.json`). Slow Reads covers Indie Voices that post weekly or slower (`SLOW_READS_SOURCES` in `config.py`, matched on feed name; The Core is the one daily source, included because its feed is short and cached via `keep_days`). `select_slow_reads()` picks them *before* the 5-day news cut, using a 30-day window. Each source's newest post is guaranteed a slot before any source gets a second
 - The Companies tab (Market Tide) was removed in Sept 2026 because the feed stopped refreshing. `companies_fetcher.py` is no longer called by anything
 
 ### Semantic Story Clustering
@@ -191,6 +191,7 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 - `category`: routing only — `News`, `Reports`, `Videos`, `Twitter`
 - `publisher`: groups feeds in UI filter (e.g., both Swarajya Economy and Business → "Swarajya")
 - `region`: Reports-only, `"Indian"` or `"International"` (omit for other categories)
+- `keep_days`: News-only, optional. For publishers whose RSS only holds a day or two (The Core), `merge_news_cache()` keeps every post in `static/news_cache.json` for this many days, so stories survive the full 5-day news window and the 30-day Slow Reads window
 - For sites behind Cloudflare/WAF, use Google News RSS proxy: `https://news.google.com/rss/search?q=site:domain.com/path&hl=en-IN&gl=IN&ceid=IN:en`
 
 ## Scraper Development

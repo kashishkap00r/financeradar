@@ -28,6 +28,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
 REPORTS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "reports_cache.json")
 PAPERS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "papers_cache.json")
+NEWS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "news_cache.json")
 PUBLISHED_SNAPSHOT_FILE = os.path.join(SCRIPT_DIR, "static", "published_snapshot.json")
 
 # Filters extracted to filters.py for independent editing and testing
@@ -44,7 +45,7 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
                    INVIDIOUS_INSTANCES, YOUTUBE_BUCKETS)
 
 # Report scrapers
-from reports_fetcher import get_report_fetcher
+from reports_fetcher import get_report_fetcher, _atomic_write_json
 from paper_fetcher import fetch_papers, load_papers_cache, save_papers_cache
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
@@ -337,6 +338,61 @@ def select_slow_reads(articles, now=None):
             "date": local_dt.isoformat() if local_dt else None,
         })
     return out
+
+
+def merge_news_cache(articles, feeds, cache_path, now=None):
+    """Keep posts from short rolling feeds for `keep_days` (set per feed in feeds.json).
+
+    Some publishers (The Core) only keep ~2 days in their RSS, so a story vanished
+    from the 5-day news tab and the 30-day Slow Reads strip long before it should.
+    Each run caches every dated article from those feeds, adds back cached ones that
+    have dropped out of the live feed, and prunes anything older than keep_days.
+    Returns `articles` plus the restored posts.
+    """
+    now = now or datetime.now(IST_TZ)
+    keep_days = {f["id"]: f["keep_days"] for f in feeds if f.get("keep_days")}
+
+    try:
+        with open(cache_path, "r", encoding="utf-8") as f:
+            cache = json.load(f)
+        if not isinstance(cache, dict):
+            cache = {}
+    except (FileNotFoundError, json.JSONDecodeError):
+        cache = {}
+
+    def link_key(article):
+        return (article.get("link") or "").lower().strip().rstrip("/")
+
+    live_links = {link_key(a) for a in articles}
+    restored = []
+    new_cache = {}
+    for feed_id, days in keep_days.items():
+        cutoff = now - timedelta(days=days)
+        by_link = {}
+        for item in cache.get(feed_id, []):
+            if not isinstance(item, dict) or not item.get("link") or not item.get("date"):
+                continue
+            try:
+                dt = datetime.fromisoformat(item["date"])
+            except (TypeError, ValueError):
+                continue
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=IST_TZ)
+            by_link[link_key(item)] = {**item, "date": dt}
+        for article in articles:
+            if article.get("feed_id") == feed_id and article.get("date") and article.get("link"):
+                by_link[link_key(article)] = article
+
+        kept = sorted(
+            (a for a in by_link.values() if a["date"] >= cutoff),
+            key=lambda a: a["date"], reverse=True,
+        )
+        new_cache[feed_id] = [{**a, "date": a["date"].isoformat()} for a in kept]
+        restored.extend(a for a in kept if link_key(a) not in live_links)
+
+    if keep_days:
+        _atomic_write_json(cache_path, new_cache, "News cache")
+    return articles + restored
 
 
 def generate_html(
@@ -1169,6 +1225,12 @@ def main():
                     logger.warn(feed_name, f"Live fetch error ({str(e)[:80]}); checking cache fallback")
                 else:
                     logger.fail(feed_name, str(e))
+
+    # Short rolling feeds (keep_days in feeds.json): add back posts that left the live feed
+    before = len(all_articles)
+    all_articles = merge_news_cache(all_articles, feeds, NEWS_CACHE_FILE)
+    if len(all_articles) > before:
+        logger.info(f"[cache] News cache: restored {len(all_articles) - before} articles")
 
     try:
         twitter_articles, twitter_fetch_meta = fetch_twitter_articles(twitter_feeds, logger=logger)

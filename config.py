@@ -62,6 +62,7 @@ SLOW_READS_SOURCES = (
     "Takshashila",
     "Prosperiti Insights",
     "Rest of World",
+    "The Core",                      # daily, but its RSS only holds ~2 days (kept 30 via keep_days)
 )
 SLOW_READS_WINDOW_DAYS = 30      # look back this far (news tab uses 5)
 SLOW_READS_MAX_PER_SOURCE = 2    # every source gets its newest first; 2nd posts only fill spare slots
