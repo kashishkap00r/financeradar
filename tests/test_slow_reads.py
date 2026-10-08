@@ -8,7 +8,8 @@ from datetime import datetime, timezone, timedelta
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from aggregator import select_slow_reads
-from config import SLOW_READS_MAX_PER_SOURCE, SLOW_READS_MAX_ITEMS, SLOW_READS_WINDOW_DAYS
+from config import (SLOW_READS_MAX_PER_SOURCE, SLOW_READS_MAX_ITEMS, SLOW_READS_WINDOW_DAYS,
+                    SLOW_READS_SOURCES)
 
 NOW = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
 
@@ -25,6 +26,10 @@ def art(source, days_ago, title=None, link=None, publisher=""):
 
 
 class TestSelectSlowReads(unittest.TestCase):
+
+    def test_strip_has_a_slot_for_every_source(self):
+        # Otherwise a source's newest post can be crowded out by the others
+        self.assertGreaterEqual(SLOW_READS_MAX_ITEMS, len(SLOW_READS_SOURCES))
 
     def test_keeps_posts_older_than_news_window(self):
         picked = select_slow_reads([art("The LEAP Blog", 6)], now=NOW)

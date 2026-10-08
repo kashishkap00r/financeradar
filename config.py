@@ -63,11 +63,13 @@ SLOW_READS_SOURCES = (
     "Prosperiti Insights",
     "Rest of World",
     "The Arc",
+    "The Ken",                       # daily-ish long-form; strip still caps it at 2
+    "Finshots",                      # daily explainer
     "The Core",                      # daily, but its RSS only holds ~2 days (kept 30 via keep_days)
 )
 SLOW_READS_WINDOW_DAYS = 30      # look back this far (news tab uses 5)
 SLOW_READS_MAX_PER_SOURCE = 2    # every source gets its newest first; 2nd posts only fill spare slots
-SLOW_READS_MAX_ITEMS = 20        # strip length (>= number of sources, so none is crowded out)
+SLOW_READS_MAX_ITEMS = 24        # strip length (>= number of sources, so none is crowded out)
 TWITTER_RESOLVE_WORKERS = 8      # concurrent Google->X resolve workers
 
 # ── Twitter/X ingestion ───────────────────────────────────────────────
