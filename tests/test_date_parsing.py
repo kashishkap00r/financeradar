@@ -111,3 +111,23 @@ class TestParseDate(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestParseDateNaiveTimezone(unittest.TestCase):
+    """The Arc's feed uses '2026-10-07 02:35:00.0' with no offset; the times are IST."""
+
+    def test_fractional_seconds_without_offset(self):
+        result = parse_date("2026-10-07 02:35:00.0", "The Arc")
+        self.assertIsNotNone(result)
+        self.assertEqual((result.day, result.hour, result.minute), (7, 2, 35))
+
+    def test_naive_tz_applied_when_given(self):
+        ist = timezone(timedelta(hours=5, minutes=30))
+        result = parse_date("2026-10-07 02:35:00.0", "The Arc", naive_tz=ist)
+        self.assertEqual(result.utcoffset(), timedelta(hours=5, minutes=30))
+        self.assertEqual(result.astimezone(timezone.utc).day, 6)
+
+    def test_naive_tz_does_not_override_explicit_offset(self):
+        ist = timezone(timedelta(hours=5, minutes=30))
+        result = parse_date("Thu, 08 Oct 2026 00:30:36 GMT", "X", naive_tz=ist)
+        self.assertEqual(result.utcoffset(), timedelta(0))

@@ -892,6 +892,15 @@
     "keep_days": 30
   },
   {
+    "id": "the-arc",
+    "name": "The Arc",
+    "url": "https://www.thearcweb.com",
+    "feed": "https://www.thearcweb.com/feed",
+    "category": "News",
+    "publisher": "The Arc",
+    "naive_dates": "IST"
+  },
+  {
     "id": "noahpinion",
     "name": "Noahpinion",
     "url": "https://www.noahpinion.blog",

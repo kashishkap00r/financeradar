@@ -62,6 +62,7 @@ SLOW_READS_SOURCES = (
     "Takshashila",
     "Prosperiti Insights",
     "Rest of World",
+    "The Arc",
     "The Core",                      # daily, but its RSS only holds ~2 days (kept 30 via keep_days)
 )
 SLOW_READS_WINDOW_DAYS = 30      # look back this far (news tab uses 5)

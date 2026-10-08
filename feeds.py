@@ -98,8 +98,12 @@ def load_feeds():
         return []
 
 
-def parse_date(date_str, source_name=None):
-    """Try to parse various date formats from RSS feeds."""
+def parse_date(date_str, source_name=None, naive_tz=None):
+    """Try to parse various date formats from RSS feeds.
+
+    naive_tz: timezone for dates that carry no offset (set per feed via
+    "naive_dates": "IST" in feeds.json). Explicit offsets always win.
+    """
     if not date_str:
         return None
 
@@ -111,6 +115,7 @@ def parse_date(date_str, source_name=None):
         "%Y-%m-%dT%H:%M:%SZ",
         "%Y-%m-%dT%H:%M:%S.%f%z",
         "%Y-%m-%d %H:%M:%S",
+        "%Y-%m-%d %H:%M:%S.%f",  # The Arc (2026-10-07 02:35:00.0, IST)
         "%d %b %Y %H:%M:%S %z",
         "%d %b, %Y %z",  # SEBI format (02 Feb, 2026 +0530)
         "%d %b %Y %z",   # SEBI format without comma
@@ -130,6 +135,8 @@ def parse_date(date_str, source_name=None):
                     dt = dt.replace(tzinfo=timezone.utc)
                 elif source_name and "RBI" in source_name:
                     dt = dt.replace(tzinfo=IST_TZ)
+                elif naive_tz is not None:
+                    dt = dt.replace(tzinfo=naive_tz)
             return dt
         except ValueError:
             continue
@@ -358,11 +365,17 @@ def _parse_feed_content(content, feed_config):
                 enclosure = item.find("enclosure")
                 if enclosure is not None and enclosure.get("type", "").startswith("image/"):
                     image_url = enclosure.get("url", "")
+            if not image_url:
+                # Non-standard bare <image>URL</image> (The Arc)
+                bare_image = item.find("image")
+                if bare_image is not None and (bare_image.text or "").strip().startswith("http"):
+                    image_url = bare_image.text.strip()
 
             articles.append({
                 "title": title.text if title is not None and title.text else "No title",
                 "link": link_text,
-                "date": parse_date(pub_date.text if pub_date is not None else "", feed_name),
+                "date": parse_date(pub_date.text if pub_date is not None else "", feed_name,
+                                   naive_tz=IST_TZ if feed_config.get("naive_dates") == "IST" else None),
                 "description": _clean_html_text(description.text)[:300] if description is not None and description.text else "",
                 "source": feed_name,
                 "source_url": source_url,
