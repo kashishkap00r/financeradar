@@ -1,6 +1,38 @@
 {
   "thecore": [
     {
+      "title": "Why The Sensex Has Hit A Near Three Year Low",
+      "link": "https://www.thecore.in/podcasts/why-the-sensex-has-hit-a-near-three-year-low-872107",
+      "date": "2026-10-09T00:30:59+00:00",
+      "description": "Oil prices have jumped again, rising more than 5% on Thursday",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/10/08/1104779-05fridownthe-core-report1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/why-the-sensex-has-hit-a-near-three-year-low-872107"
+    },
+    {
+      "title": "India's Steelmakers Are Going Green Even As Government Dithers On Funding",
+      "link": "https://www.thecore.in/opinion/the-plinth/india-green-steel-mission-delay-cbam-jsw-tata-872082",
+      "date": "2026-10-09T00:30:28+00:00",
+      "description": "A Rs 15,000 crore green steel mission gave way to a narrower Rs 5,000 crore scheme that is still unapproved. The big steelmakers are paying out of pocket, while exports to Europe fall and high-carbon plants get locked in for decades.",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/10/08/1104748-carbon-emissions1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/opinion/the-plinth/india-green-steel-mission-delay-cbam-jsw-tata-872082"
+    },
+    {
       "title": "Markets Turn Around As Oil Prices Rise",
       "link": "https://www.thecore.in/podcasts/markets-turn-around-as-oil-prices-rise-872056",
       "date": "2026-10-08T00:30:36+00:00",
@@ -511,22 +543,6 @@
       "image": "https://www.thecore.in/h-upload/2026/09/08/1102162-retail-festive-outlook1200x630jpg.jpg",
       "feed_id": "thecore",
       "guid": "https://www.thecore.in/economy/india-festive-season-retail-2026-inflation-fmcg-demand-outlook-870405"
-    },
-    {
-      "title": "This Festive Season, Smartphone Buyers Have To Pay More And Expect Less",
-      "link": "https://www.thecore.in/business/india-smartphone-price-hike-festive-season-ai-memory-chip-cost-870387",
-      "date": "2026-09-09T06:00:30+05:30",
-      "description": "Rising AI-driven memory chip costs are driving up smartphone prices in India this festive season, threatening to wipe out sub-Rs 10,000 entry-level phones.",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/09/08/1102133-smartphone-sales-in-india1200x630jpg.jpg",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/business/india-smartphone-price-hike-festive-season-ai-memory-chip-cost-870387"
     }
   ],
   "ember-energy-insights": [
@@ -565,7 +581,7 @@
     {
       "title": "Renewable Caribbean\ua789 towards energy independence",
       "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWWdoSTNtV1RXRDNNWlBHZjhGTk5WRjllNE9EYzZPWnRUMmlpZlJGdGItejM4OUszWEVsVnh2SlNOZ3pmZGxPeHVOMmRwZ2RkSmpjU0otaEFzaFZaTWNUSVBpenlhZ0l3WDdESUlRejY0blczSnFIby1sX1l1N3lPNzRwdjBlZUVKSkZYNV9MQW40enM?oc=5",
-      "date": "2026-10-01T06:33:14+00:00",
+      "date": "2026-10-01T06:33:41+00:00",
       "description": "Renewable Caribbean\ua789 towards energy independence ember-energy.org",
       "source": "Ember Energy",
       "source_url": "https://ember-energy.org/",
@@ -1169,6 +1185,22 @@
     }
   ],
   "musings-on-markets-substack": [
+    {
+      "title": "Earnings, Cashflows and Stock Prices: The AI Spending plays through!",
+      "link": "https://aswathdamodaran.substack.com/p/earnings-cashflows-and-stock-prices",
+      "date": "2026-10-08T21:47:50+00:00",
+      "description": "Closing the AI cap ex circle!",
+      "source": "Musings on Markets \u2014 Markets",
+      "source_url": "https://aswathdamodaran.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Musings on Markets",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!QHNm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1deecaad-cc3d-4933-8cc9-5dc9383f8416_1590x1512.png",
+      "feed_id": "musings-on-markets-substack",
+      "guid": "https://aswathdamodaran.substack.com/p/earnings-cashflows-and-stock-prices"
+    },
     {
       "title": "Interest Rates and Stock Prices: An Old Debate Resurfaces!",
       "link": "https://aswathdamodaran.substack.com/p/interest-rates-and-stock-prices-an",
