@@ -983,22 +983,6 @@
       "image": "",
       "feed_id": "the-india-forum",
       "guid": "CBMikAFBVV95cUxQWXNfaUlFMGtfbjR3ZTRNMG42ZTFCY0x1cUtEQ1I2WkpRbE84NDdqT0c0cXVld3hETmthUmFWRndJYkFfT3BUX2ZENm5DaWh1X1c0S29yUmNrbjZoMlhTNDE1ZHdfei1PbWhZNjNGcGJLbVF4UmNDYzJaYkhPY01Wb1JQMkFZanMwYVR0ZVFnM0o"
-    },
-    {
-      "title": "Peasants to Programmers: Continuity and Change in a Tamil Village Over 50 Years",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNc0UtUnZlZS04UTRnRU9kUnFZaDRHbFN0cko2RGlwX1ZwM0cyLWR1MFFkYy1hLU1JdTh0cFYwcFRGeTRFQUZGYTZ2QzZRRC01MjVjX2stRWNlZHh4eWdvc0Zvd1BQYjdzYnpoMDIzR1pPWEg1RFZQQmZRSExTcXh3TVhrMVJjdm96QzF1a3I3d2VGNWx2bGtwdXpwcHUwRzFSNnJkelVob3Q?oc=5",
-      "date": "2026-09-11T07:00:00+00:00",
-      "description": "Peasants to Programmers: Continuity and Change in a Tamil Village Over 50 Years The India Forum",
-      "source": "The India Forum",
-      "source_url": "https://www.theindiaforum.in/",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The India Forum",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "the-india-forum",
-      "guid": "CBMiqAFBVV95cUxNc0UtUnZlZS04UTRnRU9kUnFZaDRHbFN0cko2RGlwX1ZwM0cyLWR1MFFkYy1hLU1JdTh0cFYwcFRGeTRFQUZGYTZ2QzZRRC01MjVjX2stRWNlZHh4eWdvc0Zvd1BQYjdzYnpoMDIzR1pPWEg1RFZQQmZRSExTcXh3TVhrMVJjdm96QzF1a3I3d2VGNWx2bGtwdXpwcHUwRzFSNnJkelVob3Q"
     }
   ],
   "takshashila-publications": [
@@ -2176,6 +2160,22 @@
   ],
   "soic-substack": [
     {
+      "title": "Tega Industries",
+      "link": "https://soic.substack.com/p/tega-industries",
+      "date": "2026-10-11T08:49:09+00:00",
+      "description": "The Rubber Liner Company That Just Bought a $1.5 Billion Global Platform",
+      "source": "SOIC",
+      "source_url": "https://soic.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "SOIC",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!tGwL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f88b76c-4e08-4777-9a2b-3bbaeab736ca_2180x1196.png",
+      "feed_id": "soic-substack",
+      "guid": "https://soic.substack.com/p/tega-industries"
+    },
+    {
       "title": "Why I'm Studying PI Industries at a 5-Year Low",
       "link": "https://soic.substack.com/p/why-im-studying-pi-industries-at",
       "date": "2026-10-06T11:47:44+00:00",
@@ -2401,22 +2401,6 @@
       "image": "https://static.thearcweb.com/images/PROD/PROD-e9af212e-80f9-4d1f-a0d3-21244ceb0d21.jpg",
       "feed_id": "the-arc",
       "guid": "https://thearcweb.com/article/bounce-20-gigworker-scooter-rentals-hit-rs-140-cr-runrate-LSXK8cYNasAsyZOS"
-    },
-    {
-      "title": "Sparrow Capital finds a higher perch in seed investing",
-      "link": "https://thearcweb.com/article/sparrow-capital-seed-aukera-gokwik-OWZoDzWpsZxnykX3",
-      "date": "2026-09-11T14:04:00+05:30",
-      "description": "Bengaluru-based VC firm Sparrow Capital closed its third fund at Rs 475 crore, above its initial target of Rs 400 crore, in July this year. While its first two corpuses were backed predominantly by non-institutional limited partners such as high-net-worth individuals and family offices, Fund III has",
-      "source": "The Arc",
-      "source_url": "https://www.thearcweb.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Arc",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://static.thearcweb.com/images/PROD/PROD-96729bd6-cd4c-4fc1-8c5e-a03e53a36a42.JPG",
-      "feed_id": "the-arc",
-      "guid": "https://thearcweb.com/article/sparrow-capital-seed-aukera-gokwik-OWZoDzWpsZxnykX3"
     }
   ]
 }
