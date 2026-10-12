@@ -1,6 +1,38 @@
 {
   "thecore": [
     {
+      "title": "Markets Could Come Under Pressure",
+      "link": "https://www.thecore.in/podcasts/markets-could-come-under-pressure-872266",
+      "date": "2026-10-12T00:30:21+00:00",
+      "description": "Yemen's Houthis stepped up their attacks on Saudi Arabia with an attack on Riyadh's international airport that killed 12 people",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/10/11/1104966-01monupthe-core-report1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/markets-could-come-under-pressure-872266"
+    },
+    {
+      "title": "We Don\u2019t Charge More: IKEA India CEO On Why a Brand Seen As Aspirational Hasn\u2019t Raised Prices",
+      "link": "https://www.thecore.in/business/ikea-india-ceo-patrick-antoni-expansion-local-sourcing-young-india-872135",
+      "date": "2026-10-10T00:30:31+00:00",
+      "description": "In this episode of The Core Report, Patrik Antoni talks about how IKEA sells the same range at similar prices in India as elsewhere, even as shoppers see it as a brand to aspire to. He explains the smaller stores, Rs 4,000 crore sourcing push and Delhi mega-developments that come next.",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/10/09/1104808-core-interview1200x630-1.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/business/ikea-india-ceo-patrick-antoni-expansion-local-sourcing-young-india-872135"
+    },
+    {
       "title": "Climate Risk Needs Boardroom Accountability",
       "link": "https://www.thecore.in/business/climate-risk-needs-boardroom-accountability-872145",
       "date": "2026-10-09T08:47:49+00:00",
@@ -527,54 +559,6 @@
       "image": "https://www.thecore.in/h-upload/2026/09/14/1102727-upi-and-road-construction1200x630jpg.jpg",
       "feed_id": "thecore",
       "guid": "https://www.thecore.in/opinion/the-take/india-digital-payments-physical-infrastructure-paradox-870716"
-    },
-    {
-      "title": "They'll Borrow, But They'll Go for the Best: Aditya Birla Health Insurance CEO On Why Indians Won't Compromise on Care",
-      "link": "https://www.thecore.in/economy/mayank-bathwal-aditya-birla-health-insurance-youth-cover-interview-870551",
-      "date": "2026-09-12T06:00:59+05:30",
-      "description": "In this special edition of The Core podcast, Mayank Bathwal, Member of the Executive Committee, General Insurance Council and CEO, Aditya Birla Health Insurance talks about medical inflation, the...",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/09/11/1102460-the-core1200x630jpg.jpg",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/economy/mayank-bathwal-aditya-birla-health-insurance-youth-cover-interview-870551"
-    },
-    {
-      "title": "Why India's Medical-Device Trade Gap Has Widened Despite Years Of PLI Support",
-      "link": "https://www.thecore.in/opinion/the-plinth/india-medical-device-trade-deficit-pli-scheme-analysis-plinth-870487",
-      "date": "2026-09-11T06:00:11+05:30",
-      "description": "India makes what is cheap, imports what is dear, and the PLI pays to assemble boxes whose core parts are still all imported.",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/09/10/1102358-medical-equipments1200x630jpg.jpg",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/opinion/the-plinth/india-medical-device-trade-deficit-pli-scheme-analysis-plinth-870487"
-    },
-    {
-      "title": "Festive Cheer Meets Caution As India's Retailers Weigh Inflation Risk",
-      "link": "https://www.thecore.in/economy/india-festive-season-retail-2026-inflation-fmcg-demand-outlook-870405",
-      "date": "2026-09-10T06:00:44+05:30",
-      "description": "India's festive retail season is showing signs of life, but rising food prices and macro uncertainty are keeping both shoppers and retailers on guard.",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/09/08/1102162-retail-festive-outlook1200x630jpg.jpg",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/economy/india-festive-season-retail-2026-inflation-fmcg-demand-outlook-870405"
     }
   ],
   "ember-energy-insights": [
@@ -596,6 +580,22 @@
     },
     {
       "title": "ASEAN's clean energy bottleneck has shifted from raising capital to creating bankable projects",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxONC05a1NkMXpCcWFXZ1pqMFEtN3NlRzFJOWZGQk5IU0Z3TnBITTQxa2hVQTN0NnB6VjFjOFVSSjlLYkFWSUptLUt3MHlIdHFtUEdZVEVrcnZSeHhyNWU3WXFwWkxLVVl3WURsZ3E0MFU0Z05QV0w5bF8xaVJlUTdVRTlLTGxWd0otOFBKNzFLTW9jNGRxb0wxZ0U3TlI3c09rQXRld0ZUcjQzSkpJdmttemZMa29aM3lHdzVmZXVLVlk2Ri1MVE5mQmNmd19RT28?oc=5",
+      "date": "2026-10-07T01:06:26+00:00",
+      "description": "ASEAN's clean energy bottleneck has shifted from raising capital to creating bankable projects ember-energy.org",
+      "source": "Ember Energy",
+      "source_url": "https://ember-energy.org/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Ember",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "ember-energy-insights",
+      "guid": "CBMizwFBVV95cUxONC05a1NkMXpCcWFXZ1pqMFEtN3NlRzFJOWZGQk5IU0Z3TnBITTQxa2hVQTN0NnB6VjFjOFVSSjlLYkFWSUptLUt3MHlIdHFtUEdZVEVrcnZSeHhyNWU3WXFwWkxLVVl3WURsZ3E0MFU0Z05QV0w5bF8xaVJlUTdVRTlLTGxWd0otOFBKNzFLTW9jNGRxb0wxZ0U3TlI3c09rQXRld0ZUcjQzSkpJdmttemZMa29aM3lHdzVmZXVLVlk2Ri1MVE5mQmNmd19RT28"
+    },
+    {
+      "title": "ASEAN's clean energy bottleneck has shifted from raising capital to creating bankable projects",
       "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNckl4ZDAtdFgtaXJ4ZXBDeE0wU1hMRDl6aE1Pc1NLS1NJU09keW1ua2pMU1VHdFp5Ni1ZMHE5WjNEWjh2MUhNTFlnR3hNWFJmaW11cVF3X05ERDFKWnd4cnBCeDVBekdKUXpPR2l3b20zTWNwSkpXOFF1aVM4S1JnQTZIY29YV0pzUWluLWVvZVNLOTNSVUdBQzVtSkVmOE5WcVA2ZFRFUS12YVI1NWkxZU5MZFRHYUlTRmhKRzBhZ01sQlh6T1owQTJ2T19CQQ?oc=5",
       "date": "2026-10-07T01:06:25+00:00",
       "description": "ASEAN's clean energy bottleneck has shifted from raising capital to creating bankable projects ember-energy.org",
@@ -609,22 +609,6 @@
       "image": "",
       "feed_id": "ember-energy-insights",
       "guid": "CBMizgFBVV95cUxNckl4ZDAtdFgtaXJ4ZXBDeE0wU1hMRDl6aE1Pc1NLS1NJU09keW1ua2pMU1VHdFp5Ni1ZMHE5WjNEWjh2MUhNTFlnR3hNWFJmaW11cVF3X05ERDFKWnd4cnBCeDVBekdKUXpPR2l3b20zTWNwSkpXOFF1aVM4S1JnQTZIY29YV0pzUWluLWVvZVNLOTNSVUdBQzVtSkVmOE5WcVA2ZFRFUS12YVI1NWkxZU5MZFRHYUlTRmhKRzBhZ01sQlh6T1owQTJ2T19CQQ"
-    },
-    {
-      "title": "Annual coal mine methane emissions are linked to tens of thousands of deaths - Ember-climate.org",
-      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQOU9STHZySEphOUtwYklnc2Y3bTdHMmhXdVVtcTZ0RDJXZnhzVmxwZ1BuOWhmR3R1V0ZNcHdraUFJNW5Ud2x0WHFsamdVSV9xZWxqNGY2dGU1MFdpdnBWZjBuNnlmajM4WnFMbVpfblhmMm1oX2U5bmZEV1ZCdHdFOER0V21sV2xXTS1PR3FxMkltWVE5X0E5SlVSOF9yR1NRN2xsVzJ2Ukh0SHgxdlFYX3ZfWnRjQm90aGc?oc=5",
-      "date": "2026-10-05T11:11:49+00:00",
-      "description": "Annual coal mine methane emissions are linked to tens of thousands of deaths Ember-climate.org",
-      "source": "Ember Energy",
-      "source_url": "https://ember-energy.org/",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Ember",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "ember-energy-insights",
-      "guid": "CBMiugFBVV95cUxQOU9STHZySEphOUtwYklnc2Y3bTdHMmhXdVVtcTZ0RDJXZnhzVmxwZ1BuOWhmR3R1V0ZNcHdraUFJNW5Ud2x0WHFsamdVSV9xZWxqNGY2dGU1MFdpdnBWZjBuNnlmajM4WnFMbVpfblhmMm1oX2U5bmZEV1ZCdHdFOER0V21sV2xXTS1PR3FxMkltWVE5X0E5SlVSOF9yR1NRN2xsVzJ2Ukh0SHgxdlFYX3ZfWnRjQm90aGc"
     },
     {
       "title": "Renewable Caribbean\ua789 towards energy independence",
@@ -643,6 +627,22 @@
       "guid": "CBMikwFBVV95cUxPWWdoSTNtV1RXRDNNWlBHZjhGTk5WRjllNE9EYzZPWnRUMmlpZlJGdGItejM4OUszWEVsVnh2SlNOZ3pmZGxPeHVOMmRwZ2RkSmpjU0otaEFzaFZaTWNUSVBpenlhZ0l3WDdESUlRejY0blczSnFIby1sX1l1N3lPNzRwdjBlZUVKSkZYNV9MQW40enM"
     },
     {
+      "title": "Annual coal mine methane emissions are linked to tens of thousands of deaths - Ember-climate.org",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQOU9STHZySEphOUtwYklnc2Y3bTdHMmhXdVVtcTZ0RDJXZnhzVmxwZ1BuOWhmR3R1V0ZNcHdraUFJNW5Ud2x0WHFsamdVSV9xZWxqNGY2dGU1MFdpdnBWZjBuNnlmajM4WnFMbVpfblhmMm1oX2U5bmZEV1ZCdHdFOER0V21sV2xXTS1PR3FxMkltWVE5X0E5SlVSOF9yR1NRN2xsVzJ2Ukh0SHgxdlFYX3ZfWnRjQm90aGc?oc=5",
+      "date": "2026-09-30T01:39:53+00:00",
+      "description": "Annual coal mine methane emissions are linked to tens of thousands of deaths Ember-climate.org",
+      "source": "Ember Energy",
+      "source_url": "https://ember-energy.org/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Ember",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "ember-energy-insights",
+      "guid": "CBMiugFBVV95cUxQOU9STHZySEphOUtwYklnc2Y3bTdHMmhXdVVtcTZ0RDJXZnhzVmxwZ1BuOWhmR3R1V0ZNcHdraUFJNW5Ud2x0WHFsamdVSV9xZWxqNGY2dGU1MFdpdnBWZjBuNnlmajM4WnFMbVpfblhmMm1oX2U5bmZEV1ZCdHdFOER0V21sV2xXTS1PR3FxMkltWVE5X0E5SlVSOF9yR1NRN2xsVzJ2Ukh0SHgxdlFYX3ZfWnRjQm90aGc"
+    },
+    {
       "title": "Indonesia's captive coal giant\ua789 better data to shape industrial competitiveness - Ember-climate.org",
       "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPVm9ONjJodlNNR0JKaERYYUZ2NGpnRVhad0ljQnlkSDA5WXJtTV90ZDRRRE5iX1JMdmtRc2ZISkh1dUxIOU5YaEVUcFZpNHpHa3FNUlpqZ2tpQ3ZOUnliUlluUXRPVWpmUTFabGFQWUlPdEZ4S2hMdnNnWnpSaFUyV1MxTWFndHQwdHR1UTBZU0tFaEtROUlKbUprZjVpeDRESUJrTEtjYkVRbTdZSjlEby1EcnZpTXliTGFn?oc=5",
       "date": "2026-09-24T04:26:58+00:00",
@@ -657,6 +657,22 @@
       "image": "",
       "feed_id": "ember-energy-insights",
       "guid": "CBMiuwFBVV95cUxPVm9ONjJodlNNR0JKaERYYUZ2NGpnRVhad0ljQnlkSDA5WXJtTV90ZDRRRE5iX1JMdmtRc2ZISkh1dUxIOU5YaEVUcFZpNHpHa3FNUlpqZ2tpQ3ZOUnliUlluUXRPVWpmUTFabGFQWUlPdEZ4S2hMdnNnWnpSaFUyV1MxTWFndHQwdHR1UTBZU0tFaEtROUlKbUprZjVpeDRESUJrTEtjYkVRbTdZSjlEby1EcnZpTXliTGFn"
+    },
+    {
+      "title": "The electro-fortification of Britain\ua789 the next national technology transition",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQSlNYWjh3LTJmUXN5NHlHNWo5SjAxaFVRN1dyQ0staHhNbEZUeFVMTWkxU2N6VVJ5QkNCbzRGNmlfUkFaQWp0ZWJWb0M0YjV3ZHU4MnBDOHZsc1FMOFFCMDE2eXBrVkdvcmF6RXp0dmVfUEs3Mndmbnh1azc0Qi1YV0VVNTVZeWhkYXpuM0FabWE5UGRFa04tY3FjbEtyNzh2OWg4cUdOWFBOVnlqSW5mLVVLdHVtMk5XV0E?oc=5",
+      "date": "2026-09-22T23:39:33+00:00",
+      "description": "The electro-fortification of Britain\ua789 the next national technology transition ember-energy.org",
+      "source": "Ember Energy",
+      "source_url": "https://ember-energy.org/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Ember",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "ember-energy-insights",
+      "guid": "CBMiugFBVV95cUxQSlNYWjh3LTJmUXN5NHlHNWo5SjAxaFVRN1dyQ0staHhNbEZUeFVMTWkxU2N6VVJ5QkNCbzRGNmlfUkFaQWp0ZWJWb0M0YjV3ZHU4MnBDOHZsc1FMOFFCMDE2eXBrVkdvcmF6RXp0dmVfUEs3Mndmbnh1azc0Qi1YV0VVNTVZeWhkYXpuM0FabWE5UGRFa04tY3FjbEtyNzh2OWg4cUdOWFBOVnlqSW5mLVVLdHVtMk5XV0E"
     },
     {
       "title": "The Age of Power",
@@ -755,22 +771,6 @@
       "image": "https://substackcdn.com/image/fetch/$s_!QZS1!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F52c8553e-68ff-401a-aeba-86b26fb182fa_1704x824.png",
       "feed_id": "business-standard-number-wise",
       "guid": "https://businessstandard.substack.com/p/in-hunt-for-olympic-medals-india"
-    },
-    {
-      "title": "India Inc\u2019s hiring of specially abled people is slow progress",
-      "link": "https://businessstandard.substack.com/p/india-incs-hiring-of-specially-abled-8af",
-      "date": "2026-09-11T03:30:55+00:00",
-      "description": "Workplace barriers and gender divides leave millions of disabled workers sidelined from India\u2019s formal economy",
-      "source": "Business Standard",
-      "source_url": "https://businessstandard.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "BS Number Wise",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!LDc4!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb00c69bc-b767-41b4-9cb7-04887e00927b_1448x1400.png",
-      "feed_id": "business-standard-number-wise",
-      "guid": "https://businessstandard.substack.com/p/india-incs-hiring-of-specially-abled-8af"
     }
   ],
   "ideas-for-india": [
@@ -921,6 +921,22 @@
       "guid": "CBMijAFBVV95cUxOS1dac0x3bzBHbGo3cGItTWwyWnRNTFhMUVBOWGlqaTlrRTZxZkoyZGQzM0hkZE1tVzBIVWRiajZmYVpTd0lRbEZhcEx3S1A3S0VyNFdQTElSZzl2NFhlbUllbGs5aFd3Umo4QU5iTVU0V01LQWltY2lVQUJIamZDSFJPeHg3eTJleDZxbw"
     },
     {
+      "title": "Orangutans in Odisha Point to the Rise of Illegal Primate Trade in India",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOY3JZWExNTkw3VnE3cWtMdEZzcWI4V2NmNXNhUktpUDdvUU9LZ1VKZUt2c3JqUGNsTlFZVXV1ckU3dFllNS1zX2c3MjFVTW91eEtjSGpiZnctbi1SRE5wOUh5MVZNMkF4RUk3QmRjbjVoTDhDVmNjY2l4YmtXYzNHc2FzUlZsVVR6eWtqS1RCY0FieFJNd1EwX1VuVm5ZUQ?oc=5",
+      "date": "2026-09-29T04:30:16+00:00",
+      "description": "Orangutans in Odisha Point to the Rise of Illegal Primate Trade in India The India Forum",
+      "source": "The India Forum",
+      "source_url": "https://www.theindiaforum.in/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The India Forum",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-india-forum",
+      "guid": "CBMingFBVV95cUxOY3JZWExNTkw3VnE3cWtMdEZzcWI4V2NmNXNhUktpUDdvUU9LZ1VKZUt2c3JqUGNsTlFZVXV1ckU3dFllNS1zX2c3MjFVTW91eEtjSGpiZnctbi1SRE5wOUh5MVZNMkF4RUk3QmRjbjVoTDhDVmNjY2l4YmtXYzNHc2FzUlZsVVR6eWtqS1RCY0FieFJNd1EwX1VuVm5ZUQ"
+    },
+    {
       "title": "India\u2019s Democratic Resilience in a Majoritarian Setting",
       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPV3lKNzBXUG5KeEg5R1NlOEY0OV9NbWd4aUhOVWVFX0lhV0NzZC1zbXp5UG5rdEczcW5rZlpuSzJ6bFN0MzU4Q0k4emxSdVByRDBKbmdRR2VXS2UxVTEwbFkyWkVQcUdpcXk3cHRaOHBsTzZzUzdPa00weDBmWVhhRUJEMW9sY1FXSi1pa0dWTEk?oc=5",
       "date": "2026-09-25T07:00:00+00:00",
@@ -967,22 +983,6 @@
       "image": "",
       "feed_id": "the-india-forum",
       "guid": "CBMikAFBVV95cUxQWXNfaUlFMGtfbjR3ZTRNMG42ZTFCY0x1cUtEQ1I2WkpRbE84NDdqT0c0cXVld3hETmthUmFWRndJYkFfT3BUX2ZENm5DaWh1X1c0S29yUmNrbjZoMlhTNDE1ZHdfei1PbWhZNjNGcGJLbVF4UmNDYzJaYkhPY01Wb1JQMkFZanMwYVR0ZVFnM0o"
-    },
-    {
-      "title": "Peasants to Programmers: Continuity and Change in a Tamil Village Over 50 Years",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNc0UtUnZlZS04UTRnRU9kUnFZaDRHbFN0cko2RGlwX1ZwM0cyLWR1MFFkYy1hLU1JdTh0cFYwcFRGeTRFQUZGYTZ2QzZRRC01MjVjX2stRWNlZHh4eWdvc0Zvd1BQYjdzYnpoMDIzR1pPWEg1RFZQQmZRSExTcXh3TVhrMVJjdm96QzF1a3I3d2VGNWx2bGtwdXpwcHUwRzFSNnJkelVob3Q?oc=5",
-      "date": "2026-09-11T07:00:00+00:00",
-      "description": "Peasants to Programmers: Continuity and Change in a Tamil Village Over 50 Years The India Forum",
-      "source": "The India Forum",
-      "source_url": "https://www.theindiaforum.in/",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The India Forum",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "the-india-forum",
-      "guid": "CBMiqAFBVV95cUxNc0UtUnZlZS04UTRnRU9kUnFZaDRHbFN0cko2RGlwX1ZwM0cyLWR1MFFkYy1hLU1JdTh0cFYwcFRGeTRFQUZGYTZ2QzZRRC01MjVjX2stRWNlZHh4eWdvc0Zvd1BQYjdzYnpoMDIzR1pPWEg1RFZQQmZRSExTcXh3TVhrMVJjdm96QzF1a3I3d2VGNWx2bGtwdXpwcHUwRzFSNnJkelVob3Q"
     }
   ],
   "takshashila-publications": [
@@ -1017,22 +1017,6 @@
       "image": "",
       "feed_id": "takshashila-publications",
       "guid": "https://takshashila.org.in/content/publications/20260930-why-and-how-india-should-accelerate-ai.html"
-    },
-    {
-      "title": "Takshashila Policy Advisory: Draft SHANTI Rules and Regulations, 2026",
-      "link": "https://takshashila.org.in/content/publications/20260911-shanti-policy-advisory.html",
-      "date": "2026-09-10T18:30:00+00:00",
-      "description": "Download Document In August 2026, the Department of Atomic Energy (DAE), Government of India, released draft SHANTI Rules and draft SHANTI Regulations for public consultation. These have been framed under SHANTI Act of December 2025. Authors : Lokendra Sharma is a staff research analyst with the Hig",
-      "source": "Takshashila",
-      "source_url": "https://takshashila.org.in/pages/publications/",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Takshashila",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "takshashila-publications",
-      "guid": "https://takshashila.org.in/content/publications/20260911-shanti-policy-advisory.html"
     }
   ],
   "prosperiti-insights": [
@@ -1280,22 +1264,6 @@
       "image": "https://substackcdn.com/image/fetch/$s_!QHNm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1deecaad-cc3d-4933-8cc9-5dc9383f8416_1590x1512.png",
       "feed_id": "musings-on-markets-substack",
       "guid": "https://aswathdamodaran.substack.com/p/earnings-cashflows-and-stock-prices"
-    },
-    {
-      "title": "Interest Rates and Stock Prices: An Old Debate Resurfaces!",
-      "link": "https://aswathdamodaran.substack.com/p/interest-rates-and-stock-prices-an",
-      "date": "2026-09-10T16:47:42+00:00",
-      "description": "Why higher rates don\u2019t always imply lower stock prices",
-      "source": "Musings on Markets \u2014 Markets",
-      "source_url": "https://aswathdamodaran.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Musings on Markets",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!-41z!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8f1d415a-b542-4f46-80ce-5b7967b42a21_1718x1224.jpeg",
-      "feed_id": "musings-on-markets-substack",
-      "guid": "https://aswathdamodaran.substack.com/p/interest-rates-and-stock-prices-an"
     }
   ],
   "our-world-in-data": [
@@ -1392,22 +1360,6 @@
       "image": "https://substackcdn.com/image/fetch/$s_!7l1W!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1595f200-1256-4cd9-a9bc-b50f4c0cc476_2762x2530.png",
       "feed_id": "by-the-numbers",
       "guid": "https://hannahritchie.substack.com/p/us-energy-data-platform"
-    },
-    {
-      "title": "Young people tend to be happier than older generations, but not in the Anglosphere",
-      "link": "https://hannahritchie.substack.com/p/happiness-by-age",
-      "date": "2026-09-10T06:07:54+00:00",
-      "description": "For a long time, the \u201cU-shaped curve\u201d has been a dominant framework in the research on happiness.",
-      "source": "By the Numbers",
-      "source_url": "https://hannahritchie.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "By the Numbers",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!88dr!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbec7a713-af93-481d-95d6-256532ceec77_2048x1192.png",
-      "feed_id": "by-the-numbers",
-      "guid": "https://hannahritchie.substack.com/p/happiness-by-age"
     }
   ],
   "the-ken": [
@@ -1590,6 +1542,22 @@
   ],
   "the-morning-context": [
     {
+      "title": "For a stronger India, reverse this institutional capture",
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxObTgyUVFMZU12V2FITTFlcnZ3aE5DZ0xUU0ZueHBPZGlMS25GUUtGaWdWcFlXdm4xTjBQZUVvZnNhNElaVXpyX0pmU3RKX0ZwcV9TVUtHQ0pZbU80WndERlhsYjNfNks3NFk2NTNjTEE5VEhDQWhaZnFnOXhQWjBTWGUtRXdSSXJYYWhtTnJNM1RpWmowOXc?oc=5",
+      "date": "2026-10-09T19:05:52+00:00",
+      "description": "For a stronger India, reverse this institutional capture The Morning Context",
+      "source": "The Morning Context",
+      "source_url": "https://themorningcontext.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Morning Context",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-morning-context",
+      "guid": "CBMilgFBVV95cUxObTgyUVFMZU12V2FITTFlcnZ3aE5DZ0xUU0ZueHBPZGlMS25GUUtGaWdWcFlXdm4xTjBQZUVvZnNhNElaVXpyX0pmU3RKX0ZwcV9TVUtHQ0pZbU80WndERlhsYjNfNks3NFk2NTNjTEE5VEhDQWhaZnFnOXhQWjBTWGUtRXdSSXJYYWhtTnJNM1RpWmowOXc"
+    },
+    {
       "title": "Gaurav Munjal loses his faith",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdkNwNkFuSnJzZHhQNl82UlpxVEU3UkUwYkRSWTBSaWJEdEFTUkJGSXlHaW9GM21Ec19Lam5VM08wTGR0MXU3bzJzcUgwZHNlSGNBRmRKeUlPQ3Z4WmNybU5FSzh1NkJ5SUs3aGRlV2I1d1BncWFSSWVPblI2TFFXdUZjT2ZPdm10?oc=5",
       "date": "2026-10-07T19:31:11+00:00",
@@ -1737,6 +1705,54 @@
     }
   ],
   "finshots": [
+    {
+      "title": "How China is building its global EV battery empire",
+      "link": "https://finshots.in/archive/how-china-is-building-its-global-ev-battery-empire/",
+      "date": "2026-10-12T01:30:49+00:00",
+      "description": "An explainer on how China cornered the EV battery market and is now taking its dominance global.",
+      "source": "Finshots",
+      "source_url": "https://finshots.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Finshots",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://cdn.finshots.app/images/2026/10/china.jpg",
+      "feed_id": "finshots",
+      "guid": "6aca4aa004bd2406332fdbe6"
+    },
+    {
+      "title": "How a fistfight helped fix your eyesight and more...",
+      "link": "https://finshots.in/archive/how-a-fistfight-helped-fix-your-eyesight-and-more/",
+      "date": "2026-10-11T01:30:11+00:00",
+      "description": "How a fistfight helped fix your eyesight, the phoenix planet and more in this week's Sunny Side Up.",
+      "source": "Finshots",
+      "source_url": "https://finshots.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Finshots",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://cdn.finshots.app/images/2026/10/lasic-surgery.jpg",
+      "feed_id": "finshots",
+      "guid": "6aca080504bd2406332fdb92"
+    },
+    {
+      "title": "ESDS Solution's volatile stock, Nike's problems, and more...",
+      "link": "https://finshots.in/archive/esds-solutions-volatile-stock-nikes-problems-and-more/",
+      "date": "2026-10-10T01:30:01+00:00",
+      "description": "ESDS Solution's volatile stock, Nike's problems, a looming global food crisis and more in this weekly wrapup.",
+      "source": "Finshots",
+      "source_url": "https://finshots.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Finshots",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://cdn.finshots.app/images/2026/10/weekly-wrapup3--3-.jpg",
+      "feed_id": "finshots",
+      "guid": "6ac93d1e04bd2406332fdb3c"
+    },
     {
       "title": "What\u2019s really going on with ESDS?",
       "link": "https://finshots.in/markets/whats-going-on-with-esds/",
@@ -1996,6 +2012,22 @@
   ],
   "marketbites-substack": [
     {
+      "title": "Jio Made India\u2019s Internet Cheap. Now Who Gets to Make Money From It?",
+      "link": "https://marketbites.substack.com/p/jio-made-indias-internet-cheap-now",
+      "date": "2026-10-11T03:37:14+00:00",
+      "description": "#063Ten years after Jio changed what Indians pay for mobile data, the industry is trying to earn more from connectivity. Elon Musk wants a place in that market, just as Jio prepares to list.",
+      "source": "Market Bites",
+      "source_url": "https://marketbites.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Market Bites",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substack-post-media.s3.amazonaws.com/public/images/388f4271-1cd4-40b1-bda2-a84e7e408ce8_1939x811.png",
+      "feed_id": "marketbites-substack",
+      "guid": "https://marketbites.substack.com/p/jio-made-indias-internet-cheap-now"
+    },
+    {
       "title": "India has \u20b9380 lakh crore worth of gold. Can lenders tap it?",
       "link": "https://marketbites.substack.com/p/india-has-380-lakh-crore-worth-of",
       "date": "2026-10-04T03:30:46+00:00",
@@ -2062,6 +2094,22 @@
   ],
   "capitalquill-substack": [
     {
+      "title": "India isn\u2019t broken. It\u2019s on the wrong side of trade",
+      "link": "https://capitalquill.substack.com/p/india-isnt-broken-its-on-the-wrong",
+      "date": "2026-10-10T06:14:23+00:00",
+      "description": "India wasn\u2019t sold because it is weak.",
+      "source": "Capital Quill",
+      "source_url": "https://capitalquill.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Capital Quill",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!Te4k!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb57196e-62f5-4890-b626-931032750f05_1670x941.png",
+      "feed_id": "capitalquill-substack",
+      "guid": "https://capitalquill.substack.com/p/india-isnt-broken-its-on-the-wrong"
+    },
+    {
       "title": "Greece Turnaround You Weren\u2019t Aware Of",
       "link": "https://capitalquill.substack.com/p/greece-turnaround-you-werent-aware",
       "date": "2026-10-03T04:31:56+00:00",
@@ -2127,6 +2175,22 @@
     }
   ],
   "soic-substack": [
+    {
+      "title": "Tega Industries",
+      "link": "https://soic.substack.com/p/tega-industries",
+      "date": "2026-10-11T08:49:09+00:00",
+      "description": "The Rubber Liner Company That Just Bought a $1.5 Billion Global Platform",
+      "source": "SOIC",
+      "source_url": "https://soic.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "SOIC",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!tGwL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f88b76c-4e08-4777-9a2b-3bbaeab736ca_2180x1196.png",
+      "feed_id": "soic-substack",
+      "guid": "https://soic.substack.com/p/tega-industries"
+    },
     {
       "title": "Why I'm Studying PI Industries at a 5-Year Low",
       "link": "https://soic.substack.com/p/why-im-studying-pi-industries-at",
@@ -2353,22 +2417,6 @@
       "image": "https://static.thearcweb.com/images/PROD/PROD-e9af212e-80f9-4d1f-a0d3-21244ceb0d21.jpg",
       "feed_id": "the-arc",
       "guid": "https://thearcweb.com/article/bounce-20-gigworker-scooter-rentals-hit-rs-140-cr-runrate-LSXK8cYNasAsyZOS"
-    },
-    {
-      "title": "Sparrow Capital finds a higher perch in seed investing",
-      "link": "https://thearcweb.com/article/sparrow-capital-seed-aukera-gokwik-OWZoDzWpsZxnykX3",
-      "date": "2026-09-11T14:04:00+05:30",
-      "description": "Bengaluru-based VC firm Sparrow Capital closed its third fund at Rs 475 crore, above its initial target of Rs 400 crore, in July this year. While its first two corpuses were backed predominantly by non-institutional limited partners such as high-net-worth individuals and family offices, Fund III has",
-      "source": "The Arc",
-      "source_url": "https://www.thearcweb.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Arc",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://static.thearcweb.com/images/PROD/PROD-96729bd6-cd4c-4fc1-8c5e-a03e53a36a42.JPG",
-      "feed_id": "the-arc",
-      "guid": "https://thearcweb.com/article/sparrow-capital-seed-aukera-gokwik-OWZoDzWpsZxnykX3"
     }
   ]
 }
