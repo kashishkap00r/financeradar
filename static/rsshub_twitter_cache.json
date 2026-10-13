@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T05:20:30.251464+00:00",
+  "generated_at": "2026-10-13T05:46:29.947736+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 44,
     "handles_empty": 2,
     "handles_error": 1,
-    "items_total": 764
+    "items_total": 761
   },
   "items": [
     {
@@ -2237,6 +2237,76 @@
       "description_html": "Srinivas is spearheading the PCB CAD tool development along with a open source hardware ecosystem in \ud83c\uddee\ud83c\uddf3<br><br>1. Context driven autorouter.<br>2. Prompt to prototype in few days will be possible very soon.<br>3. Advanced CAD features in the pipeline.<br><br>All made in \ud83c\uddee\ud83c\uddf3 for \ud83c\uddee\ud83c\uddf3 and the \ud83c\udf0f<br><br>Great example of staying focused on the mission, preseverence and bootstraping.<div class=\"rsshub-quote\"><br><br>Srinivasan:\u2002Took us 8 months to reimagine and simplify how a PCB CAD system works.<br><br>Well\u2026 now you can put Pikachu on a PCB keychain. \u26a1\ufe0f<br><br>Check out Spell \u2192 https://spell.pcbcupid.com<br><br>PS: Please report more bugs \ud83d\udc40<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2090178054421360640/vid/avc1/1920x1080/TvXrYOQhPiu_Cy4N.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2090178054421360640/img/PZUkCjBjaoHOdIpm.jpg\"></video></div>"
     },
     {
+      "title": "#Fintech funding rises 14% to $2.2 billion in Jan-Sep; deal count falls 41%: Tracxn https://www.cnbctv18.com/business/fintech-funding-rises-14-to-2-2-...",
+      "link": "https://x.com/CNBCTV18Live/status/2109881939620700489",
+      "date": "2026-10-13T05:40:28+00:00",
+      "tweet_id": "2109881939620700489",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Fintech funding rises 14% to $2.2 billion in Jan-Sep; deal count falls 41%: Tracxn<br><br>https://www.cnbctv18.com/business/fintech-funding-rises-14-to-2-2-billion-in-jan-sep-deal-count-falls-41-tracxn-20010611.htm"
+    },
+    {
+      "title": "#SupremeCourt registry flags over 10 defects in #RahulGandhi's voter roll revision petition https://www.cnbctv18.com/india/supreme-court-registry-flag...",
+      "link": "https://x.com/CNBCTV18Live/status/2109880688698867721",
+      "date": "2026-10-13T05:35:30+00:00",
+      "tweet_id": "2109880688698867721",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#SupremeCourt registry flags over 10 defects in #RahulGandhi's voter roll revision petition<br><br>https://www.cnbctv18.com/india/supreme-court-registry-flags-over-10-defects-in-rahul-gandhi-voter-roll-revision-petition-20010608.htm"
+    },
+    {
+      "title": "#CNBCTV18Market| #PineLabs Off Lows, Rises Nearly 5% From Day\u2019s Low",
+      "link": "https://x.com/CNBCTV18Live/status/2109880139173753001",
+      "date": "2026-10-13T05:33:19+00:00",
+      "tweet_id": "2109880139173753001",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUfMVJfbEAA32lI?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#CNBCTV18Market| #PineLabs Off Lows, Rises Nearly 5% From Day\u2019s Low<br><img width=\"606\" height=\"344\" style=\"\" src=\"https://pbs.twimg.com/media/HUfMVJfbEAA32lI?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#HyundaiBayon unveiled in India with #AI voice assistant; prices to be announced Oct 26 https://www.cnbctv18.com/auto/hyundai-bayon-india-launch-ai-vo...",
+      "link": "https://x.com/CNBCTV18Live/status/2109878211840774481",
+      "date": "2026-10-13T05:25:40+00:00",
+      "tweet_id": "2109878211840774481",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#HyundaiBayon unveiled in India with #AI voice assistant; prices to be announced Oct 26<br><br>https://www.cnbctv18.com/auto/hyundai-bayon-india-launch-ai-voice-assistant-suv-petrol-engine-features-booking-price-20010575.htm"
+    },
+    {
+      "title": "#CNBCTV18Market | #MarutiSuzuki Slips Nearly 1%, Hits 18-Month Low",
+      "link": "https://x.com/CNBCTV18Live/status/2109877423823368566",
+      "date": "2026-10-13T05:22:32+00:00",
+      "tweet_id": "2109877423823368566",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUfJejubcAAe394?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#CNBCTV18Market | #MarutiSuzuki Slips Nearly 1%, Hits 18-Month Low<br><img width=\"607\" height=\"342\" style=\"\" src=\"https://pbs.twimg.com/media/HUfJejubcAAe394?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "#CourtCorner | #HC Rejects #SpiceJet\u2019s Plea For More Time To Deposit \u20b9145 Cr In #MaranCase #HC Says: Repeated Extensions Cannot Be Granted To Deposi...",
       "link": "https://x.com/CNBCTV18Live/status/2109876332431855738",
       "date": "2026-10-13T05:18:11+00:00",
@@ -2419,88 +2489,74 @@
       "description_html": "#CNBCTV18Market | #RBLBank Down Over 5% In Early Trade After Q2 Results<br><img width=\"608\" height=\"341\" style=\"\" src=\"https://pbs.twimg.com/media/HUe2DGDbAAAMb9E?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "#CNBCTV18Market | #HCLTech Jumps Over 3% In Early Trade After Q2 Results",
-      "link": "https://x.com/CNBCTV18Live/status/2109854971147784519",
-      "date": "2026-10-13T03:53:18+00:00",
-      "tweet_id": "2109854971147784519",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUe16C6awAAT7RL?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#CNBCTV18Market | #HCLTech Jumps Over 3% In Early Trade After Q2 Results<br><img width=\"605\" height=\"344\" style=\"\" src=\"https://pbs.twimg.com/media/HUe16C6awAAT7RL?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "#CNBCTV18Market | #Kolte-patil up nearly 2% on Q2 biz update",
-      "link": "https://x.com/CNBCTV18Live/status/2109854142244221216",
-      "date": "2026-10-13T03:50:01+00:00",
-      "tweet_id": "2109854142244221216",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUe051MagAAbWxN?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#CNBCTV18Market | #Kolte-patil up nearly 2% on Q2 biz update<br><img width=\"607\" height=\"344\" style=\"\" src=\"https://pbs.twimg.com/media/HUe051MagAAbWxN?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "#CNBCTV18Market | Market opens flat, #Nifty opens near 22,341, Rupee rises nearly 1.5% on post RBI forex measures",
-      "link": "https://x.com/CNBCTV18Live/status/2109853515292246042",
-      "date": "2026-10-13T03:47:31+00:00",
-      "tweet_id": "2109853515292246042",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUe0SGlbsAAG8yE?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#CNBCTV18Market | Market opens flat, #Nifty opens near 22,341, Rupee rises nearly 1.5% on post RBI forex measures<br><img width=\"615\" height=\"341\" style=\"\" src=\"https://pbs.twimg.com/media/HUe0SGlbsAAG8yE?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "#IAF chief A P Singh flies last fighter sortie in #Tejas during Tarang Shakti at #Jodhpur | In pics @ViekDubey https://www.cnbctv18.com/photos/busines...",
-      "link": "https://x.com/CNBCTV18Live/status/2109852319752097945",
-      "date": "2026-10-13T03:42:46+00:00",
-      "tweet_id": "2109852319752097945",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "#BandhanBank shares jumped nearly 7% on Tuesday, hitting an intraday high of Rs 167.90 on the NSE, after reports that Abu Dhabi-based IHC was among th...",
+      "link": "https://x.com/ETMarkets/status/2109883078357192818",
+      "date": "2026-10-13T05:45:00+00:00",
+      "tweet_id": "2109883078357192818",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#IAF chief A P Singh flies last fighter sortie in #Tejas during Tarang Shakti at #Jodhpur | In pics<br><br>@ViekDubey <br><br>https://www.cnbctv18.com/photos/business/aviation/iaf-chief-ap-singh-last-fighter-sortie-indigenous-tejas-tarang-shakti-jodhpur-air-force-20010449.htm"
+      "description_html": "#BandhanBank shares jumped nearly 7% on Tuesday, hitting an intraday high of Rs 167.90 on the NSE, after reports that Abu Dhabi-based IHC was among the parties in early-stage discussions to acquire a stake in the lender\u2019s promoter, Bandhan Financial Services (BFSL).<br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/bandhan-bank-shares-jump-7-as-abu-dhabis-ihc-explores-stake-in-promoter-bandhan-financial-services/articleshow/134908601.cms"
     },
     {
-      "title": "#Aequs shares in focus after securing long-term supply agreements with #Safran @ShlokaBadkar https://www.cnbctv18.com/market/aequs-share-price-long-te...",
-      "link": "https://x.com/CNBCTV18Live/status/2109851295343599987",
-      "date": "2026-10-13T03:38:42+00:00",
-      "tweet_id": "2109851295343599987",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "India\u2019s consumption sector is entering the festive season amid elevated crude oil prices, raising concerns over profit margins even as companies anti...",
+      "link": "https://x.com/ETMarkets/status/2109881819805991015",
+      "date": "2026-10-13T05:40:00+00:00",
+      "tweet_id": "2109881819805991015",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#Aequs shares in focus after securing long-term supply agreements with #Safran<br><br>@ShlokaBadkar <br><br>https://www.cnbctv18.com/market/aequs-share-price-long-term-supply-agreement-with-safran-critical-components-aerospace-biz-implications-20010417.htm"
+      "description_html": "India\u2019s consumption sector is entering the festive season amid elevated crude oil prices, raising concerns over profit margins even as companies anticipate a pickup in consumer spending.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/high-crude-vs-festive-demand-can-consumption-stocks-withstand-the-oil-shock/articleshow/134908303.cms"
     },
     {
-      "title": "#RupeeCheck | Rupee Opens At 95.17/$ Vs Monday\u2019s Close Of 95.77/$ Alert: Rupee Appreciates By 60 Paise From Monday\u2019s Close Of 95.77/$",
-      "link": "https://x.com/CNBCTV18Live/status/2109849890176307651",
-      "date": "2026-10-13T03:33:07+00:00",
-      "tweet_id": "2109849890176307651",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "Japanese government bond (JGB) yields moved in opposite directions on Tuesday. Shorter-dated yields edged higher while longer-term yields declined as ...",
+      "link": "https://x.com/ETMarkets/status/2109879305652060635",
+      "date": "2026-10-13T05:30:00+00:00",
+      "tweet_id": "2109879305652060635",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUexDrUbIAALuZr?format=png&name=orig",
+      "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#RupeeCheck | Rupee Opens At 95.17/$ Vs Monday\u2019s Close Of 95.77/$<br><br>Alert: Rupee Appreciates By 60 Paise From Monday\u2019s Close Of 95.77/$<br><img width=\"679\" height=\"677\" style=\"\" src=\"https://pbs.twimg.com/media/HUexDrUbIAALuZr?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "Japanese government bond (JGB) yields moved in opposite directions on Tuesday. Shorter-dated yields edged higher while longer-term yields declined as investors assessed persistent inflation pressures and the Bank of Japan\u2019s policy outlook.<br>#ETMarkets #JGB <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-japan-bond-yields-diverge-as-investors-weigh-inflation-boj-outlook/articleshow/134908232.cms"
+    },
+    {
+      "title": "India\u2019s contract research, development and manufacturing organisation (CRDMO) sector has gained momentum in recent years, but financial performance a...",
+      "link": "https://x.com/ETMarkets/status/2109876786800587149",
+      "date": "2026-10-13T05:20:00+00:00",
+      "tweet_id": "2109876786800587149",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "India\u2019s contract research, development and manufacturing organisation (CRDMO) sector has gained momentum in recent years, but financial performance alone may not determine which companies emerge as long-term winners, according to global brokerage Jefferies.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/jefferies-lists-6-factors-that-will-shape-crdmo-winners-divis-labs-sai-life-laurus-anthem-among-stocks-to-watch/articleshow/134908058.cms"
+    },
+    {
+      "title": "The shares of Polycab India tumbled more than 5% on Tuesday after NSE announced that it will exclude the cables and wires maker's stock from the equit...",
+      "link": "https://x.com/ETMarkets/status/2109876734581715257",
+      "date": "2026-10-13T05:19:47+00:00",
+      "tweet_id": "2109876734581715257",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The shares of Polycab India tumbled more than 5% on Tuesday after NSE announced that it will exclude the cables and wires maker's stock from the equity derivatives segment from December 30 onwards.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/polycab-shares-tumble-5-as-stock-set-to-exit-fo-segment-from-december-30-onwards-heres-why/articleshow/134908403.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
     },
     {
       "title": "India's latest foreign-exchange curbs have sown confusion among bankers, with some taking a broad interpretation of the cash-margin requirement and ho...",
@@ -2711,76 +2767,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Vedanta has fixed October 14 as the record date for its first interim dividend of Rs 5 per share for FY27, effectively making today the last day for interested investors to buy shares of the company to be eligible for the payout.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/vedanta-dividend-alert-last-day-to-buy-shares-of-anil-agarwal-led-company-for-rs-5/share-dividend/articleshow/134906450.cms"
-    },
-    {
-      "title": "Tata Consultancy Services (TCS) has fixed October 14 as the record date for its second interim dividend of Rs 12 per share for the ongoing FY27, effec...",
-      "link": "https://x.com/ETMarkets/status/2109844950406123976",
-      "date": "2026-10-13T03:13:29+00:00",
-      "tweet_id": "2109844950406123976",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Tata Consultancy Services (TCS) has fixed October 14 as the record date for its second interim dividend of Rs 12 per share for the ongoing FY27, effectively making today the last day for interested investors to buy shares of India\u2019s largest IT services company to be eligible for the payout.<br>#ETMarkets #TCS <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/tcs-dividend-alert-last-day-to-buy-it-majors-shares-for-rs-12-dividend/articleshow/134906371.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
-    },
-    {
-      "title": "Oil prices edged lower on Tuesday after climbing by nearly $2 a barrel in the previous session, as traders assessed supply risks from attacks on Saudi...",
-      "link": "https://x.com/ETMarkets/status/2109832981741498491",
-      "date": "2026-10-13T02:25:56+00:00",
-      "tweet_id": "2109832981741498491",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Oil prices edged lower on Tuesday after climbing by nearly $2 a barrel in the previous session, as traders assessed supply risks from attacks on Saudi Arabia while weighing the prospect of additional diesel supplies from Russia. https://economictimes.indiatimes.com/markets/commodities/news/oil-ticks-lower-as-russia-diesel-supply-prospects-counter-gulf-supply-risks/articleshow/134905984.cms"
-    },
-    {
-      "title": "Gold prices were subdued on Tuesday, with market focus on upcoming US inflation prints for fresh signals on the Federal Reserve's interest-rate trajec...",
-      "link": "https://x.com/ETMarkets/status/2109832872198918330",
-      "date": "2026-10-13T02:25:30+00:00",
-      "tweet_id": "2109832872198918330",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Gold prices were subdued on Tuesday, with market focus on upcoming US inflation prints for fresh signals on the Federal Reserve's interest-rate trajectory.<br><br>https://economictimes.indiatimes.com/markets/commodities/news/gold-subdued-with-spotlight-on-us-inflation-data/articleshow/134906003.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
-    },
-    {
-      "title": "The dollar held its ground at the start of Asian trading on Tuesday after a holiday for some markets in the US, as geopolitical risks rose after renew...",
-      "link": "https://x.com/ETMarkets/status/2109832657186193825",
-      "date": "2026-10-13T02:24:38+00:00",
-      "tweet_id": "2109832657186193825",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The dollar held its ground at the start of Asian trading on Tuesday after a holiday for some markets in the US, as geopolitical risks rose after renewed attacks on energy infrastructure in the Middle East and Ukraine.<br><br>https://economictimes.indiatimes.com/markets/forex/forex-news/dollar-holds-near-18-month-high-as-geopolitical-risks-rise/articleshow/134906029.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
-    },
-    {
-      "title": "Shares of HCL Technologies, RBL Bank, Nazara Technologies, Hero Motors, Power Grid Corporation of India and several other companies will be in focus o...",
-      "link": "https://x.com/ETMarkets/status/2109832518585536796",
-      "date": "2026-10-13T02:24:05+00:00",
-      "tweet_id": "2109832518585536796",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Shares of HCL Technologies, RBL Bank, Nazara Technologies, Hero Motors, Power Grid Corporation of India and several other companies will be in focus on Tuesday, October 13, amid quarterly earnings announcements and a series of corporate, regulatory and fundraising developments.<br><br>https://economictimes.indiatimes.com/markets/stocks/news/stocks-in-news-hcl-tech-rbl-bank-nazara-tech-hero-motors-power-grid-and-ircon/articleshow/134902392.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
     },
     {
       "title": "RBL Bank down 4% in trade - Key Reasons - NIMs likely to be lower in Q3 - No guidance given for ROA and ROE in medium term - Heavy longs into the resu...",
@@ -4757,6 +4743,20 @@
       "description_html": "In today's @htTweets, we discuss India's sources of leverage over the US.<br><img width=\"2048\" height=\"1549\" style=\"\" src=\"https://pbs.twimg.com/media/HUGE_qabkAAxRlt?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "While India has made substantial progress in reducing\ufe0f multidimensional poverty and has performed commendably in comparison with several developing c...",
+      "link": "https://x.com/Ideas4India/status/2109881036754809111",
+      "date": "2026-10-13T05:36:53+00:00",
+      "tweet_id": "2109881036754809111",
+      "source": "Ideas for India",
+      "publisher": "Ideas For India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "While India has made substantial progress in reducing\ufe0f multidimensional poverty and has performed commendably in comparison with several developing countries, a cross-country assessment reveals that a number of countries have achieved greater reductions https://www.ideasforindia.in/topics/poverty-inequality/indias-multidimensional-poverty-reduction-progress-yet-comparative-underperformance"
+    },
+    {
       "title": "United Nations has released a report on developing new metrics that complement the GDP to measure progress in living standards. Ranjan Ray critically ...",
       "link": "https://x.com/Ideas4India/status/2109474083398467842",
       "date": "2026-10-12T02:39:48+00:00",
@@ -5021,20 +5021,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Under Income Tax Act 2025 those with &gt;95% digital receipts can declare lower deemed-profit rate &amp; operate under higher turnover threshold. While this is a nudge towards formalisation, self-declaration of digital bonus burdens small businesses: Bipin Kumar https://www.ideasforindia.in/topics/money-finance/indias-new-tax-code-rewards-digital-traders---but-still-makes-them-do-the-math-themselves"
-    },
-    {
-      "title": "Recent studies have attributed \u2b06\ufe0f in rural female employment in India post 2017 to economic distress among rural households. Goldar & Aggarwal make ...",
-      "link": "https://x.com/Ideas4India/status/2098266313294786810",
-      "date": "2026-09-11T04:24:07+00:00",
-      "tweet_id": "2098266313294786810",
-      "source": "Ideas for India",
-      "publisher": "Ideas For India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Recent studies have attributed \u2b06\ufe0f in rural female employment in India post 2017 to economic distress among rural households.<br><br>Goldar &amp; Aggarwal make some arguments, report findings from earlier studies &amp; present data that cast doubt on this hypothesis<br><br>https://www.ideasforindia.in/topics/macroeconomics/what-explains-the-post-2017-surge-in-rural-female-employment-in-india"
     },
     {
       "title": "RT @SushantSin: This is how ECI has finished itself. @AshokLavasa provides the details and context.",
@@ -6087,6 +6073,20 @@
       "description_html": "Speaker Announcement<br><br>\ud835\uddd6\ud835\uddee\ud835\uddff\ud835\uddf2\ud835\uddd8\ud835\uddf1\ud835\uddf4\ud835\uddf2 \ud835\udde5\ud835\uddee\ud835\ude01\ud835\uddf6\ud835\uddfb\ud835\uddf4\ud835\ude00 is hosting a \ud835\uddea\ud835\uddf2\ud835\uddef\ud835\uddf6\ud835\uddfb\ud835\uddee\ud835\uddff on \"India Inc Stands Tall \u2013 Can Resilience Outlast Global Uncertainty?\"<br><br>India Inc has demonstrated remarkable resilience despite a challenging global environment. However, with geopolitical risks, trade uncertainties, and volatile financial conditions persisting, the sustainability of this resilience is increasingly under focus.<br><br>To explore this, CareEdge Ratings invites you to a webinar where we will present our assessment of corporate credit quality in H1FY27 and discuss the outlook for India Inc with leading industry experts.<br><br>\ud83d\udd17 Register now: https://lnkd.in/d83mjXVF<br>\ud83d\udcc5 Date: Thursday, October 01, 2026<br>\ud83d\udd53 Time: 4:00 PM \u2013 5:15 PM IST<br><br>Panellists:<br>\u2022 George Verghese, Managing Director, Kirloskar Industries Ltd.<br>\u2022 Hemant Mundra, Managing Director, @warburgpincus <br>\u2022 Talluri Raghupati Rao, Whole Time Director, PNC Infratech<br><br>Moderator:<br>\u2022 Sachin Gupta, Executive Director &amp; Chief Rating Officer, CareEdge Ratings<br><br>Presenters:<br>\u2022 @RajaniSinha2025, Chief Economist, CareEdge Ratings<br>\u2022 Smita Rajpurkar, Senior Director, CareEdge Ratings<br><br>Key Topics:<br><br>\u2022 Current Economic Landscape<br>\u2022 Credit Quality Assessment in H1FY27<br>\u2022 Sectoral Trends in Upgrades and Downgrades<br>\u2022 Insights from Distinguished Panellists<br>\u2022 Outlook for Corporate Credit<br><br>Join us for insights from CareEdge Ratings experts and distinguished industry leaders as we discuss the resilience of India Inc amid an evolving global landscape.<br><br>@CareEdge_Group | #CareEdgeRatings #IndiaInc #CorporateCredit #CreditQuality #EconomicOutlook #FY27 #Webinar #ThoughtLeadership #EconomicInsights #CorporateResilience<br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HTZJEQfacAANPpm?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "IMF keeps its forecast for global economic growth largely unchanged despite 8-plus months of war in the Middle East. \u201cThe global economy is again pro...",
+      "link": "https://x.com/JavierBlas/status/2109883123039428949",
+      "date": "2026-10-13T05:45:10+00:00",
+      "tweet_id": "2109883123039428949",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUfPg7-WEAAS1T2?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "IMF keeps its forecast for global economic growth largely unchanged despite 8-plus months of war in the Middle East. \u201cThe global economy is again proving resilient,\u201d it says.<br><br>Notable: US GDP is expected to expand ~2.3% in 2026, the same as in 2025.<br><img width=\"1206\" height=\"1317\" style=\"\" src=\"https://pbs.twimg.com/media/HUfPg7-WEAAS1T2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "RT John Arnold: In early 2010s, oil prices were high and rising. Excitement around shale oil was high and prospects for refining seemed poor. Investor...",
       "link": "https://x.com/JavierBlas/status/2109692176011501874",
       "date": "2026-10-12T16:37:12+00:00",
@@ -6323,20 +6323,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "U.S. President Donald Trump demanded that Ukrainian leader Volodymyr Zelenskyy halt attacks on Russian oil refineries. \u201cDon\u2019t hit refineries,\u201d Trump said on Saturday. \u201cThere\u2019s plenty of targets.\u201d<div class=\"rsshub-quote\"><br><br>Javier Blas:\u2002The Trump-Putin deal on diesel puts Ukrainian leader Volodymyr Zelensky in a difficult spot: if Kyiv continues blowing up Russian refineries, Zelenskyy would be directly jeopardising a political and economic deal between Washington and Moscow.<br></div>"
-    },
-    {
-      "title": "Hurricane Isaias made landfall near Destin, Florida, sparing the US refining capacity of a direct hit. The main refineries alongside his path were >15...",
-      "link": "https://x.com/JavierBlas/status/2108810581943918611",
-      "date": "2026-10-10T06:43:17+00:00",
-      "tweet_id": "2108810581943918611",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Hurricane Isaias made landfall near Destin, Florida, sparing the US refining capacity of a direct hit. The main refineries alongside his path were &gt;150km away in Mobile (AL) and Pascagoula (MS). Refined fuel production (and offshore crude production) should recover quickly.<div class=\"rsshub-quote\"><br><br>Javier Blas:\u2002The first hurricane of the North Atlantic season: Isais, which has formed inside the US Gulf of Mexico. On current tracking forecast, the threat is limited to GoM oil production. Crucially, little refining capacity in Alabama (3 refineries in total, with ~140,000 of capacity).<br></div>"
     },
     {
       "title": "RT Javier Blas: PODCAST: \"Is China Controlling the World\u2019s Oil Market?\" Great to talk with Jake Sullivan and Jon Finer about the global oil market, I...",
@@ -9461,6 +9447,34 @@
       "description_html": "Welspun Corp got a mega billion dollar order and held a sudden concall about the same. Transcript , recording , summary are all available in Tijori Stack<br><img width=\"1080\" height=\"1436\" style=\"\" src=\"https://pbs.twimg.com/media/HQPq-cFaUAAeYpV?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "STEEL EXCHANGE INDIA: RECORD PRODUCTION AND CREDIT UPGRADE IN H1 FY27; HIGHEST EVER QUARTERLY RE-BAR PRODUCTION OF 69,617.424 MT; DEBT REDUCED BY \u20b910...",
+      "link": "https://x.com/REDBOXINDIA/status/2109878077794963887",
+      "date": "2026-10-13T05:25:08+00:00",
+      "tweet_id": "2109878077794963887",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "STEEL EXCHANGE INDIA: RECORD PRODUCTION AND CREDIT UPGRADE IN H1 FY27; HIGHEST EVER QUARTERLY RE-BAR PRODUCTION OF 69,617.424 MT; DEBT REDUCED BY \u20b9102 CRORE; STRATEGIC MOU SIGNED WITH NMDC FOR RAW MATERIAL SUPPLY."
+    },
+    {
+      "title": "STEEL EXCHANGE INDIA LTD: RECORD PRODUCTION AND CREDIT UPGRADE ACHIEVED IN H1 FY27; HIGHEST-EVER QUARTERLY RE-BAR PRODUCTION OF 69,617.424 MT",
+      "link": "https://x.com/REDBOXINDIA/status/2109878046266360176",
+      "date": "2026-10-13T05:25:00+00:00",
+      "tweet_id": "2109878046266360176",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "STEEL EXCHANGE INDIA LTD: RECORD PRODUCTION AND CREDIT UPGRADE ACHIEVED IN H1 FY27; HIGHEST-EVER QUARTERLY RE-BAR PRODUCTION OF 69,617.424 MT"
+    },
+    {
       "title": "PM MODI SAYS INDIA'S BANKING SYSTEM STRONG COMPARED TO MANY COUNTRIES",
       "link": "https://x.com/REDBOXINDIA/status/2109876416762581311",
       "date": "2026-10-13T05:18:32+00:00",
@@ -9699,32 +9713,18 @@
       "description_html": "AIRFLOA RAIL TECHNOLOGY: CO. BAGS \u20b934.85 CRORE ICF CONTRACT FOR VANDE BHARAT SLEEPER TRAIN INTERIOR DESIGN"
     },
     {
-      "title": "IRAN\u2019S TASNIM REPORTS THAT IRANIAN SECURITY CHIEF REZAEE AND INDIA\u2019S NATIONAL SECURITY ADVISER DOVAL DISCUSSED REGIONAL ISSUES IN A CALL",
-      "link": "https://x.com/REDBOXINDIA/status/2109723687654150160",
-      "date": "2026-10-12T19:11:38+00:00",
-      "tweet_id": "2109723687654150160",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
+      "title": "Evolution of battery cell technologies",
+      "link": "https://x.com/exencial_RP/status/2109883405848756575",
+      "date": "2026-10-13T05:46:18+00:00",
+      "tweet_id": "2109883405848756575",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HUfPxF2bsAAqQV1?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "IRAN\u2019S TASNIM REPORTS THAT IRANIAN SECURITY CHIEF REZAEE AND INDIA\u2019S NATIONAL SECURITY ADVISER DOVAL DISCUSSED REGIONAL ISSUES IN A CALL"
-    },
-    {
-      "title": "POWER GRID CORPORATION OF INDIA: CO ACQUIRES 100% STAKE IN LAKADIA C POWER TRANSMISSION FOR \u20b919.94 CRORE",
-      "link": "https://x.com/REDBOXINDIA/status/2109678502081638480",
-      "date": "2026-10-12T16:12:05+00:00",
-      "tweet_id": "2109678502081638480",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "POWER GRID CORPORATION OF INDIA: CO ACQUIRES 100% STAKE IN LAKADIA C POWER TRANSMISSION FOR \u20b919.94 CRORE"
+      "description_html": "Evolution of battery cell technologies<br><img width=\"1701\" height=\"855\" style=\"\" src=\"https://pbs.twimg.com/media/HUfPxF2bsAAqQV1?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Diwali Sales Doubled. The Rest of the Year Barely Moved. In FY20, about 21 lakh scooters and bikes were sold during the festive season. By FY26 that n...",
@@ -9881,6 +9881,20 @@
       "description_html": "Buying a 2026 IPO on listing day lost money 4 times in 10.<br><br>Of 96 IPOs this year, 40 (42%) now trade below their listing price. 30 (31%) are below the issue price.<br><br>Rs1.13 lakh crore raised.<br><img width=\"2012\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HUZUqsibAAA5Vk9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "RT Exencial Research Partners: AI is carrying US markets and growth If you're worried about how much America leans on AI, look at these six numbers. (...",
+      "link": "https://x.com/exencial_RP/status/2109879675443138992",
+      "date": "2026-10-12T01:50:00+00:00",
+      "tweet_id": "2109879675443138992",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUZCXDIasAEQ_9O?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Exencial Research Partners<br>AI is carrying US markets and growth<br><br>If you're worried about how much America leans on AI, look at these six numbers.<br><br>(i) 42 AI stocks drove 67% of S&amp;P 500 returns since Jan 2024. Also 58% of earnings growth and 81% of capex growth.<br><br>(ii) The S&amp;P sits 1% off a record. Yet about 60% of its stocks are 20% or more below their highs.<br><br>(iii) Only 30% of stocks are beating the S&amp;P over 3 years. That's among the lowest since 1991.<br><br>(iv) AI sellers are winning, not AI users. Supply chain earnings are up 4x since March 2023. Heavy AI users are up only 30%.<br><br>(v) Tech now drives about a third of US GDP growth. In 2022, it was almost zero.<br><br>(vi) Only 20% of US states are growing faster than the national average. That's near the lowest since 1979.<br><br>Caveat: breadth was this thin in 2001. By 2003, 75% of stocks were beating the index.<br><img width=\"980\" height=\"1230\" style=\"\" src=\"https://pbs.twimg.com/media/HUZCXDIasAEQ_9O?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "AI is carrying US markets and growth If you're worried about how much America leans on AI, look at these six numbers. (i) 42 AI stocks drove 67% of S&...",
       "link": "https://x.com/exencial_RP/status/2109461550717428062",
       "date": "2026-10-12T01:50:00+00:00",
@@ -9963,34 +9977,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "\ud83d\udea8 AI DEMAND IS BOOMING. DATA CENTER STOCKS ARE FALLING. WHAT IS WALL STREET MISSING?<br><br>GDS fell 20%. VNET plunged 29%.<br><br>All while AI infrastructure demand remained strong.<br><br>GS' 9 October research raises an uncomfortable question:<br><br>WHO IS ACTUALLY EARNING THEIR COST OF CAPITAL?<br><br>The economics tell a fascinating story:<br><br>\ud83d\udd34 Powered Shells: ~5% ROIC. Predictable revenues, but limited returns.<br><br>\ud83d\udfe0 GPU-as-a-Service: Moderate-to-high ROIC potential. Massive capex and GPU obsolescence risk.<br><br>\ud83d\udfe2 AI Token Factories: High ROIC potential. But token pricing, utilization and technology risks could destroy margins.<br><br>The biggest investing trap?<br><br>\ud83d\udd25 AI demand \u2260 Shareholder returns<br><br>\ud83d\udd25 Full capacity \u2260 Profitable capacity<br><br>\ud83d\udd25 Revenue growth \u2260 Value creation<br><br>\ud83d\udd25 Cheap financing \u2260 Strong underlying ROIC<br><br>Remember the telecom boom?<br><br>The internet changed the world. Yet Global Crossing collapsed in 2002 under $12.4 billion of debt.<br><br>The technology was transformative. The capital allocation was disastrous.<br><br>AI infrastructure investors face a similar question today.<br><br>Goldman highlights three levers for improving shareholder economics:<br><br>\u2022 Cheap financing: Range Intelligent secured RMB3bn of debt at just 1.65%.<br><br>\u2022 Capital recycling: REIT structures can release trapped capital.<br><br>\u2022 Global expansion: Higher rental markets could improve returns.<br><br>But here's the catch:<br><br>Financial engineering can improve equity returns. It cannot magically turn poor operating economics into great economics.<br><br>Wall Street counts GPUs and megawatts.<br><br>Smart investors count ROIC, WACC and free cash flow.<br><br>The next AI investment battle won't simply be about who builds the most capacity.<br><br>It will be about WHO CREATES THE MOST VALUE PER DOLLAR INVESTED.<br><img width=\"2048\" height=\"1332\" style=\"\" src=\"https://pbs.twimg.com/media/HUWWYozaMAAr3Vf?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "\ud83d\udea8 WALL STREET LOVES AI HYPE. BUT HYPE DOESN'T PAY SHAREHOLDERS! Citi Research shows AI Adopters, AI Enablers, Cloud Computing and Cybersecurity amo...",
-      "link": "https://x.com/exencial_RP/status/2109269284077904227",
-      "date": "2026-10-11T13:06:00+00:00",
-      "tweet_id": "2109269284077904227",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUWTlTtbsAAXnkS?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\ud83d\udea8 WALL STREET LOVES AI HYPE. BUT HYPE DOESN'T PAY SHAREHOLDERS!<br><br>Citi Research shows AI Adopters, AI Enablers, Cloud Computing and Cybersecurity among the themes with the lowest idiosyncratic risk.<br><br>But low idiosyncratic risk doesn't mean low systemic or market-wide risk!<br><br>The investing trap?<br><br>\ud83d\udd25 Great technology \u2260 Great investment<br><br>\ud83d\udd25 Explosive growth \u2260 Shareholder returns<br><br>\ud83d\udd25 Innovation \u2260 Profitability<br><br>\ud83d\udd25 Low company-specific risk \u2260 Protection from a market crash<br><br>\ud83d\udd25 Market leadership \u2260 Attractive valuation<br><br>Remember the dot-com bubble? The internet changed the world, but many investors still lost fortunes.<br><br>AI could transform businesses without rewarding every AI stock investor.<br><br>Even the strongest AI businesses remain exposed to market-wide risks: excessive valuations, rising interest rates, liquidity shocks and a sudden reversal in investor sentiment.<br><br>The real winners may not be those making the loudest AI promises, but those quietly using AI to cut costs, expand margins and generate cash flows.<br><br>Markets chase stories. Wealth is built on earnings, cash flows and the price you pay.<br><br>The biggest danger? Confusing a low-risk business theme with a low-risk investment at any price.<br><img width=\"2048\" height=\"1524\" style=\"\" src=\"https://pbs.twimg.com/media/HUWTlTtbsAAXnkS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT Exencial Research Partners: R&D and capex expenses of major spenders in Healthcare vertical",
-      "link": "https://x.com/exencial_RP/status/2109280708820938928",
-      "date": "2026-10-10T01:59:00+00:00",
-      "tweet_id": "2109280708820938928",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUEsBSkbkAAeyLl?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Exencial Research Partners<br>R&amp;D and capex expenses of major spenders in Healthcare vertical<br><img width=\"2048\" height=\"1098\" style=\"\" src=\"https://pbs.twimg.com/media/HUEsBSkbkAAeyLl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "CPI inflation up to 21-month high 5.54% in Sept from 4.82% in August. Highest reading under revised CPI series. Core inflation up to 4.3%. CPI now abo...",
@@ -10217,6 +10203,20 @@
       "description_html": "RBI Governor Sanjay Malhotra says based on REER, rupee is not undervalued; it\u2019s overvalued. In his post monetary policy media interaction. <br>INR touches 96.72 a $ today."
     },
     {
+      "title": "List of VCs getting RDIF commitment is out. Good to also see campus entrepreneurship and research programmes at IIT-Madras, BITS-Pilani, IIT-Bombay an...",
+      "link": "https://x.com/madhavchanchani/status/2109878393303159014",
+      "date": "2026-10-13T05:26:23+00:00",
+      "tweet_id": "2109878393303159014",
+      "source": "Madhav Chanchani",
+      "publisher": "Madhav Chanchani",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUfJoWBawAIUEO5?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "List of VCs getting RDIF commitment is out.<br><br>Good to also see campus entrepreneurship and research programmes at IIT-Madras, BITS-Pilani, IIT-Bombay and IISc also get commitments.<br><img width=\"966\" height=\"856\" style=\"\" src=\"https://pbs.twimg.com/media/HUfJoWBawAIUEO5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Madhav Chanchani:\u2002RDIF has cleared investment commitment of Rs 7,131 crore across 19 second level fund managers.<br><br>That will mean an average commitment of Rs 375 crore, or $40 million - amount large enough to anchor most of the venture funds in India..<br><br><img width=\"647\" height=\"726\" style=\"\" src=\"https://pbs.twimg.com/media/HUb7jVoa4AA8Gsv?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
+    },
+    {
       "title": "RT Aditi Shrivastava: \ud83d\udea8\ud83d\udea8 Value commerce (Meesho) and quick commerce (Blinkit, Instamart, Zepto) took a bigger share of festive ecommerce in the ...",
       "link": "https://x.com/madhavchanchani/status/2109872519725691228",
       "date": "2026-10-13T05:02:01+00:00",
@@ -10257,20 +10257,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002The Arc<br>\ud83d\udea8 Nazara Technologies is undergoing a significant leadership transition, with founder Nitish Mittersain stepping back and CaratLane founder Mithun Sacheti taking on an operational role.<br><br>Sacheti, who became a co-promoter of Nazara last year, has been appointed Executive Director. He will oversee strategic initiatives and operational responsibilities assigned by the board.<br><br>Meanwhile, Mittersain is stepping down as Managing Director to become Non-Executive Director, ending his executive role at the gaming company he founded in 1999.<br><br>The changes come less than a month after Raymond Stauffer, founder of Spain-based Bluetile Games, took over as CEO. <br><br>Nazara agreed to acquire Bluetile earlier this year as part of its push into global gaming.<br><img width=\"633\" height=\"779\" style=\"\" src=\"https://pbs.twimg.com/media/HUcB-HPaYAAh6LH?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"629\" height=\"689\" style=\"\" src=\"https://pbs.twimg.com/media/HUcB-HLaEAIBGcW?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RDIF has cleared investment commitment of Rs 7,131 crore across 19 second level fund managers. That will mean an average commitment of Rs 375 crore, o...",
-      "link": "https://x.com/madhavchanchani/status/2109651998291513538",
-      "date": "2026-10-12T14:26:46+00:00",
-      "tweet_id": "2109651998291513538",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUb7jVoa4AA8Gsv?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RDIF has cleared investment commitment of Rs 7,131 crore across 19 second level fund managers.<br><br>That will mean an average commitment of Rs 375 crore, or $40 million - amount large enough to anchor most of the venture funds in India..<br><img width=\"647\" height=\"726\" style=\"\" src=\"https://pbs.twimg.com/media/HUb7jVoa4AA8Gsv?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "In a market where most of the Unicorns and even Reliance Jio had to cut their IPO size, interesting to see Zetwerk actually upsize its offering.",
@@ -10425,34 +10411,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Pratik Bhakta<br>In our September edition of Follow the Money, we focus on the still-raging MDR debate.<br><br>The key point is who stands to benefit the most? The image below tells that tale.<br><br>Larger players will corner a large chunk of the revenue generated from MDR. This could skew the UPI mkt share dynamics further.<br><br>NPCI is expecting a Rs 15K revenue boost from 0.4%MDR on Rs 2K plus txns.<br><br>Can we find out ways to use this revenue to help smaller TPAPs with may be around 200mn+ txns scale up and achieve a billion monthly txns and scale sustainably from there?<br><br>For more on how money moved in India in August, sign up and read my report (link in the post below)<br><img width=\"1080\" height=\"496\" style=\"\" src=\"https://pbs.twimg.com/media/HTg515vbUAAF3GP?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT Pratik Bhakta: Apple Pay is finally live in India. The product starts with Axis Bank credit cards to begin with. Contactless payments with Visa and...",
-      "link": "https://x.com/madhavchanchani/status/2105132696808853908",
-      "date": "2026-09-30T02:44:23+00:00",
-      "tweet_id": "2105132696808853908",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HTbpeCPbUAAjBhQ?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Pratik Bhakta<br>Apple Pay is finally live in India.<br><br>The product starts with Axis Bank credit cards to begin with.<br><br>Contactless payments with Visa and Mastercard cards.<br><br>But other large banks are still not live, which is important for scale.<br><br>Also commercials still continue to be a key conversation. Apple Pay is not cheap, and card players dont make very big margins in India.<br><br>But definitely an important moment <br><br>PS: When UPI was launched some of the largest banks like HDFC and SBI were missing among the first lot of lenders.<br><img width=\"806\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HTbpeCPbUAAjBhQ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Yoga Bar's valuation has gone up nearly 3 times since ITC acquired the initial 40% stake in early 2023. Valuation at that time was about Rs 440 crore....",
-      "link": "https://x.com/madhavchanchani/status/2104847046654271688",
-      "date": "2026-09-29T08:13:36+00:00",
-      "tweet_id": "2104847046654271688",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HTXpt7ia0AAGvie?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Yoga Bar's valuation has gone up nearly 3 times since ITC acquired the initial 40% stake in early 2023.<br><br>Valuation at that time was about Rs 440 crore.<br><br>In this buyout, it will be over Rs 1,200 crore. <br><br>Yoga Bar's FY26 revenue more than doubled to Rs 452 crore from Rs 200 crore in FY25. <br><br>In FY22, revenue was about Rs 70 crore. So over 6x topline growth with ITC's distribution muscle.<div class=\"rsshub-quote\"><br><br>The Arc:\u2002\ud83d\udea8 ITC has acquired the remaining 52.5% stake in Sproutlife Foods, the parent company of Yoga Bar, for approximately Rs 645 crore. <br><br>The latest transaction implies a valuation of around Rs 1,230 crore. <br><br>The acquisition completes a phased buyout that ITC initiated in 2023.<br><br><img width=\"650\" height=\"706\" style=\"\" src=\"https://pbs.twimg.com/media/HTXpt7ia0AAGvie?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
       "title": "Prior to Trump's second term in the White House, state capitalism was rare in the US economy, even though other aspects of industrial policy were rela...",
