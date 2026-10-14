@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T08:46:58.418049+00:00",
+  "generated_at": "2026-10-14T09:46:30.546536+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 43,
     "handles_empty": 3,
     "handles_error": 1,
-    "items_total": 749
+    "items_total": 747
   },
   "items": [
     {
@@ -1061,6 +1061,20 @@
       "description_html": "\"resilience\" is the most common word in this year's annual reports"
     },
     {
+      "title": "Indonesia's wildfires have surpassed 2019 hotspot levels, with smoke spreading to Malaysia and Singapore. Dry conditions linked to the ongoing Super E...",
+      "link": "https://x.com/down2earthindia/status/2110295446614892544",
+      "date": "2026-10-14T09:03:36+00:00",
+      "tweet_id": "2110295446614892544",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUlGNk_bMAAx17S?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Indonesia's wildfires have surpassed 2019 hotspot levels, with smoke spreading to Malaysia and Singapore.<br><br>Dry conditions linked to the ongoing Super El Ni\u00f1o could make the fires even harder to control, with smoke spreading towards the Indian Ocean.<br><br>Read the full report: https://www.downtoearth.org.in/climate-change/indonesia-faces-worst-wildfire-season-in-a-decade-as-super-el-ni%C3%B1o-fuels-fires<br><br>\ud83d\udd8b\ufe0f @bluewrit <br><br>#IndonesiaWildfires #SuperElNino #AirPollution #ClimateCrisis<br><img width=\"1256\" height=\"700\" style=\"\" src=\"https://pbs.twimg.com/media/HUlGNk_bMAAx17S?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1326\" height=\"716\" style=\"\" src=\"https://pbs.twimg.com/media/HUlGNlAaoAEKewV?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"986\" height=\"508\" style=\"\" src=\"https://pbs.twimg.com/media/HUlGNn0aEAAATrs?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "New maps reveal optimal regions in South Africa and Eswatini for growing bambara groundnut, a drought-tolerant crop that boosts food security and resi...",
       "link": "https://x.com/down2earthindia/status/2110258313636323614",
       "date": "2026-10-14T06:36:03+00:00",
@@ -1325,20 +1339,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Can a majority sign away a minority\u2019s forests?<br><br>A new Ministry of Tribal Affairs memo says the Forest Rights Act has \u2018no provision\u2019 for gram sabha consent at the final forest-clearance stage.<br><br>Weakening consent could endanger forest rights and India\u2019s forest carbon sink, writes Ankit Mishra<br>https://www.downtoearth.org.in/governance/a-majority-cannot-sign-away-a-minoritys-forests<br><br>#ForestRightsAct #GramSabha #ForestRights #ForestClearance #Climate<br><img width=\"2048\" height=\"1384\" style=\"\" src=\"https://pbs.twimg.com/media/HUa1Ejea4AAIWXS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Comment India cannot rescue its way out of disaster risk The country has spent two decades becoming better at rescuing people after disasters. Its nex...",
-      "link": "https://x.com/down2earthindia/status/2109570119429206323",
-      "date": "2026-10-12T09:01:25+00:00",
-      "tweet_id": "2109570119429206323",
-      "source": "Down To Earth",
-      "publisher": "Down To Earth",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUay1gMbYAALOGn?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Comment<br><br>India cannot rescue its way out of disaster risk<br><br>The country has spent two decades becoming better at rescuing people after disasters. Its next achievement must be more difficult: ensuring fewer people need rescuing<br><br>\ud83d\udd8a\ufe0f @ens_socialis <br><br>https://www.downtoearth.org.in/climate-change/india-cannot-rescue-its-way-out-of-disaster-risk<br><img width=\"1098\" height=\"685\" style=\"\" src=\"https://pbs.twimg.com/media/HUay1gMbYAALOGn?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "MTF, LAS and PL remains the priority of growth for Groww as they continue to deploy cash there Specially after regulations being volatile in F&O segme...",
@@ -2237,6 +2237,90 @@
       "description_html": "Srinivas is spearheading the PCB CAD tool development along with a open source hardware ecosystem in \ud83c\uddee\ud83c\uddf3<br><br>1. Context driven autorouter.<br>2. Prompt to prototype in few days will be possible very soon.<br>3. Advanced CAD features in the pipeline.<br><br>All made in \ud83c\uddee\ud83c\uddf3 for \ud83c\uddee\ud83c\uddf3 and the \ud83c\udf0f<br><br>Great example of staying focused on the mission, preseverence and bootstraping.<div class=\"rsshub-quote\"><br><br>Srinivasan:\u2002Took us 8 months to reimagine and simplify how a PCB CAD system works.<br><br>Well\u2026 now you can put Pikachu on a PCB keychain. \u26a1\ufe0f<br><br>Check out Spell \u2192 https://spell.pcbcupid.com<br><br>PS: Please report more bugs \ud83d\udc40<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2090178054421360640/vid/avc1/1920x1080/TvXrYOQhPiu_Cy4N.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2090178054421360640/img/PZUkCjBjaoHOdIpm.jpg\"></video></div>"
     },
     {
+      "title": "#WiproQ2 Results #Preview: Organic growth may be weakest among largecap peers; Guidance in focus @Reematendulkar https://www.cnbctv18.com/market/wipro...",
+      "link": "https://x.com/CNBCTV18Live/status/2110304518248517846",
+      "date": "2026-10-14T09:39:39+00:00",
+      "tweet_id": "2110304518248517846",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#WiproQ2 Results #Preview: Organic growth may be weakest among largecap peers; Guidance in focus<br><br>@Reematendulkar <br><br>https://www.cnbctv18.com/market/wipro-share-price-q2-preview-pat-revenue-dollar-ebit-margin-cc-growth-guidance-20011619.htm"
+    },
+    {
+      "title": "#2QWithCNBCTV18 | #LeelaPalacesHotels reports its Q2 results; \ud83d\udc49Revenue Up 32.5% At \u20b9412 Cr Vs \u20b9311 Cr (YoY) \ud83d\udc49Net Profit Up 26.7% At \u20b995 Cr Vs...",
+      "link": "https://x.com/CNBCTV18Live/status/2110300550583742474",
+      "date": "2026-10-14T09:23:53+00:00",
+      "tweet_id": "2110300550583742474",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUlK1zuawAAE_IS?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#2QWithCNBCTV18 | #LeelaPalacesHotels reports its Q2 results;<br><br>\ud83d\udc49Revenue Up 32.5% At \u20b9412 Cr Vs \u20b9311 Cr (YoY)<br><br>\ud83d\udc49Net Profit Up 26.7% At \u20b995 Cr Vs \u20b975 Cr (YoY)<br><br>\ud83d\udc49EBITDA Up 38.2% At \u20b9188 Cr Vs \u20b9136 Cr (YoY)<br><br>\ud83d\udc49EBITDA Margin At 45.6% Vs 43.7% (YoY)<br><img width=\"608\" height=\"340\" style=\"\" src=\"https://pbs.twimg.com/media/HUlK1zuawAAE_IS?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#Maharashtra declares #drought in 305 talukas; Fadnavis announces \u20b95,000 #Diwali bonus for farmers https://www.cnbctv18.com/india/maharashtra-declare...",
+      "link": "https://x.com/CNBCTV18Live/status/2110296633007374649",
+      "date": "2026-10-14T09:08:19+00:00",
+      "tweet_id": "2110296633007374649",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Maharashtra declares #drought in 305 talukas; Fadnavis announces \u20b95,000 #Diwali bonus for farmers<br><br>https://www.cnbctv18.com/india/maharashtra-declares-drought-in-305-talukas-fadnavis-announces-%e2%82%b95000-diwali-bonus-for-farmers-20011682.htm"
+    },
+    {
+      "title": "#Bharti\u2019s Mittal says awaiting #satellite internet approvals, \u2018significantly ahead\u2019 of Musk\u2019s #Starlink in queue @Reematendulkar https://www.cnbct...",
+      "link": "https://x.com/CNBCTV18Live/status/2110296465147097377",
+      "date": "2026-10-14T09:07:39+00:00",
+      "tweet_id": "2110296465147097377",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Bharti\u2019s Mittal says awaiting #satellite internet approvals, \u2018significantly ahead\u2019 of Musk\u2019s #Starlink in queue<br><br>@Reematendulkar <br>https://www.cnbctv18.com/technology/telecom/bharti-mittal-says-awaiting-satellite-internet-approvals-significantly-ahead-of-musks-starlink-in-queue-20011586.htm"
+    },
+    {
+      "title": "#Jio #IPO: Reliance Industries share price can go up 47%, says Religare Broking as value unlocks https://www.cnbctv18.com/market/jio-ipo-reliance-indu...",
+      "link": "https://x.com/CNBCTV18Live/status/2110296287455432843",
+      "date": "2026-10-14T09:06:56+00:00",
+      "tweet_id": "2110296287455432843",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Jio #IPO: Reliance Industries share price can go up 47%, says Religare Broking as value unlocks<br><br>https://www.cnbctv18.com/market/jio-ipo-reliance-industries-share-price-religare-broking-projects-47-percent-upside-value-unlocking-digital-business-target-alpha-article-20011505.htm"
+    },
+    {
+      "title": "#EleconEngineering #Q2 Results: Stock turns positive for 2026 after 12% jump on rising revenue, margins @ShlokaBadkar https://www.cnbctv18.com/market/...",
+      "link": "https://x.com/CNBCTV18Live/status/2110295949348340130",
+      "date": "2026-10-14T09:05:36+00:00",
+      "tweet_id": "2110295949348340130",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#EleconEngineering #Q2 Results: Stock turns positive for 2026 after 12% jump on rising revenue, margins<br><br>@ShlokaBadkar <br>https://www.cnbctv18.com/market/elecon-engineering-q2-results-margin-expands-interim-dividend-record-date-revenue-growth-share-price-ytd-positive-20011662.htm"
+    },
+    {
       "title": "#GrowwQ2 Results: Diversification continues but F&O segment remains under pressure @GareemaBangad https://www.cnbctv18.com/market/groww-q2-results-equ...",
       "link": "https://x.com/CNBCTV18Live/status/2110287054508884130",
       "date": "2026-10-14T08:30:15+00:00",
@@ -2405,88 +2489,32 @@
       "description_html": "#JustIn | #TransrailLighting Bags Orders Worth \u20b9408 Cr In T&amp;D Biz<br><img width=\"608\" height=\"341\" style=\"\" src=\"https://pbs.twimg.com/media/HUkvtFUbwAAWTAj?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "#2QWithCNBCTV18 | #Billionbrains(Groww) reports its Q2 results; \ud83d\udc49Revenue Flat At \u20b91,502 Cr Vs \u20b91,501.4 Cr (QoQ) \ud83d\udc49Net Profit Down 1.4% At \u20b9725...",
-      "link": "https://x.com/CNBCTV18Live/status/2110269792481656958",
-      "date": "2026-10-14T07:21:40+00:00",
-      "tweet_id": "2110269792481656958",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUkvGLeaoAEZSKc?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#2QWithCNBCTV18 | #Billionbrains(Groww) reports its Q2 results;<br><br>\ud83d\udc49Revenue Flat At \u20b91,502 Cr Vs \u20b91,501.4 Cr (QoQ) <br><br>\ud83d\udc49Net Profit Down 1.4% At \u20b9725 Cr Vs \u20b9735 Cr (QoQ) <br><br>\ud83d\udc49EBITDA Down 0.2% At \u20b9969 Cr Vs \u20b9970.7 Cr (QoQ) <br><br>\ud83d\udc49EBITDA Margin At 64.51% Vs 64.7% (QoQ)<br><img width=\"611\" height=\"339\" style=\"\" src=\"https://pbs.twimg.com/media/HUkvGLeaoAEZSKc?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "India's telecom market is a two-player race between Jio and Airtel, says ex-Airtel CEO Sanjay Kapoor https://www.cnbctv18.com/market/india-telecom-mar...",
-      "link": "https://x.com/CNBCTV18Live/status/2110267758923628832",
-      "date": "2026-10-14T07:13:35+00:00",
-      "tweet_id": "2110267758923628832",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "European shares edged higher on Wednesday, supported by strong results and an upbeat sales outlook from ASML, which lifted technology stocks, while ri...",
+      "link": "https://x.com/ETMarkets/status/2110302750651400595",
+      "date": "2026-10-14T09:32:37+00:00",
+      "tweet_id": "2110302750651400595",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "India's telecom market is a two-player race between Jio and Airtel, says ex-Airtel CEO Sanjay Kapoor<br><br>https://www.cnbctv18.com/market/india-telecom-market-two-player-duopoly-race-reliance-jio-bharti-airtel-sanjay-kapoor-telecom-tariffs-arpu-alpha-article-20011497.htm"
+      "description_html": "European shares edged higher on Wednesday, supported by strong results and an upbeat sales outlook from ASML, which lifted technology stocks, while rising oil prices and geopolitical tensions limited gains, Reuters reported.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-european-shares-rise-as-asml-rally-lifts-tech-stocks-investors-eye-us-cpi/articleshow/134937855.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
     },
     {
-      "title": "#JantarMantar belongs to people of #India, we will reclaim it: #RahulGandhi https://www.cnbctv18.com/india/rahul-gandhi-jantar-mantar-protest-cjp-saur...",
-      "link": "https://x.com/CNBCTV18Live/status/2110265553646755965",
-      "date": "2026-10-14T07:04:49+00:00",
-      "tweet_id": "2110265553646755965",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "Hedge funds are attracting fresh capital from Asian investors seeking to diversify their portfolios amid volatile debt markets, uncertain equity perfo...",
+      "link": "https://x.com/ETMarkets/status/2110299906086973605",
+      "date": "2026-10-14T09:21:19+00:00",
+      "tweet_id": "2110299906086973605",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#JantarMantar belongs to people of #India, we will reclaim it: #RahulGandhi<br><br>https://www.cnbctv18.com/india/rahul-gandhi-jantar-mantar-protest-cjp-saurav-das-ashutosh-ranka-judicial-custody-20011599.htm"
-    },
-    {
-      "title": "#Canara Bank Q2 Results: #PSU stock jumps after 20% core income growth, asset quality improves @hormaz_fatakia https://www.cnbctv18.com/market/canara-...",
-      "link": "https://x.com/CNBCTV18Live/status/2110262997193257265",
-      "date": "2026-10-14T06:54:39+00:00",
-      "tweet_id": "2110262997193257265",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Canara Bank Q2 Results: #PSU stock jumps after 20% core income growth, asset quality improves<br><br>@hormaz_fatakia <br><br>https://www.cnbctv18.com/market/canara-bank-q2-results-profit-nii-growth-npas-improve-loan-deposit-growth-share-price-move-20011584.htm"
-    },
-    {
-      "title": "#NewsFlash | #SepWPI@11.39% \ud83d\udc49Sep WPI At 11.39% Vs 9.92% (MoM) \ud83d\udc49Food Inflation At 8.66% Vs 7.05% (MoM) \ud83d\udc49All Commodities Index Up 1.5% MoM \ud83d\udc49...",
-      "link": "https://x.com/CNBCTV18Live/status/2110262689180291097",
-      "date": "2026-10-14T06:53:26+00:00",
-      "tweet_id": "2110262689180291097",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUkoig_bQAAB3Dg?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#NewsFlash | #SepWPI@11.39%<br><br>\ud83d\udc49Sep WPI At 11.39% Vs 9.92% (MoM)<br><br>\ud83d\udc49Food Inflation At 8.66% Vs 7.05% (MoM)<br><br>\ud83d\udc49All Commodities Index Up 1.5% MoM<br><br>\ud83d\udc49Sep New Series Core #Inflation At 9.8%<br><img width=\"678\" height=\"474\" style=\"\" src=\"https://pbs.twimg.com/media/HUkoig_bQAAB3Dg?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT Nigel D'Souza: Hero Motors: FY27 Guidance \ud83d\ude80 \ud83d\udc49 Revenue growth of 20\u201325% expected \ud83d\udc49 Margins to continue improving, Alloys & Metals business...",
-      "link": "https://x.com/CNBCTV18Live/status/2110262204486603139",
-      "date": "2026-10-14T06:19:43+00:00",
-      "tweet_id": "2110262204486603139",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Nigel D'Souza<br>Hero Motors: FY27 Guidance \ud83d\ude80<br>\ud83d\udc49 Revenue growth of 20\u201325% expected<br>\ud83d\udc49 Margins to continue improving, Alloys &amp; Metals business to break even<br>\ud83d\udc49 Exploring inorganic growth opportunities in Europe<br><br>https://www.youtube.com/watch?v=7LcP4_TDCbU"
+      "description_html": "Hedge funds are attracting fresh capital from Asian investors seeking to diversify their portfolios amid volatile debt markets, uncertain equity performance and growing concerns about traditional investment strategies.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-market-asian-investors-pour-money-into-hedge-funds-as-bond-markets-falter/articleshow/134937550.cms"
     },
     {
       "title": "#BHEL Q2 Results Net profit skyrockets 120% YoY to Rs 810 crore; revenue rises 24% #ETMarkets https://economictimes.indiatimes.com/markets/stocks/earn...",
@@ -2741,32 +2769,32 @@
       "description_html": "Reliance Industries is planning its biggest value-discovery event, but the stock market is refusing to celebrate early. Even as the proposed Jio Platforms IPO gathers pace , RIL shares have fallen nearly 5% in the last five sessions, 7% over the past month and a steep 26% so far this year. The disconnect is against the expectations that the much-awaited public offer will put a visible market value on Reliance's most prized growth asset.<br>#ETMarkets #RIL #JIO<br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/a-jigsaw-puzzle-why-reliance-jios-ipo-buzz-isnt-saving-ril-stock-from-a-painful-year/articleshow/134932672.cms"
     },
     {
-      "title": "#China's yuan strengthened slightly against the dollar on Wednesday as investors assessed mixed domestic inflation data and awaited US consumer price ...",
-      "link": "https://x.com/ETMarkets/status/2110241691554959773",
-      "date": "2026-10-14T05:30:00+00:00",
-      "tweet_id": "2110241691554959773",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
+      "title": "Canara Bank - TV interview- Guidance up - See Credit growth in H2 better than earlier guidance - Expects improvement in net interest margins ahead",
+      "link": "https://x.com/yatinmota/status/2110292573202112743",
+      "date": "2026-10-14T08:52:11+00:00",
+      "tweet_id": "2110292573202112743",
+      "source": "Yatin Mota",
+      "publisher": "Yatin Mota",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#China's yuan strengthened slightly against the dollar on Wednesday as investors assessed mixed domestic inflation data and awaited US consumer price figures that could influence expectations for the Federal Reserve's interest-rate path, according to Reuters.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-chinas-yuan-firms-as-investors-await-us-cpi-data-assess-inflation/articleshow/134932229.cms"
+      "description_html": "Canara Bank - TV interview-  Guidance up <br><br>- See Credit growth in H2 better than earlier guidance <br><br>- Expects improvement in net interest margins ahead"
     },
     {
-      "title": "Shares of Transformers & Rectifiers (India) soared 18.7% to their day's high of Rs 360.80 during Wednesday's trading session after the company reporte...",
-      "link": "https://x.com/ETMarkets/status/2110239432238678097",
-      "date": "2026-10-14T05:21:01+00:00",
-      "tweet_id": "2110239432238678097",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
+      "title": "Big negative for Hospital Stocks - Govt Supreme court affidavit - from @NDTVProfit Big gap between drug sale and purchase price Mark up on cancer drug...",
+      "link": "https://x.com/yatinmota/status/2110291138594906193",
+      "date": "2026-10-14T08:46:29+00:00",
+      "tweet_id": "2110291138594906193",
+      "source": "Yatin Mota",
+      "publisher": "Yatin Mota",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "Shares of Transformers &amp; Rectifiers (India) soared 18.7% to their day's high of Rs 360.80 during Wednesday's trading session after the company reported strong financial performance for the September quarter of FY27, supported by robust revenue growth, a sharp rise in profitability and a near-doubling of order inflows year-on-year.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/transformers-rectifiers-shares-surge-over-18-as-q2-revenue-jumps-61-order-inflows-nearly-double/articleshow/134932502.cms"
+      "description_html": "Big negative for Hospital Stocks - Govt Supreme court affidavit - from @NDTVProfit <br><br>Big gap between drug sale and purchase price<br><br>Mark up on cancer drug at 700%<br><br>Mark up of 170% on non scheduled cancer drugs"
     },
     {
       "title": "HUGE BEAT IN BHEL RESULTS Despite QoQ 330 cr increase in other expenses solid Margins have come Adjusted for that BHEL could have done massively well ...",
@@ -2991,62 +3019,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "I don't understand why running a company is being confused with owning family assets! Isn't #fairshareforlakshmi a right?<br><br>#LakshmiVenu managing Sundaram-Clayton doesn't automatically answer the question of her share in the family's wealth. Two completely different things, no?<br><br>https://economictimes.indiatimes.com/news/company/corporate-trends/mallika-lakshmi-seek-fair-tvs-family-assets-division-mou-covers-brand-rights-management-venu-srinivasan/articleshow/134901767.cms"
-    },
-    {
-      "title": "RT CNBC-AWAAZ: #AwaazExclusive | CNBC-\u0906\u0935\u093e\u091c\u093c \u0915\u0940 \u0916\u092c\u0930 \u092a\u0930 \u092e\u0941\u0939\u0930 - NPCI \u0928\u0947 MDR \u091a\u093e\u0930\u094d\u091c \u0932\u093e\u0917\u0942 \u0915\u0930\u0928\u0947 \u0915\u0940 \u0924\u093e\u0930\u0940\u0916 \u0906\u0917\u0947 \u092c\u0922\u093c...",
-      "link": "https://x.com/yatinmota/status/2109936372081717276",
-      "date": "2026-10-13T08:58:30+00:00",
-      "tweet_id": "2109936372081717276",
-      "source": "Yatin Mota",
-      "publisher": "Yatin Mota",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUf7w_CXsAAvni5?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002CNBC-AWAAZ<br>#AwaazExclusive | CNBC-\u0906\u0935\u093e\u091c\u093c \u0915\u0940 \u0916\u092c\u0930 \u092a\u0930 \u092e\u0941\u0939\u0930<br><br>- NPCI \u0928\u0947 MDR \u091a\u093e\u0930\u094d\u091c \u0932\u093e\u0917\u0942 \u0915\u0930\u0928\u0947 \u0915\u0940 \u0924\u093e\u0930\u0940\u0916 \u0906\u0917\u0947 \u092c\u0922\u093c\u093e\u0908<br><br>- \u0924\u093e\u0930\u0940\u0916 \u092c\u0922\u093c\u0928\u0947 \u0915\u0940 \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u0938\u092c\u0938\u0947 \u092a\u0939\u0932\u0947 CNBC-\u0906\u0935\u093e\u091c\u093c \u0928\u0947 \u0926\u0940<br><br>- \u0907\u0938\u092a\u0930 \u091c\u094d\u092f\u093e\u0926\u093e \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948 @RoyLakshman<br><br>#UPI #UPIMDR #MDRCharges #DigitalPayments #UPIPayments #Fintech<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2109931665845780480/vid/avc1/1920x1080/9fBldq2ZsFB-V_-g.mp4?tag=16\" controls=\"controls\" poster=\"https://pbs.twimg.com/media/HUf7w_CXsAAvni5?format=jpg&amp;name=orig\"></video>"
-    },
-    {
-      "title": "Positive for NSE, BSE FIN MN SAYS WILL KEENLY BE HEARING VIEWS ON LTCG REMOVAL INDIA FINANCE MINISTER SAYS HEALTHY TO HAVE DEBATE ON STT",
-      "link": "https://x.com/yatinmota/status/2109930507622580669",
-      "date": "2026-10-13T08:53:28+00:00",
-      "tweet_id": "2109930507622580669",
-      "source": "Yatin Mota",
-      "publisher": "Yatin Mota",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Positive for NSE, BSE <br><br>FIN MN SAYS WILL KEENLY BE HEARING VIEWS ON LTCG REMOVAL<br><br>INDIA FINANCE MINISTER SAYS HEALTHY TO HAVE DEBATE ON STT"
-    },
-    {
-      "title": "PAYTM bounces back in trade after official release by NCPI on implementation post Diwali",
-      "link": "https://x.com/yatinmota/status/2109919865238856069",
-      "date": "2026-10-13T08:11:10+00:00",
-      "tweet_id": "2109919865238856069",
-      "source": "Yatin Mota",
-      "publisher": "Yatin Mota",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUftfPlb0AAjgkz?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "PAYTM bounces back in trade after official release by NCPI on implementation post Diwali<div class=\"rsshub-quote\"><br><br>Yatin Mota:\u2002NCPI Official release <br><br>UPI MDR to be implemented immediately after DIWALI<br><br><img width=\"626\" height=\"779\" style=\"\" src=\"https://pbs.twimg.com/media/HUftfPlb0AAjgkz?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "RT NPCI: UPI MDR on Select Merchant Transactions Shall be Implemented Post Diwali Press Release Link: https://www.npci.org.in/uploads/UPI_MDR_on_Selec...",
-      "link": "https://x.com/yatinmota/status/2109917619390423078",
-      "date": "2026-10-13T07:59:12+00:00",
-      "tweet_id": "2109917619390423078",
-      "source": "Yatin Mota",
-      "publisher": "Yatin Mota",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUft6OPasAAoyJW?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002NPCI<br>UPI MDR on Select Merchant Transactions Shall be Implemented Post Diwali<br><br>Press Release Link: https://www.npci.org.in/uploads/UPI_MDR_on_Select_Merchant_Transactions_Shall_be_Implemented_Post_Diwali_4c9cdd77d5.pdf<br><img width=\"952\" height=\"478\" style=\"\" src=\"https://pbs.twimg.com/media/HUft6OPasAAoyJW?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Enjoyed my podcast with @avannedubash in which we discussed broad range of topics from our investment philosophy to small cap investing to Why the Wor...",
@@ -3567,6 +3539,20 @@
       "description_html": "RT\u2002Tar \u26a1<br>One of my go to sections in #TheWrap\ud83c\udf2f during earnings season is the Management Interviews<br><br>No noise, distraction free way to catch up on all the latest management insights of day<br><br>Lots more coming very soon to #TheWrap\ud83c\udf2f<br><br>https://thewrap.in<br><img width=\"2017\" height=\"1321\" style=\"\" src=\"https://pbs.twimg.com/media/HODvxb2bUAALJH9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Why are memory prices crazy high? High Bandwidth Memory (HBM) is a special type of memory used in AI chips that allows large amounts of data to be tra...",
+      "link": "https://x.com/aditya_kondawar/status/2110302732947173594",
+      "date": "2026-10-14T09:32:33+00:00",
+      "tweet_id": "2110302732947173594",
+      "source": "Aditya Kondawar",
+      "publisher": "Aditya Kondawar",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUlM-SSaUAE1rCD?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Why are memory prices crazy high? <br><br>High Bandwidth Memory (HBM) is a special type of memory used in AI chips that allows large amounts of data to be transferred at very high speeds.<br><br>AI systems require much more memory and faster data transfer than regular computers, which is why the demand for HBM is increasing rapidly.<br><br>HBM transfers data faster by using wider connections, allowing more information to move at the same time. <br><br>HBM uses 3D stacking technology, where multiple memory chips are placed on top of each other to increase storage capacity while saving space.<br><br>HBM uses a silicon interposer, which connects the memory directly to the GPU and allows faster communication between them.<br><br>Tiny copper connections called Through-Silicon Vias (TSVs) allow data to travel between different layers of stacked memory chips.<br><br>SK hynix, Samsung and Micron are the three major manufacturers of HBM, making the industry highly concentrated.<br><br>SK hynix is one of the leading HBM manufacturers, holding a significant market share due to its efficient production methods and advanced cooling technology. <br><br>Manufacturing HBM is expensive and complicated because it requires advanced machinery, precise chip stacking and specialised equipment.<br><br>NVIDIA's GB300 AI system uses around 288 GB of HBM per GPU, showing how much memory advanced AI systems require.<br><br>The newer HBM4 technology offers higher data transfer speeds and greater memory capacity, making it important for the future growth of AI.<br><br>Regular memory prices are rising because manufacturers are shifting more production capacity towards HBM to meet growing AI demand. This reduces the supply of normal DRAM, leading to higher prices.<br><img width=\"1024\" height=\"1536\" style=\"\" src=\"https://pbs.twimg.com/media/HUlM-SSaUAE1rCD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "From Groww Q2FY27 PPT - Look at the growth in market share Look at the way they are diversifying away from equity derivatives The growth in the MTF bo...",
       "link": "https://x.com/aditya_kondawar/status/2110274037989728404",
       "date": "2026-10-14T07:38:32+00:00",
@@ -3789,20 +3775,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Pune - The old v/s new<br><br>Just like Mumbai, we are also becoming a city of contrasts<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HUUNbeAbsAASVNd?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "The best part about plant visits is that you go to study ONE company but end up learning about FOUR/FIVE others! Suppliers, customers, competitors, in...",
-      "link": "https://x.com/aditya_kondawar/status/2108899001580048691",
-      "date": "2026-10-10T12:34:38+00:00",
-      "tweet_id": "2108899001580048691",
-      "source": "Aditya Kondawar",
-      "publisher": "Aditya Kondawar",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The best part about plant visits is that you go to study ONE company but end up learning about FOUR/FIVE others!<br><br>Suppliers, customers, competitors, industry demand, pricing, capacity expansion, payment cycles - you get feedback on so many things.<br><br>This is why I love being on the ground. Sometimes, the most valuable insights come from conversations you never planned to have.<br><br>No amount of reading annual reports can fully replace this!"
     },
     {
       "title": "RT Kunal Kapoor: Watching Elon Musk this week has been a fascinating character study in the saviour complex of Western tech billionaires. They arrive ...",
@@ -5695,6 +5667,20 @@
       "description_html": "America will pay russia in rubles:)<div class=\"rsshub-quote\"><br><br>unusual_whales:\u2002Russia will supply Diesel fuel to America:<br><br><img width=\"606\" height=\"566\" style=\"\" src=\"https://pbs.twimg.com/media/HUNdpQ3WwAAGUuE?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
+      "title": "\ud835\uddea\ud835\uddf2\ud835\uddee\ud835\uddf8\ud835\uddf2\ud835\uddff \ud835\uddfa\ud835\uddfc\ud835\uddfb\ud835\ude00\ud835\uddfc\ud835\uddfc\ud835\uddfb \ud835\ude04\ud835\uddf2\ud835\uddf6\ud835\uddf4\ud835\uddf5\ud835\ude00 \ud835\uddfc\ud835\uddfb \ud835\uddd4\ud835\uddf4\ud835\uddff\ud835\uddf6\ud835\uddf0\ud835\ude02\ud835\uddf9\ud835\ude01\ud835\ude02\ud835\uddff\ud835\uddee\ud835\uddf9 \ud835\uddfd\ud835\uddff\ud835\uddfc...",
+      "link": "https://x.com/CareEdge_Group/status/2110294543757447423",
+      "date": "2026-10-14T09:00:01+00:00",
+      "tweet_id": "2110294543757447423",
+      "source": "CareEdge",
+      "publisher": "CareEdge",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUki_cSbIAAR0tf?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\ud835\uddea\ud835\uddf2\ud835\uddee\ud835\uddf8\ud835\uddf2\ud835\uddff \ud835\uddfa\ud835\uddfc\ud835\uddfb\ud835\ude00\ud835\uddfc\ud835\uddfc\ud835\uddfb \ud835\ude04\ud835\uddf2\ud835\uddf6\ud835\uddf4\ud835\uddf5\ud835\ude00 \ud835\uddfc\ud835\uddfb \ud835\uddd4\ud835\uddf4\ud835\uddff\ud835\uddf6\ud835\uddf0\ud835\ude02\ud835\uddf9\ud835\ude01\ud835\ude02\ud835\uddff\ud835\uddee\ud835\uddf9 \ud835\uddfd\ud835\uddff\ud835\uddfc\ud835\uddf1\ud835\ude02\ud835\uddf0\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb \ud835\uddee\ud835\uddfb\ud835\uddf1 \ud835\udddc\ud835\uddfb\ud835\uddf3\ud835\uddf9\ud835\uddee\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb.<br><br>The 2026 Southwest Monsoon ended with a 12.7% rainfall deficit, making it the weakest monsoon performance in a decade. While the broader economy remains more resilient to rainfall shocks than in the past, emerging pressures on agriculture and food prices warrant close attention. <br><br>Key takeaways from our latest report:<br>\u2022 Rainfall deficits persisted across all regions, with the steepest shortfalls in East &amp; North-East India and the South Peninsula. <br>\u2022 Reservoir storage recovered through the season but remains below both last year\u2019s levels and seasonal norms, posing risks for rabi sowing. <br>\u2022 Kharif acreage declined 1.1% YoY, while weaker soil moisture and a strengthening El Ni\u00f1o raise concerns for rabi output. <br>\u2022 Food inflation risks are building, particularly in commodities such as sugar and edible oils, with weather-related uncertainties likely to remain a key watchpoint. <br>\u2022 CareEdge expects food inflation to peak in Q3 FY27, keeping the inflation outlook less benign.<br>A deficient monsoon may not impact growth substantially, but its impact on agri- production, inflation and rural demand remains critical to watch.<br><br>Read full report: https://www.careratings.com/uploads/newsfiles/1791549613_Monsoon%20Update_October%202026.pdf<br><br>@RajaniSinha2025  | Bharadwaj Sastry | Tanya Singh<br><br>#Monsoon2026 #Inflation #FoodInflation #Agriculture #RabiSeason #ElNino #IndianEconomy #EconomicOutlook #RuralDemand #CareEdgeInsights #Macroeconomics #PolicyWatch<br><img width=\"554\" height=\"822\" style=\"\" src=\"https://pbs.twimg.com/media/HUki_cSbIAAR0tf?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "\ud835\uddd4\ud835\uddff\ud835\uddf2 \ud835\uddef\ud835\uddee\ud835\uddfb\ud835\uddf8 \ud835\ude00\ud835\uddfd\ud835\uddff\ud835\uddf2\ud835\uddee\ud835\uddf1\ud835\ude00 \ud835\uddf3\ud835\uddf6\ud835\uddfb\ud835\uddee\ud835\uddf9\ud835\uddf9\ud835\ude06 \ud835\ude01\ud835\ude02\ud835\uddff\ud835\uddfb\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\uddee \ud835\uddf0\ud835\uddfc\ud835\uddff\ud835\uddfb\ud835\uddf2\ud835\uddff, \ufffd...",
       "link": "https://x.com/CareEdge_Group/status/2110279448109121642",
       "date": "2026-10-14T08:00:02+00:00",
@@ -5877,18 +5863,18 @@
       "description_html": "Join us LIVE for an insightful edition of \ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\uddd7\ud835\uddf6\ud835\uddee\ud835\uddf9\ud835\uddfc\ud835\uddf4\ud835\ude02\ud835\uddf2 \u201c\ud835\uddd5\ud835\uddf2\ud835\ude06\ud835\uddfc\ud835\uddfb\ud835\uddf1 \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\udde0\ud835\uddf2\ud835\ude01\ud835\uddff\ud835\uddf6\ud835\uddf0\ud835\ude00: \ud835\udde5\ud835\uddf2\ud835\uddf3\ud835\uddfc\ud835\uddff\ud835\uddfa\ud835\ude00, \ud835\udde5\ud835\uddf2\ud835\ude00\ud835\uddf6\ud835\uddf9\ud835\uddf6\ud835\uddf2\ud835\uddfb\ud835\uddf0\ud835\uddf2 \ud835\uddee\ud835\uddfb\ud835\uddf1 \ud835\udde1\ud835\uddf2\ud835\ude04 \ud835\uddd6\ud835\uddff\ud835\uddf2\ud835\uddf1\ud835\uddf6\ud835\ude01 \ud835\udddf\ud835\uddee\ud835\uddfb\ud835\uddf1\ud835\ude00\ud835\uddf0\ud835\uddee\ud835\uddfd\ud835\uddf2\u201d and discuss the forces redefining credit markets and economic growth.<br><br>\ud83d\udcc5 October 7, 2026<br>\ud83d\udd53 4:00 PM onwards<br>\ud83d\udccd https://www.youtube.com/watch?v=JGekGMHC18g<br><br>Be part of the conversation driving the future of India\u2019s credit ecosystem.<br><br>#TheDialogue #CreditLandscape #EconomicOutlook #CreditMarkets #FinancialSector #Reforms #Resilience #IndiaGrowthStory #EconomicGrowth #CareEdgeInsights #CareEdgeResearch #CareEdgeGroup<br><img width=\"1280\" height=\"1280\" style=\"\" src=\"https://pbs.twimg.com/media/HT8LZLOacAAO_iF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "\ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\ude04\ud835\uddfc\ud835\uddff\ud835\uddf9\ud835\uddf1 \ud835\uddf6\ud835\ude00 \ud835\uddef\ud835\uddf2\ud835\uddf0\ud835\uddfc\ud835\uddfa\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\uddf6\ud835\uddfb\ud835\uddf0\ud835\uddff\ud835\uddf2\ud835\uddee\ud835\ude00\ud835\uddf6\ud835\uddfb\ud835\uddf4\ud835\uddf9\ud835\ude06 \ud835\uddf3\ud835\uddff\ud835\uddee\ud835\uddf4\ud835\uddfa\ud835\uddf2...",
-      "link": "https://x.com/CareEdge_Group/status/2107396130116096255",
-      "date": "2026-10-06T09:02:45+00:00",
-      "tweet_id": "2107396130116096255",
-      "source": "CareEdge",
-      "publisher": "CareEdge",
+      "title": "Global oil production recovered above the 100-million-barrels-a-day threshold in September, after a surge from the Middle East (to hit ~102m b/d), per...",
+      "link": "https://x.com/JavierBlas/status/2110304042823946658",
+      "date": "2026-10-14T09:37:46+00:00",
+      "tweet_id": "2110304042823946658",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HT70w3ebkAAGukf?format=jpg&name=orig",
+      "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "\ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\ude04\ud835\uddfc\ud835\uddff\ud835\uddf9\ud835\uddf1 \ud835\uddf6\ud835\ude00 \ud835\uddef\ud835\uddf2\ud835\uddf0\ud835\uddfc\ud835\uddfa\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\uddf6\ud835\uddfb\ud835\uddf0\ud835\uddff\ud835\uddf2\ud835\uddee\ud835\ude00\ud835\uddf6\ud835\uddfb\ud835\uddf4\ud835\uddf9\ud835\ude06 \ud835\uddf3\ud835\uddff\ud835\uddee\ud835\uddf4\ud835\uddfa\ud835\uddf2\ud835\uddfb\ud835\ude01\ud835\uddf2\ud835\uddf1. \ud835\uddd6\ud835\uddee\ud835\uddfd\ud835\uddf6\ud835\ude01\ud835\uddee\ud835\uddf9 \ud835\uddf6\ud835\ude00\ud835\uddfb'\ud835\ude01.<br><br>As economies realign, supply chains shift and investment priorities evolve, global capital continues to seek stability, opportunity and innovation.<br>The question is: Can GIFT City become a preferred destination for global capital?<br><br>Join us at \ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\uddd7\ud835\uddf6\ud835\uddee\ud835\uddf9\ud835\uddfc\ud835\uddf4\ud835\ude02\ud835\uddf2 \u2013 \ud835\uddd5\ud835\uddf2\ud835\ude06\ud835\uddfc\ud835\uddfb\ud835\uddf1 \ud835\udde7\ud835\uddf5\ud835\uddf2 \ud835\udde0\ud835\uddf2\ud835\ude01\ud835\uddff\ud835\uddf6\ud835\uddf0\ud835\ude00&nbsp;for a thought-provoking panel discussion featuring leading voices from international finance, development institutions and capital markets.<br><br>Shri Arun Sharma, Ex-IFC CIO &amp; Senior Advisor, @WorldBankGroup\u2019s Private Investment Lab<br>Professor @osaghae_e , Director-General,@official_NIIA <br>Ms kaku nakhate, Chairperson, Bank of America Securities India<br>Shri Parag Sharma, MD &amp; CEO, @ShriramGroup<br>Shri @balav1971, MD &amp; CEO, @nse_ix <br>Ms Lingshu Liu, Regional Industry Manager \u2013 Financial Institutions Group (FIG), @IFC_org <br><br>Moderator: Shri CA @niteshjain_ca , CRO, CareEdge Global Ratings<br><br>Together, we will explore the opportunities, challenges and pathways that could define the next chapter of global financial connectivity.<br><br>Global Capital in a Fragmented World: Can GIFT City Become the Hub?<br><br>#CareEdgeGlobal #TheDialogue2026 #GIFTCity #GlobalCapital #FinancialServices #FinancialMarkets #Leadership #EconomicTransformation<br><img width=\"1219\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HT70w3ebkAAGukf?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "Global oil production recovered above the 100-million-barrels-a-day threshold in September, after a surge from the Middle East (to hit ~102m b/d), per new @IEA estimates. Despite the recovery, supply remains slightly below global demand of ~103.5m b/d."
     },
     {
       "title": "Saudi Arabia confirms that an \u201cadministrative\u201d building of Saudi Aramco in Dhahran was \u201ctargeted,\u201d resulting in a fire. (Dhahran is the location o...",
@@ -6155,20 +6141,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Trita Parsi<br>Excellent piece by @vali_nasr and Narges Bajoghli.<br><br>\"Iran is still facing monumental challenges, and it has not found a way to turn what it has won in the war into enduring, peacetime gains. But it is ready to fight on, if and when it needs to. The government believes, as one Iranian senior analyst close to the country\u2019s policymakers put it, that the Iranian people \u201care willing to endure economic pain and the suffering, if it means that [they] are going to win.\u201d And its elites have coalesced around a shared strategy. Tehran, in other words, is confident that it can prevail by staying the course. No compromises are necessary.\"<br><br>https://www.foreignaffairs.com/iran/irans-theory-victory"
-    },
-    {
-      "title": "RT \u0645\u062d\u0633\u0646 \u0631\u0636\u0627\u06cc\u06cc: The U.S. has agreed to some of Iran\u2019s seven conditions, but we consider its response INADEQUATE. Iranian diplomacy has change...",
-      "link": "https://x.com/JavierBlas/status/2109390323877355815",
-      "date": "2026-10-11T20:37:48+00:00",
-      "tweet_id": "2109390323877355815",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002\u0645\u062d\u0633\u0646 \u0631\u0636\u0627\u06cc\u06cc<br>The U.S. has agreed to some of Iran\u2019s seven conditions, but we consider its response INADEQUATE.<br>Iranian diplomacy has changed and there will be no return to the status quo ante."
     },
     {
       "title": "European oil refineries\u2019 margins collapse as input costs soar https://ft.trib.al/cU54OTa",
@@ -7543,6 +7515,20 @@
       "description_html": "CDMO and API DMF and filing latest trackers  , a lot of company  specific notes will be coming your way both from coverage and non coverage, as this quarter Indian Pharma and API  companies have filed agressively , especially the ones we cover <br><br>Filing- Possible innovator - Trajectory , all at one place , similar to aarti pharma note yesterday , helps to map out the complexities in Pharma"
     },
     {
+      "title": "RT ValueEquity: Books must read ( Re sharing my list ) All of Nassim Nicholas Taleb, Investing from Darwin Pulak prasad , Richer Wiser happier and Boo...",
+      "link": "https://x.com/EquityValueIn/status/2110292383485374780",
+      "date": "2026-10-14T04:15:37+00:00",
+      "tweet_id": "2110292383485374780",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002ValueEquity<br>Books must read ( Re sharing my list ) <br><br>All of Nassim Nicholas Taleb, Investing from  Darwin Pulak prasad , Richer Wiser happier and Books on Probabilities and financial history of central banks and Capital returns to understand capital cycles , thinking fast and slow  <br><br> RBI governers - Gokul rathi , The Price of Time: The Real Story of Interest Book by Edward Chancellor  Zurich Axioms, The Halo Effect and Against the gods     Zurich Axioms : a book that changes my perception on risk every time I read it , risk as a word is very misunderstood <br><br>  Podcast: founders podcast , Nicolai Tangen Norges bank podcast      <br><br>There's a saying as well that one must study a war general and their tactics to learn as well , even recently watching the Movie Odyssey reminded me of so many lessons that I could apply to the world of investing   <br><br>Alot about investing is learnt from the non finance books , character , courage and persistence !    <br><br>So much learning available if we are willing to do it , that is why I also incorporate a lot of the learnings I have on my substack audio notes along with the businesses I cover , so do check it out if you are interested ! <br>  https://substack.com/@valueequityin"
+    },
+    {
       "title": "Books must read ( Re sharing my list ) All of Nassim Nicholas Taleb, Investing from Darwin Pulak prasad , Richer Wiser happier and Books on Probabilit...",
       "link": "https://x.com/EquityValueIn/status/2110222973269668202",
       "date": "2026-10-14T04:15:37+00:00",
@@ -7793,20 +7779,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "I do not act until both valuation and growth are in My favour , I need rate of change plus incremental valuation potential , the more ideas you keep on hold the better filters work and the more value you will be able to find , without having 3 year waiting period  <br><br>The ability to not do anything and then when the equation is in favour act agressively is the most important thing , so much of this business is just reading and re reading and waiting   <br><br>Lesser decisions better decisions"
-    },
-    {
-      "title": "Precision engineering and Aerospace you have to track certification depth and relationship with OEM , these 2 are what create the asymmetry Co has to ...",
-      "link": "https://x.com/EquityValueIn/status/2109697721586327849",
-      "date": "2026-10-12T17:28:27+00:00",
-      "tweet_id": "2109697721586327849",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Precision engineering and Aerospace you have to track certification depth and relationship with OEM , these 2 are what create the asymmetry<br><br>Co has to first be able to move higher into programme lifecycle of OEM with no violations , that is what upgrades quality of business and margins"
     },
     {
       "title": "How Much Profit Do the World\u2019s Biggest Companies Keep? Companies with the highest profit margin for every $100 in revenue,",
@@ -8803,6 +8775,20 @@
       "description_html": "RT\u2002Stanford University<br>The most important briefings of the day.<br><br>Karl Deisseroth, professor of bioengineering and of psychiatry and behavioral sciences, shares the news of his Nobel Prize with his kids.<br><video width=\"720\" height=\"1280\" src=\"https://video.twimg.com/amplify_video/2107132871756689408/vid/avc1/720x1280/4_3poUnUNRjlZaDE.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2107132871756689408/img/rm-ee6bASRJznbxB.jpg\"></video>"
     },
     {
+      "title": "RT Reuters: India is rolling out a policy for data centers, a minister said, saying the government wants to keep consumers from paying more for electr...",
+      "link": "https://x.com/dugalira/status/2110291446410653766",
+      "date": "2026-10-14T08:25:04+00:00",
+      "tweet_id": "2110291446410653766",
+      "source": "Ira Dugal",
+      "publisher": "Ira Dugal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Reuters<br>India is rolling out a policy for data centers, a minister said, saying the government wants to keep consumers from paying more for electricity as the sector's power use draws concern worldwide https://reut.rs/4jfqRaG"
+    },
+    {
       "title": "PIMCO, one of the world's largest bond fund managers, is neutral on Indian assets. -They expect this RBI rate hiking cycle to stretch to 75 bps cumula...",
       "link": "https://x.com/dugalira/status/2110283324073910715",
       "date": "2026-10-14T08:15:26+00:00",
@@ -9041,20 +9027,6 @@
       "description_html": "India central bank takes steps to support rupee, opens dollar window for oil companies https://www.reuters.com/world/india/india-central-bank-takes-steps-support-rupee-opens-dollar-window-oil-companies-2026-10-10/"
     },
     {
-      "title": "The best thread on twitter today! Happy Friday!",
-      "link": "https://x.com/dugalira/status/2108440911894196702",
-      "date": "2026-10-09T06:14:20+00:00",
-      "tweet_id": "2108440911894196702",
-      "source": "Ira Dugal",
-      "publisher": "Ira Dugal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUKv1BZb0AAdzmh?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "The best thread on twitter today!<br><br>Happy Friday!<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HUKv1BZb0AAdzmh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>NBC News:\u2002A surprising new study finds that people who sleep near their dogs don\u2019t experience disrupted sleep. If anything, the University of Toronto researchers discovered, we humans are the ones disturbing our dogs\u2019 sleep. https://www.nbcnews.com/health/health-news/secret-good-sleep-dog-bed-tracker-research-rcna601679?cid=sm_npd_nn_tw_ma&amp;taid=6ac78cd6c6ee1a0001abaa42&amp;utm_campaign=trueanthem&amp;utm_medium=social&amp;utm_source=twitter<br></div>"
-    },
-    {
       "title": "PPOP has turned positive even though revenue down, stock has spiked!",
       "link": "https://x.com/Tijori1/status/2109909905662738673",
       "date": "2026-10-13T07:31:36+00:00",
@@ -9263,6 +9235,62 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "HDFC Bank PEG ratio is below 1, dont remember the last time this happened<br><img width=\"1821\" height=\"771\" style=\"\" src=\"https://pbs.twimg.com/media/HRGrLWpawAAJwcR?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "THELEELA: Q2 REVENUE 4.12B RUPEES VS 3.1B (YOY)",
+      "link": "https://x.com/REDBOXINDIA/status/2110299954808033555",
+      "date": "2026-10-14T09:21:31+00:00",
+      "tweet_id": "2110299954808033555",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "THELEELA: Q2 REVENUE 4.12B RUPEES VS 3.1B (YOY)"
+    },
+    {
+      "title": "THELEELA: Q2 CONS NET PROFIT 946M RUPEES VS 747M (YOY); EST 792M THELEELA: Q2 EBITDA 2B RUPEES VS 1.6B (YOY); Q2 EBITDA MARGIN 47.05% VS 51.74% (YOY)",
+      "link": "https://x.com/REDBOXINDIA/status/2110299782162026876",
+      "date": "2026-10-14T09:20:50+00:00",
+      "tweet_id": "2110299782162026876",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "THELEELA: Q2 CONS NET PROFIT 946M RUPEES VS 747M (YOY); EST 792M<br><br>THELEELA: Q2 EBITDA 2B RUPEES VS 1.6B (YOY); Q2 EBITDA MARGIN 47.05% VS 51.74% (YOY)"
+    },
+    {
+      "title": "BEML: ABAKKUS FLEXI CAP FUND (SUNIL SINGHANIA) NAME APPEARS WITH 1.08% STAKE IN CO DURING Q2",
+      "link": "https://x.com/REDBOXINDIA/status/2110295759723905383",
+      "date": "2026-10-14T09:04:51+00:00",
+      "tweet_id": "2110295759723905383",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BEML: ABAKKUS FLEXI CAP FUND (SUNIL SINGHANIA) NAME APPEARS WITH 1.08% STAKE IN CO DURING Q2"
+    },
+    {
+      "title": "UPDATE ON HOSPITAL: CENTRE FLAGS POTENTIAL MAJOR CUTS IN CANCER DRUG AND HOSPITAL CONSUMABLE MARGINS, CITING AVERAGE 170% MARKUPS ON NON-SCHEDULED CAN...",
+      "link": "https://x.com/REDBOXINDIA/status/2110291675793010982",
+      "date": "2026-10-14T08:48:37+00:00",
+      "tweet_id": "2110291675793010982",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "UPDATE ON HOSPITAL: CENTRE FLAGS POTENTIAL MAJOR CUTS IN CANCER DRUG AND HOSPITAL CONSUMABLE MARGINS, CITING AVERAGE 170% MARKUPS ON NON-SCHEDULED CANCER DRUGS AND CASES EXCEEDING 1,800%."
     },
     {
       "title": "BHARAT HEAVY ELECTRICALS: APPROVES CAPITAL INVESTMENT OF 5 BLN RUPEES FOR HEEP-HARIDWAR UNIT; APPROVES MERGER OF ELECTRICAL MACHINES REPAIR PLANT MUMB...",
@@ -9475,60 +9503,18 @@
       "description_html": "IRDAI UNLIKELY TO EXTEND OCT 25 DEADLINE FOR INSURANCE DISTRIBUTION REFORMS; BROKERS RAISE CONCERNS OVER COMMISSION CAPS: ET"
     },
     {
-      "title": "CANARA BANK: Q2 FRESH SLIPPAGES AT 18.4B RUPEES VS 17.8B (QOQ)",
-      "link": "https://x.com/REDBOXINDIA/status/2110260607480172887",
-      "date": "2026-10-14T06:45:10+00:00",
-      "tweet_id": "2110260607480172887",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
+      "title": "China humanoid value chain (including public companies in our stock list)",
+      "link": "https://x.com/exencial_RP/status/2110304354150551574",
+      "date": "2026-10-14T09:39:00+00:00",
+      "tweet_id": "2110304354150551574",
+      "source": "Exencial Research Partners",
+      "publisher": "Exencial RP",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HUcN35YbkAA7-61?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "CANARA BANK: Q2 FRESH SLIPPAGES AT 18.4B RUPEES VS 17.8B (QOQ)"
-    },
-    {
-      "title": "CANBK: Q2 REVENUE 351B RUPEES VS 315B (YOY)",
-      "link": "https://x.com/REDBOXINDIA/status/2110259644392472722",
-      "date": "2026-10-14T06:41:20+00:00",
-      "tweet_id": "2110259644392472722",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "CANBK: Q2 REVENUE 351B RUPEES VS 315B (YOY)"
-    },
-    {
-      "title": "CANBK: Q2 GNPA 1.33% VS 1.57% (QOQ); Q2 NNPA 0.30% VS 0.36% (QOQ) CANARA BANK: Q2 SL NET PROFIT 51.7B RUPEES VS 48B (YOY); EST 48B",
-      "link": "https://x.com/REDBOXINDIA/status/2110259381199904832",
-      "date": "2026-10-14T06:40:17+00:00",
-      "tweet_id": "2110259381199904832",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "CANBK: Q2 GNPA 1.33% VS 1.57% (QOQ); Q2 NNPA 0.30% VS 0.36% (QOQ)<br><br>CANARA BANK: Q2 SL NET PROFIT 51.7B RUPEES VS 48B (YOY); EST 48B"
-    },
-    {
-      "title": "CANARA BANK: Q2 SL NET PROFIT 51.7B RUPEES VS 48B (YOY); EST 48B CANBK: Q2 GNPA 1.33% VS 1.57% (QOQ); Q2 NNPA 0.30% VS 0.36% (QOQ)",
-      "link": "https://x.com/REDBOXINDIA/status/2110259351529378123",
-      "date": "2026-10-14T06:40:10+00:00",
-      "tweet_id": "2110259351529378123",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "CANARA BANK: Q2 SL NET PROFIT 51.7B RUPEES VS 48B (YOY); EST 48B<br><br>CANBK: Q2 GNPA 1.33% VS 1.57% (QOQ); Q2 NNPA 0.30% VS 0.36% (QOQ)"
+      "description_html": "China humanoid value chain (including public companies in our stock list)<br><img width=\"1347\" height=\"1184\" style=\"\" src=\"https://pbs.twimg.com/media/HUcN35YbkAA7-61?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Value chain for key battery components",
@@ -9781,20 +9767,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "AI is carrying US markets and growth<br><br>If you're worried about how much America leans on AI, look at these six numbers.<br><br>(i) 42 AI stocks drove 67% of S&amp;P 500 returns since Jan 2024. Also 58% of earnings growth and 81% of capex growth.<br><br>(ii) The S&amp;P sits 1% off a record. Yet about 60% of its stocks are 20% or more below their highs.<br><br>(iii) Only 30% of stocks are beating the S&amp;P over 3 years. That's among the lowest since 1991.<br><br>(iv) AI sellers are winning, not AI users. Supply chain earnings are up 4x since March 2023. Heavy AI users are up only 30%.<br><br>(v) Tech now drives about a third of US GDP growth. In 2022, it was almost zero.<br><br>(vi) Only 20% of US states are growing faster than the national average. That's near the lowest since 1979.<br><br>Caveat: breadth was this thin in 2001. By 2003, 75% of stocks were beating the index.<br><img width=\"980\" height=\"1230\" style=\"\" src=\"https://pbs.twimg.com/media/HUZCXDIasAEQ_9O?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "\ud83d\udea8 AI'S BIGGEST LOSERS COULD BE THE ONES FINANCING ITS BOOM. GS highlights four AI infrastructure business models: \ud83d\udd34 Powered Shells: Predictable ...",
-      "link": "https://x.com/exencial_RP/status/2109456014332297628",
-      "date": "2026-10-12T01:28:00+00:00",
-      "tweet_id": "2109456014332297628",
-      "source": "Exencial Research Partners",
-      "publisher": "Exencial RP",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUWYMqiagAAGuOB?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\ud83d\udea8 AI'S BIGGEST LOSERS COULD BE THE ONES FINANCING ITS BOOM.<br><br>GS highlights four AI infrastructure business models:<br><br>\ud83d\udd34 Powered Shells: Predictable revenue, low ROIC.<br><br>\ud83d\udfe0 GPU-as-a-Service: Higher return potential, but capex-heavy and exposed to obsolescence.<br><br>\ud83d\udfe2 Token Factories: Highest ROIC potential, but pricing and utilization risks.<br><br>\ud83d\udd35 Asset-Light Models: Lower capex, weaker customer lock-in.<br><br>The investor takeaway?<br><br>Don't confuse revenue growth with value creation.<br><br>A company growing 30% while earning below its cost of capital can destroy shareholder value.<br><br>The real winners won't necessarily have the biggest order books or highest capex. They'll generate the highest sustainable ROIC relative to their cost of capital.<br><br>In AI investing, follow the returns on capital, not the capex headlines.<br><img width=\"1094\" height=\"983\" style=\"\" src=\"https://pbs.twimg.com/media/HUWYMqiagAAGuOB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Bank of America fined $1.2bn over money laundering failures. US Treasury fines @BankofAmerica more than $1bn for \u201cegregious and continued\u201d money lau...",
