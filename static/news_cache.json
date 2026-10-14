@@ -1,6 +1,38 @@
 {
   "thecore": [
     {
+      "title": "Why IT Stocks Are Bouncing Back",
+      "link": "https://www.thecore.in/podcasts/why-it-stocks-are-bouncing-back-872371",
+      "date": "2026-10-14T00:30:34+00:00",
+      "description": "IT stocks have recovered from a seeming slumber and are headed for their biggest jump in 17 months",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/10/13/1105125-03wedupthe-core-report1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/why-it-stocks-are-bouncing-back-872371"
+    },
+    {
+      "title": "India\u2019s Food Brands Face A Labelling Crisis That Hits Small Firms Harder",
+      "link": "https://www.thecore.in/business/india-food-labelling-rules-small-businesses-fssai-872352",
+      "date": "2026-10-14T00:30:23+00:00",
+      "description": "Chips, biscuits, snacks, instant noodles and cold drinks you buy will soon carry a bright red warning on the front of the pack if they have too much sugar, salt or fat.",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/10/13/1105085-fssai1200x630jpg.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/business/india-food-labelling-rules-small-businesses-fssai-872352"
+    },
+    {
       "title": "Bad Monsoon, No Safety Net: India\u2019s Farmers Are Running Out Of Relief",
       "link": "https://www.thecore.in/economy/india-drought-monsoon-deficit-rural-economy-vb-g-ram-g-inflation-872301",
       "date": "2026-10-13T00:30:56+00:00",
@@ -610,6 +642,22 @@
     }
   ],
   "ember-energy-insights": [
+    {
+      "title": "Electric energy security\ua789 how EVs are reducing oil import vulnerabilities - Ember-climate.org",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbUh5b1dCRk8taWpjOTF6NWlEWDhsMTExQThOSWVNYXY3Um93Wl94TmxpRkp5N3pvM0tEbTZNRkJJVXUxTlVFZEIxVHp1Wk94WHpiRy1vVElKVjhGMEl3QlRzSlFxdjgyZkNYRnhCdkJFWTVPYTZOSm1CT3ZxQ2RzNVFuQ1FPWWZ0QXRjZzBNeHVTbzNmd2h2WTlnUFJPY2lhR2xlYmNkckowVmJWckQ1c2FSSVc?oc=5",
+      "date": "2026-10-14T00:22:30+00:00",
+      "description": "Electric energy security\ua789 how EVs are reducing oil import vulnerabilities Ember-climate.org",
+      "source": "Ember Energy",
+      "source_url": "https://ember-energy.org/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Ember",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "ember-energy-insights",
+      "guid": "CBMitAFBVV95cUxQbUh5b1dCRk8taWpjOTF6NWlEWDhsMTExQThOSWVNYXY3Um93Wl94TmxpRkp5N3pvM0tEbTZNRkJJVXUxTlVFZEIxVHp1Wk94WHpiRy1vVElKVjhGMEl3QlRzSlFxdjgyZkNYRnhCdkJFWTVPYTZOSm1CT3ZxQ2RzNVFuQ1FPWWZ0QXRjZzBNeHVTbzNmd2h2WTlnUFJPY2lhR2xlYmNkckowVmJWckQ1c2FSSVc"
+    },
     {
       "title": "ASEAN's clean energy bottleneck has shifted from raising capital to creating bankable projects",
       "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxONC05a1NkMXpCcWFXZ1pqMFEtN3NlRzFJOWZGQk5IU0Z3TnBITTQxa2hVQTN0NnB6VjFjOFVSSjlLYkFWSUptLUt3MHlIdHFtUEdZVEVrcnZSeHhyNWU3WXFwWkxLVVl3WURsZ3E0MFU0Z05QV0w5bF8xaVJlUTdVRTlLTGxWd0otOFBKNzFLTW9jNGRxb0wxZ0U3TlI3c09rQXRld0ZUcjQzSkpJdmttemZMa29aM3lHdzVmZXVLVlk2Ri1MVE5mQmNmd19RT28?oc=5",
@@ -1423,21 +1471,6 @@
       "source_tier": "",
       "feed_id": "our-world-in-data",
       "guid": "https://ourworldindata.org/how-high-is-current-immigration-to-the-united-states-in-historical-perspective"
-    },
-    {
-      "title": "Is organic farming better for the environment than conventional farming?",
-      "link": "https://ourworldindata.org/is-organic-farming-better-for-the-environment-than-conventional-farming",
-      "date": "2026-09-14T00:00:00+00:00",
-      "description": "Organic farming often wins when we compare impacts on one unit of land, but there is no clear winner when we look at impacts per unit of food production.<br><br><a href=\"https://ourworldindata.org/is-organic-farming-better-for-the-environment-than-conventional-farming\"><img src=\"https://ourworldinda",
-      "source": "Our World in Data",
-      "source_url": "https://ourworldindata.org",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Our World in Data",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "feed_id": "our-world-in-data",
-      "guid": "https://ourworldindata.org/is-organic-farming-better-for-the-environment-than-conventional-farming"
     }
   ],
   "by-the-numbers": [
