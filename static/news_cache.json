@@ -1961,7 +1961,7 @@
     {
       "title": "Gaurav Munjal loses his faith",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdkNwNkFuSnJzZHhQNl82UlpxVEU3UkUwYkRSWTBSaWJEdEFTUkJGSXlHaW9GM21Ec19Lam5VM08wTGR0MXU3bzJzcUgwZHNlSGNBRmRKeUlPQ3Z4WmNybU5FSzh1NkJ5SUs3aGRlV2I1d1BncWFSSWVPblI2TFFXdUZjT2ZPdm10?oc=5",
-      "date": "2026-10-07T19:31:11+00:00",
+      "date": "2026-10-07T07:00:00+00:00",
       "description": "Gaurav Munjal loses his faith The Morning Context",
       "source": "The Morning Context",
       "source_url": "https://themorningcontext.com",
@@ -2882,6 +2882,88 @@
       "image": "https://static.thearcweb.com/images/PROD/PROD-e9af212e-80f9-4d1f-a0d3-21244ceb0d21.jpg",
       "feed_id": "the-arc",
       "guid": "https://thearcweb.com/article/bounce-20-gigworker-scooter-rentals-hit-rs-140-cr-runrate-LSXK8cYNasAsyZOS"
+    }
+  ],
+  "not-ship": [
+    {
+      "title": "How Amazon pushes up prices all across the Internet",
+      "link": "https://www.not-ship.com/how-amazon-pushes-up-prices-all-across-the-internet/",
+      "date": "2026-10-14T06:00:00+00:00",
+      "description": "You don\u2019t have to shop on Amazon to pay Amazon's high prices.",
+      "source": "Not-Ship",
+      "source_url": "https://www.not-ship.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Not-Ship",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://storage.ghost.io/c/f0/60/f060ef3f-d4e0-4af4-9255-1373fbf0a44f/content/images/2026/10/featured_02.png",
+      "feed_id": "not-ship",
+      "guid": "6acb924ae1b398000109a617"
+    },
+    {
+      "title": "What's good for Amazon is good for ... Amazon",
+      "link": "https://www.not-ship.com/amazon-search-page/",
+      "date": "2026-10-08T06:44:49+00:00",
+      "description": "How the world's largest company makes you pay more for less.",
+      "source": "Not-Ship",
+      "source_url": "https://www.not-ship.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Not-Ship",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://storage.ghost.io/c/f0/60/f060ef3f-d4e0-4af4-9255-1373fbf0a44f/content/images/2026/10/featured-1.png",
+      "feed_id": "not-ship",
+      "guid": "6ac523a3f8bc350001fc5b7c"
+    },
+    {
+      "title": "Do we actually know how to make cities safer for women?",
+      "link": "https://www.not-ship.com/safe-streets-women/",
+      "date": "2026-09-30T06:02:26+00:00",
+      "description": "Women-only buses, catcalling fines and gender-sensitive design \u2014 we've tried them all.",
+      "source": "Not-Ship",
+      "source_url": "https://www.not-ship.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Not-Ship",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://storage.ghost.io/c/f0/60/f060ef3f-d4e0-4af4-9255-1373fbf0a44f/content/images/2026/09/featured2.png",
+      "feed_id": "not-ship",
+      "guid": "6abb67717a41e6000118cf6e"
+    },
+    {
+      "title": "No axes, no labels, no numbers: How this chart became a climate change icon",
+      "link": "https://www.not-ship.com/warming-stripes-climate-change/",
+      "date": "2026-09-24T07:02:37+00:00",
+      "description": "A data visualization designed to start conversations, not report numbers",
+      "source": "Not-Ship",
+      "source_url": "https://www.not-ship.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Not-Ship",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://storage.ghost.io/c/f0/60/f060ef3f-d4e0-4af4-9255-1373fbf0a44f/content/images/2026/09/featured-2.jpg",
+      "feed_id": "not-ship",
+      "guid": "6ab3ae29d098770001367f91"
+    },
+    {
+      "title": "Stop trusting the extinction math",
+      "link": "https://www.not-ship.com/stop-trusting-the-extinction-math/",
+      "date": "2026-09-16T06:48:35+00:00",
+      "description": "The AI industry's favourite 'statistic' isn't backed by data. And it distracts from what's really going on.",
+      "source": "Not-Ship",
+      "source_url": "https://www.not-ship.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Not-Ship",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://storage.ghost.io/c/f0/60/f060ef3f-d4e0-4af4-9255-1373fbf0a44f/content/images/2026/09/featured-colour.jpg",
+      "feed_id": "not-ship",
+      "guid": "6aa833ef1a909b00011ffee6"
     }
   ]
 }
