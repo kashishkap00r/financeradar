@@ -738,6 +738,14 @@
     "publisher": "Financial Times"
   },
   {
+    "id": "ft-markets",
+    "name": "Financial Times — Markets",
+    "url": "https://www.ft.com/markets",
+    "feed": "https://www.ft.com/markets?format=rss",
+    "category": "News",
+    "publisher": "Financial Times"
+  },
+  {
     "id": "the-ken",
     "name": "The Ken",
     "url": "https://the-ken.com",
@@ -899,6 +907,14 @@
     "category": "News",
     "publisher": "The Arc",
     "naive_dates": "IST"
+  },
+  {
+    "id": "not-ship",
+    "name": "Not-Ship",
+    "url": "https://www.not-ship.com",
+    "feed": "https://www.not-ship.com/rss/",
+    "category": "News",
+    "publisher": "Not-Ship"
   },
   {
     "id": "noahpinion",

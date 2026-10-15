@@ -63,6 +63,7 @@ SLOW_READS_SOURCES = (
     "Prosperiti Insights",
     "Rest of World",
     "The Arc",
+    "Not-Ship",                      # Ghost newsletter, ~weekly data/charts essays
     "The Ken",                       # daily-ish long-form; strip still caps it at 2
     "Finshots",                      # daily explainer
     "The Core",                      # daily, but its RSS only holds ~2 days (kept 30 via keep_days)
