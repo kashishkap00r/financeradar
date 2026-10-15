@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T05:35:43.019887+00:00",
+  "generated_at": "2026-10-15T05:46:56.666899+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 44,
     "handles_empty": 2,
     "handles_error": 1,
-    "items_total": 760
+    "items_total": 758
   },
   "items": [
     {
@@ -2363,6 +2363,20 @@
       "description_html": "Srinivas is spearheading the PCB CAD tool development along with a open source hardware ecosystem in \ud83c\uddee\ud83c\uddf3<br><br>1. Context driven autorouter.<br>2. Prompt to prototype in few days will be possible very soon.<br>3. Advanced CAD features in the pipeline.<br><br>All made in \ud83c\uddee\ud83c\uddf3 for \ud83c\uddee\ud83c\uddf3 and the \ud83c\udf0f<br><br>Great example of staying focused on the mission, preseverence and bootstraping.<div class=\"rsshub-quote\"><br><br>Srinivasan:\u2002Took us 8 months to reimagine and simplify how a PCB CAD system works.<br><br>Well\u2026 now you can put Pikachu on a PCB keychain. \u26a1\ufe0f<br><br>Check out Spell \u2192 https://spell.pcbcupid.com<br><br>PS: Please report more bugs \ud83d\udc40<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2090178054421360640/vid/avc1/1920x1080/TvXrYOQhPiu_Cy4N.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2090178054421360640/img/PZUkCjBjaoHOdIpm.jpg\"></video></div>"
     },
     {
+      "title": "#JustIn | #LTM Bags Multi-million Dollar Deal To Build #AI-led Managed Svcs Operating Model",
+      "link": "https://x.com/CNBCTV18Live/status/2110606521101115460",
+      "date": "2026-10-15T05:39:42+00:00",
+      "tweet_id": "2110606521101115460",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUphb6Cb0AAkSVT?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#JustIn | #LTM Bags Multi-million Dollar Deal To Build #AI-led Managed Svcs Operating Model<br><img width=\"607\" height=\"345\" style=\"\" src=\"https://pbs.twimg.com/media/HUphb6Cb0AAkSVT?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Why #Bitcoin is falling and key levels investors should watch @anshul91_m https://www.cnbctv18.com/market/cryptocurrency/why-bitcoin-is-falling-key-le...",
       "link": "https://x.com/CNBCTV18Live/status/2110604045857829201",
       "date": "2026-10-15T05:29:52+00:00",
@@ -2587,46 +2601,60 @@
       "description_html": "#CNBCTV18Market | #IDBI Down Nearly 5% &amp; #CSB Up 3% On Govt Clears IDBI-Fairfax Deal<br><img width=\"608\" height=\"342\" style=\"\" src=\"https://pbs.twimg.com/media/HUpJZjYbQAA58Lx?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "#IDBIBank Share Price: Stock falls 3% reacting to disinvestment news, extends YTD loss @hormaz_fatakia https://www.cnbctv18.com/market/idbi-bank-share...",
-      "link": "https://x.com/CNBCTV18Live/status/2110579633280413734",
-      "date": "2026-10-15T03:52:51+00:00",
-      "tweet_id": "2110579633280413734",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "8 #Nifty stocks delivered negative returns over 5 years. Do you own any? #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/8-nifty-s...",
+      "link": "https://x.com/ETMarkets/status/2110606595440722099",
+      "date": "2026-10-15T05:40:00+00:00",
+      "tweet_id": "2110606595440722099",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#IDBIBank Share Price: Stock falls 3% reacting to disinvestment news, extends YTD loss<br><br>@hormaz_fatakia <br><br>https://www.cnbctv18.com/market/idbi-bank-share-price-fairfax-disinvestment-deal-reaction-shareholding-free-float-timeline-ytd-returns-20012182.htm"
+      "description_html": "8 #Nifty stocks delivered negative returns over 5 years. Do you own any?<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/8-nifty-stocks-delivered-negative-returns-over-5-years-do-you-own-any/taking-stock/slideshow/134957762.cms"
     },
     {
-      "title": "#CNBCTV18Market | #TCS Up Nearly 13% Since Its Q2 Results",
-      "link": "https://x.com/CNBCTV18Live/status/2110579262285881748",
-      "date": "2026-10-15T03:51:23+00:00",
-      "tweet_id": "2110579262285881748",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "Shares of Bharat Heavy Electricals Ltd (BHEL) fell 4.30% to Rs 444.05 during Thursday\u2019s trading session, potentially indicating profit booking after ...",
+      "link": "https://x.com/ETMarkets/status/2110605824825635266",
+      "date": "2026-10-15T05:36:56+00:00",
+      "tweet_id": "2110605824825635266",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUpIiK7aYAAzv50?format=png&name=orig",
+      "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#CNBCTV18Market | #TCS Up Nearly 13% Since Its Q2 Results<br><img width=\"609\" height=\"342\" style=\"\" src=\"https://pbs.twimg.com/media/HUpIiK7aYAAzv50?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "Shares of Bharat Heavy Electricals Ltd (BHEL) fell 4.30% to Rs 444.05 during Thursday\u2019s trading session, potentially indicating profit booking after the stock rallied nearly 5% in the previous session following the company\u2019s strong Q2FY27 results.<br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/bhel-shares-fall-4-despite-q2-profit-jumping-119-yoy-should-you-buy-sell-or-hold/articleshow/134957918.cms"
     },
     {
-      "title": "#CNBCTV18Market | #TataTech Up Nearly 4% On Q2 Results",
-      "link": "https://x.com/CNBCTV18Live/status/2110578945066447306",
-      "date": "2026-10-15T03:50:07+00:00",
-      "tweet_id": "2110578945066447306",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "A 10% market crash. A \u20b910 lakh hit to your \u20b91 crore portfolio! As your wealth grows, so does the cost of poor investment decisions. Can a 70:30 equi...",
+      "link": "https://x.com/ETMarkets/status/2110605236125716693",
+      "date": "2026-10-15T05:34:36+00:00",
+      "tweet_id": "2110605236125716693",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUpISIuaMAAKTlv?format=png&name=orig",
+      "image": "https://pbs.twimg.com/media/HUpgNLxbAAAKSZy?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#CNBCTV18Market | #TataTech Up Nearly 4% On Q2 Results<br><img width=\"609\" height=\"346\" style=\"\" src=\"https://pbs.twimg.com/media/HUpISIuaMAAKTlv?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "A 10% market crash. <br><br>A \u20b910 lakh hit to your \u20b91 crore portfolio! As your wealth grows, so does the cost of poor investment decisions. Can a 70:30 equity-bond split soften the blow? Here's why asset allocation matters more than ever.<br><br>Read more here: https://economictimes.indiatimes.com/markets/bonds/the-1-crore-portfolio-problem-when-your-money-grows-your-mistakes-get-more-expensive/articleshow/134893217.cms<br><br>@Jiraaf_Official | #investing #assetallocation #financialmarkets #bonds #portfolio #investment #growth<br><img width=\"1200\" height=\"628\" style=\"\" src=\"https://pbs.twimg.com/media/HUpgNLxbAAAKSZy?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "\u20b91.5 crore saved. But is every rupee doing the right job? For couples in their 40s, one portfolio may not be enough! Retirement needs growth. Educati...",
+      "link": "https://x.com/ETMarkets/status/2110604975764279562",
+      "date": "2026-10-15T05:33:34+00:00",
+      "tweet_id": "2110604975764279562",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUpf7SaawAAzrHW?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\u20b91.5 crore saved. But is every rupee doing the right job?  <br><br>For couples in their 40s, one portfolio may not be enough! Retirement needs growth. Education and family expenses need certainty. <br><br>Here's why the two-portfolio strategy could be a game-changer.  <br><br>Read more here: https://economictimes.indiatimes.com/markets/bonds/the-two-portfolio-household-why-couples-in-their-40s-should-stop-treating-every-rupee-the-same/articleshow/134892900.cms <br><br>@Jiraaf_Official | #personalfinance #investing #retirement #twoportfolio #strategy #rupee<br><img width=\"1200\" height=\"628\" style=\"\" src=\"https://pbs.twimg.com/media/HUpf7SaawAAzrHW?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Mid- and smallcap funds continue to attract strong investor inflows, but elevated valuations are making largecaps increasingly attractive from a risk-...",
@@ -2837,62 +2865,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Shares of One97 Communications, the parent company of Paytm, will be in focus on Thursday after global brokerage Nomura initiated coverage with a Buy rating and a target price of Rs 2,250, implying an upside of 31% from current levels.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/paytm-shares-get-new-buy-rating-after-nomura-initiates-coverage-3-reasons-behind-bullish-call/articleshow/134956219.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
-    },
-    {
-      "title": "A 10% market crash. A \u20b910 lakh hit to your \u20b91 crore portfolio! As your wealth grows, so does the cost of poor investment decisions. Can a 70:30 equi...",
-      "link": "https://x.com/ETMarkets/status/2110577106413568179",
-      "date": "2026-10-15T03:42:49+00:00",
-      "tweet_id": "2110577106413568179",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUpGcmfa4AAa1Fc?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "A 10% market crash. <br><br>A \u20b910 lakh hit to your \u20b91 crore portfolio! As your wealth grows, so does the cost of poor investment decisions. Can a 70:30 equity-bond split soften the blow? Here's why asset allocation matters more than ever.<br><br>Read more here: https://economictimes.indiatimes.com/markets/bonds/the-1-crore-portfolio-problem-when-your-money-grows-your-mistakes-get-more-expensive/articleshow/134893217.cms<br><br>#investing #assetallocation #financialmarkets #bonds #portfolio #investment #growth<br><img width=\"1200\" height=\"628\" style=\"\" src=\"https://pbs.twimg.com/media/HUpGcmfa4AAa1Fc?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "\u20b91.5 crore saved. But is every rupee doing the right job? For couples in their 40s, one portfolio may not be enough! Retirement needs growth. Educati...",
-      "link": "https://x.com/ETMarkets/status/2110575402653782443",
-      "date": "2026-10-15T03:36:03+00:00",
-      "tweet_id": "2110575402653782443",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUpE-HFbkAAOGm7?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\u20b91.5 crore saved. But is every rupee doing the right job?<br><br>For couples in their 40s, one portfolio may not be enough! Retirement needs growth. Education and family expenses need certainty.<br>Here's why the two-portfolio strategy could be a game-changer.<br><br>Read more here: https://economictimes.indiatimes.com/markets/bonds/the-two-portfolio-household-why-couples-in-their-40s-should-stop-treating-every-rupee-the-same/articleshow/134892900.cms<br><br>#personalfinance #investing #retirement #twoportfolio #strategy #rupee<br><img width=\"1200\" height=\"628\" style=\"\" src=\"https://pbs.twimg.com/media/HUpE-HFbkAAOGm7?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Indian government bonds could see some buying interest in early deals on Thursday, tracking a drop in #US #Treasury yields, but any such move is likel...",
-      "link": "https://x.com/ETMarkets/status/2110575138710368472",
-      "date": "2026-10-15T03:35:00+00:00",
-      "tweet_id": "2110575138710368472",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Indian government bonds could see some buying interest in early deals on Thursday, tracking a drop in #US #Treasury yields, but any such move is likely to be limited as underlying sentiment remains cautious after the Reserve Bank of India's hawkish commentary earlier this week.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/bonds/treasury-rally-could-lift-india-bonds-at-open-but-caution-prevails/articleshow/134955758.cms"
-    },
-    {
-      "title": "Forex Watch #Rupee rises 0.2% to 94.92 against US dollar #ETMarkets Catch all the LIVE updates here https://economictimes.indiatimes.com/markets/stock...",
-      "link": "https://x.com/ETMarkets/status/2110575125506781511",
-      "date": "2026-10-15T03:34:57+00:00",
-      "tweet_id": "2110575125506781511",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Forex Watch <br><br>#Rupee rises 0.2% to 94.92 against US dollar<br>#ETMarkets <br><br>Catch all  the LIVE updates here <br>https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-ril-tata-tech-share-price-15-october-2026/liveblog/134955286.cms"
     },
     {
       "title": "ICICI Lombard Q2: VERY WEAK INTERNALS - STOCK OFF HIGHS ICICI Lombard Grew In Q2 But At What Cost? 1)Underwriting Loss increased By a massive 79% 2)Co...",
@@ -6255,6 +6227,20 @@
       "description_html": "RT\u2002Trita Parsi<br>Excellent piece by @vali_nasr and Narges Bajoghli.<br><br>\"Iran is still facing monumental challenges, and it has not found a way to turn what it has won in the war into enduring, peacetime gains. But it is ready to fight on, if and when it needs to. The government believes, as one Iranian senior analyst close to the country\u2019s policymakers put it, that the Iranian people \u201care willing to endure economic pain and the suffering, if it means that [they] are going to win.\u201d And its elites have coalesced around a shared strategy. Tehran, in other words, is confident that it can prevail by staying the course. No compromises are necessary.\"<br><br>https://www.foreignaffairs.com/iran/irans-theory-victory"
     },
     {
+      "title": "West in nuclear fusion race with China, says UK atomic energy body https://ft.trib.al/txz0LV5",
+      "link": "https://x.com/ftenergy/status/2110607533152833727",
+      "date": "2026-10-15T05:43:43+00:00",
+      "tweet_id": "2110607533152833727",
+      "source": "FT Energy",
+      "publisher": "FT Energy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "West in nuclear fusion race with China, says UK atomic energy body https://ft.trib.al/txz0LV5"
+    },
+    {
       "title": "Oil majors face $32bn dilemma over Iran war windfall https://ft.trib.al/8d5zMP1",
       "link": "https://x.com/ftenergy/status/2110595985378308147",
       "date": "2026-10-15T04:57:50+00:00",
@@ -6519,20 +6505,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Trump\u2019s Russian diesel gambit is cynical and won\u2019t work https://ft.trib.al/9EAIho4"
-    },
-    {
-      "title": "The diesel crisis is testing the limits of globalisation https://ft.trib.al/rQzdPoL",
-      "link": "https://x.com/ftenergy/status/2109703651065307397",
-      "date": "2026-10-12T17:52:01+00:00",
-      "tweet_id": "2109703651065307397",
-      "source": "FT Energy",
-      "publisher": "FT Energy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The diesel crisis is testing the limits of globalisation https://ft.trib.al/rQzdPoL"
     },
     {
       "title": "BREAKING: South Korea's stock market extends losses to over -8% on the day, triggering a level 1 circuit breaker. Trading has been halted for 20 minut...",
