@@ -18,6 +18,7 @@ from ai_ranker import (
     enforce_bucket_size,
     resolve_cluster_indices,
     cluster_ranked_items,
+    build_clustering_prompt,
 )
 
 
@@ -290,6 +291,51 @@ class TestClusterResolution(unittest.TestCase):
         raw = [{"story_id": "min", "story_label": "Min", "lead_index": 4, "related": [{"index": 1, "angle": "related"}]}]
         clusters = resolve_cluster_indices(raw, items)
         self.assertEqual(len(clusters), 1)
+
+    def test_story_summary_passed_through(self):
+        """The one-line summary shown under each Big Story label survives resolution."""
+        items = self._make_items()
+        raw = [{
+            "story_id": "iran-oil",
+            "story_label": "Iran strikes push crude past $95",
+            "story_summary": "  Crude jumped after the strikes; India pays more for every barrel.  ",
+            "articles": [{"index": 1, "angle": "price move"}, {"index": 2, "angle": "shipping costs"}],
+        }]
+        clusters = resolve_cluster_indices(raw, items)
+        self.assertEqual(clusters[0]["story_summary"], "Crude jumped after the strikes; India pays more for every barrel.")
+
+    def test_story_summary_missing_is_empty(self):
+        items = self._make_items()
+        raw = [{"story_id": "x", "story_label": "X", "articles": [{"index": 1, "angle": "a"}, {"index": 2, "angle": "b"}]}]
+        self.assertEqual(resolve_cluster_indices(raw, items)[0]["story_summary"], "")
+
+    def test_story_summary_capped(self):
+        items = self._make_items()
+        raw = [{"story_id": "x", "story_label": "X", "story_summary": "word " * 100,
+                "articles": [{"index": 1, "angle": "a"}, {"index": 2, "angle": "b"}]}]
+        self.assertLessEqual(len(resolve_cluster_indices(raw, items)[0]["story_summary"]), 240)
+
+    def test_lead_why_comes_from_the_lead_article(self):
+        """The lead's why_it_matters must describe the lead itself, not the first candidate overall."""
+        items = self._make_items()
+        # Lead is item 4 (RBI, no why_it_matters); item 1 ("Oil shock") is only a related article.
+        raw = [{"story_id": "rbi", "story_label": "RBI holds", "lead_index": 4, "related": [{"index": 3, "angle": "a"}]}]
+        lead = resolve_cluster_indices(raw, items)[0]["lead"]
+        self.assertEqual(lead["source"], "Mint")
+        self.assertEqual(lead["why_it_matters"], "")
+        self.assertEqual(lead["signal_type"], "")
+
+    def test_lead_why_kept_when_lead_has_one(self):
+        items = self._make_items()
+        raw = [{"story_id": "oil", "story_label": "Oil", "lead_index": 1, "related": [{"index": 2, "angle": "a"}]}]
+        lead = resolve_cluster_indices(raw, items)[0]["lead"]
+        self.assertEqual(lead["why_it_matters"], "Oil shock")
+        self.assertEqual(lead["signal_type"], "supply-chain")
+
+    def test_clustering_prompt_asks_for_summary_and_sentence_case(self):
+        prompt = build_clustering_prompt(self._make_items())
+        self.assertIn("story_summary", prompt)
+        self.assertIn("sentence case", prompt.lower())
 
     def test_cluster_ranked_items_returns_empty_on_failure(self):
         """cluster_ranked_items returns [] if API call fails."""

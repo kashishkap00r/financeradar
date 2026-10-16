@@ -111,6 +111,16 @@
 
         var utilityBar = document.querySelector('.utility');
 
+        // The top bar + tabs are pinned together; day headers stick just below them.
+        // Their height changes with screen width and wrapping, so measure it instead of guessing.
+        var siteHead = document.querySelector('.site-head');
+        function syncSiteHeadHeight() {
+            if (siteHead) document.documentElement.style.setProperty('--head-h', siteHead.offsetHeight + 'px');
+        }
+        syncSiteHeadHeight();
+        window.addEventListener('resize', syncSiteHeadHeight);
+        if (window.ResizeObserver && siteHead) new ResizeObserver(syncSiteHeadHeight).observe(siteHead);
+
         var searchClosing = false;
 
         function openSearch() {
@@ -955,19 +965,6 @@
         function isStoryBookmarked(storyId) {
             if (!storyId) return false;
             return getStoryBookmarks().some(function(s) { return s.storyId === storyId; });
-        }
-
-        function toggleClusterExpand(btn) {
-            var container = btn.parentElement;
-            var hidden = container.querySelectorAll('.cluster-sub-hidden');
-            if (hidden.length) {
-                hidden.forEach(function(el) { el.classList.remove('cluster-sub-hidden'); });
-                btn.textContent = 'show fewer';
-            } else {
-                var subs = container.querySelectorAll('.cluster-sub');
-                for (var i = 3; i < subs.length; i++) { subs[i].classList.add('cluster-sub-hidden'); }
-                btn.textContent = '+ ' + (subs.length - 3) + ' more sources';
-            }
         }
 
         function toggleStoryBookmark(btn) {
@@ -1981,8 +1978,66 @@
             return date.toLocaleDateString();
         }
 
+        // ==================== HEADLINE CLEAN-UP ====================
+        // ALL-CAPS headlines (common on Telegram and in SBI notes) → Title Case. Title Case, not
+        // sentence case, so company names stay readable ("Karur Vysya Bank"). Acronyms, vowel-less
+        // short words (JV, NTPC), months, "Rs" and a leading stock ticker ("CMPDI : ...") keep their form.
+        var HEADLINE_ACRONYMS = new Set(('RBI SEBI SBI LIC IPO GDP CPI WPI GST US UK EU IMF FII FPI DII NBFC PSU SC HC AT1 IT AI EV FY '
+            + 'Q1 Q2 Q3 Q4 MPC NSE BSE ETF CR BPS OPEC IEA FDI MSME PLI UPI NPCI IRDAI PFRDA EPFO IIP BOM BESS IDBI '
+            + 'ICICI ONGC IOC GAIL BHEL SAIL NHPC SJVN IREDA LLP YOY QOQ PAT EPS NII').split(' '));
+        var HEADLINE_SMALL_WORDS = new Set('a an the and but or nor for so yet as at by in of off on per to up via vs with from into'.split(' '));
+        var HEADLINE_MONTHS = new Set('jan feb mar apr may jun jul aug sep sept oct nov dec january february march april june july august september october november december'.split(' '));
+
+        function deshoutTitle(text) {
+            var t = String(text || '');
+            var letters = t.replace(/[^A-Za-z]/g, '');
+            if (!letters) return t;
+            var upper = letters.replace(/[^A-Z]/g, '').length;
+            if (upper / letters.length < 0.8) return t;
+            var words = t.split(' ');
+            var out = words.map(function(w, i) {
+                var core = w.replace(/[^A-Za-z0-9]/g, '');
+                var coreUp = core.toUpperCase();
+                if (HEADLINE_ACRONYMS.has(coreUp)) return w;
+                if (coreUp === 'RS') return w.charAt(0) + w.slice(1).toLowerCase();
+                if (/[0-9]/.test(core) && /[A-Za-z]/.test(core)) return w;
+                if (core.length >= 2 && core.length <= 5 && /^[A-Za-z]+$/.test(core) && !/[AEIOUY]/.test(coreUp)) return w;
+                if (i > 0 && HEADLINE_SMALL_WORDS.has(core.toLowerCase())) return w.toLowerCase();
+                if (HEADLINE_MONTHS.has(core.toLowerCase())) return w.charAt(0) + w.slice(1).toLowerCase();
+                return w.split('-').map(function(p) { return p.charAt(0).toUpperCase() + p.slice(1).toLowerCase(); }).join('-');
+            });
+            // Telegram posts open with a stock ticker: keep "CMPDI : ..." in capitals
+            var ticker = t.match(/^([A-Z0-9&.\-]{2,15})\s?:/);
+            if (ticker) out[0] = words[0];
+            return out.join(' ');
+        }
+
+        // Cluster angle tags often repeat the source name ("Reuters confirmation of ..."). Drop it
+        // and the filler words the AI tends to start with, so the tag says only what this source adds.
+        var ANGLE_FILLER = /^((telegram|twitter|official|report|reports|analysis|thread|relay|confirmation|details|on|of|the|sebi|circular|video:?)\s+)+/i;
+        function tidyAngle(angle, source) {
+            var a = String(angle || '').trim();
+            var src = String(source || '').trim();
+            var names = [src, src.split(' ')[0]];
+            for (var i = 0; i < names.length; i++) {
+                if (names[i] && a.toLowerCase().indexOf(names[i].toLowerCase()) === 0) {
+                    a = a.slice(names[i].length).trim();
+                    break;
+                }
+            }
+            return a.replace(ANGLE_FILLER, '').trim();
+        }
+
+        // Some Telegram channels are named only with an emoji (e.g. "📈") — say "Telegram" on the homepage.
+        function homeSourceName(name, sourceType) {
+            var n = String(name || '').trim();
+            if (/[A-Za-z0-9]/.test(n)) return n;
+            return sourceType === 'telegram' || !sourceType ? 'Telegram' : (BUCKET_LABELS[sourceType] || 'Source');
+        }
+
         function cleanHomeTitle(rawTitle) {
             var t = String(rawTitle || '')
+                .replace(/\s+-\s+Press Information Bureau\s*$/i, '')
                 .replace(/[*_`~#>\[\]\(\)]/g, ' ')
                 .replace(/\s+/g, ' ')
                 .trim() || 'Untitled';
@@ -1992,7 +2047,7 @@
                     t = u.hostname.replace(/^www\./, '') + '/\u2026';
                 } catch (e) { /* keep original */ }
             }
-            return t;
+            return deshoutTitle(t);
         }
 
         function getTelegramReportDocuments(report) {
@@ -2134,7 +2189,7 @@
         function cardHero(item) {
             const title = escapeHtml(cleanHomeTitle(item.title));
             const url = sanitizeUrl(item.url || '');
-            const source = escapeHtml(item.meta || 'News');
+            const source = escapeHtml(homeSourceName(item.meta, item._bucket) || 'News');
             const desc = item.description ? '<p class="hero-desc">' + escapeHtml(item.description) + '</p>' : '';
             const why = item.why_it_matters ? '<p class="hero-why">' + escapeHtml(item.why_it_matters) + '</p>' : '';
             const signal = item.signal_type ? '<span class="hero-signal-badge">' + escapeHtml(item.signal_type) + '</span>' : '';
@@ -2150,24 +2205,10 @@
                 + '<div class="hero-source">' + source + signal + consensus + '</div></div>';
         }
 
-        function cardMedium(item) {
-            const title = escapeHtml(cleanHomeTitle(item.title));
-            const url = sanitizeUrl(item.url || '');
-            const source = escapeHtml(item.meta || 'News');
-            const bk = npBookmarkBtn(url, title, item.meta);
-            const titleHtml = url
-                ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
-                : title;
-            return '<div class="card-medium">'
-                + catMeta(item, bk)
-                + '<h3 class="medium-title">' + titleHtml + '</h3>'
-                + '<div class="medium-source">' + source + '</div></div>';
-        }
-
         function cardCompact(item) {
             const title = escapeHtml(cleanHomeTitle(item.title));
             const url = sanitizeUrl(item.url || '');
-            const source = escapeHtml(item.meta || 'News');
+            const source = escapeHtml(homeSourceName(item.meta, item._bucket) || 'News');
             const bk = npBookmarkBtn(url, title, item.meta);
             var bucket = item._bucket || 'news';
             var color = BUCKET_COLORS[bucket] || '#6B645C';
@@ -2180,53 +2221,25 @@
         }
 
         // ==================== NEWSPAPER PATTERN BUILDERS ====================
+        // Block 1 of the feed: one lead story, a side list, then two columns of rows.
         function renderPatternA(items) {
             if (!items.length) return '';
             const hero = items[0];
             const sidebar = items.slice(1, 5);
-            const grid = items.slice(5);
+            const rows = items.slice(5);
             return '<section class="feed-section"><div class="pa-lead">'
                 + cardHero(hero)
                 + '<div class="pa-sidebar">' + sidebar.map(cardCompact).join('') + '</div>'
-                + '</div><div class="pa-grid">' + grid.map(cardMedium).join('') + '</div></section>';
-        }
-
-        function renderPatternB(items) {
-            if (!items.length) return '';
-            const sidebar = items.slice(0, 4);
-            const hero = items[4] || items[0];
-            const grid = items.slice(5);
-            return '<section class="feed-section"><div class="pb-lead">'
-                + '<div class="pb-sidebar">' + sidebar.map(cardCompact).join('') + '</div>'
-                + cardHero(hero)
-                + '</div><div class="pb-grid">' + grid.map(cardMedium).join('') + '</div></section>';
-        }
-
-        function renderPatternC(items) {
-            if (!items.length) return '';
-            const mid = Math.ceil(items.length / 2) + 1;
-            const left = items.slice(0, mid);
-            const right = items.slice(mid);
-            return '<section class="feed-section"><div class="pc-grid">'
-                + '<div class="pc-col-left">' + left.map(cardMedium).join('') + '</div>'
-                + '<div class="pc-col-right">' + right.map(cardCompact).join('') + '</div>'
-                + '</div></section>';
-        }
-
-        function renderPatternD(items) {
-            if (!items.length) return '';
-            const hero = items[0];
-            const sidebar = items.slice(1, 5);
-            const scroll = items.slice(5);
-            return '<section class="feed-section"><div class="pd-lead">'
-                + cardHero(hero)
-                + '<div class="pd-sidebar">' + sidebar.map(cardCompact).join('') + '</div>'
                 + '</div>'
-                + '<div class="pd-scroll-label"><span class="pd-scroll-title">Also in the Feed</span>'
-                + '<span class="pd-scroll-count">' + scroll.length + ' items</span></div>'
-                + '<div class="pd-scroll-container"><div class="pd-scroll-grid">'
-                + scroll.map(cardCompact).join('')
-                + '</div></div></section>';
+                + (rows.length ? '<div class="feed-rows">' + rows.map(cardCompact).join('') + '</div>' : '')
+                + '</section>';
+        }
+
+        // Later feed blocks: plain two-column rows under an ink rule (no second hero).
+        function renderFeedRows(items) {
+            if (!items.length) return '';
+            return '<section class="feed-section"><div class="feed-rows feed-rows-ruled">'
+                + items.map(cardCompact).join('') + '</div></section>';
         }
 
         // ==================== SLIDER BUILDERS ====================
@@ -2251,8 +2264,7 @@
                     + bk + '</div><div class="yt-channel">' + channel + '</div></div></div>';
             }).join('');
             return '<section class="slider-section">'
-                + '<div class="slider-header"><h2 class="slider-label">Watch</h2>'
-                + '<div class="slider-nav">' + sliderArrows('yt-track') + '</div></div>'
+                + sliderHead('Watch', items.length + ' videos picked today', 'yt-track')
                 + '<div class="slider-track" id="yt-track">' + cards + '</div></section>';
         }
 
@@ -2271,8 +2283,7 @@
                     + regionBadge + '</div>' + bk + '</div></div></div>';
             }).join('');
             return '<section class="slider-section">'
-                + '<div class="slider-header"><h2 class="slider-label">Research Reports</h2>'
-                + '<div class="slider-nav">' + sliderArrows('rp-track') + '</div></div>'
+                + sliderHead('Research Reports', items.length + ' picked today', 'rp-track')
                 + '<div class="slider-track" id="rp-track">' + cards + '</div></section>';
         }
 
@@ -2289,8 +2300,7 @@
                     + '</div>' + bk + '</div></div></div>';
             }).join('');
             return '<section class="slider-section">'
-                + '<div class="slider-header"><h2 class="slider-label">Voices</h2>'
-                + '<div class="slider-nav">' + sliderArrows('tw-track') + '</div></div>'
+                + sliderHead('Voices', items.length + ' posts picked today', 'tw-track')
                 + '<div class="slider-track" id="tw-track">' + cards + '</div></section>';
         }
 
@@ -2330,6 +2340,12 @@
             return false;
         }
 
+        function sliderHead(label, note, trackId) {
+            return '<div class="slider-header"><h2 class="slider-label">' + escapeHtml(label) + '</h2>'
+                + (note ? '<span class="slider-note">' + escapeHtml(note) + '</span>' : '')
+                + '<div class="slider-nav">' + sliderArrows(trackId) + '</div></div>';
+        }
+
         function getFromSourceItems() {
             var out = [];
             var seen = {};
@@ -2355,24 +2371,28 @@
             return out.slice(0, 25);
         }
 
+        // From the Source: a list, not a strip — source (RBI / SEBI / PIB) | headline | date | bookmark.
+        // The list sits in a fixed-height box (~8 rows) that scrolls on its own, so the page never jumps.
         function buildFromSourceSlider(items) {
             if (!items || !items.length) return '';
-            const cards = items.map(function(n) {
+            const rows = items.map(function(n) {
                 const title = escapeHtml(cleanHomeTitle(n.title));
                 const url = sanitizeUrl(n.url || '');
                 const src = escapeHtml(n.publisher || 'Source');
                 const dateStr = n.date ? escapeHtml(new Date(n.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
-                const bk = npBookmarkBtn(url, title, src);
-                return '<div class="slider-card slider-sebi"><div class="slider-card-body">'
-                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + src + '</div>'
-                    + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
-                    + (dateStr ? '<span class="rp-region">' + dateStr + '</span>' : '')
-                    + '</div>' + bk + '</div></div></div>';
+                const link = url
+                    ? '<a class="source-row-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                    : '<span class="source-row-title">' + title + '</span>';
+                return '<li class="source-row">'
+                    + '<span class="source-row-org">' + src + '</span>' + link
+                    + '<span class="source-row-date">' + dateStr + '</span>'
+                    + npBookmarkBtn(url, title, src) + '</li>';
             }).join('');
-            return '<section class="slider-section">'
-                + '<div class="slider-header"><h2 class="slider-label">From The Source</h2>'
-                + '<div class="slider-nav">' + sliderArrows('sebi-track') + '</div></div>'
-                + '<div class="slider-track" id="sebi-track">' + cards + '</div></section>';
+            return '<section class="slider-section source-list">'
+                + '<div class="slider-header"><h2 class="slider-label">From the Source</h2>'
+                + '<span class="slider-note">' + items.length + ' from RBI, SEBI, PIB and other official channels</span></div>'
+                + '<ul class="source-rows">' + rows + '</ul>'
+                + '</section>';
         }
 
         // Slow Reads — SLOW_READS_SOURCES in config.py: every post from the last 7 days, plus
@@ -2392,8 +2412,7 @@
                     + '</div>' + bk + '</div></div></div>';
             }).join('');
             return '<section class="slider-section">'
-                + '<div class="slider-header"><h2 class="slider-label">Slow Reads</h2>'
-                + '<div class="slider-nav">' + sliderArrows('slow-track') + '</div></div>'
+                + sliderHead('Slow Reads', items.length + ' this week', 'slow-track')
                 + '<div class="slider-track" id="slow-track">' + cards + '</div></section>';
         }
 
@@ -2412,25 +2431,44 @@
                     + '</div>';
             }).join('');
             return '<section class="slider-section">'
-                + '<div class="slider-header"><h2 class="slider-label">Papers</h2>'
-                + '<div class="slider-nav">' + sliderArrows('pp-track') + '</div></div>'
+                + sliderHead('Papers', items.length + ' picked today', 'pp-track')
                 + '<div class="slider-track" id="pp-track">' + cards + '</div></section>';
         }
 
         // ==================== WSW BREAKER BUILDER ====================
+        // "Who Said What" quote between sections: hanging rust quote mark, speaker + role underneath.
+        function splitSpeaker(who) {
+            var s = String(who || '').trim();
+            var m = s.match(/^(.*?)\s*\((.*)\)\s*$/);
+            if (m) return { name: m[1], role: m[2] };
+            var comma = s.indexOf(',');
+            if (comma > 0) return { name: s.slice(0, comma).trim(), role: s.slice(comma + 1).trim() };
+            return { name: s, role: '' };
+        }
+
+        function stripWrappingQuotes(text) {
+            var t = String(text || '').trim();
+            // Only drop marks that wrap the whole quote — an inner "phrase" at the start must survive.
+            if (/^["“].*["”]$/.test(t)) t = t.slice(1, -1).trim();
+            return t;
+        }
+
         function buildWswBreaker(cluster) {
             if (!cluster) return '';
-            const quote = escapeHtml(cluster.quote_snippet || cluster.headline || '');
-            const speaker = escapeHtml(cluster.quote_speaker || cluster.source || '');
+            const quote = escapeHtml(stripWrappingQuotes(cluster.quote_snippet || cluster.headline || ''));
+            if (!quote) return '';
+            const who = splitSpeaker(cluster.quote_speaker || cluster.source || '');
             const url = sanitizeUrl(cluster.source_url_primary || cluster.url || '');
-            const bk = npBookmarkBtn(url, quote.substring(0, 80), speaker);
-            const inner = '<blockquote class="wsw-quote"><p>&ldquo;' + quote + '&rdquo;</p>'
-                + '<cite>&mdash; ' + speaker + '</cite></blockquote>';
-            const wrapped = url
-                ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener" class="wsw-bk-link">' + inner + '</a>'
-                : inner;
-            return '<div class="wsw-breaker"><div class="wsw-rule"></div>'
-                + wrapped + bk + '<div class="wsw-rule"></div></div>';
+            const bk = npBookmarkBtn(url, quote.substring(0, 80), who.name);
+            const quoteHtml = url
+                ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + quote + '</a>'
+                : quote;
+            return '<figure class="wsw-breaker">'
+                + '<span class="wsw-qm" aria-hidden="true">“</span>'
+                + '<div class="wsw-body"><blockquote class="wsw-text">' + quoteHtml + '</blockquote>'
+                + '<figcaption class="wsw-cite"><b>' + escapeHtml(who.name) + '</b>'
+                + (who.role ? '<span class="wsw-role">' + escapeHtml(who.role) + '</span>' : '')
+                + '</figcaption></div>' + bk + '</figure>';
         }
 
         // ==================== SLIDER NAVIGATION ====================
@@ -2454,90 +2492,134 @@
             news: '#4A8F7A', telegram: '#5E6A96', reports: '#9A8345',
             twitter: '#4A8A9A', youtube: '#A86565'
         };
+        var CLUSTER_FULL_COUNT = 3;   // stories 1-3 get the full thread treatment
+        var CLUSTER_VISIBLE = 3;      // sources shown before "+ N more sources" (hero shows 4)
 
         function getClusterArticles(cluster) {
             // Flatten lead + related into one list of articles
             var articles = [];
-            if (cluster.lead) {
+            function push(a) {
                 articles.push({
-                    title: cluster.lead.title || '',
-                    url: cluster.lead.url || '',
-                    source: cluster.lead.source || '',
-                    source_type: cluster.lead.source_type || 'news',
-                    angle: cluster.lead.angle || ''
+                    title: a.title || '',
+                    url: a.url || '',
+                    source: a.source || '',
+                    source_type: a.source_type || 'news',
+                    source_tier: a.source_tier || '',
+                    angle: a.angle || ''
                 });
             }
-            (cluster.related || []).forEach(function(r) {
-                articles.push({
-                    title: r.title || '',
-                    url: r.url || '',
-                    source: r.source || '',
-                    source_type: r.source_type || 'news',
-                    angle: r.angle || ''
-                });
-            });
+            if (cluster.lead) push(cluster.lead);
+            (cluster.related || []).forEach(push);
             return articles;
         }
 
-        function renderClusterCard(cluster) {
-            if (!cluster) return '';
-            var storyLabel = escapeHtml(cluster.story_label || '');
+        // One plain line under the story label: the AI's story_summary, else the lead's why_it_matters.
+        function clusterSummary(cluster) {
+            var s = String(cluster.story_summary || '').trim();
+            if (!s && cluster.lead) s = String(cluster.lead.why_it_matters || '').trim();
+            return s;
+        }
+
+        function renderClusterSource(a, hidden) {
+            var aTitle = escapeHtml(cleanHomeTitle(a.title));
+            var aUrl = sanitizeUrl(a.url || '');
+            var aType = a.source_type || 'news';
+            var aSource = escapeHtml(homeSourceName(a.source, aType));
+            var angle = tidyAngle(a.angle, a.source);
+            var dot = SOURCE_TYPE_DOTS[aType] || '#6B645C';
+            var link = aUrl
+                ? '<a class="cluster-sub-link" href="' + escapeForAttr(aUrl) + '" target="_blank" rel="noopener">' + aTitle + '</a>'
+                : '<span class="cluster-sub-link">' + aTitle + '</span>';
+            var official = a.source_tier === 'official' ? '<span class="official-badge">Primary source</span>' : '';
+            return '<li class="cluster-sub' + (hidden ? ' cluster-sub-hidden' : '') + '">'
+                + '<span class="cluster-sub-dot" style="background:' + dot + '"></span>'
+                + '<div class="cluster-sub-content">' + link
+                + '<div class="cluster-sub-meta"><b>' + aSource + '</b>' + official
+                + (angle ? '<span class="cluster-sub-angle"> · ' + escapeHtml(angle) + '</span>' : '')
+                + '</div></div>'
+                + (aUrl ? npBookmarkBtn(aUrl, aTitle, a.source || 'Home') : '')
+                + '</li>';
+        }
+
+        // Stories 1-3: number + source count, label, summary, sources joined by one thread line.
+        function renderClusterStory(cluster, idx) {
             var articles = getClusterArticles(cluster);
             if (!articles.length) return '';
+            var isHero = idx === 0;
+            var visible = isHero ? CLUSTER_VISIBLE + 1 : CLUSTER_VISIBLE;
+            var summary = clusterSummary(cluster);
+            var more = articles.length - visible;
+            return '<article class="cluster-story thread' + (isHero ? ' hero' : '') + '">'
+                + '<p class="cluster-kicker"><b>' + (idx + 1) + '</b> · ' + articles.length + ' sources</p>'
+                + '<h2 class="cluster-title">' + escapeHtml(cluster.story_label || '') + '</h2>'
+                + (summary ? '<p class="cluster-summary">' + escapeHtml(summary) + '</p>' : '')
+                + '<ul class="cluster-articles">'
+                + articles.map(function(a, i) { return renderClusterSource(a, i >= visible); }).join('')
+                + '</ul>'
+                + (more > 0 ? '<button class="cluster-show-more" type="button" data-more="' + more + '" onclick="toggleClusterExpand(this)">+ ' + more + ' more sources</button>' : '')
+                + '</article>';
+        }
 
-            // Cluster title (AI-generated). No master bookmark — each story below has its own.
-            var headerHtml = '<h2 class="cluster-title">' + storyLabel + '</h2>';
+        // Stories 4+: label, summary and who covered it; the sources open in place, full width.
+        function renderCompactStory(cluster, idx) {
+            var articles = getClusterArticles(cluster);
+            if (!articles.length) return '';
+            var names = [];
+            articles.forEach(function(a) {
+                var n = homeSourceName(a.source, a.source_type);
+                if (n && names.indexOf(n) === -1) names.push(n);
+            });
+            var who = names.slice(0, 3).join(', ') + (names.length > 3 ? ' and ' + (names.length - 3) + ' more' : '');
+            var summary = clusterSummary(cluster);
+            return '<article class="cluster-story thread compact">'
+                + '<p class="cluster-kicker"><b>' + (idx + 1) + '</b> · ' + articles.length + ' sources</p>'
+                + '<h2 class="cluster-title">' + escapeHtml(cluster.story_label || '') + '</h2>'
+                + (summary ? '<p class="cluster-summary">' + escapeHtml(summary) + '</p>' : '')
+                + '<p class="cluster-who">' + escapeHtml(who) + '</p>'
+                + '<ul class="cluster-articles">' + articles.map(function(a) { return renderClusterSource(a, false); }).join('') + '</ul>'
+                + '<button class="cluster-show-more" type="button" onclick="toggleStoryOpen(this)">'
+                + '<span class="when-closed">Show the ' + articles.length + ' sources</span><span class="when-open">Hide sources</span></button>'
+                + '</article>';
+        }
 
-            // All articles — newspaper sub-item style, collapse after 3
-            var CLUSTER_VISIBLE = 3;
-            var needsCollapse = articles.length > CLUSTER_VISIBLE;
-            var articlesHtml = '<div class="cluster-articles">' + articles.map(function(a, idx) {
-                var aTitle = escapeHtml(cleanHomeTitle(a.title));
-                var aUrl = sanitizeUrl(a.url || '');
-                var aSource = escapeHtml(a.source || '');
-                var aType = a.source_type || 'news';
-                var aDotColor = SOURCE_TYPE_DOTS[aType] || '#6B645C';
-                // angle is now rendered inside cluster-sub-meta below
-                var aBk = aUrl ? '<button class="btn-bk btn-bk-sub bookmark-btn' + (isBookmarked(aUrl) ? ' bookmarked' : '') + '" type="button"'
-                    + ' data-url="' + escapeForAttr(aUrl) + '"'
-                    + ' data-title="' + escapeForAttr(aTitle) + '"'
-                    + ' data-source="' + escapeForAttr(a.source || 'Home') + '"'
-                    + ' onclick="toggleGenericBookmark(this)" aria-label="Bookmark">'
-                    + BOOKMARK_SVG + '</button>' : '';
-                var aLinkHtml = aUrl
-                    ? '<a class="cluster-sub-link" href="' + escapeForAttr(aUrl) + '" target="_blank" rel="noopener">' + aTitle + '</a>'
-                    : '<span class="cluster-sub-link">' + aTitle + '</span>';
-                var aAngleTag = a.angle ? '<span class="cluster-sub-angle">' + escapeHtml(a.angle) + '</span>' : '';
-                var aOfficialBadge = a.source_tier === 'official' ? '<span class="official-badge">Primary Source</span>' : '';
-                var hiddenCls = (needsCollapse && idx >= CLUSTER_VISIBLE) ? ' cluster-sub-hidden' : '';
-                return '<div class="cluster-sub' + hiddenCls + '">'
-                    + '<span class="cluster-sub-dot" style="background:' + aDotColor + '"></span>'
-                    + '<div class="cluster-sub-content">'
-                    + aLinkHtml
-                    + '<div class="cluster-sub-meta"><span class="cluster-sub-source">' + aSource + '</span>' + aOfficialBadge + aAngleTag + '</div>'
-                    + '</div>'
-                    + aBk + '</div>';
-            }).join('')
-            + (needsCollapse ? '<button class="cluster-show-more" type="button" onclick="toggleClusterExpand(this)">+ '
-                + (articles.length - CLUSTER_VISIBLE) + ' more sources</button>' : '')
-            + '</div>';
+        function toggleClusterExpand(btn) {
+            var story = btn.closest('.cluster-story');
+            if (!story) return;
+            var open = story.classList.toggle('show-all');
+            btn.textContent = open ? 'Show fewer' : '+ ' + btn.dataset.more + ' more sources';
+        }
 
-            return '<div class="cluster-card">' + headerHtml + articlesHtml + '</div>';
+        function toggleStoryOpen(btn) {
+            var story = btn.closest('.cluster-story');
+            if (story) story.classList.toggle('open');
         }
 
         function renderBigStories(clusters) {
             if (!clusters || !clusters.length) return '';
-            return '<div class="section-divider"><span class="section-label">The Big Stories</span>'
-                + '<span class="section-rule"></span>'
-                + '<div class="slider-nav">' + sliderArrows('bigstories-track') + '</div></div>'
-                + '<section class="big-stories-section">'
-                + '<div class="cluster-track" id="bigstories-track">'
-                + clusters.map(renderClusterCard).join('')
-                + '</div></section>';
+            var top = clusters.slice(0, CLUSTER_FULL_COUNT);
+            var rest = clusters.slice(CLUSTER_FULL_COUNT);
+            var total = aiRankings && aiRankings.article_count ? Number(aiRankings.article_count) : 0;
+            var when = aiRankings && aiRankings.generated_at ? new Date(aiRankings.generated_at) : null;
+            var whenStr = when && !isNaN(when) ? when.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit' }) : '';
+            var caption = 'Grouped and ranked by DeepSeek and Gemini'
+                + (total ? ' from ' + total.toLocaleString('en-IN') + ' stories' : '')
+                + (whenStr ? ' · ' + whenStr : '');
+            return '<section class="big-stories-section">'
+                + '<div class="section-divider"><span class="section-label">The Big Stories</span>'
+                + '<span class="section-note">' + clusters.length + ' stories, each pulled together from several sources</span></div>'
+                + '<div class="cluster-grid">' + top.map(function(c, i) { return renderClusterStory(c, i); }).join('') + '</div>'
+                + (rest.length
+                    ? '<div class="more-stories"><p class="more-stories-head"><b>More big stories</b> '
+                      + rest.length + ' more, tap one to see its sources</p>'
+                      + '<div class="compact-grid">' + rest.map(function(c, i) { return renderCompactStory(c, i + CLUSTER_FULL_COUNT); }).join('') + '</div></div>'
+                    : '')
+                + '<p class="cluster-caption">' + escapeHtml(caption) + '</p>'
+                + '</section>';
         }
 
-        function renderSectionLabel(text) {
-            return '<div class="section-divider"><span class="section-label">' + escapeHtml(text) + '</span><span class="section-rule"></span></div>';
+        function renderSectionLabel(text, note) {
+            return '<div class="section-divider"><span class="section-label">' + escapeHtml(text) + '</span>'
+                + (note ? '<span class="section-note">' + escapeHtml(note) + '</span>' : '') + '</div>';
         }
 
 
@@ -2574,10 +2656,9 @@
             }
 
             // Build the full newspaper layout with AI-curated sliders.
-            // Order: Big Stories → Reports → (feed label) → news → Slow Reads → news →
-            // Watch → news → From The Source → news → Voices. Each slider is preceded
-            // by a WSW breaker and separated from the next by a news block, so no two
-            // sliders sit adjacent.
+            // Order: Big Stories → quote → Reports → (feed label) → news → quote → Slow Reads →
+            // news → quote → Watch → news → quote → From the Source → Voices → quote → news.
+            // Voices sits directly under From the Source (user request, Oct 2026).
             const parts = [];
 
             // Big Stories at the very top
@@ -2591,22 +2672,22 @@
                 buildRpSlider(result.reports)
             );
             if (clusters.length > 0 || result.reports.length > 0) {
-                parts.push(renderSectionLabel('From The Feed'));
+                parts.push(renderSectionLabel('From the Feed', 'news and Telegram, ranked by AI'));
             }
 
             parts.push(
                 renderPatternA(s1),
                 breakers[1],
                 buildSlowReadsSlider(SLOW_READS),
-                renderPatternB(s3),
+                renderFeedRows(s3),
                 breakers[2],
                 buildYtSlider(result.youtube),
-                renderPatternC(s5),
+                renderFeedRows(s5),
                 breakers[3],
                 buildFromSourceSlider(getFromSourceItems()),
-                renderPatternD(s7),
+                buildTwSlider(result.twitter),
                 breakers[4],
-                buildTwSlider(result.twitter)
+                renderFeedRows(s7)
             );
             const html = parts.filter(Boolean).join('');
 
@@ -2756,6 +2837,47 @@
             return date.toLocaleDateString();
         }
 
+        // Day header: bold label, plus a grey date for Today / Yesterday ("Today Fri 16 Oct").
+        function dateHeaderHtml(label, iso) {
+            var sub = '';
+            if ((label === 'Today' || label === 'Yesterday') && iso) {
+                var d = new Date(iso);
+                if (!isNaN(d)) sub = d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }).replace(',', '');
+            }
+            return '<h2 class="date-header">' + escapeHtml(label)
+                + (sub ? '<span class="date-header-sub">' + escapeHtml(sub) + '</span>' : '') + '</h2>';
+        }
+
+        // Telegram posts: keep the author's structure. Real bullet lines stay bullets, short label
+        // lines ("Key Highlights") become small sub-heads, **bold** lines stay bold.
+        // A label line: short, no sentence punctuation or numbers, and every longer word capitalised
+        // ("Key Highlights", "IPO HIGHLIGHTS") — not a short sentence like "Here is the response".
+        function isTelegramSubhead(line) {
+            var t = line.replace(/^[^A-Za-z]+/, '');
+            if (!t || t.length > 40 || /[.:!?,]$/.test(t) || /\d/.test(t)) return false;
+            return t.split(/\s+/).every(function(w) { return w.length < 4 || /^[A-Z]/.test(w); });
+        }
+        var TG_BULLET = /^\s*([\u2022\-\u2013*]|\d+[.)])\s+/;
+        function telegramBodyHtml(lines) {
+            var html = '';
+            var inList = false;
+            lines.forEach(function(raw) {
+                var bold = /^\*\*.*\*\*$/.test(raw);
+                var plain = raw.replace(/\*\*/g, '').trim();
+                if (!plain) return;
+                if (TG_BULLET.test(plain)) {
+                    if (!inList) { html += '<ul class="tg-bullets">'; inList = true; }
+                    html += '<li>' + escapeHtml(deshoutTitle(plain.replace(TG_BULLET, ''))) + '</li>';
+                    return;
+                }
+                if (inList) { html += '</ul>'; inList = false; }
+                html += '<p class="' + (isTelegramSubhead(plain) ? 'tg-sub' : (bold ? 'tg-line tg-strong' : 'tg-line'))
+                    + '">' + escapeHtml(deshoutTitle(plain)) + '</p>';
+            });
+            if (inList) html += '</ul>';
+            return html;
+        }
+
         function formatReportDateHeader(isoStr) {
             if (!isoStr) return 'Unknown Date';
             const date = new Date(isoStr);
@@ -2792,7 +2914,7 @@
                     dateLabel = days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + String(d.getDate()).padStart(2, '0');
                 }
                 if (dateLabel && dateLabel !== lastDateLabel) {
-                    html += '<h2 class="date-header">' + escapeHtml(dateLabel) + '</h2>\n';
+                    html += dateHeaderHtml(dateLabel, a.date) + '\n';
                     lastDateLabel = dateLabel;
                 }
 
@@ -2810,14 +2932,18 @@
                 }
 
                 var sourceDisplay = a.source.length > 35 ? escapeHtml(a.source.slice(0, 35)) + '...' : escapeHtml(a.source);
-                var timeHtml = a.time ? '<span class="meta-dot">\u00b7</span><span class="article-time">' + escapeHtml(a.time) + '</span>' : '';
+                var hhmm = '';
+                if (a.date) {
+                    var when = new Date(a.date);
+                    if (!isNaN(when)) hhmm = when.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+                }
+                var focusDot = a.in_focus ? '<span class="focus-dot" title="Covered by several sources"></span>' : '';
 
                 html += '<article class="article" data-source="' + escapeForAttr(a.source.toLowerCase()) + '" data-date="' + escapeForAttr(dateStr) + '" data-url="' + escapeForAttr(a.link) + '" data-title="' + escapeForAttr(a.title) + '" data-in-focus="' + (a.in_focus ? 'true' : 'false') + '" data-publisher="' + escapeForAttr(a.publisher) + '">'
-                    + '<h3 class="article-title"><a href="' + escapeForAttr(a.link) + '" target="_blank" rel="noopener">' + escapeHtml(a.title) + '</a>' + sourceBadge + '</h3>'
+                    + '<span class="article-time">' + escapeHtml(hhmm) + '</span>'
+                    + '<h3 class="article-title">' + focusDot + '<a href="' + escapeForAttr(a.link) + '" target="_blank" rel="noopener">' + escapeHtml(deshoutTitle(a.title)) + '</a>' + sourceBadge + '</h3>'
                     + '<div class="article-meta">'
                     + '<a href="' + escapeForAttr(a.source_url) + '" target="_blank" class="source-tag" title="' + escapeForAttr(a.source) + '">' + sourceDisplay + '</a>'
-                    + timeHtml
-                    + '<span class="meta-dot">\u00b7</span>'
                     + '<button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">'
                     + '<svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>'
                     + '</button>'
@@ -3175,7 +3301,7 @@
                 const dateHeader = formatReportDateHeader(r.date);
                 if (dateHeader !== currentDateHeader) {
                     currentDateHeader = dateHeader;
-                    html += `<h2 class="date-header">${dateHeader}</h2>`;
+                    html += dateHeaderHtml(dateHeader, r.date);
                 }
 
                 const rawText = r.text || '';
@@ -3183,8 +3309,8 @@
                 const reportTitleRaw = lines[0] || '';
                 const reportBodyRaw = lines.length > 1 ? lines.slice(1).join('\n') : '';
                 const hasReportTitle = !!reportTitleRaw.trim();
-                const reportTitle = escapeHtml(reportTitleRaw);
-                const text = escapeHtml(reportBodyRaw).replace(/\n/g, '<br>');
+                const reportTitle = escapeHtml(deshoutTitle(reportTitleRaw.replace(/\*\*/g, '').trim()));
+                const text = telegramBodyHtml(lines.slice(1));
                 const reportUrl = sanitizeUrl(r.url || '');
                 const isBookmarkedReport = bookmarks.some(b => b.url === reportUrl);
                 const titleHtml = hasReportTitle
@@ -3382,7 +3508,7 @@
                 const dateHeader = formatResearchDateHeader(r.date);
                 if (dateHeader !== currentDateHeader) {
                     currentDateHeader = dateHeader;
-                    html += `<h2 class="date-header">${dateHeader}</h2>`;
+                    html += dateHeaderHtml(dateHeader, r.date);
                 }
 
                 const title = escapeHtml(r.title);
@@ -3392,8 +3518,6 @@
                 const cardUrl = reportUrl || sourceUrl;
                 const description = escapeHtml(r.description || '');
                 const region = (r.region || 'Indian').toLowerCase();
-                const regionLabel = region === 'international' ? 'Intl' : 'Indian';
-                const regionCls = region === 'international' ? 'international' : 'indian';
                 const sourceHtml = sourceUrl
                     ? `<a href="${escapeForAttr(sourceUrl)}" target="_blank" rel="noopener" class="report-channel card-source-link">${publisher}</a>`
                     : `<span class="report-channel">${publisher}</span>`;
@@ -3406,6 +3530,7 @@
                         <div class="report-card-header">
                             <div class="report-card-left">
                                 ${sourceHtml}
+                                <span class="region-tag">${region === 'international' ? 'International' : 'Indian'}</span>
                             </div>
                             <div class="report-card-right">
                                 ${r.date ? `<span class="report-card-date">${formatResearchDate(r.date)}</span>` : ''}
@@ -3610,7 +3735,9 @@
                     ? `<a href="${escapeForAttr(sourceUrl)}" target="_blank" rel="noopener" class="report-channel card-source-link">${publisher}</a>`
                     : `<span class="report-channel">${publisher}</span>`;
                 const authors = escapeHtml(p.authors || '');
-                const summary = escapeHtml(p.description || '');
+                // Many sources only give "Click title to read full paper →" (or the title again) — skip those.
+                const rawSummary = String(p.description || '').trim();
+                const summary = (/^click title/i.test(rawSummary) || rawSummary === (p.title || '').trim()) ? '' : escapeHtml(rawSummary);
                 const bookmarkHtml = cardUrl
                     ? `<button class="bookmark-btn" data-url="${escapeForAttr(cardUrl)}" data-title="${escapeForAttr(p.title || '')}" data-source="${publisher}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark paper" title="Bookmark">
                             <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -3624,7 +3751,7 @@
                                 ${sourceHtml}
                             </div>
                             <div class="report-card-right">
-                                ${(p.date && !p.date_is_fallback) ? `<span class="report-card-date">${formatPaperDate(p.date)}</span>` : '<span class="report-card-date">Date unavailable</span>'}
+                                ${(p.date && !p.date_is_fallback) ? `<span class="report-card-date">${formatPaperDate(p.date)}</span>` : ''}
                                 ${bookmarkHtml}
                             </div>
                         </div>
@@ -3834,7 +3961,7 @@
                 const dateHeader = formatYoutubeDateHeader(v.date);
                 if (dateHeader !== currentDateHeader) {
                     currentDateHeader = dateHeader;
-                    html += `<h2 class="date-header">${dateHeader}</h2>`;
+                    html += dateHeaderHtml(dateHeader, v.date);
                 }
 
                 const title = escapeHtml(v.title);
@@ -3851,6 +3978,7 @@
                     : `<span>${title}</span>`;
                 const thumbInner = `
                             ${thumbnail ? `<img src="${escapeForAttr(thumbnail)}" alt="${escapeForAttr(v.title)}" loading="lazy" onerror="this.style.display='none'">` : ''}
+                            ${/\/shorts\//.test(v.link || '') ? '<span class="video-short">Short</span>' : ''}
                             <div class="video-thumb-play">
                                 <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
                             </div>`;
@@ -3917,7 +4045,9 @@
                 el.parentNode.appendChild(clone);
                 const naturalH = clone.scrollHeight;
                 clone.remove();
-                btn.style.display = naturalH > clampedH + 2 ? '' : 'none';
+                const clamped = naturalH > clampedH + 2;
+                btn.style.display = clamped ? '' : 'none';
+                el.classList.toggle('is-clamped', clamped);
             });
         }
 
@@ -4163,7 +4293,7 @@
                 const dateHeader = formatTwitterDateHeader(t.date);
                 if (dateHeader !== currentDateHeader) {
                     currentDateHeader = dateHeader;
-                    html += `<h2 class="date-header">${dateHeader}</h2>`;
+                    html += dateHeaderHtml(dateHeader, t.date);
                 }
 
                 const title = escapeHtml(t.title);
@@ -4180,12 +4310,6 @@
                     : `<span class="tweet-card-publisher">${publisher}</span>`;
                 const badges = getTweetBadges(t.title, t);
                 const threadCollapsed = Number(t.thread_collapsed_count || 0);
-                if (twitterLane === 'high-signal') {
-                    badges.push({
-                        label: (TWITTER_LANE_META && TWITTER_LANE_META.ranking_mode) === 'ai' ? 'AI Signal' : 'Signal',
-                        cls: 'tweet-badge-thread'
-                    });
-                }
                 if (threadCollapsed > 0) {
                     badges.push({ label: '+' + threadCollapsed + ' merged', cls: 'tweet-badge-thread' });
                 }
