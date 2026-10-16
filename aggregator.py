@@ -650,7 +650,7 @@ def generate_html(
     report_count = len(telegram_reports_list)
     channel_count = len(set(r.get("channel", "") for r in telegram_reports_list))
 
-    today_str = now_ist.strftime('%A, %d %B %Y')
+    today_str = now_ist.strftime('%A, %-d %B')
     now_ts = now_ist.strftime('%b %d, %Y, %I:%M %p IST')
     total_items = len(sorted_articles) + report_count + research_count + paper_count + video_count + twitter_count
 
@@ -741,8 +741,10 @@ def generate_html(
     </div>
 
     <div class="container">
+        <div class="site-head">
         <div class="utility">
-            <span>{today_str}</span>
+            <a href="/" class="wordmark" aria-label="Finance Radar home">Finance Radar<i>.</i></a>
+            <span class="utility-date">{today_str}</span>
             <div class="utility-nav">
                 <a href="/" class="utility-link active">Feed</a>
                 <a href="about.html" class="utility-link">About</a>
@@ -759,13 +761,8 @@ def generate_html(
             </div>
         </div>
 
-        <div class="masthead">
-            <h1><a href="/" class="masthead-link">Finance Radar</a></h1>
-            <div class="tagline">Curated intelligence from across Indian finance</div>
-        </div>
-
         <nav class="tab-bar" role="tablist">
-            <button class="tab-pill tab-active" role="tab" aria-selected="true" data-tab="home">All</button>
+            <button class="tab-pill tab-active" role="tab" aria-selected="true" data-tab="home">Home</button>
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="news"><span class="cat-dot" style="background:#4A8F7A"></span> News <span class="tab-count">{len(sorted_articles)}</span></button>
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="reports"><span class="cat-dot" style="background:#5E6A96"></span> Telegram <span class="tab-count">{report_count}</span></button>
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="research"><span class="cat-dot" style="background:#9A8345"></span> Reports <span class="tab-count">{research_count}</span></button>
@@ -773,6 +770,7 @@ def generate_html(
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="youtube"><span class="cat-dot" style="background:#A86565"></span> YouTube <span class="tab-count">{video_count}</span></button>
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="twitter"><span class="cat-dot" style="background:#4A8A9A"></span> Twitter <span class="tab-count">{twitter_count}</span></button>
         </nav>
+        </div><!-- /site-head: top bar + tabs stay pinned while scrolling -->
 
         <div id="tab-home" class="tab-content active">
             <div id="home-loading" class="tab-loading"><div class="skel skel-wide"></div><div class="skel skel-med"></div><div class="skel skel-short"></div><div class="skel skel-gap skel-wide"></div><div class="skel skel-med"></div><div class="skel skel-short"></div><div class="skel skel-gap skel-wide"></div><div class="skel skel-med"></div></div>
@@ -810,6 +808,7 @@ def generate_html(
                 <button class="tv-desk-btn" data-desk="official-channels">Official Channels</button>
                 <button id="in-focus-toggle" class="in-focus-toggle" type="button" aria-label="In Focus Stories" data-tooltip="In Focus Stories" onclick="toggleInFocus()">
                     <span class="pulse-dot"></span>
+                    <span class="in-focus-label">In focus</span>
                     <span class="in-focus-count">{in_focus_count}</span>
                 </button>
                 <div class="publisher-dropdown" id="publisher-dropdown">

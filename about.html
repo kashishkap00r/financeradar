@@ -7,17 +7,24 @@
 <link rel="icon" href="static/favicon.svg">
 <link rel="prefetch" href="/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+/* Same design language as the main site (templates/style.css, "Redesign Oct 2026"):
+   one type scale, one spacing scale, hairline rules, no all-caps labels. Light only. */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --bg-primary: #FAF7F2;
   --text-primary: #2C2825;
-  --text-secondary: #6B645C;
+  --text-secondary: #5E5750;
   --text-muted: #9E978F;
   --border: #D4CBC0;
+  --rule: #E2DCD3;
   --accent: #C45A35;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --t-xs: 12px; --t-s: 13.5px; --t-m: 15px;
+  --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px; --s-7: 40px; --s-8: 56px;
 }
 
 ::selection { background: var(--accent); color: #fff; }
@@ -25,318 +32,229 @@
 html {
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Nunito Sans', system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
 }
 body {
-  max-width: 1100px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 2.5rem;
+  padding: 0 48px;
 }
 a { color: inherit; }
-.about-content, footer {
-  opacity: 0;
-  transition: opacity 500ms ease;
-}
-body.loaded .about-content,
-body.loaded footer {
-  opacity: 1;
-}
+.about-content, footer { opacity: 0; transition: opacity 500ms ease; }
+body.loaded .about-content, body.loaded footer { opacity: 1; }
 
-/* ── Masthead (matches homepage) ── */
-.masthead {
-  padding: 2.5rem 0 1.25rem;
-  border-bottom: 2.5px solid var(--text-primary);
-}
-.masthead h1 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(2.8rem, 6vw, 4.2rem);
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-}
-.masthead h1 a,
-.masthead-link {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.masthead h1 a:hover,
-.masthead-link:hover { color: var(--accent); }
-.masthead .tagline {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.05rem;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--text-secondary);
-  margin-top: 0.5rem;
-}
-
-/* ── Utility bar (sticky, matches homepage) ── */
+/* ── Slim top bar (same as the homepage) ── */
 .utility {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.65rem 2.5rem;
-  margin: 0 -2.5rem;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--bg-primary) 85%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-.utility-nav {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 18px;
+  padding: 22px 0 14px;
+  border-bottom: 1.5px solid var(--text-primary);
+  background: var(--bg-primary);
+  font-size: var(--t-s);
 }
-.utility-link {
-  color: var(--text-secondary);
+.wordmark {
+  font-family: var(--serif);
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  white-space: nowrap;
 }
+.wordmark i { font-style: normal; color: var(--accent); }
+.wordmark:hover { color: var(--accent); }
+.utility-date { color: var(--text-muted); white-space: nowrap; }
+.utility-nav { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+.utility-link { font-size: var(--t-m); color: var(--text-secondary); text-decoration: none; }
 .utility-link:hover { color: var(--accent); }
-.utility-link.active { color: var(--text-primary); }
-.search-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
+.utility-link.active {
+  color: var(--text-primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
 }
-.search-toggle {
-  display: flex;
+.search-wrap { position: relative; display: flex; align-items: center; }
+.search-toggle, .bk-panel-toggle {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 5px;
   background: none;
   border: none;
   padding: 0.2rem;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: color 0.2s ease;
 }
-.search-toggle:hover { color: var(--accent); }
+.search-toggle:hover, .bk-panel-toggle:hover { color: var(--accent); }
 .search-input {
   width: 0;
   padding: 0;
-  border: 1.5px solid transparent;
+  border: 1px solid transparent;
   border-radius: 3px;
   background: transparent;
-  font-family: 'Nunito Sans', system-ui, sans-serif;
-  font-size: 0.72rem;
+  font-family: var(--sans);
+  font-size: var(--t-s);
   color: var(--text-primary);
   outline: none;
   opacity: 0;
-  transition: width 0.25s ease, opacity 0.2s ease, padding 0.25s ease, border-color 0.2s ease;
+  transition: width 0.25s ease, opacity 0.2s ease, padding 0.25s ease;
 }
-.search-wrap.open .search-input {
-  width: 200px;
-  padding: 0.35rem 0.7rem;
-  border-color: var(--border);
-  opacity: 1;
-}
-.search-wrap.open .search-input:focus { border-color: var(--accent); }
-.search-input::placeholder { color: var(--text-muted); }
-.search-wrap.open .search-toggle { color: var(--accent); }
-
-.bk-panel-toggle {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  padding: 0.2rem;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-.bk-panel-toggle:hover { color: var(--accent); }
-.bk-panel-toggle .bk-icon { width: 18px; height: 18px; }
-.bk-count {
-  position: absolute;
-  top: -4px;
-  right: -6px;
-  background: var(--accent);
-  color: #fff;
-  font-family: 'Nunito Sans', system-ui, sans-serif;
-  font-size: 0.55rem;
-  font-weight: 700;
-  padding: 0 4px;
-  border-radius: 8px;
-  min-width: 14px;
-  height: 14px;
-  line-height: 14px;
-  text-align: center;
-}
+.search-wrap.open .search-input { width: 200px; padding: 0.35rem 0.7rem; border-color: var(--border); opacity: 1; }
+.bk-count { color: var(--text-primary); font-size: var(--t-s); font-weight: 700; }
 
 /* ── Page heading ── */
-.page-heading {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 3rem 0 1.5rem;
-}
+.about-content { max-width: 720px; margin: 0 auto; }
+.page-heading { padding: var(--s-8) 0 var(--s-5); }
+.page-kicker { font-size: var(--t-s); color: var(--text-muted); margin-bottom: var(--s-3); }
+.page-kicker b { color: var(--accent); font-weight: 700; }
 .page-heading h1 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 300;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-.page-heading-rule {
-  width: 60px;
-  height: 2.5px;
-  background: var(--accent);
-  margin-top: 1rem;
-  border: 0;
-}
-
-/* ── Content sections ── */
-.about-content {
-  max-width: 720px;
-  margin: 0 auto;
-}
-.about-section {
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--border);
-}
-.about-section:last-of-type { border-bottom: none; }
-
-.about-section h2 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.3rem;
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.4vw, 48px);
   font-weight: 500;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.8rem;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+}
+.page-lede {
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-top: var(--s-4);
+}
+
+/* ── Sections: bold label over an ink rule, then the text ── */
+.about-section { padding: var(--s-7) 0 0; }
+.about-section h2 {
+  font-family: var(--sans);
+  font-size: var(--t-m);
+  font-weight: 700;
   color: var(--text-primary);
+  padding-bottom: var(--s-3);
+  margin-bottom: var(--s-5);
+  border-bottom: 1px solid var(--text-primary);
 }
 .about-section p {
-  font-size: 0.95rem;
-  line-height: 1.75;
+  font-size: 16.5px;
+  line-height: 1.7;
   color: var(--text-secondary);
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--s-4);
 }
 .about-section p:last-child { margin-bottom: 0; }
+.about-section strong { color: var(--text-primary); font-weight: 700; }
 .about-section a {
   color: var(--accent);
   text-decoration: none;
   border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-  transition: border-color 0.2s ease;
 }
-.about-section a:hover {
-  border-bottom-color: var(--accent);
-}
+.about-section a:hover { border-bottom-color: var(--accent); }
 
-/* ── Stats strip ── */
-.stats-strip {
+/* Tab / section list: name in bold, description beside it, hairline between rows */
+.feature-list { list-style: none; margin: var(--s-4) 0; }
+.feature-list li {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  padding: 1.5rem 0;
-  margin: 1rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: var(--s-4);
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
-.stat {
-  text-align: center;
-}
-.stat-number {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
+.feature-list li:first-child { border-top: 1px solid var(--rule); }
+.feature-list .name {
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
-.stat-label {
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 0.3rem;
-}
+.dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex: none; transform: translateY(-1px); }
 
-/* ── CTA ── */
-.cta-block {
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  background: color-mix(in srgb, var(--accent) 6%, transparent);
-  border-radius: 6px;
-  border-left: 3px solid var(--accent);
+/* ── Numbers: big serif figures, quiet sentence-case labels ── */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s-5);
+  padding: var(--s-5) 0;
+  margin-bottom: var(--s-5);
+  border-bottom: 1px solid var(--rule);
 }
-.cta-block p {
-  color: var(--text-primary);
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 36px);
   font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--text-primary);
 }
+.stat-label { font-size: var(--t-s); color: var(--text-muted); margin-top: 4px; }
+
+/* ── Get in touch: a quiet ruled block, no shaded card ── */
+.cta-block {
+  margin-top: var(--s-6);
+  padding: var(--s-5) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+.cta-block p { margin: 0; color: var(--text-primary); font-weight: 600; }
 .cta-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
-  padding: 0.45rem 1rem;
-  background: var(--accent);
-  color: #fff !important;
-  border: 0 !important;
-  border-radius: 4px;
-  font-size: 0.82rem;
-  font-weight: 600;
+  padding: 6px 14px;
+  border: 1px solid var(--accent) !important;
+  border-radius: 3px;
+  color: var(--accent) !important;
+  font-size: var(--t-s);
+  font-weight: 700;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  white-space: nowrap;
 }
-.cta-link:hover { opacity: 0.85; }
+.cta-link:hover { background: var(--accent); color: #fff !important; }
 
-/* ── Footer (matches homepage) ── */
+/* ── Footer (same as the homepage) ── */
 footer {
-  padding: 2.5rem 0 3rem;
-  border-top: 1.5px solid var(--text-primary);
+  margin-top: var(--s-8);
+  padding: var(--s-7) 0 var(--s-8);
+  border-top: 1px solid var(--rule);
   text-align: center;
 }
-.foot-stats {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.75rem;
-}
-.foot-stats strong {
-  color: var(--text-primary);
-}
-.foot-nav {
-  display: flex;
-  justify-content: center;
-  gap: 1.75rem;
-}
-.foot-nav a {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
+.foot-stats { font-size: var(--t-s); color: var(--text-secondary); margin-bottom: var(--s-3); }
+.foot-nav { display: flex; justify-content: center; gap: 1.75rem; }
+.foot-nav a { font-size: var(--t-s); color: var(--text-secondary); text-decoration: none; }
 .foot-nav a:hover { color: var(--text-primary); }
-.foot-nav .foot-accent { color: var(--accent); }
-.foot-nav .foot-accent:hover { opacity: 0.8; }
 
-/* ── Responsive ── */
-@media (max-width: 600px) {
-  body { padding: 0 1.25rem; }
-  .utility { padding: 0.65rem 1.25rem; margin: 0 -1.25rem; }
-  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+/* ── Phones ── */
+@media (max-width: 768px) {
+  body { padding: 0 16px; }
+  .utility { padding: 18px 0 12px; }
+  .utility-date, .utility-link:not(.active) { display: none; }
+  .wordmark { font-size: 24px; }
+  .page-heading { padding: var(--s-7) 0 var(--s-4); }
+  .page-lede { font-size: 17px; }
+  .stats-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature-list li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
 </style>
 </head>
 <body>
 
 <div class="utility">
-  <span id="date-span"></span>
+  <a href="/" class="wordmark" aria-label="Finance Radar home">Finance Radar<i>.</i></a>
+  <span class="utility-date" id="date-span"></span>
   <div class="utility-nav">
     <a href="/" class="utility-link">Feed</a>
     <a href="about.html" class="utility-link active">About</a>
@@ -347,73 +265,60 @@ footer {
       <input type="text" class="search-input" id="search-input" placeholder="Search..." onfocus="window.location.href='/'">
     </div>
     <button class="bk-panel-toggle" onclick="window.location.href='/'" aria-label="Bookmarks">
-      <svg class="bk-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
       <span class="bk-count" id="bk-count">0</span>
     </button>
   </div>
 </div>
 
-<div class="masthead">
-  <h1><a href="/" class="masthead-link">Finance Radar</a></h1>
-  <div class="tagline">Curated intelligence from across Indian finance</div>
-</div>
-
 <div class="about-content">
 
 <div class="page-heading">
-  <h1>About</h1>
-  <hr class="page-heading-rule">
+  <p class="page-kicker"><b>About</b> · Finance Radar</p>
+  <h1>A calm way to read Indian finance</h1>
+  <p class="page-lede">One feed from 300+ sources, ranked twice a day by two AI models, with no ads, no tracking and no engagement bait.</p>
 </div>
 
 <section class="about-section">
   <h2>The idea</h2>
   <p>Finance Radar started as a personal frustration with how financial news is consumed in India. Every morning, the routine was the same — open eight browser tabs, scroll through three Telegram groups, check YouTube for new takes, skim Twitter for market chatter. By the time you'd gathered your morning brief, it was lunch.</p>
-  <p>So I built the thing I wished existed: a single, calm feed that pulls from <strong>220+ sources</strong> across news desks, independent voices, institutional research, Telegram channels, YouTube, and Twitter — curated not by algorithms, but by whether I'd actually trust the source with my own portfolio decisions.</p>
-  <p>There's no engagement bait. No push notifications. No "trending" section designed to spike anxiety. Just chronological updates from sources that do real reporting, real analysis, and real thinking about Indian and global finance.</p>
+  <p>So I built the thing I wished existed: a single, calm feed that pulls from <strong>300+ sources</strong> across news desks, independent voices, institutional research, academic papers, Telegram channels, YouTube, and Twitter — curated not by algorithms, but by whether I'd actually trust the source with my own portfolio decisions.</p>
+  <p>There's no engagement bait. No push notifications. No "trending" section designed to spike anxiety. Just updates from sources that do real reporting, real analysis, and real thinking about Indian and global finance.</p>
 </section>
 
 <section class="about-section">
   <h2>How it works</h2>
   <div class="stats-strip">
-    <div class="stat">
-      <div class="stat-number">220+</div>
-      <div class="stat-label">Sources</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">7</div>
-      <div class="stat-label">Tabs</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">24</div>
-      <div class="stat-label">Refreshes / Day</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">0</div>
-      <div class="stat-label">Ads</div>
-    </div>
+    <div class="stat"><div class="stat-number">300+</div><div class="stat-label">Sources</div></div>
+    <div class="stat"><div class="stat-number">7</div><div class="stat-label">Tabs, Home included</div></div>
+    <div class="stat"><div class="stat-number">24</div><div class="stat-label">Refreshes a day</div></div>
+    <div class="stat"><div class="stat-number">0</div><div class="stat-label">Ads</div></div>
   </div>
-  <p>Every hour, an automated pipeline fetches RSS feeds from newspapers, blogs, research houses, YouTube channels, and Telegram groups. Articles are de-duplicated, grouped by similarity, and filtered through 150+ noise patterns to strip out clickbait, market-movement filler, and rewrites.</p>
+  <p>Every hour, an automated pipeline fetches RSS feeds and pages from newspapers, blogs, research houses, journals, YouTube channels, and Telegram channels. Articles are de-duplicated, grouped by similarity, and filtered through 180+ noise patterns to strip out clickbait, market-movement filler, and rewrites.</p>
   <p>Twice a day, two independent AI models — Gemini 2.5 Flash and DeepSeek V3.2 — rank the feed. Because they come from different model families, articles picked by <em>both</em> rise to the top: a genuine consensus signal that something matters, not just that someone rewrote a press release.</p>
-  <p>The homepage also clusters related articles into <strong>"The Big Stories"</strong> — grouping news, Telegram reports, YouTube explainers, tweets, and research papers that cover the same underlying event. You see the best take as the lead, with genuinely different angles underneath. No duplicates, no rewrites — just coverage variety.</p>
+  <p>The homepage opens with <strong>The Big Stories</strong>: the AI groups news, Telegram reports, YouTube explainers, tweets, and research that cover the same underlying event into one story, with a one-line summary and the best take first. A thin line ties each story's sources together, so you can see at a glance which coverage belongs to which story. The top three get the full treatment; the rest open in place when you tap them.</p>
   <p>No personalisation. No tracking. The same feed for everyone, every time.</p>
 </section>
 
 <section class="about-section">
   <h2>What's in the feed</h2>
-  <p>Seven tabs organise everything by source type. The homepage blends the AI-ranked best of each into one view; the tabs let you go deep on any single source.</p>
-  <p><strong>News</strong> — Indian and global news desks: ET, Mint, Business Standard, BusinessLine, ThePrint, Indian Express, alongside Reuters, Bloomberg, the Financial Times, and The Economist. Four desk presets filter by perspective — <em>India Desk</em>, <em>World Desk</em>, <em>Indie Voices</em> (Finshots, The Ken, The Morning Context, SOIC, Musings on Markets…), and <em>Official Channels</em> (RBI, SEBI, ECB, FRED) for the primary source rather than someone's take on it.</p>
-  <p><strong>Telegram</strong> — curated finance and brokerage Telegram channels and groups, pulled in and rendered as clean, readable cards instead of an endless scroll.</p>
-  <p><strong>Reports</strong> — institutional and brokerage research, scraped directly from research houses and regulators. The analysis desks, not the headlines.</p>
-  <p><strong>Papers</strong> — academic and policy research from RBI, NBER, and policy institutes, for when you want the rigorous version of a debate.</p>
-  <p><strong>YouTube</strong> — finance explainers and market commentary, filterable by Traditional Media, Indie Voices, or Educational/Explainers.</p>
-  <p><strong>Twitter</strong> — curated market chatter, split into a <em>High Signal</em> lane that surfaces only the best takes and a <em>Full Stream</em> for everything else.</p>
+  <p>The homepage blends the AI-ranked best of everything into one page; the tabs let you go deep on any single kind of source, newest first.</p>
+  <ul class="feature-list">
+    <li><span class="name">Home</span><span>The Big Stories, then the best of the feed in between a few dedicated sections: <em>Research Reports</em>, <em>Slow Reads</em> (every long-form post this week from independent writers — The Ken, Finshots, The Core, Musings on Markets and more), <em>Watch</em>, <em>From the Source</em> (straight from RBI, SEBI, PIB and other official channels), <em>Voices</em> from Twitter, and <em>Who Said What</em> — the most telling quotes from the week's stories, with who said them.</span></li>
+    <li><span class="name"><span class="dot" style="background:#4A8F7A"></span>News</span><span>Indian and global desks — ET, Mint, Business Standard, BusinessLine, The Hindu, ThePrint, The Core — alongside Reuters, Bloomberg, the Financial Times, the WSJ and The Economist. Four desk filters: <em>India Desk</em>, <em>World Desk</em>, <em>Indie Voices</em> (Finshots, The Ken, The Morning Context, The Arc, Not-Ship, Carbon Brief, Our World in Data, Rest of World, Musings on Markets…), and <em>Official Channels</em> (RBI, SEBI, PIB, MoSPI, ECB, ADB, FRED) for the primary source rather than someone's take on it. <em>In focus</em> shows the stories several outlets are covering.</span></li>
+    <li><span class="name"><span class="dot" style="background:#5E6A96"></span>Telegram</span><span>Seven curated finance and brokerage channels, rendered as clean, readable posts instead of an endless scroll. Filter to research reports or plain posts, or hide price-target calls.</span></li>
+    <li><span class="name"><span class="dot" style="background:#9A8345"></span>Reports</span><span>Institutional research from 20+ publishers — brokerages and banks (HDFC Securities, Axis Direct, Goldman Sachs, UBS, SBI, ING), rating agencies (CRISIL, CareEdge), policy bodies (NITI Aayog, CSEP) and energy and climate researchers (IEA, IEEFA, Ember, CEEW). Indian or international, your pick.</span></li>
+    <li><span class="name"><span class="dot" style="background:#7A6B8F"></span>Papers</span><span>Academic and policy research from 55 sources — RBI, IMF, World Bank, NBER, EPW, ORF, ICRIER, NIPFP, Carnegie India and leading economics and finance journals — for when you want the rigorous version of a debate.</span></li>
+    <li><span class="name"><span class="dot" style="background:#A86565"></span>YouTube</span><span>Finance explainers and market commentary from 30+ channels, filterable by Traditional Media, Indie Voices, or Educational/Explainers.</span></li>
+    <li><span class="name"><span class="dot" style="background:#4A8A9A"></span>Twitter</span><span>Curated market chatter from investors, analysts and newsrooms, split into a <em>High Signal</em> lane that surfaces only the best takes and a <em>Full Stream</em> for everything else.</span></li>
+  </ul>
 </section>
 
 <section class="about-section">
   <h2>About the site</h2>
-  <p>Finance Radar is built entirely with Python, vanilla HTML/CSS/JS, and a healthy amount of Claude. No React. No framework. No build step. The entire frontend is a single generated HTML file served as a static page via Cloudflare Pages.</p>
+  <p>Finance Radar is built entirely with Python, vanilla HTML/CSS/JS, and a healthy amount of Claude. No React. No framework. No build step. The whole site is one generated page, one stylesheet and one script, served as static files via Cloudflare Pages.</p>
   <p>The AI ranking runs twice daily using two independent models (Gemini 2.5 Flash and DeepSeek V3.2), explicitly prompted to favour depth over speed, explanation over opinion, and data over anecdote. The ranking models see the same feed you do — they have no inside information.</p>
-  <p>A few things you might like: <strong>bookmarks</strong> (save individual articles or entire story clusters, copy them as a formatted list) and <strong>keyboard shortcuts</strong> (J/K to navigate, / to search, 1–7 for tabs).</p>
+  <p>A few things you might like: <strong>bookmarks</strong> on every article, report, video, tweet and quote (copy them all as a formatted list in one click) and <strong>keyboard shortcuts</strong> (J/K to move through the news, / to search, H for Home and 1–6 for the tabs).</p>
   <p>This is a personal project by <a href="https://kashishkapoor.com" target="_blank" rel="noopener">Kashish Kapoor</a>. It's not a startup. It doesn't have funding. It doesn't need your email. It exists because I wanted a better way to read financial news, and maybe you do too.</p>
 
   <div class="cta-block">
@@ -425,9 +330,7 @@ footer {
 </div>
 
 <footer>
-  <div class="foot-stats">
-    no ads, ever
-  </div>
+  <div class="foot-stats">no ads, ever</div>
   <nav class="foot-nav">
     <a href="/">Feed</a>
     <a href="about.html">About</a>
@@ -439,13 +342,13 @@ footer {
 // Fade-in on load
 requestAnimationFrame(() => { requestAnimationFrame(() => { document.body.classList.add('loaded'); }); });
 
-// Dynamic date
+// Date in the top bar, same format as the homepage ("Friday, 16 October")
 (function() {
   var d = new Date();
   var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   var el = document.getElementById('date-span');
-  if (el) el.textContent = days[d.getDay()] + ', ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+  if (el) el.textContent = days[d.getDay()] + ', ' + d.getDate() + ' ' + months[d.getMonth()];
 })();
 
 // Sync bookmark count from localStorage

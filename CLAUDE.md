@@ -95,8 +95,10 @@ A post-ranking step in `ai_ranker.py` clusters articles **across all content typ
 **Frontend (`app.js`):**
 - `getMergedClusters()` merges clusters across providers using any-URL overlap (not just lead URL)
 - "The Big Stories" section renders at the top of the homepage; clustered items are removed from the feed/sliders below (no duplicates)
-- Only 3 sub-headlines visible per cluster; rest behind "+ N more sources" toggle
-- Rendered as accent border cards (left rust border, cream bg)
+- Stories 1–3 render as a grid (hero + two columns) in the "thread" style: a thin line runs from a rust dot at the kicker through every source dot. 3 sources visible (hero 4), rest behind "+ N more sources"
+- Stories 4+ render compact ("More big stories", two per row); "Show the N sources" opens one in place, full width
+- Subtitle under each label = `story_summary` from the clustering call (sentence-case label, one plain sentence), falling back to the lead's `why_it_matters`
+- Every source has its own bookmark (there is no whole-cluster bookmark)
 
 ### Category Routing
 
@@ -141,8 +143,11 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 - Source: `templates/app.js` (vanilla JS, ~3700 lines) + `templates/style.css` (~2900 lines)
 - Loaded by `index.html` as external files (`<script src>` / `<link href>`) — **never edit `index.html` directly**, edit `templates/*`, then run `python3 aggregator.py`
 - Theme: Fraunces headings, Nunito Sans body, burnt orange accent (#C45A35), light-only (no dark mode)
+- Design system (Oct 2026 redesign): the "Redesign" section at the end of `style.css` holds the tokens — one type scale (`--t-xs/s/m`), one spacing scale (`--s-1…8`, `--gap-col`, `--gap-block`, `--row-pad`). Hairline rules instead of boxes, no all-caps labels, bookmarks always visible. Top bar + tabs are pinned together in `.site-head`; `app.js` measures its height into `--head-h` so sticky day headers sit right under it
+- Home order: Big Stories → quote → Research Reports → From the Feed (lead + side list + rows) → quote → Slow Reads → rows → quote → Watch → rows → quote → From the Source (a list in a fixed-height scroll box, not a slider) → Voices → quote → rows
+- `deshoutTitle()` turns ALL-CAPS headlines (Telegram, SBI notes) into Title Case, keeping acronyms, letter+digit codes (FY27) and a leading ticker ("CMPDI : …")
 - All state in localStorage (active tab, bookmarks, page number)
-- Keyboard nav: J/K (next/prev), / (search), Esc (clear), 1-6 (tab shortcuts)
+- Keyboard nav: J/K (next/prev), / (search), Esc (clear), H (home), 1-6 (tab shortcuts)
 - Homepage loads only `ai_rankings.json`; individual tabs lazy-load their own `tab_*.json` on first visit
 
 ### Module Map
@@ -209,7 +214,8 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 - Edit `templates/app.js` and `templates/style.css`, then `python3 aggregator.py` to regenerate.
 - Test mobile (≤640px) before committing — filters collapse by default on mobile, sidebars use body scroll lock.
 - Make changes incrementally. Never introduce a rendering gate that can blank the page.
-- Hero cards on the homepage support `why_it_matters`, `signal_type` badges, and consensus indicators from AI rankings.
+- The feed's lead card on the homepage supports `why_it_matters`, `signal_type` badges, and consensus indicators from AI rankings.
+- `about.html` is standalone (its own inline CSS) but mirrors the site's design tokens — keep the two in step when the design changes.
 - No dark mode. The site is light-only — do not add dark theme variables, toggle buttons, or theme-switching JS.
 
 ## GitHub Actions Workflows

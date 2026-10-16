@@ -706,10 +706,15 @@ CLUSTERING RULES:
 STORY LABEL — this is the editorial headline readers see. Make it:
 - Sharp, specific, and informative — a reader should understand the story from the label alone
 - Written like a newsletter section title, not a generic news headline
-- BAD: "West Asia Conflict Triggers Massive Surge in Indian Oil Costs" (vague, wordy)
-- GOOD: "Hormuz Blockade Chokes India's Oil & LPG Supply Lines" (specific, punchy)
-- BAD: "India Struggles with Widening Jobs Gap for Educated Youth" (generic)
-- GOOD: "Graduate Unemployment Hits Record Despite India's GDP Growth" (tells you the tension)
+- In sentence case: capitalise only the first word, names and acronyms
+- BAD: "West Asia Conflict Triggers Massive Surge in Indian Oil Costs" (vague, wordy, Title Case)
+- GOOD: "Hormuz blockade chokes India's oil and LPG supply lines" (specific, punchy)
+- BAD: "India struggles with widening jobs gap for educated youth" (generic)
+- GOOD: "Graduate unemployment hits a record despite India's GDP growth" (tells you the tension)
+
+STORY SUMMARY — one plain sentence under the label, max 30 words: what happened, and why it matters for India.
+- Use facts from the articles (numbers, names). No hype, no "This story...", no repeating the label.
+- GOOD: "Reliance's telecom arm priced India's biggest IPO at ₹1,065–1,119 a share; retail demand is hot and tariff hikes are the next question."
 
 ANGLE — this is a 3-6 word tag shown next to each article. It must tell the reader what THIS article adds that others in the cluster don't.
 - BAD angles: "news report on topic", "analysis of sector", "overview of situation" (these say nothing)
@@ -722,7 +727,8 @@ ANGLE — this is a 3-6 word tag shown next to each article. It must tell the re
 OUTPUT: Valid JSON array only. No markdown, no commentary.
 Each object:
 - story_id: string (kebab-case, 3-5 words)
-- story_label: string (max 10 words, sharp editorial headline)
+- story_label: string (max 10 words, sharp editorial headline, sentence case)
+- story_summary: string (one plain sentence, max 30 words)
 - articles: array of objects (2+ items), each with:
   - index: integer (1-based index from Items list)
   - angle: string (what THIS article uniquely adds, 3-6 words)"""
@@ -770,6 +776,7 @@ def resolve_cluster_indices(raw_clusters, items):
                 continue
             seen_urls.add(art_url)
             articles.append({
+                "_item": art_item,
                 "title": art_item.get("title", ""),
                 "url": art_item.get("url", ""),
                 "source": art_item.get("source", ""),
@@ -794,14 +801,21 @@ def resolve_cluster_indices(raw_clusters, items):
             if sim >= 0.30:
                 articles.insert(0, articles.pop(official_idx))
 
+        # Ranking metadata for the lead comes from the lead's own candidate item
+        # (it used to read items[0] — the first candidate overall — for every cluster).
+        lead_item = articles[0]["_item"]
+        for art in articles:
+            art.pop("_item", None)
+
         # For backward compatibility, first article is "lead", rest are "related"
         lead = dict(articles[0])
-        lead["why_it_matters"] = items[0].get("why_it_matters", "") if articles else ""
-        lead["signal_type"] = items[0].get("signal_type", "") if articles else ""
+        lead["why_it_matters"] = lead_item.get("why_it_matters", "")
+        lead["signal_type"] = lead_item.get("signal_type", "")
 
         resolved.append({
             "story_id": str(cluster.get("story_id", ""))[:50],
             "story_label": str(cluster.get("story_label", ""))[:100],
+            "story_summary": str(cluster.get("story_summary", "") or "").strip()[:240],
             "lead": lead,
             "related": articles[1:],
         })
