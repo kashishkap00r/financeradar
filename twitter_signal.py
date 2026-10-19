@@ -463,7 +463,7 @@ def _parse_json_response(text):
 
 
 # Hourly call, so cheap models first; Gemini's client falls back down the chain.
-TWITTER_SIGNAL_MODEL_CHAIN = ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-flash-latest"]
+TWITTER_SIGNAL_MODEL_CHAIN = ["gemini-2.5-flash", "gemini-3.1-flash-lite", "gemini-flash-latest"]
 
 
 def _call_gemini_rank(prompt):

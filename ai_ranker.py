@@ -33,21 +33,27 @@ from gemini_client import generate_json, pretty_model_name
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
-# Three Gemini "slots" vote on every bucket; the homepage favours items picked
-# by 2+ slots. Each slot walks its chain (see gemini_client.py) if a model is
-# retired, rate-limited or down, so one bad model never blanks a slot.
+# Four Gemini "slots" vote on every bucket; the homepage favours items picked
+# by 2+ slots. Slots span generations and sizes so their picks genuinely differ.
+# Each slot walks its chain (see gemini_client.py) if a model is retired,
+# rate-limited, slow or down. Fallbacks deliberately avoid the other slots'
+# primaries, so a fallback doesn't hand one model two votes.
 MODELS = {
     "gemini-2-5-flash": {
         "name": "Gemini 2.5 Flash",
         "chain": ["gemini-2.5-flash", "gemini-flash-latest"],
     },
-    "gemini-3-flash": {
-        "name": "Gemini 3 Flash",
-        "chain": ["gemini-3-flash", "gemini-3-flash-preview"],
+    "gemini-3-5-flash": {
+        "name": "Gemini 3.5 Flash",
+        "chain": ["gemini-3.5-flash", "gemini-3-flash-preview"],
     },
-    "gemini-2-5-flash-lite": {
-        "name": "Gemini 2.5 Flash-Lite",
-        "chain": ["gemini-2.5-flash-lite", "gemini-flash-lite-latest"],
+    "gemini-3-8-flash": {
+        "name": "Gemini 3.8 Flash",
+        "chain": ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.6-flash"],
+    },
+    "gemini-3-1-flash-lite": {
+        "name": "Gemini 3.1 Flash-Lite",
+        "chain": ["gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemini-flash-lite-latest"],
     },
 }
 
@@ -984,7 +990,9 @@ def main():
             prompt = build_ranking_prompt(headlines, source_type=source_type, target_count=target)
 
             try:
+                started = time.monotonic()
                 rankings, model_id = call_provider(model_config, prompt, label=source_type)
+                elapsed = time.monotonic() - started
                 models_used[model_id] += 1
                 rankings = normalize_ai_response(rankings)
                 enriched = enrich_bucket_rankings(
@@ -998,7 +1006,7 @@ def main():
 
                 provider_buckets[source_type] = enriched
                 provider_count += len(enriched)
-                print(f"  [OK] {source_type}: {len(enriched)} ({model_id})")
+                print(f"  [OK] {source_type}: {len(enriched)} ({model_id}, {elapsed:.0f}s)")
             except Exception as err:
                 safe_err = sanitize_error(str(err))
                 provider_errors[source_type] = safe_err

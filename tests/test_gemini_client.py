@@ -61,6 +61,13 @@ class GeminiClientTest(unittest.TestCase):
         self.assertEqual(model, "model-b")
         self.assertIn("model-a", gemini_client._skipped_models)
 
+    def test_timeout_moves_straight_to_next_model(self):
+        timeout = urllib.error.URLError(TimeoutError("timed out"))
+        (_, model), calls = self.run_with([timeout, '[1]'])
+        self.assertEqual(model, "model-b")
+        self.assertEqual([c[0] for c in calls], ["model-a", "model-b"])
+        self.sleep.assert_not_called()
+
     def test_unparseable_output_is_retried(self):
         (result, _), calls = self.run_with(['not json', '[1]'])
         self.assertEqual(result, [1])

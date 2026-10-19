@@ -33,7 +33,7 @@ A Python RSS/Atom aggregator that fetches 106 feeds and generates a single stati
 
 - **106 feeds** — 96 news sources + 6 YouTube channels + 4 Twitter/X keyword feeds
 - **Four tabs** — News, Telegram (brokerage reports), YouTube, Twitter
-- **AI rankings** — Twice-daily picks by three Gemini models (consensus-ranked) on the homepage
+- **AI rankings** — Twice-daily picks by four Gemini models (consensus-ranked) on the homepage
 - **Telegram brokerage reports** — Fetched from 7 channels via HTML scraping + Telethon MTProto
 - **Content filtering** — 126 title regex + 24 URL substring patterns remove noise
 - **Headline grouping** — Clusters near-duplicate headlines from different sources
@@ -375,11 +375,11 @@ Both methods write to `static/telegram_reports.json` in identical format:
 
 ## ai_ranker.py Internals
 
-Reads `static/articles.json` (last 48 hours, max 200 articles), sends headlines to three Gemini models, and writes ranked results to `static/ai_rankings.json`.
+Reads `static/articles.json` (last 48 hours, max 200 articles), sends headlines to four Gemini models, and writes ranked results to `static/ai_rankings.json`.
 
 **Ranking prompt (`RANKING_PROMPT`):** 6-tier editorial prioritization — explanatory journalism and policy analysis ranked highest; routine earnings reports and wire noise excluded. Headlines are sent with `[Source Name]` tags for source-aware ranking; tags are stripped when matching responses back to article objects. Picks exactly 20 articles with a diversity rule (no single source dominates).
 
-**Models:** `MODELS` dict defines three Gemini slots, each a fallback chain of model IDs (see `gemini_client.py`).
+**Models:** `MODELS` dict defines four Gemini slots, each a fallback chain of model IDs (see `gemini_client.py`).
 
 **Rate limiting:** 2-second delay between API calls.
 

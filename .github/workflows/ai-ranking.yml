@@ -19,6 +19,8 @@ permissions:
 jobs:
   rank:
     runs-on: ubuntu-latest
+    env:
+      PYTHONUNBUFFERED: "1"   # real per-line timestamps in the log
     steps:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4

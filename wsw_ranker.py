@@ -17,16 +17,20 @@ from gemini_client import generate_json, pretty_model_name, sanitize_error
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
-# Two Gemini slots, each with its own fallback chain (see gemini_client.py).
-# The site lets readers flip between them and auto-picks the fuller one.
+# Three Gemini slots from different generations, each with its own fallback
+# chain (see gemini_client.py). The site lets readers flip between them.
 WSW_MODELS = {
+    "gemini-3-8-flash": {
+        "name": "Gemini 3.8 Flash",
+        "chain": ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.6-flash"],
+    },
+    "gemini-3-5-flash": {
+        "name": "Gemini 3.5 Flash",
+        "chain": ["gemini-3.5-flash", "gemini-3-flash-preview"],
+    },
     "gemini-2-5-flash": {
         "name": "Gemini 2.5 Flash",
-        "chain": ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-flash-lite"],
-    },
-    "gemini-3-flash": {
-        "name": "Gemini 3 Flash",
-        "chain": ["gemini-3-flash", "gemini-3-flash-preview", "gemini-flash-latest"],
+        "chain": ["gemini-2.5-flash", "gemini-flash-latest"],
     },
 }
 
@@ -302,8 +306,9 @@ def main():
         clusters = None
         try:
             print(f"\nCalling {model_name}...")
+            started = time.monotonic()
             clusters, model_id = call_gemini(input_text, model_config)
-            print(f"  [OK] Got {len(clusters)} clusters ({model_id})")
+            print(f"  [OK] Got {len(clusters)} clusters ({model_id}, {time.monotonic() - started:.0f}s)")
             if model_id != model_config["chain"][0]:
                 model_name = pretty_model_name(model_id)
         except Exception as e:

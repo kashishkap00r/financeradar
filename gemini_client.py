@@ -3,8 +3,10 @@
 Every call takes a *chain* of model IDs and walks it until one model returns
 output the caller's ``parse`` function accepts:
 
-- 429 / 5xx / timeouts / unparseable output → retried on the same model with
-  backoff (honouring Google's ``retryDelay`` hint when it's short).
+- 429 / 5xx / unparseable output → retried on the same model with backoff
+  (honouring Google's ``retryDelay`` hint when it's short).
+- Timeout → straight to the next model. A prompt that ran out the clock once
+  will almost always do it again, and the wait is the expensive part.
 - 404 (model retired or renamed) or an exhausted rate limit → the model is
   skipped for the rest of the run, so later calls go straight to the next one.
 - 400 while a thinkingConfig is set → retried once without it (newer models
@@ -181,6 +183,12 @@ def _retry_delay(body):
     return float(match.group(1)) if match else None
 
 
+def _is_timeout(err):
+    if isinstance(err, TimeoutError):
+        return True
+    return isinstance(err, urllib.error.URLError) and isinstance(err.reason, TimeoutError)
+
+
 def generate_json(prompt, chain, parse, timeout=180, attempts=3, label=""):
     """Run ``prompt`` through the first model in ``chain`` that works.
 
@@ -221,6 +229,8 @@ def generate_json(prompt, chain, parse, timeout=180, attempts=3, label=""):
                         wait = hint + 1
             except Exception as err:
                 errors.append(f"{model_id}: {sanitize_error(err)}")
+                if _is_timeout(err):
+                    break
             if attempt < attempts:
                 print(f"    [gemini] {tag}{errors[-1]} — retry {attempt + 1}/{attempts} in {wait:.0f}s")
                 time.sleep(wait)

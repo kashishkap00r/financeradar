@@ -59,7 +59,7 @@ PROCESSING
 └─ twitter_signal.py: URL resolution, noise filters, High Signal lane (top 25)
 
 RANKING (separate crons, needs API keys)
-├─ ai_ranker.py: 3-model Gemini ranking → static/ai_rankings.json
+├─ ai_ranker.py: 4-model Gemini ranking → static/ai_rankings.json
 │   Buckets: news=25, telegram=20, reports=10, twitter=10, youtube=10
 │   Post-ranking: cross-bucket clustering (all candidates → LLM → story clusters)
 └─ wsw_ranker.py: debate clusters from 7-day window → static/wsw_clusters.json
@@ -73,7 +73,7 @@ OUTPUT
 
 The homepage **exclusively shows AI-ranked content** from `static/ai_rankings.json`. Individual tabs remain chronological.
 
-- `getMergedAiRankings(bucket)` in `app.js` merges picks from all providers (three Gemini slots: 2.5 Flash, 3 Flash, 2.5 Flash-Lite) with consensus scoring: items picked by 2+ models rank highest (average rank), single-provider items get a +50 penalty. The frontend is provider-key agnostic — it reads whatever keys `ai_rankings.json` has
+- `getMergedAiRankings(bucket)` in `app.js` merges picks from all providers (four Gemini slots from different generations: 2.5 Flash, 3.5 Flash, 3.8 Flash, 3.1 Flash-Lite) with consensus scoring: items picked by 2+ models rank highest (average rank), single-provider items get a +50 penalty. The frontend is provider-key agnostic — it reads whatever keys `ai_rankings.json` has
 - Cross-provider matching uses URL (exact, lowercased) with fallback to `normalizeAiTitle()` (handles unicode dash/quote/ellipsis variants)
 - News + Telegram interleave in the newspaper feed (3:1 ratio); YouTube, Reports, Twitter render in dedicated slider sections
 - WSW breakers auto-select the provider with the most clusters
@@ -163,7 +163,7 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 | `filters.py` (356L) | 126 title regex + 24 URL patterns | aggregator.py |
 | `twitter_fetcher.py` (345L) | Dual-source Twitter (RSSHub + Google RSS) | aggregator.py |
 | `twitter_signal.py` (659L) | URL resolution, noise filters, High Signal lane | twitter_fetcher.py |
-| `ai_ranker.py` (~1080L) | 3-slot Gemini ranking + cross-bucket clustering | ai-ranking.yml |
+| `ai_ranker.py` (~1080L) | 4-slot Gemini ranking + cross-bucket clustering | ai-ranking.yml |
 | `gemini_client.py` | Shared Gemini caller: fallback chains, retries, model discovery | ai_ranker, wsw_ranker, twitter_signal |
 | `wsw_ranker.py` (418L) | "Who Said What" debate clusters | ai-ranking.yml (after ai_ranker) |
 | `telegram_fetcher.py` (580L) | HTML scraping + Telethon MTProto | Standalone / hourly.yml |
@@ -257,8 +257,9 @@ Key constants: `FEED_FETCH_TIMEOUT=15`, `FEED_THREAD_WORKERS=10`, `NEWS_FRESHNES
 AI ranker bucket targets are in `ai_ranker.py:BUCKET_TARGETS` (news=25, telegram=20, reports=10, twitter=10, youtube=10). Clustering constants: `AI_RANKER_MAX_CLUSTERS`, `AI_RANKER_MIN_CLUSTER_SIZE`, `AI_RANKER_CLUSTER_TIMEOUT`.
 
 ## API Integration
-- **All AI calls go to Gemini via `gemini_client.generate_json()`** (Oct 2026 — OpenRouter was dropped after its prepaid credit ran out and every DeepSeek call returned HTTP 402). Users: `ai_ranker.py` (3 slots in `MODELS`), `wsw_ranker.py` (2 slots in `WSW_MODELS`), `twitter_signal.py` (`TWITTER_SIGNAL_MODEL_CHAIN`, hourly). Each slot is a *chain* of model IDs, not one ID:
-  - 429/5xx/timeouts/unparseable JSON → retried with backoff; 404 or an exhausted quota → model skipped for the rest of the run; 400 with a `thinkingConfig` → retried without it
+- **All AI calls go to Gemini via `gemini_client.generate_json()`** (Oct 2026 — OpenRouter was dropped after its prepaid credit ran out and every DeepSeek call returned HTTP 402). Users: `ai_ranker.py` (4 slots in `MODELS`), `wsw_ranker.py` (3 slots in `WSW_MODELS`), `twitter_signal.py` (`TWITTER_SIGNAL_MODEL_CHAIN`, hourly). Each slot is a *chain* of model IDs, not one ID:
+  - 429/5xx/unparseable JSON → retried with backoff; a timeout (120s, `AI_RANKER_GEMINI_TIMEOUT`) → straight to the next model, no retry; 404 or an exhausted quota → model skipped for the rest of the run; 400 with a `thinkingConfig` → retried without it
+  - Slot fallbacks avoid other slots' primaries so a fallback never gives one model two consensus votes. Typical Flash call: ~10s (logged per call as `[OK] news: 25 (model, Ns)`)
   - The API's model list is fetched once per run: chain IDs Google no longer lists go to the back, and the 2 newest listed Flash models are appended as a last resort. The log line `[gemini] N models available; Flash: …` shows what exists — use it to pick new IDs
   - Thinking is kept off/low (`thinking_config()`): 2.5 Flash `thinkingBudget: 0`, Gemini 3+ `thinkingLevel: low`
   - When a slot falls back, its `name` in the JSON becomes the model that actually answered; `ai_rankings.json` also records `models_used` per slot
