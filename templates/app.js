@@ -1136,6 +1136,7 @@
                             why_it_matters: item.why_it_matters || '',
                             signal_type: item.signal_type || '',
                             confidence: item.confidence || '',
+                            region: item.region || '',
                             _ranks: [rank],
                             _providerCount: 1
                         };
@@ -2113,7 +2114,8 @@
                     source: item.source || '',
                     publisher: item.source || '',
                     thumbnail: item.thumbnail || '',
-                    region: ''
+                    region: item.region || '',
+                    _providerCount: item._providerCount || 1
                 };
             }
 
@@ -2234,6 +2236,15 @@
         }
 
         // Later feed blocks: plain two-column rows under an ink rule (no second hero).
+        // Last block of the homepage: every remaining story in a box that scrolls inside
+        // itself, so the page ends instead of growing with the feed.
+        function renderFeedBucket(items) {
+            if (!items.length) return '';
+            return renderSectionLabel('More from the feed', items.length + ' more stories, scroll inside the box')
+                + '<section class="feed-section"><div class="feed-bucket"><div class="feed-rows feed-rows-ruled">'
+                + items.map(cardCompact).join('') + '</div></div></section>';
+        }
+
         function renderFeedRows(items) {
             if (!items.length) return '';
             return '<section class="feed-section"><div class="feed-rows feed-rows-ruled">'
@@ -2272,30 +2283,49 @@
                 const title = escapeHtml(cleanHomeTitle(r.title));
                 const url = sanitizeUrl(r.link || r.source_url || '');
                 const pub = escapeHtml(r.publisher || r.source || 'Research');
-                const region = r.region || '';
                 const bk = npBookmarkBtn(url, title, pub);
-                const regionBadge = region ? '<span class="rp-region">' + escapeHtml(region) + '</span>' : '';
+                const region = String(r.region || '').toLowerCase();
+                const regionBadge = region === 'indian' ? '<span class="rp-reg rp-reg-in">India</span>'
+                    : region === 'international' ? '<span class="rp-reg rp-reg-intl">International</span>' : '';
+                const agree = agreementHtml(r._providerCount);
                 return '<div class="slider-card slider-rp"><div class="slider-card-body">'
                     + '<div class="slider-card-header"><div><div class="rp-publisher">' + pub + '</div>'
                     + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
-                    + regionBadge + '</div>' + bk + '</div></div></div>';
+                    + '</div>' + bk + '</div>'
+                    + (regionBadge || agree ? '<div class="card-signals">' + regionBadge + '<span class="bs-sigs">' + agree + '</span></div>' : '')
+                    + '</div></div>';
             }).join('');
             return '<section class="slider-section">'
                 + sliderHead('Research Reports', items.length + ' picked today', 'rp-track')
                 + '<div class="slider-track" id="rp-track">' + cards + '</div></section>';
         }
 
+        // "RT The Indian Express: …" → reposted from The Indian Express, text without the prefix.
+        function tweetKind(rawTitle) {
+            var raw = String(rawTitle || '').trim();
+            var m = raw.match(/^RT\s+@?([^:]{1,60}):\s*/);
+            var text = m ? raw.slice(m[0].length) : raw;
+            var kind = '';
+            if (m) kind = '<span class="tw-kind tw-kind-repost">Repost of <b>' + escapeHtml(m[1].trim()) + '</b></span>';
+            else if (/^[“”"]/.test(raw)) kind = '<span class="tw-kind tw-kind-quote">Quote post</span>';
+            if (raw.indexOf('🧵') !== -1) kind += '<span class="tw-kind tw-kind-thread">Thread</span>';
+            return { text: text, kind: kind };
+        }
+
         function buildTwSlider(items) {
             if (!items.length) return '';
             const cards = items.map(t => {
-                const title = escapeHtml(cleanHomeTitle(t.title));
+                const k = tweetKind(t.title);
+                const title = escapeHtml(cleanHomeTitle(k.text));
                 const url = sanitizeUrl(t.link || t.source_url || '');
                 const author = escapeHtml(t.publisher || t.source || 'Twitter');
                 const bk = npBookmarkBtn(url, title, author);
                 return '<div class="slider-card slider-tw"><div class="slider-card-body">'
                     + '<div class="slider-card-header"><div><div class="tw-author">' + author + '</div>'
                     + '<a class="tw-text" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
-                    + '</div>' + bk + '</div></div></div>';
+                    + '</div>' + bk + '</div>'
+                    + '<div class="card-signals">' + k.kind + '<span class="bs-sigs">' + agreementHtml(t._providerCount) + '</span></div>'
+                    + '</div></div>';
             }).join('');
             return '<section class="slider-section">'
                 + sliderHead('Voices', items.length + ' posts picked today', 'tw-track')
@@ -2371,24 +2401,56 @@
 
         // From the Source: a list, not a strip — source (RBI / SEBI / PIB) | headline | date | bookmark.
         // The list sits in a fixed-height box (~8 rows) that scrolls on its own, so the page never jumps.
+        // One fixed colour per issuer, so RBI always looks like RBI.
+        var ISSUERS = [
+            { re: /\bRBI\b|Reserve Bank/i, code: 'RBI', c: '#2F5D8A' },
+            { re: /\bSEBI\b/i, code: 'SEBI', c: '#7A4E8C' },
+            { re: /\bPIB\b|Press Information Bureau/i, code: 'PIB', c: '#B0602A' },
+            { re: /MoSPI|Statistics/i, code: 'MoSPI', c: '#3F7F6A' },
+            { re: /\bECB\b|European Central/i, code: 'ECB', c: '#2C6E86' },
+            { re: /FRED|Federal Reserve|\bFed\b/i, code: 'Fed', c: '#4F5C93' },
+            { re: /\bADB\b|Asian Development/i, code: 'ADB', c: '#2F7C79' },
+            { re: /\bIMF\b|Monetary Fund/i, code: 'IMF', c: '#365F9C' },
+            { re: /World Bank/i, code: 'WB', c: '#26768E' },
+            { re: /\bBIS\b|International Settlements/i, code: 'BIS', c: '#86683A' },
+            { re: /\bNSE\b|\bBSE\b/i, code: 'Exch', c: '#6B6F3A' },
+            { re: /Ministry|Government|Cabinet/i, code: 'GoI', c: '#9A5B3C' }
+        ];
+        function issuerOf(publisher) {
+            var p = String(publisher || '');
+            for (var i = 0; i < ISSUERS.length; i++) if (ISSUERS[i].re.test(p)) return ISSUERS[i];
+            return { code: (p.split(/[\s—–-]+/)[0] || 'Src').slice(0, 5), c: '#6B645C' };
+        }
+
         function buildFromSourceSlider(items) {
             if (!items || !items.length) return '';
+            var counts = [], byCode = {};
             const rows = items.map(function(n) {
                 const title = escapeHtml(cleanHomeTitle(n.title));
                 const url = sanitizeUrl(n.url || '');
-                const src = escapeHtml(n.publisher || 'Source');
+                const pubRaw = n.publisher || 'Source';
+                const src = escapeHtml(pubRaw);
+                const iss = issuerOf(pubRaw);
+                if (!byCode[iss.code]) { byCode[iss.code] = { iss: iss, n: 0 }; counts.push(byCode[iss.code]); }
+                byCode[iss.code].n++;
                 const dateStr = n.date ? escapeHtml(new Date(n.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
                 const link = url
                     ? '<a class="source-row-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     : '<span class="source-row-title">' + title + '</span>';
                 return '<li class="source-row">'
-                    + '<span class="source-row-org">' + src + '</span>' + link
+                    + '<span class="issuer-badge" style="--c:' + iss.c + '" title="' + escapeForAttr(pubRaw) + '">' + escapeHtml(iss.code) + '</span>'
+                    + '<span class="source-row-main">' + link + '<span class="source-row-pub">' + src + '</span></span>'
                     + '<span class="source-row-date">' + dateStr + '</span>'
                     + npBookmarkBtn(url, title, src) + '</li>';
             }).join('');
+            counts.sort(function(a, b) { return b.n - a.n; });
+            const strip = '<div class="issuer-strip">' + counts.map(function(x) {
+                return '<span class="issuer-count"><span class="issuer-dot" style="background:' + x.iss.c + '"></span>' + escapeHtml(x.iss.code) + ' <b>' + x.n + '</b></span>';
+            }).join('') + '</div>';
             return '<section class="slider-section source-list">'
                 + '<div class="slider-header"><h2 class="slider-label">From the Source</h2>'
-                + '<span class="slider-note">' + items.length + ' from RBI, SEBI, PIB and other official channels</span></div>'
+                + '<span class="slider-note">' + items.length + ' from official channels</span></div>'
+                + strip
                 + '<ul class="source-rows">' + rows + '</ul>'
                 + '</section>';
         }
@@ -2542,17 +2604,20 @@
             return { ran: ran, configured: providers.length };
         }
 
-        // Signal row. With one model running, agreement means nothing, so the dots go.
+        // "3 of 4 models" dots. With one model running, agreement means nothing, so they go.
+        function agreementHtml(providerCount) {
+            var ran = bigStoryModels().ran;
+            if (ran < 2) return '';
+            var picked = Math.min(providerCount || 1, ran);
+            var pips = '';
+            for (var i = 0; i < ran; i++) pips += '<i' + (i < picked ? ' class="on"' : '') + '></i>';
+            return '<span><span class="bs-pips" aria-hidden="true">' + pips + '</span>'
+                + '<span><b>' + picked + '</b> of ' + ran + ' models</span></span>';
+        }
+
+        // Signal row: agreement dots + source-mix strip + count.
         function bsSignals(cluster, articles, extra) {
-            var models = bigStoryModels();
-            var html = '<span class="bs-sigs">';
-            if (models.ran > 1) {
-                var picked = Math.min(cluster._providerCount || 1, models.ran);
-                var pips = '';
-                for (var i = 0; i < models.ran; i++) pips += '<i' + (i < picked ? ' class="on"' : '') + '></i>';
-                html += '<span><span class="bs-pips" aria-hidden="true">' + pips + '</span>'
-                    + '<span><b>' + picked + '</b> of ' + models.ran + ' models</span></span>';
-            }
+            var html = '<span class="bs-sigs">' + agreementHtml(cluster._providerCount);
             var mix = articles.slice()
                 .sort(function(a, b) { return BS_TYPE_ORDER.indexOf(bsType(a)) - BS_TYPE_ORDER.indexOf(bsType(b)); })
                 .slice(0, 12)
@@ -2765,7 +2830,7 @@
                 buildFromSourceSlider(getFromSourceItems()),
                 buildTwSlider(result.twitter),
                 breakers[4],
-                renderFeedRows(s7)
+                renderFeedBucket(s7)
             );
             const html = parts.filter(Boolean).join('');
 
