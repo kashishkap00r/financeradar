@@ -3508,6 +3508,7 @@
         .rp-reg { font-size: 11.5px; font-weight: 700; line-height: 1.6; padding: 0 8px; border-radius: 999px; }
         .rp-reg-in { color: #9A4A26; background: #F6E6DC; }
         .rp-reg-intl { color: #35557F; background: #E3EAF3; }
+        .rp-date { font-size: var(--t-xs); color: var(--text-muted); }
         .tw-kind { display: inline-flex; align-items: center; gap: 4px; font-size: var(--t-xs); color: var(--text-muted); }
         .tw-kind b { color: var(--text-secondary); font-weight: 600; }
         .tw-kind-repost::before { content: "\21BB"; font-size: 13px; color: var(--text-secondary); }

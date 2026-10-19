@@ -1137,6 +1137,7 @@
                             signal_type: item.signal_type || '',
                             confidence: item.confidence || '',
                             region: item.region || '',
+                            date: item.date || '',
                             _ranks: [rank],
                             _providerCount: 1
                         };
@@ -2115,6 +2116,7 @@
                     publisher: item.source || '',
                     thumbnail: item.thumbnail || '',
                     region: item.region || '',
+                    date: item.date || '',
                     _providerCount: item._providerCount || 1
                 };
             }
@@ -2287,12 +2289,13 @@
                 const region = String(r.region || '').toLowerCase();
                 const regionBadge = region === 'indian' ? '<span class="rp-reg rp-reg-in">India</span>'
                     : region === 'international' ? '<span class="rp-reg rp-reg-intl">International</span>' : '';
-                const agree = agreementHtml(r._providerCount);
+                const d = r.date ? new Date(r.date) : null;
+                const dateStr = d && !isNaN(d) ? escapeHtml(d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
                 return '<div class="slider-card slider-rp"><div class="slider-card-body">'
                     + '<div class="slider-card-header"><div><div class="rp-publisher">' + pub + '</div>'
                     + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     + '</div>' + bk + '</div>'
-                    + (regionBadge || agree ? '<div class="card-signals">' + regionBadge + '<span class="bs-sigs">' + agree + '</span></div>' : '')
+                    + (regionBadge || dateStr ? '<div class="card-signals">' + regionBadge + (dateStr ? '<span class="rp-date">' + dateStr + '</span>' : '') + '</div>' : '')
                     + '</div></div>';
             }).join('');
             return '<section class="slider-section">'
