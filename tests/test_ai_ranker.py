@@ -351,5 +351,37 @@ class TestClusterResolution(unittest.TestCase):
         self.assertEqual(result, [])
 
 
+
+class EntertainmentFilterTest(unittest.TestCase):
+    def test_flags_entertainment_but_not_policy_usage(self):
+        from ai_ranker import is_entertainment
+        self.assertTrue(is_entertainment("Shots Fired At Actor Tiger Shroff"))
+        self.assertTrue(is_entertainment("Bollywood box office collection day 3"))
+        self.assertFalse(is_entertainment("Iran a state actor in Hormuz attacks"))
+        self.assertFalse(is_entertainment("US called a bad actor on trade"))
+        self.assertFalse(is_entertainment("RBI holds repo rate at 5.5%"))
+
+    def test_drops_cluster_whose_summary_is_entertainment(self):
+        from ai_ranker import filter_entertainment_clusters
+        clusters = [
+            {"story_label": "Bishnoi gang claims attack on Tiger Shroff",
+             "story_summary": "Gunfire targeted actor Tiger Shroff's vehicle in Mumbai.",
+             "lead": {"title": "Tiger Shroff firing: CM vows action"},
+             "related": [{"title": "Police widen probe"}]},
+            {"story_label": "Fairfax gets nod for IDBI Bank stake",
+             "story_summary": "Cabinet cleared the ₹52,878 crore deal.",
+             "lead": {"title": "Cabinet clears IDBI sale"},
+             "related": [{"title": "IDBI shares jump"}]},
+        ]
+        kept = filter_entertainment_clusters(clusters)
+        self.assertEqual([c["story_label"] for c in kept], ["Fairfax gets nod for IDBI Bank stake"])
+
+    def test_drops_cluster_when_half_the_articles_are_entertainment(self):
+        from ai_ranker import filter_entertainment_clusters
+        cluster = {"story_label": "Mumbai shooting", "story_summary": "",
+                   "lead": {"title": "Shooting in Juhu"},
+                   "related": [{"title": "Actor safe after shots fired"}]}
+        self.assertEqual(filter_entertainment_clusters([cluster]), [])
+
 if __name__ == "__main__":
     unittest.main()

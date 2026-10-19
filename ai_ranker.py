@@ -114,6 +114,7 @@ HARD SKIPS (never include)
 - Market noise (intraday moves, FII/DII flows, broker upgrades, stock tips)
 - Crypto price movement stories
 - Celebrity CEO personality fluff
+- Entertainment, Bollywood/celebrity, sports and crime stories (shootings, gang attacks, accidents) — even when a business outlet covers them. Exception: the money side of these industries (a listed studio's results, IPL media-rights deals)
 
 INDIA LENS RULE
 Global stories qualify only if they explicitly connect to Indian industry, policy, trade, consumers, jobs, or capital flows.
@@ -646,6 +647,7 @@ CLUSTERING RULES:
   - CRITICAL: Multiple government decisions announced on the same day are SEPARATE stories. "Cabinet approves UDAN scheme" and "Cabinet approves climate targets" are different stories even though both are cabinet decisions. Do NOT group different policy announcements together just because they share "Cabinet approves" or similar phrasing.
 - CRITICAL: Do NOT include multiple articles that report the same facts. If ET, Mint, and Bloomberg all say "Fed holds rates steady", pick the ONE best version. Only include an article if it adds a genuinely NEW fact, number, angle, or format (e.g. a YouTube explainer, a research report with data, a tweet with insider context).
 - Cross-type clusters are valuable: a YouTube explainer + a Telegram research note + a news report on the same event is a great cluster. Prefer diversity of source types over quantity.
+- NEVER build a cluster about entertainment, Bollywood/celebrities, sports or crime (shootings, gang attacks) — readers come for finance and the economy. Skip such stories even if many outlets cover them.
 - Minimum 2, maximum {max_clusters} clusters. Prefer fewer, tighter clusters over many loose ones. If no natural clusters exist, return empty array.
 - Return clusters in ORDER OF IMPORTANCE — the biggest, most impactful story first.
 - When a cluster includes an [OFFICIAL] source article (RBI, SEBI, PIB, ECB, etc.), prefer it as the FIRST article in the articles array — it's the primary source.
@@ -786,6 +788,44 @@ def _is_market_noise(title):
     """Check if a title is primarily about market index movements."""
     t = title or ""
     return any(p.search(t) for p in _CLUSTER_NOISE_PATTERNS)
+
+
+# Entertainment/celebrity backstop for the prompt rule. Titles often never say
+# "Bollywood" ("Tiger Shroff firing: CM vows action"), so whole clusters are
+# also judged on the model's own label + summary, which do ("actor Tiger Shroff").
+# Singular "actor" only, and not "state/bad/threat actor" (finance/policy usage).
+_ENTERTAINMENT_PATTERNS = [
+    _re.compile(r"\b(bollywood|tollywood|kollywood|mollywood|hollywood)\b", _re.I),
+    _re.compile(r"(?<!state )(?<!bad )(?<!threat )\bactor\b", _re.I),
+    _re.compile(r"\bactress(es)?\b", _re.I),
+    _re.compile(r"\b(film|movie)[- ]stars?\b|\bbox[- ]office collection", _re.I),
+    _re.compile(r"\bbigg boss\b|\bcelebrity (couple|wedding|divorce|death|baby)\b", _re.I),
+]
+
+
+def is_entertainment(text):
+    t = text or ""
+    return any(p.search(t) for p in _ENTERTAINMENT_PATTERNS)
+
+
+def filter_entertainment_clusters(clusters):
+    """Drop clusters that are about entertainment/celebrities.
+
+    A cluster goes if its label or summary reads as entertainment, or if at
+    least half its articles do. Otherwise only the matching articles are cut.
+    """
+    kept = []
+    for cluster in clusters:
+        if is_entertainment(f"{cluster.get('story_label', '')} {cluster.get('story_summary', '')}"):
+            continue
+        all_arts = [cluster.get("lead", {})] + cluster.get("related", [])
+        clean = [a for a in all_arts if not is_entertainment(a.get("title", ""))]
+        if len(clean) * 2 <= len(all_arts) or len(clean) < 2:
+            continue
+        cluster["lead"] = clean[0]
+        cluster["related"] = clean[1:]
+        kept.append(cluster)
+    return kept
 
 
 def filter_cluster_noise(clusters):
@@ -936,6 +976,7 @@ def cluster_ranked_items(all_items, model_config, max_clusters=AI_RANKER_MAX_CLU
         clusters = resolve_cluster_indices(raw, all_items)
         clusters = dedup_cluster_articles(clusters)
         clusters = filter_cluster_noise(clusters)
+        clusters = filter_entertainment_clusters(clusters)
         return clusters[:max_clusters]
 
     except Exception as err:
@@ -951,6 +992,13 @@ def main():
     print("=" * 50)
 
     candidates_by_bucket = load_rank_candidates_by_bucket()
+    dropped = 0
+    for bucket, items in candidates_by_bucket.items():
+        kept = [item for item in items if not is_entertainment(item.get("title", ""))]
+        dropped += len(items) - len(kept)
+        candidates_by_bucket[bucket] = kept
+    if dropped:
+        print(f"Dropped {dropped} entertainment/celebrity candidates")
     available_buckets = [bucket for bucket in BUCKET_ORDER if candidates_by_bucket.get(bucket)]
     total_candidates = sum(len(items) for items in candidates_by_bucket.values())
 
