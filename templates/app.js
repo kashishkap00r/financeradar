@@ -2371,8 +2371,84 @@
             return false;
         }
 
+        // One or two plain lines per homepage section, shown from the small (i) next to its title.
+        // Windows match SOURCE_WINDOWS in ai_ranker.py: news 48h, X 96h, the rest 7 days.
+        var SECTION_INFO = {
+            'The Big Stories': 'The day’s biggest stories, each built from several sources. AI models group the coverage; the dots show how many of them picked each story.',
+            'Research Reports': 'Notes from research houses, rating agencies and think tanks, picked by AI from the past week.',
+            'From the Feed': 'News from the last two days and Telegram notes from the past week, ranked by AI for what matters to Indian readers.',
+            'Slow Reads': 'Essays and long reads from independent writers. Every post from the past week, newest first. Not ranked by AI.',
+            'Watch': 'Explainers and interviews from finance video channels, picked by AI from the past week.',
+            'From the Source': 'Straight from RBI, SEBI, PIB and other official bodies: releases, orders and data, newest first. Not ranked by AI.',
+            'Voices': 'Posts on X from economists, journalists and market watchers, picked by AI from the past four days.',
+            'More from the feed': 'The rest of the AI-ranked news and Telegram notes. Scroll inside the box.'
+        };
+        var INFO_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8.2" cy="4.2" r="1.15" stroke="none"/><path d="M6.6 7.3h1.9v4.9M6.4 12.2h3.6" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        function infoTip(label) {
+            var text = SECTION_INFO[label];
+            if (!text) return '';
+            return '<button class="info-btn" type="button" data-info="' + escapeForAttr(text) + '"'
+                + ' aria-label="About ' + escapeForAttr(label) + ': ' + escapeForAttr(text) + '" aria-expanded="false">' + INFO_ICON + '</button>';
+        }
+
+        // The explanation floats in one fixed element placed under the (i) and kept inside the
+        // screen, so it never pushes the page or makes it scroll sideways. Hover or focus shows
+        // it; a tap pins it until the next tap anywhere.
+        var infoPop = null, infoFor = null, infoPinned = false;
+        function showInfo(btn, pin) {
+            if (!infoPop) {
+                infoPop = document.createElement('div');
+                infoPop.className = 'info-pop';
+                infoPop.setAttribute('role', 'tooltip');
+                document.body.appendChild(infoPop);
+            }
+            if (infoFor && infoFor !== btn) infoFor.setAttribute('aria-expanded', 'false');
+            infoFor = btn;
+            infoPinned = !!pin;
+            infoPop.textContent = btn.dataset.info || '';
+            infoPop.hidden = false;
+            btn.setAttribute('aria-expanded', 'true');
+            var r = btn.getBoundingClientRect();
+            var vw = document.documentElement.clientWidth;
+            var w = infoPop.offsetWidth;
+            var left = Math.min(Math.max(12, r.left - 12), vw - w - 12);
+            infoPop.style.left = left + 'px';
+            infoPop.style.top = (r.bottom + 8) + 'px';
+            infoPop.style.setProperty('--arrow', Math.round(r.left + r.width / 2 - left) + 'px');
+        }
+        function hideInfo() {
+            if (infoPop) infoPop.hidden = true;
+            if (infoFor) infoFor.setAttribute('aria-expanded', 'false');
+            infoFor = null;
+            infoPinned = false;
+        }
+        document.addEventListener('mouseover', function(e) {
+            var b = e.target.closest && e.target.closest('.info-btn');
+            if (b && !infoPinned && window.matchMedia('(hover: hover)').matches) showInfo(b, false);
+        });
+        document.addEventListener('mouseout', function(e) {
+            var b = e.target.closest && e.target.closest('.info-btn');
+            if (b && b === infoFor && !infoPinned && !b.contains(e.relatedTarget)) hideInfo();
+        });
+        document.addEventListener('focusin', function(e) {
+            if (e.target.classList && e.target.classList.contains('info-btn')) showInfo(e.target, false);
+        });
+        document.addEventListener('focusout', function(e) {
+            if (e.target === infoFor && !infoPinned) hideInfo();
+        });
+        document.addEventListener('click', function(e) {
+            var b = e.target.closest && e.target.closest('.info-btn');
+            if (b) {
+                if (b === infoFor && infoPinned) hideInfo(); else showInfo(b, true);
+                return;
+            }
+            if (infoFor) hideInfo();
+        });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && infoFor) hideInfo(); });
+        window.addEventListener('scroll', function() { if (infoFor) hideInfo(); }, { passive: true });
+
         function sliderHead(label, note, trackId) {
-            return '<div class="slider-header"><h2 class="slider-label">' + escapeHtml(label) + '</h2>'
+            return '<div class="slider-header"><h2 class="slider-label">' + escapeHtml(label) + '</h2>' + infoTip(label)
                 + (note ? '<span class="slider-note">' + escapeHtml(note) + '</span>' : '')
                 + '<div class="slider-nav">' + sliderArrows(trackId) + '</div></div>';
         }
@@ -2451,7 +2527,7 @@
                 return '<span class="issuer-count"><span class="issuer-dot" style="background:' + x.iss.c + '"></span>' + escapeHtml(x.iss.code) + ' <b>' + x.n + '</b></span>';
             }).join('') + '</div>';
             return '<section class="slider-section source-list">'
-                + '<div class="slider-header"><h2 class="slider-label">From the Source</h2>'
+                + '<div class="slider-header"><h2 class="slider-label">From the Source</h2>' + infoTip('From the Source')
                 + '<span class="slider-note">' + items.length + ' from official channels</span></div>'
                 + strip
                 + '<ul class="source-rows">' + rows + '</ul>'
@@ -2685,7 +2761,7 @@
                 + (models.configured > models.ran ? ' · ' + (models.configured - models.ran) + ' of ' + models.configured + ' models didn’t run this time' : '');
 
             var html = '<section class="big-stories-section">'
-                + '<div class="section-divider"><span class="section-label">The Big Stories</span>' + bsLegend() + '</div>'
+                + '<div class="section-divider"><span class="head-title"><span class="section-label">The Big Stories</span>' + infoTip('The Big Stories') + '</span>' + bsLegend() + '</div>'
                 + '<article class="bs-lead"><div class="bs-lead-main">' + bsKick(lead, leadArts, 0) + bsTitle(lead, 0, 'h2')
                 + (leadSummary ? '<p class="bs-sum">' + escapeHtml(leadSummary) + '</p>' : '') + '</div>'
                 + '<div class="bs-cover"><h3>Coverage</h3><ul class="bs-srcs">'
@@ -2764,7 +2840,7 @@
         });
 
         function renderSectionLabel(text, note) {
-            return '<div class="section-divider"><span class="section-label">' + escapeHtml(text) + '</span>'
+            return '<div class="section-divider"><span class="section-label">' + escapeHtml(text) + '</span>' + infoTip(text)
                 + (note ? '<span class="section-note">' + escapeHtml(note) + '</span>' : '') + '</div>';
         }
 

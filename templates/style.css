@@ -2756,6 +2756,31 @@
            Lead with a Coverage list; stories 2–3 with "Show sources"; the rest as one-line
            briefs. Sources open in a drawer (bottom sheet on phones), never in place. */
         .big-stories-section .section-divider { flex-wrap: wrap; row-gap: var(--s-2); justify-content: space-between; }
+        /* Section info: a small (i) beside each homepage heading; the note floats (see showInfo in app.js) */
+        .head-title { display: inline-flex; align-items: center; gap: var(--s-2); }
+        .info-btn {
+            align-self: center; flex: none;
+            width: 17px; height: 17px; padding: 0; margin: 0;
+            display: inline-grid; place-items: center;
+            border: 1px solid var(--border); border-radius: 50%; background: transparent;
+            color: var(--text-muted); cursor: help;
+        }
+        .info-btn svg { width: 11px; height: 11px; fill: currentColor; stroke: currentColor; }
+        .info-btn:hover, .info-btn[aria-expanded="true"] { color: var(--accent); border-color: var(--accent); }
+        .info-pop {
+            position: fixed; z-index: 500;
+            width: max-content; max-width: min(300px, calc(100vw - 24px));
+            padding: 10px 12px; border-radius: 6px;
+            background: var(--text-primary); color: #FAF7F2;
+            font-family: var(--sans); font-size: 13px; font-weight: 400; line-height: 1.45;
+            text-transform: none; letter-spacing: 0;
+            box-shadow: 0 10px 30px rgba(44, 40, 37, 0.22);
+            pointer-events: none;
+        }
+        .info-pop::before {
+            content: ""; position: absolute; top: -5px; left: calc(var(--arrow, 16px) - 5px);
+            width: 10px; height: 10px; background: var(--text-primary); transform: rotate(45deg);
+        }
         .bs-legend { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4); font-size: var(--t-xs); color: var(--text-muted); }
         .bs-legend > span { display: inline-flex; align-items: center; gap: 5px; }
         .bs-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; flex: none; }
