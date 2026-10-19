@@ -171,6 +171,24 @@ def item_identity(title, url="", source_type="", source=""):
     return f"title::{normalize_title(title)}|{normalize_source_type(source_type)}|{(source or '').strip().lower()}"
 
 
+_FEED_REGIONS = None
+
+
+def feed_regions():
+    """feeds.json id → region ("Indian"/"International"), for the homepage report cards."""
+    global _FEED_REGIONS
+    if _FEED_REGIONS is None:
+        try:
+            with open(os.path.join(SCRIPT_DIR, "feeds.json"), "r", encoding="utf-8") as f:
+                feeds = json.load(f)
+            if isinstance(feeds, dict):
+                feeds = feeds.get("feeds", [])
+            _FEED_REGIONS = {feed["id"]: feed["region"] for feed in feeds if feed.get("id") and feed.get("region")}
+        except (OSError, ValueError):
+            _FEED_REGIONS = {}
+    return _FEED_REGIONS
+
+
 def build_candidates_for_source(snapshot_data, source_type, now=None, max_articles=AI_RANKER_MAX_ARTICLES):
     """Build ranking candidates for a single source type from published snapshot."""
     now = now or datetime.now(IST_TZ)
@@ -197,6 +215,7 @@ def build_candidates_for_source(snapshot_data, source_type, now=None, max_articl
             "date": date_str,
             "source_type": source_type,
             "source_tier": item.get("source_tier", ""),
+            "region": feed_regions().get(item.get("source_id", ""), "") if source_type == "reports" else "",
             "_parsed_date": parsed_date or datetime.min.replace(tzinfo=IST_TZ),
         })
 
@@ -583,6 +602,8 @@ def enrich_bucket_rankings(rankings, candidates, source_type, target_count):
             "source": article["source"] if article else "",
             "source_type": normalize_source_type(article.get("source_type", "")) if article else (tagged_source_type or source_type),
             "source_tier": article.get("source_tier", "") if article else "",
+            "region": article.get("region", "") if article else "",
+            "date": article.get("date", "") if article else "",
             "high_signal": bool(article and article.get("source_tier") == "official"),
             "india_relevance": item.get("india_relevance", ""),
             "signal_type": item.get("signal_type", ""),

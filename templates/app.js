@@ -1136,6 +1136,8 @@
                             why_it_matters: item.why_it_matters || '',
                             signal_type: item.signal_type || '',
                             confidence: item.confidence || '',
+                            region: item.region || '',
+                            date: item.date || '',
                             _ranks: [rank],
                             _providerCount: 1
                         };
@@ -1185,6 +1187,7 @@
             if (providerClusters.length === 1) {
                 return providerClusters[0].map(function(c) {
                     c._consensus = false;
+                    c._providerCount = 1;
                     return c;
                 });
             }
@@ -1275,12 +1278,9 @@
                 });
             });
 
-            // Sort: consensus (2+ providers) first
+            // Sort by how many models picked the story (stable, so ties keep model order)
             merged.forEach(function(c) { c._consensus = c._providerCount >= 2; });
-            merged.sort(function(a, b) {
-                if (a._consensus !== b._consensus) return a._consensus ? -1 : 1;
-                return 0;
-            });
+            merged.sort(function(a, b) { return b._providerCount - a._providerCount; });
             return merged;
         }
 
@@ -2115,7 +2115,9 @@
                     source: item.source || '',
                     publisher: item.source || '',
                     thumbnail: item.thumbnail || '',
-                    region: ''
+                    region: item.region || '',
+                    date: item.date || '',
+                    _providerCount: item._providerCount || 1
                 };
             }
 
@@ -2236,6 +2238,15 @@
         }
 
         // Later feed blocks: plain two-column rows under an ink rule (no second hero).
+        // Last block of the homepage: every remaining story in a box that scrolls inside
+        // itself, so the page ends instead of growing with the feed.
+        function renderFeedBucket(items) {
+            if (!items.length) return '';
+            return renderSectionLabel('More from the feed', items.length + ' more stories, scroll inside the box')
+                + '<section class="feed-section"><div class="feed-bucket"><div class="feed-rows feed-rows-ruled">'
+                + items.map(cardCompact).join('') + '</div></div></section>';
+        }
+
         function renderFeedRows(items) {
             if (!items.length) return '';
             return '<section class="feed-section"><div class="feed-rows feed-rows-ruled">'
@@ -2274,30 +2285,50 @@
                 const title = escapeHtml(cleanHomeTitle(r.title));
                 const url = sanitizeUrl(r.link || r.source_url || '');
                 const pub = escapeHtml(r.publisher || r.source || 'Research');
-                const region = r.region || '';
                 const bk = npBookmarkBtn(url, title, pub);
-                const regionBadge = region ? '<span class="rp-region">' + escapeHtml(region) + '</span>' : '';
+                const region = String(r.region || '').toLowerCase();
+                const regionBadge = region === 'indian' ? '<span class="rp-reg rp-reg-in">India</span>'
+                    : region === 'international' ? '<span class="rp-reg rp-reg-intl">International</span>' : '';
+                const d = r.date ? new Date(r.date) : null;
+                const dateStr = d && !isNaN(d) ? escapeHtml(d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
                 return '<div class="slider-card slider-rp"><div class="slider-card-body">'
                     + '<div class="slider-card-header"><div><div class="rp-publisher">' + pub + '</div>'
                     + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
-                    + regionBadge + '</div>' + bk + '</div></div></div>';
+                    + '</div>' + bk + '</div>'
+                    + (regionBadge || dateStr ? '<div class="card-signals">' + regionBadge + (dateStr ? '<span class="rp-date">' + dateStr + '</span>' : '') + '</div>' : '')
+                    + '</div></div>';
             }).join('');
             return '<section class="slider-section">'
                 + sliderHead('Research Reports', items.length + ' picked today', 'rp-track')
                 + '<div class="slider-track" id="rp-track">' + cards + '</div></section>';
         }
 
+        // "RT The Indian Express: …" → reposted from The Indian Express, text without the prefix.
+        function tweetKind(rawTitle) {
+            var raw = String(rawTitle || '').trim();
+            var m = raw.match(/^RT\s+@?([^:]{1,60}):\s*/);
+            var text = m ? raw.slice(m[0].length) : raw;
+            var kind = '';
+            if (m) kind = '<span class="tw-kind tw-kind-repost">Repost of <b>' + escapeHtml(m[1].trim()) + '</b></span>';
+            else if (/^[“”"]/.test(raw)) kind = '<span class="tw-kind tw-kind-quote">Quote post</span>';
+            if (raw.indexOf('🧵') !== -1) kind += '<span class="tw-kind tw-kind-thread">Thread</span>';
+            return { text: text, kind: kind };
+        }
+
         function buildTwSlider(items) {
             if (!items.length) return '';
             const cards = items.map(t => {
-                const title = escapeHtml(cleanHomeTitle(t.title));
+                const k = tweetKind(t.title);
+                const title = escapeHtml(cleanHomeTitle(k.text));
                 const url = sanitizeUrl(t.link || t.source_url || '');
                 const author = escapeHtml(t.publisher || t.source || 'Twitter');
                 const bk = npBookmarkBtn(url, title, author);
                 return '<div class="slider-card slider-tw"><div class="slider-card-body">'
                     + '<div class="slider-card-header"><div><div class="tw-author">' + author + '</div>'
                     + '<a class="tw-text" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
-                    + '</div>' + bk + '</div></div></div>';
+                    + '</div>' + bk + '</div>'
+                    + '<div class="card-signals">' + k.kind + '<span class="bs-sigs">' + agreementHtml(t._providerCount) + '</span></div>'
+                    + '</div></div>';
             }).join('');
             return '<section class="slider-section">'
                 + sliderHead('Voices', items.length + ' posts picked today', 'tw-track')
@@ -2340,8 +2371,84 @@
             return false;
         }
 
+        // One or two plain lines per homepage section, shown from the small (i) next to its title.
+        // Windows match SOURCE_WINDOWS in ai_ranker.py: news 48h, X 96h, the rest 7 days.
+        var SECTION_INFO = {
+            'The Big Stories': 'The day’s biggest stories, each built from several sources. AI models group the coverage; the dots show how many of them picked each story.',
+            'Research Reports': 'Notes from research houses, rating agencies and think tanks, picked by AI from the past week.',
+            'From the Feed': 'News from the last two days and Telegram notes from the past week, ranked by AI for what matters to Indian readers.',
+            'Slow Reads': 'Essays and long reads from independent writers. Every post from the past week, newest first. Not ranked by AI.',
+            'Watch': 'Explainers and interviews from finance video channels, picked by AI from the past week.',
+            'From the Source': 'Straight from RBI, SEBI, PIB and other official bodies: releases, orders and data, newest first. Not ranked by AI.',
+            'Voices': 'Posts on X from economists, journalists and market watchers, picked by AI from the past four days.',
+            'More from the feed': 'The rest of the AI-ranked news and Telegram notes. Scroll inside the box.'
+        };
+        var INFO_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8.2" cy="4.2" r="1.15" stroke="none"/><path d="M6.6 7.3h1.9v4.9M6.4 12.2h3.6" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        function infoTip(label) {
+            var text = SECTION_INFO[label];
+            if (!text) return '';
+            return '<button class="info-btn" type="button" data-info="' + escapeForAttr(text) + '"'
+                + ' aria-label="About ' + escapeForAttr(label) + ': ' + escapeForAttr(text) + '" aria-expanded="false">' + INFO_ICON + '</button>';
+        }
+
+        // The explanation floats in one fixed element placed under the (i) and kept inside the
+        // screen, so it never pushes the page or makes it scroll sideways. Hover or focus shows
+        // it; a tap pins it until the next tap anywhere.
+        var infoPop = null, infoFor = null, infoPinned = false;
+        function showInfo(btn, pin) {
+            if (!infoPop) {
+                infoPop = document.createElement('div');
+                infoPop.className = 'info-pop';
+                infoPop.setAttribute('role', 'tooltip');
+                document.body.appendChild(infoPop);
+            }
+            if (infoFor && infoFor !== btn) infoFor.setAttribute('aria-expanded', 'false');
+            infoFor = btn;
+            infoPinned = !!pin;
+            infoPop.textContent = btn.dataset.info || '';
+            infoPop.hidden = false;
+            btn.setAttribute('aria-expanded', 'true');
+            var r = btn.getBoundingClientRect();
+            var vw = document.documentElement.clientWidth;
+            var w = infoPop.offsetWidth;
+            var left = Math.min(Math.max(12, r.left - 12), vw - w - 12);
+            infoPop.style.left = left + 'px';
+            infoPop.style.top = (r.bottom + 8) + 'px';
+            infoPop.style.setProperty('--arrow', Math.round(r.left + r.width / 2 - left) + 'px');
+        }
+        function hideInfo() {
+            if (infoPop) infoPop.hidden = true;
+            if (infoFor) infoFor.setAttribute('aria-expanded', 'false');
+            infoFor = null;
+            infoPinned = false;
+        }
+        document.addEventListener('mouseover', function(e) {
+            var b = e.target.closest && e.target.closest('.info-btn');
+            if (b && !infoPinned && window.matchMedia('(hover: hover)').matches) showInfo(b, false);
+        });
+        document.addEventListener('mouseout', function(e) {
+            var b = e.target.closest && e.target.closest('.info-btn');
+            if (b && b === infoFor && !infoPinned && !b.contains(e.relatedTarget)) hideInfo();
+        });
+        document.addEventListener('focusin', function(e) {
+            if (e.target.classList && e.target.classList.contains('info-btn')) showInfo(e.target, false);
+        });
+        document.addEventListener('focusout', function(e) {
+            if (e.target === infoFor && !infoPinned) hideInfo();
+        });
+        document.addEventListener('click', function(e) {
+            var b = e.target.closest && e.target.closest('.info-btn');
+            if (b) {
+                if (b === infoFor && infoPinned) hideInfo(); else showInfo(b, true);
+                return;
+            }
+            if (infoFor) hideInfo();
+        });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && infoFor) hideInfo(); });
+        window.addEventListener('scroll', function() { if (infoFor) hideInfo(); }, { passive: true });
+
         function sliderHead(label, note, trackId) {
-            return '<div class="slider-header"><h2 class="slider-label">' + escapeHtml(label) + '</h2>'
+            return '<div class="slider-header"><h2 class="slider-label">' + escapeHtml(label) + '</h2>' + infoTip(label)
                 + (note ? '<span class="slider-note">' + escapeHtml(note) + '</span>' : '')
                 + '<div class="slider-nav">' + sliderArrows(trackId) + '</div></div>';
         }
@@ -2373,24 +2480,56 @@
 
         // From the Source: a list, not a strip — source (RBI / SEBI / PIB) | headline | date | bookmark.
         // The list sits in a fixed-height box (~8 rows) that scrolls on its own, so the page never jumps.
+        // One fixed colour per issuer, so RBI always looks like RBI.
+        var ISSUERS = [
+            { re: /\bRBI\b|Reserve Bank/i, code: 'RBI', c: '#2F5D8A' },
+            { re: /\bSEBI\b/i, code: 'SEBI', c: '#7A4E8C' },
+            { re: /\bPIB\b|Press Information Bureau/i, code: 'PIB', c: '#B0602A' },
+            { re: /MoSPI|Statistics/i, code: 'MoSPI', c: '#3F7F6A' },
+            { re: /\bECB\b|European Central/i, code: 'ECB', c: '#2C6E86' },
+            { re: /FRED|Federal Reserve|\bFed\b/i, code: 'Fed', c: '#4F5C93' },
+            { re: /\bADB\b|Asian Development/i, code: 'ADB', c: '#2F7C79' },
+            { re: /\bIMF\b|Monetary Fund/i, code: 'IMF', c: '#365F9C' },
+            { re: /World Bank/i, code: 'WB', c: '#26768E' },
+            { re: /\bBIS\b|International Settlements/i, code: 'BIS', c: '#86683A' },
+            { re: /\bNSE\b|\bBSE\b/i, code: 'Exch', c: '#6B6F3A' },
+            { re: /Ministry|Government|Cabinet/i, code: 'GoI', c: '#9A5B3C' }
+        ];
+        function issuerOf(publisher) {
+            var p = String(publisher || '');
+            for (var i = 0; i < ISSUERS.length; i++) if (ISSUERS[i].re.test(p)) return ISSUERS[i];
+            return { code: (p.split(/[\s—–-]+/)[0] || 'Src').slice(0, 5), c: '#6B645C' };
+        }
+
         function buildFromSourceSlider(items) {
             if (!items || !items.length) return '';
+            var counts = [], byCode = {};
             const rows = items.map(function(n) {
                 const title = escapeHtml(cleanHomeTitle(n.title));
                 const url = sanitizeUrl(n.url || '');
-                const src = escapeHtml(n.publisher || 'Source');
+                const pubRaw = n.publisher || 'Source';
+                const src = escapeHtml(pubRaw);
+                const iss = issuerOf(pubRaw);
+                if (!byCode[iss.code]) { byCode[iss.code] = { iss: iss, n: 0 }; counts.push(byCode[iss.code]); }
+                byCode[iss.code].n++;
                 const dateStr = n.date ? escapeHtml(new Date(n.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
                 const link = url
                     ? '<a class="source-row-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     : '<span class="source-row-title">' + title + '</span>';
                 return '<li class="source-row">'
-                    + '<span class="source-row-org">' + src + '</span>' + link
+                    + '<span class="issuer-badge" style="--c:' + iss.c + '" title="' + escapeForAttr(pubRaw) + '">' + escapeHtml(iss.code) + '</span>'
+                    + '<span class="source-row-main">' + link + '<span class="source-row-pub">' + src + '</span></span>'
                     + '<span class="source-row-date">' + dateStr + '</span>'
                     + npBookmarkBtn(url, title, src) + '</li>';
             }).join('');
+            counts.sort(function(a, b) { return b.n - a.n; });
+            const strip = '<div class="issuer-strip">' + counts.map(function(x) {
+                return '<span class="issuer-count"><span class="issuer-dot" style="background:' + x.iss.c + '"></span>' + escapeHtml(x.iss.code) + ' <b>' + x.n + '</b></span>';
+            }).join('') + '</div>';
             return '<section class="slider-section source-list">'
-                + '<div class="slider-header"><h2 class="slider-label">From the Source</h2>'
-                + '<span class="slider-note">' + items.length + ' from RBI, SEBI, PIB and other official channels</span></div>'
+                + '<div class="slider-header"><h2 class="slider-label">From the Source</h2>' + infoTip('From the Source')
+                + '<span class="slider-note">' + items.length + ' from official channels</span></div>'
+                + strip
                 + '<ul class="source-rows">' + rows + '</ul>'
                 + '</section>';
         }
@@ -2492,8 +2631,18 @@
             news: '#4A8F7A', telegram: '#5E6A96', reports: '#9A8345',
             twitter: '#4A8A9A', youtube: '#A86565'
         };
-        var CLUSTER_FULL_COUNT = 3;   // stories 1-3 get the full thread treatment
-        var CLUSTER_VISIBLE = 3;      // sources shown before "+ N more sources" (hero shows 4)
+        // Big Stories (Oct 2026): a front page. The lead shows a short Coverage list; every
+        // other story shows no sources until asked. Sources open in a side drawer (a bottom
+        // sheet on phones), so the page never moves. Each story carries a signal row:
+        // dots for how many models picked it, a colour strip of its source mix, and a count.
+        var BIG_STORY_COVERAGE = 4;
+        var BS_TYPE_ORDER = ['news', 'telegram', 'reports', 'youtube', 'twitter'];
+        var BS_TYPE_LABELS = { news: 'News', telegram: 'Telegram', reports: 'Reports', youtube: 'Videos', twitter: 'X' };
+        var BS_GROUP_LABELS = { news: 'News', telegram: 'Telegram notes', reports: 'Research reports', youtube: 'Videos', twitter: 'Posts on X' };
+        var BS_ARROW = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>';
+        var BS_CLOSE = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>';
+        var bigStoriesShown = [];
+        var storyDrawerReturnFocus = null;
 
         function getClusterArticles(cluster) {
             // Flatten lead + related into one list of articles
@@ -2520,105 +2669,178 @@
             return s;
         }
 
-        function renderClusterSource(a, hidden) {
+        function bsType(a) {
+            return BS_GROUP_LABELS[a.source_type] ? a.source_type : 'news';
+        }
+
+        // Models that ran this time vs. how many are configured. A failed model still has
+        // an entry in ai_rankings.json (status "error"), so the gap is visible here.
+        function bigStoryModels() {
+            var providers = (aiRankings && aiRankings.providers) ? Object.values(aiRankings.providers) : [];
+            var ran = providers.filter(function(p) {
+                return p && (p.status === 'ok' || p.status === 'partial') && Array.isArray(p.clusters) && p.clusters.length;
+            }).length;
+            return { ran: ran, configured: providers.length };
+        }
+
+        // "3 of 4 models" dots. With one model running, agreement means nothing, so they go.
+        function agreementHtml(providerCount) {
+            var ran = bigStoryModels().ran;
+            if (ran < 2) return '';
+            var picked = Math.min(providerCount || 1, ran);
+            var pips = '';
+            for (var i = 0; i < ran; i++) pips += '<i' + (i < picked ? ' class="on"' : '') + '></i>';
+            return '<span><span class="bs-pips" aria-hidden="true">' + pips + '</span>'
+                + '<span><b>' + picked + '</b> of ' + ran + ' models</span></span>';
+        }
+
+        // Signal row: agreement dots + source-mix strip + count.
+        function bsSignals(cluster, articles, extra) {
+            var html = '<span class="bs-sigs">' + agreementHtml(cluster._providerCount);
+            var mix = articles.slice()
+                .sort(function(a, b) { return BS_TYPE_ORDER.indexOf(bsType(a)) - BS_TYPE_ORDER.indexOf(bsType(b)); })
+                .slice(0, 12)
+                .map(function(a) { return '<i style="background:' + SOURCE_TYPE_DOTS[bsType(a)] + '"></i>'; }).join('');
+            html += '<span><span class="bs-mix" aria-hidden="true">' + mix + '</span><span><b>' + articles.length + '</b> sources</span></span>';
+            return html + (extra || '') + '</span>';
+        }
+
+        function bsKick(cluster, articles, idx) {
+            return '<div class="bs-kick"><span class="bs-num">' + (idx + 1) + '</span>' + bsSignals(cluster, articles) + '</div>';
+        }
+
+        function bsLegend() {
+            var models = bigStoryModels();
+            return '<span class="bs-legend">'
+                + BS_TYPE_ORDER.map(function(t) { return '<span><span class="bs-dot" style="background:' + SOURCE_TYPE_DOTS[t] + '"></span>' + BS_TYPE_LABELS[t] + '</span>'; }).join('')
+                + (models.ran > 1 ? '<span><span class="bs-pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span>models that picked it</span>' : '')
+                + '</span>';
+        }
+
+        function bsSource(a) {
             var aTitle = escapeHtml(cleanHomeTitle(a.title));
             var aUrl = sanitizeUrl(a.url || '');
-            var aType = a.source_type || 'news';
-            var aSource = escapeHtml(homeSourceName(a.source, aType));
             var angle = tidyAngle(a.angle, a.source);
-            var dot = SOURCE_TYPE_DOTS[aType] || '#6B645C';
             var link = aUrl
-                ? '<a class="cluster-sub-link" href="' + escapeForAttr(aUrl) + '" target="_blank" rel="noopener">' + aTitle + '</a>'
-                : '<span class="cluster-sub-link">' + aTitle + '</span>';
-            var official = a.source_tier === 'official' ? '<span class="official-badge">Primary source</span>' : '';
-            return '<li class="cluster-sub' + (hidden ? ' cluster-sub-hidden' : '') + '">'
-                + '<span class="cluster-sub-dot" style="background:' + dot + '"></span>'
-                + '<div class="cluster-sub-content">' + link
-                + '<div class="cluster-sub-meta"><b>' + aSource + '</b>' + official
-                + (angle ? '<span class="cluster-sub-angle"> · ' + escapeHtml(angle) + '</span>' : '')
+                ? '<a class="bs-src-t" href="' + escapeForAttr(aUrl) + '" target="_blank" rel="noopener">' + aTitle + '</a>'
+                : '<span class="bs-src-t">' + aTitle + '</span>';
+            return '<li class="bs-src"><div class="bs-src-body">' + link
+                + '<div class="bs-src-m"><span class="bs-dot" style="background:' + SOURCE_TYPE_DOTS[bsType(a)] + '"></span>'
+                + '<b>' + escapeHtml(homeSourceName(a.source, a.source_type)) + '</b>'
+                + (a.source_tier === 'official' ? '<span class="official-badge">Primary source</span>' : '')
+                + (angle ? '<span>· ' + escapeHtml(angle) + '</span>' : '')
                 + '</div></div>'
                 + (aUrl ? npBookmarkBtn(aUrl, aTitle, a.source || 'Home') : '')
                 + '</li>';
         }
 
-        // Stories 1-3: number + source count, label, summary, sources joined by one thread line.
-        function renderClusterStory(cluster, idx) {
-            var articles = getClusterArticles(cluster);
-            if (!articles.length) return '';
-            var isHero = idx === 0;
-            var visible = isHero ? CLUSTER_VISIBLE + 1 : CLUSTER_VISIBLE;
-            var summary = clusterSummary(cluster);
-            var more = articles.length - visible;
-            return '<article class="cluster-story thread' + (isHero ? ' hero' : '') + '">'
-                + '<p class="cluster-kicker"><b>' + (idx + 1) + '</b> · ' + articles.length + ' sources</p>'
-                + '<h2 class="cluster-title">' + escapeHtml(cluster.story_label || '') + '</h2>'
-                + (summary ? '<p class="cluster-summary">' + escapeHtml(summary) + '</p>' : '')
-                + '<ul class="cluster-articles">'
-                + articles.map(function(a, i) { return renderClusterSource(a, i >= visible); }).join('')
-                + '</ul>'
-                + (more > 0 ? '<button class="cluster-show-more" type="button" data-more="' + more + '" onclick="toggleClusterExpand(this)">+ ' + more + ' more sources</button>' : '')
-                + '</article>';
+        function bsTitle(cluster, idx, tag) {
+            return '<' + tag + ' class="bs-title"><button class="bs-tb" type="button" onclick="openStoryDrawer(' + idx + ')">'
+                + escapeHtml(cluster.story_label || '') + '</button></' + tag + '>';
         }
 
-        // Stories 4+: label, summary and who covered it; the sources open in place, full width.
-        function renderCompactStory(cluster, idx) {
-            var articles = getClusterArticles(cluster);
-            if (!articles.length) return '';
-            var names = [];
-            articles.forEach(function(a) {
-                var n = homeSourceName(a.source, a.source_type);
-                if (n && names.indexOf(n) === -1) names.push(n);
-            });
-            var who = names.slice(0, 3).join(', ') + (names.length > 3 ? ' and ' + (names.length - 3) + ' more' : '');
-            var summary = clusterSummary(cluster);
-            return '<article class="cluster-story thread compact">'
-                + '<p class="cluster-kicker"><b>' + (idx + 1) + '</b> · ' + articles.length + ' sources</p>'
-                + '<h2 class="cluster-title">' + escapeHtml(cluster.story_label || '') + '</h2>'
-                + (summary ? '<p class="cluster-summary">' + escapeHtml(summary) + '</p>' : '')
-                + '<p class="cluster-who">' + escapeHtml(who) + '</p>'
-                + '<ul class="cluster-articles">' + articles.map(function(a) { return renderClusterSource(a, false); }).join('') + '</ul>'
-                + '<button class="cluster-show-more" type="button" onclick="toggleStoryOpen(this)">'
-                + '<span class="when-closed">Show the ' + articles.length + ' sources</span><span class="when-open">Hide sources</span></button>'
-                + '</article>';
-        }
-
-        function toggleClusterExpand(btn) {
-            var story = btn.closest('.cluster-story');
-            if (!story) return;
-            var open = story.classList.toggle('show-all');
-            btn.textContent = open ? 'Show fewer' : '+ ' + btn.dataset.more + ' more sources';
-        }
-
-        function toggleStoryOpen(btn) {
-            var story = btn.closest('.cluster-story');
-            if (story) story.classList.toggle('open');
+        function bsShow(idx, text) {
+            return '<button class="bs-see" type="button" onclick="openStoryDrawer(' + idx + ')">' + text + ' ' + BS_ARROW + '</button>';
         }
 
         function renderBigStories(clusters) {
             if (!clusters || !clusters.length) return '';
-            var top = clusters.slice(0, CLUSTER_FULL_COUNT);
-            var rest = clusters.slice(CLUSTER_FULL_COUNT);
+            bigStoriesShown = clusters;
+            var lead = clusters[0], two = clusters.slice(1, 3), rest = clusters.slice(3);
+            var leadArts = getClusterArticles(lead);
+            var leadSummary = clusterSummary(lead);
+
+            var models = bigStoryModels();
             var total = aiRankings && aiRankings.article_count ? Number(aiRankings.article_count) : 0;
             var when = aiRankings && aiRankings.generated_at ? new Date(aiRankings.generated_at) : null;
             var whenStr = when && !isNaN(when) ? when.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit' }) : '';
-            var caption = 'Grouped and ranked by four Gemini models'
+            var who = models.ran === 1 ? 'one Gemini model' : models.ran + ' Gemini models';
+            var caption = 'Grouped and ranked by ' + who
                 + (total ? ' from ' + total.toLocaleString('en-IN') + ' stories' : '')
-                + (whenStr ? ' · ' + whenStr : '');
-            return '<section class="big-stories-section">'
-                + '<div class="section-divider"><span class="section-label">The Big Stories</span>'
-                + '<span class="section-note">' + clusters.length + ' stories, each pulled together from several sources</span></div>'
-                + '<div class="cluster-grid">' + top.map(function(c, i) { return renderClusterStory(c, i); }).join('') + '</div>'
-                + (rest.length
-                    ? '<div class="more-stories"><p class="more-stories-head"><b>More big stories</b> '
-                      + rest.length + ' more, tap one to see its sources</p>'
-                      + '<div class="compact-grid">' + rest.map(function(c, i) { return renderCompactStory(c, i + CLUSTER_FULL_COUNT); }).join('') + '</div></div>'
-                    : '')
-                + '<p class="cluster-caption">' + escapeHtml(caption) + '</p>'
-                + '</section>';
+                + (whenStr ? ' · ' + whenStr : '')
+                + (models.configured > models.ran ? ' · ' + (models.configured - models.ran) + ' of ' + models.configured + ' models didn’t run this time' : '');
+
+            var html = '<section class="big-stories-section">'
+                + '<div class="section-divider"><span class="head-title"><span class="section-label">The Big Stories</span>' + infoTip('The Big Stories') + '</span>' + bsLegend() + '</div>'
+                + '<article class="bs-lead"><div class="bs-lead-main">' + bsKick(lead, leadArts, 0) + bsTitle(lead, 0, 'h2')
+                + (leadSummary ? '<p class="bs-sum">' + escapeHtml(leadSummary) + '</p>' : '') + '</div>'
+                + '<div class="bs-cover"><h3>Coverage</h3><ul class="bs-srcs">'
+                + leadArts.slice(0, BIG_STORY_COVERAGE).map(bsSource).join('') + '</ul>'
+                + bsShow(0, leadArts.length > BIG_STORY_COVERAGE ? 'See all ' + leadArts.length + ' sources' : 'Open in the panel')
+                + '</div></article>';
+
+            if (two.length) {
+                html += '<div class="bs-two">' + two.map(function(c, i) {
+                    var arts = getClusterArticles(c);
+                    var sum = clusterSummary(c);
+                    return '<article>' + bsKick(c, arts, i + 1) + bsTitle(c, i + 1, 'h3')
+                        + (sum ? '<p class="bs-sum bs-clamp3">' + escapeHtml(sum) + '</p>' : '')
+                        + bsShow(i + 1, 'Show sources') + '</article>';
+                }).join('') + '</div>';
+            }
+
+            if (rest.length) {
+                html += '<div class="bs-briefs"><h3 class="bs-briefs-head">Also developing<span>' + rest.length + ' more ' + (rest.length === 1 ? 'story' : 'stories') + '</span></h3><ol class="bs-list">'
+                    + rest.map(function(c, i) {
+                        var idx = i + 3;
+                        var arts = getClusterArticles(c);
+                        var sum = clusterSummary(c);
+                        return '<li><button class="bs-row" type="button" onclick="openStoryDrawer(' + idx + ')">'
+                            + '<span class="bs-num">' + (idx + 1) + '</span><span class="bs-row-body">'
+                            + '<span class="bs-row-title">' + escapeHtml(c.story_label || '') + '</span>'
+                            + (sum ? '<span class="bs-row-sum">' + escapeHtml(sum) + '</span>' : '')
+                            + bsSignals(c, arts, '<span class="bs-cta">Show sources ' + BS_ARROW + '</span>')
+                            + '</span></button></li>';
+                    }).join('') + '</ol></div>';
+            }
+
+            return html + '<p class="cluster-caption">' + escapeHtml(caption) + '</p></section>';
         }
 
+        function openStoryDrawer(idx) {
+            var cluster = bigStoriesShown[idx];
+            if (!cluster) return;
+            var returnTo = document.activeElement;
+            closeStoryDrawer(true);
+            storyDrawerReturnFocus = returnTo;
+            var arts = getClusterArticles(cluster);
+            var sum = clusterSummary(cluster);
+            var groups = BS_TYPE_ORDER.map(function(t) {
+                var g = arts.filter(function(a) { return bsType(a) === t; });
+                if (!g.length) return '';
+                return '<section class="bs-group"><h4><span class="bs-dot" style="background:' + SOURCE_TYPE_DOTS[t] + '"></span>'
+                    + BS_GROUP_LABELS[t] + ' <span>' + g.length + '</span></h4><ul class="bs-srcs">' + g.map(bsSource).join('') + '</ul></section>';
+            }).join('');
+            var wrap = document.createElement('div');
+            wrap.id = 'story-drawer';
+            wrap.innerHTML = '<div class="bs-scrim" onclick="closeStoryDrawer()"></div>'
+                + '<aside class="bs-drawer" role="dialog" aria-modal="true" aria-labelledby="bs-drawer-title">'
+                + '<div class="bs-dr-head"><button class="bs-x" type="button" onclick="closeStoryDrawer()" aria-label="Close">' + BS_CLOSE + '</button>'
+                + bsKick(cluster, arts, idx)
+                + '<h2 class="bs-title" id="bs-drawer-title">' + escapeHtml(cluster.story_label || '') + '</h2>'
+                + (sum ? '<p class="bs-sum">' + escapeHtml(sum) + '</p>' : '') + '</div>'
+                + '<div class="bs-dr-body">' + groups + '</div></aside>';
+            document.body.appendChild(wrap);
+            lockBodyScroll();
+            wrap.querySelector('.bs-x').focus({ preventScroll: true });
+        }
+
+        function closeStoryDrawer(silent) {
+            var el = document.getElementById('story-drawer');
+            if (!el) return;
+            el.remove();
+            unlockBodyScroll();
+            if (!silent && storyDrawerReturnFocus && document.contains(storyDrawerReturnFocus)) {
+                storyDrawerReturnFocus.focus({ preventScroll: true });
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('story-drawer')) closeStoryDrawer();
+        });
+
         function renderSectionLabel(text, note) {
-            return '<div class="section-divider"><span class="section-label">' + escapeHtml(text) + '</span>'
+            return '<div class="section-divider"><span class="section-label">' + escapeHtml(text) + '</span>' + infoTip(text)
                 + (note ? '<span class="section-note">' + escapeHtml(note) + '</span>' : '') + '</div>';
         }
 
@@ -2687,7 +2909,7 @@
                 buildFromSourceSlider(getFromSourceItems()),
                 buildTwSlider(result.twitter),
                 breakers[4],
-                renderFeedRows(s7)
+                renderFeedBucket(s7)
             );
             const html = parts.filter(Boolean).join('');
 

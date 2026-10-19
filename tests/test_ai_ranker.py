@@ -383,5 +383,20 @@ class EntertainmentFilterTest(unittest.TestCase):
                    "related": [{"title": "Actor safe after shots fired"}]}
         self.assertEqual(filter_entertainment_clusters([cluster]), [])
 
+
+class ReportRegionTest(unittest.TestCase):
+    def test_report_candidates_carry_feed_region(self):
+        import ai_ranker
+        from datetime import datetime
+        with patch.object(ai_ranker, "_FEED_REGIONS", {"crisil": "Indian", "imf-blog": "International"}):
+            now = datetime.now(ai_ranker.IST_TZ)
+            snap = {"reports": [
+                {"title": "CRISIL on credit growth", "url": "https://a.example/1", "publisher": "CRISIL", "source_id": "crisil", "published_at": now.isoformat()},
+                {"title": "IMF on global trade", "url": "https://b.example/2", "publisher": "IMF", "source_id": "imf-blog", "published_at": now.isoformat()},
+                {"title": "Unknown feed note", "url": "https://c.example/3", "publisher": "X", "source_id": "nope", "published_at": now.isoformat()},
+            ]}
+            regions = {c["title"]: c["region"] for c in ai_ranker.build_candidates_for_source(snap, "reports", now=now)}
+        self.assertEqual(regions, {"CRISIL on credit growth": "Indian", "IMF on global trade": "International", "Unknown feed note": ""})
+
 if __name__ == "__main__":
     unittest.main()
