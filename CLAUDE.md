@@ -21,8 +21,8 @@ python3 ieefa_local_fetch.py         # IEEFA backfill (headed Chrome, one manual
 python3 ember_local_fetch.py         # Ember refresh (headed Chrome; CI cannot reach Ember at all)
 
 # AI ranking (requires API keys)
-OPENROUTER_API_KEY="..." python3 ai_ranker.py      # → static/ai_rankings.json
-OPENROUTER_API_KEY="..." python3 wsw_ranker.py     # → static/wsw_clusters.json
+GEMINI_API_KEY="..." python3 ai_ranker.py      # → static/ai_rankings.json
+GEMINI_API_KEY="..." python3 wsw_ranker.py     # → static/wsw_clusters.json
 
 # Local Twitter fetch (requires RSSHub running on localhost:1200)
 python3 rsshub_local_fetch.py          # Fetch + save cache
@@ -59,7 +59,7 @@ PROCESSING
 └─ twitter_signal.py: URL resolution, noise filters, High Signal lane (top 25)
 
 RANKING (separate crons, needs API keys)
-├─ ai_ranker.py: dual-LLM ranking → static/ai_rankings.json
+├─ ai_ranker.py: 3-model Gemini ranking → static/ai_rankings.json
 │   Buckets: news=25, telegram=20, reports=10, twitter=10, youtube=10
 │   Post-ranking: cross-bucket clustering (all candidates → LLM → story clusters)
 └─ wsw_ranker.py: debate clusters from 7-day window → static/wsw_clusters.json
@@ -73,7 +73,7 @@ OUTPUT
 
 The homepage **exclusively shows AI-ranked content** from `static/ai_rankings.json`. Individual tabs remain chronological.
 
-- `getMergedAiRankings(bucket)` in `app.js` merges picks from all providers (DeepSeek V3.2 via OpenRouter + Gemini 2.5 Flash via Google API) with consensus scoring: items picked by 2+ models rank highest (average rank), single-provider items get a +50 penalty. Cross-family consensus (different model vendors) is stronger signal than the old two-DeepSeek-variant setup
+- `getMergedAiRankings(bucket)` in `app.js` merges picks from all providers (three Gemini slots: 2.5 Flash, 3 Flash, 2.5 Flash-Lite) with consensus scoring: items picked by 2+ models rank highest (average rank), single-provider items get a +50 penalty. The frontend is provider-key agnostic — it reads whatever keys `ai_rankings.json` has
 - Cross-provider matching uses URL (exact, lowercased) with fallback to `normalizeAiTitle()` (handles unicode dash/quote/ellipsis variants)
 - News + Telegram interleave in the newspaper feed (3:1 ratio); YouTube, Reports, Twitter render in dedicated slider sections
 - WSW breakers auto-select the provider with the most clusters
@@ -163,7 +163,8 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 | `filters.py` (356L) | 126 title regex + 24 URL patterns | aggregator.py |
 | `twitter_fetcher.py` (345L) | Dual-source Twitter (RSSHub + Google RSS) | aggregator.py |
 | `twitter_signal.py` (659L) | URL resolution, noise filters, High Signal lane | twitter_fetcher.py |
-| `ai_ranker.py` (~1080L) | Dual-LLM ranking + cross-bucket clustering | ai-ranking.yml |
+| `ai_ranker.py` (~1080L) | 3-slot Gemini ranking + cross-bucket clustering | ai-ranking.yml |
+| `gemini_client.py` | Shared Gemini caller: fallback chains, retries, model discovery | ai_ranker, wsw_ranker, twitter_signal |
 | `wsw_ranker.py` (418L) | "Who Said What" debate clusters | ai-ranking.yml (after ai_ranker) |
 | `telegram_fetcher.py` (580L) | HTML scraping + Telethon MTProto | Standalone / hourly.yml |
 | `piie_local_fetch.py` (210L) | Playwright scraper → `static/piie_cache.json` | Local only (manual) |
@@ -223,11 +224,11 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 | Workflow | Schedule | What it does |
 |----------|----------|-------------|
 | `hourly.yml` | Every hour | telegram_fetcher → aggregator → commit + push |
-| `ai-ranking.yml` | 2x daily (UTC 10, 22) | ai_ranker → wsw_ranker → commit + push. Targets 6 AM / 6 PM IST completion (cron offset 2.5 hrs earlier for Actions delay) |
+| `ai-ranking.yml` | 2x daily (UTC 10, 22) | ai_ranker → wsw_ranker → commit + push. WSW and commit run with `if: !cancelled()`, so one ranker failing never blocks the other's output. Targets 6 AM / 6 PM IST completion (cron offset 2.5 hrs earlier for Actions delay) |
 | `missing-story-audit.yml` | Daily UTC 00:30 | Audit 7-day SLA breaches |
 | `deploy-rss-proxy.yml` | Manual | Deploy Cloudflare RSS proxy worker |
 
-Required secrets: `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_SESSION`, `OPENROUTER_API_KEY`, `GEMINI_API_KEY`, `RSS_PROXY_URL` (optional), `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+Required secrets: `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_SESSION`, `GEMINI_API_KEY`, `RSS_PROXY_URL` (optional), `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 
 ## Local Services (systemd user units)
 
@@ -256,4 +257,9 @@ Key constants: `FEED_FETCH_TIMEOUT=15`, `FEED_THREAD_WORKERS=10`, `NEWS_FRESHNES
 AI ranker bucket targets are in `ai_ranker.py:BUCKET_TARGETS` (news=25, telegram=20, reports=10, twitter=10, youtube=10). Clustering constants: `AI_RANKER_MAX_CLUSTERS`, `AI_RANKER_MIN_CLUSTER_SIZE`, `AI_RANKER_CLUSTER_TIMEOUT`.
 
 ## API Integration
-- `ai_ranker.py` uses two models for consensus: **DeepSeek V3.2** (`deepseek/deepseek-v3.2` via OpenRouter) and **Gemini 2.5 Flash** (`gemini-2.5-flash` via Google's generateContent API, key `GEMINI_API_KEY`). Provider routing lives in `call_provider()`, which dispatches on `model_config["provider"]` (`"gemini"` → `call_gemini()`, else `call_openrouter()`). The clustering step (`cluster_ranked_items()`) also routes through `call_provider()`, so it respects the per-model provider. `wsw_ranker.py` still calls OpenRouter exclusively. Verify any model swap against the provider's models listing before deploying (OpenRouter `/api/v1/models`; Google AI Studio for Gemini IDs).
+- **All AI calls go to Gemini via `gemini_client.generate_json()`** (Oct 2026 — OpenRouter was dropped after its prepaid credit ran out and every DeepSeek call returned HTTP 402). Users: `ai_ranker.py` (3 slots in `MODELS`), `wsw_ranker.py` (2 slots in `WSW_MODELS`), `twitter_signal.py` (`TWITTER_SIGNAL_MODEL_CHAIN`, hourly). Each slot is a *chain* of model IDs, not one ID:
+  - 429/5xx/timeouts/unparseable JSON → retried with backoff; 404 or an exhausted quota → model skipped for the rest of the run; 400 with a `thinkingConfig` → retried without it
+  - The API's model list is fetched once per run: chain IDs Google no longer lists go to the back, and the 2 newest listed Flash models are appended as a last resort. The log line `[gemini] N models available; Flash: …` shows what exists — use it to pick new IDs
+  - Thinking is kept off/low (`thinking_config()`): 2.5 Flash `thinkingBudget: 0`, Gemini 3+ `thinkingLevel: low`
+  - When a slot falls back, its `name` in the JSON becomes the model that actually answered; `ai_rankings.json` also records `models_used` per slot
+  - If every slot fails, `ai_ranker.py` exits 1 **without** overwriting `ai_rankings.json` (an all-error file would blank the homepage)

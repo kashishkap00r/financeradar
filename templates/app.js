@@ -2601,7 +2601,7 @@
             var total = aiRankings && aiRankings.article_count ? Number(aiRankings.article_count) : 0;
             var when = aiRankings && aiRankings.generated_at ? new Date(aiRankings.generated_at) : null;
             var whenStr = when && !isNaN(when) ? when.toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit' }) : '';
-            var caption = 'Grouped and ranked by DeepSeek and Gemini'
+            var caption = 'Grouped and ranked by three Gemini models'
                 + (total ? ' from ' + total.toLocaleString('en-IN') + ' stories' : '')
                 + (whenStr ? ' · ' + whenStr : '');
             return '<section class="big-stories-section">'

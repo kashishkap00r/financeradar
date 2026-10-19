@@ -19,9 +19,8 @@ from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 
 from articles import IST_TZ, clean_twitter_title
-from config import (
-    AI_RANKER_OPENROUTER_TIMEOUT,
-)
+from config import TWITTER_SIGNAL_AI_TIMEOUT
+from gemini_client import generate_json
 
 SSL_CONTEXT = ssl.create_default_context()
 GOOGLE_NEWS_ARTICLE_RE = re.compile(r"^https?://news\.google\.com/rss/articles/([A-Za-z0-9_-]+)")
@@ -463,26 +462,20 @@ def _parse_json_response(text):
     return json.loads(text)
 
 
-def _call_openrouter_rank(prompt):
-    api_key = os.environ.get("OPENROUTER_API_KEY", "")
-    if not api_key:
-        raise ValueError("OPENROUTER_API_KEY not set")
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions",
-        data=json.dumps({
-            "model": "deepseek/deepseek-v3.2",
-            "messages": [{"role": "user", "content": prompt}],
-        }).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://financeradar.kashishkapoor.com",
-            "X-Title": "FinanceRadar Twitter Signal",
-        },
+# Hourly call, so cheap models first; Gemini's client falls back down the chain.
+TWITTER_SIGNAL_MODEL_CHAIN = ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-flash-latest"]
+
+
+def _call_gemini_rank(prompt):
+    ranked, _model_id = generate_json(
+        prompt,
+        TWITTER_SIGNAL_MODEL_CHAIN,
+        parse=_parse_json_response,
+        timeout=TWITTER_SIGNAL_AI_TIMEOUT,
+        attempts=2,
+        label="twitter-signal",
     )
-    with urllib.request.urlopen(req, timeout=AI_RANKER_OPENROUTER_TIMEOUT, context=SSL_CONTEXT) as response:
-        result = json.loads(response.read().decode("utf-8"))
-    return _parse_json_response(result["choices"][0]["message"]["content"])
+    return ranked
 
 
 def _ai_rank_high_signal(seed_items, target_count=25):
@@ -511,7 +504,7 @@ No markdown, no commentary.
 """
     ranked = None
     try:
-        ranked = _call_openrouter_rank(prompt)
+        ranked = _call_gemini_rank(prompt)
     except Exception:
         return []
     if not isinstance(ranked, list):

@@ -6,7 +6,7 @@
 ## Build, Test, and Development Commands
 - `python3 aggregator.py` regenerates the homepage and core JSON snapshots from configured feeds.
 - `python3 telegram_fetcher.py` refreshes Telegram report data.
-- `OPENROUTER_API_KEY=... python3 ai_ranker.py` rebuilds AI picks; add other required API env vars if your local setup uses them.
+- `GEMINI_API_KEY=... python3 ai_ranker.py` rebuilds AI picks; add other required API env vars if your local setup uses them.
 - `python3 -m unittest discover -s tests` runs the full test suite.
 - `python3 -m unittest tests.test_filters` runs one targeted module while iterating.
 - `python3 -m py_compile aggregator.py && node --check templates/app.js` performs quick Python and JS syntax checks.
@@ -22,4 +22,4 @@ Use `unittest` and add regression coverage in `tests/test_*.py` for parser, filt
 Recent history favors short, imperative commit subjects such as `Update news feeds`, `Show mobile bookmarks in header`, and `Restyle mobile quick actions`. Keep logic changes separate from feed refreshes or generated-content churn when practical. Pull requests should summarize user-visible impact, list commands run, call out regenerated artifacts, and include desktop/mobile screenshots for UI changes.
 
 ## Security & Configuration Tips
-Do not commit secrets such as `TELEGRAM_SESSION`, `TELEGRAM_API_HASH`, or `OPENROUTER_API_KEY`. Prefer environment variables or GitHub repository secrets. If you change proxy infrastructure, review host restrictions in `infra/rss-proxy/wrangler.toml` before deploying.
+Do not commit secrets such as `TELEGRAM_SESSION`, `TELEGRAM_API_HASH`, or `GEMINI_API_KEY`. Prefer environment variables or GitHub repository secrets. If you change proxy infrastructure, review host restrictions in `infra/rss-proxy/wrangler.toml` before deploying.

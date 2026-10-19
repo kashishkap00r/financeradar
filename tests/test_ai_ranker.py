@@ -340,16 +340,14 @@ class TestClusterResolution(unittest.TestCase):
     def test_cluster_ranked_items_returns_empty_on_failure(self):
         """cluster_ranked_items returns [] if API call fails."""
         items = self._make_items()
-        model_config = {"id": "test-model", "provider": "openrouter"}
-        with patch("ai_ranker.OPENROUTER_API_KEY", "test-key"), patch(
-            "ai_ranker.call_openrouter", side_effect=Exception("API down")
-        ):
+        model_config = {"name": "Test", "chain": ["test-model"]}
+        with patch("ai_ranker.generate_json", side_effect=RuntimeError("API down")):
             result = cluster_ranked_items(items, model_config)
         self.assertEqual(result, [])
 
     def test_cluster_ranked_items_returns_empty_for_tiny_input(self):
         """Fewer than 2 items → no clustering attempted."""
-        result = cluster_ranked_items([{"title": "Solo"}], {"id": "x", "provider": "openrouter"})
+        result = cluster_ranked_items([{"title": "Solo"}], {"name": "x", "chain": ["x"]})
         self.assertEqual(result, [])
 
 

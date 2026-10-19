@@ -10,12 +10,12 @@ Builds source-separated AI rankings for the sidebar:
 - YouTube (5)
 """
 import json
-import urllib.request
 import os
 import re
 import sys
 import tempfile
 import time
+from collections import Counter
 from difflib import SequenceMatcher
 from datetime import datetime, timedelta, timezone
 
@@ -25,28 +25,29 @@ from config import (
     AI_RANKER_EXTENDED_WINDOW_DAYS,
     AI_RANKER_MAX_ARTICLES,
     AI_RANKER_TARGET_COUNT,
-    AI_RANKER_OPENROUTER_TIMEOUT,
     AI_RANKER_GEMINI_TIMEOUT,
     AI_RANKER_MAX_CLUSTERS,
     AI_RANKER_CLUSTER_TIMEOUT,
-    SSL_CONTEXT,
 )
+from gemini_client import generate_json, pretty_model_name
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-
+# Three Gemini "slots" vote on every bucket; the homepage favours items picked
+# by 2+ slots. Each slot walks its chain (see gemini_client.py) if a model is
+# retired, rate-limited or down, so one bad model never blanks a slot.
 MODELS = {
-    "deepseek-v3-2": {
-        "id": "deepseek/deepseek-v3.2",
-        "name": "DeepSeek V3.2",
-        "provider": "openrouter",
-    },
     "gemini-2-5-flash": {
-        "id": "gemini-2.5-flash",
         "name": "Gemini 2.5 Flash",
-        "provider": "gemini",
+        "chain": ["gemini-2.5-flash", "gemini-flash-latest"],
+    },
+    "gemini-3-flash": {
+        "name": "Gemini 3 Flash",
+        "chain": ["gemini-3-flash", "gemini-3-flash-preview"],
+    },
+    "gemini-2-5-flash-lite": {
+        "name": "Gemini 2.5 Flash-Lite",
+        "chain": ["gemini-2.5-flash-lite", "gemini-flash-lite-latest"],
     },
 }
 
@@ -528,71 +529,6 @@ def parse_json_response(text):
         raise
 
 
-def call_openrouter(prompt, model_id):
-    """Call OpenRouter API with specified model."""
-    if not OPENROUTER_API_KEY:
-        raise ValueError("OPENROUTER_API_KEY not set")
-    request = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions",
-        data=json.dumps({
-            "model": model_id,
-            "messages": [{"role": "user", "content": prompt}],
-        }).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://financeradar.kashishkapoor.com",
-            "X-Title": "FinanceRadar",
-        },
-    )
-    with urllib.request.urlopen(request, timeout=AI_RANKER_OPENROUTER_TIMEOUT, context=SSL_CONTEXT) as response:
-        result = json.loads(response.read().decode("utf-8"))
-    return parse_json_response(result["choices"][0]["message"]["content"])
-
-
-def call_gemini(prompt, model_id):
-    """Call Google's Gemini API (generateContent) with the specified model.
-
-    Uses the same urllib/SSL_CONTEXT pattern as call_openrouter. The key is
-    sent via the x-goog-api-key header (not the URL) so it can't leak into
-    request logs or proxies. responseMimeType forces clean JSON; safety
-    settings are disabled so finance headlines don't trip content filters.
-    """
-    if not GEMINI_API_KEY:
-        raise ValueError("GEMINI_API_KEY not set")
-    safety = [
-        {"category": cat, "threshold": "BLOCK_NONE"}
-        for cat in (
-            "HARM_CATEGORY_HARASSMENT",
-            "HARM_CATEGORY_HATE_SPEECH",
-            "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-            "HARM_CATEGORY_DANGEROUS_CONTENT",
-        )
-    ]
-    request = urllib.request.Request(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent",
-        data=json.dumps({
-            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-            "generationConfig": {"responseMimeType": "application/json"},
-            "safetySettings": safety,
-        }).encode("utf-8"),
-        headers={
-            "x-goog-api-key": GEMINI_API_KEY,
-            "Content-Type": "application/json",
-        },
-    )
-    with urllib.request.urlopen(request, timeout=AI_RANKER_GEMINI_TIMEOUT, context=SSL_CONTEXT) as response:
-        result = json.loads(response.read().decode("utf-8"))
-    candidates = result.get("candidates") or []
-    if not candidates:
-        raise ValueError(f"Gemini returned no candidates: {sanitize_error(json.dumps(result))}")
-    parts = candidates[0].get("content", {}).get("parts") or []
-    text = "".join(part.get("text", "") for part in parts)
-    if not text.strip():
-        raise ValueError("Gemini returned empty text (possible safety block or truncation)")
-    return parse_json_response(text)
-
-
 def normalize_ai_response(rankings):
     if isinstance(rankings, dict):
         rankings = rankings.get("rankings", rankings.get("items", []))
@@ -662,10 +598,15 @@ def sanitize_error(err):
     )[:200]
 
 
-def call_provider(model_config, prompt):
-    if model_config.get("provider") == "gemini":
-        return call_gemini(prompt, model_config["id"])
-    return call_openrouter(prompt, model_config["id"])
+def call_provider(model_config, prompt, label=""):
+    """Returns (parsed JSON, model ID that answered)."""
+    return generate_json(
+        prompt,
+        model_config["chain"],
+        parse=parse_json_response,
+        timeout=AI_RANKER_GEMINI_TIMEOUT,
+        label=label,
+    )
 
 
 def build_clustering_prompt(items, max_clusters=AI_RANKER_MAX_CLUSTERS):
@@ -978,7 +919,7 @@ def cluster_ranked_items(all_items, model_config, max_clusters=AI_RANKER_MAX_CLU
     prompt = build_clustering_prompt(all_items, max_clusters=max_clusters)
 
     try:
-        raw = call_provider(model_config, prompt)
+        raw, _model_id = call_provider(model_config, prompt, label="clusters")
 
         if isinstance(raw, dict):
             raw = raw.get("clusters", raw.get("items", []))
@@ -1027,6 +968,7 @@ def main():
         provider_buckets = {}
         provider_errors = {}
         provider_count = 0
+        models_used = Counter()
         print(f"[{model_name}]")
 
         for source_type in BUCKET_ORDER:
@@ -1042,7 +984,8 @@ def main():
             prompt = build_ranking_prompt(headlines, source_type=source_type, target_count=target)
 
             try:
-                rankings = call_provider(model_config, prompt)
+                rankings, model_id = call_provider(model_config, prompt, label=source_type)
+                models_used[model_id] += 1
                 rankings = normalize_ai_response(rankings)
                 enriched = enrich_bucket_rankings(
                     rankings,
@@ -1055,7 +998,7 @@ def main():
 
                 provider_buckets[source_type] = enriched
                 provider_count += len(enriched)
-                print(f"  [OK] {source_type}: {len(enriched)}")
+                print(f"  [OK] {source_type}: {len(enriched)} ({model_id})")
             except Exception as err:
                 safe_err = sanitize_error(str(err))
                 provider_errors[source_type] = safe_err
@@ -1082,8 +1025,15 @@ def main():
                 print(f"  [OK] clusters: none found")
 
             status = "ok" if len(provider_buckets) == len(available_buckets) else "partial"
+            # Name the slot after the model that actually did most of the work,
+            # so a fallback is visible in the JSON and on the site.
+            main_model = models_used.most_common(1)[0][0] if models_used else ""
+            if main_model and main_model != model_config["chain"][0]:
+                model_name = pretty_model_name(main_model)
+                print(f"  [NOTE] slot ran mostly on fallback {main_model}")
             payload = {
                 "name": model_name,
+                "models_used": dict(models_used),
                 "status": status,
                 "count": provider_count,
                 "available_buckets": [b for b in BUCKET_ORDER if b in provider_buckets],
@@ -1105,6 +1055,14 @@ def main():
                 "errors": provider_errors,
             }
 
+    success_count = sum(
+        1 for p in results["providers"].values() if p.get("status") in ("ok", "partial")
+    )
+    if not success_count:
+        # Keep the last good file: an all-error payload would blank the homepage.
+        print("\nAll models failed; keeping the previous ai_rankings.json.")
+        sys.exit(1)
+
     output_path = os.path.join(SCRIPT_DIR, "static", "ai_rankings.json")
     tmp_fd, tmp_path = tempfile.mkstemp(dir=os.path.dirname(output_path), suffix='.tmp')
     try:
@@ -1115,9 +1073,6 @@ def main():
         os.unlink(tmp_path)
         raise
 
-    success_count = sum(
-        1 for p in results["providers"].values() if p.get("status") in ("ok", "partial")
-    )
     print(f"\nSaved to {output_path}")
     print(f"\nSuccess: {success_count}/{len(MODELS)} models")
     print("=" * 50)

@@ -32,24 +32,28 @@ jobs:
 
       - name: Validate secrets
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          [ -n "$OPENROUTER_API_KEY" ] || (echo "::error::OPENROUTER_API_KEY not set" && exit 1)
           [ -n "$GEMINI_API_KEY" ] || (echo "::error::GEMINI_API_KEY not set" && exit 1)
 
+      # The two rankers are independent: each only rewrites its own JSON when it
+      # succeeds, so a failure in one must not stop the other from running or
+      # its output from being committed. The job still goes red (and emails).
       - name: Run AI ranker
+        timeout-minutes: 40
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python3 ai_ranker.py
 
       - name: Run WSW Ranker
+        if: ${{ !cancelled() }}
+        timeout-minutes: 15
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python3 wsw_ranker.py
 
       - name: Commit and push if changed
+        if: ${{ !cancelled() }}
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"

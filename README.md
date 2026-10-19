@@ -33,7 +33,7 @@ A Python RSS/Atom aggregator that fetches 106 feeds and generates a single stati
 
 - **106 feeds** — 96 news sources + 6 YouTube channels + 4 Twitter/X keyword feeds
 - **Four tabs** — News, Telegram (brokerage reports), YouTube, Twitter
-- **AI rankings** — Daily top-20 picks via OpenRouter, shown in an "In Focus" sidebar
+- **AI rankings** — Twice-daily picks by three Gemini models (consensus-ranked) on the homepage
 - **Telegram brokerage reports** — Fetched from 7 channels via HTML scraping + Telethon MTProto
 - **Content filtering** — 126 title regex + 24 URL substring patterns remove noise
 - **Headline grouping** — Clusters near-duplicate headlines from different sources
@@ -60,7 +60,7 @@ python3 telegram_fetcher.py
 TELEGRAM_API_ID="..." TELEGRAM_API_HASH="..." TELEGRAM_SESSION="..." python3 telegram_fetcher.py
 
 # Run AI ranking (requires API key)
-OPENROUTER_API_KEY="sk-or-..." python3 ai_ranker.py
+GEMINI_API_KEY="..." python3 ai_ranker.py
 
 # Preview locally
 python3 -m http.server 8000
@@ -81,7 +81,7 @@ financeradar/
 ├── aggregator.py              # Everything: fetch, parse, filter, dedupe, group, render HTML
 ├── filters.py                 # Content filter patterns (extracted for easy editing)
 ├── telegram_fetcher.py        # Hybrid Telegram fetcher (HTML scraper + Telethon MTProto)
-├── ai_ranker.py               # Reads articles.json, calls OpenRouter, writes ai_rankings.json
+├── ai_ranker.py               # Reads articles.json, calls Gemini, writes ai_rankings.json
 ├── generate_session.py        # One-time interactive script to create Telethon StringSession
 ├── feeds.json                 # 106 feed configurations
 ├── telegram_channels.json     # 7 Telegram channel configurations
@@ -120,7 +120,7 @@ telegram_channels.json (7 channels)
 
 static/articles.json
   → ai_ranker.py
-      └─ OpenRouter API (LLM ranking) → static/ai_rankings.json
+      └─ Gemini API (LLM ranking) → static/ai_rankings.json
 
 Browser loads index.html
   ├─ Fetches static/telegram_reports.json (Telegram tab)
@@ -375,11 +375,11 @@ Both methods write to `static/telegram_reports.json` in identical format:
 
 ## ai_ranker.py Internals
 
-Reads `static/articles.json` (last 48 hours, max 200 articles), sends headlines to an OpenRouter LLM, and writes ranked results to `static/ai_rankings.json`.
+Reads `static/articles.json` (last 48 hours, max 200 articles), sends headlines to three Gemini models, and writes ranked results to `static/ai_rankings.json`.
 
 **Ranking prompt (`RANKING_PROMPT`):** 6-tier editorial prioritization — explanatory journalism and policy analysis ranked highest; routine earnings reports and wire noise excluded. Headlines are sent with `[Source Name]` tags for source-aware ranking; tags are stripped when matching responses back to article objects. Picks exactly 20 articles with a diversity rule (no single source dominates).
 
-**Model:** OpenRouter free-tier models. `MODELS` dict maps provider keys to OpenRouter model IDs (currently free-tier).
+**Models:** `MODELS` dict defines three Gemini slots, each a fallback chain of model IDs (see `gemini_client.py`).
 
 **Rate limiting:** 2-second delay between API calls.
 
@@ -461,7 +461,7 @@ Both workflows validate that required secrets are set before running, fail fast 
 | `TELEGRAM_API_ID` | `hourly.yml` | [my.telegram.org](https://my.telegram.org) → API development tools |
 | `TELEGRAM_API_HASH` | `hourly.yml` | Same as above |
 | `TELEGRAM_SESSION` | `hourly.yml` | Run `python3 generate_session.py` once interactively |
-| `OPENROUTER_API_KEY` | `ai-ranking.yml` | [openrouter.ai](https://openrouter.ai) → Keys |
+| `GEMINI_API_KEY` | `ai-ranking.yml`, `hourly.yml` | [aistudio.google.com](https://aistudio.google.com) → API keys |
 | `RSS_PROXY_URL` *(optional)* | `hourly.yml` | Cloudflare RSS proxy endpoint (for fallback retries on feed errors) |
 | `CLOUDFLARE_API_TOKEN` *(optional)* | `deploy-rss-proxy.yml` | Cloudflare token with Workers edit permissions |
 | `CLOUDFLARE_ACCOUNT_ID` *(optional)* | `deploy-rss-proxy.yml` | Cloudflare account ID |
@@ -635,7 +635,7 @@ git commit -m "Regenerate after rebase"
 | 403 errors not resolved by curl | Some sites block all scrapers. Remove the feed or find an alternative URL. |
 | Telegram: 0 reports from a channel | Channel may be a group (not a channel) — use `"mtproto"` method instead of `"html"` |
 | Telegram: session expired | Re-run `python3 generate_session.py`, update `TELEGRAM_SESSION` secret in GitHub |
-| AI rankings not updating | Check `OPENROUTER_API_KEY` secret is set; check `ai-ranking.yml` run logs in GitHub Actions |
+| AI rankings not updating | Check `GEMINI_API_KEY` secret is set; check `ai-ranking.yml` run logs in GitHub Actions |
 | Bookmarks lost | Browser cleared `localStorage`, or different browser/device (no sync) |
 | GitHub Actions running late | Normal — cron jobs queue and run 1–2 hours late. Not a bug. |
 
@@ -660,7 +660,7 @@ The generated HTML output has no runtime dependencies.
 | Frontend | Vanilla HTML/CSS/JS (fully embedded in `index.html`) |
 | Fonts | Merriweather (headings) + Source Sans Pro (body) via Google Fonts |
 | Telegram API | Telethon (MTProto) + HTML scraping |
-| AI Ranking | OpenRouter API (free-tier LLM) |
+| AI Ranking | Google Gemini API |
 | Hosting | Cloudflare Pages |
 | CI/CD | GitHub Actions |
 | Deployment trigger | Git push (hourly auto-commit) |

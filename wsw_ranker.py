@@ -5,7 +5,6 @@ Who Said What newsletter. Ingests 7-day rolling data from all sources
 and calls AI to surface notable quotes with India relevance.
 """
 import json
-import urllib.request
 import os
 import re
 import sys
@@ -13,23 +12,22 @@ import tempfile
 import time
 from datetime import datetime, timedelta, timezone
 
-from config import SSL_CONTEXT, WSW_LOOKBACK_DAYS, WSW_API_TIMEOUT
+from config import WSW_LOOKBACK_DAYS, WSW_API_TIMEOUT
+from gemini_client import generate_json, pretty_model_name, sanitize_error
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 IST_TZ = timezone(timedelta(hours=5, minutes=30))
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-
+# Two Gemini slots, each with its own fallback chain (see gemini_client.py).
+# The site lets readers flip between them and auto-picks the fuller one.
 WSW_MODELS = {
-    "deepseek-v3-2": {
-        "id": "deepseek/deepseek-v3.2",
-        "name": "DeepSeek V3.2",
-        "provider": "openrouter"
+    "gemini-2-5-flash": {
+        "name": "Gemini 2.5 Flash",
+        "chain": ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-flash-lite"],
     },
-    "deepseek-v3-2-exp": {
-        "id": "deepseek/deepseek-v3.2-exp",
-        "name": "DeepSeek V3.2 (exp)",
-        "provider": "openrouter"
-    }
+    "gemini-3-flash": {
+        "name": "Gemini 3 Flash",
+        "chain": ["gemini-3-flash", "gemini-3-flash-preview", "gemini-flash-latest"],
+    },
 }
 
 WSW_PROMPT = """You are the editor of "Who Said What" — an Indian finance newsletter surfacing notable quotes from business/finance figures.
@@ -253,26 +251,29 @@ def parse_json_response(text):
         raise ValueError("Could not recover truncated JSON")
 
 
-def call_openrouter(input_text, model_id):
-    if not OPENROUTER_API_KEY:
-        raise ValueError("OPENROUTER_API_KEY not set")
-    prompt = WSW_PROMPT.format(items=input_text)
-    request = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions",
-        data=json.dumps({
-            "model": model_id,
-            "messages": [{"role": "user", "content": prompt}]
-        }).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://financeradar.kashishkapoor.com",
-            "X-Title": "FinanceRadar"
-        }
+def parse_clusters(text):
+    """Parse a model reply into a non-empty cluster list, or raise so the
+    Gemini client retries / falls back to the next model."""
+    clusters = parse_json_response(text)
+    if isinstance(clusters, dict):
+        clusters = clusters.get("clusters", clusters.get("items", []))
+    if not isinstance(clusters, list):
+        raise ValueError(f"AI returned {type(clusters).__name__} instead of list")
+    clusters = [c for c in clusters if isinstance(c, dict)]
+    if not clusters:
+        raise ValueError("No clusters returned")
+    return clusters
+
+
+def call_gemini(input_text, model_config):
+    """Returns (clusters, model ID that answered)."""
+    return generate_json(
+        WSW_PROMPT.format(items=input_text),
+        model_config["chain"],
+        parse=parse_clusters,
+        timeout=WSW_API_TIMEOUT,
+        label="wsw",
     )
-    with urllib.request.urlopen(request, timeout=WSW_API_TIMEOUT, context=SSL_CONTEXT) as response:
-        result = json.loads(response.read().decode("utf-8"))
-    return parse_json_response(result["choices"][0]["message"]["content"])
 
 
 def main():
@@ -298,27 +299,15 @@ def main():
     print(f"\nCalling {len(WSW_MODELS)} AI models...\n")
     for key, model_config in WSW_MODELS.items():
         model_name = model_config["name"]
-        model_id = model_config["id"]
         clusters = None
-        for attempt in range(2):
-            try:
-                print(f"\nCalling {model_name} (attempt {attempt+1})...")
-                clusters = call_openrouter(input_text, model_id)
-                if isinstance(clusters, dict):
-                    clusters = clusters.get("clusters", clusters.get("items", []))
-                if not isinstance(clusters, list):
-                    print(f"  [WARN] AI returned {type(clusters).__name__} instead of list")
-                    clusters = None
-                    continue
-                if clusters:
-                    print(f"  [OK] Got {len(clusters)} clusters")
-                    break
-                print("  [EMPTY] No clusters returned, retrying...")
-                time.sleep(3)
-            except Exception as e:
-                safe_err = re.sub(r'AIza\S{20,}|sk-or-\S{20,}|Bearer\s+\S+|key[=:]\s*["\']?\S{10,}', '[REDACTED]', str(e))[:200]
-                print(f"  [FAIL] attempt {attempt+1}: {safe_err}")
-                time.sleep(3)
+        try:
+            print(f"\nCalling {model_name}...")
+            clusters, model_id = call_gemini(input_text, model_config)
+            print(f"  [OK] Got {len(clusters)} clusters ({model_id})")
+            if model_id != model_config["chain"][0]:
+                model_name = pretty_model_name(model_id)
+        except Exception as e:
+            print(f"  [FAIL] {sanitize_error(e)}")
         if clusters:
             # Validate and fill missing fields with defaults
             WSW_REQUIRED_FIELDS = {
