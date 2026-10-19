@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T10:46:59.562528+00:00",
+  "generated_at": "2026-10-19T11:47:27.891842+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 44,
     "handles_empty": 2,
     "handles_error": 1,
-    "items_total": 750
+    "items_total": 752
   },
   "items": [
     {
@@ -2321,18 +2321,60 @@
       "description_html": "Srinivas is spearheading the PCB CAD tool development along with a open source hardware ecosystem in \ud83c\uddee\ud83c\uddf3<br><br>1. Context driven autorouter.<br>2. Prompt to prototype in few days will be possible very soon.<br>3. Advanced CAD features in the pipeline.<br><br>All made in \ud83c\uddee\ud83c\uddf3 for \ud83c\uddee\ud83c\uddf3 and the \ud83c\udf0f<br><br>Great example of staying focused on the mission, preseverence and bootstraping.<div class=\"rsshub-quote\"><br><br>Srinivasan:\u2002Took us 8 months to reimagine and simplify how a PCB CAD system works.<br><br>Well\u2026 now you can put Pikachu on a PCB keychain. \u26a1\ufe0f<br><br>Check out Spell \u2192 https://spell.pcbcupid.com<br><br>PS: Please report more bugs \ud83d\udc40<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2090178054421360640/vid/avc1/1920x1080/TvXrYOQhPiu_Cy4N.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2090178054421360640/img/PZUkCjBjaoHOdIpm.jpg\"></video></div>"
     },
     {
-      "title": "#2QWithCNBCTV18 | L&T Services reports its Q2 results; \ud83d\udc49Revenue At \u20b93,040 Cr Vs CNBC-TV18 Poll Of \u20b93,022.5 Cr \ud83d\udc49Net Profit At \u20b9548.2 Cr Vs CNB...",
-      "link": "https://x.com/CNBCTV18Live/status/2112133044677251293",
-      "date": "2026-10-19T10:45:34+00:00",
-      "tweet_id": "2112133044677251293",
+      "title": "#MarketAtClose | Market Fails To Hold Recovery, Ends With Major Cuts \u23e9#PrivateBanking Heavyweights React Negatively To Results, Drag The Market \u23e9#Ni...",
+      "link": "https://x.com/CNBCTV18Live/status/2112147184233914482",
+      "date": "2026-10-19T11:41:45+00:00",
+      "tweet_id": "2112147184233914482",
       "source": "CNBC-TV18",
       "publisher": "CNBC-TV18",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HU_M8lmaYAAPVHD?format=jpg&name=orig",
+      "image": "https://pbs.twimg.com/media/HU_aYe4bQAA8SpL?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#2QWithCNBCTV18 | L&amp;T Services reports its Q2 results;<br><br>\ud83d\udc49Revenue At \u20b93,040 Cr Vs CNBC-TV18 Poll Of \u20b93,022.5 Cr<br><br>\ud83d\udc49Net Profit At \u20b9548.2 Cr Vs CNBC-TV18 Poll Of \u20b9360 Cr<br><br>\ud83d\udc49EBIT At \u20b9497 Cr Vs CNBC-TV18 Poll Of \u20b9483 Cr<br><br>\ud83d\udc49EBIT Margin At 16.3% Vs CNBC-TV18 Poll Of 16%<br><img width=\"1377\" height=\"688\" style=\"\" src=\"https://pbs.twimg.com/media/HU_M8lmaYAAPVHD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "#MarketAtClose | Market Fails To Hold Recovery, Ends With Major Cuts<br><br>\u23e9#PrivateBanking Heavyweights React Negatively To Results, Drag The Market<br><br>\u23e9#Nifty Closes Below 22,900, #AxisBank, #HDFCBk &amp; #Infosys Major Laggards<br><br>\u23e9#Sensex Falls 876 Points To 73,853 &amp; #Nifty 257 Points To 22,889<br><br>\u23e9#NiftyBank Slips 356 Points To 55,488 &amp; #Midcap Index 642 Points To 58,488<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HU_aYe4bQAA8SpL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#Diwali #MuhuratTrading 2026: Special session to open from 2:20 PM to 3:30 PM - Check full details @Navneetvats0009 https://www.cnbctv18.com/market/di...",
+      "link": "https://x.com/CNBCTV18Live/status/2112143377626202394",
+      "date": "2026-10-19T11:26:37+00:00",
+      "tweet_id": "2112143377626202394",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Diwali #MuhuratTrading 2026: Special session to open from 2:20 PM to 3:30 PM - Check full details<br><br>@Navneetvats0009 <br><br>https://www.cnbctv18.com/market/diwali-muhurat-trading-2026-special-session-to-open-from-220-pm-to-330-pm-check-full-details-20015100.htm"
+    },
+    {
+      "title": "#NewsFlash | #NSE Schedules #Diwali #Muhurat Trading Session For Sunday, November 8, 2026 \u23e9Muhurat Trading Session To Begin From 2:20 PM To 3:30 PM",
+      "link": "https://x.com/CNBCTV18Live/status/2112142852725825967",
+      "date": "2026-10-19T11:24:32+00:00",
+      "tweet_id": "2112142852725825967",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HU_WuHGaEAAa61J?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#NewsFlash | #NSE Schedules #Diwali #Muhurat Trading Session For Sunday, November 8, 2026<br><br>\u23e9Muhurat Trading Session To Begin From 2:20 PM To 3:30 PM<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HU_WuHGaEAAa61J?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "RT CNBC-TV18: #CNBCTV18Exclusive | 'Current Taxes Are Unfair And Wrong For FIIs' Helios Capital's Samir Arora believes that FPI taxation has led to lo...",
+      "link": "https://x.com/CNBCTV18Live/status/2112134495419899957",
+      "date": "2026-10-19T10:01:00+00:00",
+      "tweet_id": "2112134495419899957",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2112119837547966464/img/BTAmfDKkSpJ4UTap.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>#CNBCTV18Exclusive | 'Current Taxes Are Unfair And Wrong For FIIs'<br><br>Helios Capital's Samir Arora believes that FPI taxation has led to lower allocations to India<br><br>Says, Govt should make equity taxation on FPIs zero<br><br>@_prashantnair @Iamsamirarora @CNBCTV18Live<br><br>#Market #DStreet #India #CNBCTV18Market #LTCG #STT #Taxation<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2112119837547966464/vid/avc1/1920x1080/kTA3g3rjjg0QTQKS.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2112119837547966464/img/BTAmfDKkSpJ4UTap.jpg\"></video>"
     },
     {
       "title": "#ICRA Analytics explains why #mutualfund #AUM fell despite stronger equity inflows in September https://www.cnbctv18.com/personal-finance/icra-why-mut...",
@@ -2489,46 +2531,18 @@
       "description_html": "#2QWithCNBCTV18 | #BhansaliEngg reports its Q2 results;<br><br>\u23e9Net Profit Up 55 % At \u20b962 Cr Vs \u20b940 Cr (YoY)<br><br>\u23e9Revenue Up 24% At \u20b9403 Cr Vs \u20b9325 Cr (YoY)<br><br>\u23e9EBITDA Up 56% At \u20b978 Cr Vs \u20b950 Cr (YoY)<br><br>\u23e9EBITDA Margin At 19.4% Vs 15.4% (YoY)<br><img width=\"598\" height=\"334\" style=\"\" src=\"https://pbs.twimg.com/media/HU-l1MsaAAE2Gi5?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "#CNBCTV18Market | #JanaSFB slips in trade, down over 9%, Federal Bank up nearly 4%",
-      "link": "https://x.com/CNBCTV18Live/status/2112087375178617123",
-      "date": "2026-10-19T07:44:05+00:00",
-      "tweet_id": "2112087375178617123",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "#HindustanZinc Q2 Results Net profit skyrockets 142% YoY to Rs 6,412 crore, revenue soars 77% #ETMarkets Read more at: https://economictimes.indiatime...",
+      "link": "https://x.com/ETMarkets/status/2112138665547944391",
+      "date": "2026-10-19T11:07:54+00:00",
+      "tweet_id": "2112138665547944391",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HU-kFwXaoAATNpH?format=png&name=orig",
+      "image": "https://pbs.twimg.com/media/HU_S0lwa8AAgUCm?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#CNBCTV18Market | #JanaSFB slips in trade, down over 9%, Federal Bank up nearly 4%<br><img width=\"557\" height=\"304\" style=\"\" src=\"https://pbs.twimg.com/media/HU-kFwXaoAATNpH?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Q2 Results #LIVE Updates: Union Bank shares up 5% post earnings; Piramal Fin to report https://www.cnbctv18.com/market/q2-results-live-updates-today-u...",
-      "link": "https://x.com/CNBCTV18Live/status/2112086702236090606",
-      "date": "2026-10-19T07:41:25+00:00",
-      "tweet_id": "2112086702236090606",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Q2 Results #LIVE Updates: Union Bank shares up 5% post earnings; Piramal Fin to report<br><br>https://www.cnbctv18.com/market/q2-results-live-updates-today-ultratech-bajaj-fin-ireda-piramal-union-bank-hzl-hdfc-axis-icici-yes-hfcl-just-dial-share-price-liveblog-20014571.htm"
-    },
-    {
-      "title": "#JustIN | Fractal Appoints Shilpa Kedia As CFO & Group CFO W.e.f. Oct 19",
-      "link": "https://x.com/CNBCTV18Live/status/2112083688477589558",
-      "date": "2026-10-19T07:29:26+00:00",
-      "tweet_id": "2112083688477589558",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HU-g6vIbsAATAGs?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#JustIN | Fractal Appoints Shilpa Kedia As CFO &amp; Group CFO W.e.f. Oct 19<br><img width=\"566\" height=\"311\" style=\"\" src=\"https://pbs.twimg.com/media/HU-g6vIbsAATAGs?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "#HindustanZinc Q2 Results <br><br>Net profit skyrockets 142% YoY to Rs 6,412 crore, revenue soars 77%<br>#ETMarkets <br><br>Read more at:<br>https://economictimes.indiatimes.com/markets/stocks/earnings/hindustan-zinc-q2-results-net-profit-skyrockets-142-yoy-to-rs-6412-crore-revenue-soars-77/articleshow/135047098.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HU_S0lwa8AAgUCm?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "The #BSE has announced the timings for the #Diwali #MuhuratTrading 2026 session, with the special stock market trading window scheduled for Sunday, No...",
@@ -2543,6 +2557,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The #BSE has announced the timings for the #Diwali #MuhuratTrading 2026 session, with the special stock market trading window scheduled for Sunday, November 8, on the occasion of Laxmi Pujan. The exchange said continuous trading in the equity segment will begin at 2:20 pm and run until 3:30 pm.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/muhurat-trading-2026-bse-announces-date-and-timings-for-special-session-check-details/articleshow/135046488.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
+    },
+    {
+      "title": "The #Nifty 50 and #Sensex both dropped approximately 5.7% in September, marking the indices' worst September derivatives series in 25 years. Driven by...",
+      "link": "https://x.com/ETMarkets/status/2112129129936286184",
+      "date": "2026-10-19T10:30:00+00:00",
+      "tweet_id": "2112129129936286184",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The #Nifty 50 and #Sensex both dropped approximately 5.7% in September, marking the indices' worst September derivatives series in 25 years. Driven by surging oil prices, rising bond yields, and the threat of higher interest rates, foreign institutional investors (FIIs) snapped a two-month buying streak to pull Rs 25,662 crore out of Indian equities\u2014their largest monthly outflow in six months.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/cupid-sterlite-tech-among-stocks-top-10-equity-pms-portfolios-hold-as-nifty-sensex-plunge-up-to-13-in-2026/articleshow/135045427.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
     },
     {
       "title": "The Indian #rupee closed nearly unchanged on Monday, erasing modest early gains after local stocks slumped and importers stepped in to buy dollars ove...",
@@ -2769,18 +2797,32 @@
       "description_html": "Indian government bonds turned higher on Monday, recovering from a flat start to the holiday-shortened week, as a sharp drop in US Treasury yields more than offset oil-related inflation concerns and spurred value buying.<br><br>Read more here<br>https://economictimes.indiatimes.com/markets/bonds/india-bonds-rise-after-flat-open-as-sharp-drop-in-us-yields-spurs-value-buying/articleshow/135041797.cms"
     },
     {
-      "title": "#SouthKorea's financial regulator is examining whether a potential US listing of SK Hynix's subsidiary Solidigm would violate domestic restrictions on...",
-      "link": "https://x.com/ETMarkets/status/2112069988479877457",
-      "date": "2026-10-19T06:35:00+00:00",
-      "tweet_id": "2112069988479877457",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
+      "title": "US - IRAN deal expected this week ?",
+      "link": "https://x.com/yatinmota/status/2112139478169235595",
+      "date": "2026-10-19T11:11:07+00:00",
+      "tweet_id": "2112139478169235595",
+      "source": "Yatin Mota",
+      "publisher": "Yatin Mota",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "US - IRAN deal expected this week ?<div class=\"rsshub-quote\"><br><br>*Walter Bloomberg:\u2002BREAKTHROUGH U.S.\u2013IRAN DEAL REPORTEDLY EXPECTED THIS WEEK<br><br>Sources familiar with mediation efforts told Al-Araby Al-Jadeed that a breakthrough agreement between Washington and Tehran could be announced this week.<br><br>Negotiators are reportedly working to narrow differences and<br></div>"
+    },
+    {
+      "title": "NSE, BSE To Conduct Muhurat Trading Session On Nov 8 From 2:20 PM To 3:30 PM",
+      "link": "https://x.com/yatinmota/status/2112138431715291457",
+      "date": "2026-10-19T11:06:58+00:00",
+      "tweet_id": "2112138431715291457",
+      "source": "Yatin Mota",
+      "publisher": "Yatin Mota",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HU_StL0bMAAwrGr?format=jpg&name=orig",
+      "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#SouthKorea's financial regulator is examining whether a potential US listing of SK Hynix's subsidiary Solidigm would violate domestic restrictions on dual listing, raising questions about shareholder protection as the chipmaker considers options for the business.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-market-south-korea-regulator-says-solidigm-us-listing-may-breach-dual-listing-rules/articleshow/135041638.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
+      "description_html": "NSE, BSE To Conduct Muhurat Trading Session On Nov 8 From 2:20 PM To 3:30 PM<br><img width=\"1125\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HU_StL0bMAAwrGr?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Ultratech Q2 cement volume growth 14% vs expectations of 15% Stock down 1% post results",
@@ -3033,34 +3075,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Sumit Mehrotra<br>Smallcap \u092f\u093e Largecap, \u0915\u093f\u0928 \u092a\u0930 \u0932\u0917\u093e\u090f\u0902 \u0926\u093e\u0902\u0935?<br><br>#vikaskhemani #podcast #sumitmehrotra #moneynaama <br><br>@vikaskhemani @carnelian_asset<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2110996774076948481/vid/avc1/1080x1920/7kU2ZwvCC1YiM4Op.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2110996774076948481/img/2yK0WCDU0t9SBOx8.jpg\"></video>"
-    },
-    {
-      "title": "NALCO In Focus \u2013 Alcoa Strong Q3 and Bullish Commentary Alcoa indicated that aluminum inventories remain low and alumina markets outside China are ti...",
-      "link": "https://x.com/yatinmota/status/2110947100834087073",
-      "date": "2026-10-16T04:13:02+00:00",
-      "tweet_id": "2110947100834087073",
-      "source": "Yatin Mota",
-      "publisher": "Yatin Mota",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "NALCO In Focus \u2013 Alcoa Strong Q3 and Bullish Commentary<br><br>Alcoa indicated that aluminum inventories remain low and alumina markets outside China are tightening<br><br>NALCO benefits more<br><br>Higher aluminum prices: Directly improve metal realizations and potentially margins<br><br>Tighter alumina markets: Support pricing for NALCO's merchant alumina sales<br><br>Alcoa's management expects further tightening in alumina markets outside China into Q4 and 2027<br><br>NALCO generates nearly 1/3rd of its revenue from Alumina<br><br>https://news.alcoa.com/press-releases/press-release-details/2026/Alcoa-Corporation-Reports-Third-Quarter-2026-Results/default.aspx"
-    },
-    {
-      "title": "From a nation where data was a luxury to one powering the world\u2019s fastest digital economy\u2014this is the Jio story. A 95% crash in data costs (from ~\u20b9...",
-      "link": "https://x.com/yatinmota/status/2110790348532490480",
-      "date": "2026-10-15T17:50:10+00:00",
-      "tweet_id": "2110790348532490480",
-      "source": "Yatin Mota",
-      "publisher": "Yatin Mota",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUsIn6Kb0AASbSq?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "From a nation where data was a luxury to one powering the world\u2019s fastest digital economy\u2014this is the Jio story.<br><br>A 95% crash in data costs (from ~\u20b9226/GB to under \u20b912) unlocked everything. <br><br>Cheap data created entirely new livelihoods: creators, gig workers, and online sellers built incomes that didn\u2019t exist a decade ago. While the world locked down in 2020, global companies doubled down on India\u2019s digital future.<br><br>UPI now does 24.07 billion transactions a month\u2014roughly 800 million digital payments a day\u2014as India went cashless at scale possible only because of telecom data.<br><br>Jio at 10: 27.1 million homes and businesses on broadband, leading India\u2019s 5G rollout, and the 2025 AGM vision of AI for every Indian now moving from promise to reality.<br><img width=\"1862\" height=\"1047\" style=\"\" src=\"https://pbs.twimg.com/media/HUsIn6Kb0AASbSq?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Was wonderful to be on podcast @WaterfieldAdv with @SaminaNalwala. Discussed many fun filled and investments related topics with examples. Hope you fi...",
@@ -3945,6 +3959,20 @@
       "description_html": "RT\u2002Shiv Aroor<br>\u26a0\ufe0fTW: Terrible, terrifying video from Ecuador, where a collapsing Cross kills Father Patricio S\u00e1nchez Molinari as he conducts the Holy Mass on Oct 17 in the city of Guayaquil.<br><video width=\"1080\" height=\"1628\" src=\"https://video.twimg.com/amplify_video/2112067562960031744/vid/avc1/1080x1628/EXhWd8QToidiIU7Z.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2112067562960031744/img/9GjLjm84DX16Nvdj.jpg\"></video>"
     },
     {
+      "title": "RT Rafael Sereti: \ud83d\udd34 INSOLITE Quand deux touristes prennent leurs vacances \u00e0 Paris au mauvais moment \ud83e\uddf3\ud83e\uddf3",
+      "link": "https://x.com/sanjeevsanyal/status/2112140974948585527",
+      "date": "2026-10-18T21:07:56+00:00",
+      "tweet_id": "2112140974948585527",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2111927245899968512/img/74CLEtBqCfyJ8uWZ.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Rafael Sereti<br>\ud83d\udd34 INSOLITE<br>Quand deux touristes prennent leurs vacances \u00e0 Paris au mauvais moment \ud83e\uddf3\ud83e\uddf3<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2111927245899968512/vid/avc1/1080x1920/YgvRj2sCFtR8udrR.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2111927245899968512/img/74CLEtBqCfyJ8uWZ.jpg\"></video>"
+    },
+    {
       "title": "The Durga Pujo in the home of Rani Rashmoni - businesswoman, social reformer, builder, fierce defender of Sanatan Dharma. This is the Protima (done in...",
       "link": "https://x.com/sanjeevsanyal/status/2111840532519637462",
       "date": "2026-10-18T15:23:13+00:00",
@@ -4167,20 +4195,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Pooja Shali<br>BBC when students protest - <br>In INDIA VS In FRANCE.<br><br>\ud83d\ude01\ud83d\ude4f\ud83c\udffb <br>https://www.bbc.com/news/articles/c8zxlyg965r3o<br><img width=\"1320\" height=\"676\" style=\"\" src=\"https://pbs.twimg.com/media/HUznH0ca0AE-viA?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1007\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HUznH0kbwAAuSD_?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT The Telegraph: EXCLUSIVE: Elon Musk approached Donald Trump with the idea of slowing down Starlink in Ukraine, The Telegraph can reveal. The billio...",
-      "link": "https://x.com/sanjeevsanyal/status/2111392411725574315",
-      "date": "2026-10-16T19:30:16+00:00",
-      "tweet_id": "2111392411725574315",
-      "source": "Sanjeev Sanyal",
-      "publisher": "Sanjeev Sanyal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUxpI1rXwAAsY65?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002The Telegraph<br>EXCLUSIVE: Elon Musk approached Donald Trump with the idea of slowing down Starlink in Ukraine, The Telegraph can reveal.<br><br>The billionaire tech entrepreneur approached the US president with the proposal to introduce speed limits on the system, which hampered Ukraine\u2019s drone defences, according to four sources familiar with the discussions.<br><br>\ud83d\udd17 https://www.telegraph.co.uk/world-news/2026/10/16/musk-approached-trump-slow-down-starlink-help-ukraine/?WT.mc_id=tmgoff_tw_post_slow-down-starlink-help-ukraine/<br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HUxpI1rXwAAsY65?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT The Index Mint: Number of People Without Access to Electricity by Country 1990-2025",
@@ -4603,18 +4617,18 @@
       "description_html": "A fun episode for the holiday weekend. Check the latest installment of Watching the Wheels. <br><br>https://youtu.be/xJKtLnHeBs8?si=O02FQahD2Putcbvp"
     },
     {
-      "title": "RT @srajagopalan: The latest episode of Watching the Wheels with @amitvarma and @pranaykotas was a blast. We discuss our favorite quotes, h\u2026",
+      "title": "RT Shruti Rajagopalan: The latest episode of Watching the Wheels with @amitvarma and @pranaykotas was a blast. We discuss our favorite quotes, have la...",
       "link": "https://x.com/pranaykotas/status/2111095146716762145",
-      "date": "2026-10-16T14:01:19+00:00",
+      "date": "2026-10-16T13:32:20+00:00",
       "tweet_id": "2111095146716762145",
       "source": "Pranay Kotasthane",
       "publisher": "Pranay Kotas",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": true,
-      "is_quote": false,
+      "is_quote": true,
       "is_reply": false,
-      "description_html": "RT @srajagopalan: The latest episode of Watching the Wheels with @amitvarma and @pranaykotas was a blast. We discuss our favorite quotes, h\u2026"
+      "description_html": "RT\u2002Shruti Rajagopalan<br>The latest episode of Watching the Wheels with @amitvarma and @pranaykotas was a blast. We discuss our favorite quotes, have laughing fits, and the great bard gets the better of us. <br><br>https://youtu.be/xJKtLnHeBs8?si=VwCiPN_PY0KICf_E<div class=\"rsshub-quote\"><br><br>Pranay Kotasthane:\u2002This episode was super fun to record. Watch and tell us is the wheels ran well. <br><br>https://youtu.be/xJKtLnHeBs8?si=kwW7-QiRM2wPU0Vd<br></div>"
     },
     {
       "title": "This episode was super fun to record. Watch and tell us is the wheels ran well. https://youtu.be/xJKtLnHeBs8?si=kwW7-QiRM2wPU0Vd",
@@ -5317,6 +5331,20 @@
       "description_html": "RT\u2002S\u00e9b Krier<br>AI ppl loooove to pretend they hold tons secret knowledge. Everyone has Seen Things, and have been trusted with the Esoteric Knowledge. It's also cringe if you don't partake because it implies you're not in the Inner Circle. In reality most people are kinda confused, working it all out ad hoc, relying on the same rumours, and so on - but the status games are hard to resist!"
     },
     {
+      "title": "Good to see Muhurat Trading scheduled for November 8 between 2 PM and 4 PM \ud83d\udd53 A welcome move, especially with markets open again on November 9. An e...",
+      "link": "https://x.com/Nigel__DSouza/status/2112139682368925920",
+      "date": "2026-10-19T11:11:56+00:00",
+      "tweet_id": "2112139682368925920",
+      "source": "Nigel D'Souza",
+      "publisher": "Nigel D'Souza",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HU_T1_UagAAG2mm?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Good to see Muhurat Trading scheduled for November 8 between 2 PM and 4 PM \ud83d\udd53 <br><br>A welcome move, especially with markets open again on November 9. An evening session would make for a long and hectic day for market participants. This timing should ease things out.<br><br>@NSEIndia <br>@BSEIndia<br><img width=\"1206\" height=\"1347\" style=\"\" src=\"https://pbs.twimg.com/media/HU_T1_UagAAG2mm?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "UltraTech Cement: Good numbers but reaction weak! - Strong volume growth - EBITDA/tonne improves marginally despite a challenging environment - Cables...",
       "link": "https://x.com/Nigel__DSouza/status/2112114707620647329",
       "date": "2026-10-19T09:32:42+00:00",
@@ -5581,20 +5609,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Data for October 15, 2026<br>FIIs continue to sell in cash market but cover shorts!<br>@CNBCTV18Live <br><br>A) Cash market Flows<br>\ud83d\udc4d DII Net Buy \u20b93319 Cr<br>\ud83d\udc4e FII Net Sell \u20b95285 Cr<br><br>B) FII in FNO Market<br><br>FII On Index Futures (contracts)<br>\ud83d\udc49 Added + 4267 Longs<br>\ud83e\ude73 Covered -12603 Shorts<br><br>\ud83d\udea8 FII nets shorts at 89%/ 2.8 lakh contracts \ud83d\udea8"
-    },
-    {
-      "title": "RT CNBC-TV18: #TopHeadlines * Countdown to mega #JIO IPO; Next-gen take centre stage * Sharp rally on D-Street * Global tech rout deepens * 2 vessels ...",
-      "link": "https://x.com/Nigel__DSouza/status/2110732643902050706",
-      "date": "2026-10-15T13:47:41+00:00",
-      "tweet_id": "2110732643902050706",
-      "source": "Nigel D'Souza",
-      "publisher": "Nigel D'Souza",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002CNBC-TV18<br>#TopHeadlines<br><br>* Countdown to mega #JIO IPO; Next-gen take centre stage<br><br>* Sharp rally on D-Street<br><br>* Global tech rout deepens<br><br>* 2 vessels sink hear #Hormuz; Iran: Don't want endless war<br><br>* \u20b9 8,400 Crore SC blow for Yes Bank; Stock declines most in 6 years<br><br>* 'Fairfax to merge or exit CSB'; #DIPAM secretary on IDBI bank deal<br><br>* Exports rise, deficit narrows<br><br>* Wipro revenue beat, deal wins weak; Tech Mahindra delivers in Q2<br><br>* #Nestle India Q2 in-line; Inflation fears trip stock<br><br>* #AirIndia CEO cracks the whip; Launches cost-cutting drive<br><br>* Government &amp; police say sorry to SC; But defend #DelhiProtest curbs<br><br>* Mallya's flamboyant lifestyle coming in the way: Karnataka HC<br><br>* 8 U.S. states sue #OpenAI<br><br>* Unknown phone calls no more<br><br>Watch: https://youtube.com/live/6O1sOmxipb8"
     },
     {
       "title": "Interesting proposal. I believe it will help if rbi effectively sells gold to the etfs and sequesters them in its vaults. So if rbi have 660 tons of g...",
@@ -6043,6 +6057,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Inflation is no longer just a food story. It's becoming a broader economic challenge.<br><br>India's CPI inflation rose to a 23-month high of 5.5% in September, with inflation accelerating across almost all major categories. The sharp rise in the CPI diffusion index signals that price pressures are becoming increasingly broad-based.<br><br>Here is @RajaniSinha2025 , Chief Economist at CareEdge Ratings, on the latest CPI numbers.<br><br>Read full report: https://www.careratings.com/uploads/newsfiles/1791811816_CPI-September%202026.pdf<br><br>#CareEdgeRatings #Inflation #CPIInflation #IndianEconomy #EconomicOutlook #Macroeconomics #RBI #MonetaryPolicy #MarketInsights #EconomicResearch<br><img width=\"1200\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HUfTRneawAA7G7L?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1200\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HUfTRsNa8AAjI1W?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1200\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HUfTRtibYAAtwbl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1200\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HUfTRtWaoAAtav2?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "Iraq says its oil exports have surged so far in October to near pre-war levels. According to the country's oil minister, Iraq has exported ~3.4m b/d o...",
+      "link": "https://x.com/JavierBlas/status/2112143140203508035",
+      "date": "2026-10-19T11:25:41+00:00",
+      "tweet_id": "2112143140203508035",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Iraq says its oil exports have surged so far in October to near pre-war levels. According to the country's oil minister, Iraq has exported ~3.4m b/d on average so far this month, down marginally from ~3.7m b/d pre-war, and up from ~3m b/d in September and ~2.4m b/d in August."
     },
     {
       "title": "With WTI rallying last week vs gasoline and diesel, simple refining margins (say the 3-2-1 WTI crack spread) have come down sharply, touching this mor...",
@@ -8481,6 +8509,20 @@
       "description_html": "RT\u2002Source: Value Research<br>Wealthy NRIs. Retired bankers. A fund bet on strangers dying. If you can't explain it, don't buy it.<br><br>Source: Mint (@livemint), August 31, 2026<br><br>https://tinyurl.com/3mr6sysd<br><br>#investments #investors #Mutualfunds<br><img width=\"269\" height=\"934\" style=\"\" src=\"https://pbs.twimg.com/media/HRDQYrxaYAA8nBM?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Not taking any joy in reposting this. But wrote this column \ud83d\udc47 almost two years ago. A link for those who want to read it now: https://www.bloomberg...",
+      "link": "https://x.com/andymukherjee70/status/2112145136809594904",
+      "date": "2026-10-19T11:33:37+00:00",
+      "tweet_id": "2112145136809594904",
+      "source": "Andy Mukherjee",
+      "publisher": "Andy Mukherjee",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Not taking any joy in reposting this. But wrote this column \ud83d\udc47 almost two years ago. A link for those who want to read it now: https://www.bloomberg.com/opinion/articles/2024-12-26/bollywood-s-dark-past-is-threatening-to-return-in-india?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc5MjQwOTUyMSwiZXhwIjoxNzkzMDE0MzIxLCJhcnRpY2xlSWQiOiJTUDREMDREV0xVNjkwMCIsImJjb25uZWN0SWQiOiJFRUJBOTlENEY5NkE0QTY4QUZGQUQ3RUNCNEE3QjRDMyJ9.XtezWy0VxZ3lin2BySct2cNOMiPxH1Iv3xD69EsO0vI<div class=\"rsshub-quote\"><br><br>Andy Mukherjee:\u2002The top hits of 1984, Tohfa and Maqsad, were made by Hyderabad studios. The top two grossers of 2024? Again made in Hyderabad. The \u201880s funk in Bollywood ended in a cycle of mafia violence in the \u201890s. Could the past repeat? My @opinion take: Free to read: https://www.bloomberg.com/opinion/articles/2024-12-26/bollywood-s-dark-past-is-threatening-to-return-in-india?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTczNTM0NTIwNCwiZXhwIjoxNzM1OTUwMDA0LCJhcnRpY2xlSWQiOiJTUDREMDREV0xVNjkwMCIsImJjb25uZWN0SWQiOiJFRUJBOTlENEY5NkE0QTY4QUZGQUQ3RUNCNEE3QjRDMyJ9.8Cvxlm7Sebt6uq8wkts3o82zCQhRLTfmQgGOrQvxv8w<br></div>"
+    },
+    {
       "title": "RT abey varghese: Forcing the government to borrow at higher rates just when El Ni\u00f1o-induced droughts demand more spending on rural livelihoods may w...",
       "link": "https://x.com/andymukherjee70/status/2111786842505044449",
       "date": "2026-10-18T06:17:29+00:00",
@@ -8719,34 +8761,6 @@
       "description_html": "RT\u2002Daniela Gabor<br>RIP, we mourn today.<div class=\"rsshub-quote\"><br><br>Historical Materialism Journal:\u2002R.I.P. Anwar Shaikh<br><br>https://www.historicalmaterialism.org/an-interview-with-anwar-shaikh/<br></div>"
     },
     {
-      "title": "A certain Tata Steel boss parked wrongly on that street on a weekend and was asked by an angry cop if it was his father\u2019s road. \u201cWell, it\u2019s named a...",
-      "link": "https://x.com/andymukherjee70/status/2107450068085411914",
-      "date": "2026-10-06T12:37:05+00:00",
-      "tweet_id": "2107450068085411914",
-      "source": "Andy Mukherjee",
-      "publisher": "Andy Mukherjee",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "A certain Tata Steel boss parked wrongly on that street on a weekend and was asked by an angry cop if it was his father\u2019s road. \u201cWell, it\u2019s named after my dad,\u201d he is reported to have said.<div class=\"rsshub-quote\"><br><br>SANJAY HEGDE:\u2002Tata enterprises will have to be lead from Sir Homi Mody street and not from Mylapore.<br></div>"
-    },
-    {
-      "title": "RT m rajshekhar: \"Mumbai aviation has discovered the corporate version of: 'Your desk is being renovated. Please work from another city'.\"",
-      "link": "https://x.com/andymukherjee70/status/2107398247170150549",
-      "date": "2026-10-06T09:05:29+00:00",
-      "tweet_id": "2107398247170150549",
-      "source": "Andy Mukherjee",
-      "publisher": "Andy Mukherjee",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HT4mLjTasAAI1PX?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002m rajshekhar<br>\"Mumbai aviation has discovered the corporate version of: 'Your desk is being renovated. Please work from another city'.\"<div class=\"rsshub-quote\"><br><br>abhishek law:\u2002Mumbai airport: \u201cI need to rebuild T1.\u201d<br>Airlines: \u201cFine. But why should our international flights move?\u201d<br>Adani Airport: \u201cBecause there\u2019s another airport.\u201d<br>Airlines: \u201c50 km away.\u201d<br>Adani Airport: \u201cWe\u2019ll give you incentives.\u201d<br>Airlines: \u201cThat\u2019s not the point.\u201d<br>Now MoCA is stepping<br><br><img width=\"1536\" height=\"1024\" style=\"\" src=\"https://pbs.twimg.com/media/HT4mLjTasAAI1PX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
       "title": "RT Andy Mukherjee: A link for those who wish to read my latest column \ud83d\udc47 https://www.bloomberg.com/opinion/articles/2026-10-05/india-s-gen-z-faces-d...",
       "link": "https://x.com/andymukherjee70/status/2107451688252833843",
       "date": "2026-10-06T01:08:28+00:00",
@@ -8759,6 +8773,20 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Andy Mukherjee<br>A link for those who wish to read my latest column \ud83d\udc47 https://www.bloomberg.com/opinion/articles/2026-10-05/india-s-gen-z-faces-down-the-artificial-intelligence-future?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc5MTI0ODg3NSwiZXhwIjoxNzkxODUzNjc1LCJhcnRpY2xlSWQiOiJUTUdBODBLSVAzSUMwMCIsImJjb25uZWN0SWQiOiJFRUJBOTlENEY5NkE0QTY4QUZGQUQ3RUNCNEE3QjRDMyJ9.6d-20fhJqsu4xjto0y3m_pHLIJptoCbPV2wNQparYqs<div class=\"rsshub-quote\"><br><br>Bloomberg:\u2002Coding and outsourcing built India's middle class, writes @andymukherjee70. But the country needs a new plan for growth if it wants to get rich before it gets old (via @opinion)  https://www.bloomberg.com/opinion/articles/2026-10-05/india-s-gen-z-faces-down-the-artificial-intelligence-future?taid=6ac409f51900a20001c216bf&amp;utm_campaign=trueanthem&amp;utm_content=business&amp;utm_medium=social&amp;utm_source=twitter<br></div>"
+    },
+    {
+      "title": "RT Andy Mukherjee: The top hits of 1984, Tohfa and Maqsad, were made by Hyderabad studios. The top two grossers of 2024? Again made in Hyderabad. The ...",
+      "link": "https://x.com/andymukherjee70/status/2112144800409661774",
+      "date": "2024-12-28T00:36:44+00:00",
+      "tweet_id": "2112144800409661774",
+      "source": "Andy Mukherjee",
+      "publisher": "Andy Mukherjee",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Andy Mukherjee<br>The top hits of 1984, Tohfa and Maqsad, were made by Hyderabad studios. The top two grossers of 2024? Again made in Hyderabad. The \u201880s funk in Bollywood ended in a cycle of mafia violence in the \u201890s. Could the past repeat? My @opinion take: Free to read: https://www.bloomberg.com/opinion/articles/2024-12-26/bollywood-s-dark-past-is-threatening-to-return-in-india?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTczNTM0NTIwNCwiZXhwIjoxNzM1OTUwMDA0LCJhcnRpY2xlSWQiOiJTUDREMDREV0xVNjkwMCIsImJjb25uZWN0SWQiOiJFRUJBOTlENEY5NkE0QTY4QUZGQUQ3RUNCNEE3QjRDMyJ9.8Cvxlm7Sebt6uq8wkts3o82zCQhRLTfmQgGOrQvxv8w"
     },
     {
       "title": "Yes Bank Q2 profit rises but AT1 ruling not booked as further appeal weighed https://www.reuters.com/world/india/yes-bank-q2-profit-rises-at1-ruling-n...",
@@ -9251,10 +9279,10 @@
       "description_html": "Defence Acq Council approved ~1L Cr worth of equipment. <br><br>Keeping obvious beneficiaries like HAL,  BEL aside, here are some nano caps which might benefit from announced purchases<br><img width=\"818\" height=\"465\" style=\"\" src=\"https://pbs.twimg.com/media/HRq-6a2bYAAJqsQ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "LTTS: Q2 CONS NET PROFIT 5.5B RUPEES VS 3.6B (QOQ); EST 3.8B LTTS: Q2 REVENUE 30.4B RUPEES VS 29.4B (QOQ)",
-      "link": "https://x.com/REDBOXINDIA/status/2112133177691250823",
-      "date": "2026-10-19T10:46:05+00:00",
-      "tweet_id": "2112133177691250823",
+      "title": "NSE, BSE To Hold Muhurat Trading On November 8 \ud83d\udd52 The special Muhurat Trading session will take place from 2:20 PM to 3:30 PM IST.",
+      "link": "https://x.com/REDBOXINDIA/status/2112139481277145136",
+      "date": "2026-10-19T11:11:08+00:00",
+      "tweet_id": "2112139481277145136",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9262,7 +9290,49 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "LTTS: Q2 CONS NET PROFIT 5.5B RUPEES VS 3.6B (QOQ); EST 3.8B<br><br>LTTS: Q2 REVENUE 30.4B RUPEES VS 29.4B (QOQ)"
+      "description_html": "NSE, BSE To Hold Muhurat Trading On November 8<br><br>\ud83d\udd52 The special Muhurat Trading session will take place from 2:20 PM to 3:30 PM IST."
+    },
+    {
+      "title": "SMLMAH: Q2 SL NET PROFIT 117M RUPEES VS 211M (YOY) SMLMAH: Q2 EBITDA 283M RUPEES VS 422M (YOY); Q2 EBITDA MARGIN 4.22% VS 7.6% (YOY) SMLMAH: Q2 REVENU...",
+      "link": "https://x.com/REDBOXINDIA/status/2112137196635640308",
+      "date": "2026-10-19T11:02:03+00:00",
+      "tweet_id": "2112137196635640308",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "SMLMAH: Q2 SL NET PROFIT 117M RUPEES VS 211M (YOY)<br><br>SMLMAH: Q2 EBITDA 283M RUPEES VS 422M (YOY); Q2 EBITDA MARGIN 4.22% VS 7.6% (YOY)<br><br>SMLMAH: Q2 REVENUE 6.7B RUPEES VS 5.55B (YOY)"
+    },
+    {
+      "title": "BREAKTHROUGH EXPECTED TO BE ANNOUNCED THIS WEEK TO HALT US, IRAN ESCALATION || MEDIATION EFFORTS ONGOING TO NARROW POINTS OF CONTENTION BETWEEN BOTH S...",
+      "link": "https://x.com/REDBOXINDIA/status/2112133924097069545",
+      "date": "2026-10-19T10:49:03+00:00",
+      "tweet_id": "2112133924097069545",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKTHROUGH EXPECTED TO BE ANNOUNCED THIS WEEK TO HALT US, IRAN ESCALATION || MEDIATION EFFORTS ONGOING TO NARROW POINTS OF CONTENTION BETWEEN BOTH SIDES"
+    },
+    {
+      "title": "LTTS: Q2 CONS NET PROFIT 5.5B RUPEES VS 3.6B (QOQ); EST 3.8B LTTS: Q2 EBITDA 5.9B RUPEES VS 5.5B (QOQ); Q2 EBITDA MARGIN 19.27% VS 18.65% (QOQ) LTTS: ...",
+      "link": "https://x.com/REDBOXINDIA/status/2112133510274372040",
+      "date": "2026-10-19T10:47:25+00:00",
+      "tweet_id": "2112133510274372040",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "LTTS: Q2 CONS NET PROFIT 5.5B RUPEES VS 3.6B (QOQ); EST 3.8B<br><br>LTTS: Q2 EBITDA 5.9B RUPEES VS 5.5B (QOQ); Q2 EBITDA MARGIN 19.27% VS 18.65% (QOQ)<br><br>LTTS: Q2 REVENUE 30.4B RUPEES VS 29.4B (QOQ)"
     },
     {
       "title": "TATVA: Q2 CONS NET PROFIT 215M RUPEES VS 99.2M (YOY); EST 139M TATVA: Q2 EBITDA 407M RUPEES VS 222M (YOY); Q2 EBITDA MARGIN 18.71% VS 17.99% (YOY) TAT...",
@@ -9459,48 +9529,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "POWER MECH PROJECTS LIMITED: CO. SECURES ORDER WORTH \u20b9327.35 CRORES FROM VEDANTA ALUMINIUM METAL LIMITED FOR OPERATION AND MAINTENANCE OF COAL-FIRED CO-GENERATION POWER PLANT; CONTRACT PERIOD OF 48 MONTHS"
-    },
-    {
-      "title": "UNIONBANK: Q2 FRESH SLIPPAGES AT 18.6B RUPEES VS 20.6B (QOQ)",
-      "link": "https://x.com/REDBOXINDIA/status/2112076659650355615",
-      "date": "2026-10-19T07:01:30+00:00",
-      "tweet_id": "2112076659650355615",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "UNIONBANK: Q2 FRESH SLIPPAGES AT 18.6B RUPEES VS 20.6B (QOQ)"
-    },
-    {
-      "title": "UNIONBANK: Q2 SL NET PROFIT 55B RUPEES VS 42.5B (YOY); EST 50.5B UNIONBANK: Q2 GNPA 2.42% VS 2.65% (QOQ); Q2 NNPA 0.42% VS 0.47% (QOQ) UNIONBANK: Q2 P...",
-      "link": "https://x.com/REDBOXINDIA/status/2112071328543178998",
-      "date": "2026-10-19T06:40:19+00:00",
-      "tweet_id": "2112071328543178998",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "UNIONBANK: Q2 SL NET PROFIT 55B RUPEES VS 42.5B (YOY); EST 50.5B<br><br>UNIONBANK: Q2 GNPA 2.42% VS 2.65% (QOQ); Q2 NNPA 0.42% VS 0.47% (QOQ)<br><br>UNIONBANK: Q2 PROVISIONS FOR NPA 5.96B RUPEES VS 10.2B (QOQ)<br><br>UNIONBANK: Q2 REVENUE 281B RUPEES VS 266.5B (YOY)"
-    },
-    {
-      "title": "HFCL: Q2 CONS NET PROFIT 3.6B RUPEES VS 678M (YOY) HFCL: Q2 EBITDA 6.3B RUPEES VS 1.9B (YOY); Q2 EBITDA MARGIN 24.8% VS 18.4% (YOY) HFCL: Q2 REVENUE 2...",
-      "link": "https://x.com/REDBOXINDIA/status/2112067524930289737",
-      "date": "2026-10-19T06:25:12+00:00",
-      "tweet_id": "2112067524930289737",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "HFCL: Q2 CONS NET PROFIT 3.6B RUPEES VS 678M (YOY)<br><br>HFCL: Q2 EBITDA 6.3B RUPEES VS 1.9B (YOY); Q2 EBITDA MARGIN 24.8% VS 18.4% (YOY)<br><br>HFCL: Q2 REVENUE 25.4B RUPEES VS 10.4B (YOY)"
     },
     {
       "title": "Global BT market revenue will be driven by strong memory demand for general servers",
@@ -10021,6 +10049,20 @@
       "description_html": "INR appreciates roughly by Re 1 a $ to close at 95.75 a dollar. It seems that RBI measures have had intended impact for now. Let\u2019s wait and watch"
     },
     {
+      "title": "RT The Arc: \ud83d\udea8 Zetwerk\u2019s Rs 5,012 crore IPO sails through, getting fully subscribed on the final day of bidding. The IPO received bids for over 3 t...",
+      "link": "https://x.com/madhavchanchani/status/2112142896346644651",
+      "date": "2026-10-19T11:20:32+00:00",
+      "tweet_id": "2112142896346644651",
+      "source": "Madhav Chanchani",
+      "publisher": "Madhav Chanchani",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002The Arc<br>\ud83d\udea8 Zetwerk\u2019s Rs 5,012 crore IPO sails through, getting fully subscribed on the final day of bidding.<br><br>The IPO received bids for over 3 times subscription, as of 4:45 pm, according to BSE data.<br><br>Qualified institutional buyers (QIBs): 4.73x<br>Non-institutional investor (NIIs): 1.4x<br>Retail: 0.72x<br><br>Other IPO details<br><br>Fresh issue: Rs 2,830 crore (56%) <br>Offer for sale: Rs 2,182 crore (44%) <br>Valuation: Rs 25,583 crore ($2.6 billion)"
+    },
+    {
       "title": "RT The Arc: Even Healthcare has raised $50 million led by existing backer Khosla Ventures along with Alpha Wave, taking its total funding to $120 mill...",
       "link": "https://x.com/madhavchanchani/status/2112110079898226765",
       "date": "2026-10-19T09:08:28+00:00",
@@ -10215,20 +10257,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Aditi Shrivastava<br>\ud83d\udea8\ud83d\udea8 Value commerce (Meesho) and quick commerce (Blinkit, Instamart, Zepto) took a bigger share of festive ecommerce in the opening two days of the sales, at the expense of horizontal marketplaces (Amazon, Flipkart).<br><br>According to Redseer, part of the shift reflects the horizontal marketplaces\u2019 reliance on smartphones, which accounted for 38\u201340% of their gross merchandise value.<br><br>Phones are in a slump. Shipments fell 10\u201313% year on year in the June quarter, according to IDC, Counterpoint and Omdia. Infact, this was the biggest June-quarter decline in six years.<br><br>Value platforms, meanwhile, are widening the festive basket. Their orders rose about 60%, they accounted for a quarter of all online fashion sales. The sales also attracted more new and smaller-town shoppers while the number of first-time shoppers doubled from last year.<br><img width=\"1196\" height=\"1180\" style=\"\" src=\"https://pbs.twimg.com/media/HUfFenabkAAhT0Z?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT Pratik Bhakta: PB Fintech have had a tough time convincing the street about its healthcare bet. I looked at some of the key announcements around PB...",
-      "link": "https://x.com/madhavchanchani/status/2109868697498321043",
-      "date": "2026-10-13T02:22:21+00:00",
-      "tweet_id": "2109868697498321043",
-      "source": "Madhav Chanchani",
-      "publisher": "Madhav Chanchani",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUehF42aIAAAth9?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Pratik Bhakta<br>PB Fintech have had a tough time convincing the street about its healthcare bet.<br><br>I looked at some of the key announcements around PB Health and how the PB Fintech stock reacted on that day.<br><br>During the early days of just announcing this venture idea, stock would crash 8% or so. <br><br>That has steadied with more clarity emerging on this business and its potential liability on PB Fintech.<br><img width=\"1244\" height=\"1739\" style=\"\" src=\"https://pbs.twimg.com/media/HUehF42aIAAAth9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "China's Deposit Insurance Fund has a remarkably small financial buffer relative to the deposits it protects. At the end of 2025, its reported balance ...",
