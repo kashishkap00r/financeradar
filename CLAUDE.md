@@ -93,10 +93,11 @@ A post-ranking step in `ai_ranker.py` clusters articles **across all content typ
 - Clustering failure → `clusters: []`, no crash, page looks like normal
 
 **Frontend (`app.js`):**
-- `getMergedClusters()` merges clusters across providers using any-URL overlap (not just lead URL)
+- `getMergedClusters()` merges clusters across providers using any-URL overlap (not just lead URL), then sorts by `_providerCount` (how many models picked the story)
 - "The Big Stories" section renders at the top of the homepage; clustered items are removed from the feed/sliders below (no duplicates)
-- Stories 1–3 render as a grid (hero + two columns) in the "thread" style: a thin line runs from a rust dot at the kicker through every source dot. 3 sources visible (hero 4), rest behind "+ N more sources"
-- Stories 4+ render compact ("More big stories", two per row); "Show the N sources" opens one in place, full width
+- Layout (Oct 2026, "front page + drawer"): story 1 is the lead (headline, summary, signal row, and a **Coverage** list of its top 4 sources — the only sources shown up front); stories 2–3 sit side by side with "Show sources"; **every** story after the top 3 is a one-line brief in "Also developing" (single-model picks included)
+- Sources open in a side drawer (`openStoryDrawer()`; a bottom sheet ≤768px), grouped by type. **Never expand sources in place** — the user hates anything that pushes the page down. Titles open the drawer too. `html { scrollbar-gutter: stable }` stops the sideways shift when scrolling locks
+- Signal row (`bsSignals()`): dots for how many models picked the story (`agreementHtml()`), a colour strip of the source mix, the source count. Model fallback: dots count only models that ran; with one model the dots are hidden; the caption notes models that didn't run
 - Subtitle under each label = `story_summary` from the clustering call (sentence-case label, one plain sentence), falling back to the lead's `why_it_matters`
 - Every source has its own bookmark (there is no whole-cluster bookmark)
 
@@ -144,7 +145,9 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 - Loaded by `index.html` as external files (`<script src>` / `<link href>`) — **never edit `index.html` directly**, edit `templates/*`, then run `python3 aggregator.py`
 - Theme: Fraunces headings, Nunito Sans body, burnt orange accent (#C45A35), light-only (no dark mode)
 - Design system (Oct 2026 redesign): the "Redesign" section at the end of `style.css` holds the tokens — one type scale (`--t-xs/s/m`), one spacing scale (`--s-1…8`, `--gap-col`, `--gap-block`, `--row-pad`). Hairline rules instead of boxes, no all-caps labels, bookmarks always visible. Top bar + tabs are pinned together in `.site-head`; `app.js` measures its height into `--head-h` so sticky day headers sit right under it
-- Home order: Big Stories → quote → Research Reports → From the Feed (lead + side list + rows) → quote → Slow Reads → rows → quote → Watch → rows → quote → From the Source (a list in a fixed-height scroll box, not a slider) → Voices → quote → rows
+- Home order: Big Stories → quote → Research Reports → From the Feed (lead + side list + rows) → quote → Slow Reads → rows → quote → Watch → rows → quote → From the Source (a list in a fixed-height scroll box, not a slider) → Voices → quote → More from the feed (every remaining story in a fixed-height box that scrolls inside itself — the homepage must end, not grow)
+- Section signals: Research Reports show India/International + publish date (ai_ranker carries `region` from feeds.json and `date`); Voices mark reposts/quotes/threads + model dots; From the Source rows start with an issuer badge in a fixed colour (`ISSUERS`) with a count strip above
+- Every homepage heading has an (i) with one or two lines from `SECTION_INFO`; the note floats in one fixed element (`showInfo()`), never in the DOM text (keeps it out of homepage search)
 - `deshoutTitle()` turns ALL-CAPS headlines (Telegram, SBI notes) into Title Case, keeping acronyms, letter+digit codes (FY27) and a leading ticker ("CMPDI : …")
 - All state in localStorage (active tab, bookmarks, page number)
 - Keyboard nav: J/K (next/prev), / (search), Esc (clear), H (home), 1-6 (tab shortcuts)
