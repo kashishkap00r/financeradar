@@ -1,39 +1,99 @@
 {
-  "generated_at": "2026-10-20T16:38:42.268766+05:30",
+  "generated_at": "2026-10-20T18:02:55.152986+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 47,
       "feeds_ok": 46,
       "feeds_failed": 1,
-      "items_raw": 1063,
-      "resolve_attempted": 849,
-      "resolve_resolved": 848,
-      "resolve_cache_hits": 814
+      "items_raw": 1057,
+      "resolve_attempted": 842,
+      "resolve_resolved": 841,
+      "resolve_cache_hits": 831
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.0,
-      "items": 757,
+      "age_hours": 0.8,
+      "items": 758,
       "handles_ok": 44
     },
     "warning": "",
-    "generated_at": "2026-10-20T16:38:42.268703+05:30"
+    "generated_at": "2026-10-20T18:02:55.152926+05:30"
   },
   "items": [
     {
-      "title": "Congrats Index: Number of congrats given by analyst in Concalls. @stockscansin HFCL : 15 congrats SG Finserve: 15 Congrats Federal Bank: 10 Congrats P...",
-      "link": "https://x.com/soicfinance/status/2112498504686067911",
-      "date": "2026-10-20T10:57:46+00:00",
-      "tweet_id": "2112498504686067911",
-      "source": "Intrinsic Compounding",
-      "publisher": "SOIC",
+      "title": "Inside the silence zone: How noise pollution near schools impacts students' health and education Studies reveal noise near schools impacts exam outcom...",
+      "link": "https://x.com/down2earthindia/status/2112506621540573278",
+      "date": "2026-10-20T11:30:01+00:00",
+      "tweet_id": "2112506621540573278",
+      "source": "Down To Earth",
+      "publisher": "Down To Earth",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HVEZyfca4AAulkc?format=jpg&name=orig",
+      "image": "https://pbs.twimg.com/media/HVEKwC-asAAL7hX?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "Congrats Index: Number of congrats given by analyst in Concalls. @stockscansin <br><br>HFCL : 15 congrats<br>SG Finserve: 15 Congrats<br>Federal Bank: 10 Congrats<br>PNB Bank: 10 Congrats<br>Solara: 9 Congrats<br>Sri Lotus: 9 congrats<br>Leela Palaces: 9 congrats<br><br>https://www.stockscans.in/concall-scans<br><br>Disc: no reco to buy or sell.<br><img width=\"2048\" height=\"1269\" style=\"\" src=\"https://pbs.twimg.com/media/HVEZyfca4AAulkc?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "description_html": "Inside the silence zone: How noise pollution near schools impacts students' health and education<br>Studies reveal noise near schools impacts exam outcomes and cognitive performance<br>https://www.downtoearth.org.in/pollution/inside-the-silence-zone-how-noise-pollution-near-schools-impacts-students-health-and-education<br><img width=\"2048\" height=\"1152\" style=\"\" src=\"https://pbs.twimg.com/media/HVEKwC-asAAL7hX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "EUROPE'S GAS BENCHMARK EXCEEDS \u20ac90 FOR FIRST TIME SINCE 2022",
+      "link": "https://x.com/REDBOXINDIA/status/2112505368454869031",
+      "date": "2026-10-20T11:25:02+00:00",
+      "tweet_id": "2112505368454869031",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "EUROPE'S GAS BENCHMARK EXCEEDS \u20ac90 FOR FIRST TIME SINCE 2022",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT @SushantSin: \"So no, Apple won\u2019t turn India into the world\u2019s next factory. It can help India acquire valuable manufacturing capabilities\u2026",
+      "link": "https://x.com/andymukherjee70/status/2112503877157429453",
+      "date": "2026-10-20T11:19:07+00:00",
+      "tweet_id": "2112503877157429453",
+      "source": "Andy Mukherjee",
+      "publisher": "Andy Mukherjee",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT @SushantSin: \"So no, Apple won\u2019t turn India into the world\u2019s next factory. It can help India acquire valuable manufacturing capabilities\u2026",
+      "category": "Twitter"
+    },
+    {
+      "title": "\u201cObtain information with \u2018minimal customer input.\u2019\u201d An eye-opening piece by @HemindraHazari Your Mobile Number Is All It Takes: How Fintech Data P...",
+      "link": "https://x.com/andymukherjee70/status/2112503479872970860",
+      "date": "2026-10-20T11:17:32+00:00",
+      "tweet_id": "2112503479872970860",
+      "source": "Andy Mukherjee",
+      "publisher": "Andy Mukherjee",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\u201cObtain information with \u2018minimal customer input.\u2019\u201d An eye-opening piece by @HemindraHazari <br>Your Mobile Number Is All It Takes: How Fintech Data Profiling Puts Millions at Risk of Fraud https://m.thewire.in/article/tech-tech/your-mobile-number-is-all-it-takes-how-fintech-data-profiling-puts-millions-at-risk-of-fraud via @thewire_In",
+      "category": "Twitter"
+    },
+    {
+      "title": "#OYO parent #PRISM plans to halve IPO fresh issue to \u20b93,350 crore as cash generation improves https://www.cnbctv18.com/market/oyo-parent-prism-ipo-fr...",
+      "link": "https://x.com/CNBCTV18Live/status/2112501818156843510",
+      "date": "2026-10-20T11:10:56+00:00",
+      "tweet_id": "2112501818156843510",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#OYO parent #PRISM plans to halve IPO fresh issue to \u20b93,350 crore as cash generation improves<br><br>https://www.cnbctv18.com/market/oyo-parent-prism-ipo-fresh-issue-3350-crore-20015549.htm",
       "category": "Twitter"
     },
     {
@@ -622,6 +682,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Arwa Damon: Tom Barrack at Global Security Form in Doha says the US no longer wants to own the \u201cGrand Bargain\u201d \u2013 oil in return for security. Say...",
+      "link": "https://x.com/JavierBlas/status/2112507626873311597",
+      "date": "2026-10-20T07:19:29+00:00",
+      "tweet_id": "2112507626873311597",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Arwa Damon<br>Tom Barrack at Global Security Form in Doha says the US no longer wants to own the \u201cGrand Bargain\u201d \u2013 oil in return for security. Says that conflict and controversy was to the western favor, the more off-base the region was the more it could manipulate the fossil fuels. He said that the America that is the guarantor to the world for the last 80 years is no longer there. Says this isn't \"abandonment\" but that the US now wants to \"tend\". Calls it a process similar to \"raising teenagers\"",
+      "category": "Twitter"
+    },
+    {
       "title": "\u201c\u2026 Donald Trump\u2019s war in Iran is driving an oil and gas production and export boom in the Americas, as customers race to secure reliable supply ami...",
       "link": "https://x.com/JavierBlas/status/2112443415237701798",
       "date": "2026-10-20T07:18:52+00:00",
@@ -1159,21 +1234,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Caixin: \"Nominal GDP, which measures output at current prices, grew 6% year-on-year in the third quarter \u2014 its fastest pace since the first quarter of 2022 \u2014 according to Caixin calculations.\"<br>https://www.caixinglobal.com/2026-10-19/chinas-third-quarter-gdp-growth-edges-up-to-45-102494770.html",
-      "category": "Twitter"
-    },
-    {
-      "title": "#2QWithCNBCTV18 | #GallantIspat reports its Q2 results; \u23e9Net Profit Down 31.95% At \u20b960.5 Cr Vs \u20b989 Cr (YoY) \u23e9Revenue Up 13.1% At \u20b91,146 Cr Vs \u20b91...",
-      "link": "https://x.com/CNBCTV18Live/status/2112384239299879018",
-      "date": "2026-10-20T03:23:43+00:00",
-      "tweet_id": "2112384239299879018",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HVCyIYtboAAp0vX?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#2QWithCNBCTV18 | #GallantIspat reports its Q2 results;<br><br>\u23e9Net Profit Down 31.95% At \u20b960.5 Cr Vs \u20b989 Cr (YoY)<br><br>\u23e9Revenue Up 13.1% At \u20b91,146 Cr Vs \u20b91,013 Cr (YoY)<br><br>\u23e9EBITDA Down 16.6% At \u20b9109.6 Cr Vs \u20b9131.5 Cr (YoY)<br><br>\u23e9Margin At 9.57% Vs 13% (YoY)<br><img width=\"701\" height=\"438\" style=\"\" src=\"https://pbs.twimg.com/media/HVCyIYtboAAp0vX?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2434,21 +2494,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "RT\u2002Khyati Pathak<br>About a decade ago, @amitvarma inspired @pranaykotas and @saurabhchandra to start @puliyabaazi. With this conversation on the seen and the unseen, he has made us see it as a multi-decadal project, may be even something that is a part of a long tradition. Thanks Amit, you have given us enough 'chabi' to keep going for another decade! :)<div class=\"rsshub-quote\"><br><br>Amit Varma:\u2002It's hard to talk about econ, policy, philosophy etc in our languages\u2014but the nation needs it!<br><br>@pranaykotas, @saurabhchandra &amp; @thescribblebee join me in ep 455 of The Seen and the Unseen to share their learnings from the iconic Hindi podcast Puliyabaazi: https://seenunseen.in/episodes/2026/10/19/episode-455-puliyabaazi-and-the-fine-art-of-hindi-podcasting/<br></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "SOBHA: Q2 CONS NET PROFIT 330M RUPEES VS 725M (YOY); EST 825M SOBHA: Q2 EBITDA 686M RUPEES VS 956M (YOY); Q2 EBITDA MARGIN 7.09% VS 5.60% (YOY) SOBHA:...",
-      "link": "https://x.com/REDBOXINDIA/status/2112157292313661578",
-      "date": "2026-10-19T12:21:55+00:00",
-      "tweet_id": "2112157292313661578",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SOBHA: Q2 CONS NET PROFIT 330M RUPEES VS 725M (YOY); EST 825M<br><br>SOBHA: Q2 EBITDA 686M RUPEES VS 956M (YOY); Q2 EBITDA MARGIN 7.09% VS 5.60% (YOY)<br><br>SOBHA: Q2 REVENUE 9.7B RUPEES VS 14B (YOY)",
       "category": "Twitter"
     },
     {
@@ -7642,21 +7687,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Javier Blas: COLUMN: BP should resist calls to resume share buybacks immediately -- and instead use today's oil and gas windfall to fix its debt pr...",
-      "link": "https://x.com/JavierBlas/status/2110858984836002101",
-      "date": "2026-10-15T08:34:24+00:00",
-      "tweet_id": "2110858984836002101",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Javier Blas<br>COLUMN: BP should resist calls to resume share buybacks immediately -- and instead use today's oil and gas windfall to fix its debt problem once and for all. <br><br>@Opinion https://www.bloomberg.com/opinion/articles/2026-10-15/bp-can-solve-its-debt-problem-once-and-for-all?utm_source=website&amp;utm_medium=share&amp;utm_campaign=twitter",
-      "category": "Twitter"
-    },
-    {
       "title": "India\u2019s CPI inflation rose to 5.54% in September 2026, with food inflation remaining a key area to watch. @RajaniSinha2025, Chief Economist at CareEd...",
       "link": "https://x.com/CareEdge_Group/status/2110638908317073498",
       "date": "2026-10-15T07:48:24+00:00",
@@ -7954,6 +7984,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BHEL's order book points to one direction=Boom in Thermal Power capex<br><br>Order book has gone from 1.32 GW to 14.6 GW+ in just last 3 years alone. <br><br>Our video to understand the entire industry's value chain inside out:<br><br>https://www.youtube.com/watch?v=Funuk-of7t8&amp;t=840s<br><img width=\"1788\" height=\"1004\" style=\"\" src=\"https://pbs.twimg.com/media/HUm6UMSbcAAw-Oh?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "A 3 minute video on Oil&Gas industry which simplifies the value chain and explains the industry with the key players!",
+      "link": "https://x.com/soicfinance/status/2110421260014628873",
+      "date": "2026-10-14T17:23:32+00:00",
+      "tweet_id": "2110421260014628873",
+      "source": "Intrinsic Compounding",
+      "publisher": "SOIC",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2110421066736918528/img/2e7dJ5DDsH2JrkDf.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "A 3 minute video on Oil&amp;Gas industry which simplifies the value chain and explains the industry with the key players!<br><video width=\"1080\" height=\"1350\" src=\"https://video.twimg.com/amplify_video/2110421066736918528/vid/avc1/1080x1350/8nj5cpzhyjU_Eo2X.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2110421066736918528/img/2e7dJ5DDsH2JrkDf.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -9382,21 +9427,6 @@
       "category": "Twitter"
     },
     {
-      "title": "RT Keshav Lohia: Mercor is paying $20/hour to watch Indian cricket matches and help train AI models. This might be the coolest way to make easy money.",
-      "link": "https://x.com/andymukherjee70/status/2108441755427516830",
-      "date": "2026-10-09T01:52:58+00:00",
-      "tweet_id": "2108441755427516830",
-      "source": "Andy Mukherjee",
-      "publisher": "Andy Mukherjee",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HUJz4dQWMAAJPkn?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Keshav Lohia<br>Mercor is paying $20/hour to watch Indian cricket matches and help train AI models. <br><br>This might be the coolest way to make easy money.<br><img width=\"1238\" height=\"930\" style=\"\" src=\"https://pbs.twimg.com/media/HUJz4dQWMAAJPkn?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Though I don't think that the number of on-sites in recent times would have been too many but this marks the end of something that only few could iden...",
       "link": "https://x.com/Finstor85/status/2108214471516631281",
       "date": "2026-10-08T15:14:33+00:00",
@@ -9424,21 +9454,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002UChicago EPIC India<br>#Opinion<br>In a new piece for @Ideas4India, @EPIC_India\u2019s @Swarna21 and @P_Dhruba explore how policy coordination can make waste-to-energy projects more financially viable, using Chennai\u2019s Kodungaiyur STP as a proof point.<br>https://epic.uchicago.in/sewage-waste-and-a-missed-energy-opportunity-in-indian-cities/<br><img width=\"2048\" height=\"1717\" style=\"\" src=\"https://pbs.twimg.com/media/HUGHKNaagAA0ZyG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT abey varghese: Well, the latest horror is AI, for which an overly timid India Inc. has neglected to build foundational capabilities. Mimicking a sm...",
-      "link": "https://x.com/andymukherjee70/status/2108133468408570314",
-      "date": "2026-10-08T08:11:17+00:00",
-      "tweet_id": "2108133468408570314",
-      "source": "Andy Mukherjee",
-      "publisher": "Andy Mukherjee",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002abey varghese<br>Well, the latest horror is AI, for which an overly timid India Inc. has neglected to build foundational capabilities. Mimicking a smartphone- and semiconductor-focused industrial policy won\u2019t create good jobs fast enough. And though capitulation to the West will backfire both politically and economically, collaboration will keep the world\u2019s most populous nation enmeshed in the warp and weft of the global economy. \u201cThink different,\u201d urged Apple Inc.\u2019s iconic ad featuring Gandhi and his spinning wheel. It\u2019s time for a homespun solution, writes @andymukherjee70. https://www.bloomberg.com/opinion/articles/2026-10-05/india-s-gen-z-faces-down-the-artificial-intelligence-future?utm_source=website&amp;utm_medium=share&amp;utm_campaign=twitter",
       "category": "Twitter"
     },
     {
