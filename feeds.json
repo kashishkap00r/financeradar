@@ -120,6 +120,30 @@
     "publisher": "Prosperiti Insights"
   },
   {
+    "id": "decoding-the-dragon",
+    "name": "Decoding the Dragon",
+    "url": "https://decodingthedragon.substack.com",
+    "feed": "https://decodingthedragon.substack.com/feed",
+    "category": "News",
+    "publisher": "Decoding the Dragon"
+  },
+  {
+    "id": "bharatnama",
+    "name": "BharatNama",
+    "url": "https://bharatnama.substack.com",
+    "feed": "https://bharatnama.substack.com/feed",
+    "category": "News",
+    "publisher": "BharatNama"
+  },
+  {
+    "id": "biznewsbyjay",
+    "name": "Biz News+",
+    "url": "https://biznewsbyjay.substack.com",
+    "feed": "https://biznewsbyjay.substack.com/feed",
+    "category": "News",
+    "publisher": "Biz News+"
+  },
+  {
     "id": "downtoearth",
     "name": "downtoearth",
     "url": "https://www.downtoearth.org.in",

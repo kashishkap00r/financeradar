@@ -67,6 +67,9 @@ SLOW_READS_SOURCES = (
     "The Ken",                       # daily-ish long-form; strip still caps it at 2
     "Finshots",                      # daily explainer
     "The Core",                      # daily, but its RSS only holds ~2 days (kept 30 via keep_days)
+    "Decoding the Dragon",           # Substack, China industry explainers, ~daily
+    "BharatNama",                    # Substack, India policy/data explainers, ~daily
+    "Biz News+",                     # Jayant Mundhra's Substack, Indian business, ~daily
 )
 SLOW_READS_WINDOW_DAYS = 30      # look back this far (news tab uses 5)
 SLOW_READS_ALL_POSTS_DAYS = 7    # every post from the last week shows, uncapped; quieter
