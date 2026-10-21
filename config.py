@@ -72,8 +72,9 @@ SLOW_READS_SOURCES = (
     "Biz News+",                     # Jayant Mundhra's Substack, Indian business, ~daily
 )
 SLOW_READS_WINDOW_DAYS = 30      # look back this far (news tab uses 5)
-SLOW_READS_ALL_POSTS_DAYS = 7    # every post from the last week shows, uncapped; quieter
-                                 # sources fall back to their newest post in the 30-day window
+SLOW_READS_ALL_POSTS_DAYS = 7    # every post from the last week shows (up to the cap below);
+                                 # quieter sources fall back to their newest post in the 30-day window
+SLOW_READS_MAX_PER_SOURCE = 5    # daily sources show only their newest 5 from that week
 TWITTER_RESOLVE_WORKERS = 8      # concurrent Google->X resolve workers
 
 # ── Twitter/X ingestion ───────────────────────────────────────────────

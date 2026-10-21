@@ -8,7 +8,7 @@ from datetime import datetime, timezone, timedelta
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from aggregator import select_slow_reads
-from config import SLOW_READS_WINDOW_DAYS, SLOW_READS_ALL_POSTS_DAYS
+from config import SLOW_READS_WINDOW_DAYS, SLOW_READS_ALL_POSTS_DAYS, SLOW_READS_MAX_PER_SOURCE
 
 NOW = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
 
@@ -41,12 +41,19 @@ class TestSelectSlowReads(unittest.TestCase):
                                     art("Economic Times — Latest", 1)], now=NOW)
         self.assertEqual(picked, [])
 
-    def test_keeps_every_post_from_the_last_week(self):
-        # Daily sources aren't capped: everything inside the week shows
-        batch = [art("Finshots", d) for d in range(0, SLOW_READS_ALL_POSTS_DAYS)]
+    def test_keeps_every_post_from_the_last_week_under_the_cap(self):
+        batch = [art("The India Forum", d) for d in (1, 4)]
         picked = select_slow_reads(batch, now=NOW)
-        self.assertEqual(len(picked), SLOW_READS_ALL_POSTS_DAYS)
-        self.assertEqual(picked[0]["title"], "Finshots post 0")
+        self.assertEqual(len(picked), 2)
+
+    def test_daily_source_capped_to_its_newest_posts(self):
+        # Two posts a day for a week: only the newest SLOW_READS_MAX_PER_SOURCE show
+        batch = [art("Finshots", d + h / 24, title=f"Finshots {d}-{h}")
+                 for d in range(0, SLOW_READS_ALL_POSTS_DAYS) for h in (0, 12)]
+        picked = select_slow_reads(batch, now=NOW)
+        self.assertEqual(len(picked), SLOW_READS_MAX_PER_SOURCE)
+        self.assertEqual(picked[0]["title"], "Finshots 0-0")
+        self.assertEqual(picked[-1]["title"], "Finshots 2-0")
 
     def test_older_posts_dropped_when_source_has_a_recent_one(self):
         batch = [art("The India Forum", 2), art("The India Forum", 10), art("The India Forum", 20)]
@@ -70,7 +77,8 @@ class TestSelectSlowReads(unittest.TestCase):
                    "Our World in Data", "The Morning Context", "The India Forum",
                    "The Ken", "Finshots", "The Core", "The Arc"]
         many = [art(s, d) for s in sources for d in range(0, 7)]
-        self.assertEqual(len(select_slow_reads(many, now=NOW)), len(many))
+        self.assertEqual(len(select_slow_reads(many, now=NOW)),
+                         len(sources) * SLOW_READS_MAX_PER_SOURCE)
 
     def test_quiet_source_not_crowded_out_by_busy_week(self):
         busy = [art(s, d) for s in ("The Ken", "Finshots", "The Core") for d in range(0, 7)]

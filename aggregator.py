@@ -53,7 +53,7 @@ from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     REPORTS_FRESHNESS_DAYS,
                     FEED_FAILURE_ALERT_THRESHOLD,
                     SLOW_READS_SOURCES, SLOW_READS_WINDOW_DAYS,
-                    SLOW_READS_ALL_POSTS_DAYS)
+                    SLOW_READS_ALL_POSTS_DAYS, SLOW_READS_MAX_PER_SOURCE)
 from log_utils import FeedLogger
 from twitter_signal import build_twitter_lanes
 from twitter_fetcher import fetch_twitter_articles
@@ -290,7 +290,8 @@ def select_slow_reads(articles, now=None):
     """Every post from the Slow Reads sources in the last week, plus quieter ones.
 
     Runs on filtered articles *before* the news freshness cut. Everything from
-    the last SLOW_READS_ALL_POSTS_DAYS shows, with no per-source or total cap.
+    the last SLOW_READS_ALL_POSTS_DAYS shows, up to SLOW_READS_MAX_PER_SOURCE
+    per source (newest first) so daily writers can't crowd the strip; no total cap.
     A source with nothing that recent still shows its newest post from the
     SLOW_READS_WINDOW_DAYS window, so weekly-or-slower writers stay visible
     between posts. Ordered newest first.
@@ -323,7 +324,7 @@ def select_slow_reads(articles, now=None):
     picked = []
     for posts in by_source.values():
         recent = [pair for pair in posts if pair[0] >= recent_cutoff]
-        picked.extend(recent or posts[:1])
+        picked.extend((recent or posts[:1])[:SLOW_READS_MAX_PER_SOURCE])
     picked.sort(key=lambda pair: pair[0], reverse=True)
 
     out = []
