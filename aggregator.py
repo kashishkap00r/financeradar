@@ -483,7 +483,7 @@ def generate_html(
     twitter_presets = {
         "Money Managers": ["Deepak Shenoy", "Samit Vartak", "ContrariianEPS", "Unseen Value", "Murali Srinivasan", "Dhirendra Kumar"],
         "Stock Pickers": ["SOIC", "SOIC Research", "Finstor", "Yatin Mota", "TarH", "Aditya Kondawar", "Abhy Murarka", "Prashant Nair", "Shashank Udupa", "Ritu Singh", "Equity Value", "Beat The Street", "Equity Insights", "Mohit Ish", "Kobeissi Letter", "Pranay Kotas"],
-        "Newsroom": ["Menaka Doshi", "CNBC-TV18", "ET Markets", "Nigel D'Souza", "Andy Mukherjee", "Ira Dugal", "Javier Blas", "FT Energy"],
+        "Newsroom": ["Menaka Doshi", "CNBC-TV18", "ET Markets", "Nigel D'Souza", "Andy Mukherjee", "Ira Dugal", "Javier Blas", "FT Energy", "Bloomberg Opinion"],
         "Macro & Policy": ["Michael Pettis", "Sanjeev Sanyal", "Ila Patnaik", "Ideas For India", "Shruti Rajagopalan", "CareEdge"],
         "Data & Climate": ["Down To Earth", "Carbon Brief", "Ember Energy", "Our World in Data", "Data For India", "IndiaSpend", "India Data Hub"],
     }

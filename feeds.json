@@ -1555,6 +1555,14 @@
     "publisher": "Menaka Doshi"
   },
   {
+    "id": "x-bloomberg-opinion",
+    "name": "Bloomberg Opinion (X)",
+    "url": "https://x.com/opinion",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/opinion/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Bloomberg Opinion"
+  },
+  {
     "id": "x-mohit-ish",
     "name": "Mohit Ish (X)",
     "url": "https://x.com/ishmohit1",
