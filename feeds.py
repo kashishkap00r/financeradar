@@ -273,10 +273,16 @@ def _parse_feed_content(content, feed_config):
     root = ET.fromstring(content)
     feed_id = feed_config.get("id", "")
 
-    def _ing_link_allowed(link):
+    # Optional feeds.json "link_contains": keep only items whose link has this substring
+    # (Bloomberg writer feeds use "/newsletters/" to drop the writer's regular articles)
+    link_contains = feed_config.get("link_contains", "")
+
+    def _link_allowed(link):
+        link_l = (link or "").lower()
+        if link_contains and link_contains.lower() not in link_l:
+            return False
         if feed_id != "ing-think-rss":
             return True
-        link_l = (link or "").lower()
         return "/articles/" in link_l or "/snaps/" in link_l
 
     # Handle RSS 2.0 format
@@ -301,7 +307,7 @@ def _parse_feed_content(content, feed_config):
             guid = item.find("atom:id", ns)
 
             link_href = link.get("href") if link is not None else ""
-            if not _ing_link_allowed(link_href):
+            if not _link_allowed(link_href):
                 continue
 
             article_data = {
@@ -349,7 +355,7 @@ def _parse_feed_content(content, feed_config):
             guid = item.find("guid")
             description = item.find("description")
             link_text = link.text if link is not None and link.text else ""
-            if not _ing_link_allowed(link_text):
+            if not _link_allowed(link_text):
                 continue
 
             # Extract image from media:thumbnail, media:content, or enclosure

@@ -340,6 +340,23 @@ def select_slow_reads(articles, now=None):
     return out
 
 
+def dedupe_by_link(articles):
+    """Drop repeat copies of the same link, keeping the first.
+
+    A co-written Bloomberg newsletter issue arrives once per writer feed; without
+    this it shows as one card listing the same source twice. Linkless items stay.
+    """
+    seen = set()
+    out = []
+    for article in articles:
+        link = article.get("link", "")
+        if link and link in seen:
+            continue
+        seen.add(link)
+        out.append(article)
+    return out
+
+
 def merge_news_cache(articles, feeds, cache_path, now=None):
     """Keep posts from short rolling feeds for `keep_days` (set per feed in feeds.json),
     and from every Slow Reads source for SLOW_READS_WINDOW_DAYS.
@@ -1236,6 +1253,7 @@ def main():
     all_articles = merge_news_cache(all_articles, feeds, NEWS_CACHE_FILE)
     if len(all_articles) > before:
         logger.info(f"[cache] News cache: restored {len(all_articles) - before} articles")
+    all_articles = dedupe_by_link(all_articles)
 
     try:
         twitter_articles, twitter_fetch_meta = fetch_twitter_articles(twitter_feeds, logger=logger)

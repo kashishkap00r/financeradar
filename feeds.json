@@ -981,6 +981,114 @@
     "publisher": "Bloomberg"
   },
   {
+    "id": "bloomberg-money-stuff-levine",
+    "name": "Bloomberg — Money Stuff",
+    "url": "https://www.bloomberg.com/account/newsletters/money-stuff",
+    "feed": "https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matthew-s-levine.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-banking-industry-green",
+    "name": "Bloomberg — Banking Monitor",
+    "url": "https://www.bloomberg.com/account/newsletters/banking-industry",
+    "feed": "https://www.bloomberg.com/authors/AOUPTQOehXQ/rick-green.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-industrial-strength-sutherland",
+    "name": "Bloomberg — Industrial Strength",
+    "url": "https://www.bloomberg.com/account/newsletters/industrial-strength",
+    "feed": "https://www.bloomberg.com/authors/AQ1oJ6PUBL8/brooke-sutherland.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-markets-daily-serafino",
+    "name": "Bloomberg — Markets Daily",
+    "url": "https://www.bloomberg.com/account/newsletters/markets-daily",
+    "feed": "https://www.bloomberg.com/authors/ABoP3GGeTtg/phil-serafino.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-markets-daily-riley",
+    "name": "Bloomberg — Markets Daily",
+    "url": "https://www.bloomberg.com/account/newsletters/markets-daily",
+    "feed": "https://www.bloomberg.com/authors/AXaNtvarAGI/charles-riley.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-markets-daily-india-vajpayee",
+    "name": "Bloomberg — Markets Daily India",
+    "url": "https://www.bloomberg.com/account/newsletters/markets-daily-india",
+    "feed": "https://www.bloomberg.com/authors/AXc-gY_W3CA/pratigya-vajpayee.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-markets-daily-india-mascarenhas",
+    "name": "Bloomberg — Markets Daily India",
+    "url": "https://www.bloomberg.com/account/newsletters/markets-daily-india",
+    "feed": "https://www.bloomberg.com/authors/AXdNoO95oP4/rajesh-mascarenhas.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-markets-daily-india-shetty",
+    "name": "Bloomberg — Markets Daily India",
+    "url": "https://www.bloomberg.com/account/newsletters/markets-daily-india",
+    "feed": "https://www.bloomberg.com/authors/AXIneu6f1v8/savio-shetty.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-supply-lines-murray",
+    "name": "Bloomberg — Supply Lines",
+    "url": "https://www.bloomberg.com/account/newsletters/supply-lines",
+    "feed": "https://www.bloomberg.com/authors/AByANe1fiY4/brendan-murray.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-supply-lines-curtis",
+    "name": "Bloomberg — Supply Lines",
+    "url": "https://www.bloomberg.com/account/newsletters/supply-lines",
+    "feed": "https://www.bloomberg.com/authors/AQx5ShZM0Yw/laura-curtis.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-new-economy-daily-anstey",
+    "name": "Bloomberg — Economics Daily",
+    "url": "https://www.bloomberg.com/account/newsletters/new-economy-daily",
+    "feed": "https://www.bloomberg.com/authors/AF7uNtxCFaA/chris-anstey.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
+    "id": "bloomberg-new-economy-daily-holland",
+    "name": "Bloomberg — Economics Daily",
+    "url": "https://www.bloomberg.com/account/newsletters/new-economy-daily",
+    "feed": "https://www.bloomberg.com/authors/AExYCI7r_48/ben-holland.rss",
+    "category": "News",
+    "publisher": "Bloomberg",
+    "link_contains": "/newsletters/"
+  },
+  {
     "id": "careratings-auto",
     "name": "CareEdge — Auto",
     "url": "https://www.careratings.com/industry-research",
