@@ -1,10 +1,31 @@
 {
-  "generated_at": "2026-10-12T04:00:16.256714+00:00",
+  "generated_at": "2026-10-26T04:29:25.891046+00:00",
   "meta": {
     "source": "ember_wp_rest",
     "items_total": 120
   },
   "items": [
+    {
+      "title": "Plugging storage into India\u2019s rooftop solar revolution",
+      "link": "https://ember-energy.org/latest-insights/plugging-storage-into-indias-rooftop-solar-revolution",
+      "date": "2026-10-22T00:01:00",
+      "type": "Analysis",
+      "description": "Rooftop solar is now growing rapidly in India, and in the process, it is lowering daytime demand and increasing daytime solar exports. Adding battery storage alongside rooftop solar can turn these phenomena into a source of distributed flexibility."
+    },
+    {
+      "title": "Storage target ambition is rising, but not fast enough to reach the goal",
+      "link": "https://ember-energy.org/latest-insights/storage-target-ambition-is-rising-but-not-fast-enough-to-reach-the-goal",
+      "date": "2026-10-15T00:03:35",
+      "type": "Analysis",
+      "description": "2030 battery and energy storage targets have nearly tripled since COP29, but remain far below the 1,500 GW pledge."
+    },
+    {
+      "title": "Electric energy security: how EVs are reducing oil import vulnerabilities",
+      "link": "https://ember-energy.org/latest-insights/electric-energy-security-how-evs-are-reducing-oil-import-vulnerabilities",
+      "date": "2026-10-14T00:01:00",
+      "type": "Analysis",
+      "description": "Electric car fleets have saved oil-importing countries $20bn since the start of the US-Israel war with Iran, according to new data released by Ember."
+    },
     {
       "title": "Bankable by design: Financing ASEAN\u2019s energy system transformation",
       "link": "https://ember-energy.org/latest-insights/bankable-by-design-financing-aseans-energy-system-transformation",
@@ -305,27 +326,6 @@
       "date": "2026-04-29T00:01:00",
       "type": "Analysis",
       "description": "Countries\u2019 reported coal mine methane inventories capture only a fraction of actual emissions. Yet affordable mitigation measures exist and could significantly reduce these emissions this decade."
-    },
-    {
-      "title": "From OECD to emerging markets: fossil power\u2019s global decline has begun",
-      "link": "https://ember-energy.org/latest-insights/from-oecd-to-emerging-markets-fossil-powers-global-decline-has-begun",
-      "date": "2026-04-28T05:00:00",
-      "type": "Analysis",
-      "description": "Rapid solar and wind scaling is actively displacing thermal generation. OECD fossil generation has peaked while systematic decommissioning of coal-fired power plants is under way across most member states. This shift is now extending beyond the OECD, with fossil generation falling in major emerging"
-    },
-    {
-      "title": "Global Electricity Review 2026",
-      "link": "https://ember-energy.org/latest-insights/global-electricity-review-2026",
-      "date": "2026-04-21T00:04:17",
-      "type": "Analysis",
-      "description": "Solar surge halts fossil generation rise as clean power meets all demand growth and renewables overtake coal"
-    },
-    {
-      "title": "\u00a31bn but falling: Record subsidy for UK biomass burning enters final year",
-      "link": "https://ember-energy.org/latest-insights/1bn-but-falling-record-subsidy-for-uk-biomass-burning-enters-final-year",
-      "date": "2026-04-16T00:01:00",
-      "type": "Analysis",
-      "description": "Drax biomass power station, Britain\u2019s largest carbon emitter, received record public subsidies in 2025. From 2027, the subsidy available will be roughly halved to around \u00a3460 million per year, beginning its phase-out."
     },
     {
       "title": "Solar growth in South Asia has cut fuel imports for power but deeper reductions need electrification and regional grids",

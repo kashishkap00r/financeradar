@@ -1,4 +1,4 @@
-"""Tests for the per-feed `link_contains` filter in feeds.json."""
+"""Tests for the per-feed `link_contains` / `link_excludes` filters in feeds.json."""
 
 import unittest
 
@@ -38,6 +38,10 @@ class TestLinkContainsFilter(unittest.TestCase):
     def test_keeps_only_matching_links(self):
         items = _parse_feed_content(XML.encode("utf-8"), cfg(link_contains="/newsletters/"))
         self.assertEqual([i["title"] for i in items], ["Newsletter issue", "Opinion newsletter issue"])
+
+    def test_link_excludes_drops_matching_links(self):
+        items = _parse_feed_content(XML.encode("utf-8"), cfg(link_excludes="/opinion/"))
+        self.assertEqual([i["title"] for i in items], ["Newsletter issue", "Regular article"])
 
     def test_no_filter_keeps_everything(self):
         items = _parse_feed_content(XML.encode("utf-8"), cfg())

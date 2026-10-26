@@ -67,6 +67,7 @@ SLOW_READS_SOURCES = (
     "The Ken",                       # daily-ish long-form; strip still caps it at 2
     "Finshots",                      # daily explainer
     "The Core",                      # daily, but its RSS only holds ~2 days (kept 30 via keep_days)
+    "The Core Opinion",              # The Take + The Plinth columns, split off the main feed
     "Decoding the Dragon",           # Substack, China industry explainers, ~daily
     "BharatNama",                    # Substack, India policy/data explainers, ~daily
     "Biz News+",                     # Jayant Mundhra's Substack, Indian business, ~daily

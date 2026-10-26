@@ -276,10 +276,15 @@ def _parse_feed_content(content, feed_config):
     # Optional feeds.json "link_contains": keep only items whose link has this substring
     # (Bloomberg writer feeds use "/newsletters/" to drop the writer's regular articles)
     link_contains = feed_config.get("link_contains", "")
+    # ...and "link_excludes" drops items whose link has it (The Core's main feed
+    # drops "/opinion/", which its own The Core Opinion entry picks up instead)
+    link_excludes = feed_config.get("link_excludes", "")
 
     def _link_allowed(link):
         link_l = (link or "").lower()
         if link_contains and link_contains.lower() not in link_l:
+            return False
+        if link_excludes and link_excludes.lower() in link_l:
             return False
         if feed_id != "ing-think-rss":
             return True

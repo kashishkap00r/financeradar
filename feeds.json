@@ -921,7 +921,18 @@
     "feed": "https://www.thecore.in/feed",
     "category": "News",
     "publisher": "The Core",
-    "keep_days": 30
+    "keep_days": 30,
+    "link_excludes": "/opinion/"
+  },
+  {
+    "id": "thecore-opinion",
+    "name": "The Core Opinion",
+    "url": "https://www.thecore.in/opinion",
+    "feed": "https://www.thecore.in/feed",
+    "category": "News",
+    "publisher": "The Core",
+    "keep_days": 30,
+    "link_contains": "/opinion/"
   },
   {
     "id": "the-arc",
