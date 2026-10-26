@@ -1,6 +1,22 @@
 {
   "thecore": [
     {
+      "title": "Middle East Braces For Highest Uncertainty Since War Began",
+      "link": "https://www.thecore.in/podcasts/middle-east-braces-for-highest-uncertainty-since-war-began-873060",
+      "date": "2026-10-26T00:30:43+00:00",
+      "description": "Trump has repeatedly hinted that his forces in the Middle East would resume strikes on Iran after the US midterm elections",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/10/25/1106079-01mondownthe-core-report1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/middle-east-braces-for-highest-uncertainty-since-war-began-873060"
+    },
+    {
       "title": "India\u2019s Growth Story Is Intact. So Why Are Foreign Investors Still Selling?",
       "link": "https://www.thecore.in/podcasts/the-core-report/ajit-dayal-why-foreign-investors-are-selling-indian-markets-governance-tax-rupee-872915",
       "date": "2026-10-24T00:30:11+00:00",
@@ -799,22 +815,6 @@
       "image": "https://www.thecore.in/h-upload/2026/09/28/1103949-india-business1200x630jpg.jpg",
       "feed_id": "thecore",
       "guid": "https://www.thecore.in/opinion/the-take/why-india-should-sell-safety-not-ease-of-doing-business-871549"
-    },
-    {
-      "title": "Emerging Markets Are Resilient, But India Is Missing the \"Safety Over Cost\" Shift: Jahangir Aziz Of  JP Morgan",
-      "link": "https://www.thecore.in/economy/aziz-jahangir-jp-morgan-emerging-markets-india-supply-chain-safety-871409",
-      "date": "2026-09-26T06:00:09+05:30",
-      "description": "In this episode of The Core Report, Jahangir Aziz, Co-Head of Macroeconomic Research, J.P. Morgan explains why emerging markets have splintered into individual stories and why India risks losing out...",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/09/25/1103767-core-interview1200x630.jpg",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/economy/aziz-jahangir-jp-morgan-emerging-markets-india-supply-chain-safety-871409"
     }
   ],
   "ember-energy-insights": [
@@ -915,10 +915,10 @@
       "guid": "CBMiYkFVX3lxTFBpRVVwR01ibjhuZC11Q1ItOTNzRFJQcEJ2M19fNVNWaU1vek02YmQzN01UTTNjNDFJbFc2aFBTQzJSaWFINUV4Q3lhT3lPYUNUeEM5dHZicXd2aHJvZlRpVVNR"
     },
     {
-      "title": "EV Sales Data Tracker",
+      "title": "EV Sales Data Tracker - Ember-climate.org",
       "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9LV05mb3VwZ2RuNk1nMFVIR29BOTYxMUl0dGc4VWhJZnB4eTE5NjR1d3NrNmR4eFpudlJ5ek1YX2FEdVdHM3JNekl4RHJSci05QTc3N0JfV09vcUE?oc=5",
       "date": "2026-10-14T02:46:54+00:00",
-      "description": "EV Sales Data Tracker ember-energy.org",
+      "description": "EV Sales Data Tracker Ember-climate.org",
       "source": "Ember Energy",
       "source_url": "https://ember-energy.org/",
       "category": "News",
