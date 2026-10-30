@@ -1,6 +1,54 @@
 {
   "thecore": [
     {
+      "title": "The Business Of Funding Lawsuits",
+      "link": "https://www.thecore.in/podcasts/the-business-of-funding-lawsuits-873290",
+      "date": "2026-10-30T02:00:29+00:00",
+      "description": "How do funders decide what lawsuits to invest in? And what happens if a lawsuit fails?",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/10/29/1106404-third-party-funding1200x630jpg-1.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/the-business-of-funding-lawsuits-873290"
+    },
+    {
+      "title": "India Wants To Turn Assets Into Tokens. But Land May Be Off Limits",
+      "link": "https://www.thecore.in/opinion/the-plinth/india-asset-tokenisation-delta-act-sebi-demat-real-estate-laws-873275",
+      "date": "2026-10-30T00:30:30+00:00",
+      "description": "SEBI's bond pilot shows what tokenisation needs, and its first phase is already in the books. Maharashtra's DELTA Act will test it next. The early wins may be grid assets, REITs and state bonds, while direct tokens on private land and farmland stall.",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/10/29/1106385-tokenisation-of-land-assets1200x630jpg.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/opinion/the-plinth/india-asset-tokenisation-delta-act-sebi-demat-real-estate-laws-873275"
+    },
+    {
+      "title": "Oil Markets Worry About The Longer Term",
+      "link": "https://www.thecore.in/podcasts/oil-markets-worry-about-the-longer-term-873297",
+      "date": "2026-10-30T00:30:15+00:00",
+      "description": "The stock markets are on a stronger footing with fresh rumours of a reduction in long-term capital gains on foreign investors",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/10/29/1106412-05friupthe-core-report1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/oil-markets-worry-about-the-longer-term-873297"
+    },
+    {
       "title": "The Strongest Case for Optimism About India's Economy",
       "link": "https://www.thecore.in/podcasts/the-strongest-case-for-optimism-about-indias-economy-873273",
       "date": "2026-10-29T11:30:54+00:00",
@@ -895,22 +943,6 @@
       "image": "https://www.thecore.in/h-upload/2026/09/30/1104131-fcnr-b-deposits1200x630jpg.jpg",
       "feed_id": "thecore",
       "guid": "https://www.thecore.in/business/india-banks-fcnr-b-deposit-liquidity-unsecured-lending-risks-871688"
-    },
-    {
-      "title": "Microsoft\u2019s Retiring Old Software Leaves Indian Companies With The Bill",
-      "link": "https://www.thecore.in/technology/microsoft-sharepoint-exit-indian-it-cloud-migration-bill-871629",
-      "date": "2026-09-30T06:00:42+05:30",
-      "description": "SharePoint 2016 and 2019 are out of support, Office Online Server goes in December, and there is no paid extension. Follow the money and the sunset is a revenue event for India's Big IT.",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/09/29/1104058-microsoft1200x630.jpg",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/technology/microsoft-sharepoint-exit-indian-it-cloud-migration-bill-871629"
     }
   ],
   "ember-energy-insights": [
@@ -1153,22 +1185,6 @@
       "image": "",
       "feed_id": "ember-energy-insights",
       "guid": "CBMikwFBVV95cUxPWWdoSTNtV1RXRDNNWlBHZjhGTk5WRjllNE9EYzZPWnRUMmlpZlJGdGItejM4OUszWEVsVnh2SlNOZ3pmZGxPeHVOMmRwZ2RkSmpjU0otaEFzaFZaTWNUSVBpenlhZ0l3WDdESUlRejY0blczSnFIby1sX1l1N3lPNzRwdjBlZUVKSkZYNV9MQW40enM"
-    },
-    {
-      "title": "Annual coal mine methane emissions are linked to tens of thousands of deaths - Ember-climate.org",
-      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQOU9STHZySEphOUtwYklnc2Y3bTdHMmhXdVVtcTZ0RDJXZnhzVmxwZ1BuOWhmR3R1V0ZNcHdraUFJNW5Ud2x0WHFsamdVSV9xZWxqNGY2dGU1MFdpdnBWZjBuNnlmajM4WnFMbVpfblhmMm1oX2U5bmZEV1ZCdHdFOER0V21sV2xXTS1PR3FxMkltWVE5X0E5SlVSOF9yR1NRN2xsVzJ2Ukh0SHgxdlFYX3ZfWnRjQm90aGc?oc=5",
-      "date": "2026-09-30T01:39:53+00:00",
-      "description": "Annual coal mine methane emissions are linked to tens of thousands of deaths Ember-climate.org",
-      "source": "Ember Energy",
-      "source_url": "https://ember-energy.org/",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Ember",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "ember-energy-insights",
-      "guid": "CBMiugFBVV95cUxQOU9STHZySEphOUtwYklnc2Y3bTdHMmhXdVVtcTZ0RDJXZnhzVmxwZ1BuOWhmR3R1V0ZNcHdraUFJNW5Ud2x0WHFsamdVSV9xZWxqNGY2dGU1MFdpdnBWZjBuNnlmajM4WnFMbVpfblhmMm1oX2U5bmZEV1ZCdHdFOER0V21sV2xXTS1PR3FxMkltWVE5X0E5SlVSOF9yR1NRN2xsVzJ2Ukh0SHgxdlFYX3ZfWnRjQm90aGc"
     }
   ],
   "business-standard-number-wise": [
@@ -1999,6 +2015,22 @@
   ],
   "decoding-the-dragon": [
     {
+      "title": "#136: Why is 80% of China's power-cable insulation still imported?",
+      "link": "https://decodingthedragon.substack.com/p/136-why-is-80-of-chinas-power-cable",
+      "date": "2026-10-30T01:30:47+00:00",
+      "description": "One Chinese firm has clawed the grid's most unforgiving material back from Dow and Borealis, and India hasn't started the same climb.",
+      "source": "Decoding the Dragon",
+      "source_url": "https://decodingthedragon.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Decoding the Dragon",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!s_mb!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F66ac5f03-7135-4d53-97c5-cab656b3bfd6_1024x572.png",
+      "feed_id": "decoding-the-dragon",
+      "guid": "https://decodingthedragon.substack.com/p/136-why-is-80-of-chinas-power-cable"
+    },
+    {
       "title": "#135: Why did China crash a $3,000 sensor to $300?",
       "link": "https://decodingthedragon.substack.com/p/135-why-did-china-crash-a-3000-sensor",
       "date": "2026-10-29T13:30:54+00:00",
@@ -2561,6 +2593,22 @@
   ],
   "bharatnama": [
     {
+      "title": "#113: Why are just 16% of India's tech workers AI-ready?",
+      "link": "https://bharatnama.substack.com/p/107-why-are-just-16-of-indias-tech",
+      "date": "2026-10-30T01:30:46+00:00",
+      "description": "India wants to build the world's first AI-native workforce as entry-level jobs vanish, but the foundation is far thinner than the ambition.",
+      "source": "BharatNama",
+      "source_url": "https://bharatnama.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "BharatNama",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!1up3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F88652391-5f46-4bfd-b58b-3155c5594901_1024x572.jpeg",
+      "feed_id": "bharatnama",
+      "guid": "https://bharatnama.substack.com/p/107-why-are-just-16-of-indias-tech"
+    },
+    {
       "title": "#112: Why is India still the world\u2019s 2nd-biggest arms buyer?",
       "link": "https://bharatnama.substack.com/p/106-why-is-india-still-the-worlds",
       "date": "2026-10-29T13:30:48+00:00",
@@ -3122,6 +3170,22 @@
     }
   ],
   "biznewsbyjay": [
+    {
+      "title": "#89: Why has India built 7% of the storage it needs?",
+      "link": "https://biznewsbyjay.substack.com/p/89-why-has-india-built-7-of-the-storage",
+      "date": "2026-10-30T01:30:56+00:00",
+      "description": "NTPC just handed France's EDF half of a joint venture to close the gap, and the real prize is who ends up owning India's flexibility.",
+      "source": "Biz News+",
+      "source_url": "https://biznewsbyjay.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Biz News+",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!AwKc!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F700cb242-5baf-4f90-bc5c-b3fcb86d8b5d_1024x572.png",
+      "feed_id": "biznewsbyjay",
+      "guid": "https://biznewsbyjay.substack.com/p/89-why-has-india-built-7-of-the-storage"
+    },
     {
       "title": "#88: Why do 80% of Bihar's households still buy loose milk?",
       "link": "https://biznewsbyjay.substack.com/p/88-why-do-80-of-bihars-households",
@@ -5696,6 +5760,22 @@
   ],
   "finshots": [
     {
+      "title": "Will cutting LTCG tax on equities bring foreign investors back?",
+      "link": "https://finshots.in/markets/will-cutting-ltcg-tax-on-equities-bring-foreign-investors-back-2/",
+      "date": "2026-10-30T01:30:49+00:00",
+      "description": "An explainer on the chatter about reducing capital gains tax on equities.",
+      "source": "Finshots",
+      "source_url": "https://finshots.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Finshots",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://cdn.finshots.app/images/2026/10/LTG.jpg",
+      "feed_id": "finshots",
+      "guid": "6ae3857304bd2406332fdfa0"
+    },
+    {
       "title": "Is Instamart eating Swiggy alive?",
       "link": "https://finshots.in/archive/instamart-eating-swiggy-alive/",
       "date": "2026-10-29T01:30:12+00:00",
@@ -6142,22 +6222,6 @@
       "image": "https://cdn.finshots.app/images/2026/09/HHMV2.jpg",
       "feed_id": "finshots",
       "guid": "6abd32af04bd2406332fd9a9"
-    },
-    {
-      "title": "What if the Maldives disappeared?",
-      "link": "https://finshots.in/archive/what-if-the-maldives-disappeared/",
-      "date": "2026-09-30T01:30:20+00:00",
-      "description": "An explainer on the UN\u2019s draft Declaration on Sea Level Rise.",
-      "source": "Finshots",
-      "source_url": "https://finshots.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Finshots",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://cdn.finshots.app/images/2026/09/Sea-Level-Rise.jpg",
-      "feed_id": "finshots",
-      "guid": "6abc032504bd2406332fd934"
     }
   ],
   "marketbites-substack": [
