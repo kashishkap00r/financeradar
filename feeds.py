@@ -263,14 +263,38 @@ def _fetch_feed_via_proxy(feed_config):
     return articles, google_stats
 
 
+_CDATA_RE = re.compile(rb"<!\[CDATA\[.*?\]\]>", re.S)
+_BARE_AMP_RE = re.compile(rb"&(?!(?:#[0-9]+|#x[0-9a-fA-F]+|[A-Za-z][A-Za-z0-9._-]*);)")
+
+
+def _escape_bare_ampersands(content):
+    """Turn raw "&" into "&amp;" outside CDATA, leaving real entities alone.
+
+    Some feeds (Rest of World) put unescaped "&" in attribute URLs, which XML
+    forbids — the strict parser then rejects the whole feed.
+    """
+    if isinstance(content, str):
+        content = content.encode("utf-8")
+    parts, pos = [], 0
+    for m in _CDATA_RE.finditer(content):
+        parts.append(_BARE_AMP_RE.sub(b"&amp;", content[pos:m.start()]))
+        parts.append(m.group())
+        pos = m.end()
+    parts.append(_BARE_AMP_RE.sub(b"&amp;", content[pos:]))
+    return b"".join(parts)
+
+
 def _parse_feed_content(content, feed_config):
     """Parse raw RSS/Atom XML content into article objects."""
     feed_name = feed_config["name"]
     source_url = feed_config["url"]
     articles = []
 
-    # Parse XML
-    root = ET.fromstring(content)
+    # Parse XML (retry once with bare "&" escaped — see _escape_bare_ampersands)
+    try:
+        root = ET.fromstring(content)
+    except ET.ParseError:
+        root = ET.fromstring(_escape_bare_ampersands(content))
     feed_id = feed_config.get("id", "")
 
     # Optional feeds.json "link_contains": keep only items whose link has this substring
@@ -479,6 +503,8 @@ def _normalize_google_source_suffix(title, publisher, site_url=""):
         aliases.extend(["The Wall Street Journal", "Wall Street Journal"])
     if normalized_publisher.lower() == "the economist":
         aliases.append("Economist")
+    if normalized_publisher.upper() == "FRED":
+        aliases.extend(["Federal Reserve Bank of St. Louis", "FRED Blog"])
 
     for alias in aliases:
         cleaned = re.sub(rf"\s*-\s*{re.escape(alias)}(?:\s*\|[^|]*)?\s*$", "", cleaned, flags=re.IGNORECASE).strip()

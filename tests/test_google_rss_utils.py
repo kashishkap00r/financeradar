@@ -25,6 +25,19 @@ class TestGoogleRssHelpers(unittest.TestCase):
             "A big business move",
         )
 
+    def test_normalize_google_source_suffix_fred(self):
+        # The FRED Blog moved under fred.stlouisfed.org; Google suffixes the bank's name
+        self.assertEqual(
+            _normalize_google_source_suffix(
+                "Updates to MSA maps in FRED - Federal Reserve Bank of St. Louis", "FRED"
+            ),
+            "Updates to MSA maps in FRED",
+        )
+        self.assertEqual(
+            _normalize_google_source_suffix("Four possible reasons for being unemployed - FRED Blog", "FRED"),
+            "Four possible reasons for being unemployed",
+        )
+
     def test_normalize_google_source_suffix_domain(self):
         self.assertEqual(
             _normalize_google_source_suffix(

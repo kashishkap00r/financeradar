@@ -539,8 +539,8 @@
   {
     "id": "fred-blog",
     "name": "FRED Blog",
-    "url": "https://fredblog.stlouisfed.org",
-    "feed": "http://fredblog.stlouisfed.org/feed/",
+    "url": "https://fred.stlouisfed.org/blog/",
+    "feed": "https://news.google.com/rss/search?q=site:fred.stlouisfed.org/blog&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
     "publisher": "FRED",
     "source_tier": "official"
