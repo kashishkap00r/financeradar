@@ -127,6 +127,130 @@ def fetch_rsshub_feed(handle, base_url=RSSHUB_BASE_URL, timeout=60):
     return articles, None
 
 
+# Shared with refresh_local_caches.py (the IEA/Ember/PIIE timer) so the two
+# local jobs never run git in the same checkout at the same time.
+GIT_LOCK_PATH = "/tmp/financeradar-git.lock"
+GIT_LOCK_WAIT_SECONDS = 300
+
+
+def _git(repo, *args):
+    return subprocess.run(["git", *args], cwd=repo, capture_output=True, text=True)
+
+
+def _is_generated(path):
+    """Files the pipeline rebuilds every run — safe to take GitHub's copy on conflict."""
+    return path == "index.html" or path.startswith("static/")
+
+
+def _merge_in_progress(repo):
+    return _git(repo, "rev-parse", "-q", "--verify", "MERGE_HEAD").returncode == 0
+
+
+def _finish_or_abort_merge(repo, cache_rel):
+    """Never leave the checkout mid-merge: a stuck merge blocks every later commit.
+
+    If only generated files conflict, take GitHub's copy (but keep our own fresh
+    Twitter cache) and finish the merge. If a real source file conflicts, abort —
+    that needs a human, and aborting keeps the hourly job working meanwhile.
+    Returns True when the merge was completed.
+    """
+    if not _merge_in_progress(repo):
+        return True
+    conflicted = _git(repo, "diff", "--name-only", "--diff-filter=U").stdout.splitlines()
+    others = [p for p in conflicted if not _is_generated(p)]
+    if others:
+        print(f"WARNING: merge conflict in source files {others} — aborting merge; "
+              "resolve by hand in the main checkout")
+        _git(repo, "merge", "--abort")
+        return False
+
+    for path in conflicted:
+        side = "--ours" if path == cache_rel else "--theirs"
+        if _git(repo, "checkout", side, "--", path).returncode == 0:
+            _git(repo, "add", "--", path)
+        else:  # deleted on the side we wanted
+            _git(repo, "rm", "-q", "--", path)
+    if conflicted:
+        print(f"Auto-resolved {len(conflicted)} generated file conflict(s): {', '.join(conflicted)}")
+
+    done = _git(repo, "commit", "--no-edit")
+    if done.returncode != 0:
+        print(f"WARNING: could not finish merge — aborting: {done.stderr.strip()[:200]}")
+        _git(repo, "merge", "--abort")
+        return False
+    return True
+
+
+def _acquire_git_lock(lock_path, wait_seconds):
+    import fcntl
+    lock = open(lock_path, "w")
+    deadline = time.monotonic() + wait_seconds
+    while True:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            return lock
+        except OSError:
+            if time.monotonic() >= deadline:
+                lock.close()
+                return None
+            time.sleep(5)
+
+
+def sync_cache_to_github(repo, cache_path, message,
+                         lock_path=GIT_LOCK_PATH, lock_wait=GIT_LOCK_WAIT_SECONDS):
+    """Commit ONLY the Twitter cache, merge GitHub's latest, push. Returns True on push.
+
+    Rules learned the hard way (26 Oct 2026: a week of no tweets):
+      * commit just the cache path, so unfinished work that happens to be
+        staged never rides along into a "twitter cache" commit;
+      * recover from a merge left stuck by an earlier run before anything else;
+      * any conflict on a generated file is resolved, never left hanging.
+    """
+    cache_rel = os.path.relpath(cache_path, repo).replace(os.sep, "/")
+
+    branch = _git(repo, "symbolic-ref", "--short", "-q", "HEAD").stdout.strip()
+    if branch != "main":
+        print(f"WARNING: checkout is on '{branch or 'detached HEAD'}', not main — not pushing. "
+              "Switch the main checkout back to main.")
+        return False
+
+    lock = _acquire_git_lock(lock_path, lock_wait)
+    if lock is None:
+        print("Another local job holds the git lock; will push next run.")
+        return False
+    try:
+        if _merge_in_progress(repo):
+            print("Found a merge left stuck by an earlier run — recovering...")
+            _finish_or_abort_merge(repo, cache_rel)
+
+        if _git(repo, "status", "--porcelain", "--", cache_rel).stdout.strip():
+            committed = _git(repo, "commit", "-m", message, "--only", "--", cache_rel)
+            if committed.returncode != 0:
+                print(f"WARNING: commit failed: {(committed.stderr or committed.stdout).strip()[:200]}")
+                return False
+        else:
+            print("Cache unchanged; pushing any earlier commits that are still local.")
+
+        # Two attempts: GitHub Actions may push between our pull and our push.
+        for attempt in (1, 2):
+            pulled = _git(repo, "pull", "--no-rebase", "--no-edit", "--autostash", "origin", "main")
+            if pulled.returncode != 0:
+                if not _merge_in_progress(repo):  # network/auth error, not a conflict
+                    print(f"WARNING: git pull failed: {pulled.stderr.strip()[:200]}")
+                    return False
+                if not _finish_or_abort_merge(repo, cache_rel):
+                    return False
+            pushed = _git(repo, "push", "origin", "main")
+            if pushed.returncode == 0:
+                print("Pushed to remote.")
+                return True
+            print(f"Push attempt {attempt} rejected: {pushed.stderr.strip().splitlines()[-1:]}")
+        print("WARNING: git push failed — will retry next cycle.")
+        return False
+    finally:
+        lock.close()
+
+
 def main():
     parser = argparse.ArgumentParser(description="Fetch Twitter via local RSSHub")
     parser.add_argument("--push", action="store_true", help="Git commit and push after saving")
@@ -190,58 +314,11 @@ def main():
 
     if args.push:
         print("\nCommitting and pushing...")
-        # Generated files that GH Actions also updates — safe to take remote on conflict
-        GENERATED_GLOBS = [
-            "index.html", "static/tab_*.json", "static/articles.json",
-            "static/published_snapshot.json", "static/ai_rankings.json",
-            "static/reports_cache.json", "static/papers_cache.json",
-            "static/youtube_cache.json", "static/twitter_clean_cache.json",
-            "static/twitter_url_cache.json", "static/tab_ai_rankings.json",
-        ]
-
-        # 1. Commit the cache file immediately (works even if behind remote)
-        subprocess.run(["git", "add", CACHE_PATH], cwd=SCRIPT_DIR)
-        commit_result = subprocess.run(
-            ["git", "commit", "-m", f"chore: update RSSHub twitter cache ({len(all_items)} items)"],
-            cwd=SCRIPT_DIR, capture_output=True, text=True,
+        pushed = sync_cache_to_github(
+            SCRIPT_DIR, CACHE_PATH, f"chore: update RSSHub twitter cache ({len(all_items)} items)"
         )
-        if commit_result.returncode != 0 and "nothing to commit" in commit_result.stdout:
-            print("Cache unchanged, skipping push.")
-        else:
-            # 2. Pull with --autostash so uncommitted dev work (e.g. clustering
-            #    changes in ai_ranker.py, app.js) doesn't block the pull.
-            #    Dev changes are in source files, remote updates only generated
-            #    files, so stash pop succeeds cleanly.
-            pull_result = subprocess.run(
-                ["git", "pull", "--no-rebase", "--no-edit", "--autostash", "origin", "main"],
-                cwd=SCRIPT_DIR, capture_output=True, text=True,
-            )
-            if pull_result.returncode == 0:
-                print(f"Pull OK: {pull_result.stdout.strip().splitlines()[-1] if pull_result.stdout.strip() else 'up to date'}")
-            else:
-                # Pull failed — likely generated file merge conflicts
-                import glob as _glob
-                conflicted = []
-                for pattern in GENERATED_GLOBS:
-                    conflicted.extend(_glob.glob(os.path.join(SCRIPT_DIR, pattern)))
-                if conflicted:
-                    print(f"Auto-resolving {len(conflicted)} generated file conflicts (--theirs)...")
-                    subprocess.run(["git", "checkout", "--theirs"] + conflicted, cwd=SCRIPT_DIR)
-                    subprocess.run(["git", "add"] + conflicted, cwd=SCRIPT_DIR)
-                    subprocess.run(
-                        ["git", "commit", "--no-edit"],
-                        cwd=SCRIPT_DIR, capture_output=True, text=True,
-                    )
-                else:
-                    print("WARNING: git pull failed with non-generated conflicts — manual resolution needed")
-                    print(f"  stderr: {pull_result.stderr.strip()[:200]}")
-
-            # 3. Push
-            result = subprocess.run(["git", "push"], cwd=SCRIPT_DIR)
-            if result.returncode == 0:
-                print("Pushed to remote.")
-            else:
-                print("WARNING: git push failed — will retry next cycle.")
+        if not pushed:
+            sys.exit(2)
 
 
 if __name__ == "__main__":

@@ -246,14 +246,16 @@ RSSHub runs locally as a systemd user service for Twitter feed enrichment:
 
 Cache refresh for the two sources CI cannot reach (IEA, Ember):
 - `financeradar-caches.timer`: Mon/Thu 09:30, runs `refresh_local_caches.py` → refreshes both caches, commits, pushes
-- Offset from the `:15` rsshub timer and shares `/tmp/financeradar-git.lock`, so the two never push over each other
+- Offset from the `:15` rsshub timer; both take `/tmp/financeradar-git.lock` (the rsshub side only since 1 Nov 2026), so they never run git at the same time
 - Refuses to overwrite a cache with an empty result — a failed run leaves things exactly as they were
 - Check status: `systemctl --user list-timers financeradar-caches.timer`
 - Run now: `systemctl --user start financeradar-caches.service`
 
-**Logs: this user cannot read journald** (not in `adm`/`systemd-journal`), so `journalctl --user` returns nothing for any unit. `financeradar-caches` writes to `~/.local/state/financeradar-caches.log` instead — `tail ~/.local/state/financeradar-caches.log`. The rsshub units still log only to journald, so their output is effectively invisible; give them `StandardOutput=append:` too if you ever need to debug them.
+**Logs: this user cannot read journald** (not in `adm`/`systemd-journal`), so `journalctl --user` returns nothing for any unit. `financeradar-caches` writes to `~/.local/state/financeradar-caches.log` instead — `tail ~/.local/state/financeradar-caches.log`. The rsshub fetch now logs to `~/.local/state/rsshub-fetch.log` (`fetch-rsshub.sh` redirects itself there, trimmed to ~2000 lines) — check it first when tweets look stale.
 
-**The local checkout must stay on `main`.** `fetch-rsshub.sh` runs `git pull origin main` regardless of the checked-out branch and then a bare `git push`. On a feature branch that merges main in hourly and pushes nowhere — which stranded 33 cache commits and left production on a 5-day-stale RSSHub cache. Do feature work in a worktree, or expect to babysit it.
+**How the Twitter push stays unstuck** (`sync_cache_to_github()` in `rsshub_local_fetch.py`, tests in `tests/test_rsshub_git_sync.py`). On 26 Oct 2026 a pull conflict on `static/news_cache.json` left the checkout mid-merge and no tweets reached GitHub for a week. It also swept staged, unfinished work into a "twitter cache" commit. The function now: takes `/tmp/financeradar-git.lock` (waits up to 5 min); finishes or aborts any merge an earlier run left behind; commits **only** the cache path (`git commit --only`); on a pull conflict takes GitHub's copy of every generated file (`index.html`, `static/*`) except its own fresh Twitter cache, and **aborts** the merge if a source file conflicts; retries the push once; refuses to push when the checkout isn't on `main`. A failed push exits 2, so the unit shows as failed.
+
+**The local checkout must stay on `main`.** `fetch-rsshub.sh` runs `git pull origin main` regardless of the checked-out branch and then a bare `git push`. On a feature branch that used to merge main in hourly and push nowhere — which stranded 33 cache commits and left production on a 5-day-stale RSSHub cache. Since 1 Nov 2026 it refuses to push off `main` (logged warning, exit 2), but tweets still stop until you switch back. Do feature work in a worktree.
 
 ## Config (config.py)
 
