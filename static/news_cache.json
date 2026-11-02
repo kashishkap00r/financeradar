@@ -1579,6 +1579,22 @@
       "guid": "CBMijgFBVV95cUxPbmNDRUlyaUlULWxmQl8wLWp1TjlibVdYczRlUkQ4S01NdFpMV1JSWWRTUm5QRm9lbEF6WFNzaHJKckNoaEVuQUc0Y0hBV2xJSmVyRWJMbzN1VlFfeEVQbEhlMjhMOUFuVmh4dDVpNVFmSkd3dUlQZzAybmV4NldqSVBzNlhNaVdpalJudUJn"
     },
     {
+      "title": "Purba Barua",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE91UW1mSDRtb3NhUWZzUkdiMGN4VkhTaWlnSnBtVXhCOXZHRFJpODFFM21pOTFkQkh6MFM2bUJqTENmV0RHUlA4c0k1cVNya0ljZHRsWEFCQ2lLQmgy?oc=5",
+      "date": "2026-10-29T07:00:00+00:00",
+      "description": "Purba Barua The India Forum",
+      "source": "The India Forum",
+      "source_url": "https://www.theindiaforum.in/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The India Forum",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-india-forum",
+      "guid": "CBMiXEFVX3lxTE91UW1mSDRtb3NhUWZzUkdiMGN4VkhTaWlnSnBtVXhCOXZHRFJpODFFM21pOTFkQkh6MFM2bUJqTENmV0RHUlA4c0k1cVNya0ljZHRsWEFCQ2lLQmgy"
+    },
+    {
       "title": "Manish Maskara",
       "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBfdTFfUndCcUZLc3BhMkdmRXhENGJXRUJqb3FuNUVFUm41UGdHaVB2YXhzOHR2U1FhTHJZbllxSTFJWWw3akp3bVZGdmVlS3FiRFBRd0laWmRod3lOd1BMUg?oc=5",
       "date": "2026-10-29T04:58:07+00:00",
@@ -3893,7 +3909,24 @@
       "guid": "https://biznewsbyjay.substack.com/p/54-why-are-insurers-selling-factory"
     }
   ],
-  "india-dispatch": [],
+  "india-dispatch": [
+    {
+      "title": "India\u2019s App Economy in 18 Charts",
+      "link": "https://indiadispatch.com/p/top-apps-india-sensor-tower",
+      "date": "2026-11-02T05:33:03+00:00",
+      "description": "The apps Indians have taken to since early 2024, and the ones they have left behind.",
+      "source": "India Dispatch",
+      "source_url": "https://indiadispatch.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "India Dispatch",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substack-post-media.s3.amazonaws.com/public/images/dedce1db-b1a9-4450-9bb0-f00037b47310_1536x1024.jpeg",
+      "feed_id": "india-dispatch",
+      "guid": "https://indiadispatch.com/p/top-apps-india-sensor-tower"
+    }
+  ],
   "rest-of-world-latest-slash": [
     {
       "title": "Why Africa needs its own AI off switch",
