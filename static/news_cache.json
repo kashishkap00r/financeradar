@@ -4442,6 +4442,22 @@
   ],
   "by-the-numbers": [
     {
+      "title": "The International Energy Agency needs to make its data open; maybe someone can fund it",
+      "link": "https://hannahritchie.substack.com/p/iea-open-data",
+      "date": "2026-11-03T07:06:05+00:00",
+      "description": "How a mostly publicly-funded organisation still puts most of its data behind paywalls.",
+      "source": "By the Numbers",
+      "source_url": "https://hannahritchie.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "By the Numbers",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!-4_K!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6c954f0c-421e-49c5-aa95-d22321f6ee11_2048x1114.png",
+      "feed_id": "by-the-numbers",
+      "guid": "https://hannahritchie.substack.com/p/iea-open-data"
+    },
+    {
       "title": "Deforestation in the Brazilian Amazon falls to its lowest year on record",
       "link": "https://hannahritchie.substack.com/p/deforestation-brazilian-amazon-2026",
       "date": "2026-10-22T05:52:17+00:00",
@@ -6924,25 +6940,25 @@
       "image": "",
       "feed_id": "the-morning-context",
       "guid": "CBMitAFBVV95cUxORGtQcldhOXh3MFBxMnBjUUp3LW5hdGF5QlNRODd1YjlrN2t1VXB2cklFZ29jdklfT1Eyck1oakZwVWh4VE9yVXotOWUwQjlHeE9uMmZLUEZENjN1TDQ5WXdLZVFaYXNGVkJsNXhPQnhLTVExVjN1bmY2MXpqWWhPbS00NWdTWTVqV2ZIQktjcDFIamV3OTlIUHFUX1d1RUtnQm9DV0c2d1NTcUhzb19iQl81Sm4"
-    },
-    {
-      "title": "Alakh Pandey\u2019s uphill task to dominate the south",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQSGpwZ1d1bUxmdjZ3X0dJZzhxT1VwMDItNXVNZDl0UmhWbHMyZGhucUJuVkJRUjRfcE5CUHVlSXJGUVlvWXVrNW1qLXZPUERFekZ6djN1cDIzaXFEa1psaDRMREd1SUExMEJNY3dfejVDeExSc2d5RFhIdmdibk85bUhVNlFLUUgxSnlPaFJyNA?oc=5",
-      "date": "2026-10-04T07:00:00+00:00",
-      "description": "Alakh Pandey\u2019s uphill task to dominate the south The Morning Context",
-      "source": "The Morning Context",
-      "source_url": "https://themorningcontext.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Morning Context",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "the-morning-context",
-      "guid": "CBMijwFBVV95cUxQSGpwZ1d1bUxmdjZ3X0dJZzhxT1VwMDItNXVNZDl0UmhWbHMyZGhucUJuVkJRUjRfcE5CUHVlSXJGUVlvWXVrNW1qLXZPUERFekZ6djN1cDIzaXFEa1psaDRMREd1SUExMEJNY3dfejVDeExSc2d5RFhIdmdibk85bUhVNlFLUUgxSnlPaFJyNA"
     }
   ],
   "the-leap-blog": [
+    {
+      "title": "How courts choose arbitrators",
+      "link": "https://blog.theleapjournal.org/2026/11/how-courts-choose-arbitrators.html",
+      "date": "2026-11-03T04:34:30+00:00",
+      "description": "by Animesh Bordoloi and Prashant Narang . A court hearing an application under section 11 of the Arbitration and Conciliation Act 1996 must answer two questions. Should an arbitrator be appointed? If so, who should it be? Indian arbitration law has paid far more attention to the first than to the se",
+      "source": "The LEAP Blog",
+      "source_url": "https://blog.theleapjournal.org",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The LEAP Blog",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-leap-blog",
+      "guid": "tag:blogger.com,1999:blog-19649274.post-6627982081010155548"
+    },
     {
       "title": "A District-Level Dataset of Building Volume and Nighttime Lights",
       "link": "https://blog.theleapjournal.org/2026/10/a-district-level-dataset-of-building.html",
