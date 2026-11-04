@@ -975,22 +975,6 @@
       "image": "https://www.thecore.in/h-upload/2026/10/05/1104537-cargo-aircraft1200x630jpg.jpg",
       "feed_id": "thecore",
       "guid": "https://www.thecore.in/business/navi-mumbai-airports-cargo-move-is-already-costing-shippers-871933"
-    },
-    {
-      "title": "Why Are FPIs Walking Away From Indian Markets Despite Its Growth Story?",
-      "link": "https://www.thecore.in/opinion/the-take/why-fpis-keep-selling-indian-stocks-871914",
-      "date": "2026-10-05T12:07:12+05:30",
-      "description": "Strong GDP, record IPOs and stable fundamentals aren't enough: foreign investors are heading for the exits, and the old link between India's growth and FPI flows may have broken.",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/10/05/1104502-fpi-selling-indian-stocks1200x630jpg.jpg",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/opinion/the-take/why-fpis-keep-selling-indian-stocks-871914"
     }
   ],
   "thecore-opinion": [
@@ -8125,6 +8109,22 @@
     }
   ],
   "not-ship": [
+    {
+      "title": "Good news! The world won't end on Nov. 13, 2026.",
+      "link": "https://www.not-ship.com/good-news-the-world-wont-end-on-nov-13-2026/",
+      "date": "2026-11-04T07:41:30+00:00",
+      "description": "Get out your party hats. Doomsday is cancelled! (And this isn't about the US midterms.)",
+      "source": "Not-Ship",
+      "source_url": "https://www.not-ship.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Not-Ship",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://storage.ghost.io/c/f0/60/f060ef3f-d4e0-4af4-9255-1373fbf0a44f/content/images/2026/11/featured.jpg",
+      "feed_id": "not-ship",
+      "guid": "6ae74330729be70001fb860f"
+    },
     {
       "title": "American federal data has a zombie problem",
       "link": "https://www.not-ship.com/american-federal-zombie-data/",
