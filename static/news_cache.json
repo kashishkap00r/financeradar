@@ -1,6 +1,22 @@
 {
   "thecore": [
     {
+      "title": "Growth, Inflation, the Rupee: What Should the RBI Prioritise?",
+      "link": "https://www.thecore.in/podcasts/growth-inflation-the-rupee-what-should-the-rbi-prioritise-873570",
+      "date": "2026-11-04T11:30:06+00:00",
+      "description": "Insights on the RBI's policy choices, the rupee's persistent weakness, foreign capital flows and the trade-offs between inflation control and economic growth",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/11/04/1106721-hiewe74rahul-bajoria1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/growth-inflation-the-rupee-what-should-the-rbi-prioritise-873570"
+    },
+    {
       "title": "Will Markets Disconnect From Crude Oil Prices?",
       "link": "https://www.thecore.in/podcasts/will-markets-disconnect-from-crude-oil-prices-873539",
       "date": "2026-11-04T00:30:27+00:00",
@@ -4407,22 +4423,6 @@
       "image": "https://fastly.restofworld.org/uploads/2026/10/illo_china_tech_sketch_final.jpg?width=160&dpr=2&crop=1:1",
       "feed_id": "rest-of-world-latest-slash",
       "guid": "https://restofworld.org/2026/china-america-tech-ai/"
-    },
-    {
-      "title": "The AI boom is making the world\u2019s cheapest smartphones disappear",
-      "link": "https://restofworld.org/2026/ai-data-center-memory-chip-shortage-cheap-smartphones-digital-divide/?utm_source=rss&utm_medium=rss&utm_campaign=feeds",
-      "date": "2026-10-05T10:00:43+00:00",
-      "description": "AI data centers are driving demand for memory chips, pushing phone makers to raise prices and abandon some of their most affordable models.",
-      "source": "Rest of World",
-      "source_url": "https://restofworld.org",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Rest of World",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://fastly.restofworld.org/uploads/2026/10/smartphone-price-ai-2.jpg?width=160&dpr=2&crop=1:1",
-      "feed_id": "rest-of-world-latest-slash",
-      "guid": "https://restofworld.org/2026/ai-data-center-memory-chip-shortage-cheap-smartphones-digital-divide/"
     }
   ],
   "musings-on-markets-substack": [
