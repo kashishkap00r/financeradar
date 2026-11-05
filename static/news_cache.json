@@ -1703,22 +1703,6 @@
       "image": "",
       "feed_id": "ideas-for-india",
       "guid": "CBMisgFBVV95cUxNOWZ6M3Z5Nkd6VXpiY0N3Y0wyUFlqLWNSYUJlNjRSVnZrTW5YcHBGSktlTzktNXJpVmNoZ3JUdUJnOUxKSkhROGVMeVpySlNvUndjM3FKVnR5SXNybnNuYkhmZ09LaTc1RWdUUGVNN0VUQzFjQTQtU1VPMUl5UU1oR0tZc19vSGZpc1dwS3MyTzU4dUotMTBTaHE4VnlTZEV5SWg4NFFndFM4ZWJlczBJNnZ3"
-    },
-    {
-      "title": "ideasforindia",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQSUdYYjQ4OGZaNUtHMmQtNVI2cDNHOGJ6WS1SVnJheHFfVkFjWDJjX2xXRXVwQzVvcG0yYW91NFMzR2Nrb2RraEhlNEI5VEtXS1ZfMWFoR28yOGlMZnFNeDJtWS1neG1PanpFeGRMYi1STTRjVkRUNlRhTENzM3VVVXM0aUlBd2lNOHJROC1GRGdqNnk3dVA3YWJvNnp6TFJWRVJR?oc=5",
-      "date": "2026-10-06T10:58:53+00:00",
-      "description": "ideasforindia Ideas for India",
-      "source": "Ideas For India",
-      "source_url": "https://www.ideasforindia.in/",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Ideas For India",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "ideas-for-india",
-      "guid": "CBMiowFBVV95cUxQSUdYYjQ4OGZaNUtHMmQtNVI2cDNHOGJ6WS1SVnJheHFfVkFjWDJjX2xXRXVwQzVvcG0yYW91NFMzR2Nrb2RraEhlNEI5VEtXS1ZfMWFoR28yOGlMZnFNeDJtWS1neG1PanpFeGRMYi1STTRjVkRUNlRhTENzM3VVVXM0aUlBd2lNOHJROC1GRGdqNnk3dVA3YWJvNnp6TFJWRVJR"
     }
   ],
   "the-india-forum": [
@@ -4408,6 +4392,22 @@
     }
   ],
   "rest-of-world-latest-slash": [
+    {
+      "title": "A rare strike in Taiwan exposes labor unrest beneath the global AI rush",
+      "link": "https://restofworld.org/2026/taiwan-labor-strike-ai-profits/?utm_source=rss&utm_medium=rss&utm_campaign=feeds",
+      "date": "2026-11-05T11:00:00+00:00",
+      "description": "Labor disputes and unionization in Taiwan\u2019s semiconductor industry highlight growing worker discontent over the unequal distribution of profits from the AI boom.",
+      "source": "Rest of World",
+      "source_url": "https://restofworld.org",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Rest of World",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://fastly.restofworld.org/uploads/2026/10/GettyImages-2300828582-sized.jpg?width=160&dpr=2&crop=1:1",
+      "feed_id": "rest-of-world-latest-slash",
+      "guid": "https://restofworld.org/2026/taiwan-labor-strike-ai-profits/"
+    },
     {
       "title": "Startups recalibrate Chinese AI for the West",
       "link": "https://restofworld.org/2026/western-startups-realigning-chinese-ai-models/?utm_source=rss&utm_medium=rss&utm_campaign=feeds",
@@ -8055,22 +8055,6 @@
       "image": "https://substackcdn.com/image/fetch/$s_!tGwL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f88b76c-4e08-4777-9a2b-3bbaeab736ca_2180x1196.png",
       "feed_id": "soic-substack",
       "guid": "https://soic.substack.com/p/tega-industries"
-    },
-    {
-      "title": "Why I'm Studying PI Industries at a 5-Year Low",
-      "link": "https://soic.substack.com/p/why-im-studying-pi-industries-at",
-      "date": "2026-10-06T11:47:44+00:00",
-      "description": "I am writing this article to collect my thoughts and improve my understanding about an epic business that is going through tough times at the moment.",
-      "source": "SOIC",
-      "source_url": "https://soic.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "SOIC",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!Q_UU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3b5bcff0-4578-4ba7-b378-0306280e10a8_1662x934.png",
-      "feed_id": "soic-substack",
-      "guid": "https://soic.substack.com/p/why-im-studying-pi-industries-at"
     }
   ],
   "soic-wisdom-board-substack": [],
