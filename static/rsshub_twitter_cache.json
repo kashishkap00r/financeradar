@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T07:46:38.927928+00:00",
+  "generated_at": "2026-11-05T08:30:13.302676+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 45,
     "handles_empty": 2,
     "handles_error": 1,
-    "items_total": 774
+    "items_total": 772
   },
   "items": [
     {
@@ -81,6 +81,20 @@
       "description_html": "Yicai: \"Global demand for gold bars and coins plunged 19 percent to 268 tons in the third quarter from a year earlier. The Chinese market was an exception, with bar and coin demand up 7 percent.\"<br>https://www.yicaiglobal.com/news/central-banks-gold-purchases-gold-etf-inflows-support-global-gold-demand-in-third-quarter-wgc-report-shows"
     },
     {
+      "title": "RT Michael Pettis: 1/5 Yao Yang, former dean of Peking University\u2019s National School of Development, and one of the most prominent economists in China...",
+      "link": "https://x.com/michaelxpettis/status/2118250426642649218",
+      "date": "2026-11-04T17:18:21+00:00",
+      "tweet_id": "2118250426642649218",
+      "source": "Michael Pettis",
+      "publisher": "Michael Pettis",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Michael Pettis<br>1/5<br>Yao Yang, former dean of Peking University\u2019s National School of Development, and one of the most prominent economists in China, has traditionally been fairy optimistic (at least in public) about China's economic prospects and someone who always firmly rejected the Japanization thesis.<br><br>That makes his recent interview all the more interesting as an indication of the seeming change this year in the way prominent economists (and perhaps policymakers) are seeing the economy.<br>https://www.sinification.org/p/conversations-an-interview-with-yao?utm_source=chatgpt.com"
+    },
+    {
       "title": "This very interesting paper argues that global imbalances cannot be understood simply as the outcome of independent national saving and investment dec...",
       "link": "https://x.com/michaelxpettis/status/2118015144412303640",
       "date": "2026-11-04T16:18:55+00:00",
@@ -135,20 +149,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Henri Pirenne's thesis was that it was the expansion of Islam in the seventh and eighth centuries, rather than the collapse of the Roman Empire, that disrupted the commercial unity of the Mediterranean and shifted the center of gravity of European civilization northward. This beatiful set of graphics seems to confirm it.<div class=\"rsshub-quote\"><br><br>Alp Bu\u011fdayc\u0131 (Yeni Hesap):\u2002Hi\u00e7 abartm\u0131yorum, bu makale iktisat tarihinin ula\u015fabilece\u011fi zirveyi temsil ediyor. Makalede Pirenne tezi, 500 bin para sikkesinin co\u011frafi dola\u015f\u0131m\u0131 \u00fczerinden test ediliyor. Makalenin en \u00f6nemli bulgusu ise a\u015fa\u011f\u0131daki iki g\u00f6rselde a\u00e7\u0131k\u00e7a g\u00f6r\u00fcl\u00fcyor: \u0130slam fetihleri \u00f6ncesi ve sonras\u0131<br><br><img width=\"1179\" height=\"1614\" style=\"\" src=\"https://pbs.twimg.com/media/HWIjNuQW0AAOmyN?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "SCMP: \"A Chinese coastal province that reported growth slower than the national average has vowed an all-out effort to revitalise development, in a te...",
-      "link": "https://x.com/michaelxpettis/status/2117462147282141537",
-      "date": "2026-11-03T03:41:31+00:00",
-      "tweet_id": "2117462147282141537",
-      "source": "Michael Pettis",
-      "publisher": "Michael Pettis",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SCMP: \"A Chinese coastal province that reported growth slower than the national average has vowed an all-out effort to revitalise development, in a telling sign of the mounting pressure on laggard regions after Beijing stressed annual economic targets at last week\u2019s fifth plenum. <br><br>The party secretary of the Fujian provincial government, Guo Ningning, issued a rallying cry to cadres at a meeting last week to fire up growth.\u201cLet\u2019s roll up our sleeves for action, action, and still more action; execution, execution, and still more execution; and pursue development, development, and still more development,\u201d Guo was quoted as saying by the provincial publication Fujian Daily.\"<br><br>I would worry that this all-out frenzy to achieve GDP growth targets by putting pressure on the supply side, regardless of underlying economic conditions and demand-side constraints, would lead to deeper imbalances, more misallocated spending, and worse balance sheets.<br>https://www.scmp.com/economy/article/3372989/roll-sleeves-action-chinas-laggard-regions-scramble-beijings-gdp-targets?module=top_story&amp;pgtype=section"
     },
     {
       "title": "RT The Kobeissi Letter: BREAKING: US oil prices collapse below $90/barrel after Vice President JD Vance blames the Iran War for the Republicans\u2019 elec...",
@@ -1929,6 +1929,34 @@
       "description_html": "RT\u2002Nandakishor m<br>Around 3 weeks ago introduced Laya, the first open-source version of JEV, and it has reached a very large scale. Today I am open-sourcing a new physics-based typed decision model called Vega.<br>The interesting parts. It is only 800 million parameters (4B is also there), with 73k token support, image support, and surpassing many of the jev benchmarks in single-shot. Implemented an engine+adapter as a Test-Time Training Architecture.<br>Imagine you are giving input to the model like \"ignore all previous conversations,\" which is called the observation, along with a question, \"Is this trying to override the instructions of the model?\" and your possible outcomes are YES or NO. The whole prompt is passed to an LLM/VLM (yeah, image-supported), then from the hidden layers, we can extract the observation, question, the yes and no, and last token. These will be vectors, and we can project it by multiplying with wieghts; then, first, using the observation projection, we can create a landscape with valleys; then, using the question and last-token vectors, we can initialise a ball in the valley, and using YES or NO, we can get the candidate location of the ball. Depends on the number of outcomes we create valleys; that is, here YES and NO, so 2. When the ball fall on YES valley, we get the answer. There is friction also influencing how the ball moves.<br>TLDR: It's like creating valleys of outcomes that we need and throwing a ball that will slow down based on friction and settle on the best outcome<br>Blog: https://www.nandakishorm.com/writing/vega<br>GitHub: https://github.com/NandhaKishorM/vegaml<br>HuggingFace Model Card: https://huggingface.co/nandakishorm/vega-08b-public-intents<br>HuggingFace Space: https://huggingface.co/spaces/nandakishorm/vega-ttt<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2108821160419098624/vid/avc1/1080x1920/3-NPGCvAVoLpSVcY.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2108821160419098624/img/Y3G6ow0mfJ5Py1Up.jpg\"></video>"
     },
     {
+      "title": "CDMOs can give you more-pain than you can imagine.",
+      "link": "https://x.com/unseenvalue/status/2118256098285400413",
+      "date": "2026-11-05T08:16:23+00:00",
+      "tweet_id": "2118256098285400413",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "CDMOs can give you more-pain than you can imagine."
+    },
+    {
+      "title": "Sense of humour Gajbe ka hai \u2026",
+      "link": "https://x.com/unseenvalue/status/2118255266827207086",
+      "date": "2026-11-05T08:13:05+00:00",
+      "tweet_id": "2118255266827207086",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Sense of humour Gajbe ka hai \u2026<div class=\"rsshub-quote\"><br><br>Sekhar:\u2002Both Democratic Blues and Jet Blues are rising from the ashes!<br></div>"
+    },
+    {
       "title": "LAXMIKANT bhai will probably join Praye on this unmissable and auspicious occasion. Even SEBI \u201cregistered\u201d AI dependent advisors are permitted. Free...",
       "link": "https://x.com/unseenvalue/status/2118247142850703482",
       "date": "2026-11-05T07:40:48+00:00",
@@ -2165,34 +2193,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Next stop - NEC Birmingham for the Advanced Engineering exhibition. Mere desh ki dharti \u2026<br><img width=\"2048\" height=\"1536\" style=\"\" src=\"https://pbs.twimg.com/media/HWRA8gjWYAA_C-D?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "This is the one that had MAXimum valuation in 2024",
-      "link": "https://x.com/unseenvalue/status/2117887334758879594",
-      "date": "2026-11-04T07:51:03+00:00",
-      "tweet_id": "2117887334758879594",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWNs6QCXUAA6wa3?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "This is the one that had MAXimum valuation in 2024<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002Investor\u2019s Mind: The Crowd and the Moment<br><br>A hospital stock went nowhere for 2 years, yet its number of shareholders more than doubled. The Investor\u2019s Mind (my second book) would view this as a potential example of herding: more investors are buying because more investors are<br><br><img width=\"1536\" height=\"1024\" style=\"\" src=\"https://pbs.twimg.com/media/HWNs6QCXUAA6wa3?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "TAAP: Time. Asset. Allocation. Price. Four variables. Get one wrong, you suffer. Get all 4 wrong, you become a long-term investor.",
-      "link": "https://x.com/unseenvalue/status/2117862720297169234",
-      "date": "2026-11-04T06:13:15+00:00",
-      "tweet_id": "2117862720297169234",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWQogmeWIAAqR8B?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "TAAP: Time. Asset. Allocation. Price.<br><br>Four variables. Get one wrong, you suffer.<br><br>Get all 4 wrong, you become a long-term investor.<br><img width=\"1666\" height=\"937\" style=\"\" src=\"https://pbs.twimg.com/media/HWQogmeWIAAqR8B?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Srinivaas Manchala:\u2002@unseenvalue Sajal ji, <br>identifying sunrise sectors is another key to investing. Software exports transformed India in the \u201990s; Pharma CDMO could be the next big story. Divi\u2019s and Laurus are front runners!!!<br></div>"
     },
     {
       "title": "RT CircuitDigest: Can India ever compete with China in PCBs? @MuraliSrinivasa of @LionCircuits says yes. The catch: nearly every raw material is impor...",
@@ -2475,18 +2475,116 @@
       "description_html": "This and the gap in Indian logistics resonates across industries, one way or another.<br><br>We face so many problems with logistics, only BlueDart works in India much better and they also screw up about 3% of the time and expensive.<br><br>Seeing how logistics work in china, we have a long way to go here in India.<div class=\"rsshub-quote\"><br><br>Swapnil Srivastav:\u2002\ud83d\udea8 Indian logistics companies have found the perfect scam: steal from D2C brands and let the customer take the blame.<br><br>Here\u2019s how it works:<br><br>\u2192 Prepaid order gets \u201ccancelled\u201d without the customer or brand knowing<br><br>\u2192 Brand gets charged two-way delivery fees for an order nobody<br><br><img width=\"1320\" height=\"1505\" style=\"\" src=\"https://pbs.twimg.com/media/HQ3uCDFbgAABTiT?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
-      "title": "#2QWithCNBCTV18 | Bharat Forge Q2 --Revenue At \u20b94,870 Cr Vs CNBC-TV18 Poll Of \u20b94,765 Cr --Net Profit At \u20b9278.6 Cr Vs CNBC-TV18 Poll Of \u20b9342 Cr --E...",
-      "link": "https://x.com/CNBCTV18Live/status/2118248282132799881",
-      "date": "2026-11-05T07:45:20+00:00",
-      "tweet_id": "2118248282132799881",
+      "title": "#JustIN | Sources Say, #TataTrusts Boards, Including #SDTT To Meet On Nov 20 --Routine Biz Like Grant Approvals, Review Of Accounts Expected To Be On ...",
+      "link": "https://x.com/CNBCTV18Live/status/2118259160823538171",
+      "date": "2026-11-05T08:28:33+00:00",
+      "tweet_id": "2118259160823538171",
       "source": "CNBC-TV18",
       "publisher": "CNBC-TV18",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWWHlPLaoAAAKqQ?format=png&name=orig",
+      "image": "https://pbs.twimg.com/media/HWWRdbBbgAAr9hV?format=png&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#2QWithCNBCTV18 | Bharat Forge Q2<br><br>--Revenue At \u20b94,870 Cr Vs CNBC-TV18 Poll Of \u20b94,765 Cr<br>--Net Profit At \u20b9278.6 Cr Vs CNBC-TV18 Poll Of \u20b9342 Cr<br>--EBITDA At \u20b9768 Cr Vs CNBC-TV18 Poll Of \u20b9794 Cr<br>--EBITDA Margin At 18.8% Vs CNBC-TV18 Poll Of 16.7%<br><br>--Revenue Up 20.8% At \u20b94,870 Cr Vs \u20b94,032 Cr (YoY)<br>--Net Profit Down 6.8% At \u20b9278.6 Cr Vs \u20b9299 Cr (YoY)<br>--EBITDA Up 5.8% At \u20b9768 Cr Vs \u20b9726 Cr (YoY)<br>--EBITDA Margin Up 80 Bps At 18.8% Vs 18% (YoY)<br><img width=\"563\" height=\"319\" style=\"\" src=\"https://pbs.twimg.com/media/HWWHlPLaoAAAKqQ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "#JustIN | Sources Say, #TataTrusts Boards, Including #SDTT To Meet On Nov 20<br><br>--Routine Biz Like Grant Approvals, Review Of Accounts Expected To Be On Agenda<br><br>\u2060--First Meeting Of SDTT Trustees Since Complaints By Venu Srinivasan, Vijay Singh Were Filed<br><br>\u2060Alert: SRTT Still Barred From Convening Meetings By Maharashtra Charity Commissioner<br><br>Alert: Tata Sons Board To Meet On November 26<br><img width=\"416\" height=\"234\" style=\"\" src=\"https://pbs.twimg.com/media/HWWRdbBbgAAr9hV?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#2QWithCNBCTV18 | #IpcaLab reports its Q2 results; \u23e9Net Profit Up 32.5% At \u20b9375 Cr Vs \u20b9283 Cr (YoY) \u23e9Revenue Up 13.8% At \u20b92,910 Cr Vs \u20b92,557 Cr ...",
+      "link": "https://x.com/CNBCTV18Live/status/2118257974435324157",
+      "date": "2026-11-05T08:23:51+00:00",
+      "tweet_id": "2118257974435324157",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWWQNzeb0AA0Eal?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#2QWithCNBCTV18 | #IpcaLab reports its Q2 results;<br><br>\u23e9Net Profit Up 32.5% At \u20b9375 Cr Vs \u20b9283 Cr (YoY)<br><br>\u23e9Revenue Up 13.8% At \u20b92,910 Cr Vs \u20b92,557 Cr (YoY)<br><br>\u23e9EBITDA Up 23.7% At \u20b9674 Cr Vs \u20b9545 Cr (YoY)<br><br>\u23e9EBITDA Margin At 23% Vs 21% (YoY)<br><img width=\"597\" height=\"333\" style=\"\" src=\"https://pbs.twimg.com/media/HWWQNzeb0AA0Eal?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#2QWithCNBCTV18 | #IRBInfra reports its Q2 results; \u23e9Revenue Up 6.5% At \u20b91,541 Cr Vs \u20b91,447.6 Cr (YoY) \u23e9Net Profit Up 84.4% At \u20b9260 Cr Vs \u20b9141 C...",
+      "link": "https://x.com/CNBCTV18Live/status/2118257597212148219",
+      "date": "2026-11-05T08:22:21+00:00",
+      "tweet_id": "2118257597212148219",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWWQDcwbwAA-Cio?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#2QWithCNBCTV18 | #IRBInfra reports its Q2 results;<br><br>\u23e9Revenue Up 6.5% At \u20b91,541 Cr Vs \u20b91,447.6 Cr (YoY)<br><br>\u23e9Net Profit Up 84.4% At \u20b9260 Cr Vs \u20b9141 Cr (YoY)<br><br>\u23e9EBITDA Up 12.4% At \u20b9698.4 Cr Vs \u20b9621.1 Cr (YoY)<br><br>\u23e9EBITDA Margin At 45.3% Vs 42.9% (YoY)<br><img width=\"596\" height=\"331\" style=\"\" src=\"https://pbs.twimg.com/media/HWWQDcwbwAA-Cio?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#2QWithCNBCTV18 | #TubeInvestments reports its Q2 results; \u23e9Revenue Up 32.7% At \u20b97,330 Cr Vs \u20b95,523 Cr (YoY) \u23e9Net Profit Up 33.2% At \u20b9249 Cr Vs ...",
+      "link": "https://x.com/CNBCTV18Live/status/2118253353440620884",
+      "date": "2026-11-05T08:05:29+00:00",
+      "tweet_id": "2118253353440620884",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWWMMena4AARXbP?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#2QWithCNBCTV18 | #TubeInvestments reports its Q2 results;<br><br>\u23e9Revenue Up 32.7% At \u20b97,330 Cr Vs \u20b95,523 Cr (YoY)<br><br>\u23e9Net Profit Up 33.2% At \u20b9249 Cr Vs \u20b9187 Cr (YoY)<br><br>\u23e9EBITDA Up 34.5% At \u20b9733 Cr Vs \u20b9545 Cr (YoY)<br><br>\u23e9EBITDA Margin Flat At 10% (YoY)<br><img width=\"595\" height=\"332\" style=\"\" src=\"https://pbs.twimg.com/media/HWWMMena4AARXbP?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#2QWithCNBCTV18 | #ElectronicsMart reports its Q2 results; \u23e9Revenue Up 19.4% At \u20b91,899.7 Cr Vs \u20b91,591 Cr (YoY) \u23e9Net Profit At \u20b940 Cr Vs \u20b916 Cr (...",
+      "link": "https://x.com/CNBCTV18Live/status/2118252649741267386",
+      "date": "2026-11-05T08:02:41+00:00",
+      "tweet_id": "2118252649741267386",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWWLjiIa4AAzqKX?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#2QWithCNBCTV18 | #ElectronicsMart reports its Q2 results;<br><br>\u23e9Revenue Up 19.4% At \u20b91,899.7 Cr Vs \u20b91,591 Cr (YoY)<br><br>\u23e9Net Profit At \u20b940 Cr Vs \u20b916 Cr (YoY)<br><br>\u23e9EBITDA Up 59.1% At \u20b9130.5 Cr Vs \u20b982 Cr (YoY)<br><br>\u23e9EBITDA Margin At 7% Vs 5% (YoY)<br><img width=\"595\" height=\"330\" style=\"\" src=\"https://pbs.twimg.com/media/HWWLjiIa4AAzqKX?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#Mahindra & Mahindra Q2 results: Farm equipment revenue grows Vs fears of decline; Numbers in-line #2QWithCNBCTV18 https://www.cnbctv18.com/market/mah...",
+      "link": "https://x.com/CNBCTV18Live/status/2118251313335296488",
+      "date": "2026-11-05T07:57:22+00:00",
+      "tweet_id": "2118251313335296488",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Mahindra &amp; Mahindra Q2 results: Farm equipment revenue grows Vs fears of decline; Numbers in-line<br><br>#2QWithCNBCTV18 <br><br>https://www.cnbctv18.com/market/mahindra-and-mahindra-mm-q2-results-auto-farm-equipment-revenue-margins-outlook-guidance-share-price-20027868.htm"
+    },
+    {
+      "title": "#2QWithCNBCTV18 | Lloyds Ent Q2 --Revenue Up 70.5% At \u20b9694 Cr Vs \u20b9407 Cr (YoY) --Net Profit Down 41.7% At \u20b913.7 Cr Vs \u20b923.5 Cr (YoY) --EBITDA Up 1...",
+      "link": "https://x.com/CNBCTV18Live/status/2118249910130913400",
+      "date": "2026-11-05T07:51:48+00:00",
+      "tweet_id": "2118249910130913400",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWWJD5JasAAGts1?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#2QWithCNBCTV18 | Lloyds Ent Q2<br><br>--Revenue Up 70.5% At \u20b9694 Cr Vs \u20b9407 Cr (YoY)<br><br>--Net Profit Down 41.7% At \u20b913.7 Cr Vs \u20b923.5 Cr (YoY)<br><br>--EBITDA Up 108.3% At \u20b950.4 Cr Vs \u20b924.2 Cr (YoY)<br><br>--EBITDA Margin Rises  130 Bps At 7.3% Vs 6% (YoY)<br><img width=\"567\" height=\"311\" style=\"\" src=\"https://pbs.twimg.com/media/HWWJD5JasAAGts1?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#2QWithCNBCTV18 | Shilpa Medicare Q2 --Revenue Up 43.0% At \u20b9529 Cr Vs \u20b9370 Cr (YoY) --Net Profit Up 79.5% At \u20b979 Cr Vs \u20b944 Cr (YoY) --EBITDA Up 30...",
+      "link": "https://x.com/CNBCTV18Live/status/2118248492821028940",
+      "date": "2026-11-05T07:46:10+00:00",
+      "tweet_id": "2118248492821028940",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWWHxlLaEAAA-2P?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#2QWithCNBCTV18 | Shilpa Medicare Q2<br><br>--Revenue Up  43.0% At \u20b9529 Cr Vs \u20b9370 Cr (YoY)<br>--Net Profit Up  79.5% At \u20b979 Cr Vs \u20b944 Cr (YoY)<br>--EBITDA Up  30.3% At \u20b9142 Cr Vs \u20b9109 Cr (YoY)<br>--EBITDA Margin (RD) 250 Bps At 27% Vs 29.5% (YoY)<br><img width=\"566\" height=\"315\" style=\"\" src=\"https://pbs.twimg.com/media/HWWHxlLaEAAA-2P?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "#2QWithCNBCTV18 | M&M Q2 (Standalone) --Revenue At \u20b942,477 Cr Vs CNBC-TV18 Poll Of \u20b942,110 Cr --Profit At \u20b95,102 Cr Vs CNBC-TV18 Poll Of \u20b94,757 Cr...",
@@ -2615,34 +2713,6 @@
       "description_html": "#CNBCTV18Market | Nifty Bank surges nearly 1400 pts, all 14 components of Nifty Bank trading in the green<br><img width=\"563\" height=\"312\" style=\"\" src=\"https://pbs.twimg.com/media/HWV3rOSaIAABzST?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "India\u2019s new #AI security audit rules could put #OpenAI, #Anthropic under greater scrutiny @AshmitTejKumar https://www.cnbctv18.com/technology/indias-...",
-      "link": "https://x.com/CNBCTV18Live/status/2118229851488629212",
-      "date": "2026-11-05T06:32:06+00:00",
-      "tweet_id": "2118229851488629212",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "India\u2019s new #AI security audit rules could put #OpenAI, #Anthropic under greater scrutiny<br><br>@AshmitTejKumar <br><br>https://www.cnbctv18.com/technology/indias-new-ai-security-audit-rules-could-put-openai-anthropic-under-greater-scrutiny-20027678.htm"
-    },
-    {
-      "title": "#Sequoia announces shut down of London office, #layoffs expected https://www.cnbctv18.com/business/companies/sequoia-announces-shut-down-of-london-off...",
-      "link": "https://x.com/CNBCTV18Live/status/2118229741857861877",
-      "date": "2026-11-05T06:31:39+00:00",
-      "tweet_id": "2118229741857861877",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Sequoia announces shut down of London office, #layoffs expected<br><br>https://www.cnbctv18.com/business/companies/sequoia-announces-shut-down-of-london-office-layoffs-expected-20027691.htm"
-    },
-    {
       "title": "RT Nigel D'Souza: Sanathan Textiles says FY27 Guidance Revenue revised upto \u20b96,000 cr EBITDA at \u20b9550 cr Net debt expected to stabilise at \u20b91,200 cr...",
       "link": "https://x.com/CNBCTV18Live/status/2118233740430446606",
       "date": "2026-11-05T06:30:58+00:00",
@@ -2657,88 +2727,74 @@
       "description_html": "RT\u2002Nigel D'Souza<br>Sanathan Textiles says<br><br>FY27 Guidance<br>Revenue revised upto \u20b96,000 cr<br>EBITDA at \u20b9550 cr<br><br>Net debt expected to stabilise at \u20b91,200 cr<br><br>ROCE improvement to 16\u201318% over the next 2 years<br><br>https://youtu.be/GRetog8Tqjw?si=x1Iofht7Aved019V"
     },
     {
-      "title": "Foreign money may favour banks, industrials as market leadership shifts: Manishi Raychaudhuri https://www.cnbctv18.com/market/fii-money-india-banks-in...",
-      "link": "https://x.com/CNBCTV18Live/status/2118227230447010131",
-      "date": "2026-11-05T06:21:41+00:00",
-      "tweet_id": "2118227230447010131",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "D-Street Fires Up! Sensex skyrockets 2,000 points, Nifty tops 24,550; auto, IT indices surge up to 4% Catch all the LIVE updates here https://economic...",
+      "link": "https://x.com/ETMarkets/status/2118255713806074048",
+      "date": "2026-11-05T08:14:52+00:00",
+      "tweet_id": "2118255713806074048",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWWOSXTa0AAjzIe?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "D-Street Fires Up!<br><br>Sensex skyrockets 2,000 points, Nifty tops 24,550; auto, IT indices surge up to 4%<br><br>Catch all the LIVE updates here <br>https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-bse-lenskart-share-price-05-november-2026/liveblog/135555859.cms<br><img width=\"1293\" height=\"397\" style=\"\" src=\"https://pbs.twimg.com/media/HWWOSXTa0AAjzIe?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "#Japanese stocks traded mixed on Thursday, with the broader market advancing on falling crude oil prices and hopes of an easing in the #Iran conflict ...",
+      "link": "https://x.com/ETMarkets/status/2118253231721812213",
+      "date": "2026-11-05T08:05:00+00:00",
+      "tweet_id": "2118253231721812213",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "Foreign money may favour banks, industrials as market leadership shifts: Manishi Raychaudhuri<br><br>https://www.cnbctv18.com/market/fii-money-india-banks-industrials-capital-goods-reliance-jio-manishi-raychaudhuri-alpha-article-20027714.htm"
+      "description_html": "#Japanese stocks traded mixed on Thursday, with the broader market advancing on falling crude oil prices and hopes of an easing in the #Iran conflict following a Democratic sweep in the US midterm elections. However, losses in artificial intelligence (#AI) and semiconductor stocks weighed on the technology-heavy #Nikkei as investors reassessed the outlook for data centre investments, Reuters reported.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/news/ai-selloff-drags-nikkei-lower-despite-broad-based-market-gains/articleshow/135564115.cms"
     },
     {
-      "title": "#2QWithCNBCTV18 | #GujaratPipavav Says: EBIT Growth Guidance Raised To 22-26% From 20-24% For FY27 --Container Growth Guidance Raised From 4-5% To 8-1...",
-      "link": "https://x.com/CNBCTV18Live/status/2118225784523603975",
-      "date": "2026-11-05T06:15:56+00:00",
-      "tweet_id": "2118225784523603975",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "#Sensex rockets 1,800 pts, Nifty above 24,450 Catch all the LIVE updates here https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex...",
+      "link": "https://x.com/ETMarkets/status/2118250837214695617",
+      "date": "2026-11-05T07:55:29+00:00",
+      "tweet_id": "2118250837214695617",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWVy_X4aIAE5MHB?format=png&name=orig",
+      "image": "https://pbs.twimg.com/media/HWWJ5NfbYAAGw1B?format=png&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#2QWithCNBCTV18 | #GujaratPipavav Says: EBIT Growth Guidance Raised To 22-26% From 20-24% For FY27<br><br>--Container Growth Guidance Raised From 4-5% To 8-10%<br><img width=\"619\" height=\"346\" style=\"\" src=\"https://pbs.twimg.com/media/HWVy_X4aIAE5MHB?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "#Sensex rockets 1,800 pts, Nifty above 24,450<br><br>Catch all the LIVE updates here <br>https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-bse-lenskart-share-price-05-november-2026/liveblog/135555859.cms<br><img width=\"901\" height=\"388\" style=\"\" src=\"https://pbs.twimg.com/media/HWWJ5NfbYAAGw1B?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "#LGElectronics India #Q2 Results: Stock extends gains after earnings; Co approves foray into new business @hormaz_fatakia https://www.cnbctv18.com/mar...",
-      "link": "https://x.com/CNBCTV18Live/status/2118225005930778750",
-      "date": "2026-11-05T06:12:50+00:00",
-      "tweet_id": "2118225005930778750",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "Foreign institutional investors (#FIIs) are suddenly buying India after months of relentless selling, raising the biggest question on Dalal Street: ha...",
+      "link": "https://x.com/ETMarkets/status/2118250714615140740",
+      "date": "2026-11-05T07:55:00+00:00",
+      "tweet_id": "2118250714615140740",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#LGElectronics India #Q2 Results: Stock extends gains after earnings; Co approves foray into new business<br><br>@hormaz_fatakia <br>https://www.cnbctv18.com/market/lg-electronics-india-q2-results-revenue-margin-new-biz-vehicle-solutions-foray-sri-city-capex-share-price-20027770.htm"
+      "description_html": "Foreign institutional investors (#FIIs) are suddenly buying India after months of relentless selling, raising the biggest question on Dalal Street: has the great FII reversal finally begun? FIIs have bought a net Rs 39,404 crore in Indian equities over 13 trading sessions since Oct. 16, according to the latest data. The turnaround comes after a record-breaking sell-off that had pushed foreign ownership of Indian stocks to historic lows.<br>#ETMarkets | @nikkhill <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/rs-40000-crore-in-13-days-is-the-great-fii-reversal-finally-here-to-save-nifty-bulls/articleshow/135563005.cms"
     },
     {
-      "title": "#2QWithCNBCTV18 | #TonboImaging reports its Q2 results; first result post listing: \ud83d\udc49Net Profit At \u20b923.5 Cr Vs Loss Of \u20b910 Cr (YoY) \ud83d\udc49Revenue At...",
-      "link": "https://x.com/CNBCTV18Live/status/2118224816222380168",
-      "date": "2026-11-05T06:12:05+00:00",
-      "tweet_id": "2118224816222380168",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "M&M Q2 Results #Profit rises 25% YoY to Rs 4,588 crore, revenue grows 25% #ETMarkets Read more here https://economictimes.indiatimes.com/markets/stock...",
+      "link": "https://x.com/ETMarkets/status/2118250474021454204",
+      "date": "2026-11-05T07:54:02+00:00",
+      "tweet_id": "2118250474021454204",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWVyPRuaIAAv6lR?format=png&name=orig",
+      "image": "https://pbs.twimg.com/media/HWWJe1ZacAAgoMa?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#2QWithCNBCTV18 | #TonboImaging reports its Q2 results; first result post listing:<br><br>\ud83d\udc49Net Profit At \u20b923.5 Cr Vs Loss Of \u20b910 Cr (YoY)<br><br>\ud83d\udc49Revenue At \u20b9183 Cr Vs \u20b98.8 Cr (YoY)<br><br>\ud83d\udc49EBITDA At \u20b943.6 Cr Vs EBITDA Loss Of \u20b93.4 Cr (YoY)<br><img width=\"621\" height=\"346\" style=\"\" src=\"https://pbs.twimg.com/media/HWVyPRuaIAAv6lR?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "#2QWithCNBCTV18 | #CESC reports its Q2 results: \ud83d\udc49Net Profit Down 1.2% At \u20b9423 Cr Vs \u20b9428 Cr (YoY) \ud83d\udc49Revenue Up 6.5% At \u20b95,607 Cr Vs \u20b95,267 Cr...",
-      "link": "https://x.com/CNBCTV18Live/status/2118223954666229962",
-      "date": "2026-11-05T06:08:40+00:00",
-      "tweet_id": "2118223954666229962",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWVxVUNa4AAqtHW?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#2QWithCNBCTV18 | #CESC reports its Q2 results:<br><br>\ud83d\udc49Net Profit Down 1.2% At \u20b9423 Cr Vs \u20b9428 Cr (YoY)<br><br>\ud83d\udc49Revenue Up 6.5% At \u20b95,607 Cr Vs \u20b95,267 Cr (YoY)<br><br>\ud83d\udc49EBITDA Down 2.1% At \u20b91,039 Cr Vs \u20b91,061 Cr (YoY)<br><br>\ud83d\udc49Margin At 18.5% Vs 20% (YoY)<br><img width=\"623\" height=\"345\" style=\"\" src=\"https://pbs.twimg.com/media/HWVxVUNa4AAqtHW?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "#2QWithCNBCTV18 | #Shiprocket reports its Q2 results: \ud83d\udc49Net Profit At \u20b90.6 Cr Vs Loss Of \u20b920.2 Cr (YoY) \ud83d\udc49Revenue Up 34.8% At \u20b9674 Cr Vs \u20b9500 ...",
-      "link": "https://x.com/CNBCTV18Live/status/2118223553120419995",
-      "date": "2026-11-05T06:07:04+00:00",
-      "tweet_id": "2118223553120419995",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWVxF5FaIAAEU5J?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#2QWithCNBCTV18 | #Shiprocket reports its Q2 results:<br><br>\ud83d\udc49Net Profit At \u20b90.6 Cr Vs Loss Of \u20b920.2 Cr (YoY)<br><br>\ud83d\udc49Revenue Up 34.8% At \u20b9674 Cr Vs \u20b9500 Cr (YoY)<br><br>\ud83d\udc49EBITDA Loss At \u20b92.2 Cr Vs EBITDA Loss Of \u20b920.3 Cr (YoY)<br><img width=\"619\" height=\"348\" style=\"\" src=\"https://pbs.twimg.com/media/HWVxF5FaIAAEU5J?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "M&amp;M Q2 Results<br><br>#Profit rises 25% YoY to Rs 4,588 crore, revenue grows 25%<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/earnings/mm-q2-results-profit-rises-25-yoy-to-rs-4588-crore-revenue-grows-25/articleshow/135564269.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst<br><img width=\"1600\" height=\"900\" style=\"\" src=\"https://pbs.twimg.com/media/HWWJe1ZacAAgoMa?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "The #BankofEngland is widely expected to raise interest rates for the first time in three years on Thursday as mounting inflationary pressures linked ...",
@@ -2951,74 +3007,46 @@
       "description_html": "US President #DonaldTrump\u2019s political setback has triggered a sharp repricing across global markets, and the Indian stock market is among the biggest beneficiaries so far. The Sensex jumped more than 1,600 points, or 2%, to cross 78,900, while the Nifty climbed above 24,400. Overnight, the Dow Jones Industrial Average surged 3% after Democrats won control of both chambers of the US Congress in a sweeping midterm victory.<br>#ETMarkets | @nikkhill  <br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/explained-5-reasons-why-trumps-midterm-election-setback-matters-for-indian-markets-and-economy/articleshow/135559787.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
     },
     {
-      "title": "#AtherEnergy shares fall 4%, snap 5-day gaining streak. What\u2019s triggering the sharp fall? https://economictimes.indiatimes.com/markets/stocks/news/bs...",
-      "link": "https://x.com/ETMarkets/status/2118212803056239030",
-      "date": "2026-11-05T05:24:21+00:00",
-      "tweet_id": "2118212803056239030",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
+      "title": "Bharat Forge now at days low, down 3% == 10% off days high",
+      "link": "https://x.com/yatinmota/status/2118256268205043911",
+      "date": "2026-11-05T08:17:04+00:00",
+      "tweet_id": "2118256268205043911",
+      "source": "Yatin Mota",
+      "publisher": "Yatin Mota",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HWWL58KaYAAEMBK?format=jpg&name=orig",
       "is_retweet": false,
-      "is_quote": false,
+      "is_quote": true,
       "is_reply": false,
-      "description_html": "#AtherEnergy shares fall 4%, snap 5-day gaining streak. What\u2019s triggering the sharp fall?<br><br>https://economictimes.indiatimes.com/markets/stocks/news/bse-shares-jump-4-after-q2-results-heres-what-bernstein-motilal-others-are-saying/articleshow/135559226.cms"
+      "description_html": "Bharat Forge now at days low, down 3% == 10% off days high<div class=\"rsshub-quote\"><br><br>Yatin Mota:\u2002Weak internals from Bharat Forge<br><br>Our overseas business, where performance remains below expectations, we are conducting a strategic review<br><br>Standalone EBITDA (%) down to 25.9% from 26.2%<br><br>KSSL margins at 10.7% vs  17.2% (Defence biz)<br><br>US and Overseas margins lower and negative<br><br><img width=\"1303\" height=\"715\" style=\"\" src=\"https://pbs.twimg.com/media/HWWL58KaYAAEMBK?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
-      "title": "#BSE shares jump 4% after #Q2 results. Here\u2019s what Bernstein, Motilal, others are saying https://economictimes.indiatimes.com/markets/stocks/news/bse...",
-      "link": "https://x.com/ETMarkets/status/2118209190955274323",
-      "date": "2026-11-05T05:10:00+00:00",
-      "tweet_id": "2118209190955274323",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
+      "title": "Weak internals from Bharat Forge Our overseas business, where performance remains below expectations, we are conducting a strategic review Standalone ...",
+      "link": "https://x.com/yatinmota/status/2118253060128661660",
+      "date": "2026-11-05T08:04:19+00:00",
+      "tweet_id": "2118253060128661660",
+      "source": "Yatin Mota",
+      "publisher": "Yatin Mota",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HWWL58KaYAAEMBK?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#BSE shares jump 4% after #Q2 results. Here\u2019s what Bernstein, Motilal, others are saying<br><br>https://economictimes.indiatimes.com/markets/stocks/news/bse-shares-jump-4-after-q2-results-heres-what-bernstein-motilal-others-are-saying/articleshow/135559226.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
+      "description_html": "Weak internals from Bharat Forge<br><br>Our overseas business, where performance remains below expectations, we are conducting a strategic review<br><br>Standalone EBITDA (%) down to 25.9% from 26.2%<br><br>KSSL margins at 10.7% vs  17.2% (Defence biz)<br><br>US and Overseas margins lower and negative<br><img width=\"1303\" height=\"715\" style=\"\" src=\"https://pbs.twimg.com/media/HWWL58KaYAAEMBK?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "#Gold prices jump Rs 6,500/10 gram in 2 days; silver soars Rs 11,200/kg as soft dollar, fall oil boost mood. Key levels to track https://economictimes...",
-      "link": "https://x.com/ETMarkets/status/2118208008564154656",
-      "date": "2026-11-05T05:05:18+00:00",
-      "tweet_id": "2118208008564154656",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
+      "title": "Strong Guidance from Shilpa Medi CDMO orders from EU to contribute in H2 EU commercial supplies begin 2HFY27 for CDMO Margins expansion due to better ...",
+      "link": "https://x.com/yatinmota/status/2118251383518572683",
+      "date": "2026-11-05T07:57:39+00:00",
+      "tweet_id": "2118251383518572683",
+      "source": "Yatin Mota",
+      "publisher": "Yatin Mota",
       "source_mode": "rsshub",
-      "image": "",
+      "image": "https://pbs.twimg.com/media/HWWJrBfaQAAFDLS?format=jpg&name=orig",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#Gold prices jump Rs 6,500/10 gram in 2 days; silver soars Rs 11,200/kg as soft dollar, fall oil boost mood. Key levels to track<br><br>https://economictimes.indiatimes.com/markets/commodities/news/gold-prices-jump-rs-6500/10-gram-in-2-days-silver-soars-rs-11200/kg-as-soft-dollar-fall-oil-boost-mood-key-levels-to-track/articleshow/135559699.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
-    },
-    {
-      "title": "Cracker stocks this #Diwali! Axis Direct selects 10 technical stock with 48% upside potential for Samvat 2083 #ETMarkets https://economictimes.indiati...",
-      "link": "https://x.com/ETMarkets/status/2118207932957589866",
-      "date": "2026-11-05T05:05:00+00:00",
-      "tweet_id": "2118207932957589866",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Cracker stocks this #Diwali! Axis Direct selects 10 technical stock with 48% upside potential for Samvat 2083<br>#ETMarkets <br><br>https://economictimes.indiatimes.com/markets/stocks/news/cracker-stocks-this-diwali-axis-direct-selects-10-technical-stock-with-48-upside-potential-for-samvat-2083/aurobindo-pharma/slideshow/135559200.cms"
-    },
-    {
-      "title": "#Diwali Dhamaka stocks for portfolio: 10 shares with up to 34% upside potential ICICI Direct is bullish on https://economictimes.indiatimes.com/market...",
-      "link": "https://x.com/ETMarkets/status/2118207852787696016",
-      "date": "2026-11-05T05:04:41+00:00",
-      "tweet_id": "2118207852787696016",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#Diwali Dhamaka stocks for portfolio: 10 shares with up to 34% upside potential ICICI Direct is bullish on<br><br>https://economictimes.indiatimes.com/markets/stocks/news/diwali-dhamaka-stocks-for-portfolio-10-shares-with-up-to-34-upside-potential-icici-direct-is-bullish-on/solid-bets/slideshow/135559522.cms"
+      "description_html": "Strong Guidance from Shilpa Medi<br><br>CDMO orders from EU to contribute in H2 <br><br>EU commercial supplies begin 2HFY27 for CDMO<br><br>Margins expansion due to better utilization <br><br>CDMO Biologic offerings to drive significant biosimilar revenue growth<br><br>https://nsearchives.nseindia.com/corporate/SHILPAMED_05112026131837_Disclosure.pdf<br><img width=\"1403\" height=\"735\" style=\"\" src=\"https://pbs.twimg.com/media/HWWJrBfaQAAFDLS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "M&M Auto and Tractor Internals",
@@ -3229,48 +3257,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "*MCX: Adjusted PAT up 16% qoq to Rs4.8bn, SGF contribution discontinued*<br> <br>*Revenues:* Rs8bn \u2013 up 114% yoy and 14% qoq - *Inline* with IIFLe<br> <br>*Ebitda:* Rs6.1bn \u2013 up 151% yoy and 24% qoq - *4% above* with IIFLe<br> <br>*Ebitda margin:* 76.4% - up 1130bps yoy and 610bps qoq - *340bps above* IIFLe<br> <br>*Adjusted PAT:* Rs4.8bn \u2013 up 143% yoy and 16% qoq  - *2% above* IIFLe<br> <br>*Reported PAT:* Rs4.54bn \u2013 up 130% yoy and 10% qoq<br> <br>The Ebitda beat was owing to company discontinuing SGF contribution, basis 12th August SEBI circular which has lowered SGF requirements for MCX. However, this would also increase tax liability for the subsidiary company \u2013 MCX Clearing Corporation (MCXCCL).<br> <br>In 2Q, MCX recalculated the MCXCCL tax liability for 1Q and provided for it in 2Q. Assuming 25% as normalized tax rate going forward we assume 4% or Rs250mn as tax liability of 1Q provided in 2Q. Adjusting for this 2Q PAT is a marginal beat (2%).<br> <br>*On our base case assumptions, assuming no SGF contribution and full tax rate \u2013 we see 2% upgrade to our FY27-28ii EPS.*<br> <br>Brokerage Note"
-    },
-    {
-      "title": "NSE Q2 FY27 Results \u2705 Revenue: \u20b94,067 Cr | +10.6% YoY \u2705 PBT: \u20b93,425 Cr | +12.7% YoY \u2705 PAT: \u20b92,578 Cr | +22.8% YoY NSE delivered strong profitabi...",
-      "link": "https://x.com/yatinmota/status/2117597619862303193",
-      "date": "2026-11-03T12:39:50+00:00",
-      "tweet_id": "2117597619862303193",
-      "source": "Yatin Mota",
-      "publisher": "Yatin Mota",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWM3z3PbkAAqNds?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "NSE Q2 FY27 Results<br><br>\u2705 Revenue: \u20b94,067 Cr | +10.6% YoY<br>\u2705 PBT: \u20b93,425 Cr | +12.7% YoY<br>\u2705 PAT: \u20b92,578 Cr | +22.8% YoY<br><br>NSE delivered strong profitability growth, with PAT growth significantly outpacing revenue growth.<br><img width=\"1080\" height=\"614\" style=\"\" src=\"https://pbs.twimg.com/media/HWM3z3PbkAAqNds?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "SBI Says - Press Conference 2Q MTM LOSSES STOOD AT ABOUT 13B RUPEES HOPE TO MAINTAIN MARGINS ABOVE 3% FOR FY27 MOBILIZED ABOUT $10 BILLION FROM FCNR D...",
-      "link": "https://x.com/yatinmota/status/2117549327954718989",
-      "date": "2026-11-03T09:27:56+00:00",
-      "tweet_id": "2117549327954718989",
-      "source": "Yatin Mota",
-      "publisher": "Yatin Mota",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "SBI Says - Press Conference <br><br>2Q MTM LOSSES STOOD AT ABOUT 13B RUPEES<br><br>HOPE TO MAINTAIN MARGINS ABOVE 3% FOR FY27<br><br>MOBILIZED ABOUT $10 BILLION FROM FCNR DEPOSITS"
-    },
-    {
-      "title": "Negative for SOLAR INDS Q2 order book at 20178 crore vs 21350 in Q1 = Order book down ~5% QoQ",
-      "link": "https://x.com/yatinmota/status/2117542822693703887",
-      "date": "2026-11-03T09:02:05+00:00",
-      "tweet_id": "2117542822693703887",
-      "source": "Yatin Mota",
-      "publisher": "Yatin Mota",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWMF4d8bIAAJH5C?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Negative for SOLAR INDS <br><br>Q2 order book at 20178 crore vs 21350 in Q1 = Order book down ~5% QoQ<br><img width=\"958\" height=\"823\" style=\"\" src=\"https://pbs.twimg.com/media/HWMF4d8bIAAJH5C?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Was wonderful talking to @AyeshaFaridi1 and @sajeetkm on @ETNOWlive . Discussed about strong segments and pockets of the market. Sentiments create opp...",
@@ -6017,6 +6003,20 @@
       "description_html": "RT\u2002Capitalmind Mutual Fund<br>Last week, we had a meaningful moment of reflection and planning, with the first joint meeting this year of the Board of Capitalmind AMC and Directors of Capitalmind Trustee Private Limited.<br><br>The discussions centred on three important areas:<br><br>1. The schemes we plan to introduce next<br>2. The evolving regulatory landscape and what it means for us<br>3. Further strengthening our risk management and compliance governance<br><br>As traders traditionally open fresh account books around Diwali, we too look forward to the year ahead with a renewed sense of purpose, guided by thoughtful deliberation, strong governance and a commitment to our investors.<br><br>A heartfelt thank you to all our directors for their time, insights and candour.<br><br>Wishing our customers, partners, distributors and everyone who has been part of our journey a very Happy Diwali!<br><br>Mutual Fund investments are subject to market risks, read all scheme related documents carefully.<br><img width=\"1200\" height=\"627\" style=\"\" src=\"https://pbs.twimg.com/media/HWHPb8NagAA0kdg?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "\ud835\uddd6\ud835\uddee\ud835\uddfb \ud835\uddee \ud835\ude00\ud835\ude01\ud835\uddff\ud835\uddfc\ud835\uddfb\ud835\uddf4 \ud835\uddf2\ud835\ude05\ud835\ude01\ud835\uddf2\ud835\uddff\ud835\uddfb\ud835\uddee\ud835\uddf9 \ud835\uddfd\ud835\uddfc\ud835\ude00\ud835\uddf6\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb \ud835\uddf3\ud835\ude02\ud835\uddf9\ud835\uddf9\ud835\ude06 \ud835\uddfc\ud835\uddf3\ud835\uddf3\ud835\ude00\ud835\uddf2...",
+      "link": "https://x.com/CareEdge_Group/status/2118249307157766430",
+      "date": "2026-11-05T07:49:24+00:00",
+      "tweet_id": "2118249307157766430",
+      "source": "CareEdge",
+      "publisher": "CareEdge",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWWIWRwa4AElblW?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\ud835\uddd6\ud835\uddee\ud835\uddfb \ud835\uddee \ud835\ude00\ud835\ude01\ud835\uddff\ud835\uddfc\ud835\uddfb\ud835\uddf4 \ud835\uddf2\ud835\ude05\ud835\ude01\ud835\uddf2\ud835\uddff\ud835\uddfb\ud835\uddee\ud835\uddf9 \ud835\uddfd\ud835\uddfc\ud835\ude00\ud835\uddf6\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb \ud835\uddf3\ud835\ude02\ud835\uddf9\ud835\uddf9\ud835\ude06 \ud835\uddfc\ud835\uddf3\ud835\uddf3\ud835\ude00\ud835\uddf2\ud835\ude01 \ud835\uddff\ud835\uddf6\ud835\ude00\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\uddf6\ud835\uddfb\ud835\uddf3\ud835\uddf9\ud835\uddee\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb\ud835\uddee\ud835\uddff\ud835\ude06 \ud835\uddfd\ud835\uddff\ud835\uddf2\ud835\ude00\ud835\ude00\ud835\ude02\ud835\uddff\ud835\uddf2\ud835\ude00?<br><br>Nepal's macroeconomic profile remains resilient, but emerging risks warrant close attention. Our latest Nepal Economy Update - September 2026 highlights a delicate balance between external sector strength and inflationary pressures.<br><br>Key takeaways:<br>\u2022 CPI inflation accelerated to 6.3%, rising above the central bank's FY27 target, driven by higher food and transportation costs.<br>\u2022 Robust remittance inflows (+23.9% y-o-y) supported a stronger current account surplus, BoP surplus, and foreign exchange reserves of USD 26.5 billion.<br>\u2022 Merchandise exports surged 61.9% y-o-y, but a widening trade deficit underscores continued dependence on imports, particularly petroleum products.<br>\u2022 Tourism recovery remains intact, with arrivals continuing to move closer to pre-pandemic levels despite climatic disruptions.<br><br>Read full Report: https://www.careratings.com/uploads/newsfiles/1793790652_Nepal%20Economy%20Update%20-%20September%202026.pdf<br><br>Ananda Prakash Jha | Santosh Pudasaini | Monika Rawal<br><br>#CareEdgeRatings #CareEdgeNepal #NepalEconomy #EconomicOutlook #Macroeconomics #Inflation #ExternalSector #Remittances #TourismSector #TradeDynamics #CreditInsights #EconomyUpdate<br><img width=\"579\" height=\"835\" style=\"\" src=\"https://pbs.twimg.com/media/HWWIWRwa4AElblW?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "\ud835\udddc\ud835\ude00 \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\uddf9\ud835\uddee\ud835\ude01\ud835\uddf2\ud835\ude00\ud835\ude01 \ud835\ude00\ud835\ude02\ud835\uddff\ud835\uddf4\ud835\uddf2 \ud835\uddf6\ud835\uddfb \ud835\uddef\ud835\uddee\ud835\uddfb\ud835\uddf8 \ud835\uddf9\ud835\uddf2\ud835\uddfb\ud835\uddf1\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\ude01\ud835\uddfc \ud835\udde1\ud835\uddd5\ud835\uddd9\ud835\uddd6\ufffd...",
       "link": "https://x.com/CareEdge_Group/status/2117910936921207038",
       "date": "2026-11-04T09:24:50+00:00",
@@ -6239,20 +6239,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "\ud835\uddd6\ud835\uddee\ud835\uddff\ud835\uddf2\ud835\uddd8\ud835\uddf1\ud835\uddf4\ud835\uddf2 \ud835\uddd4\ud835\uddf1\ud835\ude03\ud835\uddf6\ud835\ude00\ud835\uddfc\ud835\uddff\ud835\ude06 is hosting a \ud835\uddea\ud835\uddf2\ud835\uddef\ud835\uddf6\ud835\uddfb\ud835\uddee\ud835\uddff on \"Fields of Fuel: Architecting India's Bioenergy Transition\"<br><br>As India's power demand continues to rise, the need for reliable low-carbon energy sources has become increasingly important. Agricultural Waste-to-Energy offers a promising pathway to support energy security, reduce crop residue burning, and contribute to the country's decarbonisation goals.<br>To explore the opportunities, challenges, and future outlook for the bioenergy sector, CareEdge Advisory invites you to an insightful webinar featuring industry leaders and experts who will share their perspectives on India's evolving renewable energy landscape.<br><br>\ud83d\udd17 Register now: https://events.zoom.us/ev/Agj_-QNyrvQg9dLfjHj-qB1RSKhTrrmTDykjuno6zjMK_Q-FNUn9~Aq2zQAbqg5WPbS26OYxQb-CmkTKZ7G_hYlRJnwnQDYPvJI9zYOTNa82-lw<br><br>\ud83d\udcc5 Date: Wednesday, October 28, 2026<br>\ud83d\udd53 Time: 4:00 PM \u2013 5:00 PM IST<br><br>Panellists:<br><br>\u2022 @Monish_Ahuja, Chairman &amp; Managing Director, @PRESPLdesk <br><br>\u2022 Biswajit Dutta, Vice President - Business Development &amp; Corporate Affairs, @SAEL_India <br><br>\u2022  Y.B. Ramakrishna, Sr. Vice President,@IndianIfge &amp; Former Chairman Working Group on Biofuel, @PetroleumMin <br><br>Moderator:<br><br>\u2022 Tanvi Shah, Senior Director, CareEdge Advisory<br><br>Presenters:<br><br>\u2022 Nitu Singh, Associate Director, CareEdge Advisory<br>\u2022 Mihir Shetye, Lead Analyst, CareEdge Advisory<br><br>Join us for an engaging discussion on the critical role bioenergy can play in India's energy transition, balancing sustainability, energy security, and long-term economic growth.<br><br>#CareEdgeAdvisory #Bioenergy #EnergyTransition #RenewableEnergy #Biomass #CleanEnergy #EnergySecurity #Sustainability #GreenEnergy #Webinar #ThoughtLeadership #IndiaEnergy #Decarbonisation #WasteToEnergy #NetZeroIndia<br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HVkBuyIaAAA_o7-?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "\ud835\uddd4\ud835\uddff\ud835\uddf2 \ud835\uddfa\ud835\uddee\ud835\uddff\ud835\uddf4\ud835\uddf6\ud835\uddfb\ud835\ude00 \ud835\uddf3\ud835\uddf6\ud835\uddfb\ud835\uddee\ud835\uddf9\ud835\uddf9\ud835\ude06 \ud835\ude01\ud835\ude02\ud835\uddff\ud835\uddfb\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\uddf0\ud835\uddfc\ud835\uddff\ud835\uddfb\ud835\uddf2\ud835\uddff \ud835\uddf3\ud835\uddfc\ud835\uddff...",
-      "link": "https://x.com/CareEdge_Group/status/2114666227780227080",
-      "date": "2026-10-26T10:31:31+00:00",
-      "tweet_id": "2114666227780227080",
-      "source": "CareEdge",
-      "publisher": "CareEdge",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HVjNeiQbMAAUc9E?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\ud835\uddd4\ud835\uddff\ud835\uddf2 \ud835\uddfa\ud835\uddee\ud835\uddff\ud835\uddf4\ud835\uddf6\ud835\uddfb\ud835\ude00 \ud835\uddf3\ud835\uddf6\ud835\uddfb\ud835\uddee\ud835\uddf9\ud835\uddf9\ud835\ude06 \ud835\ude01\ud835\ude02\ud835\uddff\ud835\uddfb\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\uddf0\ud835\uddfc\ud835\uddff\ud835\uddfb\ud835\uddf2\ud835\uddff \ud835\uddf3\ud835\uddfc\ud835\uddff \ud835\udddc\ud835\uddfb\ud835\uddf1\ud835\uddf6\ud835\uddee\ud835\uddfb \ud835\uddef\ud835\uddee\ud835\uddfb\ud835\uddf8\ud835\ude00?<br><br>Q2FY27 highlights an interesting divergence beneath the headline numbers. While credit growth remained robust, the improvement in sector-wide margins was largely driven by PSBs, even as funding costs continued to weigh on larger private banks.<br><br>Key insights:<br>\u2022 SCBs\u2019 credit growth accelerated to 20.8% y-o-y, supported by corporate, MSME and retail lending demand.<br>\u2022 Deposit growth improved to 16.2% y-o-y, narrowing the credit-deposit growth gap and easing funding pressures.<br>\u2022 Sector-wide NIM rose to 2.98%, with PSBs posting a stronger improvement, while PVB margins remained flat amid FCNR(B)-related funding cost pressures.<br>\u2022 With repo-linked loans repricing faster than deposits, margins are expected to remain broadly stable with an upward bias in H2FY27.<br><br>The next phase of banking performance may be determined less by credit growth and more by the ability to sustain funding efficiency.<br><br>Read full report: https://www.careratings.com/uploads/newsfiles/1792752808_PSBs%20Lift%20SCBs%20NIM%20to%202.98%20pct%20Q-o-Q;%20PVBs%20Stay%20Flat%20in%20Q2FY27.pdf<br><br>Saurabh Bhalerao | Sudam Shingade | Aditya Acherakar | Ankush Pathrabe<br><br>#BankingSector #IndianBanks #BFSI #CreditGrowth #Deposits #NetInterestMargin #BankingOutlook #CareEdgeRatings #FinancialServices #PSBs #PVBs #BankingResearch<br><img width=\"570\" height=\"824\" style=\"\" src=\"https://pbs.twimg.com/media/HVjNeiQbMAAUc9E?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "RT India in Mauritius: Re CareEdge Ratings (Africa) Pvt. Ltd. presented the key findings and recommendations of its study on CECPA.",
@@ -7879,6 +7865,20 @@
       "description_html": "RT\u2002CNBC-TV18<br>#CNBCTV18Exclusive | Equitas Small Finance Bank MD &amp; CEO PN Vasudevan Resigns, 4 Months After Re-appointment<br><br>PN Vasudevan To CNBC-TV18<br>-Stepping down as MD &amp; CEO is not an overnight decision that I have taken<br>-There is no conflict of interest&nbsp;&amp; it's just a perception<br>-Leadership transition should&nbsp; happen in the next 4-6 months<br><br>@Nigel__DSouza @_prashantnair @_ritusingh <br>#EquitasSFB #PNVasudevan #Banking #LeadershipChange #CNBCTV18News<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2116104164921274368/vid/avc1/1920x1080/IvfOv7YoSA4c1ehR.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2116104164921274368/img/z7HKSsA2DX8VDuVL.jpg\"></video>"
     },
     {
+      "title": "Ageing like fine wine , got very lucky with this one..",
+      "link": "https://x.com/EquityValueIn/status/2118255163458854958",
+      "date": "2026-11-05T08:12:40+00:00",
+      "tweet_id": "2118255163458854958",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Ageing like fine wine , got very lucky with this one..<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Lets see if we got the bottom , I think this will either age to be fine wine , or a meme , nothing in between<br></div>"
+    },
+    {
       "title": "Blue Jet Healthcare , very good numbers , had covered it in detail as well in below substack audio note in 2.0 that comes in 2029",
       "link": "https://x.com/EquityValueIn/status/2118247083065176234",
       "date": "2026-11-05T07:40:34+00:00",
@@ -8129,20 +8129,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Biocon Q2FY27 concall notes from the call just concluded <br><br>Yesintek + Aflibercept , expecting a H2&gt;H1 , Preparing a lot of inventory on the back of that as well , 5% delayed shipment this quarter and expecting management is saying biocon is at a \"defining inflection point\" <br><br>No reco , biased<br><img width=\"732\" height=\"618\" style=\"\" src=\"https://pbs.twimg.com/media/HWRx410bcAExoEB?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT ValueEquity: Parag Milk Q2FY27 concall notes , my notes from the call just concluded Paneer, 4x capex, 20MT per day to 80 MT per day, commissioning...",
-      "link": "https://x.com/EquityValueIn/status/2117927193049469233",
-      "date": "2026-11-04T09:45:05+00:00",
-      "tweet_id": "2117927193049469233",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWRZZImawAAjues?format=png&name=orig",
-      "is_retweet": true,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "RT\u2002ValueEquity<br>Parag Milk Q2FY27 concall notes , my notes from the call just concluded<br><br>Paneer, 4x capex, 20MT per day to 80 MT per day, commissioning June-27, Cheese 2x capacity from 60 MT to 120 MT per day, 105 crores, completion 2QFY28, whey will also double, expecting new age business contribution to keep incrementally growing <br><br>no reco , biased , take opinions with pinch of salt<br><img width=\"702\" height=\"806\" style=\"\" src=\"https://pbs.twimg.com/media/HWRZZImawAAjues?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Parag Milk , the slide that matters , business mix <br><br>no reco , biased hence take with pinch of salt<br><br><img width=\"1559\" height=\"686\" style=\"\" src=\"https://pbs.twimg.com/media/HWQNyoobgAA1wsL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
       "title": "Lower Valuations Today Could Drive FII Inflows Tomorrow An interesting study by JM Financial suggests that FII flows follow valuations with a 4\u20135 mon...",
@@ -9013,6 +8999,20 @@
       "description_html": "RT\u2002Alter Magazine<br>In 2004, India\u2019s official count said the Sariska Tiger Reserve in Rajasthan had 16-18 tigers. But, visitors had not seen one in months.<br><br>The truth: Sariska\u2019s tigers had been poached to extinction.<br><br>What follows is the stunning story of how a supposedly, \u201cpoor country\u201d mobilised to save the tiger. From rebuilding its counting methods, camera traps, statistics, satellites and an app.<br><br>This is the story of how a country that has learnt to lived with tigers for millennia, learnt again how to protect it.<br><br>Issue 7: How India Actually Saved the Tiger, written by @sonakshi_geog, edited by @fahadmh , tracked, counted &amp; built by @AltCarbonIndia <br><br>https://altermag.com/articles/how-india-actually-saved-its-tigers<br><video width=\"1200\" height=\"628\" src=\"https://video.twimg.com/amplify_video/2116041243054768128/vid/avc1/1920x1080/ozi07Tv1v7-JK9Hw.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/media/HV2wkYyaIAE6Yzd?format=jpg&amp;name=orig\"></video>"
     },
     {
+      "title": "Bonds and stocks have seen a stronger reaction so far than the rupee to the US mid-term verdict and fall in oil prices. \ud83d\udcc8Bond yields are down almos...",
+      "link": "https://x.com/dugalira/status/2118249141386219524",
+      "date": "2026-11-05T07:48:45+00:00",
+      "tweet_id": "2118249141386219524",
+      "source": "Ira Dugal",
+      "publisher": "Ira Dugal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWWIXKmaYAEVMUL?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Bonds and stocks have seen a stronger reaction so far than the rupee to the US mid-term verdict and fall in oil prices.<br><br>\ud83d\udcc8Bond yields are down almost 30 bps over the past four sessions (big fall yesterday and some today). <br><br>Question: Will RBI consider OMO sales if yields are down and liquidity surplus returns? <br><br>\ud83d\udcc8Stocks have gained about 5% over the past 5 sessions.<br><br>\ud83d\udcc8Rupee gains more tepid today. <br><br>Question: RBI will come in and buy to replenish reserves or let it run?<br><br>Flow MTD: $1.4 bn across debt and equity.<br><img width=\"1206\" height=\"1732\" style=\"\" src=\"https://pbs.twimg.com/media/HWWIXKmaYAEVMUL?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1147\" height=\"1141\" style=\"\" src=\"https://pbs.twimg.com/media/HWWIXKhagAAOJrY?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1206\" height=\"1243\" style=\"\" src=\"https://pbs.twimg.com/media/HWWIXKaa4AAOPMm?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "India's payments authority NPCI forms unit to push into AI, blockchain tech https://www.reuters.com/world/india/indias-payments-authority-npci-forms-u...",
       "link": "https://x.com/dugalira/status/2117983626721939536",
       "date": "2026-11-04T14:13:41+00:00",
@@ -9249,20 +9249,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The FOMO trade. <br><br>Weak domestic equity returns has prompted a rush from Indian retail investors to invest overseas. <br><br>That, in turn, is prompting  India\u2019s top money managers to launch a flurry of funds via GIFT City.<br><br>Reuters @jaysh88 and Dharamraj Dhutia report.<br><br>[PS: The $7 billion overseas limit that applies to Indian MFs does not apply to GIFT City. Is that kinda weird because LRS does apply to GIFT City? GIFT City presumably is not meant to become a venue which leaks capital beyond permissible limits? #justasking ]<br><br>https://www.reuters.com/world/asia-pacific/weak-domestic-returns-fuel-indias-overseas-retail-investing-boom-2026-10-28/"
-    },
-    {
-      "title": "RT Reuters: Shares of billionaire Mukesh Ambani's Reliance Jio Platforms soared 21% in their Mumbai debut, making it India's second-largest company by...",
-      "link": "https://x.com/dugalira/status/2115341714793926721",
-      "date": "2026-10-28T06:14:10+00:00",
-      "tweet_id": "2115341714793926721",
-      "source": "Ira Dugal",
-      "publisher": "Ira Dugal",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Reuters<br>Shares of billionaire Mukesh Ambani's Reliance Jio Platforms soared 21% in their Mumbai debut, making it India's second-largest company by market capitalization, valued at about $131.5 billion https://reut.rs/4ilVitv"
     },
     {
       "title": "RT Dipak K Dash: Cabinet Secretary presents 12 categories of Secretaries under critical lens, including those who who ask women officers to come close...",
@@ -9545,10 +9531,10 @@
       "description_html": "RT\u2002Tijori<br>KRN Heat is emerging as one of the cleanest data centre plays<br><br>~19% of their revenue in latest quarter was from data centres with active customers from North America<br><img width=\"595\" height=\"813\" style=\"\" src=\"https://pbs.twimg.com/media/HIWd890acAETVMZ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "SHILPAMED: Q2 CONS NET PROFIT 792M RUPEES VS 440M (YOY) SHILPAMED: Q2 EBITDA 1.42B RUPEES VS 1.08B (YOY); Q2 EBITDA MARGIN 26.9% VS 29.27% (YOY) SHILP...",
-      "link": "https://x.com/REDBOXINDIA/status/2118248536332714012",
-      "date": "2026-11-05T07:46:20+00:00",
-      "tweet_id": "2118248536332714012",
+      "title": "BIRLACABLE: Q2 SL NET PROFIT 378M RUPEES VS 6.9M (YOY) BIRLACABLE: Q2 EBITDA 547M RUPEES VS 66.5M (YOY); Q2 EBITDA MARGIN 15.42% VS 3.77% (YOY) BIRLAC...",
+      "link": "https://x.com/REDBOXINDIA/status/2118259429045121126",
+      "date": "2026-11-05T08:29:37+00:00",
+      "tweet_id": "2118259429045121126",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9556,13 +9542,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "SHILPAMED: Q2 CONS NET PROFIT 792M RUPEES VS 440M (YOY)<br><br>SHILPAMED: Q2 EBITDA 1.42B RUPEES VS 1.08B (YOY); Q2 EBITDA MARGIN 26.9% VS 29.27% (YOY)<br><br>SHILPAMED: Q2 REVENUE 5.3B RUPEES VS 3.7B (YOY)"
+      "description_html": "BIRLACABLE: Q2 SL NET PROFIT 378M RUPEES VS 6.9M (YOY)<br><br>BIRLACABLE: Q2 EBITDA 547M RUPEES VS 66.5M (YOY); Q2 EBITDA MARGIN 15.42% VS 3.77% (YOY)<br><br>BIRLACABLE: Q2 REVENUE 3.55B RUPEES VS 1.76B (YOY)"
     },
     {
-      "title": "FERMENTA: Q2 CONS NET PROFIT 97.7M RUPEES VS 188.8M (YOY) FERMENTA: Q2 EBITDA 201.1M RUPEES VS 266.4M (YOY); Q2 EBITDA MARGIN 15.15% VS 20.45% (YOY) F...",
-      "link": "https://x.com/REDBOXINDIA/status/2118248408670691765",
-      "date": "2026-11-05T07:45:50+00:00",
-      "tweet_id": "2118248408670691765",
+      "title": "YOGI: Q2 CONS NET PROFIT 4.2M RUPEES VS 92.9M (YOY) YOGI: Q2 EBITDA LOSS 3.4M RUPEES VS PROFIT 127.2M (YOY) YOGI: Q2 REVENUE 506.3M RUPEES VS 1.35B (Y...",
+      "link": "https://x.com/REDBOXINDIA/status/2118258492134093135",
+      "date": "2026-11-05T08:25:54+00:00",
+      "tweet_id": "2118258492134093135",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9570,13 +9556,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "FERMENTA: Q2 CONS NET PROFIT 97.7M RUPEES VS 188.8M (YOY)<br><br>FERMENTA: Q2 EBITDA 201.1M RUPEES VS 266.4M (YOY); Q2 EBITDA MARGIN 15.15% VS 20.45% (YOY)<br><br>FERMENTA: Q2 REVENUE 1.33B RUPEES VS 1.3B (YOY)"
+      "description_html": "YOGI: Q2 CONS NET PROFIT 4.2M RUPEES VS 92.9M (YOY) <br><br>YOGI: Q2 EBITDA LOSS 3.4M RUPEES VS PROFIT 127.2M (YOY)<br><br>YOGI: Q2 REVENUE 506.3M RUPEES VS 1.35B (YOY)"
     },
     {
-      "title": "MONEYVIEW: Q2 CONS NET PROFIT 2.01B RUPEES VS 387.2M (YOY) MONEYVIEW: Q2 EBITDA 4.42B RUPEES VS 2.47B (YOY); Q2 EBITDA MARGIN 39.49% VS 31.10% (YOY) M...",
-      "link": "https://x.com/REDBOXINDIA/status/2118248071004045314",
-      "date": "2026-11-05T07:44:29+00:00",
-      "tweet_id": "2118248071004045314",
+      "title": "EMAMILTD: Q2 CONS NET PROFIT 1.44B RUPEES VS 1.48B (YOY) EMAMILTD: Q2 EBITDA 2.22B RUPEES VS 1.78B (YOY); Q2 EBITDA MARGIN 20.44% VS 22.36% (YOY) EMAM...",
+      "link": "https://x.com/REDBOXINDIA/status/2118258004915294466",
+      "date": "2026-11-05T08:23:58+00:00",
+      "tweet_id": "2118258004915294466",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9584,13 +9570,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "MONEYVIEW: Q2 CONS NET PROFIT 2.01B RUPEES VS 387.2M (YOY)<br><br>MONEYVIEW: Q2 EBITDA 4.42B RUPEES VS 2.47B (YOY); Q2 EBITDA MARGIN 39.49% VS 31.10% (YOY)<br><br>MONEYVIEW: Q2 REVENUE 11.2B RUPEES VS 7.94B (YOY)"
+      "description_html": "EMAMILTD: Q2 CONS NET PROFIT 1.44B RUPEES VS 1.48B (YOY)<br><br>EMAMILTD: Q2 EBITDA 2.22B RUPEES VS 1.78B (YOY); Q2 EBITDA MARGIN 20.44% VS 22.36% (YOY)<br><br>EMAMILTD: Q2 REVENUE 10.88B RUPEES VS 7.99B (YOY)"
     },
     {
-      "title": "M&M: Q2 SL NET PROFIT 51B RUPEES VS 45B (YOY); EST 45B M&M: Q2 SL EBITDA 67.2B RUPEES VS 64.67B (YOY); Q2 EBITDA MARGIN 15.2% VS 18.44% (YOY) M&M: Q2 ...",
-      "link": "https://x.com/REDBOXINDIA/status/2118247948975059303",
-      "date": "2026-11-05T07:44:00+00:00",
-      "tweet_id": "2118247948975059303",
+      "title": "EMAMI: CO APPROVED DIVIDEND OF 5 RUPEES PER SHARE",
+      "link": "https://x.com/REDBOXINDIA/status/2118257778762596490",
+      "date": "2026-11-05T08:23:04+00:00",
+      "tweet_id": "2118257778762596490",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9598,13 +9584,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "M&amp;M: Q2 SL NET PROFIT 51B RUPEES VS 45B (YOY); EST 45B<br><br>M&amp;M: Q2 SL EBITDA 67.2B RUPEES VS 64.67B (YOY); Q2 EBITDA MARGIN 15.2% VS 18.44% (YOY)<br><br>M&amp;M: Q2 REVENUE 424B RUPEES VS 351B (YOY)"
+      "description_html": "EMAMI: CO APPROVED DIVIDEND OF 5 RUPEES PER SHARE"
     },
     {
-      "title": "HTEL: CO CUTS PROFIT GROWTH GUIDANCE TO 25% FROM 30%: CONCALL",
-      "link": "https://x.com/REDBOXINDIA/status/2118246926168822157",
-      "date": "2026-11-05T07:39:56+00:00",
-      "tweet_id": "2118246926168822157",
+      "title": "HALDYNGL: Q2 CONS NET PROFIT 127.5M RUPEES VS 68M (YOY) HALDYNGL: Q2 EBITDA 220.3M RUPEES VS 135.4M (YOY); Q2 EBITDA MARGIN 15.77% VS 11.70% (YOY) HAL...",
+      "link": "https://x.com/REDBOXINDIA/status/2118257315019432146",
+      "date": "2026-11-05T08:21:13+00:00",
+      "tweet_id": "2118257315019432146",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9612,13 +9598,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "HTEL: CO CUTS PROFIT GROWTH GUIDANCE TO 25% FROM 30%: CONCALL"
+      "description_html": "HALDYNGL: Q2 CONS NET PROFIT 127.5M RUPEES VS 68M (YOY)<br><br>HALDYNGL: Q2 EBITDA 220.3M RUPEES VS 135.4M (YOY); Q2 EBITDA MARGIN 15.77% VS 11.70% (YOY)<br><br>HALDYNGL: Q2 REVENUE 1.4B RUPEES VS 1.16B (YOY)"
     },
     {
-      "title": "PVP: Q4 CONS NET LOSS 3.7M RUPEES VS LOSS 16.7M (YOY) PVP: Q4 EBITDA 72.1M RUPEES VS 52.1M (YOY); Q4 EBITDA MARGIN 17.39% VS 27.38% (YOY) PVP: Q4 REVE...",
-      "link": "https://x.com/REDBOXINDIA/status/2118242973272199591",
-      "date": "2026-11-05T07:24:14+00:00",
-      "tweet_id": "2118242973272199591",
+      "title": "IPCALAB: Q2 CONS NET PROFIT 3.75B RUPEES VS 2.83B (YOY) IPCALAB: Q2 EBITDA 6.73B RUPEES VS 5.45B (YOY); Q2 EBITDA MARGIN 23.14% VS 21.32% (YOY) IPCALA...",
+      "link": "https://x.com/REDBOXINDIA/status/2118255911554920830",
+      "date": "2026-11-05T08:15:39+00:00",
+      "tweet_id": "2118255911554920830",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9626,13 +9612,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "PVP: Q4 CONS NET LOSS 3.7M RUPEES VS LOSS 16.7M (YOY)<br><br>PVP: Q4 EBITDA 72.1M RUPEES VS 52.1M (YOY); Q4 EBITDA MARGIN 17.39% VS 27.38% (YOY)<br><br>PVP: Q4 REVENUE 414.4M RUPEES VS 190.3M (YOY)"
+      "description_html": "IPCALAB: Q2 CONS NET PROFIT 3.75B RUPEES VS 2.83B (YOY)<br><br>IPCALAB: Q2 EBITDA 6.73B RUPEES VS 5.45B (YOY); Q2 EBITDA MARGIN 23.14% VS 21.32% (YOY)<br><br>IPCALAB: Q2 REVENUE 29.1B RUPEES VS 25.57B (YOY)"
     },
     {
-      "title": "BLUEJET: Q2 STANDALONE NET PROFIT 1.03B RUPEES VS 521.4M (YOY) BLUEJET: Q2 EBITDA 1.19B RUPEES VS 549.5M (YOY); Q2 EBITDA MARGIN 31.60% VS 33.21% (YOY...",
-      "link": "https://x.com/REDBOXINDIA/status/2118242759324930421",
-      "date": "2026-11-05T07:23:23+00:00",
-      "tweet_id": "2118242759324930421",
+      "title": "GHCLTEXTIL: Q2 STANDALONE NET PROFIT 358.4M RUPEES VS 160.1M (YOY) GHCLTEXTIL: Q2 EBITDA 912.9M RUPEES VS 368.1M (YOY); Q2 EBITDA MARGIN 20.49% VS 10....",
+      "link": "https://x.com/REDBOXINDIA/status/2118255759385604345",
+      "date": "2026-11-05T08:15:02+00:00",
+      "tweet_id": "2118255759385604345",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9640,13 +9626,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "BLUEJET: Q2 STANDALONE NET PROFIT 1.03B RUPEES VS 521.4M (YOY)<br><br>BLUEJET: Q2 EBITDA 1.19B RUPEES VS 549.5M (YOY); Q2 EBITDA MARGIN 31.60% VS 33.21% (YOY)<br><br>BLUEJET: Q2 REVENUE 3.76B RUPEES VS 1.65B (YOY)"
+      "description_html": "GHCLTEXTIL: Q2 STANDALONE NET PROFIT 358.4M RUPEES VS 160.1M (YOY)<br><br>GHCLTEXTIL: Q2 EBITDA 912.9M RUPEES VS 368.1M (YOY); Q2 EBITDA MARGIN 20.49% VS 10.89% (YOY)<br><br>GHCLTEXTIL: Q2 REVENUE 4.46B RUPEES VS 3.38B (YOY)"
     },
     {
-      "title": "HTMEDIA: Q2 CONS NET PROFIT 359.4M RUPEES VS LOSS 43.4M (YOY) HTMEDIA: Q2 EBITDA 274.6M RUPEES VS 226.8M (YOY); Q2 EBITDA MARGIN 6.22% VS 5.26% (YOY) ...",
-      "link": "https://x.com/REDBOXINDIA/status/2118242519163207809",
-      "date": "2026-11-05T07:22:26+00:00",
-      "tweet_id": "2118242519163207809",
+      "title": "BMW INDUDTRIES: Q2 SL NET PROFIT 217M RUPEES VS 153M (YOY) BMW INDUSTRIES: Q2 EBITDA 348M RUPEES VS 372M (YOY); Q2 EBITDA MARGIN 19.3% VS 25.75% (YOY)",
+      "link": "https://x.com/REDBOXINDIA/status/2118255411598110822",
+      "date": "2026-11-05T08:13:40+00:00",
+      "tweet_id": "2118255411598110822",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9654,13 +9640,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "HTMEDIA: Q2 CONS NET PROFIT 359.4M RUPEES VS LOSS 43.4M (YOY)<br><br>HTMEDIA: Q2 EBITDA 274.6M RUPEES VS 226.8M (YOY); Q2 EBITDA MARGIN 6.22% VS 5.26% (YOY)<br><br>HTMEDIA: Q2 REVENUE 4.42B RUPEES VS 4.31B (YOY)"
+      "description_html": "BMW INDUDTRIES: Q2 SL NET PROFIT 217M RUPEES VS 153M (YOY)<br><br>BMW INDUSTRIES: Q2 EBITDA 348M RUPEES VS 372M (YOY); Q2 EBITDA MARGIN 19.3% VS 25.75% (YOY)"
     },
     {
-      "title": "UNOMINDA: Q2 CONS NET PROFIT 4.2B RUPEES VS 3B (YOY); EST 3.5B UNOMINDA: Q2 EBITDA 7.33B RUPEES VS 5.52B (YOY); Q2 EBITDA MARGIN 11.02% VS 11.46% (YOY...",
-      "link": "https://x.com/REDBOXINDIA/status/2118241636287459613",
-      "date": "2026-11-05T07:18:55+00:00",
-      "tweet_id": "2118241636287459613",
+      "title": "IRB: Q2 CONS NET PROFIT 2.6B RUPEES VS 1.41B (YOY) IRB: Q2 EBITDA 10.55B RUPEES VS 9.25B (YOY); Q2 EBITDA MARGIN 55.59% VS 52.80% (YOY) IRB: Q2 REVENU...",
+      "link": "https://x.com/REDBOXINDIA/status/2118254748063453647",
+      "date": "2026-11-05T08:11:01+00:00",
+      "tweet_id": "2118254748063453647",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9668,13 +9654,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "UNOMINDA: Q2 CONS NET PROFIT 4.2B RUPEES VS 3B (YOY); EST 3.5B<br><br>UNOMINDA: Q2 EBITDA 7.33B RUPEES VS 5.52B (YOY); Q2 EBITDA MARGIN 11.02% VS 11.46% (YOY)<br><br>UNOMINDA: Q2 REVENUE 66.55B RUPEES VS 48.14B (YOY)"
+      "description_html": "IRB: Q2 CONS NET PROFIT 2.6B RUPEES VS 1.41B (YOY)<br><br>IRB: Q2 EBITDA 10.55B RUPEES VS 9.25B (YOY); Q2 EBITDA MARGIN 55.59% VS 52.80% (YOY)<br><br>IRB: Q2 REVENUE 18.97B RUPEES VS 17.51B (YOY)"
     },
     {
-      "title": "VALIANT: Q2 CONS NET PROFIT 73M RUPEES VS 53M (YOY) VALIANT: Q2 EBITDA 99M RUPEES VS 69M (YOY); Q2 EBITDA MARGIN 41.42% VS 34.38% (YOY) VALIANT: Q2 RE...",
-      "link": "https://x.com/REDBOXINDIA/status/2118240884114559044",
-      "date": "2026-11-05T07:15:56+00:00",
-      "tweet_id": "2118240884114559044",
+      "title": "BUILDPRO: Q2 CONS NET PROFIT 462m RUPEES VS 294m (YOY) BUILDPRO: Q2 EBITDA 775.7M RUPEES VS 501.2M (YOY); Q2 EBITDA MARGIN 3.40% VS 3.14% (YOY) BUILDP...",
+      "link": "https://x.com/REDBOXINDIA/status/2118254050114482562",
+      "date": "2026-11-05T08:08:15+00:00",
+      "tweet_id": "2118254050114482562",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9682,13 +9668,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "VALIANT: Q2 CONS NET PROFIT 73M RUPEES VS 53M (YOY)<br><br>VALIANT: Q2 EBITDA 99M RUPEES VS 69M (YOY); Q2 EBITDA MARGIN 41.42% VS 34.38% (YOY)<br><br>VALIANT: Q2 REVENUE 241M RUPEES VS 202M (YOY)"
+      "description_html": "BUILDPRO: Q2 CONS NET PROFIT 462m RUPEES VS 294m (YOY)<br><br>BUILDPRO: Q2 EBITDA 775.7M RUPEES VS 501.2M (YOY); Q2 EBITDA MARGIN 3.40% VS 3.14% (YOY)<br><br>BUILDPRO: Q2 REVENUE 22.8B RUPEES VS 15.95B (YOY)"
     },
     {
-      "title": "CAPACITE: Q2 CONS NET PROFIT 477.4M RUPEES VS 491M (YOY) CAPACITE: Q2 EBITDA 1.19B RUPEES VS 1.08B (YOY); Q2 EBITDA MARGIN 15.45% VS 16.76% (YOY) CAPA...",
-      "link": "https://x.com/REDBOXINDIA/status/2118240554349940829",
-      "date": "2026-11-05T07:14:37+00:00",
-      "tweet_id": "2118240554349940829",
+      "title": "PRITIKAUTO: Q2 CONS NET PROFIT 65.6M RUPEES VS 59.5M (YOY) PRITIKAUTO: Q2 EBITDA 212.1M RUPEES VS 186.1M (YOY); Q2 EBITDA MARGIN 13.85% VS 15.99% (YOY...",
+      "link": "https://x.com/REDBOXINDIA/status/2118253667833020506",
+      "date": "2026-11-05T08:06:44+00:00",
+      "tweet_id": "2118253667833020506",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9696,27 +9682,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "CAPACITE: Q2 CONS NET PROFIT 477.4M RUPEES VS 491M (YOY)<br><br>CAPACITE: Q2 EBITDA 1.19B RUPEES VS 1.08B (YOY); Q2 EBITDA MARGIN 15.45% VS 16.76% (YOY)<br><br>CAPACITE: Q2 REVENUE 7.71B RUPEES VS 6.46B (YOY)"
+      "description_html": "PRITIKAUTO: Q2 CONS NET PROFIT 65.6M RUPEES VS 59.5M (YOY)<br><br>PRITIKAUTO: Q2 EBITDA 212.1M RUPEES VS 186.1M (YOY); Q2 EBITDA MARGIN 13.85% VS 15.99% (YOY)<br><br>PRITIKAUTO: Q2 REVENUE 1.53B RUPEES VS 1.16B (YOY)"
     },
     {
-      "title": "Full interview transcript from Dipam secretary interview on IDBI fairfax deal",
-      "link": "https://x.com/REDBOXINDIA/status/2118240181069467969",
-      "date": "2026-11-05T07:13:08+00:00",
-      "tweet_id": "2118240181069467969",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWWANxKbgAAI-sK?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Full interview transcript from Dipam secretary interview on IDBI fairfax deal<br><img width=\"1398\" height=\"1535\" style=\"\" src=\"https://pbs.twimg.com/media/HWWANxKbgAAI-sK?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1398\" height=\"1500\" style=\"\" src=\"https://pbs.twimg.com/media/HWWANxPbkAACLwM?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "SHANKESH: Q2 STANDALONE NET PROFIT 255.2M RUPEES VS 223.6M (YOY) SHANKESH: Q2 EBITDA 365.2M RUPEES VS 327.6M (YOY); Q2 EBITDA MARGIN 6.56% VS 8.84% (Y...",
-      "link": "https://x.com/REDBOXINDIA/status/2118240073384866023",
-      "date": "2026-11-05T07:12:43+00:00",
-      "tweet_id": "2118240073384866023",
+      "title": "TIINDIA: Q2 CONS NET PROFIT 1.5B RUPEES VS 1.87B (YOY); EST 2B TIINDIA: Q2 EBITDA 7.33B RUPEES VS 5.44B (YOY); Q2 EBITDA MARGIN 10% VS 9.86% (YOY) TII...",
+      "link": "https://x.com/REDBOXINDIA/status/2118253406045483333",
+      "date": "2026-11-05T08:05:41+00:00",
+      "tweet_id": "2118253406045483333",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9724,13 +9696,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "SHANKESH: Q2 STANDALONE NET PROFIT 255.2M RUPEES VS 223.6M (YOY)<br><br>SHANKESH: Q2 EBITDA 365.2M RUPEES VS 327.6M (YOY); Q2 EBITDA MARGIN 6.56% VS 8.84% (YOY)<br><br>SHANKESH: Q2 REVENUE 5.56B RUPEES VS 3.71B (YOY)"
+      "description_html": "TIINDIA: Q2 CONS NET PROFIT 1.5B RUPEES VS 1.87B (YOY); EST 2B<br><br>TIINDIA: Q2 EBITDA 7.33B RUPEES VS 5.44B (YOY); Q2 EBITDA MARGIN 10% VS 9.86% (YOY)<br><br>TIINDIA: Q2 REVENUE 73.3B RUPEES VS 55.23B (YOY)"
     },
     {
-      "title": "RPSGVENT: Q2 CONS NET PROFIT 884.9M RUPEES VS LOSS 520.2M (YOY) RPSGVENT: Q2 EBITDA 4.2B RUPEES VS 3.06B (YOY); Q2 EBITDA MARGIN 12.93% VS 11.46% (YOY...",
-      "link": "https://x.com/REDBOXINDIA/status/2118239847991398763",
-      "date": "2026-11-05T07:11:49+00:00",
-      "tweet_id": "2118239847991398763",
+      "title": "SUVEN: Q2 CONS NET LOSS 163.8M RUPEES VS LOSS 154.5M (YOY) SUVEN: Q2 EBITDA LOSS 203.6M RUPEES VS LOSS 179.1M (YOY); Q2 EBITDA MARGIN -1698.30% VS -19...",
+      "link": "https://x.com/REDBOXINDIA/status/2118252523719188822",
+      "date": "2026-11-05T08:02:11+00:00",
+      "tweet_id": "2118252523719188822",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9738,13 +9710,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "RPSGVENT: Q2 CONS NET PROFIT 884.9M RUPEES VS LOSS 520.2M (YOY)<br><br>RPSGVENT: Q2 EBITDA 4.2B RUPEES VS 3.06B (YOY); Q2 EBITDA MARGIN 12.93% VS 11.46% (YOY)<br><br>RPSGVENT: Q2 REVENUE 32.43B RUPEES VS 26.68B (YOY)"
+      "description_html": "SUVEN: Q2 CONS NET LOSS 163.8M RUPEES VS LOSS 154.5M (YOY)<br><br>SUVEN: Q2 EBITDA LOSS 203.6M RUPEES VS LOSS 179.1M (YOY); Q2 EBITDA MARGIN -1698.30% VS -1948.01% (YOY)<br><br>SUVEN: Q2 REVENUE 12M RUPEES VS 9.2M (YOY)"
     },
     {
-      "title": "Dipam Secretary Mr Arunish Chawla interview to Redbox India on IDBI fairfax deal: Read full interview below IDBI BANK PRIVATISATION: DIPAM SECRETARY E...",
-      "link": "https://x.com/REDBOXINDIA/status/2118238813592187184",
-      "date": "2026-11-05T07:07:42+00:00",
-      "tweet_id": "2118238813592187184",
+      "title": "EMIL: Q2 STANDALONE NET PROFIT 401.6M RUPEES VS 161.5M (YOY) EMIL: Q2 EBITDA 1.31B RUPEES VS 816.4M (YOY); Q2 EBITDA MARGIN 6.87% VS 5.13% (YOY) EMIL:...",
+      "link": "https://x.com/REDBOXINDIA/status/2118251989985534381",
+      "date": "2026-11-05T08:00:04+00:00",
+      "tweet_id": "2118251989985534381",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9752,13 +9724,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "Dipam Secretary Mr Arunish Chawla interview to Redbox India on IDBI fairfax deal: Read full interview below <br><br>IDBI BANK PRIVATISATION: DIPAM SECRETARY EXPLAINS FOUR-YEAR SALE PROCESS, VALUATION AND STRATEGIC ROADMAP<br><br>DIPAM Secretary Dr Arunish Chawla says strategic restructuring will bring global banking practices, modern technology and better customer services to IDBI Bank, while the government and LIC will retain minority stakes.<br><br>stakes.<br><br>1. WHY IDBI BANK\u2019S STRATEGIC RESTRUCTURING WAS NECESSARY<br><br>IDBI Bank\u2019s financial crisis: IDBI was originally a development finance institution before being converted into a banking company in 2003. It subsequently went through nearly 15 years of financial difficulties, with NPAs rising to around 32% of its balance sheet.<br>Government and LIC recapitalisation: The Government of India and LIC infused substantial capital to revive the bank. Following these efforts, IDBI\u2019s financial position improved and RBI removed it from the Prompt Corrective Action (PCA) framework in 2021.<br>Objective of restructuring: The government wants IDBI Bank to move to the next level through modern technology, integrated banking services and global management practices, while reducing the possibility of future recapitalisation requirements falling on the government or LIC.<br><br>2. FOUR-YEAR PRIVATISATION PROCESS: HOW THE DEAL PROGRESSED<br><br>2021\u201322: Investor meetings were conducted in India and overseas to identify eligible strategic investors with the ability to operate a banking business.<br>October 2022: DIPAM issued an Expression of Interest (EOI), initiating the strategic disinvestment process.<br>Five interested parties: Around five parties initially submitted expressions of interest.<br>First bidding round unsuccessful: Bids received during FY26 were below the reserve price, partly because IDBI Bank\u2019s stock-market valuation had risen significantly. The initial process was subsequently cancelled.<br>April 2026 \u2013 Process reconsidered: The Core Group of Secretaries on Disinvestment, chaired by the Cabinet Secretary, reviewed the valuation methodology and identified corrective measures.<br>May\u2013June 2026 \u2013 Fresh offers: Both qualified bidders were invited to submit their best and final offers. The government also addressed certain outstanding income-tax disputes through transaction indemnities, following bidders\u2019 requests.<br>Independent valuation: Two independent valuation agencies conducted separate assessments using different methodologies and submitted their reports to the Core Group.<br>October 14, 2026: The Cabinet Committee on Economic Affairs approved the recommendation after the winning offer was found to be higher than both independent fair-value estimates and their average benchmark.<br><br>3. HOW WAS IDBI BANK VALUED?<br><br>DIPAM explained that the government did not rely solely on IDBI Bank\u2019s stock-market price to determine its valuation.<br><br>Stock-market volatility: The bank\u2019s shares experienced significant volatility, with the Secretary citing volatility of around 100%. Therefore, the market price was not considered a reliable standalone valuation benchmark.<br>Comparable company valuation: The market-multiples approach was used, comparing IDBI Bank\u2019s financial fundamentals with those of listed public-sector banks.<br>Physical and financial assets: Tangible and intangible assets were assessed, including financial assets, physical properties and land holdings in locations such as Colaba and Hyderabad.<br>Banking licence value: The economic value of the banking licence was assessed using the core-deposit intangible methodology.<br>Brand valuation: The relief-from-royalty methodology was used to assess brand value.<br>Customer relationships and branch network: These were assessed using the excess-earnings approach.<br><br>Key takeaway: The winning offer exceeded both independent valuation estimates and their average benchmark, giving the government confidence to recommend the transaction."
+      "description_html": "EMIL: Q2 STANDALONE NET PROFIT 401.6M RUPEES VS 161.5M (YOY)<br><br>EMIL: Q2 EBITDA 1.31B RUPEES VS 816.4M (YOY); Q2 EBITDA MARGIN 6.87% VS 5.13% (YOY)<br><br>EMIL: Q2 REVENUE 19B RUPEES VS 15.91B (YOY)"
     },
     {
-      "title": "GUJALKALI: Q2 CONS NET PROFIT 825.7M RUPEES VS 163.4M (YOY) GUJALKALI: Q2 EBITDA 1.7B RUPEES VS 739M (YOY); Q2 EBITDA MARGIN 12.52% VS 6.82% (YOY) GUJ...",
-      "link": "https://x.com/REDBOXINDIA/status/2118238300330975649",
-      "date": "2026-11-05T07:05:40+00:00",
-      "tweet_id": "2118238300330975649",
+      "title": "SANDHAR: Q2 CONS NET PROFIT 560.3M RUPEES VS 733.8M (YOY) SANDHAR: Q2 EBITDA 1.37B RUPEES VS 1.18B (YOY); Q2 EBITDA MARGIN 8.46% VS 9.30% (YOY) SANDHA...",
+      "link": "https://x.com/REDBOXINDIA/status/2118251513160331532",
+      "date": "2026-11-05T07:58:10+00:00",
+      "tweet_id": "2118251513160331532",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9766,13 +9738,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "GUJALKALI: Q2 CONS NET PROFIT 825.7M RUPEES VS 163.4M (YOY)<br><br>GUJALKALI: Q2 EBITDA 1.7B RUPEES VS 739M (YOY); Q2 EBITDA MARGIN 12.52% VS 6.82% (YOY)<br><br>GUJALKALI: Q2 REVENUE 13.57B RUPEES VS 10.83B (YOY)"
+      "description_html": "SANDHAR: Q2 CONS NET PROFIT 560.3M RUPEES VS 733.8M (YOY)<br><br>SANDHAR: Q2 EBITDA 1.37B RUPEES VS 1.18B (YOY); Q2 EBITDA MARGIN 8.46% VS 9.30% (YOY)<br><br>SANDHAR: Q2 REVENUE 16.18B RUPEES VS 12.7B (YOY)"
     },
     {
-      "title": "REPL: Q2 CONS NET LOSS 2.9M RUPEES VS PROFIT 5.3M (YOY) REPL: Q2 EBITDA LOSS 40.5M RUPEES VS PROFIT 13.3M (YOY); Q2 EBITDA MARGIN -30.21% VS 13.44% (Y...",
-      "link": "https://x.com/REDBOXINDIA/status/2118238044436484445",
-      "date": "2026-11-05T07:04:39+00:00",
-      "tweet_id": "2118238044436484445",
+      "title": "BHARAT FORGE: H2 FY27 OUTLOOK CO SAYS MAINTAIN EXPECTATIONS OF REVENUE GROWTH OF 20-25% IN FY27 FOR THE INDIAN MANUFACTURING BUSINESS.",
+      "link": "https://x.com/REDBOXINDIA/status/2118251271706796271",
+      "date": "2026-11-05T07:57:13+00:00",
+      "tweet_id": "2118251271706796271",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9780,13 +9752,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "REPL: Q2 CONS NET LOSS 2.9M RUPEES VS PROFIT 5.3M (YOY)<br><br>REPL: Q2 EBITDA LOSS 40.5M RUPEES VS PROFIT 13.3M (YOY); Q2 EBITDA MARGIN -30.21% VS 13.44% (YOY)<br><br>REPL: Q2 REVENUE 134.2M RUPEES VS 99.2M (YOY)"
+      "description_html": "BHARAT FORGE: H2 FY27 OUTLOOK CO SAYS MAINTAIN EXPECTATIONS OF REVENUE GROWTH OF 20-25% IN FY27 FOR THE INDIAN MANUFACTURING BUSINESS."
     },
     {
-      "title": "JUNIPER: Q2 CONS NET PROFIT 371.7M RUPEES VS 168.1M (YOY) JUNIPER: Q2 EBITDA 828M RUPEES VS 826.2M (YOY); Q2 EBITDA MARGIN 33.18% VS 35.87% (YOY) JUNI...",
-      "link": "https://x.com/REDBOXINDIA/status/2118237441756917778",
-      "date": "2026-11-05T07:02:15+00:00",
-      "tweet_id": "2118237441756917778",
+      "title": "IGARASHI: Q2 STANDALONE NET PROFIT 63.9M RUPEES VS 45.4M (YOY) IGARASHI: Q2 EBITDA 264.4M RUPEES VS 234.7M (YOY); Q2 EBITDA MARGIN 10.35% VS 10.71% (Y...",
+      "link": "https://x.com/REDBOXINDIA/status/2118250696562835953",
+      "date": "2026-11-05T07:54:55+00:00",
+      "tweet_id": "2118250696562835953",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9794,13 +9766,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "JUNIPER: Q2 CONS NET PROFIT 371.7M RUPEES VS 168.1M (YOY)<br><br>JUNIPER: Q2 EBITDA 828M RUPEES VS 826.2M (YOY); Q2 EBITDA MARGIN 33.18% VS 35.87% (YOY)<br><br>JUNIPER: Q2 REVENUE 2.5B RUPEES VS 2.3B (YOY)"
+      "description_html": "IGARASHI: Q2 STANDALONE NET PROFIT 63.9M RUPEES VS 45.4M (YOY)<br><br>IGARASHI: Q2 EBITDA 264.4M RUPEES VS 234.7M (YOY); Q2 EBITDA MARGIN 10.35% VS 10.71% (YOY)<br><br>IGARASHI: Q2 REVENUE 2.55B RUPEES VS 2.19B (YOY)"
     },
     {
-      "title": "IBULLSLTD: Q2 CONS NET PROFIT 1.51B RUPEES VS 7M (YOY) IBULLSLTD: Q2 EBITDA 1.72B RUPEES VS 1.07B (YOY); Q2 EBITDA MARGIN 51.82% VS 45.38% (YOY) IBULL...",
-      "link": "https://x.com/REDBOXINDIA/status/2118237320696782880",
-      "date": "2026-11-05T07:01:46+00:00",
-      "tweet_id": "2118237320696782880",
+      "title": "M&B ENGINEERING: CO REMAIN CONFIDENT OF DELIVERING OVER 25% REVENUE GROWTH IN FY27 AND CONTINUE TO TARGET OVER 20% CAGR OVER THE NEXT 3 TO 4 YEARS",
+      "link": "https://x.com/REDBOXINDIA/status/2118249732510498904",
+      "date": "2026-11-05T07:51:06+00:00",
+      "tweet_id": "2118249732510498904",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9808,13 +9780,13 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "IBULLSLTD: Q2 CONS NET PROFIT 1.51B RUPEES VS 7M (YOY)<br><br>IBULLSLTD: Q2 EBITDA 1.72B RUPEES VS 1.07B (YOY); Q2 EBITDA MARGIN 51.82% VS 45.38% (YOY)<br><br>IBULLSLTD: Q2 REVENUE 3.3B RUPEES VS 2.4B (YOY)"
+      "description_html": "M&amp;B ENGINEERING: CO REMAIN CONFIDENT OF DELIVERING OVER 25% REVENUE GROWTH IN FY27 AND CONTINUE TO TARGET OVER 20% CAGR OVER THE NEXT 3 TO 4 YEARS"
     },
     {
-      "title": "KRITI: Q2 CONS NET LOSS 72.9M RUPEES VS LOSS 95.8M (YOY) KRITI: Q2 EBITDA LOSS 27.5M RUPEES VS LOSS 40.7M (YOY); Q2 EBITDA MARGIN -2.50% VS -4.74% (YO...",
-      "link": "https://x.com/REDBOXINDIA/status/2118235734431998330",
-      "date": "2026-11-05T06:55:28+00:00",
-      "tweet_id": "2118235734431998330",
+      "title": "MAJESAUT: Q2 CONS NET PROFIT 193.1M RUPEES VS 757.1M (YOY) MAJESAUT: Q2 EBITDA LOSS 58.5M RUPEES VS PROFIT 16.7M (YOY); Q2 EBITDA MARGIN -607.40% VS 1...",
+      "link": "https://x.com/REDBOXINDIA/status/2118249134805434701",
+      "date": "2026-11-05T07:48:43+00:00",
+      "tweet_id": "2118249134805434701",
       "source": "RedboxGlobal India",
       "publisher": "Redbox India",
       "source_mode": "rsshub",
@@ -9822,7 +9794,7 @@
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "KRITI: Q2 CONS NET LOSS 72.9M RUPEES VS LOSS 95.8M (YOY)<br><br>KRITI: Q2 EBITDA LOSS 27.5M RUPEES VS LOSS 40.7M (YOY); Q2 EBITDA MARGIN -2.50% VS -4.74% (YOY)<br><br>KRITI: Q2 REVENUE 1.1B RUPEES VS 857.3M (YOY)"
+      "description_html": "MAJESAUT: Q2 CONS NET PROFIT 193.1M RUPEES VS 757.1M (YOY)<br><br>MAJESAUT: Q2 EBITDA LOSS 58.5M RUPEES VS PROFIT 16.7M (YOY); Q2 EBITDA MARGIN -607.40% VS 12.70% (YOY)<br><br>MAJESAUT: Q2 REVENUE 9.6M RUPEES VS 131.2M (YOY)"
     },
     {
       "title": "\ud83d\udea8 OPEC: The real oil price shock isn't just crude. It's the cost of moving it. Shipping crude oil from the Middle East to East Asia has become dram...",
