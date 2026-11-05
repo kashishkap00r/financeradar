@@ -1,10 +1,38 @@
 {
-  "generated_at": "2026-10-26T04:29:25.891046+00:00",
+  "generated_at": "2026-11-05T05:17:10.727672+00:00",
   "meta": {
     "source": "ember_wp_rest",
     "items_total": 120
   },
   "items": [
+    {
+      "title": "Building a grid for the age of power",
+      "link": "https://ember-energy.org/latest-insights/building-a-grid-for-the-age-of-power",
+      "date": "2026-11-05T01:01:00",
+      "type": "Analysis",
+      "description": ""
+    },
+    {
+      "title": "Kazakhstan has the wind to power its demand growth",
+      "link": "https://ember-energy.org/latest-insights/kazakhstan-has-the-wind-to-power-its-demand-growth",
+      "date": "2026-11-03T00:01:00",
+      "type": "Analysis",
+      "description": "A hybrid plant combining wind, solar and a small battery can meet 70\u201390% of a typical demand profile in Kazakhstan at delivered cost below $60 per MWh"
+    },
+    {
+      "title": "Data centres for grids: the potential impact of flexibility",
+      "link": "https://ember-energy.org/latest-insights/data-centres-for-grids-the-potential-impact-of-flexibility",
+      "date": "2026-10-29T12:03:35",
+      "type": "Analysis",
+      "description": "Data centres coming online have the potential to utilise flexibility measures to reduce power grid stress events and new grid investments."
+    },
+    {
+      "title": "T\u00fcrkiye could electrify 85% of its energy use",
+      "link": "https://ember-energy.org/latest-insights/turkiye-could-electrify-85-of-its-energy-use",
+      "date": "2026-10-27T07:00:00",
+      "type": "Analysis",
+      "description": "Electricity met 22% of T\u00fcrkiye\u2019s final energy consumption in 2024, while the share of fossil fuels has remained unchanged at 70% since 1990. Reaching the 35% electrification target by 2035 depends on electricity replacing fossil fuels."
+    },
     {
       "title": "Plugging storage into India\u2019s rooftop solar revolution",
       "link": "https://ember-energy.org/latest-insights/plugging-storage-into-indias-rooftop-solar-revolution",
@@ -293,39 +321,11 @@
       "description": "An increasing proportion of clean power is already priced independently from fossil fuels in Britain, and a de-linking is beginning to emerge."
     },
     {
-      "title": "Germany\u2019s battery opportunity",
-      "link": "https://ember-energy.org/latest-insights/germanys-battery-opportunity",
-      "date": "2026-05-13T01:03:34",
-      "type": "Analysis",
-      "description": "The battery market is ready to fortify Germany\u2019s energy security, and it is time for policy to catch up. The lack of a clean flexibility strategy, combined with the preferential treatment of gas in forthcoming auctions, risks locking Germany into a costly dependency on gas imports."
-    },
-    {
-      "title": "Understanding India\u2019s coal mine methane landscape",
-      "link": "https://ember-energy.org/latest-insights/understanding-indias-coal-mine-methane-landscape",
-      "date": "2026-05-12T03:03:35",
-      "type": "Analysis",
-      "description": "In India, coal mines account for 68% of fugitive methane emissions from the fossil fuel sector. Yet no dedicated policy framework exists to guide coal mine methane monitoring, reporting and verification (MRV) and drive mitigation. Addressing this regulatory vacuum should be a top priority, especiall"
-    },
-    {
       "title": "Why it\u2019s time for a strategic reset on negative emissions",
       "link": "https://ember-energy.org/latest-insights/why-its-time-for-a-strategic-reset-on-negative-emissions",
       "date": "2026-05-05T08:57:54",
       "type": "Commentary",
       "description": "Following the second fossil fuel crisis in just four years, Britain is accelerating its transition towards homegrown, renewable energy \u2013 but biomass imports for generation and carbon removal undermine energy independence."
-    },
-    {
-      "title": "Declining emissions in Australia\u2019s coal sector mask growing offset use",
-      "link": "https://ember-energy.org/latest-insights/declining-emissions-in-australias-coal-sector-mask-growing-offset-use",
-      "date": "2026-04-29T15:00:00",
-      "type": "Analysis",
-      "description": "Australia\u2019s coal sector emissions appear to be steadily declining. However, this trend is largely influenced by mine disruptions rather than on-site abatement. At the same time, coal mines are increasingly using offsets to meet their baseline."
-    },
-    {
-      "title": "Global Coal Mine Methane Review 2026",
-      "link": "https://ember-energy.org/latest-insights/global-coal-mine-methane-review-2026",
-      "date": "2026-04-29T00:01:00",
-      "type": "Analysis",
-      "description": "Countries\u2019 reported coal mine methane inventories capture only a fraction of actual emissions. Yet affordable mitigation measures exist and could significantly reduce these emissions this decade."
     },
     {
       "title": "Solar growth in South Asia has cut fuel imports for power but deeper reductions need electrification and regional grids",
@@ -469,7 +469,7 @@
     },
     {
       "title": "It\u2019s time for Europe to take stock of its abandoned coal mines \u2013 a major source of methane",
-      "link": "https://ember-energy.org/latest-insights/time-for-europe-to-take-stock-of-its-abandoned-coal-mines",
+      "link": "https://ember-energy.org/insights/time-for-europe-to-take-stock-of-its-abandoned-coal-mines",
       "date": "2025-08-05T12:21:45",
       "type": "Commentary",
       "description": ""
