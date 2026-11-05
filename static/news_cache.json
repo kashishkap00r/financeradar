@@ -1,6 +1,70 @@
 {
   "thecore": [
     {
+      "title": "Adani And Reliance Want A Share Of India's Aluminium Boom. Here's The Catch",
+      "link": "https://www.thecore.in/business/india-aluminium-boom-adani-reliance-bauxite-vedanta-hindalco-873581",
+      "date": "2026-11-05T00:30:34+00:00",
+      "description": "Adani and Reliance see an opportunity in India's growing aluminium market, but securing bauxite, affordable power and scale will be key to challenging incumbents.",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/11/04/1106733-aluminium-industry1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/business/india-aluminium-boom-adani-reliance-bauxite-vedanta-hindalco-873581"
+    },
+    {
+      "title": "The Impact Of The US Midterm Elections On India",
+      "link": "https://www.thecore.in/podcasts/the-impact-of-the-us-midterm-elections-on-india-873594",
+      "date": "2026-11-05T00:30:03+00:00",
+      "description": "How does the outcome of the US midterm elections affect India, politically, economically and for the stock markets",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/11/04/1106751-04thuupthe-core-report1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/the-impact-of-the-us-midterm-elections-on-india-873594"
+    },
+    {
+      "title": "From Bigg Boss to The Night Manager: How Banijay Makes Money? | The Media Room | The Core",
+      "link": "https://www.thecore.in/podcasts/from-bigg-boss-to-the-night-manager-how-banijay-makes-money-the-media-room-the-core-873531",
+      "date": "2026-11-04T12:30:15+00:00",
+      "description": "Bigg Boss reaches 500\u2013600 million viewers across seven languages, with 800 production days a year, says Deepak Dhar.",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/11/03/1106677-tmr-1200x630-dd-ls.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/from-bigg-boss-to-the-night-manager-how-banijay-makes-money-the-media-room-the-core-873531"
+    },
+    {
+      "title": "Growth, Inflation, the Rupee: What Should the RBI Prioritise?",
+      "link": "https://www.thecore.in/podcasts/growth-inflation-the-rupee-what-should-the-rbi-prioritise-873570",
+      "date": "2026-11-04T11:30:06+00:00",
+      "description": "Insights on the RBI's policy choices, the rupee's persistent weakness, foreign capital flows and the trade-offs between inflation control and economic growth",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/11/04/1106721-hiewe74rahul-bajoria1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/growth-inflation-the-rupee-what-should-the-rbi-prioritise-873570"
+    },
+    {
       "title": "Will Markets Disconnect From Crude Oil Prices?",
       "link": "https://www.thecore.in/podcasts/will-markets-disconnect-from-crude-oil-prices-873539",
       "date": "2026-11-04T00:30:27+00:00",
@@ -959,22 +1023,6 @@
       "image": "https://www.thecore.in/h-upload/2026/10/06/1104620-03wedupthe-core-report1200x630.webp",
       "feed_id": "thecore",
       "guid": "https://www.thecore.in/podcasts/crude-oil-is-flowing-out-of-west-asia-but-not-refined-products-like-diesel-872002"
-    },
-    {
-      "title": "Navi Mumbai Airport\u2019s Cargo Move Is Already Costing Shippers",
-      "link": "https://www.thecore.in/business/navi-mumbai-airports-cargo-move-is-already-costing-shippers-871933",
-      "date": "2026-10-06T06:00:28+05:30",
-      "description": "The mandatory move of Mumbai\u2019s freighter operations to Navi Mumbai International Airport is exposing infrastructure and operational gaps, leaving cargo operators to navigate delays, higher costs and...",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/10/05/1104537-cargo-aircraft1200x630jpg.jpg",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/business/navi-mumbai-airports-cargo-move-is-already-costing-shippers-871933"
     }
   ],
   "thecore-opinion": [
@@ -1012,6 +1060,22 @@
     }
   ],
   "ember-energy-insights": [
+    {
+      "title": "Germany - Ember-climate.org",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1nUkg3NFB6X0JfQW1Ja3BUcFlkeG9MUFNLZkZUcHhlQkxXWHJCaGhZeDRELVlENkdJSTJfenEtT04wTkVYb1JqYjVVSi1GNWpNdGxzemlMVDBxekJfM3I3azRyY0d4QQ?oc=5",
+      "date": "2026-10-30T07:00:00+00:00",
+      "description": "Germany Ember-climate.org",
+      "source": "Ember Energy",
+      "source_url": "https://ember-energy.org/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Ember",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "ember-energy-insights",
+      "guid": "CBMiZkFVX3lxTE1nUkg3NFB6X0JfQW1Ja3BUcFlkeG9MUFNLZkZUcHhlQkxXWHJCaGhZeDRELVlENkdJSTJfenEtT04wTkVYb1JqYjVVSi1GNWpNdGxzemlMVDBxekJfM3I3azRyY0d4QQ"
+    },
     {
       "title": "Data centres for grids\ua789 the potential impact of flexibility - Ember-climate.org",
       "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOMXpFMTVFTENxdWtxSnRGVjFNblZwdXpaVE9PODd1THp4bWNKbkI5aXVhQVRiUldEelduNnFlVGhYNHkxTExJMk9yVGh3MnZUM0ExSGJVRVJWSUFfSmR5MFBtUnFEb1hLZDFOTEpOY1U1SkZ2Ui1xazF4STBRUXlUWU5XZEpGd3dQYjNBeGdtUl9IcC1pVmFHVU03RklManBMTFE?oc=5",
@@ -1063,7 +1127,7 @@
     {
       "title": "T\u00fcrkiye could electrify 85% of its energy use - Ember-climate.org",
       "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNNDQwZmM5dmpocWFyZkw3Y1E4Sm9oUlVDYzM4QVNfOUp4a0Q2akZqZ29IS01RR2QxRDU0SXJXRVdBM3pvblRJM25YWFhkOVNEMTZuTnVDNWo4RWx3b3p2TkVDYnV3Y3NBa294ak9JeklUZG9DZmpXSEJjNWE2bmhtQ09MSVpxOHBMcXZfa2hQNA?oc=5",
-      "date": "2026-10-27T12:05:58+00:00",
+      "date": "2026-10-27T06:13:44+00:00",
       "description": "T\u00fcrkiye could electrify 85% of its energy use Ember-climate.org",
       "source": "Ember Energy",
       "source_url": "https://ember-energy.org/",
@@ -1643,6 +1707,22 @@
   ],
   "the-india-forum": [
     {
+      "title": "December 4, 2026",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5uc2k2Rk9ReVNMRlpzM1RRN1lXRlRfRWprQzJ2dEdlTExwRHdKWWFRb1EtV01YdlVqdzZBXzBkQXFxck5Rb0FRTkNrN25mejJWeVMtVlRzQjgxbHhscHF4Vw?oc=5",
+      "date": "2026-11-04T12:33:23+00:00",
+      "description": "December 4, 2026 The India Forum",
+      "source": "The India Forum",
+      "source_url": "https://www.theindiaforum.in/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The India Forum",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-india-forum",
+      "guid": "CBMiYEFVX3lxTE5uc2k2Rk9ReVNMRlpzM1RRN1lXRlRfRWprQzJ2dEdlTExwRHdKWWFRb1EtV01YdlVqdzZBXzBkQXFxck5Rb0FRTkNrN25mejJWeVMtVlRzQjgxbHhscHF4Vw"
+    },
+    {
       "title": "India\u2019s Young Protesters are Reclaiming the Republic",
       "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPbmNDRUlyaUlULWxmQl8wLWp1TjlibVdYczRlUkQ4S01NdFpMV1JSWWRTUm5QRm9lbEF6WFNzaHJKckNoaEVuQUc0Y0hBV2xJSmVyRWJMbzN1VlFfeEVQbEhlMjhMOUFuVmh4dDVpNVFmSkd3dUlQZzAybmV4NldqSVBzNlhNaVdpalJudUJn?oc=5",
       "date": "2026-10-30T08:42:46+00:00",
@@ -2128,6 +2208,38 @@
     }
   ],
   "decoding-the-dragon": [
+    {
+      "title": "#146: Why is China now brewing nylon with zero crude oil?",
+      "link": "https://decodingthedragon.substack.com/p/146-why-is-china-now-brewing-nylon",
+      "date": "2026-11-05T01:30:46+00:00",
+      "description": "Cathay Biotech has learnt to grow nylon out of farm sugar, dodging both oil and a Western chokehold, while India still imports most of the stuff.",
+      "source": "Decoding the Dragon",
+      "source_url": "https://decodingthedragon.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Decoding the Dragon",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!Psrw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F540d653c-a671-49d3-a5a4-9de02aaf9b35_1024x572.png",
+      "feed_id": "decoding-the-dragon",
+      "guid": "https://decodingthedragon.substack.com/p/146-why-is-china-now-brewing-nylon"
+    },
+    {
+      "title": "#145: How does China sell 15,000 tools it never designed?",
+      "link": "https://decodingthedragon.substack.com/p/145-how-does-china-sell-15000-tools",
+      "date": "2026-11-04T13:30:36+00:00",
+      "description": "A Shanghai firm moves 15,000 tools it never invented across 50+ countries, and it exposes exactly why India cannot yet build the same machine.",
+      "source": "Decoding the Dragon",
+      "source_url": "https://decodingthedragon.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Decoding the Dragon",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!DinP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7be2533e-53ca-4d0e-8aa9-5abd71eeb839_1024x572.png",
+      "feed_id": "decoding-the-dragon",
+      "guid": "https://decodingthedragon.substack.com/p/145-how-does-china-sell-15000-tools"
+    },
     {
       "title": "#144: Why does an $11,999 scanner still earn 78% margins?",
       "link": "https://decodingthedragon.substack.com/p/144-why-does-an-11999-scanner-still",
@@ -2835,6 +2947,38 @@
   ],
   "bharatnama": [
     {
+      "title": "#122: Why did India hand GIFT City a 20-year tax holiday?",
+      "link": "https://bharatnama.substack.com/p/122-why-did-india-hand-gift-city",
+      "date": "2026-11-05T01:30:48+00:00",
+      "description": "India built an offshore finance hub on its own soil and it now outranks Mumbai. Is it real capital or a well-subsidised relabelling?",
+      "source": "BharatNama",
+      "source_url": "https://bharatnama.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "BharatNama",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!gSN-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6348aafb-7906-453c-9f3d-f6640566cfb4_1024x572.jpeg",
+      "feed_id": "bharatnama",
+      "guid": "https://bharatnama.substack.com/p/122-why-did-india-hand-gift-city"
+    },
+    {
+      "title": "#121: Why do 8,000 festive train trips still leave people hanging?",
+      "link": "https://bharatnama.substack.com/p/121-why-do-8000-festive-train-trips",
+      "date": "2026-11-04T13:30:43+00:00",
+      "description": "India runs thousands of extra trains for Diwali and Chhath every year. The crush is not a failure; it is how the system was designed.",
+      "source": "BharatNama",
+      "source_url": "https://bharatnama.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "BharatNama",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!l_G5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feadc29ce-9578-40cf-b8c3-8cbbf3be937f_1376x768.png",
+      "feed_id": "bharatnama",
+      "guid": "https://bharatnama.substack.com/p/121-why-do-8000-festive-train-trips"
+    },
+    {
       "title": "#120: Why do NRIs hold a third of Kerala's bank deposits?",
       "link": "https://bharatnama.substack.com/p/120-why-do-nris-hold-a-third-of-keralas",
       "date": "2026-11-04T01:31:06+00:00",
@@ -3524,6 +3668,38 @@
     }
   ],
   "biznewsbyjay": [
+    {
+      "title": "#97: Can a 49% stake bring Airtel's backhaul radios home?",
+      "link": "https://biznewsbyjay.substack.com/p/97-can-a-49-stake-bring-airtels-backhaul",
+      "date": "2026-11-05T01:30:39+00:00",
+      "description": "This is not a factory with an Airtel nameplate. It is a 49% stake held through Beetel, a licence from Texas, and a supply position that is not yet ownership.",
+      "source": "Biz News+",
+      "source_url": "https://biznewsbyjay.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Biz News+",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!yhir!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5a848378-ff38-481b-957c-aa47144cc810_1024x572.png",
+      "feed_id": "biznewsbyjay",
+      "guid": "https://biznewsbyjay.substack.com/p/97-can-a-49-stake-bring-airtels-backhaul"
+    },
+    {
+      "title": "#96: Why does Reliance pay 8.4% to borrow at 7.47%?",
+      "link": "https://biznewsbyjay.substack.com/p/96-why-does-reliance-pay-84-to-borrow",
+      "date": "2026-11-04T13:30:38+00:00",
+      "description": "Reliance can raise money as cheaply as almost anyone in India, yet its newest deal costs nearly a full point more, and that gap is the whole story.",
+      "source": "Biz News+",
+      "source_url": "https://biznewsbyjay.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Biz News+",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!fd1M!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe92e7d80-cc64-49c4-aaec-327ac3a0c82d_1024x572.png",
+      "feed_id": "biznewsbyjay",
+      "guid": "https://biznewsbyjay.substack.com/p/96-why-does-reliance-pay-84-to-borrow"
+    },
     {
       "title": "#95: Why is China inside an 80 MW Indian wind deal?",
       "link": "https://biznewsbyjay.substack.com/p/95-why-is-china-inside-an-80-mw-indian",
@@ -4407,22 +4583,6 @@
       "image": "https://fastly.restofworld.org/uploads/2026/10/illo_china_tech_sketch_final.jpg?width=160&dpr=2&crop=1:1",
       "feed_id": "rest-of-world-latest-slash",
       "guid": "https://restofworld.org/2026/china-america-tech-ai/"
-    },
-    {
-      "title": "The AI boom is making the world\u2019s cheapest smartphones disappear",
-      "link": "https://restofworld.org/2026/ai-data-center-memory-chip-shortage-cheap-smartphones-digital-divide/?utm_source=rss&utm_medium=rss&utm_campaign=feeds",
-      "date": "2026-10-05T10:00:43+00:00",
-      "description": "AI data centers are driving demand for memory chips, pushing phone makers to raise prices and abandon some of their most affordable models.",
-      "source": "Rest of World",
-      "source_url": "https://restofworld.org",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Rest of World",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://fastly.restofworld.org/uploads/2026/10/smartphone-price-ai-2.jpg?width=160&dpr=2&crop=1:1",
-      "feed_id": "rest-of-world-latest-slash",
-      "guid": "https://restofworld.org/2026/ai-data-center-memory-chip-shortage-cheap-smartphones-digital-divide/"
     }
   ],
   "musings-on-markets-substack": [
@@ -4620,6 +4780,22 @@
     }
   ],
   "the-ken": [
+    {
+      "title": "Rs 20,000 at home, Rs 20 lakh to get out: Kerala\u2019s nurses can\u2019t stay, and can\u2019t leave",
+      "link": "https://the-ken.com/story/rs-20000-at-home-rs-20-lakh-to-get-out-keralas-nurses-cant-stay-and-cant-leave/",
+      "date": "2026-11-05T02:30:16+00:00",
+      "description": "The post Rs 20,000 at home, Rs 20 lakh to get out: Kerala\u2019s nurses can\u2019t stay, and can\u2019t leave appeared first on The Ken .",
+      "source": "The Ken",
+      "source_url": "https://the-ken.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Ken",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-ken",
+      "guid": "https://the-ken.com/story//"
+    },
     {
       "title": "Jio eyes 340 million users as AI eats phone chips and SIM rules tighten",
       "link": "https://the-ken.com/story/jio-eyes-340-million-users-as-ai-eats-phone-chips-and-sim-rules-tighten/",
@@ -4971,25 +5147,25 @@
       "image": "",
       "feed_id": "the-ken",
       "guid": "https://the-ken.com/story//"
-    },
-    {
-      "title": "450K families, 90 questions: India\u2019s first income survey can\u2019t get people to reveal their income",
-      "link": "https://the-ken.com/story/450k-families-90-questions-indias-first-income-survey-cant-get-people-to-reveal-their-income/",
-      "date": "2026-10-06T02:30:21+00:00",
-      "description": "The post 450K families, 90 questions: India\u2019s first income survey can\u2019t get people to reveal their income appeared first on The Ken .",
-      "source": "The Ken",
-      "source_url": "https://the-ken.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Ken",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "the-ken",
-      "guid": "https://the-ken.com/story//"
     }
   ],
   "the-morning-context": [
+    {
+      "title": "Fino\u2019s lending ambitions run into a shrinking business",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWE5FUjc1dHROd29PVjMwWm5sTGRCY2xnbElwRHVJYlFhQ19hRnlUQUFpSkhCMkhtVkZienBHWVM0U2pOcTZ1YTA0bC1MdkdZNExkUmw0NjR0R1RuaUFrYlR0Uk9JdmpNU0VkQndxeEtEejhLeTh1NXdsaG9UMXpkNGxOdXJ1NUF4MG43a2JkUVZveVNDOEhEQVdxS2RFV1YxVHE2dmxiWnRvUlBIR1E?oc=5",
+      "date": "2026-11-04T21:32:10+00:00",
+      "description": "Fino\u2019s lending ambitions run into a shrinking business The Morning Context",
+      "source": "The Morning Context",
+      "source_url": "https://themorningcontext.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Morning Context",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-morning-context",
+      "guid": "CBMirgFBVV95cUxNWE5FUjc1dHROd29PVjMwWm5sTGRCY2xnbElwRHVJYlFhQ19hRnlUQUFpSkhCMkhtVkZienBHWVM0U2pOcTZ1YTA0bC1MdkdZNExkUmw0NjR0R1RuaUFrYlR0Uk9JdmpNU0VkQndxeEtEejhLeTh1NXdsaG9UMXpkNGxOdXJ1NUF4MG43a2JkUVZveVNDOEhEQVdxS2RFV1YxVHE2dmxiWnRvUlBIR1E"
+    },
     {
       "title": "Pixxel\u2019s patriotism test",
       "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOOExVUTVDUUdyaW1ndE56YjA1QXdRdWlqcXU2b3dRdW5KSHpLaVVTQk5nRkw2Uk1IVW9ISjFIbjhObTV0N1pHQ1JoRkpuM0lSVVd4VXpSVUNrMnRHTGpwSUlqSDhwb08tZVZ4RFhrYnRrWGV1Wmx4OE9hZ0t1aUVxaXFKMW5vdw?oc=5",
@@ -7251,6 +7427,22 @@
   ],
   "finshots": [
     {
+      "title": "Why can't India simply build bigger strategic oil reserves?",
+      "link": "https://finshots.in/archive/why-cant-india-simply-build-bigger-strategic-oil-reserves/",
+      "date": "2026-11-05T01:30:29+00:00",
+      "description": "An explainer on what holds India back from expanding its strategic oil reserves.",
+      "source": "Finshots",
+      "source_url": "https://finshots.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Finshots",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://cdn.finshots.app/images/2026/11/_Strategic-Oil-Reserves-V4.jpg",
+      "feed_id": "finshots",
+      "guid": "6aeb3e8004bd2406332fe0e3"
+    },
+    {
       "title": "How astrology became a big bucks business in India",
       "link": "https://finshots.in/archive/how-astrology-became-a-big-bucks-business-in-india/",
       "date": "2026-11-04T01:30:30+00:00",
@@ -7697,22 +7889,6 @@
       "image": "https://cdn.finshots.app/images/2026/10/HDFC-CEO.jpg",
       "feed_id": "finshots",
       "guid": "6ac52fec04bd2406332fdab5"
-    },
-    {
-      "title": "What ails Nike?",
-      "link": "https://finshots.in/archive/what-ails-nike/",
-      "date": "2026-10-06T01:30:55+00:00",
-      "description": "An explainer on Nike\u2019s ongoing crisis.",
-      "source": "Finshots",
-      "source_url": "https://finshots.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Finshots",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://cdn.finshots.app/images/2026/10/Nike-Fall.jpg",
-      "feed_id": "finshots",
-      "guid": "6ac3b28204bd2406332fda84"
     }
   ],
   "marketbites-substack": [
