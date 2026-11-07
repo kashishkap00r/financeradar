@@ -1,6 +1,22 @@
 {
   "thecore": [
     {
+      "title": "Investors Want It All: Why Kotak Neo Is Moving Beyond Broking",
+      "link": "https://www.thecore.in/podcasts/the-core-report/kotak-neo-shripal-shah-retail-investors-diversification-wealth-building-873690",
+      "date": "2026-11-07T00:30:46+00:00",
+      "description": "Shripal Shah, MD & CEO, Kotak Neo says two tough years have taught retail investors that quick money is over, and that diversification across caps, asset classes and geographies is the way to build wealth.",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/11/06/1107010-core-interview1200x630jpg.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/the-core-report/kotak-neo-shripal-shah-retail-investors-diversification-wealth-building-873690"
+    },
+    {
       "title": "Are Indians Ready For Prenups?",
       "link": "https://www.thecore.in/podcasts/are-indians-ready-for-prenups-873644",
       "date": "2026-11-06T02:00:43+00:00",
@@ -959,38 +975,6 @@
       "image": "https://www.thecore.in/h-upload/2026/10/08/1104748-carbon-emissions1200x630.webp",
       "feed_id": "thecore",
       "guid": "https://www.thecore.in/opinion/the-plinth/india-green-steel-mission-delay-cbam-jsw-tata-872082"
-    },
-    {
-      "title": "Markets Turn Around As Oil Prices Rise",
-      "link": "https://www.thecore.in/podcasts/markets-turn-around-as-oil-prices-rise-872056",
-      "date": "2026-10-08T00:30:36+00:00",
-      "description": "The RBI raised its benchmark repo rate by 25 basis points to 5.5% on Wednesday, marking the first rise in nearly four years",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/10/07/1104676-04thudownthe-core-report1200x630.webp",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/podcasts/markets-turn-around-as-oil-prices-rise-872056"
-    },
-    {
-      "title": "India's Biogas Bet Gets A Push, But Feedstock, State Policy Hurdles Remain",
-      "link": "https://www.thecore.in/business/indias-biogas-gobardhan-energy-feedstock-872031",
-      "date": "2026-10-08T00:30:08+00:00",
-      "description": "After the weak run of a previous version, the Rs 23,731 crore GOBARdhan scheme sets CBG prices and buyer mandates. Feedstock, state policy, and execution still remain the hurdles.",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/10/01/1104235-gobardhan1200x630jpg.webp",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/business/indias-biogas-gobardhan-energy-feedstock-872031"
     }
   ],
   "thecore-opinion": [
@@ -2177,6 +2161,22 @@
   ],
   "decoding-the-dragon": [
     {
+      "title": "#150: Why is 96% of India\u2019s artificial flowers made in China?",
+      "link": "https://decodingthedragon.substack.com/p/150-why-is-96-of-indias-artificial",
+      "date": "2026-11-07T01:30:42+00:00",
+      "description": "Every Diwali, India boycotts Chinese d\u00e9cor and buys it anyway. The real dependence is not the thing on the stall, it is one quiet layer underneath it.",
+      "source": "Decoding the Dragon",
+      "source_url": "https://decodingthedragon.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Decoding the Dragon",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!fS9J!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F469649a9-141b-460b-916b-99a37b51cfa6_1024x572.png",
+      "feed_id": "decoding-the-dragon",
+      "guid": "https://decodingthedragon.substack.com/p/150-why-is-96-of-indias-artificial"
+    },
+    {
       "title": "#149: Why did China's 20% cheaper metro bid lose in Brazil?",
       "link": "https://decodingthedragon.substack.com/p/149-why-did-chinas-20-cheaper-metro",
       "date": "2026-11-06T13:31:32+00:00",
@@ -2963,6 +2963,22 @@
   ],
   "bharatnama": [
     {
+      "title": "#126: Why do just 4% of Indian workers have formal skills?",
+      "link": "https://bharatnama.substack.com/p/126-why-do-just-4-of-indian-workers",
+      "date": "2026-11-07T01:30:41+00:00",
+      "description": "India was never short of skilled workers. It was short of proof. Now platforms and phones are quietly changing who gets certified, and paid.",
+      "source": "BharatNama",
+      "source_url": "https://bharatnama.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "BharatNama",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!wUaS!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F025a6eb8-cf34-42b5-9b6c-e0a658fc0271_1024x572.jpeg",
+      "feed_id": "bharatnama",
+      "guid": "https://bharatnama.substack.com/p/126-why-do-just-4-of-indian-workers"
+    },
+    {
       "title": "#125: Why does India spend just 0.84% of GDP on research?",
       "link": "https://bharatnama.substack.com/p/125-why-does-india-spend-just-084",
       "date": "2026-11-06T13:31:31+00:00",
@@ -3732,6 +3748,22 @@
     }
   ],
   "biznewsbyjay": [
+    {
+      "title": "#101: Why did India sell 52 lakh vehicles in 42 days?",
+      "link": "https://biznewsbyjay.substack.com/p/101-why-did-india-sell-52-lakh-vehicles",
+      "date": "2026-11-07T01:30:45+00:00",
+      "description": "The festive window is not a marketing season. It is the settlement date on which a year's retail, dealer capital and loans all clear at once.",
+      "source": "Biz News+",
+      "source_url": "https://biznewsbyjay.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Biz News+",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!3YbI!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F05dc8f53-fb48-43f0-9edb-ba4a1c42b582_1024x572.png",
+      "feed_id": "biznewsbyjay",
+      "guid": "https://biznewsbyjay.substack.com/p/101-why-did-india-sell-52-lakh-vehicles"
+    },
     {
       "title": "#100: Why do 8 lakh hands make 90% of India's crackers?",
       "link": "https://biznewsbyjay.substack.com/p/100-why-do-8-lakh-hands-make-90-of",
@@ -4792,21 +4824,6 @@
       "source_tier": "",
       "feed_id": "our-world-in-data",
       "guid": "https://ourworldindata.org/when-do-people-experience-mental-health-conditions-for-the-first-time"
-    },
-    {
-      "title": "A 73% average decline in wildlife populations: an overview of the 2026 Living Planet Index report",
-      "link": "https://ourworldindata.org/2026-lpi-update",
-      "date": "2026-10-08T00:00:00+00:00",
-      "description": "A guide to understanding the Living Planet Index and what it does and doesn\u2019t mean.<br><br><a href=\"https://ourworldindata.org/2026-lpi-update\"><img src=\"https://ourworldindata.org/cdn-cgi/imagedelivery/qLq-8BTgXU8yG0N6HnOy8g/d040574f-0ac6-4478-620a-8c0681700500/w=1024\"/></a>",
-      "source": "Our World in Data",
-      "source_url": "https://ourworldindata.org",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Our World in Data",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "feed_id": "our-world-in-data",
-      "guid": "https://ourworldindata.org/2026-lpi-update"
     }
   ],
   "by-the-numbers": [
@@ -5217,22 +5234,6 @@
       "link": "https://the-ken.com/story/inox-cleans-masterclass-in-growing-revenue-43x-in-one-year-is-a-cautionary-tale/",
       "date": "2026-10-09T02:30:55+00:00",
       "description": "The post Inox Clean\u2019s \u2018masterclass\u2019 in growing revenue 43X in one year is a cautionary tale appeared first on The Ken .",
-      "source": "The Ken",
-      "source_url": "https://the-ken.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Ken",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "the-ken",
-      "guid": "https://the-ken.com/story//"
-    },
-    {
-      "title": "As Temasek, TPG, KKR fuel an acquisition spree, this eye-care chain is betting on something different",
-      "link": "https://the-ken.com/story/as-temasek-tpg-kkr-fuel-an-acquisition-spree-this-eye-care-chain-is-betting-on-something-different/",
-      "date": "2026-10-08T02:30:07+00:00",
-      "description": "The post As Temasek, TPG, KKR fuel an acquisition spree, this eye-care chain is betting on something different appeared first on The Ken .",
       "source": "The Ken",
       "source_url": "https://the-ken.com",
       "category": "News",
@@ -7571,6 +7572,22 @@
   ],
   "finshots": [
     {
+      "title": "Carlsberg's impressive margins, Binance's $6 billion heist, & more...",
+      "link": "https://finshots.in/archive/carlsbergs-impressive-margins-binances-6-billion-heist-more/",
+      "date": "2026-11-07T01:30:18+00:00",
+      "description": "Some interesting things from Carlsberg's UDRHP, Binance's $6 billion heist, China's AI bubble, and more in this weekly wrapup.",
+      "source": "Finshots",
+      "source_url": "https://finshots.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Finshots",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://cdn.finshots.app/images/2026/11/weekly-wrapup6.jpg",
+      "feed_id": "finshots",
+      "guid": "6aedca5304bd2406332fe134"
+    },
+    {
       "title": "Carlsberg's profit margins look great. But...",
       "link": "https://finshots.in/markets/calsbergs-profit-margins-look-great-but/",
       "date": "2026-11-06T01:30:15+00:00",
@@ -8017,22 +8034,6 @@
       "image": "https://cdn.finshots.app/images/2026/10/esds.jpg",
       "feed_id": "finshots",
       "guid": "6ac7affb04bd2406332fdb18"
-    },
-    {
-      "title": "Why is SEBI\u2019s investor protection fund barely being used?",
-      "link": "https://finshots.in/archive/why-is-sebi-investor-protection-fund-barely-being-used/",
-      "date": "2026-10-08T01:30:44+00:00",
-      "description": "An explainer on SEBI's Investor Protection and Education Fund (IPEF).",
-      "source": "Finshots",
-      "source_url": "https://finshots.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Finshots",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://cdn.finshots.app/images/2026/10/SEBI-IFEP.jpg",
-      "feed_id": "finshots",
-      "guid": "6ac67d8304bd2406332fdaee"
     }
   ],
   "marketbites-substack": [
