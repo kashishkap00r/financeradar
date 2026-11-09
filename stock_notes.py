@@ -18,7 +18,7 @@ from datetime import timedelta
 STOCK_NOTE_KIND = "stock_note"
 
 # Extra per-note fields shipped to static/tab_research.json for the card.
-STOCK_NOTE_FIELDS = ("company", "rating", "target", "reco_price", "prev_target", "prev_rating", "via")
+STOCK_NOTE_FIELDS = ("company", "rating", "target", "via")
 
 # Days apart two listings of the same call can be. Moneycontrol dates a
 # note by the report, Business Standard sometimes by its own posting day.

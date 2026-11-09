@@ -3698,34 +3698,6 @@
             filterResearch();
         }
 
-        // ---- Stock note card line (the rating is already in the title):
-        // "Price at call ₹232 · 23% upside · Target cut from ₹290 · via Moneycontrol"
-        const STOCK_RATING_ORDER = { 'Sell': 0, 'Reduce': 1, 'Hold': 2, 'Neutral': 2, 'Accumulate': 3, 'Buy': 4 };
-
-        function formatRupees(n) {
-            return '₹' + Number(n).toLocaleString('en-IN', { maximumFractionDigits: n < 100 ? 1 : 0 });
-        }
-
-        function stockNoteMetaHtml(r) {
-            const parts = [];
-            if (r.reco_price) parts.push(`Price at call ${formatRupees(r.reco_price)}`);
-            if (r.target && r.reco_price) {
-                const move = Math.round((r.target / r.reco_price - 1) * 100);
-                parts.push(move >= 0 ? `${move}% upside` : `${-move}% downside`);
-            }
-            const prevRank = STOCK_RATING_ORDER[r.prev_rating], rank = STOCK_RATING_ORDER[r.rating];
-            if (prevRank !== undefined && rank !== undefined && prevRank !== rank) {
-                const up = rank > prevRank;
-                parts.push(`<span class="${up ? 'sn-up' : 'sn-down'}">${up ? 'Upgraded' : 'Downgraded'} from ${escapeHtml(r.prev_rating)}</span>`);
-            }
-            if (r.target && r.prev_target && Math.abs(r.target - r.prev_target) >= 0.5) {
-                const up = r.target > r.prev_target;
-                parts.push(`<span class="${up ? 'sn-up' : 'sn-down'}">Target ${up ? 'raised' : 'cut'} from ${formatRupees(r.prev_target)}</span>`);
-            }
-            if (r.via) parts.push(`via ${escapeHtml(r.via)}`);
-            return parts.length ? `<div class="stock-note-meta">${parts.join('<span class="sn-sep"> · </span>')}</div>` : '';
-        }
-
         function formatResearchDate(isoStr) {
             if (!isoStr) return '';
             const date = new Date(isoStr);
@@ -3814,7 +3786,6 @@
                             </div>
                         </div>
                         <div class="report-title">${titleHtml}</div>
-                        ${isStockNote(r) ? stockNoteMetaHtml(r) : ''}
                         ${description ? `<div class="research-card-description">${description}</div>` : ''}
                     </div>
                 `;
