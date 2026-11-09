@@ -27,7 +27,6 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "index.html")
 REPORTS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "reports_cache.json")
-PAPERS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "papers_cache.json")
 NEWS_CACHE_FILE = os.path.join(SCRIPT_DIR, "static", "news_cache.json")
 PUBLISHED_SNAPSHOT_FILE = os.path.join(SCRIPT_DIR, "static", "published_snapshot.json")
 
@@ -46,7 +45,6 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher, _atomic_write_json
-from paper_fetcher import fetch_papers, load_papers_cache, save_papers_cache
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
                     TWITTER_HIGH_SIGNAL_WINDOW_HOURS, TWITTER_HIGH_SIGNAL_TARGET,
@@ -151,7 +149,7 @@ def _normalize_ai_rankings_telegram(obj):
             _normalize_ai_rankings_telegram(value)
 
 
-def export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles, paper_articles=None, twitter_high_signal=None):
+def export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles, twitter_high_signal=None):
     """Export all published tab items to a unified JSON snapshot for auditing."""
     news_items = []
     for group in article_groups:
@@ -239,21 +237,6 @@ def export_published_snapshot(article_groups, video_articles, twitter_articles, 
     except (IOError, json.JSONDecodeError):
         telegram_items = []
 
-    paper_items = []
-    for item in (paper_articles or []):
-        paper_items.append({
-            "tab": "papers",
-            "source_id": item.get("feed_id", ""),
-            "source_name": item.get("source", ""),
-            "publisher": item.get("publisher", ""),
-            "title": item.get("title", ""),
-            "subtitle": item.get("description", ""),
-            "authors": item.get("authors", ""),
-            "url": item.get("link", ""),
-            "source_url": item.get("source_url", ""),
-            "published_at": _to_iso_datetime(item.get("date")),
-        })
-
     payload = {
         "generated_at": datetime.now(IST_TZ).isoformat(),
         "news": news_items,
@@ -262,7 +245,6 @@ def export_published_snapshot(article_groups, video_articles, twitter_articles, 
         "twitter": twitter_items,
         "twitter_high_signal": twitter_high_items,
         "telegram": telegram_items,
-        "papers": paper_items,
     }
 
     with open(PUBLISHED_SNAPSHOT_FILE, "w", encoding="utf-8") as f:
@@ -274,7 +256,7 @@ def export_published_snapshot(article_groups, video_articles, twitter_articles, 
         f"(news={len(news_items)}, reports={len(report_items)}, "
         f"youtube={len(youtube_items)}, twitter={len(twitter_items)}, "
         f"twitter_high_signal={len(twitter_high_items)}, "
-        f"telegram={len(telegram_items)}, papers={len(paper_items)})"
+        f"telegram={len(telegram_items)})"
     )
 
 
@@ -462,7 +444,6 @@ def generate_html(
     video_articles=None,
     twitter_articles=None,
     report_articles=None,
-    paper_articles=None,
     twitter_high_signal=None,
     twitter_lane_meta=None,
     slow_reads=None,
@@ -635,29 +616,6 @@ def generate_html(
     research_publishers = sorted(set(r.get("publisher", "") for r in report_articles if r.get("publisher")))
     research_publishers_json = json.dumps(research_publishers)
 
-    # Prepare papers data
-    if paper_articles is None:
-        paper_articles = []
-    paper_articles_json = json.dumps([{
-        "title": p.get("title", ""),
-        "link": p.get("link", ""),
-        "date": p["date"].isoformat() if p.get("date") else None,
-        "source": p.get("source", ""),
-        "publisher": p.get("publisher", ""),
-        "source_url": p.get("source_url", ""),
-        "description": p.get("description", ""),
-        "authors": p.get("authors", ""),
-        "date_is_fallback": bool(p.get("date_is_fallback", False)),
-    } for p in paper_articles])
-    paper_count = len(paper_articles)
-    paper_source_count = len(
-        set(
-            p.get("publisher", p.get("source", ""))
-            for p in paper_articles
-            if p.get("publisher") or p.get("source")
-        )
-    )
-
     # Write tab data to separate JSON files for lazy loading
     static_dir = os.path.join(SCRIPT_DIR, "static")
     # Build news tab data with all fields needed for client rendering
@@ -690,7 +648,6 @@ def generate_html(
         "tab_twitter.json": json.loads(twitter_articles_json),
         "tab_twitter_hs.json": json.loads(twitter_high_signal_json),
         "tab_research.json": json.loads(research_reports_json),
-        "tab_papers.json": json.loads(paper_articles_json),
         "tab_slow_reads.json": slow_reads or [],
         "tab_ai_rankings.json": json.loads(ai_rankings_bootstrap_json) if ai_rankings_bootstrap_json != "null" else None,
     }
@@ -709,7 +666,7 @@ def generate_html(
 
     today_str = now_ist.strftime('%A, %-d %B')
     now_ts = now_ist.strftime('%b %d, %Y, %I:%M %p IST')
-    total_items = len(sorted_articles) + report_count + research_count + paper_count + video_count + twitter_count
+    total_items = len(sorted_articles) + report_count + research_count + video_count + twitter_count
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -729,7 +686,7 @@ def generate_html(
     <link rel="preload" href="static/tab_research.json" as="fetch" crossorigin>
     <script data-cfasync="false">
     window.__preloaded={{}};
-    ['tab_news','tab_telegram','tab_youtube','tab_research','tab_papers','tab_twitter','tab_twitter_hs','tab_slow_reads','tab_ai_rankings'].forEach(function(k){{
+    ['tab_news','tab_telegram','tab_youtube','tab_research','tab_twitter','tab_twitter_hs','tab_slow_reads','tab_ai_rankings'].forEach(function(k){{
       window.__preloaded[k]=fetch('static/'+k+'.json').then(function(r){{return r.json()}});
     }});
     // Reveal body only after data + fonts ready — app.js calls window.__reveal()
@@ -821,9 +778,8 @@ def generate_html(
         <nav class="tab-bar" role="tablist">
             <button class="tab-pill tab-active" role="tab" aria-selected="true" data-tab="home">Home</button>
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="news"><span class="cat-dot" style="background:#4A8F7A"></span> News <span class="tab-count">{len(sorted_articles)}</span></button>
-            <button class="tab-pill" role="tab" aria-selected="false" data-tab="reports"><span class="cat-dot" style="background:#5E6A96"></span> Telegram <span class="tab-count">{report_count}</span></button>
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="research"><span class="cat-dot" style="background:#9A8345"></span> Reports <span class="tab-count">{research_count}</span></button>
-            <button class="tab-pill" role="tab" aria-selected="false" data-tab="papers"><span class="cat-dot" style="background:#7A6B8F"></span> Papers <span class="tab-count">{paper_count}</span></button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="reports"><span class="cat-dot" style="background:#5E6A96"></span> Telegram <span class="tab-count">{report_count}</span></button>
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="youtube"><span class="cat-dot" style="background:#A86565"></span> YouTube <span class="tab-count">{video_count}</span></button>
             <button class="tab-pill" role="tab" aria-selected="false" data-tab="twitter"><span class="cat-dot" style="background:#4A8A9A"></span> Twitter <span class="tab-count">{twitter_count}</span></button>
         </nav>
@@ -992,36 +948,6 @@ def generate_html(
             <div id="research-pagination-bottom" class="pagination bottom"></div>
         </div><!-- /tab-research -->
 
-        <div id="tab-papers" class="tab-content">
-            <div class="filter-card">
-                <div class="filter-head">
-                    <div class="stats">
-                        <span><strong id="papers-visible-count">{paper_count}</strong> papers</span>
-                        <span><strong>{paper_source_count}</strong> sources</span>
-                    </div>
-                    <div class="filter-head-actions">
-                        <span class="update-time" id="papers-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
-                        <script>
-                        (function(){{
-                            var el=document.getElementById('papers-update-time'),t=el&&el.getAttribute('data-time');
-                            if(!t)return;
-                            var d=Math.floor((new Date()-new Date(t))/60000);
-                            el.textContent='Updated '+(d<1?'just now':d<60?d+' min ago':d<1440?Math.floor(d/60)+' hr ago':Math.floor(d/1440)+' day ago');
-                        }})();
-                        </script>
-                        <button class="filter-toggle" type="button" onclick="toggleFilterCollapse()" aria-label="Toggle filters">
-                            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="filter-controls filter-controls-static" id="papers-filter-controls">
-                    <span class="filter-note">Use search to narrow papers.</span>
-                </div>
-            </div>
-            <div id="papers-container"></div>
-            <div id="papers-pagination-bottom" class="pagination bottom"></div>
-        </div><!-- /tab-papers -->
-
         <div id="tab-youtube" class="tab-content">
             <div class="filter-card">
                 <div class="filter-head">
@@ -1136,7 +1062,7 @@ def generate_html(
     </button>
 
     <div class="keyboard-hint">
-        <kbd>H</kbd> home &middot; <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> <kbd>6</kbd> <kbd>7</kbd> tabs &middot; <kbd>J</kbd> <kbd>K</kbd> navigate &middot; <kbd>/</kbd> search
+        <kbd>H</kbd> home &middot; <kbd>1</kbd>&ndash;<kbd>5</kbd> tabs &middot; <kbd>J</kbd> <kbd>K</kbd> navigate &middot; <kbd>/</kbd> search
     </div>
 
     <script data-cfasync="false">
@@ -1159,7 +1085,6 @@ def generate_html(
         var TWITTER_PRESETS = {twitter_presets_json};
         var RESEARCH_REPORTS = null;
         var RESEARCH_PUBLISHERS = {research_publishers_json};
-        var PAPER_ARTICLES = null;
         var NEWS_ARTICLES = null;
         var SLOW_READS = null;
         var TODAY_ISO = "{today_iso}";
@@ -1202,10 +1127,6 @@ def generate_html(
     for tweet in twitter_articles or []:
         if isinstance(tweet, dict):
             _add_source_label(tweet.get("publisher") or tweet.get("source"))
-
-    for paper in paper_articles or []:
-        if isinstance(paper, dict):
-            _add_source_label(paper.get("publisher") or paper.get("source"))
 
     # Apply template replacements
     html = html.replace("{source_count}", str(len(all_tab_sources)))
@@ -1565,50 +1486,6 @@ def main():
     # Re-sort after extending with cached videos
     video_articles.sort(key=get_sort_timestamp, reverse=True)
 
-    # Papers cache + fallback (external academic-paper aggregator)
-    paper_articles = []
-    cached_papers, _ = load_papers_cache(PAPERS_CACHE_FILE)
-    try:
-        paper_articles = fetch_papers()
-        if paper_articles:
-            save_papers_cache(PAPERS_CACHE_FILE, paper_articles)
-            logger.info(f"Papers: fetched {len(paper_articles)} items")
-            logger.add_articles(len(paper_articles))
-        elif cached_papers:
-            paper_articles = cached_papers
-            logger.warn("Papers", f"Live scrape returned 0 items; loaded {len(cached_papers)} cached papers")
-            logger.add_articles(len(cached_papers))
-        else:
-            logger.warn("Papers", "Live scrape returned 0 items and no cache exists yet")
-    except Exception as e:
-        if cached_papers:
-            paper_articles = cached_papers
-            logger.warn("Papers", f"Live scrape failed ({str(e)[:80]}); loaded {len(cached_papers)} cached papers")
-            logger.add_articles(len(cached_papers))
-        else:
-            logger.warn("Papers", f"Live scrape failed ({str(e)[:80]}) and no cache exists yet")
-
-    # De-duplicate papers by URL + normalized title.
-    seen_paper_keys = set()
-    unique_papers = []
-    for paper in paper_articles:
-        link_key = (paper.get("link") or "").strip().lower().rstrip("/")
-        title_key = (paper.get("title") or "").strip().lower()
-        dedupe_key = f"{link_key}|{title_key}"
-        if dedupe_key in seen_paper_keys:
-            continue
-        seen_paper_keys.add(dedupe_key)
-        unique_papers.append(paper)
-    paper_articles = unique_papers
-    epoch_ist = datetime(1970, 1, 1, tzinfo=IST_TZ)
-    paper_articles.sort(
-        key=lambda item: (
-            1 if item.get("date_is_fallback") else 0,
-            -((item.get("date") or epoch_ist).timestamp()),
-            (item.get("title") or "").lower(),
-        )
-    )
-
     # Filter out twitter articles older than configured days
     twitter_cutoff = datetime.now(IST_TZ) - timedelta(days=TWITTER_FRESHNESS_DAYS)
     twitter_articles = [t for t in twitter_articles
@@ -1713,7 +1590,6 @@ def main():
         video_articles,
         twitter_articles,
         report_articles,
-        paper_articles,
         twitter_high_signal=twitter_high_signal,
         twitter_lane_meta=twitter_lane_stats,
         slow_reads=slow_reads,
@@ -1724,7 +1600,6 @@ def main():
         video_articles,
         twitter_articles,
         report_articles,
-        paper_articles,
         twitter_high_signal=twitter_high_signal,
     )
 
