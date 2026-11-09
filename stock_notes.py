@@ -412,3 +412,24 @@ def fill_headlines(entries, *, limit, pdf_text=pdf_first_page_text, ask_model=_g
         if on_progress:
             on_progress(start + len(chunk), len(pending), filled)
     return filled
+
+
+# ── Homepage strip ───────────────────────────────────────────────────
+
+HOME_NOTES_LIMIT = 30
+
+
+def select_home_notes(entries, limit=HOME_NOTES_LIMIT):
+    """Newest single-company notes for the homepage Stock Notes slider.
+
+    Multi-stock dailies (no company) are left to the Stock notes view.
+    Written to static/tab_stock_notes_home.json — a few KB, unlike the
+    full archive, so the homepage can afford to load it.
+    """
+    picked = [e for e in sorted(entries, key=_archive_sort_key, reverse=True) if e.get("company")][:limit]
+    return [{
+        "title": " — ".join(x for x in (e["company"], e.get("headline")) if x),
+        "link": e["link"],
+        "date": f"{e['date']}T00:00:00+05:30" if e.get("date") else None,
+        "publisher": e.get("broker", ""),
+    } for e in picked]

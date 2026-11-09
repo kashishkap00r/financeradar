@@ -176,3 +176,20 @@ class TestBrokerSiteReports(unittest.TestCase):
                "publisher": "Axis Direct", "kind": "stock_note"}
         self.assertEqual(_make_article("t", "https://x", None, "", cfg)["kind"], STOCK_NOTE_KIND)
         self.assertEqual(_make_article("t", "https://x", None, "", {"name": "n", "url": "u"})["kind"], "")
+
+
+class TestHomeSelection(unittest.TestCase):
+    def test_newest_single_company_notes_as_cards(self):
+        from stock_notes import select_home_notes
+        entries = [
+            _entry("https://a", 0, headline="Beat on all fronts", company="Honasa Consumer"),
+            _entry("https://b", 0, headline="First Light | ACC, Hero", company=""),   # multi-stock daily
+            _entry("https://c", 1, company="Trent"),                                   # headline not read yet
+            _entry("https://d", 2, headline="Old one", company="ITC"),
+        ]
+        got = select_home_notes(entries, limit=2)
+        self.assertEqual([g["link"] for g in got], ["https://a", "https://c"])
+        self.assertEqual(got[0]["title"], "Honasa Consumer — Beat on all fronts")
+        self.assertEqual(got[1]["title"], "Trent")
+        self.assertEqual(got[0]["publisher"], "Emkay Global")
+        self.assertTrue(got[0]["date"].endswith("T00:00:00+05:30"))

@@ -47,7 +47,7 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 # Report scrapers
 from reports_fetcher import get_report_fetcher, _atomic_write_json
 from stock_notes import (ARCHIVE_FILE as STOCK_NOTES_FILE, STOCK_NOTE_KIND, fill_headlines,
-                         load_archive, merge_into_archive, save_archive)
+                         load_archive, merge_into_archive, save_archive, select_home_notes)
 import shutil
 from paper_fetcher import fetch_papers, load_papers_cache, save_papers_cache
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
@@ -469,6 +469,8 @@ def generate_html(
     twitter_high_signal=None,
     twitter_lane_meta=None,
     slow_reads=None,
+    stock_notes_home=None,
+    stock_note_publishers=None,
 ):
     """Generate the static HTML website."""
 
@@ -695,6 +697,7 @@ def generate_html(
         "tab_research.json": json.loads(research_reports_json),
         "tab_papers.json": json.loads(paper_articles_json),
         "tab_slow_reads.json": slow_reads or [],
+        "tab_stock_notes_home.json": stock_notes_home or [],
         "tab_ai_rankings.json": json.loads(ai_rankings_bootstrap_json) if ai_rankings_bootstrap_json != "null" else None,
     }
     for fname, data in _tab_data.items():
@@ -732,7 +735,7 @@ def generate_html(
     <link rel="preload" href="static/tab_research.json" as="fetch" crossorigin>
     <script data-cfasync="false">
     window.__preloaded={{}};
-    ['tab_news','tab_telegram','tab_youtube','tab_research','tab_papers','tab_twitter','tab_twitter_hs','tab_slow_reads','tab_ai_rankings'].forEach(function(k){{
+    ['tab_news','tab_telegram','tab_youtube','tab_research','tab_papers','tab_twitter','tab_twitter_hs','tab_slow_reads','tab_stock_notes_home','tab_ai_rankings'].forEach(function(k){{
       window.__preloaded[k]=fetch('static/'+k+'.json').then(function(r){{return r.json()}});
     }});
     // Reveal body only after data + fonts ready — app.js calls window.__reveal()
@@ -1163,6 +1166,8 @@ def generate_html(
         var TWITTER_PRESETS = {twitter_presets_json};
         var RESEARCH_REPORTS = null;
         var STOCK_NOTES = null;  // static/stock_notes.json, fetched on first click of Stock notes
+        var STOCK_NOTES_HOME = null;  // static/tab_stock_notes_home.json — newest ~30 for the homepage slider
+        var STOCK_NOTE_PUBLISHERS = {json.dumps(stock_note_publishers or [])};  // kept out of the homepage Research Reports slider
         var RESEARCH_PUBLISHERS = {research_publishers_json};
         var PAPER_ARTICLES = null;
         var NEWS_ARTICLES = null;
@@ -1736,6 +1741,9 @@ def main():
         twitter_high_signal=twitter_high_signal,
         twitter_lane_meta=twitter_lane_stats,
         slow_reads=slow_reads,
+        stock_notes_home=select_home_notes(load_archive(STOCK_NOTES_FILE)),
+        stock_note_publishers=sorted({f.get("publisher", "") for f in feeds
+                                      if f.get("kind") == STOCK_NOTE_KIND and f.get("publisher")}),
     )
     export_articles_json(article_groups)
     export_published_snapshot(

@@ -48,6 +48,9 @@
             if (tab === 'home' && !SLOW_READS) {
                 loads.push(_safeLoad('slow_reads', 'static/tab_slow_reads.json', function(d) { SLOW_READS = d; }));
             }
+            if (tab === 'home' && !STOCK_NOTES_HOME) {
+                loads.push(_safeLoad('stock_notes_home', 'static/tab_stock_notes_home.json', function(d) { STOCK_NOTES_HOME = d; }));
+            }
             if ((tab === 'news' || tab === 'home') && !NEWS_ARTICLES) {
                 loads.push(_safeLoad('news', 'static/tab_news.json', function(d) { NEWS_ARTICLES = d; }));
             }
@@ -2380,6 +2383,7 @@
             'The Big Stories': 'The day’s biggest stories, each built from several sources. AI models group the coverage; the dots show how many of them picked each story.',
             'Research Reports': 'Notes from research houses, rating agencies and think tanks, picked by AI from the past week.',
             'From the Feed': 'News from the last two days and Telegram notes from the past week, ranked by AI for what matters to Indian readers.',
+            'Stock Notes': 'The newest notes from Indian brokers on single companies, with the headline from each PDF. Newest first, not ranked by AI. All of them sit in Reports → Stock notes.',
             'Slow Reads': 'Essays and long reads from independent writers. Every post from the past week, newest first. Not ranked by AI.',
             'Watch': 'Explainers and interviews from finance video channels, picked by AI from the past week.',
             'From the Source': 'Straight from RBI, SEBI, PIB and other official bodies: releases, orders and data, newest first. Not ranked by AI.',
@@ -2556,6 +2560,28 @@
             return '<section class="slider-section">'
                 + sliderHead('Slow Reads', items.length + ' this week', 'slow-track')
                 + '<div class="slider-track" id="slow-track">' + cards + '</div></section>';
+        }
+
+        // Stock Notes — newest single-company broker notes (static/tab_stock_notes_home.json,
+        // ~30 items). Chronological, NOT AI-ranked. Sits just above the quote before From the Source.
+        function buildStockNotesSlider(items) {
+            if (!items || !items.length) return '';
+            const cards = items.map(function(n) {
+                const title = escapeHtml(n.title || '');
+                const url = sanitizeUrl(n.link || '');
+                const broker = escapeHtml(n.publisher || 'Broker');
+                const dateStr = n.date ? escapeHtml(new Date(n.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
+                const bk = npBookmarkBtn(url, title, broker);
+                return '<div class="slider-card slider-rp"><div class="slider-card-body">'
+                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + broker + '</div>'
+                    + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                    + '</div>' + bk + '</div>'
+                    + (dateStr ? '<div class="card-signals"><span class="rp-date">' + dateStr + '</span></div>' : '')
+                    + '</div></div>';
+            }).join('');
+            return '<section class="slider-section">'
+                + sliderHead('Stock Notes', 'from Indian brokers, newest first', 'sn-track')
+                + '<div class="slider-track" id="sn-track">' + cards + '</div></section>';
         }
 
         function buildPpSlider(items) {
@@ -2882,7 +2908,7 @@
 
             // Build the full newspaper layout with AI-curated sliders.
             // Order: Big Stories → quote → Reports → (feed label) → news → quote → Slow Reads →
-            // news → quote → Watch → news → quote → From the Source → Voices → quote → news.
+            // news → quote → Watch → news → Stock Notes → quote → From the Source → Voices → quote → news.
             // Voices sits directly under From the Source (user request, Oct 2026).
             const parts = [];
 
@@ -2894,7 +2920,8 @@
             // Research Reports leads the sliders, then the feed label
             parts.push(
                 breakers[0],
-                buildRpSlider(result.reports)
+                // Broker notes have their own slider; keep any older picks from those feeds out of here.
+                buildRpSlider(result.reports.filter(r => STOCK_NOTE_PUBLISHERS.indexOf(r.publisher || r.source) === -1))
             );
             if (clusters.length > 0 || result.reports.length > 0) {
                 parts.push(renderSectionLabel('From the Feed', 'news and Telegram, ranked by AI'));
@@ -2908,6 +2935,7 @@
                 breakers[2],
                 buildYtSlider(result.youtube),
                 renderFeedRows(s5),
+                buildStockNotesSlider(STOCK_NOTES_HOME),
                 breakers[3],
                 buildFromSourceSlider(getFromSourceItems()),
                 buildTwSlider(result.twitter),
