@@ -1,3 +1,10 @@
+        // Stock notes globals are declared by index.html (aggregator.py). The script
+        // deploys before the hourly run regenerates index.html, so default them here
+        // rather than throw on a page that predates them.
+        if (!('STOCK_NOTES' in window)) window.STOCK_NOTES = null;
+        if (!('STOCK_NOTES_HOME' in window)) window.STOCK_NOTES_HOME = null;
+        if (!('STOCK_NOTE_PUBLISHERS' in window)) window.STOCK_NOTE_PUBLISHERS = [];
+
         // Theme toggle (persisted)
         const safeStorage = {
             get(key) {

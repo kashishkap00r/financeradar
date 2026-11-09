@@ -160,6 +160,10 @@ def _normalize_ai_rankings_telegram(obj):
 STOCK_NOTE_HEADLINES_PER_RUN = 1000
 STOCK_NOTE_HEADLINE_BUDGET = 600      # seconds
 STOCK_NOTE_HEADLINE_WORKERS = 8
+# CI only fills headlines for recent notes. The older backlog was filled in
+# local batches (Claude subagents, Nov 2026); keeping CI off it means the
+# hourly commit and a local push never edit the same lines of stock_notes.json.
+STOCK_NOTE_HEADLINE_MAX_AGE_DAYS = 30
 
 
 def update_stock_notes_archive(stock_note_articles, logger):
@@ -181,7 +185,8 @@ def update_stock_notes_archive(stock_note_articles, logger):
         else:
             filled = fill_headlines(archive, limit=STOCK_NOTE_HEADLINES_PER_RUN,
                                     time_budget=STOCK_NOTE_HEADLINE_BUDGET,
-                                    workers=STOCK_NOTE_HEADLINE_WORKERS)
+                                    workers=STOCK_NOTE_HEADLINE_WORKERS,
+                                    min_date=(datetime.now(IST_TZ) - timedelta(days=STOCK_NOTE_HEADLINE_MAX_AGE_DAYS)).date().isoformat())
         if before and len(archive) < before:
             raise RuntimeError(f"archive shrank {before} → {len(archive)}")
         save_archive(STOCK_NOTES_FILE, archive)

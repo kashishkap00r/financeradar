@@ -193,3 +193,13 @@ class TestHomeSelection(unittest.TestCase):
         self.assertEqual(got[1]["title"], "Trent")
         self.assertEqual(got[0]["publisher"], "Emkay Global")
         self.assertTrue(got[0]["date"].endswith("T00:00:00+05:30"))
+
+
+class TestHeadlineMinDate(unittest.TestCase):
+    def test_min_date_leaves_older_notes_alone(self):
+        items = [_entry("https://new", days_ago=1), _entry("https://old", days_ago=60)]
+        asked = []
+        fill_headlines(items, limit=10, min_date=(datetime.now(IST_TZ) - timedelta(days=30)).date().isoformat(),
+                       pdf_text=lambda link: "page", ask_model=lambda b: (asked.extend(x["link"] for x in b) or {x["link"]: "A headline" for x in b}))
+        self.assertEqual(asked, ["https://new"])
+        self.assertEqual([e["headline"] for e in items], ["A headline", ""])

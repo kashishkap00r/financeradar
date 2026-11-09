@@ -356,7 +356,7 @@ def _gemini_headlines(batch):
 
 
 def fill_headlines(entries, *, limit, pdf_text=pdf_first_page_text, ask_model=_gemini_headlines,
-                   workers=4, batch_size=8, time_budget=None, on_progress=None):
+                   workers=4, batch_size=8, time_budget=None, on_progress=None, min_date=None):
     """Give archive entries their PDF headline, newest first, in place.
 
     Returns how many got one. A failed download or a page with no headline
@@ -365,7 +365,8 @@ def fill_headlines(entries, *, limit, pdf_text=pdf_first_page_text, ask_model=_g
     """
     started = time.monotonic()
     pending = [e for e in sorted(entries, key=_archive_sort_key, reverse=True)
-               if not e.get("headline") and e.get("headline_tries", 0) < HEADLINE_MAX_TRIES][:limit]
+               if not e.get("headline") and e.get("headline_tries", 0) < HEADLINE_MAX_TRIES
+               and (min_date is None or (e.get("date") or "") >= min_date)][:limit]
     filled = 0
     for start in range(0, len(pending), batch_size * workers):
         if time_budget is not None and time.monotonic() - started > time_budget:
