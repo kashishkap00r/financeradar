@@ -158,11 +158,10 @@ def _normalize_ai_rankings_telegram(obj):
 STOCK_NOTE_HEADLINES_PER_RUN = 1000
 STOCK_NOTE_HEADLINE_BUDGET = 600      # seconds
 STOCK_NOTE_HEADLINE_WORKERS = 8
-# How far back CI fills headlines (None = all history). Set to 30 while the
-# backlog was being filled by local Claude batches (Nov 2026) so the hourly
-# commit and a local push never edited the same lines; lifted once that
-# stopped, so Gemini finishes the remaining older notes (~1,000 per run).
-STOCK_NOTE_HEADLINE_MAX_AGE_DAYS = None
+# How far back CI fills headlines (None = all history). CI only does new
+# notes: Nov 2023 – Dec 2024 is deliberately left without headlines (user's
+# call, 10 Nov 2026); Jan 2025 onwards was filled by local Claude batches.
+STOCK_NOTE_HEADLINE_MAX_AGE_DAYS = 30
 
 
 def update_stock_notes_archive(stock_note_articles, logger):
