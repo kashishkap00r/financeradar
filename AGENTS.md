@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-`aggregator.py` is the main pipeline: it fetches feeds, filters and groups stories, and renders the homepage. Supporting data collectors and rankers live beside it, including `telegram_fetcher.py`, `reports_fetcher.py`, `twitter_fetcher.py`, `paper_fetcher.py`, `ai_ranker.py`, and `wsw_ranker.py`. Frontend source belongs in `templates/app.js` and `templates/style.css`; checked-in outputs are `index.html` and `static/*.json`. Tests live in `tests/test_*.py`. Audit helpers are under `auditor/`, GitHub Actions under `.github/workflows/`, and the RSS proxy Worker under `infra/rss-proxy/`.
+`aggregator.py` is the main pipeline: it fetches feeds, filters and groups stories, and renders the homepage. Supporting data collectors and rankers live beside it, including `telegram_fetcher.py`, `reports_fetcher.py`, `twitter_fetcher.py`, `ai_ranker.py`, and `wsw_ranker.py`. Frontend source belongs in `templates/app.js` and `templates/style.css`; checked-in outputs are `index.html` and `static/*.json`. Tests live in `tests/test_*.py`. Audit helpers are under `auditor/`, GitHub Actions under `.github/workflows/`, and the RSS proxy Worker under `infra/rss-proxy/`.
 
 ## Build, Test, and Development Commands
 - `python3 aggregator.py` regenerates the homepage and core JSON snapshots from configured feeds.
