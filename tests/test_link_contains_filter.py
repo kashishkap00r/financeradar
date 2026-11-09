@@ -48,5 +48,18 @@ class TestLinkContainsFilter(unittest.TestCase):
         self.assertEqual(len(items), 3)
 
 
+
+class TestTitleExcludesFilter(unittest.TestCase):
+    """`title_excludes` (a regex) drops site pages a Google site: search returns."""
+
+    def test_drops_matching_titles(self):
+        items = _parse_feed_content(XML.encode("utf-8"), cfg(title_excludes=r"^(regular|opinion) "))
+        self.assertEqual([i["title"] for i in items], ["Newsletter issue"])
+
+    def test_case_insensitive(self):
+        items = _parse_feed_content(XML.encode("utf-8"), cfg(title_excludes="NEWSLETTER ISSUE$"))
+        self.assertEqual([i["title"] for i in items], ["Regular article"])
+
+
 if __name__ == "__main__":
     unittest.main()

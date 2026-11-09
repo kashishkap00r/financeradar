@@ -49,9 +49,6 @@
             if (tab === 'research' && !RESEARCH_REPORTS) {
                 loads.push(_safeLoad('research', 'static/tab_research.json', function(d) { RESEARCH_REPORTS = d; }));
             }
-            if (tab === 'papers' && !PAPER_ARTICLES) {
-                loads.push(_safeLoad('papers', 'static/tab_papers.json', function(d) { PAPER_ARTICLES = d; }));
-            }
             if (tab === 'home' && !SLOW_READS) {
                 loads.push(_safeLoad('slow_reads', 'static/tab_slow_reads.json', function(d) { SLOW_READS = d; }));
             }
@@ -423,8 +420,6 @@
                 filterReports();
             } else if (tab === 'research') {
                 filterResearch();
-            } else if (tab === 'papers') {
-                filterPapers();
             } else if (tab === 'youtube') {
                 filterYoutube();
             } else if (tab === 'twitter') {
@@ -673,14 +668,12 @@
             } else if (e.key === '1') {
                 switchTab('news');
             } else if (e.key === '2') {
-                switchTab('reports');
+                switchTab('research');   // Reports
             } else if (e.key === '3') {
-                switchTab('research');
+                switchTab('reports');    // Telegram
             } else if (e.key === '4') {
-                switchTab('papers');
-            } else if (e.key === '5') {
                 switchTab('youtube');
-            } else if (e.key === '6') {
+            } else if (e.key === '5') {
                 switchTab('twitter');
             }
         });
@@ -1783,11 +1776,11 @@
         var BOOKMARK_SVG = '<svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>';
         var BUCKET_COLORS = {
             news: '#4A8F7A', telegram: '#5E6A96', reports: '#9A8345',
-            twitter: '#4A8A9A', youtube: '#A86565', papers: '#7A6B8F'
+            twitter: '#4A8A9A', youtube: '#A86565'
         };
         var BUCKET_LABELS = {
             news: 'News', telegram: 'Telegram', reports: 'Reports',
-            twitter: 'Twitter', youtube: 'YouTube', papers: 'Papers'
+            twitter: 'Twitter', youtube: 'YouTube'
         };
         var homeRendered = false;
 
@@ -1820,12 +1813,6 @@
         // history), loaded only when the Stock notes view is first opened.
         const RESEARCH_VIEW_IDS = { all: 'research-region-all', indian: 'research-region-indian', international: 'research-region-international', stocknotes: 'research-region-stocknotes' };
 
-        // ==================== PAPERS TAB (vars) ====================
-        let papersRendered = false;
-        let paperSessionPool = [];
-        let filteredPapers = [];
-        let papersPage = 1;
-        const PAPERS_PAGE_SIZE = 10;
 
         // ==================== YOUTUBE TAB (vars) ====================
         let youtubeRendered = false;
@@ -1910,15 +1897,6 @@
                         researchRendered = true;
                     }
                     filterResearch();
-                } else if (tab === 'papers') {
-                    if (!papersRendered) {
-                        renderMainPapers();
-                        papersRendered = true;
-                    }
-                    if (previousTab !== 'papers') {
-                        reshufflePaperSession();
-                    }
-                    filterPapers();
                 } else if (tab === 'youtube') {
                     if (!youtubeRendered) {
                         renderMainYoutube();
@@ -2591,25 +2569,6 @@
                 + '<div class="slider-track" id="sn-track">' + cards + '</div></section>';
         }
 
-        function buildPpSlider(items) {
-            if (!items.length) return '';
-            const cards = items.map(p => {
-                const title = escapeHtml(cleanHomeTitle(p.title));
-                const url = sanitizeUrl(p.link || p.source_url || '');
-                const authors = escapeHtml(p.authors || p.publisher || p.source || 'Paper');
-                const bk = npBookmarkBtn(url, title, authors);
-                return '<div class="slider-card slider-pp">'
-                    + '<div class="slider-card-header">'
-                    + '<div class="pp-authors">' + authors + '</div>'
-                    + bk + '</div>'
-                    + '<a class="pp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
-                    + '</div>';
-            }).join('');
-            return '<section class="slider-section">'
-                + sliderHead('Papers', items.length + ' picked today', 'pp-track')
-                + '<div class="slider-track" id="pp-track">' + cards + '</div></section>';
-        }
-
         // ==================== WSW BREAKER BUILDER ====================
         // "Who Said What" quote between sections: hanging rust quote mark, speaker + role underneath.
         function splitSpeaker(who) {
@@ -3048,13 +3007,6 @@
             syncResearchCheckboxes();
             syncResearchPublisherSummary();
             syncResearchViewButtons();
-        }
-
-        function resetPapersTabState() {
-            papersPage = 1;
-            if (papersRendered || paperSessionPool.length > 0) {
-                reshufflePaperSession();
-            }
         }
 
         function resetYoutubeTabState() {
@@ -3961,137 +3913,6 @@
             filterResearch();
         }
 
-        // ==================== PAPERS TAB (functions) ====================
-        function reshufflePaperSession() {
-            paperSessionPool = [...PAPER_ARTICLES];
-            for (let i = paperSessionPool.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [paperSessionPool[i], paperSessionPool[j]] = [paperSessionPool[j], paperSessionPool[i]];
-            }
-        }
-
-        function renderMainPapers() {
-            // Reserved for future Paper-tab initialization hooks.
-        }
-
-        function filterPapers() {
-            const query = document.getElementById('search-input').value.toLowerCase().trim();
-            const sourcePool = paperSessionPool.length > 0 ? paperSessionPool : PAPER_ARTICLES;
-            filteredPapers = sourcePool.filter(p => {
-                const haystack = (
-                    (p.title || '') + ' ' +
-                    (p.source || '') + ' ' +
-                    (p.publisher || '') + ' ' +
-                    (p.description || '') + ' ' +
-                    (p.authors || '')
-                ).toLowerCase();
-                return !query || haystack.includes(query);
-            });
-            papersPage = 1;
-            applyPapersPagination();
-        }
-
-        function formatPaperDate(isoStr) {
-            if (!isoStr) return '';
-            const date = new Date(isoStr);
-            const now = new Date();
-            const diffMs = now - date;
-            const diffMin = Math.floor(diffMs / 60000);
-            const diffHr = Math.floor(diffMs / 3600000);
-            const diffDay = Math.floor(diffMs / 86400000);
-            if (diffMin < 1) return 'Just now';
-            if (diffMin < 60) return diffMin + 'm ago';
-            if (diffHr < 24) return diffHr + 'h ago';
-            if (diffDay === 1) return 'Yesterday';
-            if (diffDay < 7) return diffDay + 'd ago';
-            return date.toLocaleDateString();
-        }
-
-        function formatPaperDateHeader(isoStr) {
-            if (!isoStr) return 'Unknown Date';
-            const date = new Date(isoStr);
-            const now = new Date();
-            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-            const paperDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-            const diffDays = Math.floor((today - paperDay) / 86400000);
-            if (diffDays === 0) return 'Today';
-            if (diffDays === 1) return 'Yesterday';
-            return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-        }
-
-        function applyPapersPagination() {
-            const totalPages = Math.max(1, Math.ceil(filteredPapers.length / PAPERS_PAGE_SIZE));
-            if (papersPage > totalPages) papersPage = totalPages;
-
-            const countEl = document.getElementById('papers-visible-count');
-            if (countEl) countEl.textContent = filteredPapers.length;
-
-            const start = (papersPage - 1) * PAPERS_PAGE_SIZE;
-            const end = start + PAPERS_PAGE_SIZE;
-            const pagePapers = filteredPapers.slice(start, end);
-
-            const container = document.getElementById('papers-container');
-            if (pagePapers.length === 0) {
-                container.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">No papers found.</div>';
-                renderPapersPagination(totalPages);
-                return;
-            }
-
-            let html = '';
-
-            pagePapers.forEach(p => {
-                const title = escapeHtml(p.title || 'Untitled paper');
-                const publisher = escapeHtml(p.publisher || p.source || 'Unknown source');
-                const paperUrl = sanitizeUrl(p.link || '');
-                const sourceUrl = sanitizeUrl(p.source_url || '');
-                const cardUrl = paperUrl || sourceUrl;
-                const titleHtml = paperUrl
-                    ? `<a href="${escapeForAttr(paperUrl)}" target="_blank" rel="noopener" class="report-title-link">${title}</a>`
-                    : `<span class="report-title-link">${title}</span>`;
-                const sourceHtml = sourceUrl
-                    ? `<a href="${escapeForAttr(sourceUrl)}" target="_blank" rel="noopener" class="report-channel card-source-link">${publisher}</a>`
-                    : `<span class="report-channel">${publisher}</span>`;
-                const authors = escapeHtml(p.authors || '');
-                // Many sources only give "Click title to read full paper →" (or the title again) — skip those.
-                const rawSummary = String(p.description || '').trim();
-                const summary = (/^click title/i.test(rawSummary) || rawSummary === (p.title || '').trim()) ? '' : escapeHtml(rawSummary);
-                const bookmarkHtml = cardUrl
-                    ? `<button class="bookmark-btn" data-url="${escapeForAttr(cardUrl)}" data-title="${escapeForAttr(p.title || '')}" data-source="${publisher}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark paper" title="Bookmark">
-                            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                       </button>`
-                    : '';
-
-                html += `
-                    <div class="report-card paper-card" data-publisher="${publisher}" data-url="${escapeForAttr(cardUrl)}">
-                        <div class="report-card-header">
-                            <div class="report-card-left">
-                                ${sourceHtml}
-                            </div>
-                            <div class="report-card-right">
-                                ${(p.date && !p.date_is_fallback) ? `<span class="report-card-date">${formatPaperDate(p.date)}</span>` : ''}
-                                ${bookmarkHtml}
-                            </div>
-                        </div>
-                        <div class="report-title">${titleHtml}</div>
-                        ${authors ? `<div class="paper-card-authors">${authors}</div>` : ''}
-                        ${summary ? `<div class="paper-card-summary">${summary}</div>` : ''}
-                    </div>
-                `;
-            });
-
-            container.innerHTML = html;
-            syncBookmarkState();
-            renderPapersPagination(totalPages);
-        }
-
-        function renderPapersPagination(totalPages) {
-            buildPagination('papers-pagination-bottom', papersPage, totalPages, (page) => {
-                papersPage = page;
-                applyPapersPagination();
-                window.scrollTo({top: 0, behavior: 'smooth'});
-            });
-        }
-
         // ==================== YOUTUBE TAB (functions) ====================
         function renderMainYoutube() {
             initYoutubePublisherDropdown();
@@ -4685,7 +4506,6 @@
         function updateRelativeTime() {
             formatTimeAgo(document.getElementById('update-time'));
             formatTimeAgo(document.getElementById('reports-update-time'));
-            formatTimeAgo(document.getElementById('papers-update-time'));
             formatTimeAgo(document.getElementById('youtube-update-time'));
             formatTimeAgo(document.getElementById('twitter-update-time'));
             formatTimeAgo(document.getElementById('ai-updated'));

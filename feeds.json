@@ -781,9 +781,10 @@
     "id": "the-morning-context",
     "name": "The Morning Context",
     "url": "https://themorningcontext.com",
-    "feed": "https://news.google.com/rss/search?q=site:themorningcontext.com&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:themorningcontext.com+when:30d&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
-    "publisher": "The Morning Context"
+    "publisher": "The Morning Context",
+    "title_excludes": "^(?:The Morning Context:\\s*)?(?:Internet, Business, Chaos|Privacy Policy|Pricing|About Us|Grievance Redressal|All Stories|Longreads|TMC Private|Terms (?:of|and|&) \\w+)\\s*(?:[-|:]|$)"
   },
   {
     "id": "the-leap-blog",
@@ -2065,6 +2066,22 @@
     "feed": "https://news.google.com/rss/search?q=site:x.com/PIIE/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "PIIE"
+  },
+  {
+    "id": "x-patterns",
+    "name": "Patterns (X)",
+    "url": "https://x.com/Patterns0001",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Patterns0001/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Patterns"
+  },
+  {
+    "id": "x-normal-guy",
+    "name": "Normal Guy (X)",
+    "url": "https://x.com/Normal_2610",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Normal_2610/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Normal Guy"
   },
   {
     "id": "powerline-magazine",

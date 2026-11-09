@@ -16,7 +16,6 @@ python3 telegram_fetcher.py          # Telegram reports → static/telegram_repo
 python3 aggregator.py                # Fetch 220+ feeds → index.html + static/tab_*.json + static/articles.json
 python3 reports_fetcher.py           # (called by aggregator.py, rarely run standalone)
 python3 twitter_fetcher.py           # (called by aggregator.py, rarely run standalone)
-python3 paper_fetcher.py             # Academic papers → static/papers_cache.json
 python3 ieefa_local_fetch.py         # IEEFA backfill (headed Chrome, one manual Turnstile tick)
 python3 ember_local_fetch.py         # Ember refresh (headed Chrome; CI cannot reach Ember at all)
 
@@ -50,7 +49,6 @@ INGESTION (parallel, 10 workers)
 ├─ telegram_channels.json ──→ telegram_fetcher.py ──→ static/telegram_reports.json
 ├─ reports_fetcher.py (23 scrapers) ──→ static/reports_cache.json
 ├─ twitter_fetcher.py (dual-source) ──→ static/tab_twitter.json
-├─ paper_fetcher.py ──→ static/papers_cache.json
 └─ rsshub_local_fetch.py (local only) ──→ static/rsshub_twitter_cache.json
 
 PROCESSING
@@ -80,6 +78,7 @@ The homepage **exclusively shows AI-ranked content** from `static/ai_rankings.js
 - If AI data is unavailable, homepage shows an empty-state message directing users to tabs
 - Two sliders are NOT AI-ranked, both chronological: **From The Source** (official channels + SEBI orders, from `tab_news.json`) and **Slow Reads** (`static/tab_slow_reads.json`). Slow Reads covers Indie Voices that post weekly or slower (`SLOW_READS_SOURCES` in `config.py`, matched on feed name — must be unique among News feeds; daily sources The Core, The Arc, The Ken, Finshots, Rest of World, Decoding the Dragon, BharatNama and Biz News+ are in too). `select_slow_reads()` picks them *before* the 5-day news cut: every post from the last 7 days (`SLOW_READS_ALL_POSTS_DAYS`) up to 5 per source, newest first (`SLOW_READS_MAX_PER_SOURCE` — added 2026-10-21 at the user's request once three daily Substacks joined; no total cap), and for any source quiet that week, its newest post from the 30-day window
 - The Companies tab (Market Tide) was removed in Sept 2026 because the feed stopped refreshing. `companies_fetcher.py` is no longer called by anything
+- The Papers tab was removed in Nov 2026 at the user's request (not useful). `paper_fetcher.py`, its test and `static/papers_cache.json` / `static/tab_papers.json` are no longer used by anything
 
 ### Semantic Story Clustering
 
@@ -167,7 +166,7 @@ Indian brokers' notes on single stocks live in the Reports tab's own **Stock not
 - Every homepage heading has an (i) with one or two lines from `SECTION_INFO`; the note floats in one fixed element (`showInfo()`), never in the DOM text (keeps it out of homepage search)
 - `deshoutTitle()` turns ALL-CAPS headlines (Telegram, SBI notes) into Title Case, keeping acronyms, letter+digit codes (FY27) and a leading ticker ("CMPDI : …")
 - All state in localStorage (active tab, bookmarks, page number)
-- Keyboard nav: J/K (next/prev), / (search), Esc (clear), H (home), 1-6 (tab shortcuts)
+- Keyboard nav: J/K (next/prev), / (search), Esc (clear), H (home), 1-5 (tab shortcuts: News, Reports, Telegram, YouTube, Twitter — tab order since Nov 2026; note `data-tab="research"` is the Reports tab and `data-tab="reports"` is Telegram)
 - Homepage loads only `ai_rankings.json`; individual tabs lazy-load their own `tab_*.json` on first visit
 
 ### Module Map
