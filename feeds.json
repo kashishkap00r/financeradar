@@ -1197,7 +1197,8 @@
     "feed": "baroda:str",
     "category": "Reports",
     "region": "Indian",
-    "publisher": "Baroda eTrade"
+    "publisher": "Baroda eTrade",
+    "kind": "stock_note"
   },
   {
     "id": "baroda-etrade-sor",
@@ -1206,7 +1207,8 @@
     "feed": "baroda:sor",
     "category": "Reports",
     "region": "Indian",
-    "publisher": "Baroda eTrade"
+    "publisher": "Baroda eTrade",
+    "kind": "stock_note"
   },
   {
     "id": "sbi-research",
@@ -1251,7 +1253,8 @@
     "feed": "hdfcsec:research",
     "category": "Reports",
     "region": "Indian",
-    "publisher": "HDFC Securities"
+    "publisher": "HDFC Securities",
+    "kind": "stock_note"
   },
   {
     "id": "axis-direct-research",
@@ -1260,7 +1263,32 @@
     "feed": "axis:research",
     "category": "Reports",
     "region": "Indian",
-    "publisher": "Axis Direct"
+    "publisher": "Axis Direct",
+    "kind": "stock_note"
+  },
+  {
+    "id": "moneycontrol-stock-ideas",
+    "name": "Moneycontrol — Broker Research",
+    "url": "https://www.moneycontrol.com/markets/stock-ideas/",
+    "feed": "mcideas:stock-ideas",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Moneycontrol",
+    "kind": "stock_note",
+    "max_items": 800,
+    "max_age_days": 14
+  },
+  {
+    "id": "business-standard-research",
+    "name": "Business Standard — Research Reports",
+    "url": "https://www.business-standard.com/markets/research-report",
+    "feed": "bsresearch:reports",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Business Standard",
+    "kind": "stock_note",
+    "max_items": 400,
+    "max_age_days": 14
   },
   {
     "id": "ing-think-rss",

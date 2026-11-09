@@ -45,6 +45,9 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher, _atomic_write_json
+from stock_notes import (ARCHIVE_FILE as STOCK_NOTES_FILE, STOCK_NOTE_KIND, fill_headlines,
+                         load_archive, merge_into_archive, save_archive, select_home_notes)
+import shutil
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
                     TWITTER_HIGH_SIGNAL_WINDOW_HOURS, TWITTER_HIGH_SIGNAL_TARGET,
@@ -149,6 +152,49 @@ def _normalize_ai_rankings_telegram(obj):
             _normalize_ai_rankings_telegram(value)
 
 
+# Headlines per run, newest first. ~25 new notes a day, so this mostly works
+# through the ~10.7k-note history backlog (about a day of hourly runs), then
+# idles. The time budget keeps the hourly job well under its 30-min limit.
+STOCK_NOTE_HEADLINES_PER_RUN = 1000
+STOCK_NOTE_HEADLINE_BUDGET = 600      # seconds
+STOCK_NOTE_HEADLINE_WORKERS = 8
+# CI only fills headlines for recent notes. The older backlog was filled in
+# local batches (Claude subagents, Nov 2026); keeping CI off it means the
+# hourly commit and a local push never edit the same lines of stock_notes.json.
+STOCK_NOTE_HEADLINE_MAX_AGE_DAYS = 30
+
+
+def update_stock_notes_archive(stock_note_articles, logger):
+    """Merge fetched notes into static/stock_notes.json, fill a few headlines, save.
+
+    Never fatal: on any problem the archive on disk is left as it was.
+    Returns the number of notes in the archive (for the Stock notes count).
+    """
+    archive = load_archive(STOCK_NOTES_FILE)
+    before = len(archive)
+    try:
+        archive = merge_into_archive(archive, stock_note_articles)
+        added = len(archive) - before
+        filled = 0
+        if not os.environ.get("GEMINI_API_KEY"):
+            logger.info("Stock notes: GEMINI_API_KEY not set, headlines skipped")
+        elif not shutil.which("pdftotext"):
+            logger.warn("Stock notes", "pdftotext not installed (poppler-utils), headlines skipped")
+        else:
+            filled = fill_headlines(archive, limit=STOCK_NOTE_HEADLINES_PER_RUN,
+                                    time_budget=STOCK_NOTE_HEADLINE_BUDGET,
+                                    workers=STOCK_NOTE_HEADLINE_WORKERS,
+                                    min_date=(datetime.now(IST_TZ) - timedelta(days=STOCK_NOTE_HEADLINE_MAX_AGE_DAYS)).date().isoformat())
+        if before and len(archive) < before:
+            raise RuntimeError(f"archive shrank {before} → {len(archive)}")
+        save_archive(STOCK_NOTES_FILE, archive)
+        logger.info(f"Stock notes: {len(archive)} in archive (+{added} new, {filled} headlines filled)")
+    except Exception as e:
+        logger.warn("Stock notes", f"archive not updated: {str(e)[:120]}")
+        archive = load_archive(STOCK_NOTES_FILE)
+    return len(archive)
+
+
 def export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles, twitter_high_signal=None):
     """Export all published tab items to a unified JSON snapshot for auditing."""
     news_items = []
@@ -177,6 +223,7 @@ def export_published_snapshot(article_groups, video_articles, twitter_articles, 
             "url": item.get("link", ""),
             "source_url": item.get("source_url", ""),
             "published_at": _to_iso_datetime(item.get("date")),
+            "kind": item.get("kind", ""),
         })
 
     youtube_items = []
@@ -447,6 +494,8 @@ def generate_html(
     twitter_high_signal=None,
     twitter_lane_meta=None,
     slow_reads=None,
+    stock_notes_home=None,
+    stock_note_publishers=None,
 ):
     """Generate the static HTML website."""
 
@@ -649,6 +698,7 @@ def generate_html(
         "tab_twitter_hs.json": json.loads(twitter_high_signal_json),
         "tab_research.json": json.loads(research_reports_json),
         "tab_slow_reads.json": slow_reads or [],
+        "tab_stock_notes_home.json": stock_notes_home or [],
         "tab_ai_rankings.json": json.loads(ai_rankings_bootstrap_json) if ai_rankings_bootstrap_json != "null" else None,
     }
     for fname, data in _tab_data.items():
@@ -686,7 +736,7 @@ def generate_html(
     <link rel="preload" href="static/tab_research.json" as="fetch" crossorigin>
     <script data-cfasync="false">
     window.__preloaded={{}};
-    ['tab_news','tab_telegram','tab_youtube','tab_research','tab_twitter','tab_twitter_hs','tab_slow_reads','tab_ai_rankings'].forEach(function(k){{
+    ['tab_news','tab_telegram','tab_youtube','tab_research','tab_twitter','tab_twitter_hs','tab_slow_reads','tab_stock_notes_home','tab_ai_rankings'].forEach(function(k){{
       window.__preloaded[k]=fetch('static/'+k+'.json').then(function(r){{return r.json()}});
     }});
     // Reveal body only after data + fonts ready — app.js calls window.__reveal()
@@ -903,9 +953,9 @@ def generate_html(
         <div id="tab-research" class="tab-content">
             <div class="filter-card">
                 <div class="filter-head">
-                    <div class="stats">
+                    <div class="stats" id="research-stats">
                         <span><strong id="research-visible-count">{research_count}</strong> reports</span>
-                        <span><strong>{len(research_publishers)}</strong> publishers</span>
+                        <span><strong id="research-publisher-count">{len(research_publishers)}</strong> <span id="research-publisher-label">publishers</span></span>
                     </div>
                     <div class="filter-head-actions">
                         <span class="update-time" id="research-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
@@ -927,6 +977,7 @@ def generate_html(
                         <button class="tg-view-btn active" id="research-region-all" onclick="setResearchRegion('all')">All</button>
                         <button class="tg-view-btn" id="research-region-indian" onclick="setResearchRegion('indian')">Indian</button>
                         <button class="tg-view-btn" id="research-region-international" onclick="setResearchRegion('international')">International</button>
+                        <button class="tg-view-btn" id="research-region-stocknotes" onclick="setResearchRegion('stocknotes')" title="Indian brokers' notes on single stocks">Stock notes</button>
                     </div>
                     <div class="publisher-dropdown" id="research-publisher-dropdown">
                         <button class="publisher-dropdown-trigger" id="research-publisher-trigger" onclick="toggleResearchDropdown()">
@@ -1084,6 +1135,9 @@ def generate_html(
         var TWITTER_PUBLISHERS = {twitter_publishers_json};
         var TWITTER_PRESETS = {twitter_presets_json};
         var RESEARCH_REPORTS = null;
+        var STOCK_NOTES = null;  // static/stock_notes.json, fetched on first click of Stock notes
+        var STOCK_NOTES_HOME = null;  // static/tab_stock_notes_home.json — newest ~30 for the homepage slider
+        var STOCK_NOTE_PUBLISHERS = {json.dumps(stock_note_publishers or [])};  // kept out of the homepage Research Reports slider
         var RESEARCH_PUBLISHERS = {research_publishers_json};
         var NEWS_ARTICLES = null;
         var SLOW_READS = null;
@@ -1358,6 +1412,20 @@ def main():
     except Exception as e:
         logger.warn("Reports cache", f"could not write: {e}")
 
+    # Broker stock notes leave the Reports research list here: they go into
+    # their own archive (static/stock_notes.json, all history, loaded only
+    # when someone opens Stock notes) and get their PDF headlines filled.
+    # By feed id too: items from reports_cache.json written before a feed
+    # moved to Stock notes carry no `kind` (Baroda eTrade leans on that cache).
+    stock_note_feed_ids = {f["id"] for f in feeds if f.get("kind") == STOCK_NOTE_KIND}
+
+    def _is_stock_note(r):
+        return r.get("kind") == STOCK_NOTE_KIND or r.get("feed_id") in stock_note_feed_ids
+
+    stock_note_articles = [{**r, "kind": STOCK_NOTE_KIND} for r in report_articles if _is_stock_note(r)]
+    report_articles = [r for r in report_articles if not _is_stock_note(r)]
+    update_stock_notes_archive(stock_note_articles, logger)
+
     # Filter political keyword matches from reports tab.
     pre_report_political_count = len(report_articles)
     report_articles = [r for r in report_articles if not should_filter_political(r)]
@@ -1593,6 +1661,9 @@ def main():
         twitter_high_signal=twitter_high_signal,
         twitter_lane_meta=twitter_lane_stats,
         slow_reads=slow_reads,
+        stock_notes_home=select_home_notes(load_archive(STOCK_NOTES_FILE)),
+        stock_note_publishers=sorted({f.get("publisher", "") for f in feeds
+                                      if f.get("kind") == STOCK_NOTE_KIND and f.get("publisher")}),
     )
     export_articles_json(article_groups)
     export_published_snapshot(

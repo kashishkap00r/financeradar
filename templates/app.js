@@ -1,3 +1,10 @@
+        // Stock notes globals are declared by index.html (aggregator.py). The script
+        // deploys before the hourly run regenerates index.html, so default them here
+        // rather than throw on a page that predates them.
+        if (!('STOCK_NOTES' in window)) window.STOCK_NOTES = null;
+        if (!('STOCK_NOTES_HOME' in window)) window.STOCK_NOTES_HOME = null;
+        if (!('STOCK_NOTE_PUBLISHERS' in window)) window.STOCK_NOTE_PUBLISHERS = [];
+
         // Theme toggle (persisted)
         const safeStorage = {
             get(key) {
@@ -44,6 +51,9 @@
             }
             if (tab === 'home' && !SLOW_READS) {
                 loads.push(_safeLoad('slow_reads', 'static/tab_slow_reads.json', function(d) { SLOW_READS = d; }));
+            }
+            if (tab === 'home' && !STOCK_NOTES_HOME) {
+                loads.push(_safeLoad('stock_notes_home', 'static/tab_stock_notes_home.json', function(d) { STOCK_NOTES_HOME = d; }));
             }
             if ((tab === 'news' || tab === 'home') && !NEWS_ARTICLES) {
                 loads.push(_safeLoad('news', 'static/tab_news.json', function(d) { NEWS_ARTICLES = d; }));
@@ -1798,7 +1808,10 @@
         let researchPage = 1;
         const RESEARCH_PAGE_SIZE = 20;
         let selectedResearchPublishers = new Set();
-        let researchRegionFilter = 'all'; // 'all' | 'indian' | 'international'
+        let researchRegionFilter = 'all'; // 'all' | 'indian' | 'international' | 'stocknotes'
+        // Broker stock notes live in their own file (static/stock_notes.json, all
+        // history), loaded only when the Stock notes view is first opened.
+        const RESEARCH_VIEW_IDS = { all: 'research-region-all', indian: 'research-region-indian', international: 'research-region-international', stocknotes: 'research-region-stocknotes' };
 
 
         // ==================== YOUTUBE TAB (vars) ====================
@@ -2355,6 +2368,7 @@
             'The Big Stories': 'The day’s biggest stories, each built from several sources. AI models group the coverage; the dots show how many of them picked each story.',
             'Research Reports': 'Notes from research houses, rating agencies and think tanks, picked by AI from the past week.',
             'From the Feed': 'News from the last two days and Telegram notes from the past week, ranked by AI for what matters to Indian readers.',
+            'Stock Notes': 'The newest notes from Indian brokers on single companies, with the headline from each PDF. Newest first, not ranked by AI. All of them sit in Reports → Stock notes.',
             'Slow Reads': 'Essays and long reads from independent writers. Every post from the past week, newest first. Not ranked by AI.',
             'Watch': 'Explainers and interviews from finance video channels, picked by AI from the past week.',
             'From the Source': 'Straight from RBI, SEBI, PIB and other official bodies: releases, orders and data, newest first. Not ranked by AI.',
@@ -2531,6 +2545,28 @@
             return '<section class="slider-section">'
                 + sliderHead('Slow Reads', items.length + ' this week', 'slow-track')
                 + '<div class="slider-track" id="slow-track">' + cards + '</div></section>';
+        }
+
+        // Stock Notes — newest single-company broker notes (static/tab_stock_notes_home.json,
+        // ~30 items). Chronological, NOT AI-ranked. Sits just above the quote before From the Source.
+        function buildStockNotesSlider(items) {
+            if (!items || !items.length) return '';
+            const cards = items.map(function(n) {
+                const title = escapeHtml(n.title || '');
+                const url = sanitizeUrl(n.link || '');
+                const broker = escapeHtml(n.publisher || 'Broker');
+                const dateStr = n.date ? escapeHtml(new Date(n.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
+                const bk = npBookmarkBtn(url, title, broker);
+                return '<div class="slider-card slider-rp"><div class="slider-card-body">'
+                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + broker + '</div>'
+                    + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
+                    + '</div>' + bk + '</div>'
+                    + (dateStr ? '<div class="card-signals"><span class="rp-date">' + dateStr + '</span></div>' : '')
+                    + '</div></div>';
+            }).join('');
+            return '<section class="slider-section">'
+                + sliderHead('Stock Notes', 'from Indian brokers, newest first', 'sn-track')
+                + '<div class="slider-track" id="sn-track">' + cards + '</div></section>';
         }
 
         // ==================== WSW BREAKER BUILDER ====================
@@ -2838,7 +2874,7 @@
 
             // Build the full newspaper layout with AI-curated sliders.
             // Order: Big Stories → quote → Reports → (feed label) → news → quote → Slow Reads →
-            // news → quote → Watch → news → quote → From the Source → Voices → quote → news.
+            // news → quote → Watch → news → Stock Notes → quote → From the Source → Voices → quote → news.
             // Voices sits directly under From the Source (user request, Oct 2026).
             const parts = [];
 
@@ -2850,7 +2886,8 @@
             // Research Reports leads the sliders, then the feed label
             parts.push(
                 breakers[0],
-                buildRpSlider(result.reports)
+                // Broker notes have their own slider; keep any older picks from those feeds out of here.
+                buildRpSlider(result.reports.filter(r => STOCK_NOTE_PUBLISHERS.indexOf(r.publisher || r.source) === -1))
             );
             if (clusters.length > 0 || result.reports.length > 0) {
                 parts.push(renderSectionLabel('From the Feed', 'news and Telegram, ranked by AI'));
@@ -2864,6 +2901,7 @@
                 breakers[2],
                 buildYtSlider(result.youtube),
                 renderFeedRows(s5),
+                buildStockNotesSlider(STOCK_NOTES_HOME),
                 breakers[3],
                 buildFromSourceSlider(getFromSourceItems()),
                 buildTwSlider(result.twitter),
@@ -2962,16 +3000,13 @@
 
         function resetResearchTabState() {
             selectedResearchPublishers.clear();
+            const wasNotes = researchRegionFilter === 'stocknotes';
             researchRegionFilter = 'all';
             researchPage = 1;
+            if (wasNotes && RESEARCH_REPORTS) initResearchPublisherDropdown();
             syncResearchCheckboxes();
             syncResearchPublisherSummary();
-            const allBtn = document.getElementById('research-region-all');
-            const indianBtn = document.getElementById('research-region-indian');
-            const intlBtn = document.getElementById('research-region-international');
-            if (allBtn) allBtn.classList.add('active');
-            if (indianBtn) indianBtn.classList.remove('active');
-            if (intlBtn) intlBtn.classList.remove('active');
+            syncResearchViewButtons();
         }
 
         function resetYoutubeTabState() {
@@ -3603,19 +3638,67 @@
         // ==================== RESEARCH TAB (functions) ====================
         function renderMainResearch() {
             initResearchPublisherDropdown();
-            filteredResearch = [...RESEARCH_REPORTS];
-            researchPage = 1;
-            applyResearchPagination();
+            filterResearch();
+        }
+
+        const isStockNote = r => r.kind === 'stock_note';
+
+        // Archive rows → the research-card shape. Title = company — the PDF's own
+        // headline; either alone when that's all there is (company until the
+        // headline is read; a multi-stock daily like "First Light | …" has no company).
+        function toStockNoteCard(n) {
+            return {
+                title: [n.company, n.headline].filter(Boolean).join(' — '),
+                link: n.link,
+                date: n.date ? n.date + 'T00:00:00+05:30' : null,
+                publisher: n.broker,
+                source: n.via || '',
+                source_url: '',
+                description: '',
+                region: 'Indian',
+                kind: 'stock_note',
+            };
+        }
+
+        function loadStockNotes() {
+            if (STOCK_NOTES) return Promise.resolve();
+            return _safeLoad('stock_notes', 'static/stock_notes.json', function(d) {
+                STOCK_NOTES = Array.isArray(d) ? d.map(toStockNoteCard) : [];
+            }).then(function() { if (!STOCK_NOTES) STOCK_NOTES = []; });
+        }
+
+        // Publishers for the dropdown: brokers in Stock notes, research houses elsewhere.
+        function currentResearchPublishers() {
+            if (researchRegionFilter !== 'stocknotes') return RESEARCH_PUBLISHERS;
+            return [...new Set((STOCK_NOTES || []).map(r => r.publisher).filter(Boolean))].sort();
+        }
+
+        function syncResearchViewButtons() {
+            Object.entries(RESEARCH_VIEW_IDS).forEach(([mode, id]) => {
+                const btn = document.getElementById(id);
+                if (btn) btn.classList.toggle('active', mode === researchRegionFilter);
+            });
         }
 
         function filterResearch() {
             const query = document.getElementById('search-input').value.toLowerCase().trim();
-            filteredResearch = RESEARCH_REPORTS.filter(r => {
+            const notesView = researchRegionFilter === 'stocknotes';
+            if (notesView && !STOCK_NOTES) {
+                document.getElementById('research-container').innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">Loading stock notes…</div>';
+                loadStockNotes().then(function() {
+                    if (researchRegionFilter !== 'stocknotes') return;
+                    initResearchPublisherDropdown();
+                    syncResearchPublisherSummary();
+                    filterResearch();
+                });
+                return;
+            }
+            filteredResearch = (notesView ? STOCK_NOTES : RESEARCH_REPORTS).filter(r => {
                 const matchesSearch = !query || (r.title + ' ' + r.source + ' ' + (r.publisher || '') + ' ' + (r.description || '')).toLowerCase().includes(query);
                 const pub = r.publisher || r.source;
                 const matchesPublisher = selectedResearchPublishers.size === 0 || selectedResearchPublishers.has(pub);
                 const region = (r.region || 'Indian').toLowerCase();
-                const matchesRegion = researchRegionFilter === 'all' || region === researchRegionFilter;
+                const matchesRegion = notesView || researchRegionFilter === 'all' || region === researchRegionFilter;
                 return matchesSearch && matchesPublisher && matchesRegion;
             });
             researchPage = 1;
@@ -3623,10 +3706,15 @@
         }
 
         function setResearchRegion(mode) {
+            const crossesNotes = (mode === 'stocknotes') !== (researchRegionFilter === 'stocknotes');
             researchRegionFilter = mode;
-            document.getElementById('research-region-all').classList.toggle('active', mode === 'all');
-            document.getElementById('research-region-indian').classList.toggle('active', mode === 'indian');
-            document.getElementById('research-region-international').classList.toggle('active', mode === 'international');
+            syncResearchViewButtons();
+            if (crossesNotes) {
+                // Brokers and research houses are different lists; a selection can't carry over.
+                selectedResearchPublishers.clear();
+                initResearchPublisherDropdown();
+                syncResearchPublisherSummary();
+            }
             filterResearch();
         }
 
@@ -3663,6 +3751,13 @@
             if (researchPage > totalPages) researchPage = totalPages;
 
             document.getElementById('research-visible-count').textContent = filteredResearch.length;
+            // Stock notes show no counts (user's call); research views keep them.
+            const stats = document.getElementById('research-stats');
+            if (stats) stats.style.visibility = researchRegionFilter === 'stocknotes' ? 'hidden' : '';
+            const pubCount = document.getElementById('research-publisher-count');
+            if (pubCount) pubCount.textContent = currentResearchPublishers().length;
+            const pubLabel = document.getElementById('research-publisher-label');
+            if (pubLabel) pubLabel.textContent = researchRegionFilter === 'stocknotes' ? 'brokers' : 'publishers';
 
             const start = (researchPage - 1) * RESEARCH_PAGE_SIZE;
             const end = start + RESEARCH_PAGE_SIZE;
@@ -3707,7 +3802,7 @@
                                 <span class="region-tag">${region === 'international' ? 'International' : 'Indian'}</span>
                             </div>
                             <div class="report-card-right">
-                                ${r.date ? `<span class="report-card-date">${formatResearchDate(r.date)}</span>` : ''}
+                                ${r.date && !isStockNote(r) ? `<span class="report-card-date">${formatResearchDate(r.date)}</span>` : ''}
                                 <button class="bookmark-btn" data-url="${escapeForAttr(cardUrl)}" data-title="${escapeForAttr(r.title)}" data-source="${publisher}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark report" title="Bookmark">
                                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                                 </button>
@@ -3737,7 +3832,7 @@
             const list = document.getElementById('research-dropdown-list');
             if (!list) return;
             list.innerHTML = '';
-            RESEARCH_PUBLISHERS.forEach(pub => {
+            currentResearchPublishers().forEach(pub => {
                 const item = document.createElement('div');
                 item.className = 'dropdown-item';
                 item.dataset.publisher = pub;
@@ -3776,13 +3871,13 @@
             const summary = document.getElementById('research-publisher-summary');
             if (!trigger || !summary) return;
             if (selectedResearchPublishers.size === 0) {
-                summary.textContent = 'All publishers';
+                summary.textContent = researchRegionFilter === 'stocknotes' ? 'All brokers' : 'All publishers';
                 trigger.classList.remove('has-selection');
             } else if (selectedResearchPublishers.size === 1) {
                 summary.textContent = [...selectedResearchPublishers][0];
                 trigger.classList.add('has-selection');
             } else {
-                summary.textContent = selectedResearchPublishers.size + ' of ' + RESEARCH_PUBLISHERS.length + ' publishers';
+                summary.textContent = selectedResearchPublishers.size + ' of ' + currentResearchPublishers().length + (researchRegionFilter === 'stocknotes' ? ' brokers' : ' publishers');
                 trigger.classList.add('has-selection');
             }
         }
@@ -3805,7 +3900,7 @@
         }
 
         function selectAllResearchPublishers() {
-            RESEARCH_PUBLISHERS.forEach(pub => selectedResearchPublishers.add(pub));
+            currentResearchPublishers().forEach(pub => selectedResearchPublishers.add(pub));
             syncResearchCheckboxes();
             syncResearchPublisherSummary();
             filterResearch();

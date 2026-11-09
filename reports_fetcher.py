@@ -24,6 +24,14 @@ from html.parser import HTMLParser
 import xml.etree.ElementTree as ET
 
 from articles import IST_TZ
+from stock_notes import (
+    STOCK_NOTE_KIND,
+    canonical_broker,
+    canonical_rating,
+    clean_company,
+    note_title,
+    parse_price,
+)
 # Google News RSS helpers, reused so the CREA news fallback resolves redirect
 # links and strips source suffixes exactly like every other Google-backed feed.
 # feeds.py does not import this module, so the dependency stays one-way.
@@ -57,26 +65,38 @@ _FRESHNESS_CUTOFF = SCRAPER_FRESHNESS_CUTOFF
 _MAX_PER_SCRAPER = SCRAPER_MAX_ARTICLES
 
 
-def _is_fresh(dt):
-    """Return True if date is within last 30 days or None (undated)."""
+def _is_fresh(dt, cutoff=None):
+    """Return True if date is within the cutoff (default 30 days) or None (undated)."""
     if dt is None:
         return True
     now = datetime.now(timezone.utc)
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone.utc)
-    return (now - dt) <= _FRESHNESS_CUTOFF
+    return (now - dt) <= (cutoff or _FRESHNESS_CUTOFF)
+
+
+def _feed_cutoff(feed_config):
+    """Freshness window for a feed: feeds.json `max_age_days`, else 30 days."""
+    days = (feed_config or {}).get("max_age_days")
+    return timedelta(days=days) if days else _FRESHNESS_CUTOFF
 
 
 def scraper(func):
-    """Decorator for report scrapers — handles errors, freshness, limits, logging."""
+    """Decorator for report scrapers — handles errors, freshness, limits, logging.
+
+    Feeds may override the defaults in feeds.json: `max_items` (high-volume
+    sources like broker stock notes post ~25 a day, far past the 30-item cap)
+    and `max_age_days` (a shorter window keeps tab_research.json small).
+    """
     @functools.wraps(func)
     def wrapper(feed_config):
         try:
             articles = func(feed_config)
             # Filter out stale articles
-            articles = [a for a in articles if _is_fresh(a.get("date"))]
+            cutoff = _feed_cutoff(feed_config)
+            articles = [a for a in articles if _is_fresh(a.get("date"), cutoff)]
             # Enforce per-scraper limit
-            articles = articles[:_MAX_PER_SCRAPER]
+            articles = articles[:feed_config.get("max_items") or _MAX_PER_SCRAPER]
             print(f"  [OK] {feed_config['name']}: {len(articles)} articles")
             return articles
         except Exception as e:
@@ -156,6 +176,8 @@ def _make_article(title, link, date, description, feed_config):
         "publisher": feed_config.get("publisher", ""),
         "region": feed_config.get("region", "Indian"),
         "feed_id": feed_config.get("id", ""),
+        # "stock_note" sends the item to the Stock notes archive, not the Reports list
+        "kind": feed_config.get("kind", ""),
     }
 
 
@@ -2239,6 +2261,138 @@ def fetch_filtercoffee(feed_config):
 # ── Dispatcher ────────────────────────────────────────────────────────
 
 # Maps feed prefix → fetcher function
+# ── Broker stock notes (Reports → "Stock notes") ─────────────────────
+# One broker's call on one Indian stock: rating, target, PDF. Shared
+# cleanup (broker names, Indian-only filter, dedup) is in stock_notes.py
+# so the direct broker-site scrapers planned next can reuse it.
+
+_MC_IDEAS_API = "https://api.moneycontrol.com/mcapi/v1/broker-research/stock-ideas"
+_MC_IDEAS_PAGE_SIZE = 100
+_MC_IDEAS_MAX_PAGES = 12  # ~25 calls/day → a 14-day window is ~4 pages
+_BS_MEDIA_HOST = "https://bsmedia.business-standard.com"
+
+
+def _stock_note(feed_config, *, broker, company, rating, target, reco_price, dt, pdf,
+                prev_target=None, prev_rating=None):
+    """Build a Reports article for one broker call (shared by all sources)."""
+    article = _make_article(note_title(company, rating, target), pdf, dt, "", feed_config)
+    article.update({
+        "publisher": broker,
+        "region": "Indian",
+        "kind": STOCK_NOTE_KIND,
+        "via": feed_config.get("publisher", ""),
+        "company": company,
+        "rating": rating,
+        "target": target,
+        "reco_price": reco_price,
+        "prev_target": prev_target,
+        "prev_rating": prev_rating,
+    })
+    return article
+
+
+def _ist_date(value, fmt):
+    try:
+        return datetime.strptime(str(value or "").strip()[:10], fmt).replace(tzinfo=IST_TZ)
+    except ValueError:
+        return None
+
+
+@scraper
+def fetch_moneycontrol_ideas(feed_config):
+    """Moneycontrol's broker-research JSON API (public, no login).
+
+    Every row has a public PDF on images.moneycontrol.com plus the broker's
+    previous call on the stock (`stock_data.previous`), which gives
+    "target cut from ₹290" for free. Newest first, so page until a whole
+    page is older than the feed's window.
+    """
+    cutoff = _feed_cutoff(feed_config)
+    articles = []
+    for page in range(feed_config.get("max_pages") or _MC_IDEAS_MAX_PAGES):
+        url = (f"{_MC_IDEAS_API}?start={page * _MC_IDEAS_PAGE_SIZE}"
+               f"&limit={_MC_IDEAS_PAGE_SIZE}&deviceType=W")
+        raw = _fetch_url(url, accept="application/json", feed_config=feed_config)
+        rows = (json.loads(raw.decode("utf-8", errors="replace")) or {}).get("data") or []
+        if not isinstance(rows, list) or not rows:
+            break
+        any_fresh = False
+        for row in rows:
+            # Report date, unless it falls after the day Moneycontrol posted
+            # the note — that is a typo on their side (seen: posted 2 Nov,
+            # dated 11 Nov), and a future date would pin it to the top.
+            report_dt = _ist_date(row.get("target_price_date"), "%Y-%m-%d")
+            posted_dt = _ist_date(row.get("entry_date"), "%Y-%m-%d")
+            dt = min(d for d in (report_dt, posted_dt) if d) if (report_dt or posted_dt) else None
+            if not _is_fresh(dt, cutoff):
+                continue
+            any_fresh = True
+            broker = canonical_broker(row.get("organization"))
+            pdf = (row.get("attachment") or "").strip()
+            company = clean_company(row.get("stkname") or row.get("stockShortName"))
+            if not broker or not pdf.startswith("http") or not company:
+                continue
+            prev = ((row.get("stock_data") or {}).get("previous")) or {}
+            same_broker = prev and canonical_broker(prev.get("P_ORGANIZATION")) == broker
+            articles.append(_stock_note(
+                feed_config,
+                broker=broker,
+                company=company,
+                rating=canonical_rating(row.get("recommend_flag")),
+                target=parse_price(row.get("target_price")),
+                reco_price=parse_price(row.get("recommended_price")),
+                dt=dt,
+                pdf=pdf,
+                prev_target=parse_price(prev.get("target_price")) if same_broker else None,
+                prev_rating=canonical_rating(prev.get("recommend_flag")) if same_broker else None,
+            ))
+        if not any_fresh or len(rows) < _MC_IDEAS_PAGE_SIZE:
+            break
+    articles.sort(key=lambda a: a["date"] or datetime.min.replace(tzinfo=IST_TZ), reverse=True)
+    return articles
+
+
+@scraper
+def fetch_bs_research(feed_config):
+    """Business Standard's research-report page (Next.js).
+
+    The whole list (~2.7k rows, back to 2024) is embedded in __NEXT_DATA__
+    → props.pageProps.response2.data, so one fetch gets everything. Dates
+    are DD/MM/YYYY; PDFs sit on bsmedia. Mostly brokers Moneycontrol lacks
+    (JM, Elara, Edelweiss, InCred, YES); overlaps are removed downstream
+    by dedup_stock_notes().
+    """
+    cutoff = _feed_cutoff(feed_config)
+    page = _fetch_url(feed_config["url"], feed_config=feed_config).decode("utf-8", errors="replace")
+    m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', page, re.S)
+    if not m:
+        raise ValueError("no __NEXT_DATA__ on page")
+    rows = json.loads(m.group(1))["props"]["pageProps"]["response2"]["data"]
+    articles = []
+    for row in rows:
+        dt = (_ist_date(row.get("recommedation_date"), "%d/%m/%Y")  # sic: the site's spelling
+              or _ist_date(row.get("brokertips_date"), "%d/%m/%Y"))
+        if dt is None or not _is_fresh(dt, cutoff):
+            continue
+        broker = canonical_broker(row.get("broker_name"))
+        pdf_path = (row.get("pdf_path") or "").strip()
+        company = clean_company(row.get("company_full_name") or row.get("company_name"))
+        if not broker or not pdf_path or not company:
+            continue
+        articles.append(_stock_note(
+            feed_config,
+            broker=broker,
+            company=company,
+            rating=canonical_rating(row.get("action")),
+            target=parse_price(row.get("target_price")),
+            reco_price=parse_price(row.get("price")),
+            dt=dt,
+            pdf=urllib.parse.urljoin(_BS_MEDIA_HOST, pdf_path),
+        ))
+    articles.sort(key=lambda a: a["date"], reverse=True)
+    return articles
+
+
 REPORT_FETCHERS = {
     "crisilratings:": fetch_crisil_ratings,
     "crisilreports:": fetch_crisil_reports,
@@ -2269,6 +2423,8 @@ REPORT_FETCHERS = {
     "apollo:media": fetch_apollo_media,
     "apollo:": fetch_apollo,
     "filtercoffee:": fetch_filtercoffee,
+    "mcideas:": fetch_moneycontrol_ideas,
+    "bsresearch:": fetch_bs_research,
 }
 
 
