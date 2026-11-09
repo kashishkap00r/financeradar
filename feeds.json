@@ -2040,6 +2040,22 @@
     "publisher": "PIIE"
   },
   {
+    "id": "x-patterns",
+    "name": "Patterns (X)",
+    "url": "https://x.com/Patterns0001",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Patterns0001/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Patterns"
+  },
+  {
+    "id": "x-normal-guy",
+    "name": "Normal Guy (X)",
+    "url": "https://x.com/Normal_2610",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Normal_2610/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Normal Guy"
+  },
+  {
     "id": "powerline-magazine",
     "name": "Power Line Magazine",
     "url": "https://powerline.net.in/category/news/",
