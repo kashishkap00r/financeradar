@@ -1,26 +1,101 @@
 {
-  "generated_at": "2026-11-10T02:05:36.564043+05:30",
+  "generated_at": "2026-11-10T02:32:49.820536+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 50,
       "feeds_ok": 49,
       "feeds_failed": 1,
-      "items_raw": 1064,
-      "resolve_attempted": 860,
-      "resolve_resolved": 859,
-      "resolve_cache_hits": 798
+      "items_raw": 1069,
+      "resolve_attempted": 861,
+      "resolve_resolved": 860,
+      "resolve_cache_hits": 856
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.8,
-      "items": 783,
-      "handles_ok": 45
+      "age_hours": 0.3,
+      "items": 817,
+      "handles_ok": 47
     },
     "warning": "",
-    "generated_at": "2026-11-10T02:05:36.563978+05:30"
+    "generated_at": "2026-11-10T02:32:49.820476+05:30"
   },
   "items": [
+    {
+      "title": "Tune in next week, November 17-18, for a conference with us, @IMFNews, @OECD, & @WorldBankGroup on how AI, demographic change, & shifting patterns of ...",
+      "link": "https://x.com/PIIE/status/2119891278070460914",
+      "date": "2026-11-09T20:34:01+00:00",
+      "tweet_id": "2119891278070460914",
+      "source": "Peterson Institute",
+      "publisher": "PIIE",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Tune in next week, November 17-18, for a conference with us, @IMFNews, @OECD, &amp; @WorldBankGroup on how AI, demographic change, &amp; shifting patterns of international specialization are reshaping labor markets &amp; the future of work.<br>Info &amp; watch here: https://www.piie.com/events/2026/labor-markets-and-structural-transformation-times-change-ai-and-demographic-shifts",
+      "category": "Twitter"
+    },
+    {
+      "title": "\"Indian industry does not support.\" \u200bSterling and Wilson\u2019s latest concall exposes the ground-level pain in India\u2019s Solar EPC space right now: 1. Gr...",
+      "link": "https://x.com/BeatTheStreet10/status/2119890446117925193",
+      "date": "2026-11-09T20:30:42+00:00",
+      "tweet_id": "2119890446117925193",
+      "source": "Beat The Street",
+      "publisher": "Beat The Street",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWtdHq_awAAdxho?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\"Indian industry does not support.\"<br><br>Sterling and Wilson\u2019s latest concall exposes the ground-level pain in India\u2019s Solar EPC space right now: <br><br>1. Grid &amp; PPA Bottlenecks: Unsigned PPAs and heavy grid curtailment across Rajasthan &amp; Gujarat have brought domestic order inflows from IPPs and PSUs to a crawl.  <br><br>2. Policy Mismatch: BESS mandates require domestic sourcing, but India lacks the manufacturing base. The result? Irrational quotes, cancelled orders, and contractors failing to execute.  <br><br>3. Revenue Risk: Growth is heavily backloaded to Q4, relying almost entirely on international projects to hit a modest 10% guidance.  <br>A sector with massive paper pipeline, but severe execution reality checks. <br><br>A sector with massive paper pipeline, but severe execution reality checks.<br><br>Src- SW Solar Concall<br><img width=\"1080\" height=\"1806\" style=\"\" src=\"https://pbs.twimg.com/media/HWtdHq_awAAdxho?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Tomorrow is CPI Day! Will the data lock in a Fed hike in December? \ud83c\udfa5Tune in Tuesday as @JonathanJLevin discusses LIVE with @AllisonSchrager and @fo...",
+      "link": "https://x.com/opinion/status/2119887261684965441",
+      "date": "2026-11-09T20:18:03+00:00",
+      "tweet_id": "2119887261684965441",
+      "source": "Bloomberg Opinion",
+      "publisher": "Bloomberg Opinion",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Tomorrow is CPI Day! Will the data lock in a Fed hike in December?<br><br>\ud83c\udfa5Tune in Tuesday as @JonathanJLevin discusses LIVE with @AllisonSchrager and @foxjust @ 8:25 am ET https://x.com/i/broadcasts/2ybAgqOEgpbOzl",
+      "category": "Twitter"
+    },
+    {
+      "title": "Jensen Huang\u2019s affair with an alleged Chinese spy is plausibly the most expensive extramarital affair in human history. https://www.bloomberg.com/opi...",
+      "link": "https://x.com/opinion/status/2119882782268645557",
+      "date": "2026-11-09T20:00:15+00:00",
+      "tweet_id": "2119882782268645557",
+      "source": "Bloomberg Opinion",
+      "publisher": "Bloomberg Opinion",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Jensen Huang\u2019s affair with an alleged Chinese spy is plausibly the most expensive extramarital affair in human history. https://www.bloomberg.com/opinion/newsletters/2026-11-09/is-the-nvidia-affair-securities-fraud?taid=6af2264f7186690001d911a9&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter",
+      "category": "Twitter"
+    },
+    {
+      "title": "The scale of Big Tech's AI future financial obligations is extraordinary: Alphabet, $GOOGL, Meta, $META, Anthropic, Microsoft, $MSFT, Amazon, $AMZN, O...",
+      "link": "https://x.com/KobeissiLetter/status/2119879354045915540",
+      "date": "2026-11-09T19:46:38+00:00",
+      "tweet_id": "2119879354045915540",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWrNsNGWgAADwra?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The scale of Big Tech's AI future financial obligations is extraordinary:<br><br>Alphabet, $GOOGL, Meta, $META, Anthropic, Microsoft, $MSFT, Amazon, $AMZN, Oracle, $ORCL, and Nvidia, $NVDA, have disclosed a combined $4.49 trillion in off-balance-sheet obligations.<br><br>These include future lease payments that have not yet commenced, data-center commitments, equipment purchases, and other contractual obligations.<br><br>Alphabet accounts for the largest amount, at $1.08 trillion, followed by Anthropic, at $865 billion, and Meta, at $810 billion.<br><br>By comparison, their combined on-balance-sheet obligations total just $758 billion, consisting of long-term debt and existing lease liabilities.<br><br>This means off-balance-sheet commitments are nearly 6 times larger than their on-balance-sheet obligations.<br><br>In total, these 7 tech companies face ~$5.25 trillion in combined financial obligations.<br><br>The AI infrastructure race is facing enormous future financial commitments.<br><img width=\"1560\" height=\"1050\" style=\"\" src=\"https://pbs.twimg.com/media/HWrNsNGWgAADwra?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
     {
       "title": "Citi downgrades US stocks to 'neutral' as AI sell-off, regulatory risks mount #ETMarkets https://economictimes.indiatimes.com/markets/us-stocks/wall-s...",
       "link": "https://x.com/ETMarkets/status/2119875336469119412",
@@ -79,6 +154,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "I\u2019m in Mexico City speaking at the Alacero Steel Industry summit.<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HWtJ-aAXkAAZhYJ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Matt Levine: While I can\u2019t guarantee what your financial return from this newsletter will be, I\u2019m confident you\u2019ll have a fun and entertainingly...",
+      "link": "https://x.com/opinion/status/2119879455048966265",
+      "date": "2026-11-09T19:02:15+00:00",
+      "tweet_id": "2119879455048966265",
+      "source": "Bloomberg Opinion",
+      "publisher": "Bloomberg Opinion",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Matt Levine<br>While I can\u2019t guarantee what your financial return from this newsletter will be, I\u2019m confident you\u2019ll have a fun and entertainingly documented ride. https://www.bloomberg.com/opinion/newsletters/2026-11-09/is-the-nvidia-affair-securities-fraud",
       "category": "Twitter"
     },
     {
@@ -379,6 +469,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "US dollar dips as easing AI and Mideast worries limit its appeal<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/forex/forex-news/us-dollar-dips-as-easing-ai-and-mideast-worries-limit-its-appeal/articleshow/135687593.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "Gopal Snacks said Q2 FY27 sales rose 22.9% to \u20b9461.5 crore, its highest ever, and operating profit (EBITDA) rose 72% to \u20b941.6 crore. It started a ne...",
+      "link": "https://x.com/Normal_2610/status/2119833840722256348",
+      "date": "2026-11-09T16:45:46+00:00",
+      "tweet_id": "2119833840722256348",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWspeexbAAAGLgJ?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Gopal Snacks said Q2 FY27 sales rose 22.9% to \u20b9461.5 crore, its highest ever, and operating profit (EBITDA) rose 72% to \u20b941.6 crore. <br><br>It started a new besan (gram flour) unit at Nagpur (19,642 tonnes a year) and got a final \u20b936.4 crore fire insurance claim.<br><img width=\"1255\" height=\"622\" style=\"\" src=\"https://pbs.twimg.com/media/HWspeexbAAAGLgJ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Market Outlook will come tomorrow in an extended version, and this week will be more interesting than ever. I\u2019ve found some really good businesses, s...",
+      "link": "https://x.com/Normal_2610/status/2119832820407521596",
+      "date": "2026-11-09T16:41:43+00:00",
+      "tweet_id": "2119832820407521596",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWsoTIKaIAAokHQ?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Market Outlook will come tomorrow in an extended version, and this week will be more interesting than ever. I\u2019ve found some really good businesses, so it\u2019s taking some time to shortlist everything properly And due to Diwali on Sunday, the extended Market Outlook will be published on Tuesday, 10 Nov 2026<br><img width=\"1343\" height=\"593\" style=\"\" src=\"https://pbs.twimg.com/media/HWsoTIKaIAAokHQ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -1129,6 +1249,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002CSEINDIA<br>Day 1 at #COP31, Antalya: Agenda adopted.<br><br>A significant development is the inclusion of the Climate Finance Work Programme under Article 9 as a formal agenda item \u2013 a long-standing demand of developing countries.<br><br>What does this mean: An official agenda item at a UNFCCC Conference of the Parties (COP) means an issue is part of the formal, legally recognized government negotiations that lead to binding decisions, rules, accountability frameworks, goals under international law (such as the Paris Agreement). If not an agenda item, it can still come up through other routes, such as under other agenda items, informal talks or side events, etc.<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HWr9OG9aoAADY1J?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HWr9OHWasAAX_Zm?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: Nifty 50's put-call ratio has climbed to 1.47, its highest reading in more than 2 Years",
+      "link": "https://x.com/Patterns0001/status/2119785003118944329",
+      "date": "2026-11-09T13:31:43+00:00",
+      "tweet_id": "2119785003118944329",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWr9NynbIAA5hCD?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: Nifty 50's put-call ratio has climbed to 1.47, its highest reading in more than 2 Years<br><img width=\"2048\" height=\"1433\" style=\"\" src=\"https://pbs.twimg.com/media/HWr9NynbIAA5hCD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2242,6 +2377,21 @@
       "category": "Twitter"
     },
     {
+      "title": "CONSUMER DEMAND IS LOSING MOMENTUM: Growth in sales of everyday products is to slow to 3.5% in Q4 2026, down from 5.2% in Q3. this will be the lowest ...",
+      "link": "https://x.com/Patterns0001/status/2119722882062504077",
+      "date": "2026-11-09T09:24:52+00:00",
+      "tweet_id": "2119722882062504077",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWrEuFFaIAAd6Il?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "CONSUMER DEMAND IS LOSING MOMENTUM:<br><br>Growth in sales of everyday products is to slow to 3.5% in Q4 2026, down from 5.2% in Q3.<br><br>this will be the lowest growth in 7 quarters, since Q1 2025<br><img width=\"2048\" height=\"1314\" style=\"\" src=\"https://pbs.twimg.com/media/HWrEuFFaIAAd6Il?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Divi\u2019s Labs: the moment is playing out 13:40 \ud83d\udc47",
       "link": "https://x.com/unseenvalue/status/2119721713009033354",
       "date": "2026-11-09T09:20:13+00:00",
@@ -2527,6 +2677,51 @@
       "category": "Twitter"
     },
     {
+      "title": "India does not produce any potash at all and nobody in government seems bothered by this Every gram comes from other countries. Fertiliser subsidy was...",
+      "link": "https://x.com/Normal_2610/status/2119698850407743582",
+      "date": "2026-11-09T07:49:22+00:00",
+      "tweet_id": "2119698850407743582",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "India does not produce any potash at all and nobody in government seems bothered by this <br><br>Every gram comes from other countries. Fertiliser subsidy was \u20b91.88 lakh crore last year and could nearly double to \u20b93.42 lakh crore by FY27. Government gave \u20b91.27 lakh crore for making computer chips in India. Rare earths got \u20b97,300 crore for special magnet factories But potash, which goes into food production for 1.46 billion people, got nothing. <br><br>It is on government own strategic minerals list since 2023, yet nothing moved<br><br>India mines zero potash and buys all of it from abroad, yet nobody treats this as dangerous. 40% comes from Canada, but relations between both countries turned sour and imports dropped 13% last year. <br><br>Russia sends another big portion but faces global sanctions pressure. Every shipment passes through narrow sea routes like Strait of Hormuz and Suez Canal, routes that saw disruption in recent conflicts. India keeps only 30 to 45 days of fertiliser reserves. <br><br>If ships get stuck during planting season, farmers lose potash supply before government can respond<br><br>Rajasthan has 89% of India total potash deposits, around 23,091 million tonnes. Punjab found more deposits in Fazilka district recently. India even has 2 billion tonnes of glauconite, which is another source of potash But nobody is mining any of it, which is hard to justify. <br><br>Potash is not included under rules that allow private companies to bid for mining rights. Government keeps forming committees and making plans but digging has not started. <br><br>India pays $1.3 billion every year to import potash while refusing to touch its own reserves",
+      "category": "Twitter"
+    },
+    {
+      "title": "Guyana said it can send India 1 million barrels of oil every day Guyana makes around 900,000 barrels of oil per day right now from 4 offshore platform...",
+      "link": "https://x.com/Normal_2610/status/2119698504520188175",
+      "date": "2026-11-09T07:48:00+00:00",
+      "tweet_id": "2119698504520188175",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Guyana said it can send India 1 million barrels of oil every day<br><br>Guyana makes around 900,000 barrels of oil per day right now from 4 offshore platforms. But it offered India 1 million barrels daily, more than what it produces today that offer is based on future production, not current supply. Guyana hopes to reach 1.9 million barrels per day by 2030 with 3 more projects coming. <br><br>India needs 5.5 million barrels every day and cannot wait until 2029 for supply to show up. Russia and Gulf together still supply 78% of India crude and that will not change soon<br><br>Indian refineries are designed for heavy, sour crude oil from Gulf and Russia. Guyana produces light, sweet oil called Liza grade, which is very different. Changing refineries to handle sweet crude costs billions and takes years. <br><br>India bought 2 million trial barrels from Guyana in 2021 and never ordered again because refinery match was poor. Guyana is also offering refinery and bunkering partnerships but India\u2019s 23 refineries cannot change their crude diet quickly. <br><br>Guyana is shopping for buyers because European demand dropped and Liza crude got cheaper",
+      "category": "Twitter"
+    },
+    {
+      "title": "Divi's is the sleep-at-night pick. Wrote in May till now it almost Double for reference read last Quarter concall Guys :) https://www.normalguy.co.in/...",
+      "link": "https://x.com/Normal_2610/status/2119697695417999814",
+      "date": "2026-11-09T07:44:47+00:00",
+      "tweet_id": "2119697695417999814",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWqtP-xbYAA7Ukw?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Divi's is the sleep-at-night pick. Wrote in May till now it almost Double for reference read last Quarter concall Guys :)<br><br>https://www.normalguy.co.in/post/the-overlapping-butterfly-effect-of-glp-1-part-2<br><img width=\"882\" height=\"477\" style=\"\" src=\"https://pbs.twimg.com/media/HWqtP-xbYAA7Ukw?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Speechless.",
       "link": "https://x.com/menakadoshi/status/2119697388503994663",
       "date": "2026-11-09T07:43:34+00:00",
@@ -2554,6 +2749,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Should be implemented across MMR<div class=\"rsshub-quote\"><br><br>Richa Pinto:\u2002Complete ban imposed on rockets and similar aerial fireworks across Thane district<br><br>District Collector Shrikrishna Panchal issues orders; ban to remain in force until January 8, 2027. The order will come into effect at 12.01 pm on November 9, 2026.<br><br><img width=\"719\" height=\"1356\" style=\"\" src=\"https://pbs.twimg.com/media/HWp_DBfbcAAMQWS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Turn disaster into opportunity :) Dyson is still leading the market, and as per the PM, we have to work on that. Made-in-India products must be bought...",
+      "link": "https://x.com/Normal_2610/status/2119695774883684369",
+      "date": "2026-11-09T07:37:09+00:00",
+      "tweet_id": "2119695774883684369",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWqonTaa0AAzJhW?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Turn disaster into opportunity :)<br><br>Dyson is still leading the market, and as per the PM, we have to work on that. Made-in-India products must be bought. ITC will be affected, but I care about the hospitals in Delhi the most and the pharma players overall. Take this as a positive for the Indian market. <br><br>Hospitals have some competition coming due to more beds, so pharma is more secure now. The way things are going, it gives me new energy and motivates me that India have not to become like China<br><br>People die even if they die 10 years earlier, or kids below 10 develop problems. Is that such a big deal? Not at all. Why are you making money just to pay taxes? Pay for medicines and hospital bills too <br><br>I support the regime. A slow death is a blessing until the next generation's genes and DNA are compromised, like an asset being taken over by newer forms of complications. That's how capitalist society works <br><br>Just like the public regime is a mirror of the public, what you vote for is what you get in return. If you don't raise your voice, the consequences will eventually enter your home and fuck up your life<br><br>Posting on Instagram and Twitter will only take you so far. It will not work. The regime is a street fighter, and you have to take the fight to the streets, even for laddus and a new Education Minister who is sleeping with an N95 mask :)<br><br>I know the regime and the public both love content. Probably Gen Z will make reels in a smoky-flavoured environment, go viral and earn money. This will also boost informal employment in India<br><br>And this is only going to last a few months, so why care so much? When will Indians become careful and responsible? When we fight over parking it give real kick <br><br>Let's hope we forget this scene and again vote for development and the 2047 ambition. I love this inspiration.<br><br>I am just sharing my personal view. And probably I like the smoky flavour because this is an opportunity for me, at least until it reaches my home and fucks me<br><img width=\"910\" height=\"741\" style=\"\" src=\"https://pbs.twimg.com/media/HWqonTaa0AAzJhW?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Tavleen Singh:\u2002The air in Delhi is unbreathable. Babies could get asthma, old people could die and the \u2018triple-engine\u2019 BJP government spreads conspiracy theories about arsonists in Punjab. We need solutions not conspiracies.<br></div>",
       "category": "Twitter"
     },
     {
@@ -2587,6 +2797,21 @@
       "category": "Twitter"
     },
     {
+      "title": "The world rewards self-interest more often than goodness, but that doesn't mean we should stop being good people",
+      "link": "https://x.com/Normal_2610/status/2119688078214455443",
+      "date": "2026-11-09T07:06:34+00:00",
+      "tweet_id": "2119688078214455443",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "The world rewards self-interest more often than goodness, but that doesn't mean we should stop being good people<div class=\"rsshub-quote\"><br><br>Aseem Dhru:\u2002Goodness, Fairness and Justice: humans are in conflict with nature.&nbsp;<br><br>A pair of birds find a safe place, make a nest, lay eggs, hatch them and then work all day to feed the hungry mouths.&nbsp; Meanwhile an eagle may eat the babies or a cat could eat the mother and the process could<br></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "RT ValueEquity: Supriya Life science , even though I dont own the stock , the one reason I have waited a bit before my audio note release is that i wa...",
       "link": "https://x.com/EquityValueIn/status/2119710070741270632",
       "date": "2026-11-09T06:52:46+00:00",
@@ -2617,6 +2842,21 @@
       "category": "Twitter"
     },
     {
+      "title": "The mistake by Jensen was brutal, but US intelligence is exceptional. They have likely known for a while that the asset is compromised. How this unfol...",
+      "link": "https://x.com/Normal_2610/status/2119682985368924605",
+      "date": "2026-11-09T06:46:20+00:00",
+      "tweet_id": "2119682985368924605",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "The mistake by Jensen was brutal, but US intelligence is exceptional. <br><br>They have likely known for a while that the asset is compromised. How this unfolds will probably affect China as well, which has been carefully hiding its intentions and projecting an attitude of indifference, as if it doesn't need these chips.<br><br>The deal could remain stuck until both sides reach a give-and-take arrangement involving US access to more rare earths and critical minerals. <br><br>And one big question will remain open for US intelligence - how many top talents have been compromised?<br><br>For Refence yu can watch - The Agency, Lioness yu will get to know how asset work .... The Agency is top notch :)<div class=\"rsshub-quote\"><br><br>Jukan:\u2002Taiwanese semiconductor analyst Andrew Lu\u2019s take on the recent scandal involving Jensen Huang:<br><br>Why the US Seized on the Scandal to Draw Its Sword: Three Strategic Objectives<br><br>The purpose of this scandal is by no means to expose an affair. It is to force through three critical<br></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "When you find a product mix change story right. Time is your friend in such a business. 1. There are usually naysayers who are focused on the low marg...",
       "link": "https://x.com/ishmohit1/status/2119681110015877300",
       "date": "2026-11-09T06:38:53+00:00",
@@ -2629,6 +2869,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "When you find a product mix change story right. Time is your friend in such a business. <br><br>1. There are usually naysayers who are focused on the low margin base business. <br><br>2. New product vertical with high margins starts increasing as a % of sales. <br><br>3. If the TAM is good, then the new high margin vertical eventually becomes a dominant part of the business. <br><br>4. One can hold during the entire journey, and mega winners are created this way! <br><br>Tonnes of examples from chemicals to Cdmos to PPF films to defence etc. <br><br>Get this mental model right:<br><br>Product mix change towards higher margin business vertical",
+      "category": "Twitter"
+    },
+    {
+      "title": "Yu not miss anything in intelligence",
+      "link": "https://x.com/Normal_2610/status/2119680046990586365",
+      "date": "2026-11-09T06:34:39+00:00",
+      "tweet_id": "2119680046990586365",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWqdscqbMAAVSq7?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Yu not miss anything in intelligence<br><img width=\"717\" height=\"291\" style=\"\" src=\"https://pbs.twimg.com/media/HWqdscqbMAAVSq7?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "I've discussed this multiple times before, and I added more during the recent selloff. My average buying price is significantly lower. Thesis is playi...",
+      "link": "https://x.com/Normal_2610/status/2119678048488530015",
+      "date": "2026-11-09T06:26:43+00:00",
+      "tweet_id": "2119678048488530015",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWqbUi4bYAAWwX_?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "I've discussed this multiple times before, and I added more during the recent selloff. My average buying price is significantly lower. Thesis is playing out more or less as I expected, and several developments, both within the business and in the external environment, are making me even more positive about its prospects.<br><img width=\"747\" height=\"405\" style=\"\" src=\"https://pbs.twimg.com/media/HWqbUi4bYAAWwX_?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2812,6 +3082,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Divi's Laboratories, DIVISLAB, crosses \u20b93 lakh cr. in market cap for the first time in its history. The Stock is now up more than '100%' from its Apr...",
+      "link": "https://x.com/Patterns0001/status/2119667031842975915",
+      "date": "2026-11-09T05:42:56+00:00",
+      "tweet_id": "2119667031842975915",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWqR7LXb0AAIDgf?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Divi's Laboratories, DIVISLAB, crosses \u20b93 lakh cr. in market cap for the first time in its history.<br><br>The Stock is now up more than '100%' from its April low.<br><img width=\"1678\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HWqR7LXb0AAIDgf?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Crazy Momentum in CDMO Stocks Many are now trading above 50x EV/EBITDA! At these valuations, it feels like street is pricing in FY30 earnings Let's se...",
       "link": "https://x.com/EquityInsightss/status/2119664565277651083",
       "date": "2026-11-09T05:33:08+00:00",
@@ -2839,6 +3124,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Andy Burnham can afford to take his time over improving relations with the EU, writes Martin Ivens https://www.bloomberg.com/opinion/articles/2026-11-09/burnham-can-afford-to-take-his-time-over-a-european-reset?taid=6af15a60ca0248000107f6e0&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter",
+      "category": "Twitter"
+    },
+    {
+      "title": "'Promoter Ownership' in NSE-listed firms hits a 7-Quarter high of 50.4% in the Sept quarter Highest level since Dec 2024.",
+      "link": "https://x.com/Patterns0001/status/2119663241106444357",
+      "date": "2026-11-09T05:27:52+00:00",
+      "tweet_id": "2119663241106444357",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "'Promoter Ownership' in NSE-listed firms hits a 7-Quarter high of 50.4% in the Sept quarter<br><br>Highest level since Dec 2024.",
       "category": "Twitter"
     },
     {
@@ -3052,21 +3352,6 @@
       "category": "Twitter"
     },
     {
-      "title": "The Blue Wave led to the third correction for global stocks during Trump 2.0, John Authers writes. The severe losses were in tech and and energy https...",
-      "link": "https://x.com/opinion/status/2119644923448152207",
-      "date": "2026-11-09T04:15:05+00:00",
-      "tweet_id": "2119644923448152207",
-      "source": "Bloomberg Opinion",
-      "publisher": "Bloomberg Opinion",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The Blue Wave led to the third correction for global stocks during Trump 2.0, John Authers writes. The severe losses were in tech and and energy https://www.bloomberg.com/opinion/newsletters/2026-11-09/stocks-third-correction-in-trump-2-0-years?taid=6af148c95609e00001422d8d&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter",
-      "category": "Twitter"
-    },
-    {
       "title": "BREAKING: 221 US trucking companies have filed for bankruptcy so far in 2026, on track for the highest annual total in 23 years. This marks the 3rd co...",
       "link": "https://x.com/KobeissiLetter/status/2119636362810859821",
       "date": "2026-11-09T03:41:04+00:00",
@@ -3169,6 +3454,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002C. Raja Mohan<br>My new book, \"India Pivots to Europe: In Search of a Eurasian Balance\", is now available for pre-order on Amazon : https://www.amazon.in/dp/B0HPY4STK7<br><img width=\"1129\" height=\"1800\" style=\"\" src=\"https://pbs.twimg.com/media/HWpoRVdaYAAm5o9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "\ud83c\uddee\ud83c\uddf3 India's wholesale inflation is expected to hit 12.10% in Oct, its highest level in +4 years. \u2014 Reuters Poll",
+      "link": "https://x.com/Patterns0001/status/2119612767112208722",
+      "date": "2026-11-09T02:07:18+00:00",
+      "tweet_id": "2119612767112208722",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "\ud83c\uddee\ud83c\uddf3 India's wholesale inflation is expected to hit 12.10% in Oct, its highest level in +4 years.<br><br>\u2014 Reuters Poll",
+      "category": "Twitter"
+    },
+    {
+      "title": "JUST IN : Fear Gauge of the Indian Stock market hits a 6-month high, as India VIX rises to 18.5 it's Highest level since May",
+      "link": "https://x.com/Patterns0001/status/2119606944956809572",
+      "date": "2026-11-09T01:44:10+00:00",
+      "tweet_id": "2119606944956809572",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWpbRuBbwAAgwEa?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "JUST IN : Fear Gauge of the Indian Stock market hits a 6-month high, as India VIX rises to 18.5<br><br>it's Highest level since May<br><img width=\"2048\" height=\"1108\" style=\"\" src=\"https://pbs.twimg.com/media/HWpbRuBbwAAgwEa?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -3337,51 +3652,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: Nvidia, $NVDA, is launching an investigation into reports that Jensen Huang had a \u201cromantic relationship\u201d with a Chinese spy. In a message...",
-      "link": "https://x.com/KobeissiLetter/status/2119533798618538266",
-      "date": "2026-11-08T20:53:31+00:00",
-      "tweet_id": "2119533798618538266",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: Nvidia, $NVDA, is launching an investigation into reports that Jensen Huang had a \u201cromantic relationship\u201d with a Chinese spy.<br><br>In a message to employees, Huang acknowledged being \u201cunfaithful\u201d to his wife.<br><br>He also took full responsibility and pledged to rebuild trust.",
-      "category": "Twitter"
-    },
-    {
-      "title": "Cleaning up the world\u2019s grids has been the easy part, writes @davidfickling. Turning that electricity into the default way to power everything else w...",
-      "link": "https://x.com/opinion/status/2119524122904424824",
-      "date": "2026-11-08T20:15:04+00:00",
-      "tweet_id": "2119524122904424824",
-      "source": "Bloomberg Opinion",
-      "publisher": "Bloomberg Opinion",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Cleaning up the world\u2019s grids has been the easy part, writes @davidfickling. Turning that electricity into the default way to power everything else will be harder https://www.bloomberg.com/opinion/articles/2026-11-08/clean-power-won-the-hard-part-is-how-to-use-it?taid=6af0d84893ecc90001db8609&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter",
-      "category": "Twitter"
-    },
-    {
-      "title": "Soccer's Kylian Mbappe apologized to Beijing and got nothing for it. Japan\u2019s leader Sanae Takaichi shouldn\u2019t make the same mistake, writes @GearoidR...",
-      "link": "https://x.com/opinion/status/2119516582384709728",
-      "date": "2026-11-08T19:45:06+00:00",
-      "tweet_id": "2119516582384709728",
-      "source": "Bloomberg Opinion",
-      "publisher": "Bloomberg Opinion",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Soccer's Kylian Mbappe apologized to Beijing and got nothing for it. Japan\u2019s leader Sanae Takaichi shouldn\u2019t make the same mistake, writes @GearoidReidy https://www.bloomberg.com/opinion/articles/2026-11-08/mbappe-said-sorry-to-beijing-takaichi-shouldn-t?taid=6af0d1425609e00001422b1c&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter",
-      "category": "Twitter"
-    },
-    {
       "title": "RT Anuradha Shukla: Visibility in Delhi! It is literally a gas chamber",
       "link": "https://x.com/menakadoshi/status/2119513855588245684",
       "date": "2026-11-08T18:29:39+00:00",
@@ -3442,6 +3712,36 @@
       "category": "Twitter"
     },
     {
+      "title": "Building new businesses through adjacencies is something that big companies can do much more easily because they already have the support, network, in...",
+      "link": "https://x.com/Normal_2610/status/2119475625274888538",
+      "date": "2026-11-08T17:02:21+00:00",
+      "tweet_id": "2119475625274888538",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWniPuNbYAAaT3K?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Building new businesses through adjacencies is something that big companies can do much more easily because they already have the support, network, intelligence and capital required.<br><br>There are plenty of examples. Birla Group has created several new businesses, some of which now have market caps exceeding \u20b92,000 crore. Jio Financial is another example. It started almost like an additional offering within the Jio ecosystem but has the potential to become a large business in its own right.<br><br>First build the muscle, then expand into new branches. Once you have the infrastructure, capital and ecosystem in place, building new businesses becomes much easier.<br><br>take this as a case study report<br><img width=\"692\" height=\"296\" style=\"\" src=\"https://pbs.twimg.com/media/HWniPuNbYAAaT3K?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"733\" height=\"316\" style=\"\" src=\"https://pbs.twimg.com/media/HWnibIEakAANiMu?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"755\" height=\"477\" style=\"\" src=\"https://pbs.twimg.com/media/HWnisWJbAAAu2zx?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"761\" height=\"317\" style=\"\" src=\"https://pbs.twimg.com/media/HWni6JcbsAAgk4A?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Seinfeld ended almost 30 years ago, but in 2026 about 72 million Americans (over 20% of the US) watched it. Netflix pays $100+ million a year just to ...",
+      "link": "https://x.com/Normal_2610/status/2119472911929225606",
+      "date": "2026-11-08T16:51:34+00:00",
+      "tweet_id": "2119472911929225606",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWnhXxCa4AAM80a?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Seinfeld ended almost 30 years ago, but in 2026 about 72 million Americans (over 20% of the US) watched it. Netflix pays $100+ million a year just to stream old episodes<br><br>In total, about $7 billion+ came from a $250 million show, roughly 30 times its cost. It still adds about $1 billion every decade.<br><img width=\"805\" height=\"402\" style=\"\" src=\"https://pbs.twimg.com/media/HWnhXxCa4AAM80a?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "RT The Indian Express: Mumbai Airport T2: False Ceiling Collapses Outside Terminal, Visitor Injured https://indianexpress.com/article/cities/mumbai/mu...",
       "link": "https://x.com/menakadoshi/status/2119502823717306808",
       "date": "2026-11-08T16:35:08+00:00",
@@ -3454,6 +3754,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002The Indian Express<br>Mumbai Airport T2: False Ceiling Collapses Outside Terminal, Visitor Injured https://indianexpress.com/article/cities/mumbai/mumbai-airport-t2-false-ceiling-collapse-visitor-injured-10955744/?utm_term=Autofeed&amp;utm_medium=Social&amp;utm_source=Twitter#Echobox=1794155421",
+      "category": "Twitter"
+    },
+    {
+      "title": "Promoters sold more than foreigners Everyone talked about foreign investors (FPIs) selling. But in the last 12 months, Indian promoters sold more than...",
+      "link": "https://x.com/Normal_2610/status/2119468763880071295",
+      "date": "2026-11-08T16:35:05+00:00",
+      "tweet_id": "2119468763880071295",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWndZi5bMAAYfny?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Promoters sold more than foreigners<br><br>Everyone talked about foreign investors (FPIs) selling. But in the last 12 months, Indian promoters sold more than FPIs did<br><br>Flows don\u2019t create returns. Flows follow returns. Money coming in or going out only changes short-term swings. Long-term returns come from earnings<br><br>Peaks in promoter selling often match market tops or flat periods. High prices plus a large supply of shares being sold keep markets from rising.<br><br>Track promoter selling data. Heavy selling usually comes when prices, valuations and mood are all high<br><br>In small caps, mid caps and new-age companies with large promoter selling, be very sure about the business and the valuation before you buy.<br><br>Expensive markets can stay expensive for a long time, and cheap markets can stay cheap. In this same week, indices moved 15\u201320% in a few days, which no valuation chart could have predicted. India is average, not cheap<br><br>Source - DSP monthly Report<br><img width=\"913\" height=\"473\" style=\"\" src=\"https://pbs.twimg.com/media/HWndZi5bMAAYfny?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"921\" height=\"445\" style=\"\" src=\"https://pbs.twimg.com/media/HWndffXbAAA_gH9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"917\" height=\"441\" style=\"\" src=\"https://pbs.twimg.com/media/HWndiUgaEAA-xgG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"918\" height=\"443\" style=\"\" src=\"https://pbs.twimg.com/media/HWndmfracAA3ODB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Normal Guy:\u2002DSP studied 25 years of promoter selling in all forms: stake sales, OFS, IPOs and QIPs. What they found is -<br><br>Promoters usually buy when their stock is in the cheapest zones, and those stocks tend to do well afterwards <br><br>Sample - SSWL ( Did highlisghted in Market Intelligence too<br><br><img width=\"773\" height=\"307\" style=\"\" src=\"https://pbs.twimg.com/media/HWncHrDaQAAxGEU?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -3472,6 +3787,51 @@
       "category": "Twitter"
     },
     {
+      "title": "DSP studied 25 years of promoter selling in all forms: stake sales, OFS, IPOs and QIPs. What they found is - Promoters usually buy when their stock is...",
+      "link": "https://x.com/Normal_2610/status/2119467132828454974",
+      "date": "2026-11-08T16:28:36+00:00",
+      "tweet_id": "2119467132828454974",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWncHrDaQAAxGEU?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "DSP studied 25 years of promoter selling in all forms: stake sales, OFS, IPOs and QIPs. What they found is -<br><br>Promoters usually buy when their stock is in the cheapest zones, and those stocks tend to do well afterwards <br><br>Sample - SSWL ( Did highlisghted in Market Intelligence too )<br><img width=\"773\" height=\"307\" style=\"\" src=\"https://pbs.twimg.com/media/HWncHrDaQAAxGEU?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Why Korea and Taiwan went up so much, and India did not? Korea and Taiwan started cheap. Korea market had been flat for about 20 years. So when their ...",
+      "link": "https://x.com/Normal_2610/status/2119465786528194712",
+      "date": "2026-11-08T16:23:15+00:00",
+      "tweet_id": "2119465786528194712",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Why Korea and Taiwan went up so much, and India did not?<br><br>Korea and Taiwan started cheap. Korea market had been flat for about 20 years. So when their profits jumped, their PE also went up. They got the double benefit",
+      "category": "Twitter"
+    },
+    {
+      "title": "This looks amazing and fascinates me about the Indian market and FMCG",
+      "link": "https://x.com/Normal_2610/status/2119460149303853454",
+      "date": "2026-11-08T16:00:51+00:00",
+      "tweet_id": "2119460149303853454",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWnVemHbIAAWBqU?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "This looks amazing and fascinates me about the Indian market and FMCG<br><img width=\"1458\" height=\"880\" style=\"\" src=\"https://pbs.twimg.com/media/HWnVemHbIAAWBqU?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Analysis: India\u2019s power-sector CO2 falls for only second time in half a century | @AggarwalAnubhaa @laurimyllyvirta Nandikesh Sivalingam Read here: h...",
       "link": "https://x.com/CarbonBrief/status/2119453664339206425",
       "date": "2026-11-08T15:35:05+00:00",
@@ -3484,6 +3844,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Analysis: India\u2019s power-sector CO2 falls for only second time in half a century | @AggarwalAnubhaa @laurimyllyvirta Nandikesh Sivalingam<br><br>Read here: https://buff.ly/wn86fVL<br><img width=\"1550\" height=\"1032\" style=\"\" src=\"https://pbs.twimg.com/media/HWnP4FCWUAA--Sv?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Politics has always fascinated me, but this regime shows how far political ambition can go When winning elections becomes the priority, almost anythin...",
+      "link": "https://x.com/Normal_2610/status/2119451372722807073",
+      "date": "2026-11-08T15:25:59+00:00",
+      "tweet_id": "2119451372722807073",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWnNT9Da0AALDsX?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Politics has always fascinated me, but this regime shows how far political ambition can go <br><br>When winning elections becomes the priority, almost anything can become a tool for votes even family, identity, fear, and division<br><br>Too much politics in everything is dangerous. When every issue is reduced to an electoral calculation, governance takes a back seat. The consequences may not be visible immediately, but they will show up in the coming years<br><br>https://theprint.in/national-interest/agniveers-agnipath-farm-laws-modi-government-reforms/3092684/<br><img width=\"851\" height=\"536\" style=\"\" src=\"https://pbs.twimg.com/media/HWnNT9Da0AALDsX?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -3544,6 +3919,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Haldilal<br>New Heart of India's Financial Capital,<br><br>National Stock Exchange of India, 69.53 Meter Tall, 2.4 Lakh Sq. Ft. BUA, IGBC Certificated, Electronic Trading Floor, office space and other various related facilities for NSE development on 1.4 acres land parcel at BKC, G Block, Mumbai.<br><img width=\"1648\" height=\"954\" style=\"\" src=\"https://pbs.twimg.com/media/HWmsT1MbgAA5wNB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1653\" height=\"951\" style=\"\" src=\"https://pbs.twimg.com/media/HWmsT1Sb0AAszmD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1475\" height=\"1067\" style=\"\" src=\"https://pbs.twimg.com/media/HWmsT1HbMAAsk9l?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1649\" height=\"954\" style=\"\" src=\"https://pbs.twimg.com/media/HWmsT1MaoAAPURs?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Kenya cancelled Adani $2 billion deal to modernize JKIA airport after public protests over sovereignty Then it gave same job to China Communications C...",
+      "link": "https://x.com/Normal_2610/status/2119435033132011703",
+      "date": "2026-11-08T14:21:03+00:00",
+      "tweet_id": "2119435033132011703",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Kenya cancelled Adani $2 billion deal to modernize JKIA airport after public protests over sovereignty<br><br>Then it gave same job to China Communications Construction Company for $2.9 billion, nearly 50% more. Same Chinese group whose subsidiary already built overcharged SGR railway. Protests removed competitive bidding from process, which made overcharging easier<br><br>Kenya now pays more for same airport work while calling it sovereign choice. Nobody raised questions about price that tells you what drove those protests. Same pattern shows up in BRI deals across Africa<br><br>World Bank looked at 3 railways China built in Africa Kenya paid most but got worst deal, not even electric service. 30% of that $900 million extra cost comes from poor governance.<br><br>Chinese contractor built Kenya railway and also did its own cost estimates<br><br>Between 2015 and 2019, Africa got $30 billion in net Chinese loans. Between 2020 and 2024, Africa sent $22 billion back that is $52 billion reversal in just 5 years. In 2025, 75 poorest countries owed China $22 billion in repayments, highest ever. <br><br>China is now more debt collector than lender for developing countries. Kenya SGR railway earns about Sh21 billion per year but loan repayments cost Sh153 billion. Revenue covers just 14% of what Kenya owes on that railway every year<br><br>Best of luck for KENYA<br><br>https://www.bloomberg.com/news/articles/2026-11-05/world-bank-says-corruption-cost-kenya-900-million-on-railway?taid=6aec815793ecc90001e9fa4a&amp;utm_campaign=trueanthem&amp;utm_content=business&amp;utm_medium=social&amp;utm_source=twitter",
       "category": "Twitter"
     },
     {
@@ -3634,6 +4024,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Anthropic strikes $3.4bn deal to generate gas-fired power for data centres https://ft.trib.al/waTxcBd",
+      "category": "Twitter"
+    },
+    {
+      "title": "JUST IN: NIFTY 50 ends Muhurat Trading in the red for the First time in 9 years, since 2017. The Index declined 0.18% during today's special trading s...",
+      "link": "https://x.com/Patterns0001/status/2119400386280993266",
+      "date": "2026-11-08T12:03:23+00:00",
+      "tweet_id": "2119400386280993266",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWmfaWuaIAA0vwj?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "JUST IN: NIFTY 50 ends Muhurat Trading in the red for the First time in 9 years, since 2017.<br><br>The Index declined 0.18% during today's special trading session.<br><img width=\"2048\" height=\"1504\" style=\"\" src=\"https://pbs.twimg.com/media/HWmfaWuaIAA0vwj?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -3769,6 +4174,36 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Happy Diwali to you &amp; your families! \ud83e\ude94<br><br>It\u2019s been a tough couple of years for Nifty, but sentiment seems to have finally turned over the past week.<br><br>If 2024 marked peak optimism followed by underperformance, hopefully October 2026 marked peak pessimism.<br><br>Wishing you all good health, happiness and wealth in the year ahead! \u2728<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002Nifty has come into its own over the past week, but Diwali-to-Diwali performance remains the weakest since 2011<br><br>History offers some hope: Nifty has often staged a recovery after a negative festival-to-festival year<br><br>But is the worst behind us, or do inflation risks still remain<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2119352177626116096/vid/avc1/1920x1080/-FL62gpbpc_41LXZ.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2119352177626116096/img/trGJs9BELhxN1JXR.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Patterns: JEFFERIES TURNS MORE BULLISH ON INDIA: Jefferies 'Increased' India's allocation in its Asia Pacific ex-Japan portfolio to 14%, up from 12...",
+      "link": "https://x.com/Patterns0001/status/2119602910963401075",
+      "date": "2026-11-08T09:19:25+00:00",
+      "tweet_id": "2119602910963401075",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWl54kuacAAEJ6p?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Patterns<br>JEFFERIES TURNS MORE BULLISH ON INDIA:<br><br>Jefferies 'Increased' India's allocation in its Asia Pacific ex-Japan portfolio to 14%, up from 12%.<br><br>That's now 2 percentage points above India's 12% weight in the \u2014 <br><br>MSCI AC Asia Pacific ex-Japan Benchmark<br><img width=\"2048\" height=\"672\" style=\"\" src=\"https://pbs.twimg.com/media/HWl54kuacAAEJ6p?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "JEFFERIES TURNS MORE BULLISH ON INDIA: Jefferies 'Increased' India's allocation in its Asia Pacific ex-Japan portfolio to 14%, up from 12%. That's now...",
+      "link": "https://x.com/Patterns0001/status/2119359122776944720",
+      "date": "2026-11-08T09:19:25+00:00",
+      "tweet_id": "2119359122776944720",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWl54kuacAAEJ6p?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "JEFFERIES TURNS MORE BULLISH ON INDIA:<br><br>Jefferies 'Increased' India's allocation in its Asia Pacific ex-Japan portfolio to 14%, up from 12%.<br><br>That's now 2 percentage points above India's 12% weight in the \u2014 <br><br>MSCI AC Asia Pacific ex-Japan Benchmark<br><img width=\"2048\" height=\"672\" style=\"\" src=\"https://pbs.twimg.com/media/HWl54kuacAAEJ6p?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -4132,6 +4567,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Private Banking sector, NIFTYPVTBANK, Closed at its Highest price in History.",
+      "link": "https://x.com/Patterns0001/status/2119249299183980916",
+      "date": "2026-11-08T02:03:01+00:00",
+      "tweet_id": "2119249299183980916",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWkWABgbQAERUnT?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Private Banking sector, NIFTYPVTBANK, Closed at its Highest price in History.<br><img width=\"2048\" height=\"1127\" style=\"\" src=\"https://pbs.twimg.com/media/HWkWABgbQAERUnT?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "CareEdge Group wishes you a Diwali filled with light, prosperity, and new beginnings. May the spirit of this festive season spark new possibilities, s...",
       "link": "https://x.com/CareEdge_Group/status/2119240989743186307",
       "date": "2026-11-08T01:30:00+00:00",
@@ -4369,6 +4819,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Visegr\u00e1d 24<br>BREAKING:<br><br>Several killed and many wounded in suspected terror attacking at the main square in Krakow, Poland.<br><br>A man in a black car drove across the square in black car, shooting from a rifle.<br><video width=\"1112\" height=\"2048\" src=\"https://video.twimg.com/amplify_video/2119084867489054720/vid/avc1/1290x2376/0tIYqhI20ROz1suM.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2119084867489054720/img/2AiE6okHspZIx4td.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Rohit Srivastava: A change of heart but that is how the balance has always come even if you go back 15 yrs, whenever FIIs buy DIIs sell and vice ve...",
+      "link": "https://x.com/Patterns0001/status/2119223459461124108",
+      "date": "2026-11-07T15:07:53+00:00",
+      "tweet_id": "2119223459461124108",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWffyNhaEAAFuVD?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Rohit Srivastava<br>A change of heart but that is how the balance has always come even if you go back 15 yrs, whenever FIIs buy DIIs sell and vice versa, someone has to supply the big orders, that is why cash market data does not determine market direction, sentiment does<div class=\"rsshub-quote\"><br><br>Patterns:\u2002DIIs:<br><br>This week, DIIs sold \u20b924,200 cr. of equities, their first week of net selling in 7 months, since April.<br><br>It was also their 'highest weekly' net selling in at least 19 years, since January 2008.<br><br><img width=\"2048\" height=\"1260\" style=\"\" src=\"https://pbs.twimg.com/media/HWffyNhaEAAFuVD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -4687,6 +5152,36 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Patterns: BREAKING: Uncertainty around India's economic policy fell to a 11-month low in October. EPU index has now dropped 50% since February, whe...",
+      "link": "https://x.com/Patterns0001/status/2119246376852951512",
+      "date": "2026-11-07T09:24:37+00:00",
+      "tweet_id": "2119246376852951512",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWgxe40a4AAb_Ja?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Patterns<br>BREAKING: Uncertainty around India's economic policy fell to a 11-month low in October.<br><br>EPU index has now dropped 50% since February, when it reached its highest level in 23 Years.<br><img width=\"2048\" height=\"823\" style=\"\" src=\"https://pbs.twimg.com/media/HWgxe40a4AAb_Ja?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "BREAKING: Uncertainty around India's economic policy fell to a 11-month low in October. EPU index has now dropped 50% since February, when it reached ...",
+      "link": "https://x.com/Patterns0001/status/2118998042644816038",
+      "date": "2026-11-07T09:24:37+00:00",
+      "tweet_id": "2118998042644816038",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWgxe40a4AAb_Ja?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: Uncertainty around India's economic policy fell to a 11-month low in October.<br><br>EPU index has now dropped 50% since February, when it reached its highest level in 23 Years.<br><img width=\"2048\" height=\"823\" style=\"\" src=\"https://pbs.twimg.com/media/HWgxe40a4AAb_Ja?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "Results of Different CDMO businesses below. A sector delivering on numbers",
       "link": "https://x.com/soicfinance/status/2118996264151089599",
       "date": "2026-11-07T09:17:33+00:00",
@@ -4927,6 +5422,21 @@
       "category": "Twitter"
     },
     {
+      "title": "BEST DIWALI FOR NIFTY 50: Nifty recorded its strongest pre-Diwali returns in 37 years, dating back to 1990, in 2026. Gained 10% in just 7 trading sess...",
+      "link": "https://x.com/Patterns0001/status/2118950010670780624",
+      "date": "2026-11-07T06:13:45+00:00",
+      "tweet_id": "2118950010670780624",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWgFzFybkAAfa5V?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BEST DIWALI FOR NIFTY 50:<br><br>Nifty recorded its strongest pre-Diwali returns in 37 years, dating back to 1990, in 2026.<br><br>Gained 10% in just 7 trading sessions.<br><img width=\"2048\" height=\"1508\" style=\"\" src=\"https://pbs.twimg.com/media/HWgFzFybkAAfa5V?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "The Carbon Brief Profile: France | @josh_gabbatiss @joejgoodman @tomoprater #CBarchive Read here: https://bit.ly/3O6WSjc",
       "link": "https://x.com/CarbonBrief/status/2118948071719522581",
       "date": "2026-11-07T06:06:03+00:00",
@@ -5029,6 +5539,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Prabhakar Kudva<br>This was written more than a month ago in market notes. <br><br>Mean reversion is an iron law of the markets.<br><img width=\"1206\" height=\"1130\" style=\"\" src=\"https://pbs.twimg.com/media/HWfhPA8bcAAgWS8?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "DIIs: This week, DIIs sold \u20b924,200 cr. of equities, their first week of net selling in 7 months, since April. It was also their 'highest weekly' net ...",
+      "link": "https://x.com/Patterns0001/status/2118908216142954647",
+      "date": "2026-11-07T03:27:40+00:00",
+      "tweet_id": "2118908216142954647",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWffyNhaEAAFuVD?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "DIIs:<br><br>This week, DIIs sold \u20b924,200 cr. of equities, their first week of net selling in 7 months, since April.<br><br>It was also their 'highest weekly' net selling in at least 19 years, since January 2008.<br><img width=\"2048\" height=\"1260\" style=\"\" src=\"https://pbs.twimg.com/media/HWffyNhaEAAFuVD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -5359,6 +5884,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Mark Minervini<br>The VIX has hit 28.5 -- our bear market warning level.<br>But this is also an area where many intermediate-term corrections have historically found a bottom. The key now is how the market responds.<br>If stocks can\u2019t rally convincingly from here and produce a legitimate follow-through day, expect more volatility. Even in the event of a follow-through action, before we could justify aggressive exposure, we would need to see a lack of distribution post follow-through AND stocks setting up in constructive bases offering buyable pivot points. <br>Bottom line: this level of volatility gets my attention --and my respect.<br>http://minervini.com<br><img width=\"1056\" height=\"816\" style=\"\" src=\"https://pbs.twimg.com/media/HWcwl9bWkAAcaIU?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Patterns: Angel One overtakes Zerodha to become India's 2nd-largest broker by active investors.",
+      "link": "https://x.com/Patterns0001/status/2118930723294130388",
+      "date": "2026-11-06T14:38:27+00:00",
+      "tweet_id": "2118930723294130388",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWcvuPMaIAA5wAq?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Patterns<br>Angel One overtakes Zerodha to become India's 2nd-largest broker by active investors.<br><img width=\"2048\" height=\"1540\" style=\"\" src=\"https://pbs.twimg.com/media/HWcvuPMaIAA5wAq?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Angel One overtakes Zerodha to become India's 2nd-largest broker by active investors.",
+      "link": "https://x.com/Patterns0001/status/2118714636002566238",
+      "date": "2026-11-06T14:38:27+00:00",
+      "tweet_id": "2118714636002566238",
+      "source": "Patterns",
+      "publisher": "Patterns",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWcvuPMaIAA5wAq?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Angel One overtakes Zerodha to become India's 2nd-largest broker by active investors.<br><img width=\"2048\" height=\"1540\" style=\"\" src=\"https://pbs.twimg.com/media/HWcvuPMaIAA5wAq?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -7057,36 +7612,6 @@
       "category": "Twitter"
     },
     {
-      "title": "\u201cA declaration of war requires an act of Congress,\u201d Alan Wolff says. \u201cSo why shouldn\u2019t the declaration of a trade war?\" https://foreignpolicy.com/...",
-      "link": "https://x.com/PIIE/status/2118400460860055703",
-      "date": "2026-11-05T17:50:02+00:00",
-      "tweet_id": "2118400460860055703",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "\u201cA declaration of war requires an act of Congress,\u201d Alan Wolff says. \u201cSo why shouldn\u2019t the declaration of a trade war?\" https://foreignpolicy.com/2026/11/04/midterms-democrats-trump-tariffs-trade-war-congress/",
-      "category": "Twitter"
-    },
-    {
-      "title": "The Santiago Principles\u2014voluntary guidelines adopted in 2008 for the governance & operation of sovereign wealth funds (SWFs)\u2014are in urgent need of r...",
-      "link": "https://x.com/PIIE/status/2118400459840839924",
-      "date": "2026-11-05T17:50:02+00:00",
-      "tweet_id": "2118400459840839924",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The Santiago Principles\u2014voluntary guidelines adopted in 2008 for the governance &amp; operation of sovereign wealth funds (SWFs)\u2014are in urgent need of revision, @AdnanMazarei &amp; @TrumanTed write. SWFs should disclose more clearly their risk management policies, procedures, &amp; practices &amp; their approach toward investment decisions that are directed in whole or in part at noneconomic considerations. https://www.piie.com/publications/policy-briefs/2026/it-time-revisit-santiago-principles-sovereign-wealth-funds",
-      "category": "Twitter"
-    },
-    {
       "title": "US MARKETS: TECH ROUTED, NASDAQ ENTERS CORRECTION TERRITORY! -Wall Street sees a brutal selloff as investors dump technology stocks. Nasdaq -3.9%, now...",
       "link": "https://x.com/Nigel__DSouza/status/2118396306683261163",
       "date": "2026-11-05T17:33:32+00:00",
@@ -7294,21 +7819,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Pranay Kotasthane<br>Fourth edition of the @puliyabaazi magazine is out. The theme is \u091c\u093e\u0928\u0926\u093e\u0930 \u0936\u0939\u0930\u0964<br><br>Also note that it begins with a legendary line from Jab We Met.<br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HWXlmvWaEAAg5aH?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HWXlmvHacAAkei4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HWXlmvBbwAAtnvR?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1536\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HWXlmvLb0AAg2R9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Tariffs on beginner gear, whether instruments, sports, or art supplies, thin out the next generation of customers for the very domestic producers they...",
-      "link": "https://x.com/PIIE/status/2118352137176367576",
-      "date": "2026-11-05T14:38:01+00:00",
-      "tweet_id": "2118352137176367576",
-      "source": "Peterson Institute",
-      "publisher": "PIIE",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Tariffs on beginner gear, whether instruments, sports, or art supplies, thin out the next generation of customers for the very domestic producers they are meant to protect. &amp; the losses are not confined to importers, retailers, or manufacturers. https://www.piie.com/blogs/realtime-economics/2026/santas-sleigh-will-be-weighed-down-tariffs",
       "category": "Twitter"
     },
     {
