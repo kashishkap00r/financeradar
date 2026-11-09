@@ -1806,8 +1806,8 @@
         const RESEARCH_PAGE_SIZE = 20;
         let selectedResearchPublishers = new Set();
         let researchRegionFilter = 'all'; // 'all' | 'indian' | 'international' | 'stocknotes'
-        // Broker stock notes (kind 'stock_note') only show in the 'stocknotes' view;
-        // the other three views are research only, so ~25 notes a day don't bury it.
+        // Broker stock notes live in their own file (static/stock_notes.json, all
+        // history), loaded only when the Stock notes view is first opened.
         const RESEARCH_VIEW_IDS = { all: 'research-region-all', indian: 'research-region-indian', international: 'research-region-international', stocknotes: 'research-region-stocknotes' };
 
         // ==================== PAPERS TAB (vars) ====================
@@ -3656,10 +3656,33 @@
 
         const isStockNote = r => r.kind === 'stock_note';
 
+        // Archive rows → the research-card shape. Title = company + the PDF's own
+        // headline (company alone until the headline has been read).
+        function toStockNoteCard(n) {
+            return {
+                title: n.headline ? `${n.company} — ${n.headline}` : n.company,
+                link: n.link,
+                date: n.date ? n.date + 'T00:00:00+05:30' : null,
+                publisher: n.broker,
+                source: n.via || '',
+                source_url: '',
+                description: '',
+                region: 'Indian',
+                kind: 'stock_note',
+            };
+        }
+
+        function loadStockNotes() {
+            if (STOCK_NOTES) return Promise.resolve();
+            return _safeLoad('stock_notes', 'static/stock_notes.json', function(d) {
+                STOCK_NOTES = Array.isArray(d) ? d.map(toStockNoteCard) : [];
+            }).then(function() { if (!STOCK_NOTES) STOCK_NOTES = []; });
+        }
+
         // Publishers for the dropdown: brokers in Stock notes, research houses elsewhere.
         function currentResearchPublishers() {
             if (researchRegionFilter !== 'stocknotes') return RESEARCH_PUBLISHERS;
-            return [...new Set((RESEARCH_REPORTS || []).filter(isStockNote).map(r => r.publisher).filter(Boolean))].sort();
+            return [...new Set((STOCK_NOTES || []).map(r => r.publisher).filter(Boolean))].sort();
         }
 
         function syncResearchViewButtons() {
@@ -3672,8 +3695,17 @@
         function filterResearch() {
             const query = document.getElementById('search-input').value.toLowerCase().trim();
             const notesView = researchRegionFilter === 'stocknotes';
-            filteredResearch = RESEARCH_REPORTS.filter(r => {
-                if (isStockNote(r) !== notesView) return false;
+            if (notesView && !STOCK_NOTES) {
+                document.getElementById('research-container').innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">Loading stock notes…</div>';
+                loadStockNotes().then(function() {
+                    if (researchRegionFilter !== 'stocknotes') return;
+                    initResearchPublisherDropdown();
+                    syncResearchPublisherSummary();
+                    filterResearch();
+                });
+                return;
+            }
+            filteredResearch = (notesView ? STOCK_NOTES : RESEARCH_REPORTS).filter(r => {
                 const matchesSearch = !query || (r.title + ' ' + r.source + ' ' + (r.publisher || '') + ' ' + (r.description || '')).toLowerCase().includes(query);
                 const pub = r.publisher || r.source;
                 const matchesPublisher = selectedResearchPublishers.size === 0 || selectedResearchPublishers.has(pub);

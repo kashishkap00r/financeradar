@@ -141,13 +141,15 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 
 ### Reports → Stock notes (Nov 2026)
 
-Indian brokers' calls on single stocks (rating, target, PDF) live in the Reports tab's own **Stock notes** view, next to All / Indian / International. The other three views never show them, so ~25 notes a day don't bury the research. Items carry `kind: "stock_note"`.
+Indian brokers' notes on single stocks live in the Reports tab's own **Stock notes** view, next to All / Indian / International. Card = broker, then **company — the PDF's own headline** (company alone until the headline is read). No rating, target or price history on the card (user's call). Clicking opens the PDF.
 
-- Sources today (aggregators): `mcideas:` → Moneycontrol's broker-research JSON API (`fetch_moneycontrol_ideas`, ~25/day, public PDFs on images.moneycontrol.com; the API also gives the broker's previous call, kept on the item as `prev_target`/`prev_rating` but not shown — the user asked for no price-history line on the cards), and `bsresearch:` → Business Standard's research page, whose whole list sits in `__NEXT_DATA__` (`fetch_bs_research`, ~3/day, mostly brokers Moneycontrol lacks: JM, Elara, Centrum…). Next step is scrapers on brokers' own sites to skip the middlemen; give them `"kind": "stock_note"` and build items with `_stock_note()`.
-- `stock_notes.py` holds what every source must agree on: `canonical_broker()` (one spelling per broker; returns None for foreign houses like Citi/Jefferies and for aggregators' own picks — the view is **Indian-only**, user rule), `canonical_rating()`, `dedup_stock_notes()` (same broker + same target + same first word of the company within 3 days = one call; the richer listing wins). The aggregator runs the dedup across all report feeds.
-- Moneycontrol occasionally dates a report after the day it posted it (seen: posted 2 Nov, dated 11 Nov). The fetcher takes the earlier of the two dates.
-- Stock notes are excluded from `ai_ranker.py` candidates (they would crowd out think-tank reports in the 10-slot bucket) via `kind` in `published_snapshot.json`.
-- 14-day window (`max_age_days`) keeps `tab_research.json` near 370 KB; notes have a date but no time, so the card shows no "Nh ago".
+- **Archive, all history:** `static/stock_notes.json` — every note since Nov 2023 (~10.7k; ~2.9 MB, ~260 KB gzipped), newest first, one note per line so hourly commits touch a few lines. It is NOT part of `tab_research.json`; `app.js` fetches it only when Stock notes is first clicked (`loadStockNotes()`), so the homepage never pays for it. Notes never reach `published_snapshot.json` or the AI ranker.
+- **Sources (aggregators, for now):** `mcideas:` → Moneycontrol's broker-research JSON API (`fetch_moneycontrol_ideas`; history back to Jan 2024, ~25/day), `bsresearch:` → Business Standard's research page, whole list in `__NEXT_DATA__` (`fetch_bs_research`; back to Nov 2024, mostly brokers Moneycontrol lacks). The hourly run fetches 14 days (`max_age_days`) and `update_stock_notes_archive()` in aggregator.py merges new ones in. Next step is scrapers on brokers' own sites to skip the middlemen; give them `"kind": "stock_note"` and build items with `_stock_note()`.
+- **Headlines:** `fill_headlines()` downloads each PDF, reads page 1 with `pdftotext` (poppler-utils, installed by hourly.yml), and Gemini (`HEADLINE_CHAIN`, flash-lite first, 8 notes per call) copies out the headline. Up to 1,000 per hourly run within 10 min, newest first, so the ~10.7k history backlog clears over about a day of runs. A failed download / no headline burns one of 2 tries; a Gemini outage burns none. Skipped cleanly without `GEMINI_API_KEY` or `pdftotext`.
+- `stock_notes_backfill.py` re-fetches the full history (`--no-headlines` needs no key; ~9 min) and can fill headlines locally (`--headlines-only`). Re-runnable; saves as it goes. (Nov 2026: the laptop's own GEMINI_API_KEY returned HTTP 402 on every model while the Actions secret worked — that is why headlines are filled in CI.)
+- `stock_notes.py` holds what every source must agree on: `canonical_broker()` (one spelling per broker — AnandRathi, Mirae Asset Sharekhan, KRChoksey/Deven Choksey and "Pvt Ltd" are folded; returns None for foreign houses like Citi/Jefferies and for aggregators' own picks — the view is **Indian-only**, user rule), `dedup_stock_notes()` (same broker + same target + same first word of the company within 3 days = one call; the entry with a headline wins), archive load/save/merge.
+- Moneycontrol sometimes dates a report after the day it posted it (posted 2 Nov, dated 11 Nov). The fetcher takes the earlier date.
+- Notes carry a date but no time, so the card shows no "Nh ago".
 - Inspiration: yashsarda31's India Research Hub (github.com/yashsarda31/india-research-hub) — used as a map of sources, not as a data feed (one person's hand-run Windows build, no licence).
 
 ### Frontend Architecture
@@ -185,7 +187,8 @@ Indian brokers' calls on single stocks (rating, target, PDF) live in the Reports
 | `ieefa_local_fetch.py` (205L) | Playwright backfill → tops up `static/ieefa_cache.json` | Local only (manual) |
 | `ember_local_fetch.py` (170L) | Playwright + Ember WP REST API → `static/ember_cache.json` | Local only (manual) |
 | `config.py` (86L) | All magic numbers and tunables | Imported by most modules |
-| `stock_notes.py` | Broker names, Indian-only filter, ratings, cross-site dedup for Stock notes | reports_fetcher.py, aggregator.py |
+| `stock_notes.py` | Stock notes: broker names, Indian-only filter, dedup, archive, PDF headlines | reports_fetcher.py, aggregator.py |
+| `stock_notes_backfill.py` | Re-runnable full-history fetch + headline fill | Local only (manual) |
 
 Frontend: `templates/app.js` (~4080L) + `templates/style.css` (~3100L). Tests: 18 modules in `tests/`.
 
@@ -214,8 +217,8 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 - `region`: Reports-only, `"Indian"` or `"International"` (omit for other categories)
 - `keep_days`: News-only, optional. For publishers whose RSS only holds a day or two (The Core), `merge_news_cache()` keeps every post in `static/news_cache.json` for this many days, so stories survive the full 5-day news window and the 30-day Slow Reads window
 - `link_contains`: optional. Keep only items whose link contains this substring. Bloomberg newsletters have no feeds of their own (newsletter pages + their `newsletters-signup-next` API sit behind PerimeterX), so each is pulled from its **steady writers'** author RSS with `"link_contains": "/newsletters/"`. Rotating-writer newsletters (New Economy, Deals, Business of Food/Sports, Green Daily) were deliberately left out — the user wants no stray writers or editions. `dedupe_by_link()` collapses co-written issues
-- `max_items` / `max_age_days`: Reports-only, optional. Override the scraper decorator's 30-item cap and 30-day window per feed (stock-note feeds use 800/400 and 14 days)
-- `kind`: Reports-only, optional. `"stock_note"` routes a feed's items to the Stock notes view (set on the item by the fetcher; the feeds.json key documents it)
+- `max_items` / `max_age_days`: Reports-only, optional. Override the scraper decorator's 30-item cap and 30-day window per feed (stock-note feeds use 800/400 and 14 days; `max_pages` caps Moneycontrol paging)
+- `kind`: Reports-only, optional. `"stock_note"` routes a feed's items into the Stock notes archive instead of the Reports list (set on the item by the fetcher; the feeds.json key documents it)
 - `link_excludes`: optional. Drop items whose link contains this substring. The Core's main feed (`thecore`) excludes `"/opinion/"`, and a second entry on the same feed URL (`thecore-opinion`, "The Core Opinion") keeps only `"/opinion/"`, so The Take + The Plinth get their own Slow Reads slots instead of competing with The Core's daily news for its 5
 - For sites behind Cloudflare/WAF, use Google News RSS proxy: `https://news.google.com/rss/search?q=site:domain.com/path&hl=en-IN&gl=IN&ceid=IN:en`
 

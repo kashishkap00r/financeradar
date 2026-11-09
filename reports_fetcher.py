@@ -2307,7 +2307,7 @@ def fetch_moneycontrol_ideas(feed_config):
     """
     cutoff = _feed_cutoff(feed_config)
     articles = []
-    for page in range(_MC_IDEAS_MAX_PAGES):
+    for page in range(feed_config.get("max_pages") or _MC_IDEAS_MAX_PAGES):
         url = (f"{_MC_IDEAS_API}?start={page * _MC_IDEAS_PAGE_SIZE}"
                f"&limit={_MC_IDEAS_PAGE_SIZE}&deviceType=W")
         raw = _fetch_url(url, accept="application/json", feed_config=feed_config)

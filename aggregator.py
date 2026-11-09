@@ -46,7 +46,9 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher, _atomic_write_json
-from stock_notes import STOCK_NOTE_FIELDS, STOCK_NOTE_KIND, dedup_stock_notes
+from stock_notes import (ARCHIVE_FILE as STOCK_NOTES_FILE, STOCK_NOTE_KIND, fill_headlines,
+                         load_archive, merge_into_archive, save_archive)
+import shutil
 from paper_fetcher import fetch_papers, load_papers_cache, save_papers_cache
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
@@ -150,6 +152,44 @@ def _normalize_ai_rankings_telegram(obj):
     elif isinstance(obj, list):
         for value in obj:
             _normalize_ai_rankings_telegram(value)
+
+
+# Headlines per run, newest first. ~25 new notes a day, so this mostly works
+# through the ~10.7k-note history backlog (about a day of hourly runs), then
+# idles. The time budget keeps the hourly job well under its 30-min limit.
+STOCK_NOTE_HEADLINES_PER_RUN = 1000
+STOCK_NOTE_HEADLINE_BUDGET = 600      # seconds
+STOCK_NOTE_HEADLINE_WORKERS = 8
+
+
+def update_stock_notes_archive(stock_note_articles, logger):
+    """Merge fetched notes into static/stock_notes.json, fill a few headlines, save.
+
+    Never fatal: on any problem the archive on disk is left as it was.
+    Returns the number of notes in the archive (for the Stock notes count).
+    """
+    archive = load_archive(STOCK_NOTES_FILE)
+    before = len(archive)
+    try:
+        archive = merge_into_archive(archive, stock_note_articles)
+        added = len(archive) - before
+        filled = 0
+        if not os.environ.get("GEMINI_API_KEY"):
+            logger.info("Stock notes: GEMINI_API_KEY not set, headlines skipped")
+        elif not shutil.which("pdftotext"):
+            logger.warn("Stock notes", "pdftotext not installed (poppler-utils), headlines skipped")
+        else:
+            filled = fill_headlines(archive, limit=STOCK_NOTE_HEADLINES_PER_RUN,
+                                    time_budget=STOCK_NOTE_HEADLINE_BUDGET,
+                                    workers=STOCK_NOTE_HEADLINE_WORKERS)
+        if before and len(archive) < before:
+            raise RuntimeError(f"archive shrank {before} → {len(archive)}")
+        save_archive(STOCK_NOTES_FILE, archive)
+        logger.info(f"Stock notes: {len(archive)} in archive (+{added} new, {filled} headlines filled)")
+    except Exception as e:
+        logger.warn("Stock notes", f"archive not updated: {str(e)[:120]}")
+        archive = load_archive(STOCK_NOTES_FILE)
+    return len(archive)
 
 
 def export_published_snapshot(article_groups, video_articles, twitter_articles, report_articles, paper_articles=None, twitter_high_signal=None):
@@ -584,32 +624,19 @@ def generate_html(
     # Prepare research reports data
     if report_articles is None:
         report_articles = []
-    def _serialize_research_item(r):
-        out = {
-            "title": r["title"],
-            "link": r["link"],
-            "date": r["date"].isoformat() if r.get("date") else None,
-            "source": r.get("source", ""),
-            "publisher": r.get("publisher", ""),
-            "source_url": r.get("source_url", ""),
-            "description": r.get("description", ""),
-            "region": r.get("region", "Indian"),
-        }
-        if r.get("kind") == STOCK_NOTE_KIND:
-            # Only set fields ship — keeps ~400 notes from bloating the tab JSON.
-            out["kind"] = STOCK_NOTE_KIND
-            for key in STOCK_NOTE_FIELDS:
-                if r.get(key) not in (None, ""):
-                    out[key] = r[key]
-        return out
-
-    research_reports_json = json.dumps([_serialize_research_item(r) for r in report_articles])
-    stock_note_count = sum(1 for r in report_articles if r.get("kind") == STOCK_NOTE_KIND)
-    research_count = len(report_articles) - stock_note_count  # the default view leaves notes out
-    research_publishers = sorted(set(
-        r.get("publisher", "") for r in report_articles
-        if r.get("publisher") and r.get("kind") != STOCK_NOTE_KIND
-    ))
+    research_reports_json = json.dumps([{
+        "title": r["title"],
+        "link": r["link"],
+        "date": r["date"].isoformat() if r.get("date") else None,
+        "source": r.get("source", ""),
+        "publisher": r.get("publisher", ""),
+        "source_url": r.get("source_url", ""),
+        "description": r.get("description", ""),
+        "region": r.get("region", "Indian"),
+    } for r in report_articles])
+    research_count = len(report_articles)
+    stock_note_count = len(load_archive(STOCK_NOTES_FILE))  # Stock notes view count
+    research_publishers = sorted(set(r.get("publisher", "") for r in report_articles if r.get("publisher")))
     research_publishers_json = json.dumps(research_publishers)
 
     # Prepare papers data
@@ -1136,6 +1163,7 @@ def generate_html(
         var TWITTER_PUBLISHERS = {twitter_publishers_json};
         var TWITTER_PRESETS = {twitter_presets_json};
         var RESEARCH_REPORTS = null;
+        var STOCK_NOTES = null;  // static/stock_notes.json, fetched on first click of Stock notes
         var RESEARCH_PUBLISHERS = {research_publishers_json};
         var PAPER_ARTICLES = null;
         var NEWS_ARTICLES = null;
@@ -1415,11 +1443,12 @@ def main():
     except Exception as e:
         logger.warn("Reports cache", f"could not write: {e}")
 
-    # The same broker call is often listed on Moneycontrol and Business Standard.
-    pre_note_dedup_count = len(report_articles)
-    report_articles = dedup_stock_notes(report_articles)
-    if pre_note_dedup_count != len(report_articles):
-        logger.info(f"Stock notes: removed {pre_note_dedup_count - len(report_articles)} cross-site duplicates")
+    # Broker stock notes leave the Reports research list here: they go into
+    # their own archive (static/stock_notes.json, all history, loaded only
+    # when someone opens Stock notes) and get their PDF headlines filled.
+    stock_note_articles = [r for r in report_articles if r.get("kind") == STOCK_NOTE_KIND]
+    report_articles = [r for r in report_articles if r.get("kind") != STOCK_NOTE_KIND]
+    update_stock_notes_archive(stock_note_articles, logger)
 
     # Filter political keyword matches from reports tab.
     pre_report_political_count = len(report_articles)

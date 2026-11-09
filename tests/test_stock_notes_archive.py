@@ -1,0 +1,143 @@
+"""Stock-notes archive (static/stock_notes.json) and PDF-headline filling."""
+
+import json
+import os
+import tempfile
+import unittest
+from datetime import datetime, timedelta
+
+from articles import IST_TZ
+from stock_notes import (
+    STOCK_NOTE_KIND,
+    clean_headline,
+    fill_headlines,
+    load_archive,
+    merge_into_archive,
+    save_archive,
+)
+
+
+def _article(broker, company, target, days_ago, via, link, prev=None):
+    """A fetched stock note, as reports_fetcher builds it."""
+    return {
+        "kind": STOCK_NOTE_KIND, "publisher": broker, "company": company, "target": target,
+        "date": datetime.now(IST_TZ) - timedelta(days=days_ago), "via": via, "link": link,
+        "prev_target": prev, "title": f"{company}: Buy",
+    }
+
+
+def _entry(link, days_ago=0, headline="", tries=0, company="Infosys", broker="Emkay Global", target=1300.0):
+    return {
+        "date": (datetime.now(IST_TZ) - timedelta(days=days_ago)).date().isoformat(),
+        "broker": broker, "company": company, "headline": headline, "link": link,
+        "via": "Moneycontrol", "target": target, "headline_tries": tries,
+    }
+
+
+class TestMerge(unittest.TestCase):
+    def test_new_notes_are_added_in_archive_shape_newest_first(self):
+        out = merge_into_archive([], [
+            _article("Emkay Global", "Infosys", 1300.0, 3, "Moneycontrol", "https://mc/a.pdf"),
+            _article("JM Financial", "Trent", 3000.0, 1, "Business Standard", "https://bs/b.pdf"),
+        ])
+        self.assertEqual([e["link"] for e in out], ["https://bs/b.pdf", "https://mc/a.pdf"])
+        e = out[1]
+        self.assertEqual(set(e), {"date", "broker", "company", "headline", "link", "via", "target", "headline_tries"})
+        self.assertEqual(e["broker"], "Emkay Global")
+        self.assertEqual(e["headline"], "")
+        self.assertEqual(e["date"], (datetime.now(IST_TZ) - timedelta(days=3)).date().isoformat())
+
+    def test_known_links_keep_their_headline(self):
+        archive = [_entry("https://mc/a.pdf", headline="Deal wins drive the beat", tries=1)]
+        out = merge_into_archive(archive, [_article("Emkay Global", "Infosys", 1300.0, 0, "Moneycontrol", "https://mc/a.pdf")])
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]["headline"], "Deal wins drive the beat")
+
+    def test_cross_site_repeat_of_an_archived_call_is_not_added(self):
+        archive = [_entry("https://mc/a.pdf", days_ago=2, headline="Deal wins drive the beat")]
+        bs_copy = _article("Emkay Global", "Infosys Ltd", 1300.0, 0, "Business Standard", "https://bs/x.pdf")
+        out = merge_into_archive(archive, [bs_copy])
+        self.assertEqual([e["link"] for e in out], ["https://mc/a.pdf"])
+
+    def test_mc_listing_wins_over_bs_copy_when_both_are_new(self):
+        mc = _article("Motilal Oswal", "Jubilant Foodworks", 625.0, 2, "Moneycontrol", "https://mc/j.pdf", prev=600.0)
+        bs = _article("Motilal Oswal", "Jubilant FoodWorks", 625.0, 0, "Business Standard", "https://bs/j.pdf")
+        out = merge_into_archive([], [bs, mc])
+        self.assertEqual([e["link"] for e in out], ["https://mc/j.pdf"])
+
+
+class TestSaveLoad(unittest.TestCase):
+    def test_round_trip_is_stable_one_note_per_line(self):
+        items = [_entry("https://mc/b.pdf", 1), _entry("https://mc/a.pdf", 0, headline="Beat")]
+        with tempfile.TemporaryDirectory() as d:
+            path = os.path.join(d, "stock_notes.json")
+            save_archive(path, items)
+            first = open(path, encoding="utf-8").read()
+            self.assertEqual(len(first.strip().splitlines()), 4)  # [ + 2 notes + ]
+            self.assertEqual(json.loads(first)[0]["link"], "https://mc/a.pdf")  # newest first
+            save_archive(path, load_archive(path))
+            self.assertEqual(open(path, encoding="utf-8").read(), first)
+
+    def test_missing_or_broken_file_loads_empty(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.assertEqual(load_archive(os.path.join(d, "nope.json")), [])
+            bad = os.path.join(d, "bad.json")
+            open(bad, "w").write("{oops")
+            self.assertEqual(load_archive(bad), [])
+
+
+class TestCleanHeadline(unittest.TestCase):
+    def test_cleanup(self):
+        self.assertEqual(clean_headline('  "Production drag  persists"  ', "ONGC"), "Production drag persists")
+        self.assertEqual(clean_headline("Infosys", "Infosys"), "")
+        self.assertEqual(clean_headline("", "Infosys"), "")
+        self.assertEqual(clean_headline("x" * 300, "Infosys"), "")
+
+
+class TestFillHeadlines(unittest.TestCase):
+    def test_fills_newest_first_and_counts_tries(self):
+        items = [
+            _entry("https://mc/old.pdf", days_ago=5),
+            _entry("https://mc/new.pdf", days_ago=0, company="Trent"),
+            _entry("https://mc/done.pdf", days_ago=1, headline="Already there"),
+            _entry("https://mc/gaveup.pdf", days_ago=0, tries=2),
+            _entry("https://mc/broken.pdf", days_ago=0),
+        ]
+        texts = {"https://mc/new.pdf": "Trent page one", "https://mc/old.pdf": "Infosys page one"}
+
+        def fake_text(link):
+            if link not in texts:
+                raise OSError("404")
+            return texts[link]
+
+        asked = []
+
+        def fake_ask(batch):
+            asked.append([b["link"] for b in batch])
+            return {b["link"]: ("Zudio keeps compounding" if b["company"] == "Trent" else "") for b in batch}
+
+        filled = fill_headlines(items, limit=10, pdf_text=fake_text, ask_model=fake_ask, workers=2, batch_size=8)
+        by = {e["link"]: e for e in items}
+        self.assertEqual(filled, 1)
+        self.assertEqual(by["https://mc/new.pdf"]["headline"], "Zudio keeps compounding")
+        self.assertEqual(by["https://mc/old.pdf"]["headline"], "")
+        self.assertEqual(by["https://mc/old.pdf"]["headline_tries"], 1)      # model found none
+        self.assertEqual(by["https://mc/broken.pdf"]["headline_tries"], 1)   # download failed
+        self.assertEqual(by["https://mc/gaveup.pdf"]["headline_tries"], 2)   # not retried
+        self.assertEqual(by["https://mc/done.pdf"]["headline"], "Already there")
+        self.assertEqual(asked, [["https://mc/new.pdf", "https://mc/old.pdf"]])  # newest first, one batch
+
+    def test_limit_and_model_failure_leave_items_retryable(self):
+        items = [_entry(f"https://mc/{i}.pdf", days_ago=i) for i in range(5)]
+
+        def boom(batch):
+            raise RuntimeError("All Gemini models failed")
+
+        filled = fill_headlines(items, limit=2, pdf_text=lambda link: "text", ask_model=boom, workers=1)
+        self.assertEqual(filled, 0)
+        # A model outage is not the PDF's fault: no try is burned.
+        self.assertEqual([e["headline_tries"] for e in items], [0, 0, 0, 0, 0])
+
+
+if __name__ == "__main__":
+    unittest.main()

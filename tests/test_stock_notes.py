@@ -115,6 +115,14 @@ class TestBrokerNames(unittest.TestCase):
         self.assertEqual(canonical_broker("ICICIdirect.com"), "ICICI Securities")
         self.assertEqual(canonical_broker("Share Khan"), "Sharekhan")
         self.assertEqual(canonical_broker("Choice Institutional Equities"), "Choice Broking")
+        # Seen in the full Moneycontrol history (Nov 2023 →)
+        self.assertEqual(canonical_broker("AnandRathi"), "Anand Rathi")
+        self.assertEqual(canonical_broker("Mirae Asset Sharekhan"), "Sharekhan")
+        self.assertEqual(canonical_broker("KRChoksey"), "KR Choksey")
+        self.assertEqual(canonical_broker("Deven Choksey"), "KR Choksey")
+        self.assertEqual(canonical_broker("ProfitMart Securities Pvt Ltd"), "ProfitMart Securities")
+        self.assertEqual(canonical_broker("East India Securities Ltd"), "East India Securities")
+        self.assertEqual(canonical_broker("IIFL Investment Managers"), "IIFL")
 
     def test_unknown_indian_broker_passes_through_trimmed(self):
         self.assertEqual(canonical_broker("  Networth Capital "), "Networth Capital")
