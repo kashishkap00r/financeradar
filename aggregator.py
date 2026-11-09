@@ -158,10 +158,11 @@ def _normalize_ai_rankings_telegram(obj):
 STOCK_NOTE_HEADLINES_PER_RUN = 1000
 STOCK_NOTE_HEADLINE_BUDGET = 600      # seconds
 STOCK_NOTE_HEADLINE_WORKERS = 8
-# How far back CI fills headlines (None = all history). Jan 2025 onwards was
-# filled by local Claude batches (Nov 2026); Gemini in CI does the rest, then
-# just new notes.
-STOCK_NOTE_HEADLINE_MAX_AGE_DAYS = None
+# How far back CI fills headlines (None = all history), when enabled.
+STOCK_NOTE_HEADLINE_MAX_AGE_DAYS = 30
+# Off at the user's request (10 Nov 2026): no Gemini headlines, old or new.
+# Jan 2025 → 10 Nov 2026 headlines were read by Claude locally and stay.
+STOCK_NOTE_HEADLINES_ENABLED = False
 
 
 def update_stock_notes_archive(stock_note_articles, logger):
@@ -176,7 +177,9 @@ def update_stock_notes_archive(stock_note_articles, logger):
         archive = merge_into_archive(archive, stock_note_articles)
         added = len(archive) - before
         filled = 0
-        if not os.environ.get("GEMINI_API_KEY"):
+        if not STOCK_NOTE_HEADLINES_ENABLED:
+            pass
+        elif not os.environ.get("GEMINI_API_KEY"):
             logger.info("Stock notes: GEMINI_API_KEY not set, headlines skipped")
         elif not shutil.which("pdftotext"):
             logger.warn("Stock notes", "pdftotext not installed (poppler-utils), headlines skipped")
