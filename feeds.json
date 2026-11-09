@@ -781,9 +781,10 @@
     "id": "the-morning-context",
     "name": "The Morning Context",
     "url": "https://themorningcontext.com",
-    "feed": "https://news.google.com/rss/search?q=site:themorningcontext.com&hl=en-IN&gl=IN&ceid=IN:en",
+    "feed": "https://news.google.com/rss/search?q=site:themorningcontext.com+when:30d&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "News",
-    "publisher": "The Morning Context"
+    "publisher": "The Morning Context",
+    "title_excludes": "^(?:The Morning Context:\\s*)?(?:Internet, Business, Chaos|Privacy Policy|Pricing|About Us|Grievance Redressal|All Stories|Longreads|TMC Private|Terms (?:of|and|&) \\w+)\\s*(?:[-|:]|$)"
   },
   {
     "id": "the-leap-blog",

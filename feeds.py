@@ -284,6 +284,12 @@ def _escape_bare_ampersands(content):
     return b"".join(parts)
 
 
+def title_excludes_re(feed_config):
+    """Compiled feeds.json "title_excludes" regex for a feed, or None."""
+    pattern = feed_config.get("title_excludes", "")
+    return re.compile(pattern, re.IGNORECASE) if pattern else None
+
+
 def _parse_feed_content(content, feed_config):
     """Parse raw RSS/Atom XML content into article objects."""
     feed_name = feed_config["name"]
@@ -303,6 +309,13 @@ def _parse_feed_content(content, feed_config):
     # ...and "link_excludes" drops items whose link has it (The Core's main feed
     # drops "/opinion/", which its own The Core Opinion entry picks up instead)
     link_excludes = feed_config.get("link_excludes", "")
+    # ...and "title_excludes" (a case-insensitive regex) drops site pages that a
+    # Google site: search returns as 'articles' (The Morning Context's Privacy Policy)
+    title_excludes = title_excludes_re(feed_config)
+
+    def _title_allowed(title_el):
+        title_text = title_el.text if title_el is not None and title_el.text else ""
+        return not (title_excludes and title_excludes.search(title_text))
 
     def _link_allowed(link):
         link_l = (link or "").lower()
@@ -336,7 +349,7 @@ def _parse_feed_content(content, feed_config):
             guid = item.find("atom:id", ns)
 
             link_href = link.get("href") if link is not None else ""
-            if not _link_allowed(link_href):
+            if not _link_allowed(link_href) or not _title_allowed(title):
                 continue
 
             article_data = {
@@ -384,7 +397,7 @@ def _parse_feed_content(content, feed_config):
             guid = item.find("guid")
             description = item.find("description")
             link_text = link.text if link is not None and link.text else ""
-            if not _link_allowed(link_text):
+            if not _link_allowed(link_text) or not _title_allowed(title):
                 continue
 
             # Extract image from media:thumbnail, media:content, or enclosure
@@ -540,8 +553,24 @@ def _best_effort_resolve_google_link(link, guid="", description=""):
     return link
 
 
+# A site's own tag/topic/company listing page, e.g. Google News titles a Morning
+# Context tag page "Tag | westside%20stores | The Morning Context | Business And ..."
+_LISTING_PAGE_TITLE_RE = re.compile(
+    r"^\s*(?:tags?|topics?|categor(?:y|ies)|authors?|compan(?:y|ies))\s*\|", re.IGNORECASE
+)
+
+
+def is_listing_page_title(title):
+    """True when a Google News 'article' is really a site's tag/category/company page."""
+    return bool(_LISTING_PAGE_TITLE_RE.match(title or ""))
+
+
 def _post_process_google_rss_articles(articles, feed_config):
-    """Normalize Google RSS titles and resolve links when possible."""
+    """Normalize Google RSS titles, drop listing pages, and resolve links when possible.
+
+    Filters `articles` in place: a site: search returns tag/company pages too.
+    """
+    articles[:] = [a for a in articles if not is_listing_page_title(a.get("title"))]
     publisher = feed_config.get("publisher", "")
     resolved_count = 0
     attempted_count = 0

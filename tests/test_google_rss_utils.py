@@ -13,6 +13,7 @@ from feeds import (
     _decode_google_article_token,
     _best_effort_resolve_google_link,
     _post_process_google_rss_articles,
+    is_listing_page_title,
 )
 
 
@@ -111,6 +112,28 @@ class TestGoogleRssHelpers(unittest.TestCase):
         self.assertEqual(articles[0]["title"], "India Seizes Tankers")
         self.assertEqual(articles[0]["link"], "https://www.wsj.com/world/india/story")
         self.assertEqual(stats, {"attempted": 1, "resolved": 1})
+
+    def test_listing_page_titles(self):
+        # Google's site: search also indexes The Morning Context's tag/company pages
+        self.assertTrue(is_listing_page_title(
+            "Tag | westside%20stores | The Morning Context | Business And Tech In India"))
+        self.assertTrue(is_listing_page_title("Company | The Morning Context | Business And Tech In India"))
+        self.assertTrue(is_listing_page_title("Category | Business"))
+        self.assertFalse(is_listing_page_title("Westside wants to be the next Zudio. Can it?"))
+        self.assertFalse(is_listing_page_title("Tagore's India and the market"))
+        self.assertFalse(is_listing_page_title(""))
+
+    def test_post_process_drops_listing_pages(self):
+        articles = [
+            {"title": "Tag | scale%20ai | The Morning Context | Business And Tech In India - The Morning Context",
+             "link": "https://news.google.com/rss/articles/TAG", "description": "", "guid": ""},
+            {"title": "Pixxel’s patriotism test - The Morning Context",
+             "link": "https://news.google.com/rss/articles/REAL", "description": "", "guid": ""},
+        ]
+        _post_process_google_rss_articles(
+            articles, {"publisher": "The Morning Context", "url": "https://themorningcontext.com"}
+        )
+        self.assertEqual([a["title"] for a in articles], ["Pixxel’s patriotism test"])
 
 
 if __name__ == "__main__":

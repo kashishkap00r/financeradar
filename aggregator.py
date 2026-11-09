@@ -37,11 +37,11 @@ from filters import should_filter_article, should_filter_video, should_filter_po
 # Article processing utilities
 from articles import (group_similar_articles, clean_html, get_sort_timestamp,
                       to_local_datetime, export_articles_json, clean_twitter_title,
-                      IST_TZ)
+                      normalize_title, IST_TZ)
 
 # Feed loading and fetching
 from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
-                   fetch_rbi_press_releases, fetch_beehiiv,
+                   fetch_rbi_press_releases, fetch_beehiiv, is_listing_page_title, title_excludes_re,
                    INVIDIOUS_INSTANCES, YOUTUBE_BUCKETS)
 
 # Report scrapers
@@ -357,6 +357,39 @@ def dedupe_by_link(articles):
     return out
 
 
+SAME_TITLE_WINDOW = timedelta(hours=18)
+
+
+def dedupe_same_title(articles):
+    """Drop a repeat of the same story from the same source, keeping the earliest copy.
+
+    Google News lists some Morning Context stories under two URLs ~12 hours apart,
+    each behind its own opaque news.google.com link, so dedupe_by_link can't see it.
+    Only copies within SAME_TITLE_WINDOW collapse, so a weekly series that reuses
+    its title ("The Gulf Report") keeps every edition. Undated/untitled items stay.
+    """
+    def when(article):
+        dt = article["date"]
+        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+
+    groups = {}
+    for idx, article in enumerate(articles):
+        key = normalize_title(article.get("title"))
+        if key and isinstance(article.get("date"), datetime):
+            groups.setdefault((article.get("source"), key), []).append(idx)
+
+    drop = set()
+    for idxs in groups.values():
+        kept_at = None
+        for idx in sorted(idxs, key=lambda i: when(articles[i])):
+            dt = when(articles[idx])
+            if kept_at is not None and dt - kept_at <= SAME_TITLE_WINDOW:
+                drop.add(idx)
+            else:
+                kept_at = dt
+    return [a for i, a in enumerate(articles) if i not in drop]
+
+
 def merge_news_cache(articles, feeds, cache_path, now=None):
     """Keep posts from short rolling feeds for `keep_days` (set per feed in feeds.json),
     and from every Slow Reads source for SLOW_READS_WINDOW_DAYS.
@@ -386,6 +419,7 @@ def merge_news_cache(articles, feeds, cache_path, now=None):
     def link_key(article):
         return (article.get("link") or "").lower().strip().rstrip("/")
 
+    title_excludes = {f["id"]: title_excludes_re(f) for f in feeds if f.get("title_excludes")}
     live_links = {link_key(a) for a in articles}
     restored = []
     new_cache = {}
@@ -394,6 +428,11 @@ def merge_news_cache(articles, feeds, cache_path, now=None):
         by_link = {}
         for item in cache.get(feed_id, []):
             if not isinstance(item, dict) or not item.get("link") or not item.get("date"):
+                continue
+            # cached before these filters existed
+            if is_listing_page_title(item.get("title")):
+                continue
+            if feed_id in title_excludes and title_excludes[feed_id].search(item.get("title") or ""):
                 continue
             try:
                 dt = datetime.fromisoformat(item["date"])
@@ -1253,7 +1292,7 @@ def main():
     all_articles = merge_news_cache(all_articles, feeds, NEWS_CACHE_FILE)
     if len(all_articles) > before:
         logger.info(f"[cache] News cache: restored {len(all_articles) - before} articles")
-    all_articles = dedupe_by_link(all_articles)
+    all_articles = dedupe_same_title(dedupe_by_link(all_articles))
 
     try:
         twitter_articles, twitter_fetch_meta = fetch_twitter_articles(twitter_feeds, logger=logger)

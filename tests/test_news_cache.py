@@ -51,6 +51,22 @@ class TestMergeNewsCache(unittest.TestCase):
         self.assertIn("https://example.com/old-story", links)
         self.assertIn("https://example.com/new-story", links)
 
+    def test_cached_listing_pages_are_purged(self):
+        # Tag pages cached before the Google listing-page filter existed must not come back
+        tag = art("thecore", "tag-page", 2)
+        tag["title"] = "Tag | westside%20stores | The Morning Context | Business And Tech In India"
+        with open(self.path, "w") as f:
+            json.dump({"thecore": [{**tag, "date": tag["date"].isoformat()}]}, f)
+        self.assertEqual(self.run_merge([]), [])
+
+    def test_cached_items_matching_title_excludes_are_purged(self):
+        feeds = [{**FEEDS[0], "title_excludes": "^Privacy Policy$"}] + FEEDS[1:]
+        page = art("thecore", "privacy", 2)
+        page["title"] = "Privacy Policy"
+        with open(self.path, "w") as f:
+            json.dump({"thecore": [{**page, "date": page["date"].isoformat()}]}, f)
+        self.assertEqual(merge_news_cache([], feeds, self.path, now=NOW), [])
+
     def test_restored_dates_are_datetimes(self):
         self.run_merge([art("thecore", "old-story", 3)])
         out = self.run_merge([])
