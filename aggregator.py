@@ -635,7 +635,6 @@ def generate_html(
         "region": r.get("region", "Indian"),
     } for r in report_articles])
     research_count = len(report_articles)
-    stock_note_count = len(load_archive(STOCK_NOTES_FILE))  # Stock notes view count
     research_publishers = sorted(set(r.get("publisher", "") for r in report_articles if r.get("publisher")))
     research_publishers_json = json.dumps(research_publishers)
 
@@ -713,7 +712,7 @@ def generate_html(
 
     today_str = now_ist.strftime('%A, %-d %B')
     now_ts = now_ist.strftime('%b %d, %Y, %I:%M %p IST')
-    total_items = len(sorted_articles) + report_count + research_count + stock_note_count + paper_count + video_count + twitter_count
+    total_items = len(sorted_articles) + report_count + research_count + paper_count + video_count + twitter_count
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -951,7 +950,7 @@ def generate_html(
         <div id="tab-research" class="tab-content">
             <div class="filter-card">
                 <div class="filter-head">
-                    <div class="stats">
+                    <div class="stats" id="research-stats">
                         <span><strong id="research-visible-count">{research_count}</strong> reports</span>
                         <span><strong id="research-publisher-count">{len(research_publishers)}</strong> <span id="research-publisher-label">publishers</span></span>
                     </div>
@@ -975,7 +974,7 @@ def generate_html(
                         <button class="tg-view-btn active" id="research-region-all" onclick="setResearchRegion('all')">All</button>
                         <button class="tg-view-btn" id="research-region-indian" onclick="setResearchRegion('indian')">Indian</button>
                         <button class="tg-view-btn" id="research-region-international" onclick="setResearchRegion('international')">International</button>
-                        <button class="tg-view-btn" id="research-region-stocknotes" onclick="setResearchRegion('stocknotes')" title="Indian brokers' calls on single stocks">Stock notes <span class="tab-count">{stock_note_count}</span></button>
+                        <button class="tg-view-btn" id="research-region-stocknotes" onclick="setResearchRegion('stocknotes')" title="Indian brokers' notes on single stocks">Stock notes</button>
                     </div>
                     <div class="publisher-dropdown" id="research-publisher-dropdown">
                         <button class="publisher-dropdown-trigger" id="research-publisher-trigger" onclick="toggleResearchDropdown()">
@@ -1446,8 +1445,15 @@ def main():
     # Broker stock notes leave the Reports research list here: they go into
     # their own archive (static/stock_notes.json, all history, loaded only
     # when someone opens Stock notes) and get their PDF headlines filled.
-    stock_note_articles = [r for r in report_articles if r.get("kind") == STOCK_NOTE_KIND]
-    report_articles = [r for r in report_articles if r.get("kind") != STOCK_NOTE_KIND]
+    # By feed id too: items from reports_cache.json written before a feed
+    # moved to Stock notes carry no `kind` (Baroda eTrade leans on that cache).
+    stock_note_feed_ids = {f["id"] for f in feeds if f.get("kind") == STOCK_NOTE_KIND}
+
+    def _is_stock_note(r):
+        return r.get("kind") == STOCK_NOTE_KIND or r.get("feed_id") in stock_note_feed_ids
+
+    stock_note_articles = [{**r, "kind": STOCK_NOTE_KIND} for r in report_articles if _is_stock_note(r)]
+    report_articles = [r for r in report_articles if not _is_stock_note(r)]
     update_stock_notes_archive(stock_note_articles, logger)
 
     # Filter political keyword matches from reports tab.

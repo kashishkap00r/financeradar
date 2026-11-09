@@ -3656,11 +3656,12 @@
 
         const isStockNote = r => r.kind === 'stock_note';
 
-        // Archive rows → the research-card shape. Title = company + the PDF's own
-        // headline (company alone until the headline has been read).
+        // Archive rows → the research-card shape. Title = company — the PDF's own
+        // headline; either alone when that's all there is (company until the
+        // headline is read; a multi-stock daily like "First Light | …" has no company).
         function toStockNoteCard(n) {
             return {
-                title: n.headline ? `${n.company} — ${n.headline}` : n.company,
+                title: [n.company, n.headline].filter(Boolean).join(' — '),
                 link: n.link,
                 date: n.date ? n.date + 'T00:00:00+05:30' : null,
                 publisher: n.broker,
@@ -3763,6 +3764,9 @@
             if (researchPage > totalPages) researchPage = totalPages;
 
             document.getElementById('research-visible-count').textContent = filteredResearch.length;
+            // Stock notes show no counts (user's call); research views keep them.
+            const stats = document.getElementById('research-stats');
+            if (stats) stats.style.visibility = researchRegionFilter === 'stocknotes' ? 'hidden' : '';
             const pubCount = document.getElementById('research-publisher-count');
             if (pubCount) pubCount.textContent = currentResearchPublishers().length;
             const pubLabel = document.getElementById('research-publisher-label');

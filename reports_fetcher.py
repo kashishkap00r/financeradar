@@ -176,6 +176,8 @@ def _make_article(title, link, date, description, feed_config):
         "publisher": feed_config.get("publisher", ""),
         "region": feed_config.get("region", "Indian"),
         "feed_id": feed_config.get("id", ""),
+        # "stock_note" sends the item to the Stock notes archive, not the Reports list
+        "kind": feed_config.get("kind", ""),
     }
 
 

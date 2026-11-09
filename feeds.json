@@ -1196,7 +1196,8 @@
     "feed": "baroda:str",
     "category": "Reports",
     "region": "Indian",
-    "publisher": "Baroda eTrade"
+    "publisher": "Baroda eTrade",
+    "kind": "stock_note"
   },
   {
     "id": "baroda-etrade-sor",
@@ -1205,7 +1206,8 @@
     "feed": "baroda:sor",
     "category": "Reports",
     "region": "Indian",
-    "publisher": "Baroda eTrade"
+    "publisher": "Baroda eTrade",
+    "kind": "stock_note"
   },
   {
     "id": "sbi-research",
@@ -1250,7 +1252,8 @@
     "feed": "hdfcsec:research",
     "category": "Reports",
     "region": "Indian",
-    "publisher": "HDFC Securities"
+    "publisher": "HDFC Securities",
+    "kind": "stock_note"
   },
   {
     "id": "axis-direct-research",
@@ -1259,7 +1262,8 @@
     "feed": "axis:research",
     "category": "Reports",
     "region": "Indian",
-    "publisher": "Axis Direct"
+    "publisher": "Axis Direct",
+    "kind": "stock_note"
   },
   {
     "id": "moneycontrol-stock-ideas",

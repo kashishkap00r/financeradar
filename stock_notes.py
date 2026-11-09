@@ -66,7 +66,7 @@ _BROKER_ALIASES = [
     (r"^yes sec", "YES Securities"),
     (r"^hdfc sec", "HDFC Securities"),
     (r"^kotak sec", "Kotak Securities"),
-    (r"^axis sec|^axis direct", "Axis Securities"),
+    (r"^axis sec|^axis direct", "Axis Direct"),
     (r"^nirmal bang", "Nirmal Bang"),
     (r"^idbi cap", "IDBI Capital"),
     (r"^ambit", "Ambit Capital"),
@@ -187,15 +187,42 @@ def _archive_sort_key(entry):
     return (entry.get("date") or "", entry.get("broker") or "", entry.get("company") or "", entry.get("link") or "")
 
 
+_REPORT_TYPE_PREFIX = re.compile(
+    r"^(?:q\dfy\d\d\s+)?(?:result update|company update|stock update|initiating coverage)\s*[:\-–]\s*(.+)$", re.I)
+_MULTI_STOCK = re.compile(r"^(first light|hsie\b)|\s\|\s", re.I)
+
+
+def split_report_title(title):
+    """A broker site's report title → (company, headline).
+
+    "Honasa Consumer: Healthy Q2 delivery…" → ("Honasa Consumer", "Healthy Q2…")
+    "Result Update:Britannia Inds."          → ("Britannia Inds.", "")  (headline read from the PDF)
+    "First Light | ACC, Hero Motocorp"       → ("", whole title)        (multi-stock daily)
+    """
+    title = re.sub(r"\s+", " ", (title or "")).strip()
+    m = _REPORT_TYPE_PREFIX.match(title)
+    if m:
+        return m.group(1).strip(), ""
+    if _MULTI_STOCK.search(title):
+        return "", title
+    left, sep, right = title.partition(": ")
+    if sep and right and len(left.split()) <= 6:
+        return left.strip(), right.strip()
+    return "", title
+
+
 def _to_entry(article):
     dt = article.get("date")
     if dt is not None and dt.tzinfo is not None:
         dt = dt.astimezone(IST_TZ)
+    company, headline = article.get("company") or "", ""
+    if not company:  # broker-site reports (Axis Direct, HDFC Securities, Baroda eTrade) only have a title
+        company, headline = split_report_title(article.get("title"))
     return {
         "date": dt.date().isoformat() if dt else "",
-        "broker": article.get("publisher") or "",
-        "company": article.get("company") or "",
-        "headline": "",
+        "broker": canonical_broker(article.get("publisher")) or article.get("publisher") or "",
+        "company": company,
+        "headline": headline,
         "link": article.get("link") or "",
         "via": article.get("via") or "",
         "target": article.get("target"),

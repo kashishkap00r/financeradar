@@ -141,3 +141,38 @@ class TestFillHeadlines(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestBrokerSiteReports(unittest.TestCase):
+    """Axis Direct, Baroda eTrade, HDFC Securities: report titles, no company field."""
+
+    def _report(self, title, publisher, link):
+        return {"kind": STOCK_NOTE_KIND, "publisher": publisher, "title": title, "link": link,
+                "date": datetime.now(IST_TZ), "via": ""}
+
+    def test_titles_map_to_company_and_headline(self):
+        out = merge_into_archive([], [
+            self._report("Honasa Consumer: Healthy Q2 delivery, execution continues to aid. Maintain BUY",
+                         "HDFC Securities", "https://hdfc/1.pdf"),
+            self._report("Result Update:Britannia Inds.", "Axis Direct", "https://axis/2.pdf"),
+            self._report("First Light | ACC, Equitas Small Finance Bank, Hero Motocorp", "Baroda eTrade", "https://bob/3.pdf"),
+            self._report("HSIE Results Daily: ONGC, LG Electronics India", "HDFC Securities", "https://hdfc/4.pdf"),
+        ])
+        by = {e["link"]: e for e in out}
+        self.assertEqual((by["https://hdfc/1.pdf"]["company"], by["https://hdfc/1.pdf"]["headline"]),
+                         ("Honasa Consumer", "Healthy Q2 delivery, execution continues to aid. Maintain BUY"))
+        # Axis gives the company only; the PDF headline is filled later
+        self.assertEqual((by["https://axis/2.pdf"]["company"], by["https://axis/2.pdf"]["headline"]), ("Britannia Inds.", ""))
+        # Multi-stock dailies keep their own title as the headline
+        self.assertEqual((by["https://bob/3.pdf"]["company"], by["https://bob/3.pdf"]["headline"]),
+                         ("", "First Light | ACC, Equitas Small Finance Bank, Hero Motocorp"))
+        self.assertEqual((by["https://hdfc/4.pdf"]["company"], by["https://hdfc/4.pdf"]["headline"]),
+                         ("", "HSIE Results Daily: ONGC, LG Electronics India"))
+        self.assertEqual(by["https://axis/2.pdf"]["broker"], "Axis Direct")
+
+    def test_report_items_carry_kind_from_feed(self):
+        from reports_fetcher import _make_article
+        cfg = {"name": "Axis Direct — Research", "url": "https://axis", "id": "axis-direct-research",
+               "publisher": "Axis Direct", "kind": "stock_note"}
+        self.assertEqual(_make_article("t", "https://x", None, "", cfg)["kind"], STOCK_NOTE_KIND)
+        self.assertEqual(_make_article("t", "https://x", None, "", {"name": "n", "url": "u"})["kind"], "")
