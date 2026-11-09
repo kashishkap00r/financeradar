@@ -110,6 +110,8 @@ SCRAPER_TIMEOUT_OVERRIDES = {    # source-specific timeout overrides by feed id
     # CSEP makes one call per publication post type (8 of them), so the
     # defaults would compound to ~6 min of worst-case stall on one worker.
     "csep-publications": 8,
+    # The whole research list (~6.5 MB) is embedded in one page.
+    "business-standard-research": 45,
 }
 SCRAPER_RETRY_OVERRIDES = {      # source-specific retry overrides by feed id
     "baroda-etrade-str": 0,

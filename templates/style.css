@@ -3675,3 +3675,14 @@
             .source-row { grid-template-columns: 48px minmax(0, 1fr) 24px; }
             .source-row-date { display: none; }
         }
+
+        /* ── Reports → Stock notes: one quiet line under the title ── */
+        .stock-note-meta {
+            font-size: var(--t-s);
+            line-height: 1.5;
+            color: var(--text-secondary);
+            margin-top: var(--s-1);
+        }
+        .stock-note-meta .sn-sep { color: var(--text-muted); }
+        .stock-note-meta .sn-up { color: #3D7A4F; }
+        .stock-note-meta .sn-down { color: var(--danger); }

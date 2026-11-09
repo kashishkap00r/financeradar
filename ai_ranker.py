@@ -202,6 +202,10 @@ def build_candidates_for_source(snapshot_data, source_type, now=None, max_articl
         title = (item.get("title") or "").strip()
         if not title:
             continue
+        # Broker stock notes (~25/day) stay in the Reports tab's own view;
+        # in the reports bucket they would crowd out think-tank research.
+        if item.get("kind") == "stock_note":
+            continue
         source = (item.get("publisher") or item.get("source_name") or source_type.title()).strip()
         url = (item.get("url") or "").strip()
         date_str = item.get("published_at") or item.get("date") or ""

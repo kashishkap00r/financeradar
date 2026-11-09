@@ -139,6 +139,17 @@ Reports feeds dispatch by feed field prefix. There are two separate handlers:
 
 To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, register in `REPORT_FETCHERS`, add feeds to `feeds.json` with matching ID prefix.
 
+### Reports → Stock notes (Nov 2026)
+
+Indian brokers' calls on single stocks (rating, target, PDF) live in the Reports tab's own **Stock notes** view, next to All / Indian / International. The other three views never show them, so ~25 notes a day don't bury the research. Items carry `kind: "stock_note"`.
+
+- Sources today (aggregators): `mcideas:` → Moneycontrol's broker-research JSON API (`fetch_moneycontrol_ideas`, ~25/day, public PDFs on images.moneycontrol.com, plus the broker's previous call → "Target cut from ₹290" / "Upgraded from Hold"), and `bsresearch:` → Business Standard's research page, whose whole list sits in `__NEXT_DATA__` (`fetch_bs_research`, ~3/day, mostly brokers Moneycontrol lacks: JM, Elara, Centrum…). Next step is scrapers on brokers' own sites to skip the middlemen; give them `"kind": "stock_note"` and build items with `_stock_note()`.
+- `stock_notes.py` holds what every source must agree on: `canonical_broker()` (one spelling per broker; returns None for foreign houses like Citi/Jefferies and for aggregators' own picks — the view is **Indian-only**, user rule), `canonical_rating()`, `dedup_stock_notes()` (same broker + same target + same first word of the company within 3 days = one call; the richer listing wins). The aggregator runs the dedup across all report feeds.
+- Moneycontrol occasionally dates a report after the day it posted it (seen: posted 2 Nov, dated 11 Nov). The fetcher takes the earlier of the two dates.
+- Stock notes are excluded from `ai_ranker.py` candidates (they would crowd out think-tank reports in the 10-slot bucket) via `kind` in `published_snapshot.json`.
+- 14-day window (`max_age_days`) keeps `tab_research.json` near 370 KB; notes have a date but no time, so the card shows no "Nh ago".
+- Inspiration: yashsarda31's India Research Hub (github.com/yashsarda31/india-research-hub) — used as a map of sources, not as a data feed (one person's hand-run Windows build, no licence).
+
 ### Frontend Architecture
 
 - Source: `templates/app.js` (vanilla JS, ~3700 lines) + `templates/style.css` (~2900 lines)
@@ -174,6 +185,7 @@ To add a new scraper: write a `fetch_*()` function, decorate with `@scraper`, re
 | `ieefa_local_fetch.py` (205L) | Playwright backfill → tops up `static/ieefa_cache.json` | Local only (manual) |
 | `ember_local_fetch.py` (170L) | Playwright + Ember WP REST API → `static/ember_cache.json` | Local only (manual) |
 | `config.py` (86L) | All magic numbers and tunables | Imported by most modules |
+| `stock_notes.py` | Broker names, Indian-only filter, ratings, cross-site dedup for Stock notes | reports_fetcher.py, aggregator.py |
 
 Frontend: `templates/app.js` (~4080L) + `templates/style.css` (~3100L). Tests: 18 modules in `tests/`.
 
@@ -202,6 +214,8 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 - `region`: Reports-only, `"Indian"` or `"International"` (omit for other categories)
 - `keep_days`: News-only, optional. For publishers whose RSS only holds a day or two (The Core), `merge_news_cache()` keeps every post in `static/news_cache.json` for this many days, so stories survive the full 5-day news window and the 30-day Slow Reads window
 - `link_contains`: optional. Keep only items whose link contains this substring. Bloomberg newsletters have no feeds of their own (newsletter pages + their `newsletters-signup-next` API sit behind PerimeterX), so each is pulled from its **steady writers'** author RSS with `"link_contains": "/newsletters/"`. Rotating-writer newsletters (New Economy, Deals, Business of Food/Sports, Green Daily) were deliberately left out — the user wants no stray writers or editions. `dedupe_by_link()` collapses co-written issues
+- `max_items` / `max_age_days`: Reports-only, optional. Override the scraper decorator's 30-item cap and 30-day window per feed (stock-note feeds use 800/400 and 14 days)
+- `kind`: Reports-only, optional. `"stock_note"` routes a feed's items to the Stock notes view (set on the item by the fetcher; the feeds.json key documents it)
 - `link_excludes`: optional. Drop items whose link contains this substring. The Core's main feed (`thecore`) excludes `"/opinion/"`, and a second entry on the same feed URL (`thecore-opinion`, "The Core Opinion") keeps only `"/opinion/"`, so The Take + The Plinth get their own Slow Reads slots instead of competing with The Core's daily news for its 5
 - For sites behind Cloudflare/WAF, use Google News RSS proxy: `https://news.google.com/rss/search?q=site:domain.com/path&hl=en-IN&gl=IN&ceid=IN:en`
 

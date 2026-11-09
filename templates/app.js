@@ -1805,7 +1805,10 @@
         let researchPage = 1;
         const RESEARCH_PAGE_SIZE = 20;
         let selectedResearchPublishers = new Set();
-        let researchRegionFilter = 'all'; // 'all' | 'indian' | 'international'
+        let researchRegionFilter = 'all'; // 'all' | 'indian' | 'international' | 'stocknotes'
+        // Broker stock notes (kind 'stock_note') only show in the 'stocknotes' view;
+        // the other three views are research only, so ~25 notes a day don't bury it.
+        const RESEARCH_VIEW_IDS = { all: 'research-region-all', indian: 'research-region-indian', international: 'research-region-international', stocknotes: 'research-region-stocknotes' };
 
         // ==================== PAPERS TAB (vars) ====================
         let papersRendered = false;
@@ -3003,16 +3006,13 @@
 
         function resetResearchTabState() {
             selectedResearchPublishers.clear();
+            const wasNotes = researchRegionFilter === 'stocknotes';
             researchRegionFilter = 'all';
             researchPage = 1;
+            if (wasNotes && RESEARCH_REPORTS) initResearchPublisherDropdown();
             syncResearchCheckboxes();
             syncResearchPublisherSummary();
-            const allBtn = document.getElementById('research-region-all');
-            const indianBtn = document.getElementById('research-region-indian');
-            const intlBtn = document.getElementById('research-region-international');
-            if (allBtn) allBtn.classList.add('active');
-            if (indianBtn) indianBtn.classList.remove('active');
-            if (intlBtn) intlBtn.classList.remove('active');
+            syncResearchViewButtons();
         }
 
         function resetPapersTabState() {
@@ -3651,19 +3651,34 @@
         // ==================== RESEARCH TAB (functions) ====================
         function renderMainResearch() {
             initResearchPublisherDropdown();
-            filteredResearch = [...RESEARCH_REPORTS];
-            researchPage = 1;
-            applyResearchPagination();
+            filterResearch();
+        }
+
+        const isStockNote = r => r.kind === 'stock_note';
+
+        // Publishers for the dropdown: brokers in Stock notes, research houses elsewhere.
+        function currentResearchPublishers() {
+            if (researchRegionFilter !== 'stocknotes') return RESEARCH_PUBLISHERS;
+            return [...new Set((RESEARCH_REPORTS || []).filter(isStockNote).map(r => r.publisher).filter(Boolean))].sort();
+        }
+
+        function syncResearchViewButtons() {
+            Object.entries(RESEARCH_VIEW_IDS).forEach(([mode, id]) => {
+                const btn = document.getElementById(id);
+                if (btn) btn.classList.toggle('active', mode === researchRegionFilter);
+            });
         }
 
         function filterResearch() {
             const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const notesView = researchRegionFilter === 'stocknotes';
             filteredResearch = RESEARCH_REPORTS.filter(r => {
+                if (isStockNote(r) !== notesView) return false;
                 const matchesSearch = !query || (r.title + ' ' + r.source + ' ' + (r.publisher || '') + ' ' + (r.description || '')).toLowerCase().includes(query);
                 const pub = r.publisher || r.source;
                 const matchesPublisher = selectedResearchPublishers.size === 0 || selectedResearchPublishers.has(pub);
                 const region = (r.region || 'Indian').toLowerCase();
-                const matchesRegion = researchRegionFilter === 'all' || region === researchRegionFilter;
+                const matchesRegion = notesView || researchRegionFilter === 'all' || region === researchRegionFilter;
                 return matchesSearch && matchesPublisher && matchesRegion;
             });
             researchPage = 1;
@@ -3671,11 +3686,44 @@
         }
 
         function setResearchRegion(mode) {
+            const crossesNotes = (mode === 'stocknotes') !== (researchRegionFilter === 'stocknotes');
             researchRegionFilter = mode;
-            document.getElementById('research-region-all').classList.toggle('active', mode === 'all');
-            document.getElementById('research-region-indian').classList.toggle('active', mode === 'indian');
-            document.getElementById('research-region-international').classList.toggle('active', mode === 'international');
+            syncResearchViewButtons();
+            if (crossesNotes) {
+                // Brokers and research houses are different lists; a selection can't carry over.
+                selectedResearchPublishers.clear();
+                initResearchPublisherDropdown();
+                syncResearchPublisherSummary();
+            }
             filterResearch();
+        }
+
+        // ---- Stock note card line (the rating is already in the title):
+        // "Price at call ₹232 · 23% upside · Target cut from ₹290 · via Moneycontrol"
+        const STOCK_RATING_ORDER = { 'Sell': 0, 'Reduce': 1, 'Hold': 2, 'Neutral': 2, 'Accumulate': 3, 'Buy': 4 };
+
+        function formatRupees(n) {
+            return '₹' + Number(n).toLocaleString('en-IN', { maximumFractionDigits: n < 100 ? 1 : 0 });
+        }
+
+        function stockNoteMetaHtml(r) {
+            const parts = [];
+            if (r.reco_price) parts.push(`Price at call ${formatRupees(r.reco_price)}`);
+            if (r.target && r.reco_price) {
+                const move = Math.round((r.target / r.reco_price - 1) * 100);
+                parts.push(move >= 0 ? `${move}% upside` : `${-move}% downside`);
+            }
+            const prevRank = STOCK_RATING_ORDER[r.prev_rating], rank = STOCK_RATING_ORDER[r.rating];
+            if (prevRank !== undefined && rank !== undefined && prevRank !== rank) {
+                const up = rank > prevRank;
+                parts.push(`<span class="${up ? 'sn-up' : 'sn-down'}">${up ? 'Upgraded' : 'Downgraded'} from ${escapeHtml(r.prev_rating)}</span>`);
+            }
+            if (r.target && r.prev_target && Math.abs(r.target - r.prev_target) >= 0.5) {
+                const up = r.target > r.prev_target;
+                parts.push(`<span class="${up ? 'sn-up' : 'sn-down'}">Target ${up ? 'raised' : 'cut'} from ${formatRupees(r.prev_target)}</span>`);
+            }
+            if (r.via) parts.push(`via ${escapeHtml(r.via)}`);
+            return parts.length ? `<div class="stock-note-meta">${parts.join('<span class="sn-sep"> · </span>')}</div>` : '';
         }
 
         function formatResearchDate(isoStr) {
@@ -3711,6 +3759,10 @@
             if (researchPage > totalPages) researchPage = totalPages;
 
             document.getElementById('research-visible-count').textContent = filteredResearch.length;
+            const pubCount = document.getElementById('research-publisher-count');
+            if (pubCount) pubCount.textContent = currentResearchPublishers().length;
+            const pubLabel = document.getElementById('research-publisher-label');
+            if (pubLabel) pubLabel.textContent = researchRegionFilter === 'stocknotes' ? 'brokers' : 'publishers';
 
             const start = (researchPage - 1) * RESEARCH_PAGE_SIZE;
             const end = start + RESEARCH_PAGE_SIZE;
@@ -3755,13 +3807,14 @@
                                 <span class="region-tag">${region === 'international' ? 'International' : 'Indian'}</span>
                             </div>
                             <div class="report-card-right">
-                                ${r.date ? `<span class="report-card-date">${formatResearchDate(r.date)}</span>` : ''}
+                                ${r.date && !isStockNote(r) ? `<span class="report-card-date">${formatResearchDate(r.date)}</span>` : ''}
                                 <button class="bookmark-btn" data-url="${escapeForAttr(cardUrl)}" data-title="${escapeForAttr(r.title)}" data-source="${publisher}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark report" title="Bookmark">
                                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                                 </button>
                             </div>
                         </div>
                         <div class="report-title">${titleHtml}</div>
+                        ${isStockNote(r) ? stockNoteMetaHtml(r) : ''}
                         ${description ? `<div class="research-card-description">${description}</div>` : ''}
                     </div>
                 `;
@@ -3785,7 +3838,7 @@
             const list = document.getElementById('research-dropdown-list');
             if (!list) return;
             list.innerHTML = '';
-            RESEARCH_PUBLISHERS.forEach(pub => {
+            currentResearchPublishers().forEach(pub => {
                 const item = document.createElement('div');
                 item.className = 'dropdown-item';
                 item.dataset.publisher = pub;
@@ -3824,13 +3877,13 @@
             const summary = document.getElementById('research-publisher-summary');
             if (!trigger || !summary) return;
             if (selectedResearchPublishers.size === 0) {
-                summary.textContent = 'All publishers';
+                summary.textContent = researchRegionFilter === 'stocknotes' ? 'All brokers' : 'All publishers';
                 trigger.classList.remove('has-selection');
             } else if (selectedResearchPublishers.size === 1) {
                 summary.textContent = [...selectedResearchPublishers][0];
                 trigger.classList.add('has-selection');
             } else {
-                summary.textContent = selectedResearchPublishers.size + ' of ' + RESEARCH_PUBLISHERS.length + ' publishers';
+                summary.textContent = selectedResearchPublishers.size + ' of ' + currentResearchPublishers().length + (researchRegionFilter === 'stocknotes' ? ' brokers' : ' publishers');
                 trigger.classList.add('has-selection');
             }
         }
@@ -3853,7 +3906,7 @@
         }
 
         function selectAllResearchPublishers() {
-            RESEARCH_PUBLISHERS.forEach(pub => selectedResearchPublishers.add(pub));
+            currentResearchPublishers().forEach(pub => selectedResearchPublishers.add(pub));
             syncResearchCheckboxes();
             syncResearchPublisherSummary();
             filterResearch();

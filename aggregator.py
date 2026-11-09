@@ -46,6 +46,7 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher, _atomic_write_json
+from stock_notes import STOCK_NOTE_FIELDS, STOCK_NOTE_KIND, dedup_stock_notes
 from paper_fetcher import fetch_papers, load_papers_cache, save_papers_cache
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
@@ -179,6 +180,7 @@ def export_published_snapshot(article_groups, video_articles, twitter_articles, 
             "url": item.get("link", ""),
             "source_url": item.get("source_url", ""),
             "published_at": _to_iso_datetime(item.get("date")),
+            "kind": item.get("kind", ""),
         })
 
     youtube_items = []
@@ -582,18 +584,32 @@ def generate_html(
     # Prepare research reports data
     if report_articles is None:
         report_articles = []
-    research_reports_json = json.dumps([{
-        "title": r["title"],
-        "link": r["link"],
-        "date": r["date"].isoformat() if r.get("date") else None,
-        "source": r.get("source", ""),
-        "publisher": r.get("publisher", ""),
-        "source_url": r.get("source_url", ""),
-        "description": r.get("description", ""),
-        "region": r.get("region", "Indian"),
-    } for r in report_articles])
-    research_count = len(report_articles)
-    research_publishers = sorted(set(r.get("publisher", "") for r in report_articles if r.get("publisher")))
+    def _serialize_research_item(r):
+        out = {
+            "title": r["title"],
+            "link": r["link"],
+            "date": r["date"].isoformat() if r.get("date") else None,
+            "source": r.get("source", ""),
+            "publisher": r.get("publisher", ""),
+            "source_url": r.get("source_url", ""),
+            "description": r.get("description", ""),
+            "region": r.get("region", "Indian"),
+        }
+        if r.get("kind") == STOCK_NOTE_KIND:
+            # Only set fields ship — keeps ~400 notes from bloating the tab JSON.
+            out["kind"] = STOCK_NOTE_KIND
+            for key in STOCK_NOTE_FIELDS:
+                if r.get(key) not in (None, ""):
+                    out[key] = r[key]
+        return out
+
+    research_reports_json = json.dumps([_serialize_research_item(r) for r in report_articles])
+    stock_note_count = sum(1 for r in report_articles if r.get("kind") == STOCK_NOTE_KIND)
+    research_count = len(report_articles) - stock_note_count  # the default view leaves notes out
+    research_publishers = sorted(set(
+        r.get("publisher", "") for r in report_articles
+        if r.get("publisher") and r.get("kind") != STOCK_NOTE_KIND
+    ))
     research_publishers_json = json.dumps(research_publishers)
 
     # Prepare papers data
@@ -670,7 +686,7 @@ def generate_html(
 
     today_str = now_ist.strftime('%A, %-d %B')
     now_ts = now_ist.strftime('%b %d, %Y, %I:%M %p IST')
-    total_items = len(sorted_articles) + report_count + research_count + paper_count + video_count + twitter_count
+    total_items = len(sorted_articles) + report_count + research_count + stock_note_count + paper_count + video_count + twitter_count
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -910,7 +926,7 @@ def generate_html(
                 <div class="filter-head">
                     <div class="stats">
                         <span><strong id="research-visible-count">{research_count}</strong> reports</span>
-                        <span><strong>{len(research_publishers)}</strong> publishers</span>
+                        <span><strong id="research-publisher-count">{len(research_publishers)}</strong> <span id="research-publisher-label">publishers</span></span>
                     </div>
                     <div class="filter-head-actions">
                         <span class="update-time" id="research-update-time" data-time="{now_ist.isoformat()}">Updated {now_ist.strftime("%b %d, %I:%M %p")} IST</span>
@@ -932,6 +948,7 @@ def generate_html(
                         <button class="tg-view-btn active" id="research-region-all" onclick="setResearchRegion('all')">All</button>
                         <button class="tg-view-btn" id="research-region-indian" onclick="setResearchRegion('indian')">Indian</button>
                         <button class="tg-view-btn" id="research-region-international" onclick="setResearchRegion('international')">International</button>
+                        <button class="tg-view-btn" id="research-region-stocknotes" onclick="setResearchRegion('stocknotes')" title="Indian brokers' calls on single stocks">Stock notes <span class="tab-count">{stock_note_count}</span></button>
                     </div>
                     <div class="publisher-dropdown" id="research-publisher-dropdown">
                         <button class="publisher-dropdown-trigger" id="research-publisher-trigger" onclick="toggleResearchDropdown()">
@@ -1397,6 +1414,12 @@ def main():
         logger.info(f"Reports cache: {total_cached_reports} items across {len(report_cache)} feeds")
     except Exception as e:
         logger.warn("Reports cache", f"could not write: {e}")
+
+    # The same broker call is often listed on Moneycontrol and Business Standard.
+    pre_note_dedup_count = len(report_articles)
+    report_articles = dedup_stock_notes(report_articles)
+    if pre_note_dedup_count != len(report_articles):
+        logger.info(f"Stock notes: removed {pre_note_dedup_count - len(report_articles)} cross-site duplicates")
 
     # Filter political keyword matches from reports tab.
     pre_report_political_count = len(report_articles)
