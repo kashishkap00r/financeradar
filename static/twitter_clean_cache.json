@@ -1,26 +1,41 @@
 {
-  "generated_at": "2026-11-10T00:58:07.722582+05:30",
+  "generated_at": "2026-11-10T02:05:36.564043+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
-      "feeds_total": 48,
-      "feeds_ok": 47,
+      "feeds_total": 50,
+      "feeds_ok": 49,
       "feeds_failed": 1,
-      "items_raw": 1010,
-      "resolve_attempted": 808,
-      "resolve_resolved": 808,
-      "resolve_cache_hits": 761
+      "items_raw": 1064,
+      "resolve_attempted": 860,
+      "resolve_resolved": 859,
+      "resolve_cache_hits": 798
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.0,
+      "age_hours": 0.8,
       "items": 783,
       "handles_ok": 45
     },
     "warning": "",
-    "generated_at": "2026-11-10T00:58:07.722522+05:30"
+    "generated_at": "2026-11-10T02:05:36.563978+05:30"
   },
   "items": [
+    {
+      "title": "Citi downgrades US stocks to 'neutral' as AI sell-off, regulatory risks mount #ETMarkets https://economictimes.indiatimes.com/markets/us-stocks/wall-s...",
+      "link": "https://x.com/ETMarkets/status/2119875336469119412",
+      "date": "2026-11-09T19:30:40+00:00",
+      "tweet_id": "2119875336469119412",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Citi downgrades US stocks to 'neutral' as AI sell-off, regulatory risks mount<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/citi-downgrades-us-stocks-to-neutral-as-ai-sell-off-regulatory-risks-mount/articleshow/135691943.cms",
+      "category": "Twitter"
+    },
     {
       "title": "India must legislate to prevent family feuds from becoming corporate-governance headaches, writes @Opinion's Srini Sivabalan https://www.bloomberg.com...",
       "link": "https://x.com/opinion/status/2119871409077752008",
@@ -2374,21 +2389,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002The Hindu<br>Several farmers' groups and opposition parties led by Congress held a protest in Kolhapur on November 9 against the government decision to appoint nominated directors on the boards of large cooperative societies. <br><br>This is at a time when the Bombay High Court is seized with the Gokul matter. In the elections held for the Gokul milk federation last month, Congress leader Satej Bunty Patil's panel had won by 13-12, leading to a deadlock for the election of the chairperson. <br><br>The quorum stands at 14. After the government's decision to nominate directors, the ruling Mahayuti-led panel's voting strength has increased. This has been challenged by the opposition, which has called it a 'murder of democracy', reports @vinivdvc.<br><video width=\"854\" height=\"480\" src=\"https://video.twimg.com/amplify_video/2119711208605622272/vid/avc1/854x480/F_019SgdV1SdZt5D.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2119711208605622272/img/m2EE6HgBCqvvyTRd.jpg\"></video>",
-      "category": "Twitter"
-    },
-    {
-      "title": "Japanese households have poured record amounts into five-year fixed-rate government bonds, signalling growing expectations that domestic bond yields m...",
-      "link": "https://x.com/ETMarkets/status/2119710693289239007",
-      "date": "2026-11-09T08:36:26+00:00",
-      "tweet_id": "2119710693289239007",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Japanese households have poured record amounts into five-year fixed-rate government bonds, signalling growing expectations that domestic bond yields may be nearing their peak after surging to multi-decade highs last month, Reuters reported.<br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/news/japanese-households-buy-record-5-year-government-bonds-as-rate-hike-expectations-peak/articleshow/135675825.cms",
       "category": "Twitter"
     },
     {
