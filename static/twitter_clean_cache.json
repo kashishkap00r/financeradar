@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T14:51:59.061369+05:30",
+  "generated_at": "2026-11-09T16:15:50.102479+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
@@ -7,20 +7,140 @@
       "feeds_ok": 47,
       "feeds_failed": 1,
       "items_raw": 1002,
-      "resolve_attempted": 809,
-      "resolve_resolved": 809,
-      "resolve_cache_hits": 785
+      "resolve_attempted": 808,
+      "resolve_resolved": 808,
+      "resolve_cache_hits": 796
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 0.0,
+      "age_hours": 1.0,
       "items": 786,
       "handles_ok": 45
     },
     "warning": "",
-    "generated_at": "2026-11-09T14:51:59.061314+05:30"
+    "generated_at": "2026-11-09T16:15:50.102426+05:30"
   },
   "items": [
+    {
+      "title": "Daily Briefing:COP31 begins | Democrats\u2019 clean-energy \u2018push\u2019 | UK to \u2018cut EV targets\u2019 Read today's briefing here \u27a1\ufe0f https://buff.ly/NSBHJbI Sig...",
+      "link": "https://x.com/CarbonBrief/status/2119727565527020001",
+      "date": "2026-11-09T09:43:28+00:00",
+      "tweet_id": "2119727565527020001",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2119727555104108544/pu/img/YK6HBEUzb3qRpkwi.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Daily Briefing:COP31 begins | Democrats\u2019 clean-energy \u2018push\u2019 | UK to \u2018cut EV targets\u2019 <br><br>Read today's briefing here \u27a1\ufe0f https://buff.ly/NSBHJbI <br><br>Sign up to our email briefings \u27a1\ufe0f https://buff.ly/TwwsRyc<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/ext_tw_video/2119727555104108544/pu/vid/avc1/1280x720/uHMxi9WPDFq3ne7q.mp4?tag=12\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2119727555104108544/pu/img/YK6HBEUzb3qRpkwi.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Meet #LoriHuang: The low-profile wife at the centre of #Nvidia CEO Jensen Huang's affair admission @ViekDubey https://www.cnbctv18.com/world/meet-lori...",
+      "link": "https://x.com/CNBCTV18Live/status/2119726830043402732",
+      "date": "2026-11-09T09:40:33+00:00",
+      "tweet_id": "2119726830043402732",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Meet #LoriHuang: The low-profile wife at the centre of #Nvidia CEO Jensen Huang's affair admission<br><br>@ViekDubey <br><br>https://www.cnbctv18.com/world/meet-lori-huang-the-low-profile-wife-at-the-centre-of-nvidia-ceo-jensen-huangs-affair-admission-20030294.htm",
+      "category": "Twitter"
+    },
+    {
+      "title": "Interesting data highlighting earnings growth trends across the Nifty Midcap 150 & Nifty Smallcap 250, excluding commodity companies One thing to note...",
+      "link": "https://x.com/EquityInsightss/status/2119725431054323862",
+      "date": "2026-11-09T09:35:00+00:00",
+      "tweet_id": "2119725431054323862",
+      "source": "Tejas Bansal | Equity Insights Elite",
+      "publisher": "Equity Insights",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWrGv02aYAAIaRY?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Interesting data highlighting earnings growth trends across the Nifty Midcap 150 &amp; Nifty Smallcap 250, excluding commodity companies<br><br>One thing to note - this data only covers earnings up to Q1FY27<br><br>Based on the Q2FY27 results reported so far, earnings momentum is even stronger this quarter!<br><br>src : Alchemy<br><img width=\"2048\" height=\"913\" style=\"\" src=\"https://pbs.twimg.com/media/HWrGv02aYAAIaRY?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Since its protest season, maybe we should hold a protest by the people against the people \ud83d\ude43",
+      "link": "https://x.com/dugalira/status/2119724700062589394",
+      "date": "2026-11-09T09:32:05+00:00",
+      "tweet_id": "2119724700062589394",
+      "source": "Ira Dugal",
+      "publisher": "Ira Dugal",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Since its protest season, maybe we should hold a protest by the people against the people \ud83d\ude43<div class=\"rsshub-quote\"><br><br>Abhijeet Dipke:\u2002Never seen people so determined to make their own lives miserable.<br><br>#AQI #Mumbai #Delhi<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "The #BSE and #NSE will remain shut on Tuesday, November 10, on account of Diwali-Balipratipada. Markets resumed regular trading on Monday after Sunday...",
+      "link": "https://x.com/ETMarkets/status/2119722915700580500",
+      "date": "2026-11-09T09:25:00+00:00",
+      "tweet_id": "2119722915700580500",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The #BSE and #NSE will remain shut on Tuesday, November 10, on account of Diwali-Balipratipada. Markets resumed regular trading on Monday after Sunday's special #MuhuratTrading session, when exchanges opened for an hour to mark the beginning of the new Hindu financial year.<br><br>Read more here <br>https://economictimes.indiatimes.com/markets/stocks/news/stock-market-holiday-2026-is-stock-market-closed-on-tuesday-check-remaining-holidays-for-the-year/articleshow/135675482.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "Sources To #CNBCAwaaz | #CII has urged the #FinanceMinistry to introduce regulatory relaxations for #NBFCs, seeking easier access to long-term capital...",
+      "link": "https://x.com/CNBCTV18Live/status/2119722127331049752",
+      "date": "2026-11-09T09:21:52+00:00",
+      "tweet_id": "2119722127331049752",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWrDSG7asAEZjdJ?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Sources To #CNBCAwaaz | #CII has urged the #FinanceMinistry to introduce regulatory relaxations for #NBFCs, seeking easier access to long-term capital, relaxed external borrowing norms, a review of #goldloan risk weights and greater operational flexibility<br><br>\u23e9CII has also called for a review of tax disparities, governance norms and dividend policies to strengthen the NBFC sector<br><br>@RoyLakshman <br><br>#NBFCs #CII #FinanceMinistry #GoldLoan<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HWrDSG7asAEZjdJ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Divi\u2019s Labs: the moment is playing out 13:40 \ud83d\udc47",
+      "link": "https://x.com/unseenvalue/status/2119721713009033354",
+      "date": "2026-11-09T09:20:13+00:00",
+      "tweet_id": "2119721713009033354",
+      "source": "Antifragile Thinking",
+      "publisher": "Unseen Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWjBsBYWkAAAJtt?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Divi\u2019s Labs: the moment is playing out<br>13:40 \ud83d\udc47<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002The Diwali Pause: Light. Learn. Think.<br><br>Thank you to the 1,000+ people who joined live on a very busy Diwali evening. This means a lot to me.<br><br>Kindly read the disclaimer embedded in the recording. Link below.<br><br>https://antifragilethinking.substack.com/p/the-diwali-pause-light-learn-think<br><br><img width=\"739\" height=\"1600\" style=\"\" src=\"https://pbs.twimg.com/media/HWjBsBYWkAAAJtt?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RMDRIP: Q2 SL NET PROFIT 20M RUPEES VS 56M (YOY) RMDRIP: Q2 EBITDA 47M RUPEES VS 83M (YOY); Q2 EBITDA MARGIN 14.52% VS 27% (YOY) RMDRIP: Q2 REVENUE 32...",
+      "link": "https://x.com/REDBOXINDIA/status/2119721710891274295",
+      "date": "2026-11-09T09:20:13+00:00",
+      "tweet_id": "2119721710891274295",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RMDRIP: Q2 SL NET PROFIT 20M RUPEES VS 56M (YOY)<br><br>RMDRIP: Q2 EBITDA 47M RUPEES VS 83M (YOY); Q2 EBITDA MARGIN 14.52% VS 27% (YOY)<br><br>RMDRIP: Q2 REVENUE 322M RUPEES VS 312M (YOY)",
+      "category": "Twitter"
+    },
     {
       "title": "The US market has \u201cmutated\u201d at an astonishing rate, with more and more types of trading expanding the scope of market amid all the \u201cspeculative cra...",
       "link": "https://x.com/ETMarkets/status/2119719140395229646",
@@ -967,21 +1087,6 @@
       "category": "Twitter"
     },
     {
-      "title": "#DonaldTrump admits deportation policy \u2018might have been too tough\u2019 after #midterm loss https://www.cnbctv18.com/world/donald-trump-admits-deportatio...",
-      "link": "https://x.com/CNBCTV18Live/status/2119677355396583862",
-      "date": "2026-11-09T06:23:57+00:00",
-      "tweet_id": "2119677355396583862",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#DonaldTrump admits deportation policy \u2018might have been too tough\u2019 after #midterm loss<br><br>https://www.cnbctv18.com/world/donald-trump-admits-deportation-policy-might-have-been-too-tough-after-midterm-loss-20030074.htm",
-      "category": "Twitter"
-    },
-    {
       "title": "#US stocks are heading into this week on shaky ground after a sharp selloff in artificial intelligence-related shares unsettled investors, raising con...",
       "link": "https://x.com/ETMarkets/status/2119676358905254289",
       "date": "2026-11-09T06:20:00+00:00",
@@ -1009,21 +1114,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Sensex reverses all losses, rises over 650 pts from day\u2019s low; #Nifty above 25,000<br><br>Catch the LIVE updates here <br>https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-mm-bhel-share-price-09-november-2026/liveblog/135667960.cms<br><img width=\"901\" height=\"394\" style=\"\" src=\"https://pbs.twimg.com/media/HWqZeJ-bIAEuwqM?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "RT Nigel D'Souza: Gokaldas Exports Management Commentary \ud83c\uddfa\ud83c\uddf8 retail demand has remained strong so far Tariffs have been a headwind across various...",
-      "link": "https://x.com/CNBCTV18Live/status/2119678086241472678",
-      "date": "2026-11-09T06:11:21+00:00",
-      "tweet_id": "2119678086241472678",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Nigel D'Souza<br>Gokaldas Exports Management Commentary<br><br>\ud83c\uddfa\ud83c\uddf8 retail demand has remained strong so far<br><br>Tariffs have been a headwind across various geographies, but the issues are getting ironed out<br><br>FY28 will mark a turnaround year <br><br>https://www.youtube.com/watch?v=Po4PWvYAgK0",
       "category": "Twitter"
     },
     {
@@ -1312,21 +1402,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Sai Life Sciences shares jump 9%, multibagger stock rallies 19% in 3 days after Q2 results. Why Jefferies hiked target price https://economictimes.ind...",
-      "link": "https://x.com/ETMarkets/status/2119663237159682541",
-      "date": "2026-11-09T05:27:51+00:00",
-      "tweet_id": "2119663237159682541",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Sai Life Sciences shares jump 9%, multibagger stock rallies 19% in 3 days after Q2 results. Why Jefferies hiked target price<br><br>https://economictimes.indiatimes.com/markets/stocks/news/sai-life-sciences-shares-jump-9-multibagger-stock-rallies-19-in-3-days-after-q2-results-why-jefferies-hiked-target-price/articleshow/135671572.cms",
-      "category": "Twitter"
-    },
-    {
       "title": "HINDALCO: CO EXEC SAYS KOREA STRIKE IS OVER AND PRODUCTION HAS FULLY RAMPED-UP",
       "link": "https://x.com/REDBOXINDIA/status/2119661759099482506",
       "date": "2026-11-09T05:21:59+00:00",
@@ -1492,21 +1567,6 @@
       "category": "Twitter"
     },
     {
-      "title": "TTK PRESTIGE: CO SAYS THERE WILL BE PRESSURE ON MARGINS MOVING FORWARD IN COMING QTRS AS FESTIVE SEASON IS OVER",
-      "link": "https://x.com/REDBOXINDIA/status/2119658933812093354",
-      "date": "2026-11-09T05:10:45+00:00",
-      "tweet_id": "2119658933812093354",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "TTK PRESTIGE: CO SAYS THERE WILL BE PRESSURE ON MARGINS MOVING FORWARD IN COMING QTRS AS FESTIVE SEASON IS OVER",
-      "category": "Twitter"
-    },
-    {
       "title": "Semicon 2.0 involves a funding mechanism tailored to each stage of the value chain in semiconductor industries. @nityeshdadhich highlights four operat...",
       "link": "https://x.com/Ideas4India/status/2119657693267013793",
       "date": "2026-11-09T05:05:50+00:00",
@@ -1534,6 +1594,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Jensen Huang also doesn't have supervoting shares in Nvidia, unlike Elon Musk at Spacex and Google founders Larry Page and Sergey Brin, according to Semafor<br><img width=\"1184\" height=\"644\" style=\"\" src=\"https://pbs.twimg.com/media/HWqI72saAAEArnC?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Madhav Chanchani:\u2002What is surprising about the whole Jensen Huang affair with the Chinese spy is the fact top US govt officials like Donald Trump and Marco Rubio knew about it, and decided not to do anything...<br><br><img width=\"1204\" height=\"836\" style=\"\" src=\"https://pbs.twimg.com/media/HWqF9uoaQAABbCQ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT ValueEquity: Gufic Biosciences, slow and steady wins the race ! Delivering well in these markets No reco , biased",
+      "link": "https://x.com/EquityValueIn/status/2119726488782303280",
+      "date": "2026-11-09T04:58:27+00:00",
+      "tweet_id": "2119726488782303280",
+      "source": "ValueEquity",
+      "publisher": "Equity Value",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HUKTyqZakAAs8kk?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002ValueEquity<br>Gufic Biosciences, slow and steady wins the race ! <br><br>Delivering well in these markets <br><br>No reco , biased<div class=\"rsshub-quote\"><br><br>ValueEquity:\u2002Gufic Biosciences , my questions to the management on the Q1FY27 concall and their responses , really liked the quality of responses on employee addition , incremental growth in Indore and what an ideal mix looks to them <br><br>High quality management <br><br>disc: this is not investment<br><br><img width=\"748\" height=\"854\" style=\"\" src=\"https://pbs.twimg.com/media/HUKTyqZakAAs8kk?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"809\" height=\"693\" style=\"\" src=\"https://pbs.twimg.com/media/HUKUMSvbIAABFv5?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
       "category": "Twitter"
     },
     {
@@ -3322,21 +3397,6 @@
       "category": "Twitter"
     },
     {
-      "title": "CDMO, when stutidying this sector , you have to study Chinese Players , earnings updates of Wuxi Apptec and what they are doing on the PEPTIDES 1) TID...",
-      "link": "https://x.com/EquityValueIn/status/2119076874630598750",
-      "date": "2026-11-07T14:37:52+00:00",
-      "tweet_id": "2119076874630598750",
-      "source": "ValueEquity",
-      "publisher": "Equity Value",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWh3-NHbQAAXXUr?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "CDMO, when stutidying this sector , you have to study Chinese Players , earnings updates of Wuxi Apptec and what they are doing on the PEPTIDES <br><br>1) TIDES Q1-Q3 revenue up 46.9% YoY to 11.52bn, with full-year revenue expected to grow ~47<br>2) TIDES D&amp;M customers grew 37% YoY, and molecules grew 86% YoY<br><br>Lot of Chinese CDMO contracts are also finding way to India , plus China is moving upstream to innovators , we are seeing a lot of global deal making where American Big Pharma is acquiring Chinese portfolios for the R&amp;D but not outsourcing , lot more value <br><br>And in India only Divis &amp; Laurus have the capacity to deliver at massive scale for CDMO <br><br>And market is also aware and rewarding us for being early in Laurus over the last 3 years , even Divis today had a blockbuster show <br><br>Rest of the smaller players are too expensive in my opinion for the capacity that they have , there is no incremental headroom until new capex comes live , and before capex costs come ! <br><br>No reco <br><br>biased in Laurus from much lower levels , and Divis<br><img width=\"1191\" height=\"617\" style=\"\" src=\"https://pbs.twimg.com/media/HWh3-NHbQAAXXUr?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1237\" height=\"705\" style=\"\" src=\"https://pbs.twimg.com/media/HWh4bpybYAABlN5?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Factcheck: What it really costs to heat a home in the UK with a heat pump | @DrSimEvans #CBarchive Read here: https://buff.ly/2fzlYWi",
       "link": "https://x.com/CarbonBrief/status/2119073657834054067",
       "date": "2026-11-07T14:25:05+00:00",
@@ -3604,21 +3664,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002The Arc<br>\ud83e\ude94  We hope the festive season brings you time with family, a little distance from the noise, and plenty of optimism for what comes next.<br><br>Here\u2019s to more ideas, more builders, and more stories worth telling.<br><br>Wishing you and your families a very happy and prosperous Diwali.<br><img width=\"1200\" height=\"1200\" style=\"\" src=\"https://pbs.twimg.com/media/HWgomcvagAAuBgs?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "No recording. This is by design. Please bring your dictaphones and charger \ud83d\udd0c",
-      "link": "https://x.com/unseenvalue/status/2119017442953621655",
-      "date": "2026-11-07T10:41:42+00:00",
-      "tweet_id": "2119017442953621655",
-      "source": "Antifragile Thinking",
-      "publisher": "Unseen Value",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "No recording. This is by design. Please bring your dictaphones and charger \ud83d\udd0c<div class=\"rsshub-quote\"><br><br>Antifragile Thinking:\u2002SEBI ke aadmi plain clothes mein \u201cpresent sir\u201d honge \u2026 says Hariram Nayee<br></div>",
       "category": "Twitter"
     },
     {
@@ -5632,21 +5677,6 @@
       "category": "Twitter"
     },
     {
-      "title": "A block deal worth approx 258 Cr has reportedly taken place in V2 Retail! \ud83d\udc40 Aditya Halwasiya & Ananta Capital are emerging as likely buyers Interes...",
-      "link": "https://x.com/EquityInsightss/status/2118578010823835789",
-      "date": "2026-11-06T05:35:33+00:00",
-      "tweet_id": "2118578010823835789",
-      "source": "Tejas Bansal | Equity Insights Elite",
-      "publisher": "Equity Insights",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWawfOOa8AEb3hc?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "A block deal worth approx 258 Cr has reportedly taken place in V2 Retail! \ud83d\udc40<br><br>Aditya Halwasiya &amp; Ananta Capital are emerging as likely buyers<br><br>Interestingly, just a day earlier, Cupid announced a major strategic retail partnership with V2 Retail!<br><br>After Style Baazar, Mr. Halwasiya now seems to have his eyes on V2 Retail! \ud83d\ude02<br><br>Official confirmation of the block deal details is still awaited<br><img width=\"1302\" height=\"1818\" style=\"\" src=\"https://pbs.twimg.com/media/HWawfOOa8AEb3hc?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Britain\u2019s gas use set to surge due to data centres https://ft.trib.al/7Xuhjwl",
       "link": "https://x.com/ftenergy/status/2118577471217864810",
       "date": "2026-11-06T05:33:25+00:00",
@@ -7099,21 +7129,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Electricity met almost a quarter of the EU\u2019s final energy demand in 2025.<br><br>Ember\u2019s data tool tracks how fast electricity is replacing fossil fuels in all EU Member States. Progress is being made, but too slow to meet the EU target of 46% by 2040.<br><br>https://ember-energy.org/data/europe-electrification-data-explorer/<br><img width=\"1910\" height=\"1176\" style=\"\" src=\"https://pbs.twimg.com/media/HWWma2RWMAAd2CO?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Daily Briefing: US midterms energy fallout | UN adaptation report | \u2018Ask Zeke anything\u2019 Read today's briefing here \u27a1\ufe0f https://buff.ly/vTNuEzS Sign...",
-      "link": "https://x.com/CarbonBrief/status/2118277744777629777",
-      "date": "2026-11-05T09:42:24+00:00",
-      "tweet_id": "2118277744777629777",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/ext_tw_video_thumb/2118277734086463489/pu/img/55-iKT3qgtUnHWe0.jpg",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Daily Briefing: US midterms energy fallout | UN adaptation report | \u2018Ask Zeke anything\u2019 <br><br>Read today's briefing here \u27a1\ufe0f https://buff.ly/vTNuEzS <br><br>Sign up to our email briefings \u27a1\ufe0f https://buff.ly/TwwsRyc<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/ext_tw_video/2118277734086463489/pu/vid/avc1/1280x720/YucFcOkqvJISxoqN.mp4?tag=12\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2118277734086463489/pu/img/55-iKT3qgtUnHWe0.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -9469,21 +9484,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Spandana Sphoorty reports #cyber #fraud:<br><br>Says unauthorised transactions debited from one of its bank accounts on Nov 1, 2026. The transactions, totalling Rs 7.80 cr, were transferred to multiple beneficiary accounts.<br><br>Co has insurance for cyber fraud, and a claim is being filed.<br><img width=\"810\" height=\"892\" style=\"\" src=\"https://pbs.twimg.com/media/HWGkSxBakAAcZro?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Ahead of budget, India markets regulator backs removal of long-term capital gains tax for foreign investors, Reuters @jaysh88 reports. More interestin...",
-      "link": "https://x.com/dugalira/status/2117153608621851057",
-      "date": "2026-11-02T07:15:29+00:00",
-      "tweet_id": "2117153608621851057",
-      "source": "Ira Dugal",
-      "publisher": "Ira Dugal",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Ahead of budget, India markets regulator backs removal of long-term capital gains tax for foreign investors, Reuters @jaysh88 reports.<br><br>More interesting proposal was to make sale of MF units exempt from LTCG if money getting re-invested back in MFs.<br><br>These are only their recommendations, final decision rests with the govt.<br><br>https://www.reuters.com/world/india/india-markets-regulator-backs-removal-long-term-capital-gains-tax-foreign-2026-11-02/",
       "category": "Twitter"
     },
     {
