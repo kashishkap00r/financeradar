@@ -603,6 +603,15 @@
     "source_tier": "official"
   },
   {
+    "id": "dgft-notifications",
+    "name": "DGFT — Notifications",
+    "url": "https://www.dgft.gov.in/CP/?opt=notification",
+    "feed": "dgft:notifications",
+    "category": "News",
+    "publisher": "DGFT",
+    "source_tier": "official"
+  },
+  {
     "id": "rbi-notifications",
     "name": "RBI — Notifications",
     "url": "http://www.rbi.org.in",
