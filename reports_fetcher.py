@@ -3065,7 +3065,7 @@ def mncl_page_one(text):
             dt = _first_date_in(line)
             for cand in lines[i + 2:i + 4]:  # after the "Company l BUY l TP" line
                 if 8 <= len(cand) <= 140 and len(cand.split()) >= 2 and not re.search(r"\bl\s+(buy|sell|hold|tp)\b|^we\b", cand, re.I):
-                    return dt, cand
+                    return dt, cand.strip(" \"'“”‘’")
             return dt, ""
     return None, ""
 
