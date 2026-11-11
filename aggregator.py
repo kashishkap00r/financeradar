@@ -46,10 +46,12 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 # Report scrapers
 from reports_fetcher import get_report_fetcher, _atomic_write_json
 from calendar_events import build_calendar
+from official_sources import fetch_official
 from stock_notes import (ARCHIVE_FILE as STOCK_NOTES_FILE, STOCK_NOTE_KIND, fill_headlines,
                          load_archive, merge_into_archive, save_archive, select_home_notes,
                          write_note_chunks, pdf_first_page_lines, rule_headlines, RULE_HEADLINE_BROKERS)
 import shutil
+from feed_health import load_health, record_run, record_stock_notes, save_health
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
                     TWITTER_HIGH_SIGNAL_WINDOW_HOURS, TWITTER_HIGH_SIGNAL_TARGET,
@@ -568,7 +570,8 @@ def generate_html(
         "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express", "Power Line Magazine", "Filter Coffee"],
         "World Desk": ["BBC", "CNBC", "WSJ", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "CSIS", "Techmeme"],
         "Indie Voices": ["Finshots", "This Week in Fintech", "SOIC", "The Ken", "The Morning Context", "The Arc", "Not-Ship", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "IndiaSpend", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "Market Bites", "Capital Quill", "Noah Smith", "Ideas For India", "The India Forum", "Takshashila", "Prosperiti Insights", "Decoding the Dragon", "BharatNama", "Biz News+", "Ember", "CREA", "Apollo", "Rest of World"],
-        "Official Channels": ["RBI", "SEBI", "DGFT", "ECB", "ADB", "FRED", "PIB", "MoSPI"]
+        "Official Channels": ["RBI", "SEBI", "DGFT", "DGTR", "CBIC", "IRDAI", "PFRDA", "IFSCA", "CCI", "MCA", "DPIIT",
+                              "ECB", "ADB", "FRED", "PIB", "MoSPI"]
     }
 
     # Twitter publisher presets
@@ -1249,6 +1252,7 @@ def main():
     )
 
     all_articles = []
+    health_results = {}  # feed id → (articles returned live, error) — feeds that go quiet (feed_health.py)
 
     # Fetch feeds in parallel (10 at a time)
     with ThreadPoolExecutor(max_workers=FEED_THREAD_WORKERS) as executor:
@@ -1261,6 +1265,8 @@ def main():
                 futures[executor.submit(fetch_careratings, feed)] = feed
             elif feed_field.startswith("rbi-scraper:"):
                 futures[executor.submit(fetch_rbi_press_releases, feed)] = feed
+            elif feed_field.startswith("official:"):
+                futures[executor.submit(fetch_official, feed)] = feed
             elif feed_field.startswith("dgft:"):
                 futures[executor.submit(fetch_dgft, feed)] = feed
             elif feed_field.startswith("beehiiv:"):
@@ -1278,6 +1284,7 @@ def main():
             try:
                 articles = future.result()
                 all_articles.extend(articles)
+                health_results[feed_cfg.get("id", feed_name)] = (articles, "")
                 if articles:
                     logger.ok(feed_name, f"{len(articles)} articles")
                     logger.add_articles(len(articles))
@@ -1291,6 +1298,7 @@ def main():
                     else:
                         logger.fail(feed_name, "0 articles returned")
             except Exception as e:
+                health_results[feed_cfg.get("id", feed_name)] = ([], str(e))
                 if feed_cfg.get("category") == "Reports":
                     logger.warn(feed_name, f"Live fetch error ({str(e)[:80]}); checking cache fallback")
                 else:
@@ -1357,6 +1365,7 @@ def main():
                 articles = fetch_feed({**feed, "feed": fallback_url})
                 if articles:
                     all_articles.extend(articles)
+                    health_results[feed["id"]] = (articles, "")
                     logger.ok(f"Invidious:{instance} {feed['name']}", f"{len(articles)} videos")
                     break
             except Exception:
@@ -1459,6 +1468,12 @@ def main():
     stock_note_articles = [{**r, "kind": STOCK_NOTE_KIND} for r in report_articles if _is_stock_note(r)]
     report_articles = [r for r in report_articles if not _is_stock_note(r)]
     update_stock_notes_archive(stock_note_articles, logger)
+    try:  # never fatal: it only feeds the weekly quiet-feeds report
+        health = record_run(load_health(), health_results)
+        record_stock_notes(health, feeds, load_archive(STOCK_NOTES_FILE))
+        save_health(health)
+    except Exception as e:
+        logger.warn("feed health", f"not recorded: {str(e)[:120]}")
 
     # Filter political keyword matches from reports tab.
     pre_report_political_count = len(report_articles)

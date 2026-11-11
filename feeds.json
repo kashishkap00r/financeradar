@@ -117,7 +117,8 @@
     "url": "https://prosperiti.substack.com",
     "feed": "https://prosperiti.substack.com/feed",
     "category": "News",
-    "publisher": "Prosperiti Insights"
+    "publisher": "Prosperiti Insights",
+    "quiet_days": 120
   },
   {
     "id": "decoding-the-dragon",
@@ -609,6 +610,78 @@
     "feed": "dgft:notifications",
     "category": "News",
     "publisher": "DGFT",
+    "source_tier": "official"
+  },
+  {
+    "id": "dgtr-trade-remedies",
+    "name": "DGTR — Trade Remedies",
+    "url": "https://www.dgtr.gov.in/en",
+    "feed": "official:dgtr",
+    "category": "News",
+    "publisher": "DGTR",
+    "source_tier": "official"
+  },
+  {
+    "id": "cbic-customs",
+    "name": "CBIC — Customs Notifications",
+    "url": "https://taxinformation.cbic.gov.in/",
+    "feed": "official:cbic-customs",
+    "category": "News",
+    "publisher": "CBIC",
+    "source_tier": "official"
+  },
+  {
+    "id": "irdai-official",
+    "name": "IRDAI — Releases & Circulars",
+    "url": "https://irdai.gov.in/press-releases",
+    "feed": "official:irdai",
+    "category": "News",
+    "publisher": "IRDAI",
+    "source_tier": "official"
+  },
+  {
+    "id": "pfrda-official",
+    "name": "PFRDA — Releases & Circulars",
+    "url": "https://www.pfrda.org.in/media/press-releases",
+    "feed": "official:pfrda",
+    "category": "News",
+    "publisher": "PFRDA",
+    "source_tier": "official"
+  },
+  {
+    "id": "ifsca-official",
+    "name": "IFSCA — What's New",
+    "url": "https://ifsca.gov.in/Home/NewSection",
+    "feed": "official:ifsca",
+    "category": "News",
+    "publisher": "IFSCA",
+    "source_tier": "official"
+  },
+  {
+    "id": "cci-press-releases",
+    "name": "CCI — Press Releases",
+    "url": "https://www.cci.gov.in/media-gallery/press-release",
+    "feed": "official:cci",
+    "category": "News",
+    "publisher": "CCI",
+    "source_tier": "official"
+  },
+  {
+    "id": "mca-official",
+    "name": "MCA — Notifications & Circulars",
+    "url": "https://www.mca.gov.in/content/mca/global/en/acts-rules/ebooks/notifications.html",
+    "feed": "official:mca",
+    "category": "News",
+    "publisher": "MCA",
+    "source_tier": "official"
+  },
+  {
+    "id": "dpiit-fdi-press-notes",
+    "name": "DPIIT — FDI Press Notes",
+    "url": "https://www.dpiit.gov.in/",
+    "feed": "official:dpiit",
+    "category": "News",
+    "publisher": "DPIIT",
     "source_tier": "official"
   },
   {

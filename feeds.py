@@ -29,7 +29,6 @@ from config import (
     RSS_PROXY_RETRY_HTTP_CODES,
     RSS_PROXY_TIMEOUT,
     SSL_CONTEXT,
-    SSL_CONTEXT_NOVERIFY,
 )
 
 # Get script directory
@@ -179,9 +178,8 @@ def _fetch_url_bytes(url, timeout=15):
             with urllib.request.urlopen(req, timeout=timeout, context=SSL_CONTEXT) as response:
                 return response.read()
         except ssl.SSLCertVerificationError:
-            print(f"  [WARN] TLS verification failed for {url}, falling back to unverified")
-            with urllib.request.urlopen(req, timeout=timeout, context=SSL_CONTEXT_NOVERIFY) as response:
-                return response.read()
+            print(f"  [FAIL] TLS certificate check failed for {url}")  # no unverified fallback (Nov 2026)
+            raise
     except urllib.error.HTTPError as e:
         if e.code != 403:
             raise
@@ -1163,13 +1161,8 @@ def fetch_careratings(feed_config):
             with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT) as response:
                 data = json.loads(response.read())
         except ssl.SSLCertVerificationError:
-            print(f"  [WARN] TLS verification failed for {api_url}, falling back to unverified")
-            req = urllib.request.Request(api_url, headers={
-                "User-Agent": DEFAULT_USER_AGENT,
-                "Accept": "application/json"
-            })
-            with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT_NOVERIFY) as response:
-                data = json.loads(response.read())
+            print(f"  [FAIL] TLS certificate check failed for {api_url}")  # no unverified fallback (Nov 2026)
+            raise
 
         for item in data.get("data", []):
             title = item.get("Title", "").strip()

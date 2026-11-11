@@ -28,7 +28,6 @@ except ImportError:
 
 from config import (
     SSL_CONTEXT,
-    SSL_CONTEXT_NOVERIFY,
     TELEGRAM_MAX_PAGES,
     TELEGRAM_MAX_AGE_DAYS,
     TELEGRAM_FETCH_TIMEOUT,
@@ -217,10 +216,8 @@ def fetch_url(url):
             with urllib.request.urlopen(req, context=SSL_CONTEXT, timeout=30) as resp:
                 return resp.read().decode("utf-8", errors="replace")
         except ssl.SSLCertVerificationError:
-            print(f"  [WARN] TLS verification failed for {url}, falling back to unverified")
-            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-            with urllib.request.urlopen(req, context=SSL_CONTEXT_NOVERIFY, timeout=30) as resp:
-                return resp.read().decode("utf-8", errors="replace")
+            print(f"  [FAIL] TLS certificate check failed for {url}")  # no unverified fallback (Nov 2026)
+            raise
     except (urllib.error.URLError, urllib.error.HTTPError, OSError) as e:
         print(f"  ERROR fetching {url}: {e}")
         return ""
@@ -412,10 +409,8 @@ def _fetch_og_image(username: str, msg_id: int) -> str:
             with urllib.request.urlopen(req, context=SSL_CONTEXT, timeout=8) as resp:
                 html_content = resp.read().decode("utf-8", errors="replace")
         except ssl.SSLCertVerificationError:
-            print(f"  [WARN] TLS verification failed for {url}, falling back to unverified")
-            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-            with urllib.request.urlopen(req, context=SSL_CONTEXT_NOVERIFY, timeout=8) as resp:
-                html_content = resp.read().decode("utf-8", errors="replace")
+            print(f"  [FAIL] TLS certificate check failed for {url}")  # no unverified fallback (Nov 2026)
+            raise
         m = re.search(r'<meta\s+property="og:image"\s+content="([^"]+)"', html_content)
         if m:
             return m.group(1)

@@ -10,9 +10,6 @@ from datetime import timedelta
 
 # ── Shared SSL contexts ──────────────────────────────────────────────
 SSL_CONTEXT = ssl.create_default_context()
-SSL_CONTEXT_NOVERIFY = ssl.create_default_context()
-SSL_CONTEXT_NOVERIFY.check_hostname = False
-SSL_CONTEXT_NOVERIFY.verify_mode = ssl.CERT_NONE
 
 # ── Default User-Agent ───────────────────────────────────────────────
 DEFAULT_USER_AGENT = (
