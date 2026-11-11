@@ -52,6 +52,9 @@
             if (tab === 'home' && !SLOW_READS) {
                 loads.push(_safeLoad('slow_reads', 'static/tab_slow_reads.json', function(d) { SLOW_READS = d; }));
             }
+            if (tab === 'home' && !CALENDAR) {
+                loads.push(_safeLoad('calendar', 'static/calendar.json', function(d) { CALENDAR = d; }));
+            }
             if (tab === 'home' && !STOCK_NOTES_HOME) {
                 loads.push(_safeLoad('stock_notes_home', 'static/tab_stock_notes_home.json', function(d) { STOCK_NOTES_HOME = d; }));
             }
@@ -1884,6 +1887,7 @@
             var _doRender = function() {
                 if (tab === 'home') {
                     renderHomeTab();
+                    renderWeekCal();
                     homeRendered = true;
                 } else if (tab === 'reports') {
                     if (!reportsRendered) {
@@ -2373,6 +2377,7 @@
             'Watch': 'Explainers and interviews from finance video channels, picked by AI from the past week.',
             'From the Source': 'Straight from RBI, SEBI, PIB and other official bodies: releases, orders and data, newest first. Not ranked by AI.',
             'Voices': 'Posts on X from economists, journalists and market watchers, picked by AI from the past four days.',
+            'This Week': 'India’s data releases, policy dates, market dates and results from Nifty 200 companies, plus the main global events. Dates come from NSE and the agencies’ own calendars; companies can move theirs. Times IST.',
             'More from the feed': 'The rest of the AI-ranked news and Telegram notes. Scroll inside the box.'
         };
         var INFO_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8.2" cy="4.2" r="1.15" stroke="none"/><path d="M6.6 7.3h1.9v4.9M6.4 12.2h3.6" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -2839,6 +2844,379 @@
                 + (note ? '<span class="section-note">' + escapeHtml(note) + '</span>' : '') + '</div>';
         }
 
+
+        // ==================== THIS WEEK (homepage calendar) ====================
+        // static/calendar.json, written every hour by calendar_events.py: India data
+        // releases, policy dates, market dates, the main global events and Nifty 200
+        // results. One list of days, shown three ways by screen width (style.css):
+        //   ≥1600px  a rail in the right margin that stays in view (.wk-wide)
+        //   769–1599 a folded column of day chips on the right edge (.wk-fold + popover)
+        //   ≤768px   a strip of day chips under the tabs (.wk-strip), and once it has
+        //            scrolled away a "next" chip in the top bar (.wk-chip)
+        // The full calendar and a phone's single day open in the story drawer's frame.
+        var CALENDAR = null;
+        var WK_KIND_ORDER = ['big', 'india', 'policy', 'market', 'global', 'results'];
+        var WK_FILTERS = [['all', 'All'], ['india', 'India data'], ['policy', 'Policy'], ['results', 'Results'], ['market', 'Market'], ['global', 'Global']];
+        var WK_DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        var WK_DOW_LONG = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var WK_MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var WK_AHEAD_DAYS = 9;      // the rail/strip look this far ahead...
+        var WK_MAX_DAYS = 6;        // ...and show today plus up to five days with something on
+        var WK_DRAWER_DAYS = 28;    // the full calendar: four weeks
+        var WK_CAL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 2.5v4M16 2.5v4M3 10h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+        var WK_ARROW_L = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5L5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        var WK_ARROW_R = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        var wkFilter = 'all';
+        var wkDrawerState = null;
+        var wkDrawerReturnFocus = null;
+
+        // Dates are IST calendar days ("2026-11-12"), whatever the reader's own time zone.
+        function wkIstNow() { return new Date(Date.now() + 330 * 60000); }
+        function wkTodayIST() { return wkIstNow().toISOString().slice(0, 10); }
+        function wkDate(ds) { var p = ds.split('-'); return new Date(Date.UTC(+p[0], +p[1] - 1, +p[2])); }
+        function wkAddDays(ds, n) { var d = wkDate(ds); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); }
+        function wkDow(ds, today) { return ds === today ? 'Today' : WK_DOW[wkDate(ds).getUTCDay()]; }
+        function wkShortLabel(ds, today) {
+            var d = wkDate(ds);
+            return (ds === today ? 'Today · ' : '') + WK_DOW[d.getUTCDay()] + ' ' + d.getUTCDate();
+        }
+        function wkLongLabel(ds, today) {
+            var d = wkDate(ds);
+            var s = WK_DOW_LONG[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + WK_MON[d.getUTCMonth()];
+            return ds === today ? 'Today · ' + s : s;
+        }
+        function wkTime(t) {
+            if (!t) return '';
+            var p = t.split(':'), h = +p[0];
+            var ap = h >= 12 ? 'pm' : 'am';
+            h = h % 12 || 12;
+            return h + (p[1] !== '00' ? ':' + p[1] : '') + ' ' + ap;
+        }
+        function wkMeta(e, long) {
+            var parts = [];
+            if (e.time) parts.push(wkTime(e.time));
+            if (long && e.source) parts.push(e.source);
+            if (e.expected) parts.push('expected');
+            return parts.join(' · ');
+        }
+        function wkAllDays() {
+            if (!CALENDAR || !Array.isArray(CALENDAR.days)) return [];
+            var today = wkTodayIST();
+            return CALENDAR.days.filter(function(d) { return d && d.date >= today; }).map(function(d) {
+                return { date: d.date, events: d.events || [], results: d.results || [] };
+            });
+        }
+        function wkUpcoming(today) {
+            var last = wkAddDays(today, WK_AHEAD_DAYS);
+            var days = wkAllDays();
+            var first = days.filter(function(d) { return d.date === today; })[0] || { date: today, events: [], results: [] };
+            var out = [first];
+            days.forEach(function(d) {
+                if (d.date !== today && d.date <= last && out.length < WK_MAX_DAYS) out.push(d);
+            });
+            return out;
+        }
+        function wkMarks(day) {
+            var seen = {};
+            day.events.forEach(function(e) { seen[e.big ? 'big' : e.kind] = 1; });
+            if (day.results.length) seen.results = 1;
+            return WK_KIND_ORDER.filter(function(k) { return seen[k]; }).slice(0, 3);
+        }
+        function wkMk(kind) { return '<span class="wk-mk wk-mk-' + kind + '" aria-hidden="true"></span>'; }
+        function wkEventRow(e, long) {
+            var meta = wkMeta(e, long);
+            return '<li class="wk-ev">' + wkMk(e.big ? 'big' : e.kind) + '<span><b>' + escapeHtml(e.name) + '</b>'
+                + (meta ? ' <span class="wk-meta">' + escapeHtml(meta) + '</span>' : '') + '</span></li>';
+        }
+        // Results: the first n names (Nifty 50 first), then "+N more" opening the full list.
+        function wkResultsRow(day, n) {
+            if (!day.results.length) return '';
+            var names = n ? day.results.slice(0, n) : day.results;
+            var more = day.results.length - names.length;
+            return '<li class="wk-ev wk-res">' + wkMk('results') + '<span><b>Results</b> '
+                + escapeHtml(names.join(', '))
+                + (more > 0 ? ' <button type="button" class="wk-more" data-wk-day="' + day.date + '">+' + more + ' more</button>' : '')
+                + '</span></li>';
+        }
+        function wkDayList(day, n, long) {
+            if (!day.events.length && !day.results.length) return '<p class="wk-none">Nothing scheduled</p>';
+            return '<ul class="wk-evs">' + day.events.map(function(e) { return wkEventRow(e, long); }).join('')
+                + wkResultsRow(day, n) + '</ul>';
+        }
+        function wkAria(day, today) {
+            var bits = day.events.map(function(e) { return e.name; });
+            if (day.results.length) bits.push('results from ' + day.results.length + ' Nifty 200 companies');
+            return wkLongLabel(day.date, today) + ': ' + (bits.length ? bits.join(', ') : 'nothing scheduled');
+        }
+        function wkChipBtn(day, today, cls) {
+            var d = wkDate(day.date);
+            return '<button type="button" class="' + cls + (day.date === today ? ' is-today' : '') + '" data-wk-day="' + day.date + '"'
+                + ' aria-label="' + escapeForAttr(wkAria(day, today)) + '">'
+                + '<span class="wk-c-dow">' + wkDow(day.date, today) + '</span>'
+                + '<span class="wk-c-num">' + d.getUTCDate() + '</span>'
+                + '<span class="wk-c-mks">' + wkMarks(day).map(wkMk).join('') + '</span></button>';
+        }
+        function wkFootHtml() {
+            return '<div class="wk-foot"><button type="button" class="wk-full wk-link">Full calendar →</button>'
+                + '<a class="wk-ics" href="static/calendar.ics" download="financeradar-this-week.ics">Add to my calendar</a></div>';
+        }
+
+        function wkWideHtml(days, today) {
+            return '<aside class="wk-wide" aria-labelledby="wk-title"><div class="wk-wide-in">'
+                + '<div class="wk-head"><h2 class="wk-title" id="wk-title">This Week</h2>' + infoTip('This Week') + '</div>'
+                + '<ol class="wk-days">' + days.map(function(d) {
+                    return '<li class="wk-day' + (d.date === today ? ' is-today' : '') + '"><span class="wk-dl">'
+                        + wkShortLabel(d.date, today) + '</span>' + wkDayList(d, 3, false) + '</li>';
+                }).join('') + '</ol>' + wkFootHtml() + '</div></aside>';
+        }
+        function wkFoldHtml(days, today) {
+            return '<nav class="wk-fold" aria-label="This week">'
+                + days.map(function(d) { return wkChipBtn(d, today, 'wk-c wk-fd'); }).join('')
+                + '<button type="button" class="wk-fold-all wk-full" aria-label="Open the full calendar">' + WK_CAL_ICON + '</button></nav>';
+        }
+        function wkStripHtml(days, today) {
+            return '<section class="wk-strip" aria-label="This week"><div class="wk-strip-head"><span class="wk-strip-title">This week</span>'
+                + '<button type="button" class="wk-full wk-link">Full calendar →</button></div>'
+                + '<div class="wk-strip-days">' + days.map(function(d) { return wkChipBtn(d, today, 'wk-c wk-sd'); }).join('') + '</div></section>';
+        }
+
+        // The top bar's "next" chip (phones, once the strip has scrolled away): the next
+        // market-moving release in the coming week, else the next event in three days.
+        function wkNext(today) {
+            var now = wkIstNow(), mins = now.getUTCHours() * 60 + now.getUTCMinutes();
+            var cands = [];
+            wkAllDays().forEach(function(d) {
+                d.events.forEach(function(e) {
+                    if (d.date === today && e.time) {
+                        var p = e.time.split(':');
+                        if (+p[0] * 60 + +p[1] < mins) return;  // already out
+                    }
+                    cands.push({ day: d.date, e: e });
+                });
+            });
+            var big = cands.filter(function(c) { return c.e.big && c.day <= wkAddDays(today, 7); })[0];
+            return big || cands.filter(function(c) { return c.day <= wkAddDays(today, 3); })[0] || null;
+        }
+        function wkChipUpdate(next, today) {
+            var nav = document.querySelector('.utility-nav');
+            var chip = document.getElementById('wk-chip');
+            if (!next) { if (chip) chip.remove(); return; }
+            if (!chip && nav) {
+                chip = document.createElement('button');
+                chip.type = 'button';
+                chip.id = 'wk-chip';
+                chip.className = 'wk-chip wk-full';
+                nav.insertBefore(chip, nav.firstChild);
+            }
+            if (!chip) return;
+            var label = next.e.short || String(next.e.name).split(',')[0];
+            var when = next.day === today ? (next.e.time ? wkTime(next.e.time) : 'today') : WK_DOW[wkDate(next.day).getUTCDay()];
+            chip.innerHTML = wkMk(next.e.big ? 'big' : next.e.kind) + '<span><b>' + escapeHtml(label) + '</b> ' + escapeHtml(when) + '</span>';
+            chip.setAttribute('aria-label', 'Next: ' + next.e.name + ', ' + wkLongLabel(next.day, today) + (next.e.time ? ' ' + wkTime(next.e.time) : '') + '. Open the calendar');
+        }
+        var wkStripObserver = null;
+        function wkObserveStrip(strip) {
+            if (wkStripObserver) wkStripObserver.disconnect();
+            document.body.classList.remove('wk-strip-off');
+            if (!strip || !window.IntersectionObserver) return;
+            var head = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--head-h'), 10) || 0;
+            wkStripObserver = new IntersectionObserver(function(entries) {
+                var en = entries[0];
+                // Off = scrolled up past the top bar (not merely hidden by another tab).
+                var off = !en.isIntersecting && en.boundingClientRect.top < head && en.boundingClientRect.height > 0;
+                document.body.classList.toggle('wk-strip-off', off);
+            }, { rootMargin: '-' + head + 'px 0px 0px 0px' });
+            wkStripObserver.observe(strip);
+        }
+
+        function renderWeekCal() {
+            var host = document.getElementById('week-cal');
+            if (!host) {
+                var tabHome = document.getElementById('tab-home');
+                var paper = document.getElementById('home-newspaper');
+                if (!tabHome || !paper) return;
+                host = document.createElement('div');
+                host.id = 'week-cal';
+                host.className = 'wk';
+                tabHome.insertBefore(host, paper);
+            }
+            hideWkPop();
+            if (!CALENDAR) { host.classList.remove('wk-ready'); host.innerHTML = ''; wkChipUpdate(null); return; }
+            var today = wkTodayIST();
+            var days = wkUpcoming(today);
+            host.innerHTML = wkWideHtml(days, today) + wkFoldHtml(days, today) + wkStripHtml(days, today);
+            host.classList.add('wk-ready');
+            wkChipUpdate(wkNext(today), today);
+            wkObserveStrip(host.querySelector('.wk-strip'));
+        }
+
+        // Popover for the folded rail: hover or focus shows a day, a click pins it.
+        var wkPop = null, wkPopFor = null, wkPopPinned = false, wkPopTimer = null;
+        function showWkPop(btn, pin) {
+            var day = wkAllDays().filter(function(d) { return d.date === btn.dataset.wkDay; })[0]
+                || { date: btn.dataset.wkDay, events: [], results: [] };
+            var today = wkTodayIST();
+            if (!wkPop) {
+                wkPop = document.createElement('div');
+                wkPop.className = 'wk-pop';
+                wkPop.addEventListener('mouseenter', function() { clearTimeout(wkPopTimer); });
+                wkPop.addEventListener('mouseleave', function() { if (!wkPopPinned) wkPopTimer = setTimeout(hideWkPop, 160); });
+                document.body.appendChild(wkPop);
+            }
+            clearTimeout(wkPopTimer);
+            if (wkPopFor && wkPopFor !== btn) wkPopFor.classList.remove('is-open');
+            wkPopFor = btn;
+            wkPopPinned = !!pin;
+            btn.classList.add('is-open');
+            wkPop.innerHTML = '<p class="wk-pop-day">' + wkLongLabel(day.date, today) + '</p>' + wkDayList(day, 3, true)
+                + '<button type="button" class="wk-full wk-link">Full calendar →</button>';
+            wkPop.style.display = 'block';
+            var r = btn.getBoundingClientRect();
+            var top = Math.max(8, Math.min(r.top - 8, window.innerHeight - wkPop.offsetHeight - 8));
+            wkPop.style.top = top + 'px';
+            wkPop.style.right = (window.innerWidth - r.left + 10) + 'px';
+        }
+        function hideWkPop() {
+            clearTimeout(wkPopTimer);
+            if (wkPop) wkPop.style.display = 'none';
+            if (wkPopFor) wkPopFor.classList.remove('is-open');
+            wkPopFor = null;
+            wkPopPinned = false;
+        }
+        document.addEventListener('mouseover', function(e) {
+            var fd = e.target.closest && e.target.closest('.wk-fd');
+            if (fd && !wkPopPinned) showWkPop(fd, false);
+        });
+        document.addEventListener('mouseout', function(e) {
+            var fd = e.target.closest && e.target.closest('.wk-fd');
+            if (fd && !wkPopPinned && !(e.relatedTarget && wkPop && wkPop.contains(e.relatedTarget))) {
+                wkPopTimer = setTimeout(hideWkPop, 160);
+            }
+        });
+        document.addEventListener('focusin', function(e) {
+            var fd = e.target.closest && e.target.closest('.wk-fd');
+            if (fd) showWkPop(fd, false);
+        });
+
+        // Full calendar ('all') or one day ('day', phones). Same frame as the story drawer.
+        function wkWeekLabel(monday, today) {
+            var sun = wkAddDays(monday, 6), a = wkDate(monday), b = wkDate(sun);
+            var range = a.getUTCMonth() === b.getUTCMonth()
+                ? a.getUTCDate() + '–' + b.getUTCDate() + ' ' + WK_MON[b.getUTCMonth()]
+                : a.getUTCDate() + ' ' + WK_MON[a.getUTCMonth()] + ' – ' + b.getUTCDate() + ' ' + WK_MON[b.getUTCMonth()];
+            var thisMon = wkMonday(today);
+            if (monday === thisMon) return 'This week · ' + range;
+            if (monday === wkAddDays(thisMon, 7)) return 'Next week · ' + range;
+            return range;
+        }
+        function wkMonday(ds) { var dow = (wkDate(ds).getUTCDay() + 6) % 7; return wkAddDays(ds, -dow); }
+        function wkFiltered(day) {
+            if (wkFilter === 'all') return day;
+            if (wkFilter === 'results') return { date: day.date, events: [], results: day.results };
+            return { date: day.date, events: day.events.filter(function(e) { return e.kind === wkFilter; }), results: [] };
+        }
+        function renderCalDrawer() {
+            var wrap = document.getElementById('cal-drawer');
+            if (!wrap || !wkDrawerState) return;
+            var today = wkTodayIST();
+            var head = wrap.querySelector('.wk-dr-headin'), body = wrap.querySelector('.wk-dr-body'), foot = wrap.querySelector('.wk-dr-foot');
+            if (wkDrawerState.mode === 'day') {
+                var ds = wkDrawerState.day;
+                var day = wkAllDays().filter(function(d) { return d.date === ds; })[0] || { date: ds, events: [], results: [] };
+                head.innerHTML = '<div class="wk-dr-step"><button type="button" class="wk-step" data-wk-step="-1" aria-label="Previous day"' + (ds <= today ? ' disabled' : '') + '>' + WK_ARROW_L + '</button>'
+                    + '<h2 class="bs-title" id="wk-dr-title">' + wkLongLabel(ds, today) + '</h2>'
+                    + '<button type="button" class="wk-step" data-wk-step="1" aria-label="Next day"' + (ds >= wkAddDays(today, WK_DRAWER_DAYS) ? ' disabled' : '') + '>' + WK_ARROW_R + '</button></div>';
+                body.innerHTML = wkDayList(day, 0, true);
+                foot.innerHTML = '<button type="button" class="wk-full wk-link">See the whole calendar →</button>';
+                return;
+            }
+            head.innerHTML = '<h2 class="bs-title" id="wk-dr-title">Calendar</h2>'
+                + '<p class="bs-sum">Next four weeks: India data, policy dates, Nifty 200 results and the main global events. Times IST.</p>'
+                + '<div class="wk-filters" role="group" aria-label="Show">' + WK_FILTERS.map(function(f) {
+                    return '<button type="button" class="wk-filter' + (wkFilter === f[0] ? ' is-on' : '') + '" data-wk-filter="' + f[0] + '" aria-pressed="' + (wkFilter === f[0]) + '">' + f[1] + '</button>';
+                }).join('') + '</div>';
+            var last = wkAddDays(today, WK_DRAWER_DAYS);
+            var weeks = [], cur = null;
+            wkAllDays().forEach(function(d) {
+                if (d.date > last) return;
+                var f = wkFiltered(d);
+                if (!f.events.length && !f.results.length) return;
+                var mon = wkMonday(d.date);
+                if (!cur || cur.mon !== mon) { cur = { mon: mon, days: [] }; weeks.push(cur); }
+                cur.days.push(f);
+            });
+            body.innerHTML = weeks.length ? weeks.map(function(w) {
+                return '<section class="wk-dr-week"><h3>' + wkWeekLabel(w.mon, today) + '</h3>' + w.days.map(function(d) {
+                    return '<div class="wk-dr-day' + (d.date === today ? ' is-today' : '') + '" data-wk-anchor="' + d.date + '"><span class="wk-dl">'
+                        + wkShortLabel(d.date, today) + '</span>' + wkDayList(d, 0, true) + '</div>';
+                }).join('') + '</section>';
+            }).join('') : '<p class="wk-none">Nothing in the next four weeks.</p>';
+            foot.innerHTML = '<a class="wk-ics" href="static/calendar.ics" download="financeradar-this-week.ics">' + WK_CAL_ICON + 'Add to my calendar</a>'
+                + '<span class="wk-note">Companies can move their dates. “expected” = not confirmed yet.</span>';
+            if (wkDrawerState.day) {
+                var target = body.querySelector('[data-wk-anchor="' + wkDrawerState.day + '"]');
+                if (target) body.scrollTop = target.offsetTop - body.offsetTop - 8;
+                wkDrawerState.day = null;
+            }
+        }
+        function openCalDrawer(mode, ds) {
+            hideWkPop();
+            var existing = document.getElementById('cal-drawer');
+            if (existing) { wkDrawerState = { mode: mode, day: ds || null }; renderCalDrawer(); return; }
+            if (document.getElementById('story-drawer')) closeStoryDrawer(true);
+            wkDrawerReturnFocus = document.activeElement;
+            wkDrawerState = { mode: mode, day: ds || null };
+            var wrap = document.createElement('div');
+            wrap.id = 'cal-drawer';
+            wrap.innerHTML = '<div class="bs-scrim" data-wk-close></div>'
+                + '<aside class="bs-drawer wk-drawer" role="dialog" aria-modal="true" aria-labelledby="wk-dr-title">'
+                + '<div class="bs-dr-head"><button class="bs-x" type="button" data-wk-close aria-label="Close">' + BS_CLOSE + '</button><div class="wk-dr-headin"></div></div>'
+                + '<div class="bs-dr-body wk-dr-body"></div><div class="wk-dr-foot"></div></aside>';
+            document.body.appendChild(wrap);
+            lockBodyScroll();
+            renderCalDrawer();
+            wrap.querySelector('.bs-x').focus({ preventScroll: true });
+        }
+        function closeCalDrawer() {
+            var el = document.getElementById('cal-drawer');
+            if (!el) return;
+            el.remove();
+            unlockBodyScroll();
+            wkDrawerState = null;
+            if (wkDrawerReturnFocus && document.contains(wkDrawerReturnFocus)) wkDrawerReturnFocus.focus({ preventScroll: true });
+        }
+
+        document.addEventListener('click', function(e) {
+            var t = e.target.closest ? e.target : null;
+            if (!t) return;
+            var el;
+            if ((el = t.closest('[data-wk-close]'))) { closeCalDrawer(); return; }
+            if ((el = t.closest('[data-wk-filter]'))) { wkFilter = el.dataset.wkFilter; renderCalDrawer(); return; }
+            if ((el = t.closest('[data-wk-step]')) && wkDrawerState) {
+                wkDrawerState.day = wkAddDays(wkDrawerState.day, +el.dataset.wkStep);
+                renderCalDrawer();
+                return;
+            }
+            if ((el = t.closest('.wk-more'))) { openCalDrawer('all', el.dataset.wkDay); return; }
+            if ((el = t.closest('.wk-sd'))) { openCalDrawer('day', el.dataset.wkDay); return; }
+            if ((el = t.closest('.wk-fd'))) {
+                if (wkPopFor === el && wkPopPinned) hideWkPop(); else showWkPop(el, true);
+                return;
+            }
+            if ((el = t.closest('.wk-full'))) {
+                // In the phone's day view, "See the whole calendar" switches the open drawer.
+                if (wkDrawerState && wkDrawerState.mode === 'day') { wkDrawerState = { mode: 'all', day: wkDrawerState.day }; renderCalDrawer(); return; }
+                openCalDrawer('all');
+                return;
+            }
+            if (wkPop && wkPop.style.display === 'block' && !wkPop.contains(t)) hideWkPop();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            if (document.getElementById('cal-drawer')) closeCalDrawer();
+            else if (wkPop && wkPop.style.display === 'block') hideWkPop();
+        });
+        window.addEventListener('resize', hideWkPop);
 
         // ==================== RENDER HOME TAB (Newspaper — AI-curated) ====================
         function renderHomeTab() {
