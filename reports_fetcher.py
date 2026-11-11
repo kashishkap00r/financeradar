@@ -1443,6 +1443,11 @@ def fetch_niti_aayog(feed_config):
         r'headers="view-nothing-table-column"[^>]*>\s*<a\s+href="([^"]+)"',
         content, re.DOTALL,
     )
+    if not links:  # Working Papers / Research Papers put the PDF in an upload column instead
+        links = re.findall(
+            r'headers="view-field-report-upload-table-column"[^>]*>.*?<a[^>]+href="([^"]+)"',
+            content, re.DOTALL,
+        )
 
     count = min(len(titles), len(dates), len(links))
     seen = set()
@@ -1457,17 +1462,20 @@ def fetch_niti_aayog(feed_config):
         seen.add(href)
         link = href if href.startswith("http") else "https://www.niti.gov.in" + href
 
-        # Date is month-only ("July 2026"); anchor to the 15th as a midpoint.
+        # Date is month-only ("October, 2026"); anchor to the 15th as a midpoint.
+        # Working Papers give only a year, so fall back to the upload month in
+        # the PDF path (/sites/default/files/2026-10/…). Undated items are
+        # skipped — before Nov 2026 the comma broke parsing and every NITI
+        # report counted as fresh forever.
         dt = None
-        date_str = _strip_html(dates[i]).strip()
-        if date_str:
-            try:
-                dt = datetime.strptime(date_str, "%B %Y").replace(
-                    day=15, tzinfo=IST_TZ
-                )
-            except ValueError:
-                dt = _parse_date_flexible(date_str)
-        if not _is_fresh(dt):
+        date_str = re.sub(r"[,\s]+", " ", _strip_html(dates[i])).strip()
+        try:
+            dt = datetime.strptime(date_str, "%B %Y").replace(day=15, tzinfo=IST_TZ)
+        except ValueError:
+            m = re.search(r"/files/(20\d\d)-(\d\d)/", link)
+            if m:
+                dt = datetime(int(m.group(1)), int(m.group(2)), 15, tzinfo=IST_TZ)
+        if dt is None or not _is_fresh(dt, _feed_cutoff(feed_config)):
             continue
 
         division = html.unescape(_strip_html(divisions[i])).strip() if i < len(divisions) else ""
@@ -3538,6 +3546,46 @@ def fetch_icicidirect_sector(feed_config):
     return articles
 
 
+# FICCI Studies (ficci.in/studies): sector studies with a direct public PDF
+# (maize, textiles & apparel, cocoa, real estate …). The list gives title,
+# date and sector; the PDF link is on each study's page, so only studies
+# inside the window are opened (a handful a month).
+
+_FICCI_CARD = re.compile(
+    r'<a href="(https://ficci\.in/study_details/[^"]+)">\s*<div class="border-card[^"]*">.*?<h3>(.*?)</h3>\s*'
+    r'<time>\s*(.*?)\s*</time>(.*?)</div>\s*</a>', re.S)
+
+
+@scraper
+def fetch_ficci_studies(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    lookups = feed_config.get("max_lookups", 15)
+    page = _fetch_url(feed_config["url"], feed_config=feed_config).decode("utf-8", "replace")
+    articles, seen = [], set()
+    for url, title, date_text, rest in _FICCI_CARD.findall(page):
+        if url in seen:
+            continue
+        seen.add(url)
+        dt = _parse_day(_strip_html(date_text), "%b %d, %Y")
+        if dt is None or not _is_fresh(dt, cutoff):
+            continue
+        sector = re.search(r'class="d-flex items-center category">\s*<a[^>]*>(.*?)</a>', rest, re.S)
+        link = url
+        if lookups > 0:
+            lookups -= 1
+            _polite(feed_config)
+            try:
+                detail = _fetch_url(url, feed_config=feed_config).decode("utf-8", "replace")
+                pdf = re.search(r'href="(https://ficci\.in/public/storage/SPDocument/[^"]+\.pdf)"', detail)
+                link = pdf.group(1) if pdf else url
+            except Exception as e:
+                print(f"  [WARN] FICCI study page {url[-50:]}: {str(e)[:80]}")
+        articles.append(_make_article(re.sub(r"\s+", " ", html.unescape(_strip_html(title))).strip(), link, dt,
+                                      html.unescape(_strip_html(sector.group(1))).strip() if sector else "",
+                                      feed_config))
+    return articles
+
+
 REPORT_FETCHERS = {
     "crisilratings:": fetch_crisil_ratings,
     "crisilreports:": fetch_crisil_reports,
@@ -3586,6 +3634,7 @@ REPORT_FETCHERS = {
     "icra:": fetch_icra,
     "indiaratings:": fetch_india_ratings,
     "icicisector:": fetch_icicidirect_sector,
+    "ficcistudies:": fetch_ficci_studies,
 }
 
 

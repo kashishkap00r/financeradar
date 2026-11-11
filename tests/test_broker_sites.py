@@ -316,5 +316,35 @@ class TestPaidAndBlogSectorSources(unittest.TestCase):
         self.assertFalse(feeds["icicidirect-sector"].get("paid"))
 
 
+class TestFicciNiti(unittest.TestCase):
+    def test_ficci_study_cards(self):
+        recent = (datetime.now(IST_TZ) - timedelta(days=3)).strftime("%b %d, %Y")
+        page = ('<a href="https://ficci.in/study_details/maize-sector-in-india-24326"> <div class="border-card bg-grey"> '
+                '<div class="img-wrapper"><img class="study-image" src="x.png" alt="FICCI Study: Maize"></div> '
+                f'<h3>Maize Sector in India</h3> <time> {recent} </time> <span class="d-flex items-center category"> '
+                '<a href="https://ficci.in/sector/agriculture"> Agriculture </a> </span> </div> </a>')
+        detail = '<a href="https://ficci.in/public/storage/SPDocument/24326/Cnu.pdf" class="download-pdf-btn">'
+        cfg = {"name": "FICCI", "url": "https://ficci.in/studies", "publisher": "FICCI"}
+        with mock.patch.object(rf, "_fetch_url", side_effect=[page.encode(), detail.encode()]):
+            out = rf.fetch_ficci_studies(cfg)
+        self.assertEqual([(a["title"], a["link"], a["description"]) for a in out],
+                         [("Maize Sector in India", "https://ficci.in/public/storage/SPDocument/24326/Cnu.pdf", "Agriculture")])
+
+    def test_niti_dates_with_comma_or_year_only(self):
+        month = datetime.now(IST_TZ).strftime("%B, %Y")
+        ym = datetime.now(IST_TZ).strftime("%Y-%m")
+        page = (f'<td headers="view-title-table-column">Trade Watch</td><td headers="view-field-publication-date-papers-table-column">{month}</td>'
+                '<td headers="view-nothing-table-column"><a href="/sites/default/files/x/tw.pdf">pdf</a></td>'
+                '<td headers="view-title-table-column">Data Centre Framework</td><td headers="view-field-publication-date-papers-table-column">2026</td>'
+                f'<td headers="view-nothing-table-column"><a href="/sites/default/files/{ym}/dc.pdf">pdf</a></td>'
+                '<td headers="view-title-table-column">Undated thing</td><td headers="view-field-publication-date-papers-table-column">2026</td>'
+                '<td headers="view-nothing-table-column"><a href="/sites/default/files/misc/u.pdf">pdf</a></td>')
+        cfg = {"name": "NITI", "url": "https://www.niti.gov.in/publications/division-reports", "publisher": "NITI Aayog"}
+        with mock.patch.object(rf, "_fetch_url", return_value=page.encode()):
+            out = rf.fetch_niti_aayog(cfg)
+        self.assertEqual([a["title"] for a in out], ["Trade Watch", "Data Centre Framework"])  # undated one skipped
+        self.assertTrue(all(a["date"].day == 15 for a in out))
+
+
 if __name__ == "__main__":
     unittest.main()

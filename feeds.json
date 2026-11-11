@@ -1237,6 +1237,16 @@
     "publisher": "FICCI"
   },
   {
+    "id": "ficci-studies",
+    "name": "FICCI — Studies",
+    "url": "https://ficci.in/studies",
+    "feed": "ficcistudies:studies",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "FICCI",
+    "polite": 0.3
+  },
+  {
     "id": "ceew-publications",
     "name": "CEEW — Publications",
     "url": "https://www.ceew.in/rss.xml",
@@ -2285,6 +2295,24 @@
     "name": "NITI Aayog — Division Reports",
     "url": "https://www.niti.gov.in/publications/division-reports",
     "feed": "niti:niti-division-reports",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "NITI Aayog"
+  },
+  {
+    "id": "niti-working-papers",
+    "name": "NITI Aayog — Working Papers",
+    "url": "https://www.niti.gov.in/publications/working-papers",
+    "feed": "niti:niti-working-papers",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "NITI Aayog"
+  },
+  {
+    "id": "niti-research-papers",
+    "name": "NITI Aayog — Research Papers",
+    "url": "https://www.niti.gov.in/publications/research-paper",
+    "feed": "niti:niti-research-papers",
     "category": "Reports",
     "region": "Indian",
     "publisher": "NITI Aayog"
