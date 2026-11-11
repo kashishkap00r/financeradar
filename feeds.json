@@ -1200,6 +1200,15 @@
     "publisher": "Baroda eTrade"
   },
   {
+    "id": "baroda-etrade-mer",
+    "name": "Baroda eTrade — BOB Economics",
+    "url": "https://www.barodaetrade.com/research-Details/MER",
+    "feed": "baroda:mer",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Baroda eTrade"
+  },
+  {
     "id": "baroda-etrade-sor",
     "name": "Baroda eTrade — SOR",
     "url": "https://www.barodaetrade.com/research-Details/SOR",
