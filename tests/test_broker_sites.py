@@ -346,5 +346,25 @@ class TestFicciNiti(unittest.TestCase):
         self.assertTrue(all(a["date"].day == 15 for a in out))
 
 
+class TestArihant(unittest.TestCase):
+    def test_file_names(self):
+        self.assertEqual(rf.classify_arihant("Voltas_Q2FY27_Result_update.pdf"), ("stock", "Voltas", "Q2FY27 Result Update"))
+        self.assertEqual(rf.classify_arihant("Inox_Wind_Initiating_Coverage_Report.pdf"), ("stock", "Inox Wind", "Initiating Coverage"))
+        self.assertEqual(rf.classify_arihant("Meesho_Ltd_IPO_Note.pdf"), ("stock", "Meesho", "IPO note"))
+        self.assertEqual(rf.classify_arihant("Q4FY24-Sandhar Technologies Limited.pdf"), ("stock", "Sandhar Technologies", "Q4FY24 Result Update"))
+        self.assertEqual(rf.classify_arihant("Graphite_Electrodes_&_Anode_Sector_Arihant_Capital_ Ltd.pdf"),
+                         ("sector", "Graphite Electrodes & Anode Sector"))
+        self.assertEqual(rf.classify_arihant("IT Services_ Q2FY24 Preview.pdf")[0], "sector")
+        for junk in ("Arihant_Diwali_Picks_Large_Cap_Diwali_ke_Diye.pdf", "Day 2 Bharat Connect Conference March 2026 - Webinar Links.pdf",
+                     "Research_TEST_123_DOC.pdf", "17th Nov 2022.pdf", "Equirius - Cement Sector.pdf"):
+            self.assertEqual(rf.classify_arihant(junk), ("skip",), junk)
+
+    def test_page_one(self):
+        dt, head, name = rf.arihant_page_one("Q2FY27 Result update\n11th Nov 2026\nVoltas Ltd\nDurable Leadership, Margin Normalisation Ahead\nCMP: INR 1,123", "Voltas")
+        self.assertEqual((dt.date().isoformat(), head, name), ("2026-11-11", "Durable Leadership, Margin Normalisation Ahead", "Voltas Ltd"))
+        dt, head, _ = rf.arihant_page_one("RESET DONE, RE-RATING AHEAD\n4th November 2026\n", "Sammaan Capital")
+        self.assertEqual((dt.date().isoformat(), head), ("2026-11-04", "RESET DONE, RE-RATING AHEAD"))
+
+
 if __name__ == "__main__":
     unittest.main()

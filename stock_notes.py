@@ -99,6 +99,7 @@ _BROKER_ALIASES = [
     (r"^way ?2 ?wealth", "Way2Wealth"),
     (r"^sbi ?(cap )?sec", "SBI Securities"),
     (r"^monarch|^mncl\b", "Monarch Networth Capital"),
+    (r"^arihant", "Arihant Capital"),
 ]
 
 # Never shown in Stock notes: foreign houses (view is Indian-only) and
@@ -335,6 +336,8 @@ def _to_entry(article):
     company, headline = article.get("company") or "", article.get("headline") or ""
     if not company:  # Axis Direct, HDFC Securities, Baroda eTrade only have a title
         company, headline = split_report_title(article.get("title"))
+    if company:  # multi-stock dailies keep their own title untouched
+        headline = strip_rating(headline)
     entry = {
         "date": dt.date().isoformat() if dt else "",
         "broker": canonical_broker(article.get("publisher")) or article.get("publisher") or "",
@@ -471,13 +474,36 @@ def save_archive(path, entries):
 
 # ── Headlines: page 1 of the PDF → the report's own title ───────────
 
+_RATING_WORD = r"['‘’\"]?(?:strong\s+)?(?:buy|sell|hold|accumulate|reduce|neutral|add)['‘’\"]?"
+# Only a tail that names a rating goes: "…; maintain BUY", "… – Downgrade to 'ACCUMULATE'",
+# "…. BUY". "Volume guidance maintained" or "…Support Valuation Upgrade" stay whole.
+_RATING_TAIL = re.compile(
+    r"\s*[;,.|–—-]?\s*\b(?:and\s+)?(?:we\s+)?(?:maintain(?:ed|ing)?|retain(?:ed|ing)?|reiterat(?:e|es|ed|ing)|upgrade[ds]?|upgrading|downgrade[ds]?|downgrading)"
+    r"\s+(?:our\s+|the\s+|rating\s+)?(?:to\s+)?" + _RATING_WORD + r"[^;]{0,40}$"
+    r"|\s*[;,.|–—-]\s*" + _RATING_WORD + r"(?:\s+(?:with|on|rating)\b[^;,]{0,40})?\.?$", re.I)
+
+
+def strip_rating(headline):
+    """'…margins pinched; maintain BUY' → '…margins pinched'. Ratings never show on a card (user, Nov 2026)."""
+    h = (headline or "").strip()
+    if re.fullmatch(r"(?:(?:maintain(?:ed)?|retain|reiterate|upgrade(?:d)?|downgrade(?:d)?)\s+(?:to\s+)?)?" + _RATING_WORD + r"\.?",
+                    h, re.I):
+        return ""
+    for _ in range(2):  # tails can stack: "…; upgrade to BUY; TP raised"
+        h2 = _RATING_TAIL.sub("", h)
+        if h2 == h:
+            break
+        h = h2.rstrip(" ;,|–—-")  # only the separator left behind; a sentence's own full stop stays
+    return h if len(h) >= 8 else ""
+
+
 def clean_headline(text, company):
     h = re.sub(r"\s+", " ", (text or "")).strip().strip("\"'“”‘’").strip()
     if len(h) < 4 or len(h) > 200:
         return ""
     if h.lower() == (company or "").strip().lower():
         return ""
-    return h
+    return strip_rating(h)
 
 
 def pdf_first_page_text(link, user_agent="Mozilla/5.0 (compatible; FinanceRadar)", context=None):
@@ -506,7 +532,25 @@ def pdf_first_page_text(link, user_agent="Mozilla/5.0 (compatible; FinanceRadar)
 # then the company, the sector, and the headline; Motilal Oswal's headline is
 # the largest line that isn't the company, a price or a disclaimer.
 
-RULE_HEADLINE_BROKERS = ("ICICI Securities", "Motilal Oswal")
+RULE_HEADLINE_BROKERS = ("ICICI Securities", "Motilal Oswal", "Emkay Global", "Anand Rathi")
+# Emkay and Anand Rathi (added 12 Nov 2026; 60/60 each against Claude-read
+# headlines). Choice was tried too but its desks use several layouts (47/60),
+# and most Choice notes come from its own site with a headline, so it has no
+# rule — a wrong headline is worse than none. The headline is the largest
+# line on page 1 that isn't the company, a rating, a price line or a bare
+# report-type banner; their headlines often end "…; maintain BUY", so rating
+# words don't disqualify a line here, and a leading "Company:" is dropped.
+_LARGEST_LINE_BROKERS = ("Emkay Global", "Anand Rathi")
+_PRICE_LINE = re.compile(r"\b(cmp|tp|target price|rating|share price|reco)\b\s*[:(|]|share price return|"
+                         r"dividend yield|potential upside|\b(ltd|limited)\.?\s*(\([A-Z0-9&]+\))?$|\([A-Z0-9&]{2,}\)$", re.I)
+
+
+def _starts_like_headline(text):
+    """Body bullets ("` Outlook…") and mid-sentence lines ("ascribed a value…") are not headlines."""
+    t = text.strip()
+    return bool(t) and (t[0].isupper() or t[0].isdigit())
+_TYPE_ONLY = re.compile(r"^(q[1-4]\s?fy\d\d\s*[-–]?\s*)?(result|company|initiating|event|sector|ipo)?\s*"
+                        r"(update|review|coverage|preview|note)s?$", re.I)
 _NOT_HEADLINE = re.compile(
     r"\b(cmp|tp|target|inr|rs|buy|sell|hold|neutral|add|reduce|accumulate|maintain(ed)?|sector|"
     r"research analyst|disclosures?|advised|bloomberg|sensex|nifty|s&p|equity research|estimate change|"
@@ -581,6 +625,29 @@ def rule_headline(broker, lines, company):
                         return _with_continuation(lines, j, strict=False)
                 return ""
         return ""
+    if broker in _LARGEST_LINE_BROKERS:
+        ok = [i for i, (_, _, t) in enumerate(lines)
+              if _headline_like(t, company, strict=False) and not _PRICE_LINE.search(t)
+              and not _TYPE_ONLY.match(t.strip()) and _starts_like_headline(t)]
+        if broker == "Anand Rathi":
+            # The headline is the first sizeable line after the big company name.
+            name_i = max(range(len(lines)), key=lambda i: lines[i][0]) if lines else None
+            after = [i for i in ok if name_i is not None and lines[i][1] > lines[name_i][1] and lines[i][0] >= 13]
+            cands = sorted(after, key=lambda i: lines[i][1])[:1]
+        else:
+            top = max((lines[i][0] for i in ok), default=0)
+            cands = sorted((i for i in ok if lines[i][0] == top), key=lambda i: lines[i][1])[:1]
+        if not cands:
+            return ""
+        head = _with_continuation(lines, cands[0], strict=False)
+        first = (company or "").split()[0].lower() if company else ""
+        if ":" in head and first:
+            left, right = (p.strip() for p in head.split(":", 1))
+            if left.lower().startswith(first[:4]):
+                head = right  # "Minda Corp.: Premiumisation…" → "Premiumisation…"
+            elif right.lower().startswith(first[:4]):
+                head = left   # "Sector Tailwinds … : Nuvoco Vistas Corp Ltd" → the part before
+        return head
     if broker == "Motilal Oswal":
         cands = [i for i, (_, _, t) in enumerate(lines) if _headline_like(t, company)]
         if not cands:

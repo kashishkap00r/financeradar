@@ -1432,6 +1432,28 @@
     "max_age_days": 14
   },
   {
+    "id": "arihant-research",
+    "name": "Arihant Capital — Research",
+    "url": "https://arihantresearch.arihantcapital.com/Mumbai_Research/",
+    "feed": "arihant:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Arihant Capital",
+    "kind": "stock_note",
+    "max_items": 200,
+    "max_age_days": 14,
+    "polite": 0.2
+  },
+  {
+    "id": "arihant-sector",
+    "name": "Arihant Capital — Sector & Strategy",
+    "url": "https://arihantresearch.arihantcapital.com/Mumbai_Research/",
+    "feed": "arihant:sector",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Arihant Capital"
+  },
+  {
     "id": "hdfc-securities-sector",
     "name": "HDFC Securities — Sector & Economy",
     "url": "https://www.hdfcsec.com/research/equity/sector-reports",

@@ -160,7 +160,7 @@ class TestBrokerSiteReports(unittest.TestCase):
         ])
         by = {e["link"]: e for e in out}
         self.assertEqual((by["https://hdfc/1.pdf"]["company"], by["https://hdfc/1.pdf"]["headline"]),
-                         ("Honasa Consumer", "Healthy Q2 delivery, execution continues to aid. Maintain BUY"))
+                         ("Honasa Consumer", "Healthy Q2 delivery, execution continues to aid"))  # rating trimmed
         # Axis gives the company only; the PDF headline is filled later
         self.assertEqual((by["https://axis/2.pdf"]["company"], by["https://axis/2.pdf"]["headline"]), ("Britannia Inds.", ""))
         # Multi-stock dailies keep their own title as the headline
@@ -284,7 +284,21 @@ class TestRuleHeadlines(unittest.TestCase):
                  (11.0, 300, "Investors are advised to refer through important disclosures")]
         self.assertEqual(rule_headline("Motilal Oswal", lines, "Fujiyama Power Systems"),
                          "Strong volume-led growth supported by channel expansion")
-        self.assertEqual(rule_headline("Emkay Global", lines, "X"), "")  # no rule → no guess
+        self.assertEqual(rule_headline("Choice Broking", lines, "X"), "")  # no rule → no guess
+
+    def test_emkay_and_anand_rathi_largest_line(self):
+        from stock_notes import rule_headline
+        emkay = [(7.9, 8, "This report is intended for Team X (team@example.com) use"), (20.6, 15.9, "HDFC Bank"),
+                 (18.2, 17.9, "BUY"), (14.5, 42.8, "Clouds clear; execution remains key to re-rating"),
+                 (9.7, 67.2, "Result Update"), (9.7, 67.8, "CMP (Rs): 728 | TP (Rs): 1,050")]
+        self.assertEqual(rule_headline("Emkay Global", emkay, "HDFC Bank"), "Clouds clear; execution remains key to re-rating")
+        rathi = [(11.8, 44.8, "IT"), (13.1, 60.5, "India I Equities"), (9.2, 100.6, "13 October 2026"),
+                 (21.0, 118.8, "HCL Technologies"), (12.7, 148.6, "Rating: BUY"),
+                 (14.8, 153.2, "AI-led services momentum & margin expansion strengthen conviction;"),
+                 (14.8, 168.2, "upgrade to BUY"), (12.4, 631.5, "` Outlook & Valuation: We have revised our estimates")]
+        self.assertEqual(rule_headline("Anand Rathi", rathi, "HCL Technologies"),
+                         "AI-led services momentum & margin expansion strengthen conviction; upgrade to BUY")
+        self.assertEqual(rule_headline("Choice Broking", emkay, "HDFC Bank"), "")  # no rule: no guess
 
     def test_fill_only_touches_rule_brokers(self):
         from stock_notes import rule_headlines
@@ -295,3 +309,24 @@ class TestRuleHeadlines(unittest.TestCase):
                        brokers=("ICICI Securities", "Motilal Oswal"))
         self.assertEqual([e["headline"] for e in items], ["Fuel additives lead; core chemistry gains momentum", ""])
         self.assertEqual(items[1]["headline_tries"], 0)
+
+
+class TestStripRating(unittest.TestCase):
+    """No ratings on cards (user, Nov 2026) — but only tails that name a rating go."""
+
+    def test_rating_tails_go(self):
+        from stock_notes import strip_rating
+        self.assertEqual(strip_rating("In-line Q2 show with improved growth outlook; maintain BUY"),
+                         "In-line Q2 show with improved growth outlook")
+        self.assertEqual(strip_rating("Excess inventory likely to weigh on rest of FY26; Downgrade to HOLD"),
+                         "Excess inventory likely to weigh on rest of FY26")
+        self.assertEqual(strip_rating("Broad-based performance; margins back on track. BUY"),
+                         "Broad-based performance; margins back on track")
+        self.assertEqual(strip_rating("Maintain BUY"), "")
+        self.assertEqual(strip_rating("Margin expansion on strong outlook; retaining BUY"), "Margin expansion on strong outlook")
+
+    def test_ordinary_words_stay(self):
+        from stock_notes import strip_rating
+        for h in ("Volume guidance maintained", "Accelerating Growth and Margin Upside Support Valuation Upgrade",
+                  "Strategic initiatives drive ARPU expansion.", "Buy the dip in quality: a primer", "A tank full…."):
+            self.assertEqual(strip_rating(h), h)
