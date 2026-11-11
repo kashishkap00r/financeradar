@@ -43,9 +43,19 @@ PDF_TIMEOUT = 40
 # note by the report, Business Standard sometimes by its own posting day.
 DEDUP_WINDOW_DAYS = 3
 
-# Oldest note kept (user, 11 Nov 2026: "till 2020 all is fine"). Way2Wealth
-# goes back to 2016; anything before this is dropped on every merge.
-MIN_NOTE_DATE = "2020-01-01"
+# How far back notes are kept: a rolling window (user, 11 Nov 2026: "max 5
+# years"). Way2Wealth goes back to 2016; anything older than the window is
+# dropped on every merge, so the archive trims itself day by day.
+NOTE_HISTORY_YEARS = 5
+
+
+def min_note_date(today=None):
+    """Oldest date kept, as 'YYYY-MM-DD': today minus NOTE_HISTORY_YEARS (29 Feb → 28 Feb)."""
+    today = today or datetime.now(IST_TZ).date()
+    try:
+        return today.replace(year=today.year - NOTE_HISTORY_YEARS).isoformat()
+    except ValueError:
+        return today.replace(year=today.year - NOTE_HISTORY_YEARS, day=28).isoformat()
 
 # What the browser loads (the full archive above stays the pipeline's copy):
 # static/stock_notes/recent.json = the newest RECENT_NOTES (first pages, shown
@@ -319,13 +329,14 @@ def merge_into_archive(archive, articles):
     site — is dropped by the same rule as dedup_stock_notes(), with the
     headline-bearing entry winning.
     """
-    archive = [e for e in archive if (e.get("date") or "9") >= MIN_NOTE_DATE]
+    floor = min_note_date()
+    archive = [e for e in archive if (e.get("date") or "9") >= floor]
     known = {e["link"] for e in archive}
     fresh = []
     for art in articles:
         if art.get("kind") != STOCK_NOTE_KIND or not art.get("link") or art["link"] in known:
             continue
-        if art.get("date") is not None and art["date"].astimezone(IST_TZ).date().isoformat() < MIN_NOTE_DATE:
+        if art.get("date") is not None and art["date"].astimezone(IST_TZ).date().isoformat() < floor:
             continue
         known.add(art["link"])
         fresh.append(_entry_as_note(_to_entry(art), prev_target=art.get("prev_target"),
@@ -357,7 +368,8 @@ def write_note_chunks(entries, out_dir=NOTE_CHUNKS_DIR, recent=RECENT_NOTES):
     touches recent.json and the current year, not every year.
     """
     os.makedirs(out_dir, exist_ok=True)
-    entries = sorted((e for e in entries if (e.get("date") or "") >= MIN_NOTE_DATE),
+    floor = min_note_date()
+    entries = sorted((e for e in entries if (e.get("date") or "") >= floor),
                      key=_archive_sort_key, reverse=True)
     slim = [{k: e.get(k) or "" for k in _BROWSER_FIELDS} for e in entries]
     by_year = {}

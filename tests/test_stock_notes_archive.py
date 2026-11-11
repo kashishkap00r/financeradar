@@ -206,15 +206,18 @@ class TestHeadlineMinDate(unittest.TestCase):
 
 
 class TestHistoryFloorAndBrowserChunks(unittest.TestCase):
-    def test_notes_before_2020_are_dropped(self):
-        from stock_notes import MIN_NOTE_DATE
-        old = {"date": "2019-12-31", "broker": "Way2Wealth", "company": "Cipla", "headline": "", "link": "https://w/old.pdf",
+    def test_notes_older_than_five_years_are_dropped(self):
+        from datetime import date
+        from stock_notes import min_note_date
+        self.assertEqual(min_note_date(date(2026, 11, 11)), "2021-11-11")
+        self.assertEqual(min_note_date(date(2028, 2, 29)), "2023-02-28")
+        too_old = (datetime.now(IST_TZ) - timedelta(days=5 * 366)).date().isoformat()
+        old = {"date": too_old, "broker": "Way2Wealth", "company": "Cipla", "headline": "", "link": "https://w/old.pdf",
                "via": "", "target": None, "headline_tries": 0}
         art = _article("Emkay Global", "Infosys", 1300.0, 0, "Moneycontrol", "https://mc/a.pdf")
         ancient = {**art, "link": "https://w/2016.pdf", "date": datetime(2016, 5, 1, tzinfo=IST_TZ)}
         out = merge_into_archive([old], [art, ancient])
         self.assertEqual([e["link"] for e in out], ["https://mc/a.pdf"])
-        self.assertEqual(MIN_NOTE_DATE, "2020-01-01")
 
     def test_chunks_recent_first_then_one_file_per_year(self):
         from stock_notes import write_note_chunks

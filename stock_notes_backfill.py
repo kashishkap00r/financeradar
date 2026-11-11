@@ -35,9 +35,9 @@ def _feed(feed_id):
 
 
 from datetime import date
-from stock_notes import MIN_NOTE_DATE
-# Back to MIN_NOTE_DATE (2020) and no further.
-EVERYTHING = {"max_age_days": (date.today() - date.fromisoformat(MIN_NOTE_DATE)).days + 1, "max_items": 100000}
+from stock_notes import min_note_date
+# Back to the start of the rolling window (5 years) and no further.
+EVERYTHING = {"max_age_days": (date.today() - date.fromisoformat(min_note_date())).days + 1, "max_items": 100000}
 
 # Brokers' own sites: how deep each one's history goes (pages / per-report lookups).
 DIRECT_HISTORY = {
