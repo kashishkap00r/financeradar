@@ -848,11 +848,11 @@ def generate_html(
 
         <nav class="tab-bar" role="tablist">
             <button class="tab-pill tab-active" role="tab" aria-selected="true" data-tab="home">Home</button>
-            <button class="tab-pill" role="tab" aria-selected="false" data-tab="news"><span class="cat-dot" style="background:#4A8F7A"></span> News <span class="tab-count">{len(sorted_articles)}</span></button>
-            <button class="tab-pill" role="tab" aria-selected="false" data-tab="research"><span class="cat-dot" style="background:#9A8345"></span> Reports <span class="tab-count">{research_count}</span></button>
-            <button class="tab-pill" role="tab" aria-selected="false" data-tab="reports"><span class="cat-dot" style="background:#5E6A96"></span> Telegram <span class="tab-count">{report_count}</span></button>
-            <button class="tab-pill" role="tab" aria-selected="false" data-tab="youtube"><span class="cat-dot" style="background:#A86565"></span> YouTube <span class="tab-count">{video_count}</span></button>
-            <button class="tab-pill" role="tab" aria-selected="false" data-tab="twitter"><span class="cat-dot" style="background:#4A8A9A"></span> Twitter <span class="tab-count">{twitter_count}</span></button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="news"><span class="cat-dot" style="background:#4A8F7A"></span> News</button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="research"><span class="cat-dot" style="background:#9A8345"></span> Reports</button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="reports"><span class="cat-dot" style="background:#5E6A96"></span> Telegram</button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="youtube"><span class="cat-dot" style="background:#A86565"></span> YouTube</button>
+            <button class="tab-pill" role="tab" aria-selected="false" data-tab="twitter"><span class="cat-dot" style="background:#4A8A9A"></span> Twitter</button>
         </nav>
         </div><!-- /site-head: top bar + tabs stay pinned while scrolling -->
 
@@ -1016,6 +1016,14 @@ def generate_html(
                     </div>
                 </div>
             </div>
+            <div class="sn-arrange" id="sn-arrange" style="display:none">
+                <div class="tg-view-toggle" role="group" aria-label="Arrange stock notes">
+                    <button class="tg-view-btn active" id="sn-by-date" onclick="setStockNotesArrange('date')">By date</button>
+                    <button class="tg-view-btn" id="sn-by-company" onclick="setStockNotesArrange('company')">By company</button>
+                </div>
+                <span class="sn-arrange-hint" id="sn-arrange-hint"></span>
+            </div>
+            <nav class="sn-az" id="sn-az" aria-label="Jump to companies by letter" style="display:none"></nav>
             <div id="research-container"></div>
             <div id="research-pagination-bottom" class="pagination bottom"></div>
         </div><!-- /tab-research -->

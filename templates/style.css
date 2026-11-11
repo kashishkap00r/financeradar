@@ -3619,3 +3619,25 @@
             .source-row-date { display: none; }
         }
 
+
+        /* ── Stock notes: By date / By company (Nov 2026) ── */
+        .sn-arrange { display: flex; align-items: center; gap: 8px 16px; flex-wrap: wrap; margin: 12px 0 4px; }
+        .sn-arrange-hint { font-size: var(--t-s); color: var(--text-muted); }
+        .sn-az { display: flex; flex-wrap: wrap; gap: 2px; margin: 8px 0 4px; font-size: var(--t-s); }
+        .sn-az button { background: none; border: 0; padding: 3px 7px; border-radius: 4px; font: inherit; color: var(--text-primary); cursor: pointer; }
+        .sn-az button:hover, .sn-az button:focus-visible { background: var(--accent-soft); color: var(--accent); outline: none; }
+        .sn-az span { padding: 3px 7px; color: var(--border); }
+        .sn-co { padding: 18px 0 6px; border-bottom: 1px solid var(--rule); scroll-margin-top: calc(var(--head-h) + 12px); }
+        .sn-co-name { font-family: var(--serif); font-weight: 500; font-size: 1.2rem; margin: 0 0 4px; text-wrap: balance; color: var(--text-primary); }
+        .sn-co-row { display: grid; grid-template-columns: 160px minmax(0, 1fr) 60px auto; gap: 4px 14px; align-items: baseline; padding: 8px 0; border-top: 1px dashed var(--rule); }
+        .sn-co-name + .sn-co-row { border-top: 0; }
+        .sn-co-broker { font-size: var(--t-s); }
+        .sn-co-title { color: var(--text-primary); text-decoration: none; min-width: 0; }
+        .sn-co-title:hover { color: var(--accent); }
+        .sn-co-plain { color: var(--text-muted); }
+        .sn-co-date { font-size: var(--t-s); color: var(--text-muted); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        .sn-co-row .bookmark-btn { align-self: center; }
+        @media (max-width: 640px) {
+            .sn-co-row { grid-template-columns: minmax(0, 1fr) auto auto; }
+            .sn-co-broker { grid-column: 1 / -1; }
+        }

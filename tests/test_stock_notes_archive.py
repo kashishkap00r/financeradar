@@ -246,17 +246,23 @@ class TestLatestFirst(unittest.TestCase):
         seen = datetime(2026, 11, 11, 14, 5, tzinfo=IST_TZ)
         self.assertEqual(note_time("https://w2w/RR1.pdf", datetime(2026, 11, 9, tzinfo=IST_TZ), now=seen), "2026-11-11T14:05")
 
-    def test_within_a_day_latest_first_then_untimed_a_to_z(self):
+    def test_day_then_company_so_one_stocks_notes_sit_together(self):
         from stock_notes import sort_notes
         notes = [
-            {"date": "2026-11-11", "broker": "Ventura Securities", "company": "A", "link": "1", "ts": "2026-11-11T09:00"},
-            {"date": "2026-11-11", "broker": "Prabhudas Lilladher", "company": "B", "link": "2", "ts": "2026-11-11T16:30"},
-            {"date": "2026-11-11", "broker": "Way2Wealth", "company": "C", "link": "3"},
-            {"date": "2026-11-11", "broker": "Choice Broking", "company": "D", "link": "4"},
-            {"date": "2026-11-12", "broker": "Zed", "company": "E", "link": "5"},
+            {"date": "2026-11-11", "broker": "Ventura Securities", "company": "Titan Company", "link": "1", "ts": "2026-11-11T16:00"},
+            {"date": "2026-11-11", "broker": "Prabhudas Lilladher", "company": "Mahindra & Mahindra", "link": "2", "ts": "2026-11-11T09:30"},
+            {"date": "2026-11-11", "broker": "HDFC Securities", "company": "", "link": "3", "headline": "HSIE Results Daily: …"},
+            {"date": "2026-11-11", "broker": "Choice Broking", "company": "Mahindra and Mahindra Ltd", "link": "4", "ts": "2026-11-11T12:00"},
+            {"date": "2026-11-11", "broker": "Way2Wealth", "company": "Astral", "link": "5"},
+            {"date": "2026-11-11", "broker": "Kotak Securities", "company": "Mahindra & Mahindra", "link": "6"},
+            {"date": "2026-11-12", "broker": "Zed", "company": "Zomato", "link": "7"},
         ]
-        self.assertEqual([n["link"] for n in sort_notes(notes)], ["5", "2", "1", "4", "3"])
-
+        # 12 Nov first; then 11 Nov: Astral, the three M&M notes (latest first, untimed last), Titan, the daily
+        self.assertEqual([n["link"] for n in sort_notes(notes)], ["7", "5", "4", "2", "6", "1", "3"])
+        from stock_notes import _company_sort_key
+        self.assertEqual(_company_sort_key("Titan Company Ltd"), _company_sort_key("Titan"))
+        self.assertEqual(_company_sort_key("GAIL (India)"), _company_sort_key("GAIL India"))
+        self.assertNotEqual(_company_sort_key("Reliance Power"), _company_sort_key("Reliance Industries"))
 
 class TestRuleHeadlines(unittest.TestCase):
     """Page-1 layout rules (no AI) for ICICI Securities and Motilal Oswal."""
