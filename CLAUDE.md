@@ -80,6 +80,17 @@ The homepage **exclusively shows AI-ranked content** from `static/ai_rankings.js
 - The Companies tab (Market Tide) was removed in Sept 2026 because the feed stopped refreshing. `companies_fetcher.py` is no longer called by anything
 - The Papers tab was removed in Nov 2026 at the user's request (not useful). `paper_fetcher.py`, its test and `static/papers_cache.json` / `static/tab_papers.json` are no longer used by anything
 
+### This Week calendar (Nov 2026)
+
+A small calendar of India data releases, policy dates, market dates, Nifty 200 results and the main global events. **It never adds a section to the homepage's main column** (user: an extra, it must not take attention from the home page). Mockups: claude.ai/artifact/7nt6PhA8632GBGYuWB4JKH ("Final" page).
+
+- **Data:** `calendar_events.py` → `static/calendar.json` (browser) + `static/calendar.ics` ("Add to my calendar"), built every hour by `build_calendar()` in aggregator.py's main (never raises).
+  - `calendar_macro.json` (repo root, **hand-kept**): India CPI/WPI/IIP/GDP/PLFS/core/trade/PMI/fiscal deficit, RBI policy, Budget, US Fed decision + US CPI. `big: true` only for India CPI, GDP, RBI policy, Budget (◆). `confirmed: false` = worked out from the agency's rule, shown as "expected". Researched 11 Nov 2026 from the agencies' published calendars; **runs to 31 Mar 2027 — extend it before then** (MoSPI ARC, OEA/DPIIT ARCs, S&P Global PMI calendar, RBI MPC schedule, Fed FOMC calendar, BLS CPI schedule).
+  - Results: NSE `api/event-calendar` (board meetings whose purpose includes "Financial Results"), kept to **all Nifty 200 companies** (user's call; the list comes from nsearchives `ind_nifty200list.csv`, refreshed weekly → `static/nifty200.json`; Nifty 50 names show first, then Nifty 100). `COMMON_NAMES` gives readers' names for long official ones (IRCTC, LIC, Sun Pharma). NSE lists only from tomorrow, so `static/results_calendar_cache.json` keeps today's entries; when NSE answers it is the truth for later dates (moved/cancelled meetings drop), when it doesn't the cache stands.
+  - By rule: monthly F&O expiry (last Tuesday, moved back over NSE holidays — Nov 2026's falls on Mon 23 because 24 Nov is a holiday), market holidays (`static/nse_holidays.json`, NSE `holiday-master`, daily), the results deadline (45 days after a quarter, 60 after March), RBI forex reserves (Fridays 5 pm).
+- **Browser** (`renderWeekCal()` in app.js, styles at the end of style.css, prefix `wk-`): one list of days, three ways by width. ≥1600px: rail in the right margin, sticky, the page shifts left just enough for it (`.wk-wide`). 769–1599px: folded column of day chips on the right edge, hover/tap → popover (`.wk-fold`, `.wk-pop`; below 1384px the container gets 88px right padding). ≤768px: day strip under the tabs (`.wk-strip`), tap a day → bottom sheet; once the strip scrolls away a "◆ CPI Thu" chip appears in the top bar (`#wk-chip`). Full calendar = the story drawer's frame (`openCalDrawer()`), four weeks, filters. Home tab only. Markers: ◆ moves markets, dots for India data / policy / market / global / results; at most 3 per day.
+- Version 2 (not built, user's call): after an event, show the actual figure and link the release (From the Source) / the broker result notes.
+
 ### Semantic Story Clustering
 
 A post-ranking step in `ai_ranker.py` clusters articles **across all content types** (news, telegram, youtube, twitter, reports) by underlying story. This is additive — per-bucket rankings are unchanged.
@@ -204,6 +215,7 @@ Indian brokers' notes on single stocks live in the Reports tab's own **Stock not
 | `config.py` (86L) | All magic numbers and tunables | Imported by most modules |
 | `stock_notes.py` | Stock notes: broker names, Indian-only filter, dedup, archive, PDF headlines | reports_fetcher.py, aggregator.py |
 | `stock_notes_backfill.py` | Re-runnable full-history fetch + headline fill | Local only (manual) |
+| `calendar_events.py` | This Week calendar: macro file + NSE results/holidays + rule dates → `static/calendar.json` / `.ics` | aggregator.py |
 
 Frontend: `templates/app.js` (~4080L) + `templates/style.css` (~3100L). Tests: 18 modules in `tests/`.
 

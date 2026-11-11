@@ -1,0 +1,805 @@
+{
+ "fetched_at": "2026-11-11T22:42:25+05:30",
+ "index": {
+  "360ONE": {
+   "name": "360 ONE WAM",
+   "tier": 3
+  },
+  "ABB": {
+   "name": "ABB India",
+   "tier": 2
+  },
+  "APLAPOLLO": {
+   "name": "APL Apollo Tubes",
+   "tier": 3
+  },
+  "AUBANK": {
+   "name": "AU Small Finance Bank",
+   "tier": 3
+  },
+  "ADANIENSOL": {
+   "name": "Adani Energy Solutions",
+   "tier": 2
+  },
+  "ADANIENT": {
+   "name": "Adani Enterprises",
+   "tier": 1
+  },
+  "ADANIGREEN": {
+   "name": "Adani Green Energy",
+   "tier": 2
+  },
+  "ADANIPORTS": {
+   "name": "Adani Ports",
+   "tier": 1
+  },
+  "ADANIPOWER": {
+   "name": "Adani Power",
+   "tier": 2
+  },
+  "ATGL": {
+   "name": "Adani Total Gas",
+   "tier": 3
+  },
+  "ABCAPITAL": {
+   "name": "Aditya Birla Capital",
+   "tier": 3
+  },
+  "AMBUJACEM": {
+   "name": "Ambuja Cements",
+   "tier": 2
+  },
+  "APARINDS": {
+   "name": "Apar Industries",
+   "tier": 3
+  },
+  "APOLLOHOSP": {
+   "name": "Apollo Hospitals Enterprise",
+   "tier": 1
+  },
+  "ASHOKLEY": {
+   "name": "Ashok Leyland",
+   "tier": 3
+  },
+  "ASIANPAINT": {
+   "name": "Asian Paints",
+   "tier": 1
+  },
+  "ASTRAL": {
+   "name": "Astral",
+   "tier": 3
+  },
+  "AUROPHARMA": {
+   "name": "Aurobindo Pharma",
+   "tier": 3
+  },
+  "DMART": {
+   "name": "Avenue Supermarts",
+   "tier": 2
+  },
+  "AXISBANK": {
+   "name": "Axis Bank",
+   "tier": 1
+  },
+  "BSE": {
+   "name": "BSE",
+   "tier": 1
+  },
+  "BAJAJ-AUTO": {
+   "name": "Bajaj Auto",
+   "tier": 1
+  },
+  "BAJFINANCE": {
+   "name": "Bajaj Finance",
+   "tier": 1
+  },
+  "BAJAJFINSV": {
+   "name": "Bajaj Finserv",
+   "tier": 1
+  },
+  "BAJAJHLDNG": {
+   "name": "Bajaj Holdings & Investment",
+   "tier": 2
+  },
+  "BANKBARODA": {
+   "name": "Bank of Baroda",
+   "tier": 2
+  },
+  "BANKINDIA": {
+   "name": "Bank of India",
+   "tier": 3
+  },
+  "MAHABANK": {
+   "name": "Bank of Maharashtra",
+   "tier": 3
+  },
+  "BDL": {
+   "name": "Bharat Dynamics",
+   "tier": 3
+  },
+  "BEL": {
+   "name": "BEL",
+   "tier": 1
+  },
+  "BHARATFORG": {
+   "name": "Bharat Forge",
+   "tier": 3
+  },
+  "BHEL": {
+   "name": "BHEL",
+   "tier": 3
+  },
+  "BPCL": {
+   "name": "BPCL",
+   "tier": 2
+  },
+  "BHARTIARTL": {
+   "name": "Bharti Airtel",
+   "tier": 1
+  },
+  "GROWW": {
+   "name": "Billionbrains Garage Ventures",
+   "tier": 3
+  },
+  "BIOCON": {
+   "name": "Biocon",
+   "tier": 3
+  },
+  "BLUESTARCO": {
+   "name": "Blue Star",
+   "tier": 3
+  },
+  "BOSCHLTD": {
+   "name": "Bosch",
+   "tier": 2
+  },
+  "BRITANNIA": {
+   "name": "Britannia Industries",
+   "tier": 2
+  },
+  "CGPOWER": {
+   "name": "CG Power",
+   "tier": 2
+  },
+  "CANBK": {
+   "name": "Canara Bank",
+   "tier": 2
+  },
+  "CHOLAFIN": {
+   "name": "Cholamandalam Finance",
+   "tier": 2
+  },
+  "CIPLA": {
+   "name": "Cipla",
+   "tier": 1
+  },
+  "COALINDIA": {
+   "name": "Coal India",
+   "tier": 1
+  },
+  "COCHINSHIP": {
+   "name": "Cochin Shipyard",
+   "tier": 3
+  },
+  "COFORGE": {
+   "name": "Coforge",
+   "tier": 3
+  },
+  "COLPAL": {
+   "name": "Colgate Palmolive (India)",
+   "tier": 3
+  },
+  "CONCOR": {
+   "name": "Container Corporation",
+   "tier": 3
+  },
+  "CUMMINSIND": {
+   "name": "Cummins India",
+   "tier": 2
+  },
+  "DLF": {
+   "name": "DLF",
+   "tier": 2
+  },
+  "DABUR": {
+   "name": "Dabur India",
+   "tier": 3
+  },
+  "DIVISLAB": {
+   "name": "Divi's Laboratories",
+   "tier": 2
+  },
+  "DIXON": {
+   "name": "Dixon Technologies (India)",
+   "tier": 3
+  },
+  "DRREDDY": {
+   "name": "Dr. Reddy's Laboratories",
+   "tier": 1
+  },
+  "EICHERMOT": {
+   "name": "Eicher Motors",
+   "tier": 1
+  },
+  "ETERNAL": {
+   "name": "Eternal",
+   "tier": 1
+  },
+  "EXIDEIND": {
+   "name": "Exide Industries",
+   "tier": 3
+  },
+  "NYKAA": {
+   "name": "FSN E-Commerce Ventures",
+   "tier": 3
+  },
+  "FEDERALBNK": {
+   "name": "Federal Bank",
+   "tier": 3
+  },
+  "FORTIS": {
+   "name": "Fortis Healthcare",
+   "tier": 3
+  },
+  "GAIL": {
+   "name": "GAIL",
+   "tier": 2
+  },
+  "GVT&D": {
+   "name": "GE Vernova T&D India",
+   "tier": 3
+  },
+  "GMRAIRPORT": {
+   "name": "GMR Airports",
+   "tier": 3
+  },
+  "GLENMARK": {
+   "name": "Glenmark Pharmaceuticals",
+   "tier": 3
+  },
+  "GODFRYPHLP": {
+   "name": "Godfrey Phillips India",
+   "tier": 3
+  },
+  "GODREJCP": {
+   "name": "Godrej Consumer Products",
+   "tier": 2
+  },
+  "GODREJPROP": {
+   "name": "Godrej Properties",
+   "tier": 3
+  },
+  "GRASIM": {
+   "name": "Grasim Industries",
+   "tier": 1
+  },
+  "HCLTECH": {
+   "name": "HCL Technologies",
+   "tier": 1
+  },
+  "HDFCAMC": {
+   "name": "HDFC AMC",
+   "tier": 2
+  },
+  "HDFCBANK": {
+   "name": "HDFC Bank",
+   "tier": 1
+  },
+  "HDFCLIFE": {
+   "name": "HDFC Life",
+   "tier": 1
+  },
+  "HAVELLS": {
+   "name": "Havells India",
+   "tier": 3
+  },
+  "HEROMOTOCO": {
+   "name": "Hero MotoCorp",
+   "tier": 3
+  },
+  "HINDALCO": {
+   "name": "Hindalco Industries",
+   "tier": 1
+  },
+  "HAL": {
+   "name": "HAL",
+   "tier": 2
+  },
+  "HINDCOPPER": {
+   "name": "Hindustan Copper",
+   "tier": 3
+  },
+  "HINDPETRO": {
+   "name": "HPCL",
+   "tier": 3
+  },
+  "HINDUNILVR": {
+   "name": "Hindustan Unilever",
+   "tier": 1
+  },
+  "HINDZINC": {
+   "name": "Hindustan Zinc",
+   "tier": 2
+  },
+  "POWERINDIA": {
+   "name": "Hitachi Energy India",
+   "tier": 2
+  },
+  "HYUNDAI": {
+   "name": "Hyundai Motor India",
+   "tier": 2
+  },
+  "ICICIBANK": {
+   "name": "ICICI Bank",
+   "tier": 1
+  },
+  "ICICIGI": {
+   "name": "ICICI Lombard",
+   "tier": 3
+  },
+  "ICICIAMC": {
+   "name": "ICICI Prudential AMC",
+   "tier": 3
+  },
+  "IDFCFIRSTB": {
+   "name": "IDFC First Bank",
+   "tier": 3
+  },
+  "ITC": {
+   "name": "ITC",
+   "tier": 1
+  },
+  "INDIANB": {
+   "name": "Indian Bank",
+   "tier": 3
+  },
+  "INDHOTEL": {
+   "name": "Indian Hotels Co",
+   "tier": 3
+  },
+  "IOC": {
+   "name": "Indian Oil",
+   "tier": 2
+  },
+  "IRCTC": {
+   "name": "IRCTC",
+   "tier": 3
+  },
+  "IRFC": {
+   "name": "IRFC",
+   "tier": 2
+  },
+  "IREDA": {
+   "name": "IREDA",
+   "tier": 3
+  },
+  "INDUSTOWER": {
+   "name": "Indus Towers",
+   "tier": 3
+  },
+  "INDUSINDBK": {
+   "name": "IndusInd Bank",
+   "tier": 3
+  },
+  "NAUKRI": {
+   "name": "Info Edge (India)",
+   "tier": 3
+  },
+  "INFY": {
+   "name": "Infosys",
+   "tier": 1
+  },
+  "INDIGO": {
+   "name": "IndiGo",
+   "tier": 1
+  },
+  "JSWENERGY": {
+   "name": "JSW Energy",
+   "tier": 3
+  },
+  "JSWSTEEL": {
+   "name": "JSW Steel",
+   "tier": 1
+  },
+  "JINDALSTEL": {
+   "name": "Jindal Steel",
+   "tier": 2
+  },
+  "JIOFIN": {
+   "name": "Jio Financial Services",
+   "tier": 1
+  },
+  "JUBLFOOD": {
+   "name": "Jubilant Foodworks",
+   "tier": 3
+  },
+  "KEI": {
+   "name": "KEI Industries",
+   "tier": 3
+  },
+  "KALYANKJIL": {
+   "name": "Kalyan Jewellers India",
+   "tier": 3
+  },
+  "KOTAKBANK": {
+   "name": "Kotak Mahindra Bank",
+   "tier": 1
+  },
+  "LTF": {
+   "name": "L&T Finance",
+   "tier": 3
+  },
+  "LGEINDIA": {
+   "name": "LG Electronics India",
+   "tier": 3
+  },
+  "LICHSGFIN": {
+   "name": "LIC Housing Finance",
+   "tier": 3
+  },
+  "LTM": {
+   "name": "LTM",
+   "tier": 2
+  },
+  "LT": {
+   "name": "L&T",
+   "tier": 1
+  },
+  "LAURUSLABS": {
+   "name": "Laurus Labs",
+   "tier": 3
+  },
+  "LENSKART": {
+   "name": "Lenskart Solutions",
+   "tier": 3
+  },
+  "LICI": {
+   "name": "LIC",
+   "tier": 3
+  },
+  "LODHA": {
+   "name": "Lodha Developers",
+   "tier": 3
+  },
+  "LUPIN": {
+   "name": "Lupin",
+   "tier": 3
+  },
+  "MRF": {
+   "name": "MRF",
+   "tier": 3
+  },
+  "M&MFIN": {
+   "name": "M&M Finance",
+   "tier": 3
+  },
+  "M&M": {
+   "name": "Mahindra & Mahindra",
+   "tier": 1
+  },
+  "MANKIND": {
+   "name": "Mankind Pharma",
+   "tier": 3
+  },
+  "MARICO": {
+   "name": "Marico",
+   "tier": 3
+  },
+  "MARUTI": {
+   "name": "Maruti Suzuki India",
+   "tier": 1
+  },
+  "MFSL": {
+   "name": "Max Financial Services",
+   "tier": 3
+  },
+  "MAXHEALTH": {
+   "name": "Max Healthcare Institute",
+   "tier": 1
+  },
+  "MAZDOCK": {
+   "name": "Mazagoan Dock Shipbuilders",
+   "tier": 2
+  },
+  "MEESHO": {
+   "name": "Meesho",
+   "tier": 3
+  },
+  "MOTILALOFS": {
+   "name": "Motilal Oswal",
+   "tier": 3
+  },
+  "MPHASIS": {
+   "name": "MphasiS",
+   "tier": 3
+  },
+  "MCX": {
+   "name": "MCX",
+   "tier": 3
+  },
+  "MUTHOOTFIN": {
+   "name": "Muthoot Finance",
+   "tier": 2
+  },
+  "NHPC": {
+   "name": "NHPC",
+   "tier": 3
+  },
+  "NLCINDIA": {
+   "name": "NLC India",
+   "tier": 3
+  },
+  "NMDC": {
+   "name": "NMDC",
+   "tier": 3
+  },
+  "NTPC": {
+   "name": "NTPC",
+   "tier": 1
+  },
+  "NATIONALUM": {
+   "name": "National Aluminium Co",
+   "tier": 3
+  },
+  "NESTLEIND": {
+   "name": "Nestle India",
+   "tier": 1
+  },
+  "OBEROIRLTY": {
+   "name": "Oberoi Realty",
+   "tier": 3
+  },
+  "ONGC": {
+   "name": "ONGC",
+   "tier": 1
+  },
+  "OIL": {
+   "name": "Oil India",
+   "tier": 3
+  },
+  "PAYTM": {
+   "name": "One 97 Communications",
+   "tier": 3
+  },
+  "OFSS": {
+   "name": "Oracle Financial Services",
+   "tier": 3
+  },
+  "POLICYBZR": {
+   "name": "PB Fintech",
+   "tier": 3
+  },
+  "PIIND": {
+   "name": "PI Industries",
+   "tier": 3
+  },
+  "PAGEIND": {
+   "name": "Page Industries",
+   "tier": 3
+  },
+  "PATANJALI": {
+   "name": "Patanjali Foods",
+   "tier": 3
+  },
+  "PERSISTENT": {
+   "name": "Persistent Systems",
+   "tier": 3
+  },
+  "PHOENIXLTD": {
+   "name": "Phoenix Mills",
+   "tier": 3
+  },
+  "PIDILITIND": {
+   "name": "Pidilite Industries",
+   "tier": 2
+  },
+  "POLYCAB": {
+   "name": "Polycab India",
+   "tier": 2
+  },
+  "PFC": {
+   "name": "Power Finance Corporation",
+   "tier": 2
+  },
+  "POWERGRID": {
+   "name": "Power Grid",
+   "tier": 1
+  },
+  "PREMIERENE": {
+   "name": "Premier Energies",
+   "tier": 3
+  },
+  "PRESTIGE": {
+   "name": "Prestige Estates Projects",
+   "tier": 3
+  },
+  "PNB": {
+   "name": "Punjab National Bank",
+   "tier": 2
+  },
+  "RECLTD": {
+   "name": "REC",
+   "tier": 3
+  },
+  "RADICO": {
+   "name": "Radico Khaitan",
+   "tier": 3
+  },
+  "RVNL": {
+   "name": "Rail Vikas Nigam",
+   "tier": 3
+  },
+  "RELIANCE": {
+   "name": "Reliance Industries",
+   "tier": 1
+  },
+  "SBICARD": {
+   "name": "SBI Card",
+   "tier": 3
+  },
+  "SBILIFE": {
+   "name": "SBI Life",
+   "tier": 1
+  },
+  "SRF": {
+   "name": "SRF",
+   "tier": 3
+  },
+  "MOTHERSON": {
+   "name": "Samvardhana Motherson",
+   "tier": 2
+  },
+  "SHRIRAMFIN": {
+   "name": "Shriram Finance",
+   "tier": 1
+  },
+  "ENRIN": {
+   "name": "Siemens Energy India",
+   "tier": 2
+  },
+  "SIEMENS": {
+   "name": "Siemens",
+   "tier": 2
+  },
+  "SOLARINDS": {
+   "name": "Solar Industries India",
+   "tier": 2
+  },
+  "SBIN": {
+   "name": "SBI",
+   "tier": 1
+  },
+  "SAIL": {
+   "name": "Steel Authority of India",
+   "tier": 3
+  },
+  "SUNPHARMA": {
+   "name": "Sun Pharma",
+   "tier": 1
+  },
+  "SUPREMEIND": {
+   "name": "Supreme Industries",
+   "tier": 3
+  },
+  "SUZLON": {
+   "name": "Suzlon Energy",
+   "tier": 3
+  },
+  "SWIGGY": {
+   "name": "Swiggy",
+   "tier": 3
+  },
+  "TVSMOTOR": {
+   "name": "TVS Motor Company",
+   "tier": 2
+  },
+  "TATACAP": {
+   "name": "Tata Capital",
+   "tier": 2
+  },
+  "TATACOMM": {
+   "name": "Tata Communications",
+   "tier": 3
+  },
+  "TCS": {
+   "name": "TCS",
+   "tier": 1
+  },
+  "TATACONSUM": {
+   "name": "Tata Consumer Products",
+   "tier": 1
+  },
+  "TMCV": {
+   "name": "Tata Motors",
+   "tier": 2
+  },
+  "TMPV": {
+   "name": "Tata Motors Passenger Vehicles",
+   "tier": 1
+  },
+  "TATAPOWER": {
+   "name": "Tata Power Co",
+   "tier": 2
+  },
+  "TATASTEEL": {
+   "name": "Tata Steel",
+   "tier": 1
+  },
+  "TECHM": {
+   "name": "Tech Mahindra",
+   "tier": 1
+  },
+  "TITAN": {
+   "name": "Titan Company",
+   "tier": 1
+  },
+  "TORNTPHARM": {
+   "name": "Torrent Pharmaceuticals",
+   "tier": 2
+  },
+  "TRENT": {
+   "name": "Trent",
+   "tier": 1
+  },
+  "TIINDIA": {
+   "name": "Tube Investments of India",
+   "tier": 3
+  },
+  "UPL": {
+   "name": "UPL",
+   "tier": 3
+  },
+  "ULTRACEMCO": {
+   "name": "UltraTech Cement",
+   "tier": 1
+  },
+  "UNIONBANK": {
+   "name": "Union Bank of India",
+   "tier": 2
+  },
+  "UNITDSPR": {
+   "name": "United Spirits",
+   "tier": 3
+  },
+  "VBL": {
+   "name": "Varun Beverages",
+   "tier": 2
+  },
+  "VAML": {
+   "name": "Vedanta Aluminium Metal",
+   "tier": 2
+  },
+  "VEDL": {
+   "name": "Vedanta",
+   "tier": 2
+  },
+  "VMM": {
+   "name": "Vishal Mega Mart",
+   "tier": 3
+  },
+  "IDEA": {
+   "name": "Vodafone Idea",
+   "tier": 2
+  },
+  "VOLTAS": {
+   "name": "Voltas",
+   "tier": 3
+  },
+  "WAAREEENER": {
+   "name": "Waaree Energies",
+   "tier": 3
+  },
+  "WIPRO": {
+   "name": "Wipro",
+   "tier": 2
+  },
+  "YESBANK": {
+   "name": "Yes Bank",
+   "tier": 3
+  },
+  "ZYDUSLIFE": {
+   "name": "Zydus Lifesciences",
+   "tier": 2
+  }
+ }
+}

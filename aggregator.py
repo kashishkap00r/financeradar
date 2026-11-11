@@ -45,6 +45,7 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher, _atomic_write_json
+from calendar_events import build_calendar
 from stock_notes import (ARCHIVE_FILE as STOCK_NOTES_FILE, STOCK_NOTE_KIND, fill_headlines,
                          load_archive, merge_into_archive, save_archive, select_home_notes,
                          write_note_chunks, pdf_first_page_lines, rule_headlines, RULE_HEADLINE_BROKERS)
@@ -1681,6 +1682,9 @@ def main():
     article_groups = group_similar_articles(filtered_articles)
     grouped_count = len(filtered_articles) - len(article_groups)
     logger.info(f"After grouping similar headlines: {len(article_groups)} groups ({grouped_count} articles merged)")
+
+    # Homepage "This Week" calendar (static/calendar.json + calendar.ics). Never raises.
+    build_calendar(logger=logger)
 
     generate_html(
         article_groups,
