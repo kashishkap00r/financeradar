@@ -281,5 +281,40 @@ class TestHdfcAxisSectorSplit(unittest.TestCase):
         self.assertFalse(rf._wants_sector({"feed": "axis:research"}))
 
 
+class TestPaidAndBlogSectorSources(unittest.TestCase):
+    def test_icici_blog_titles(self):
+        for t in ("Domestic Steel Industry: Steady show in Q2FY27, healthy gains in EBITDA/tonne lies ahead",
+                  "Logistics – Ports: Healthy Q2FY27; Growth outlook over med-to-long term stay intact",
+                  "Auto OEM’s: Demand momentum remains strong, margins bottoming out!",
+                  "Cement Sector – Near-term margins under pressure"):
+            self.assertTrue(rf.is_icici_sector_title(t), t)
+        for t in ("Power Grid Corporation of India expects FY27 capex to exceed ₹40,000 crore",
+                  "Power Finance Corporation (PFC) has received a no-objection certificate from the RBI",
+                  "Adani Ports reported healthy consolidated revenue growth of 24 percent YoY"):
+            self.assertFalse(rf.is_icici_sector_title(t), t)
+
+    def test_icra_rows(self):
+        row = ('<tr> <td>05 Nov 2026</td> <td>Renewable Energy</td> <td> <a class="text-decoration-none linkBlue" '
+               'href="/Research/ViewResearchReport/7197" target="_blank" title="Solar generation expected to improve"> '
+               'Solar generation expected to improve </a> <br /> </td> <td>Thematic Report</td>')
+        self.assertEqual(rf._ICRA_ROW.findall(row),
+                         [("05 Nov 2026", "Renewable Energy", "/Research/ViewResearchReport/7197", "Solar generation expected to improve")])
+
+    def test_india_ratings_rows(self):
+        rows = [{"pressReleaseID": 86537, "pressReleaseTitle": "Telecom Connect - September 2026: ARPU growth",
+                 "effectiveDate": (datetime.now(IST_TZ) - timedelta(days=2)).strftime("%Y-%m-%dT00:00:00"), "industryName": "Telecom"},
+                {"pressReleaseID": 0, "pressReleaseTitle": "PDF only", "effectiveDate": "2026-11-01T00:00:00"}]
+        cfg = {"name": "IndRa", "url": "https://www.indiaratings.co.in/research", "publisher": "India Ratings"}
+        with mock.patch.object(rf, "_fetch_url", return_value=rf.json.dumps(rows).encode()):
+            out = rf.fetch_india_ratings(cfg)
+        self.assertEqual([(a["link"], a["description"]) for a in out],
+                         [("https://www.indiaratings.co.in/pressrelease/86537", "Telecom")])
+
+    def test_paid_feeds_marked(self):
+        feeds = {f["id"]: f for f in rf.json.load(open(rf.os.path.join(rf.os.path.dirname(rf.__file__), "feeds.json")))}
+        self.assertTrue(feeds["icra-research"].get("paid") and feeds["india-ratings-research"].get("paid"))
+        self.assertFalse(feeds["icicidirect-sector"].get("paid"))
+
+
 if __name__ == "__main__":
     unittest.main()

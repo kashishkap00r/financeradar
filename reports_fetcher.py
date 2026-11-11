@@ -3400,6 +3400,144 @@ def fetch_sbisec_sector(feed_config):
     return articles
 
 
+# ── Sector research with public summaries, paid reports (Nov 2026) ───
+# ICRA and India Ratings put the full report behind a login (many ICRA
+# reports cost ₹20,000), but every report has a public page with its title,
+# sector and a free summary. Cards link to that page; feeds.json marks them
+# `"paid": true` and the site shows a small "Paid" label (user's call).
+
+_ICRA_LIST = "https://www.icra.in/Research/AllResearchReports?isSpecialComments=False"
+_ICRA_PAGE = "https://www.icra.in/Research/GetSectorResearchReportDetails?IndustryId=&page={}&isSpecialComments=false"
+_ICRA_ROW = re.compile(r"<tr>\s*<td>\s*(\d{1,2} \w{3} \d{4})\s*</td>\s*<td>(.*?)</td>\s*<td>\s*"
+                       r"<a[^>]+href=\"(/Research/ViewResearchReport/\d+)\"[^>]*title=\"([^\"]*)\"", re.S)
+
+
+@scraper
+def fetch_icra(feed_config):
+    """ICRA sector research: page 1 is plain HTML (10 rows ≈ 10 days); later pages are a POST that
+    needs the page's session cookie and its anti-forgery token (both public, no login)."""
+    cutoff = _feed_cutoff(feed_config)
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(),
+                                         urllib.request.HTTPSHandler(context=SSL_CONTEXT))
+    headers = {"User-Agent": UA, "Accept": "text/html", "Accept-Language": "en-US,en;q=0.9", "Referer": _ICRA_LIST,
+               "X-Requested-With": "XMLHttpRequest"}
+
+    def get(url, data=None):
+        req = urllib.request.Request(url, data=data, headers={**headers, **(_FORM_HEADERS if data else {})})
+        with opener.open(req, timeout=SCRAPER_FETCH_TIMEOUT * 3) as resp:
+            return resp.read().decode("utf-8", "replace")
+
+    page = get(_ICRA_LIST)
+    token = re.search(r'name="__RequestVerificationToken"[^>]*value="([^"]+)"', page)
+    articles, seen = [], set()
+    for page_no in range(1, (feed_config.get("max_pages") or 4) + 1):
+        if page_no > 1:
+            if not token:
+                break
+            _polite(feed_config)
+            form = {"__RequestVerificationToken": token.group(1), "SelectedSector.SectorId": "",
+                    "ResearchReportCategoryId": "", "DateFrom": "", "DateTo": "", "KeyWord": ""}  # as the page sends
+            try:
+                page = get(_ICRA_PAGE.format(page_no), urllib.parse.urlencode(form).encode())
+            except Exception as e:  # later pages are a bonus; keep what page 1 gave
+                print(f"  [WARN] ICRA page {page_no}: {str(e)[:80]}")
+                break
+        rows = _ICRA_ROW.findall(page)
+        if not rows:
+            break
+        any_fresh = False
+        for date_text, sector, href, title in rows:
+            dt = _parse_day(date_text, "%d %b %Y")
+            link = "https://www.icra.in" + href
+            if dt is None or not _is_fresh(dt, cutoff) or link in seen:
+                continue
+            any_fresh = True
+            seen.add(link)
+            sector = re.sub(r"\s+", " ", html.unescape(_strip_html(sector))).strip()
+            title = re.sub(r"\s+", " ", html.unescape(title)).strip()
+            articles.append(_make_article(f"{sector}: {title}" if sector else title, link, dt, "", feed_config))
+        if not any_fresh:
+            break
+    return articles
+
+
+_INDRA_LIST = "https://www.indiaratings.co.in/pressReleases/GetListing?type=research"
+
+
+@scraper
+def fetch_india_ratings(feed_config):
+    """India Ratings research: one JSON call (the site's own Angular app makes it) lists every
+    report. Items without a press-release id have no public page and are skipped."""
+    cutoff = _feed_cutoff(feed_config)
+    raw = _fetch_url(_INDRA_LIST, accept="application/json", feed_config=feed_config, data=b"",
+                     extra_headers={"Content-Type": "application/json", "Referer": "https://www.indiaratings.co.in/research"})
+    rows = json.loads(raw.decode("utf-8", "replace")) or []
+    articles = []
+    for row in rows if isinstance(rows, list) else []:
+        pr_id = row.get("pressReleaseID")
+        title = re.sub(r"\s+", " ", (row.get("pressReleaseTitle") or "")).strip()
+        dt = (_parse_day((row.get("effectiveDate") or "")[:10], "%Y-%m-%d")
+              or _parse_day(row.get("prDate"), "%b %d, %Y"))
+        if not pr_id or not title or dt is None or dt.year < 2000 or not _is_fresh(dt, cutoff):
+            continue
+        sector = (row.get("industryName") or "").strip()
+        articles.append(_make_article(title, f"https://www.indiaratings.co.in/pressrelease/{pr_id}", dt,
+                                      sector if sector and sector != "All" else "", feed_config))
+    articles.sort(key=lambda a: a["date"], reverse=True)
+    return articles
+
+
+# ICICI Direct sector notes: short HTML posts on its research blog (no PDF).
+# The sitemap lists ~250 posts a month, nearly all on single companies; slugs
+# shortlist candidates and the post's own title decides.
+
+_ICICI_SITEMAP = "https://www.icicidirect.com/research-equity-article-sitemap.xml"
+_ICICI_SECTOR_SLUG = re.compile(
+    r"sector|industry|volumes|inflation|monsoon|gdp|\biip\b|^(cement|auto|steel|metals?|logistics|bank(s|ing)?|"
+    r"it|pharma|fmcg|defence|power|telecom|oil|real-estate|chemicals|insurance|nbfcs?|consumer|retail|textiles|"
+    r"aviation|infra|capital-goods|sugar|tyres|hotels|media|economy|domestic)-")
+_ICICI_SECTOR_TITLE = re.compile(r"\b(sector|industry|volumes|inflation|monsoon|gdp|iip)\b", re.I)
+
+
+def is_icici_sector_title(title):
+    t = re.sub(r"\s+", " ", title or "").strip()
+    if re.search(r"\b(ltd|limited|corporation|reported|posts|delivered|expects|has received|received|"
+                 r"announced|secured|bagged|acquires?|wins?|launche[sd])\b", t, re.I):
+        return False  # one company's news or results
+    head = re.split(r"\s*[–:]\s*|\s+-\s+", t)[0]
+    return bool(_ICICI_SECTOR_TITLE.search(t) or _HDFC_SECTOR_WORDS.match(head))
+
+
+@scraper
+def fetch_icicidirect_sector(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    lookups = feed_config.get("max_lookups", 20)
+    sitemap = _fetch_url(_ICICI_SITEMAP, accept="application/xml", feed_config=feed_config).decode("utf-8", "replace")
+    posts = re.findall(r"<loc>(https://www\.icicidirect\.com/research/equity/blog/([^<]+))</loc>\s*<lastmod>([^<]+)", sitemap)
+    articles = []
+    for url, slug, lastmod in sorted(posts, key=lambda p: p[2], reverse=True):
+        seen_dt = _parse_day(lastmod[:10], "%Y-%m-%d")
+        if seen_dt is None or not _is_fresh(seen_dt, cutoff):
+            continue
+        if not _ICICI_SECTOR_SLUG.search(slug) or lookups <= 0:
+            continue
+        lookups -= 1
+        _polite(feed_config)
+        try:
+            post = _fetch_url(url, feed_config=feed_config).decode("utf-8", "replace")
+        except Exception as e:
+            print(f"  [WARN] ICICI post {slug[:50]}: {str(e)[:80]}")
+            continue
+        h1 = re.search(r"<h1[^>]*>(.*?)</h1>", post, re.S)
+        title = re.sub(r"\s+", " ", html.unescape(_strip_html(h1.group(1)))).strip() if h1 else ""
+        if not is_icici_sector_title(title):
+            continue
+        dm = re.search(r'"datePublished":\s*"([^"]+)"', post)
+        dt = _parse_day(dm.group(1)[:10], "%Y-%m-%d") if dm else seen_dt
+        articles.append(_make_article(title, url, dt or seen_dt, "", feed_config))
+    return articles
+
+
 REPORT_FETCHERS = {
     "crisilratings:": fetch_crisil_ratings,
     "crisilreports:": fetch_crisil_reports,
@@ -3445,6 +3583,9 @@ REPORT_FETCHERS = {
     "nirmalbang:sector": fetch_nirmal_bang_sector,   # before "nirmalbang:" (prefix order)
     "nirmalbang:": fetch_nirmal_bang,
     "sbisector:": fetch_sbisec_sector,
+    "icra:": fetch_icra,
+    "indiaratings:": fetch_india_ratings,
+    "icicisector:": fetch_icicidirect_sector,
 }
 
 

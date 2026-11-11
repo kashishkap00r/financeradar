@@ -2395,5 +2395,38 @@
     "category": "Reports",
     "region": "Indian",
     "publisher": "CSEP"
+  },
+  {
+    "id": "icra-research",
+    "name": "ICRA — Sector Research",
+    "url": "https://www.icra.in/Research/AllResearchReports?isSpecialComments=False",
+    "feed": "icra:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "ICRA",
+    "paid": true,
+    "max_items": 60,
+    "polite": 0.5
+  },
+  {
+    "id": "india-ratings-research",
+    "name": "India Ratings — Research",
+    "url": "https://www.indiaratings.co.in/research",
+    "feed": "indiaratings:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "India Ratings",
+    "paid": true,
+    "max_items": 60
+  },
+  {
+    "id": "icicidirect-sector",
+    "name": "ICICI Direct — Sector Notes",
+    "url": "https://www.icicidirect.com/research/equity/blog",
+    "feed": "icicisector:blog",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "ICICI Securities",
+    "polite": 0.3
   }
 ]
