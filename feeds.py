@@ -941,13 +941,9 @@ def fetch_dgft(feed_config):
     which = feed_config.get("feed", "").split(":", 1)[-1] or "notifications"
     url = DGFT_LISTS.get(which, DGFT_LISTS["notifications"])
     try:
-        req = urllib.request.Request(url, headers={
-            "User-Agent": DEFAULT_USER_AGENT,
-            "Accept": "text/html",
-            "Accept-Language": "en-US,en;q=0.9",
-        })
-        with urllib.request.urlopen(req, timeout=25, context=SSL_CONTEXT) as response:
-            page = response.read().decode("utf-8", errors="replace")
+        # DGFT answers 403 to GitHub's servers; get_or_proxy retries through the relay.
+        from official_sources import get_or_proxy
+        page = get_or_proxy(url)
         articles = parse_dgft_table(page, feed_config)
         print(f"  [OK] {feed_name}: {len(articles)} articles (scraper)")
         return articles
