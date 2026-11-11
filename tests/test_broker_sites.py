@@ -256,5 +256,30 @@ class TestSectorReports(unittest.TestCase):
         self.assertEqual(rf.split_sbi_thematic("SBI Securities Diwali Muhurat Picks_2026"), ("skip",))
 
 
+class TestHdfcAxisSectorSplit(unittest.TestCase):
+    def test_hdfc(self):
+        for t in ("IT Sector: PERM freeze: another blow, minimal impact", "NBFCs: Growth uptick, diminishing growth arbitrage",
+                  "Healthcare Services: Supreme court slams drug markups", "Bharat Barometer (Sep’26)",
+                  "Chemicals (Q2FY27 Results Preview): Cost pressures will outpace realization gains", "Capex Tracker: Q2FY27"):
+            self.assertTrue(rf.is_hdfc_sector(t), t)
+        for t in ("Dabur India: Clear strategic roadmap, execution key to rerating. Maintain ADD",
+                  "HSIE Results Daily: Go Digit General Insurance, Data Patterns", "Bikaji Foods International: H2 uplift key"):
+            self.assertFalse(rf.is_hdfc_sector(t), t)
+
+    def test_axis(self):
+        self.assertEqual(rf.classify_axis("Sector Update: BFSI - Insurance"), "sector")
+        self.assertEqual(rf.classify_axis("Automobile - Q2FY27E: Result Preview"), "sector")
+        self.assertEqual(rf.classify_axis("Auto Monthly Sales Volume - October 2026"), "sector")
+        self.assertEqual(rf.classify_axis("Event Update:RBI Monetary Policy - October 2026"), "sector")
+        self.assertEqual(rf.classify_axis("Result Update:Britannia Inds."), "stock")
+        self.assertEqual(rf.classify_axis("Daily Fundamental View:November 11, 2026"), "stock")
+        self.assertEqual(rf.classify_axis("High Conviction Ideas:Cement"), "skip")
+        self.assertEqual(rf.classify_axis("Axis Top Picks for the month of November 2026"), "skip")
+
+    def test_feed_decides_which_half(self):
+        self.assertTrue(rf._wants_sector({"feed": "axis:sector"}))
+        self.assertFalse(rf._wants_sector({"feed": "axis:research"}))
+
+
 if __name__ == "__main__":
     unittest.main()

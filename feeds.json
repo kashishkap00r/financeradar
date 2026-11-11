@@ -1272,7 +1272,10 @@
     "category": "Reports",
     "region": "Indian",
     "publisher": "Axis Direct",
-    "kind": "stock_note"
+    "kind": "stock_note",
+    "max_pages": 40,
+    "polite": 0.3,
+    "max_items": 200
   },
   {
     "id": "moneycontrol-stock-ideas",
@@ -1417,6 +1420,27 @@
     "kind": "stock_note",
     "max_items": 200,
     "max_age_days": 14
+  },
+  {
+    "id": "hdfc-securities-sector",
+    "name": "HDFC Securities — Sector & Economy",
+    "url": "https://www.hdfcsec.com/research/equity/sector-reports",
+    "feed": "hdfcsec:sector",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "HDFC Securities",
+    "page_size": 300
+  },
+  {
+    "id": "axis-direct-sector",
+    "name": "Axis Direct — Sector & Economy",
+    "url": "https://simplehai.axisdirect.in/research/reports/fundamental",
+    "feed": "axis:sector",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Axis Direct",
+    "max_pages": 40,
+    "polite": 0.3
   },
   {
     "id": "nirmal-bang-sector",

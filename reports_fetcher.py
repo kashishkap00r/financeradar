@@ -559,7 +559,7 @@ def fetch_hdfc_sec(feed_config):
     for bucket_id in buckets:
         url = (f"{base}/api/cmsapi/GetNonCallResearch?"
                f"schemeId=&compCode=&bucketId={bucket_id}"
-               f"&pageNo=1&pageSize={_MAX_PER_SCRAPER}&fromDate=&toDate=")
+               f"&pageNo=1&pageSize={feed_config.get('page_size') or _MAX_PER_SCRAPER}&fromDate=&toDate=")
         raw = _fetch_url(url, accept="application/json").decode("utf-8", errors="replace")
 
         # API returns double-encoded JSON (string within string) — decode twice
@@ -589,6 +589,9 @@ def fetch_hdfc_sec(feed_config):
             title = (item.get("TITLE") or preds.get("Title") or "").strip()
             if not title or len(title) < 5:
                 continue
+            # One API, two feeds: stock notes vs sector/economy reports (Reports → Indian)
+            if is_hdfc_sector(title) != _wants_sector(feed_config):
+                continue
 
             # PDF filename is in predicate UploadPdf
             pdf = (preds.get("UploadPdf") or "").strip()
@@ -608,7 +611,7 @@ def fetch_hdfc_sec(feed_config):
                 except ValueError:
                     pass
 
-            if not _is_fresh(dt):
+            if not _is_fresh(dt, _feed_cutoff(feed_config)):
                 continue
 
             # Description from predicate Summary (URL-encoded)
@@ -621,6 +624,104 @@ def fetch_hdfc_sec(feed_config):
             articles.append(_make_article(title, link, dt, desc, feed_config))
 
     return articles
+
+
+def _wants_sector(feed_config):
+    """Feeds named '<prefix>:sector…' take a broker's sector/economy reports; the rest take stock notes."""
+    return ":sector" in (feed_config.get("feed") or "")
+
+
+_HDFC_SECTOR_WORDS = re.compile(
+    r"^(it|it services|nbfcs?|banks?|banking|bfsi|insurance|healthcare( services)?|hospitals|pharma(ceuticals)?|"
+    r"cement|auto(mobiles?)?|auto ancillar(y|ies)|consumer( staples| durables)?|fmcg|retail|metals?( & mining)?|"
+    r"oil & gas|power|utilities|real estate|telecom|capital goods|chemicals|logistics|aviation|media|"
+    r"building materials|infrastructure|internet|alcobev|textiles|hotels|hospitality|agri|defence|"
+    r"electronics|ems|amcs?|capital markets|strategy|india strategy|economy|macro)( sector)?\b", re.I)
+_HDFC_SECTOR_SERIES = re.compile(r"sector|barometer|flipbook|capex tracker|scuttlebutt|thematic|outlook|"
+                                 r"monetary policy|union budget|budget|precious metals|tracker|chartbook", re.I)
+
+
+def is_hdfc_sector(title):
+    """HDFC's institutional bucket mixes stock notes and sector/economy reports; the title tells them apart."""
+    t = re.sub(r"\s+", " ", title or "").strip()
+    if re.match(r"hsie results daily", t, re.I):
+        return False  # multi-stock results daily: a stock note
+    head = t.split(":", 1)[0]
+    return bool(_HDFC_SECTOR_WORDS.match(head) or _HDFC_SECTOR_SERIES.search(head)
+                or (":" not in t and _HDFC_SECTOR_SERIES.search(t)))
+
+
+# Axis Direct: one listing for everything; the title says which kind.
+_AXIS_SKIP = re.compile(
+    r"pick of the week|axis punch|prime research|annual analysis|axis intellect|conviction ideas|top picks|"
+    r"\bpicks\b|dividend yield stocks|quant report|flash note", re.I)
+_AXIS_SECTOR = re.compile(
+    r"sector|earnings preview|result preview|q[1-4]\s?fy\d\de?\b|monthly sales|event update|monetary policy|"
+    r"impact of|earnings wrap|budget|playbook|economy|crude", re.I)
+
+
+def classify_axis(title):
+    """'stock' | 'sector' | 'skip' for one Axis Direct card title."""
+    t = re.sub(r"\s+", " ", title or "").strip()
+    if _AXIS_SKIP.search(t):
+        return "skip"
+    if re.search(r"result update|company update|initiating coverage|analyst meet|visit note|"
+                 r"termination of coverage|special situation|daily fundamental", t, re.I):
+        return "stock"
+    return "sector" if _AXIS_SECTOR.search(t) else "stock"
+
+
+_AXIS_SEARCH = "https://simplehai.axisdirect.in/app/index.php/insights/reports/search"
+
+
+_AXIS_CARDS = {}
+_AXIS_LOCK = threading.Lock()
+
+
+def _axis_cards(feed_config):
+    """Report cards, crawled once per run and shared by the stock-note and sector feeds."""
+    key = feed_config["url"]  # one crawl per run, deep enough for the deeper (30-day) feed
+    with _AXIS_LOCK:
+        if key not in _AXIS_CARDS:
+            _AXIS_CARDS[key] = list(_axis_crawl(feed_config))
+        return _AXIS_CARDS[key]
+
+
+def _axis_crawl(feed_config):
+    """Report cards (<li> chunks), newest first: the page itself, then the search API.
+
+    The API repeats page 1 unless it is sent every card id seen so far (`ids`).
+    In results season ~25 pages (9 cards each) cover a month.
+    """
+    content = _fetch_url(feed_config["url"], feed_config=feed_config).decode("utf-8", errors="replace")
+    cutoff = max(_feed_cutoff(feed_config), _FRESHNESS_CUTOFF)  # stock-note feed is 14 days, Reports 30
+    seen_ids = []
+    for page_no in range(feed_config.get("max_pages") or 1):
+        cards = [c for c in re.split(r"<li\b", content) if "downloadReport/file/" in c]
+        if not cards:
+            return
+        fresh = False
+        for card in cards:
+            m = re.search(r'class="[^"]*search_ids[^"]*"\s+id="(\d+)"', "<li" + card)
+            if m and m.group(1) in seen_ids:
+                continue
+            if m:
+                seen_ids.append(m.group(1))
+            dm = re.search(r"<p[^>]*>\s*(\d{1,2}\s+\w+\s+\d{4})\s*</p>", card)
+            dt = _parse_date_flexible(dm.group(1)) if dm else None
+            fresh = fresh or dt is None or _is_fresh(dt, cutoff)
+            yield card
+        if not fresh or page_no + 1 >= (feed_config.get("max_pages") or 1):
+            return
+        _polite(feed_config)
+        body = urllib.parse.urlencode({"searchStr": "", "categoryId": "", "date": "all", "format": "all",
+                                       "dbmodel": "RsFundamentalReports", "offsetVal": len(seen_ids),
+                                       "sortVal": "", "ids": ",".join(seen_ids)}).encode()
+        content = _fetch_url(_AXIS_SEARCH, feed_config=feed_config, data=body,
+                             extra_headers={**_FORM_HEADERS, "X-Requested-With": "XMLHttpRequest",
+                                            "Referer": feed_config["url"]}).decode("utf-8", "replace")
+        if "No Data" in content[:500]:
+            return
 
 
 # ── Axis Direct ───────────────────────────────────────────────────────
@@ -639,13 +740,8 @@ def fetch_axis_direct(feed_config):
     """
     BASE = "https://simplehai.axisdirect.in"
     articles = []
-    content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
-
-    # Split on each <li to isolate report cards.
-    # The report list lives inside a <ul> with each card in its own <li>.
-    cards = re.split(r'<li\b', content)
-
-    for card in cards:
+    seen_links = set()
+    for card in _axis_cards(feed_config):
         # Must have a downloadReport link to be a real report card
         dl_match = re.search(
             r'href="(/app/index\.php/insights/reports/downloadReport/file/[^"]+)"',
@@ -655,17 +751,23 @@ def fetch_axis_direct(feed_config):
             continue
 
         link = BASE + dl_match.group(1)
+        if link in seen_links:  # one sector PDF can sit on several cards
+            continue
+        seen_links.add(link)
 
         # Title from <h5> tag
         h5 = re.search(r'<h5[^>]*>(.*?)</h5>', card, re.DOTALL)
         title = _strip_html(html.unescape(h5.group(1))).strip() if h5 else ""
         if not title or len(title) < 5:
             continue
+        route = classify_axis(title)
+        if route == "skip" or (route == "sector") != _wants_sector(feed_config):
+            continue
 
         # Date from the first <p> after the title header div (format: "24 Feb 2026")
         date_match = re.search(r'<p[^>]*>\s*(\d{1,2}\s+\w+\s+\d{4})\s*</p>', card)
         dt = _parse_date_flexible(date_match.group(1)) if date_match else None
-        if not _is_fresh(dt):
+        if not _is_fresh(dt, _feed_cutoff(feed_config)):
             continue
 
         # Description lives in <div class="reports-video"> inside panel-body
