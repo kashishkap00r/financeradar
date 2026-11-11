@@ -237,8 +237,8 @@ class TestSectorReports(unittest.TestCase):
                          "Cement Channel Check – Oct ’26 - Sector Update - Cement Prices Recover")
         self.assertTrue(rf.nb_sector_title("RBI Sectoral Deployment - Banking | Sector Update - Robust broad-based credit momentum"))
         self.assertTrue(rf.nb_sector_title("India Capex Pipeline - India Economy | Thematic - A New Private Sector-Led Investment Cycle"))
+        self.assertTrue(rf.nb_sector_title("Fortnightly Macro Tracker - India Economy | Update - Economic activity mixed"))
         for noise in ("India Morning Roundup - 9 November 2026", "NBIE AI Powered Insights- 11 Nov 2026",
-                      "Fortnightly Macro Tracker - India Economy | Update - Economic activity mixed",
                       "Fine Organic Industries (FINEORG) - BUY - Chemicals | 2QFY27 Result Update - Expansion plans"):
             self.assertEqual(rf.nb_sector_title(noise), "", noise)
         # a single-stock note with "Sector" in it stays a stock note
@@ -250,8 +250,70 @@ class TestSectorReports(unittest.TestCase):
         self.assertEqual(rf.split_sbi_thematic("Manorama Industries Ltd_Plant Visit Note"), ("stock", "Manorama Industries", "Plant Visit Note"))
         self.assertEqual(rf.split_sbi_thematic("SBICAP Securities - Metal Pulse Nov'26"), ("sector", "Metal Pulse Nov'26"))
         self.assertEqual(rf.split_sbi_thematic("Thematic Report_Rockstars of 1QFY27 Result")[0], "sector")
-        for skip in ("Macro Trends_Monthly Economic Report_Oct'26", "RBI MPC Meeting Oct'26", "SBI Securities Diwali Muhurat Picks_2026"):
-            self.assertEqual(rf.split_sbi_thematic(skip), ("skip",), skip)
+        self.assertEqual(rf.split_sbi_thematic("Macro Trends_Monthly Economic Report_Oct'26"),
+                         ("sector", "Macro Trends – Monthly Economic Report – Oct'26"))
+        self.assertEqual(rf.split_sbi_thematic("RBI MPC Meeting Oct'26")[0], "sector")
+        self.assertEqual(rf.split_sbi_thematic("SBI Securities Diwali Muhurat Picks_2026"), ("skip",))
+
+
+class TestHdfcAxisSectorSplit(unittest.TestCase):
+    def test_hdfc(self):
+        for t in ("IT Sector: PERM freeze: another blow, minimal impact", "NBFCs: Growth uptick, diminishing growth arbitrage",
+                  "Healthcare Services: Supreme court slams drug markups", "Bharat Barometer (Sep’26)",
+                  "Chemicals (Q2FY27 Results Preview): Cost pressures will outpace realization gains", "Capex Tracker: Q2FY27"):
+            self.assertTrue(rf.is_hdfc_sector(t), t)
+        for t in ("Dabur India: Clear strategic roadmap, execution key to rerating. Maintain ADD",
+                  "HSIE Results Daily: Go Digit General Insurance, Data Patterns", "Bikaji Foods International: H2 uplift key"):
+            self.assertFalse(rf.is_hdfc_sector(t), t)
+
+    def test_axis(self):
+        self.assertEqual(rf.classify_axis("Sector Update: BFSI - Insurance"), "sector")
+        self.assertEqual(rf.classify_axis("Automobile - Q2FY27E: Result Preview"), "sector")
+        self.assertEqual(rf.classify_axis("Auto Monthly Sales Volume - October 2026"), "sector")
+        self.assertEqual(rf.classify_axis("Event Update:RBI Monetary Policy - October 2026"), "sector")
+        self.assertEqual(rf.classify_axis("Result Update:Britannia Inds."), "stock")
+        self.assertEqual(rf.classify_axis("Daily Fundamental View:November 11, 2026"), "stock")
+        self.assertEqual(rf.classify_axis("High Conviction Ideas:Cement"), "skip")
+        self.assertEqual(rf.classify_axis("Axis Top Picks for the month of November 2026"), "skip")
+
+    def test_feed_decides_which_half(self):
+        self.assertTrue(rf._wants_sector({"feed": "axis:sector"}))
+        self.assertFalse(rf._wants_sector({"feed": "axis:research"}))
+
+
+class TestPaidAndBlogSectorSources(unittest.TestCase):
+    def test_icici_blog_titles(self):
+        for t in ("Domestic Steel Industry: Steady show in Q2FY27, healthy gains in EBITDA/tonne lies ahead",
+                  "Logistics – Ports: Healthy Q2FY27; Growth outlook over med-to-long term stay intact",
+                  "Auto OEM’s: Demand momentum remains strong, margins bottoming out!",
+                  "Cement Sector – Near-term margins under pressure"):
+            self.assertTrue(rf.is_icici_sector_title(t), t)
+        for t in ("Power Grid Corporation of India expects FY27 capex to exceed ₹40,000 crore",
+                  "Power Finance Corporation (PFC) has received a no-objection certificate from the RBI",
+                  "Adani Ports reported healthy consolidated revenue growth of 24 percent YoY"):
+            self.assertFalse(rf.is_icici_sector_title(t), t)
+
+    def test_icra_rows(self):
+        row = ('<tr> <td>05 Nov 2026</td> <td>Renewable Energy</td> <td> <a class="text-decoration-none linkBlue" '
+               'href="/Research/ViewResearchReport/7197" target="_blank" title="Solar generation expected to improve"> '
+               'Solar generation expected to improve </a> <br /> </td> <td>Thematic Report</td>')
+        self.assertEqual(rf._ICRA_ROW.findall(row),
+                         [("05 Nov 2026", "Renewable Energy", "/Research/ViewResearchReport/7197", "Solar generation expected to improve")])
+
+    def test_india_ratings_rows(self):
+        rows = [{"pressReleaseID": 86537, "pressReleaseTitle": "Telecom Connect - September 2026: ARPU growth",
+                 "effectiveDate": (datetime.now(IST_TZ) - timedelta(days=2)).strftime("%Y-%m-%dT00:00:00"), "industryName": "Telecom"},
+                {"pressReleaseID": 0, "pressReleaseTitle": "PDF only", "effectiveDate": "2026-11-01T00:00:00"}]
+        cfg = {"name": "IndRa", "url": "https://www.indiaratings.co.in/research", "publisher": "India Ratings"}
+        with mock.patch.object(rf, "_fetch_url", return_value=rf.json.dumps(rows).encode()):
+            out = rf.fetch_india_ratings(cfg)
+        self.assertEqual([(a["link"], a["description"]) for a in out],
+                         [("https://www.indiaratings.co.in/pressrelease/86537", "Telecom")])
+
+    def test_paid_feeds_marked(self):
+        feeds = {f["id"]: f for f in rf.json.load(open(rf.os.path.join(rf.os.path.dirname(rf.__file__), "feeds.json")))}
+        self.assertTrue(feeds["icra-research"].get("paid") and feeds["india-ratings-research"].get("paid"))
+        self.assertFalse(feeds["icicidirect-sector"].get("paid"))
 
 
 if __name__ == "__main__":

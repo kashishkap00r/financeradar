@@ -559,7 +559,7 @@ def fetch_hdfc_sec(feed_config):
     for bucket_id in buckets:
         url = (f"{base}/api/cmsapi/GetNonCallResearch?"
                f"schemeId=&compCode=&bucketId={bucket_id}"
-               f"&pageNo=1&pageSize={_MAX_PER_SCRAPER}&fromDate=&toDate=")
+               f"&pageNo=1&pageSize={feed_config.get('page_size') or _MAX_PER_SCRAPER}&fromDate=&toDate=")
         raw = _fetch_url(url, accept="application/json").decode("utf-8", errors="replace")
 
         # API returns double-encoded JSON (string within string) — decode twice
@@ -589,6 +589,9 @@ def fetch_hdfc_sec(feed_config):
             title = (item.get("TITLE") or preds.get("Title") or "").strip()
             if not title or len(title) < 5:
                 continue
+            # One API, two feeds: stock notes vs sector/economy reports (Reports → Indian)
+            if is_hdfc_sector(title) != _wants_sector(feed_config):
+                continue
 
             # PDF filename is in predicate UploadPdf
             pdf = (preds.get("UploadPdf") or "").strip()
@@ -608,7 +611,7 @@ def fetch_hdfc_sec(feed_config):
                 except ValueError:
                     pass
 
-            if not _is_fresh(dt):
+            if not _is_fresh(dt, _feed_cutoff(feed_config)):
                 continue
 
             # Description from predicate Summary (URL-encoded)
@@ -621,6 +624,104 @@ def fetch_hdfc_sec(feed_config):
             articles.append(_make_article(title, link, dt, desc, feed_config))
 
     return articles
+
+
+def _wants_sector(feed_config):
+    """Feeds named '<prefix>:sector…' take a broker's sector/economy reports; the rest take stock notes."""
+    return ":sector" in (feed_config.get("feed") or "")
+
+
+_HDFC_SECTOR_WORDS = re.compile(
+    r"^(it|it services|nbfcs?|banks?|banking|bfsi|insurance|healthcare( services)?|hospitals|pharma(ceuticals)?|"
+    r"cement|auto(mobiles?)?|auto ancillar(y|ies)|consumer( staples| durables)?|fmcg|retail|metals?( & mining)?|"
+    r"oil & gas|power|utilities|real estate|telecom|capital goods|chemicals|logistics|aviation|media|"
+    r"building materials|infrastructure|internet|alcobev|textiles|hotels|hospitality|agri|defence|"
+    r"electronics|ems|amcs?|capital markets|strategy|india strategy|economy|macro)( sector)?\b", re.I)
+_HDFC_SECTOR_SERIES = re.compile(r"sector|barometer|flipbook|capex tracker|scuttlebutt|thematic|outlook|"
+                                 r"monetary policy|union budget|budget|precious metals|tracker|chartbook", re.I)
+
+
+def is_hdfc_sector(title):
+    """HDFC's institutional bucket mixes stock notes and sector/economy reports; the title tells them apart."""
+    t = re.sub(r"\s+", " ", title or "").strip()
+    if re.match(r"hsie results daily", t, re.I):
+        return False  # multi-stock results daily: a stock note
+    head = t.split(":", 1)[0]
+    return bool(_HDFC_SECTOR_WORDS.match(head) or _HDFC_SECTOR_SERIES.search(head)
+                or (":" not in t and _HDFC_SECTOR_SERIES.search(t)))
+
+
+# Axis Direct: one listing for everything; the title says which kind.
+_AXIS_SKIP = re.compile(
+    r"pick of the week|axis punch|prime research|annual analysis|axis intellect|conviction ideas|top picks|"
+    r"\bpicks\b|dividend yield stocks|quant report|flash note", re.I)
+_AXIS_SECTOR = re.compile(
+    r"sector|earnings preview|result preview|q[1-4]\s?fy\d\de?\b|monthly sales|event update|monetary policy|"
+    r"impact of|earnings wrap|budget|playbook|economy|crude", re.I)
+
+
+def classify_axis(title):
+    """'stock' | 'sector' | 'skip' for one Axis Direct card title."""
+    t = re.sub(r"\s+", " ", title or "").strip()
+    if _AXIS_SKIP.search(t):
+        return "skip"
+    if re.search(r"result update|company update|initiating coverage|analyst meet|visit note|"
+                 r"termination of coverage|special situation|daily fundamental", t, re.I):
+        return "stock"
+    return "sector" if _AXIS_SECTOR.search(t) else "stock"
+
+
+_AXIS_SEARCH = "https://simplehai.axisdirect.in/app/index.php/insights/reports/search"
+
+
+_AXIS_CARDS = {}
+_AXIS_LOCK = threading.Lock()
+
+
+def _axis_cards(feed_config):
+    """Report cards, crawled once per run and shared by the stock-note and sector feeds."""
+    key = feed_config["url"]  # one crawl per run, deep enough for the deeper (30-day) feed
+    with _AXIS_LOCK:
+        if key not in _AXIS_CARDS:
+            _AXIS_CARDS[key] = list(_axis_crawl(feed_config))
+        return _AXIS_CARDS[key]
+
+
+def _axis_crawl(feed_config):
+    """Report cards (<li> chunks), newest first: the page itself, then the search API.
+
+    The API repeats page 1 unless it is sent every card id seen so far (`ids`).
+    In results season ~25 pages (9 cards each) cover a month.
+    """
+    content = _fetch_url(feed_config["url"], feed_config=feed_config).decode("utf-8", errors="replace")
+    cutoff = max(_feed_cutoff(feed_config), _FRESHNESS_CUTOFF)  # stock-note feed is 14 days, Reports 30
+    seen_ids = []
+    for page_no in range(feed_config.get("max_pages") or 1):
+        cards = [c for c in re.split(r"<li\b", content) if "downloadReport/file/" in c]
+        if not cards:
+            return
+        fresh = False
+        for card in cards:
+            m = re.search(r'class="[^"]*search_ids[^"]*"\s+id="(\d+)"', "<li" + card)
+            if m and m.group(1) in seen_ids:
+                continue
+            if m:
+                seen_ids.append(m.group(1))
+            dm = re.search(r"<p[^>]*>\s*(\d{1,2}\s+\w+\s+\d{4})\s*</p>", card)
+            dt = _parse_date_flexible(dm.group(1)) if dm else None
+            fresh = fresh or dt is None or _is_fresh(dt, cutoff)
+            yield card
+        if not fresh or page_no + 1 >= (feed_config.get("max_pages") or 1):
+            return
+        _polite(feed_config)
+        body = urllib.parse.urlencode({"searchStr": "", "categoryId": "", "date": "all", "format": "all",
+                                       "dbmodel": "RsFundamentalReports", "offsetVal": len(seen_ids),
+                                       "sortVal": "", "ids": ",".join(seen_ids)}).encode()
+        content = _fetch_url(_AXIS_SEARCH, feed_config=feed_config, data=body,
+                             extra_headers={**_FORM_HEADERS, "X-Requested-With": "XMLHttpRequest",
+                                            "Referer": feed_config["url"]}).decode("utf-8", "replace")
+        if "No Data" in content[:500]:
+            return
 
 
 # ── Axis Direct ───────────────────────────────────────────────────────
@@ -639,13 +740,8 @@ def fetch_axis_direct(feed_config):
     """
     BASE = "https://simplehai.axisdirect.in"
     articles = []
-    content = _fetch_url(feed_config["url"]).decode("utf-8", errors="replace")
-
-    # Split on each <li to isolate report cards.
-    # The report list lives inside a <ul> with each card in its own <li>.
-    cards = re.split(r'<li\b', content)
-
-    for card in cards:
+    seen_links = set()
+    for card in _axis_cards(feed_config):
         # Must have a downloadReport link to be a real report card
         dl_match = re.search(
             r'href="(/app/index\.php/insights/reports/downloadReport/file/[^"]+)"',
@@ -655,17 +751,23 @@ def fetch_axis_direct(feed_config):
             continue
 
         link = BASE + dl_match.group(1)
+        if link in seen_links:  # one sector PDF can sit on several cards
+            continue
+        seen_links.add(link)
 
         # Title from <h5> tag
         h5 = re.search(r'<h5[^>]*>(.*?)</h5>', card, re.DOTALL)
         title = _strip_html(html.unescape(h5.group(1))).strip() if h5 else ""
         if not title or len(title) < 5:
             continue
+        route = classify_axis(title)
+        if route == "skip" or (route == "sector") != _wants_sector(feed_config):
+            continue
 
         # Date from the first <p> after the title header div (format: "24 Feb 2026")
         date_match = re.search(r'<p[^>]*>\s*(\d{1,2}\s+\w+\s+\d{4})\s*</p>', card)
         dt = _parse_date_flexible(date_match.group(1)) if date_match else None
-        if not _is_fresh(dt):
+        if not _is_fresh(dt, _feed_cutoff(feed_config)):
             continue
 
         # Description lives in <div class="reports-video"> inside panel-body
@@ -3208,15 +3310,14 @@ def fetch_nirmal_bang(feed_config):
 
 
 # ── Brokers' sector & thematic reports → Reports (Indian), Nov 2026 ──
-# User: "I also want sector reports … under Indian, not Stock notes". Same
-# listings as the stock-note scrapers above; these keep what those skip,
-# minus dailies, picks lists and pure economy/RBI notes. Plain Reports items
+# User: "I also want sector reports … under Indian, not Stock notes", then
+# their economy notes too (macro trackers, CPI/WPI, RBI). Same listings as
+# the stock-note scrapers above; these keep what those skip, minus market
+# dailies (morning roundups, AI insights) and picks lists. Plain Reports items
 # (no `kind`), so they get the Reports tab's 30-day window and the ranker.
 
 _SECTOR_NOISE = re.compile(r"morning|roundup|ai powered|insights-|diwali|muhurat|picks|technical|derivative|"
                            r"rollover|newsletter|ipo note", re.I)
-_ECONOMY_ONLY = re.compile(r"india economy|\beconomic report|\bmacro\b|\brbi (mpc|policy)|monetary policy|"
-                           r"data preview|\bgdp\b|\bunion budget", re.I)
 _NB_DATE_TAIL = re.compile(r"\s*[-–]\s*\d{1,2}(st|nd|rd|th)?\s+[A-Za-z]+\s+\d{4}\s*$")
 
 
@@ -3225,8 +3326,6 @@ def nb_sector_title(title):
     title = re.sub(r"\s+", " ", html.unescape(_strip_html(title))).strip()
     if split_nb_title(title)[0] or _SECTOR_NOISE.search(title):
         return ""
-    if _ECONOMY_ONLY.search(title) and not re.search(r"thematic", title, re.I):
-        return ""  # economy trackers and data previews are not sector reports
     return _NB_DATE_TAIL.sub("", title)
 
 
@@ -3276,8 +3375,6 @@ def split_sbi_thematic(desc):
                      "Plant Visit Note" if re.search(r"plant visit", desc, re.I) else
                      report_label(tail, "Update"))
             return ("stock", company, label)
-    if _ECONOMY_ONLY.search(desc):
-        return ("skip",)
     title = _SBI_HOUSE.sub("", desc).replace("_", " – ").strip()
     return ("sector", title) if title else ("skip",)
 
@@ -3300,6 +3397,144 @@ def fetch_sbisec_sector(feed_config):
         dt = _parse_day(row.get("disp_date"), "%d %b %Y")
         if kind[0] == "sector" and link.lower().endswith(".pdf") and dt:
             articles.append(_make_article(kind[1], urllib.parse.quote(link, safe=":/%()"), dt, "", feed_config))
+    return articles
+
+
+# ── Sector research with public summaries, paid reports (Nov 2026) ───
+# ICRA and India Ratings put the full report behind a login (many ICRA
+# reports cost ₹20,000), but every report has a public page with its title,
+# sector and a free summary. Cards link to that page; feeds.json marks them
+# `"paid": true` and the site shows a small "Paid" label (user's call).
+
+_ICRA_LIST = "https://www.icra.in/Research/AllResearchReports?isSpecialComments=False"
+_ICRA_PAGE = "https://www.icra.in/Research/GetSectorResearchReportDetails?IndustryId=&page={}&isSpecialComments=false"
+_ICRA_ROW = re.compile(r"<tr>\s*<td>\s*(\d{1,2} \w{3} \d{4})\s*</td>\s*<td>(.*?)</td>\s*<td>\s*"
+                       r"<a[^>]+href=\"(/Research/ViewResearchReport/\d+)\"[^>]*title=\"([^\"]*)\"", re.S)
+
+
+@scraper
+def fetch_icra(feed_config):
+    """ICRA sector research: page 1 is plain HTML (10 rows ≈ 10 days); later pages are a POST that
+    needs the page's session cookie and its anti-forgery token (both public, no login)."""
+    cutoff = _feed_cutoff(feed_config)
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(),
+                                         urllib.request.HTTPSHandler(context=SSL_CONTEXT))
+    headers = {"User-Agent": UA, "Accept": "text/html", "Accept-Language": "en-US,en;q=0.9", "Referer": _ICRA_LIST,
+               "X-Requested-With": "XMLHttpRequest"}
+
+    def get(url, data=None):
+        req = urllib.request.Request(url, data=data, headers={**headers, **(_FORM_HEADERS if data else {})})
+        with opener.open(req, timeout=SCRAPER_FETCH_TIMEOUT * 3) as resp:
+            return resp.read().decode("utf-8", "replace")
+
+    page = get(_ICRA_LIST)
+    token = re.search(r'name="__RequestVerificationToken"[^>]*value="([^"]+)"', page)
+    articles, seen = [], set()
+    for page_no in range(1, (feed_config.get("max_pages") or 4) + 1):
+        if page_no > 1:
+            if not token:
+                break
+            _polite(feed_config)
+            form = {"__RequestVerificationToken": token.group(1), "SelectedSector.SectorId": "",
+                    "ResearchReportCategoryId": "", "DateFrom": "", "DateTo": "", "KeyWord": ""}  # as the page sends
+            try:
+                page = get(_ICRA_PAGE.format(page_no), urllib.parse.urlencode(form).encode())
+            except Exception as e:  # later pages are a bonus; keep what page 1 gave
+                print(f"  [WARN] ICRA page {page_no}: {str(e)[:80]}")
+                break
+        rows = _ICRA_ROW.findall(page)
+        if not rows:
+            break
+        any_fresh = False
+        for date_text, sector, href, title in rows:
+            dt = _parse_day(date_text, "%d %b %Y")
+            link = "https://www.icra.in" + href
+            if dt is None or not _is_fresh(dt, cutoff) or link in seen:
+                continue
+            any_fresh = True
+            seen.add(link)
+            sector = re.sub(r"\s+", " ", html.unescape(_strip_html(sector))).strip()
+            title = re.sub(r"\s+", " ", html.unescape(title)).strip()
+            articles.append(_make_article(f"{sector}: {title}" if sector else title, link, dt, "", feed_config))
+        if not any_fresh:
+            break
+    return articles
+
+
+_INDRA_LIST = "https://www.indiaratings.co.in/pressReleases/GetListing?type=research"
+
+
+@scraper
+def fetch_india_ratings(feed_config):
+    """India Ratings research: one JSON call (the site's own Angular app makes it) lists every
+    report. Items without a press-release id have no public page and are skipped."""
+    cutoff = _feed_cutoff(feed_config)
+    raw = _fetch_url(_INDRA_LIST, accept="application/json", feed_config=feed_config, data=b"",
+                     extra_headers={"Content-Type": "application/json", "Referer": "https://www.indiaratings.co.in/research"})
+    rows = json.loads(raw.decode("utf-8", "replace")) or []
+    articles = []
+    for row in rows if isinstance(rows, list) else []:
+        pr_id = row.get("pressReleaseID")
+        title = re.sub(r"\s+", " ", (row.get("pressReleaseTitle") or "")).strip()
+        dt = (_parse_day((row.get("effectiveDate") or "")[:10], "%Y-%m-%d")
+              or _parse_day(row.get("prDate"), "%b %d, %Y"))
+        if not pr_id or not title or dt is None or dt.year < 2000 or not _is_fresh(dt, cutoff):
+            continue
+        sector = (row.get("industryName") or "").strip()
+        articles.append(_make_article(title, f"https://www.indiaratings.co.in/pressrelease/{pr_id}", dt,
+                                      sector if sector and sector != "All" else "", feed_config))
+    articles.sort(key=lambda a: a["date"], reverse=True)
+    return articles
+
+
+# ICICI Direct sector notes: short HTML posts on its research blog (no PDF).
+# The sitemap lists ~250 posts a month, nearly all on single companies; slugs
+# shortlist candidates and the post's own title decides.
+
+_ICICI_SITEMAP = "https://www.icicidirect.com/research-equity-article-sitemap.xml"
+_ICICI_SECTOR_SLUG = re.compile(
+    r"sector|industry|volumes|inflation|monsoon|gdp|\biip\b|^(cement|auto|steel|metals?|logistics|bank(s|ing)?|"
+    r"it|pharma|fmcg|defence|power|telecom|oil|real-estate|chemicals|insurance|nbfcs?|consumer|retail|textiles|"
+    r"aviation|infra|capital-goods|sugar|tyres|hotels|media|economy|domestic)-")
+_ICICI_SECTOR_TITLE = re.compile(r"\b(sector|industry|volumes|inflation|monsoon|gdp|iip)\b", re.I)
+
+
+def is_icici_sector_title(title):
+    t = re.sub(r"\s+", " ", title or "").strip()
+    if re.search(r"\b(ltd|limited|corporation|reported|posts|delivered|expects|has received|received|"
+                 r"announced|secured|bagged|acquires?|wins?|launche[sd])\b", t, re.I):
+        return False  # one company's news or results
+    head = re.split(r"\s*[–:]\s*|\s+-\s+", t)[0]
+    return bool(_ICICI_SECTOR_TITLE.search(t) or _HDFC_SECTOR_WORDS.match(head))
+
+
+@scraper
+def fetch_icicidirect_sector(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    lookups = feed_config.get("max_lookups", 20)
+    sitemap = _fetch_url(_ICICI_SITEMAP, accept="application/xml", feed_config=feed_config).decode("utf-8", "replace")
+    posts = re.findall(r"<loc>(https://www\.icicidirect\.com/research/equity/blog/([^<]+))</loc>\s*<lastmod>([^<]+)", sitemap)
+    articles = []
+    for url, slug, lastmod in sorted(posts, key=lambda p: p[2], reverse=True):
+        seen_dt = _parse_day(lastmod[:10], "%Y-%m-%d")
+        if seen_dt is None or not _is_fresh(seen_dt, cutoff):
+            continue
+        if not _ICICI_SECTOR_SLUG.search(slug) or lookups <= 0:
+            continue
+        lookups -= 1
+        _polite(feed_config)
+        try:
+            post = _fetch_url(url, feed_config=feed_config).decode("utf-8", "replace")
+        except Exception as e:
+            print(f"  [WARN] ICICI post {slug[:50]}: {str(e)[:80]}")
+            continue
+        h1 = re.search(r"<h1[^>]*>(.*?)</h1>", post, re.S)
+        title = re.sub(r"\s+", " ", html.unescape(_strip_html(h1.group(1)))).strip() if h1 else ""
+        if not is_icici_sector_title(title):
+            continue
+        dm = re.search(r'"datePublished":\s*"([^"]+)"', post)
+        dt = _parse_day(dm.group(1)[:10], "%Y-%m-%d") if dm else seen_dt
+        articles.append(_make_article(title, url, dt or seen_dt, "", feed_config))
     return articles
 
 
@@ -3348,6 +3583,9 @@ REPORT_FETCHERS = {
     "nirmalbang:sector": fetch_nirmal_bang_sector,   # before "nirmalbang:" (prefix order)
     "nirmalbang:": fetch_nirmal_bang,
     "sbisector:": fetch_sbisec_sector,
+    "icra:": fetch_icra,
+    "indiaratings:": fetch_india_ratings,
+    "icicisector:": fetch_icicidirect_sector,
 }
 
 

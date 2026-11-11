@@ -51,6 +51,8 @@ DIRECT_HISTORY = {
     "idbi-capital-research": {"max_pages": 200, "polite": 0.3},
     "mncl-research": {"max_lookups": 1000, "polite": 0.2},  # one PDF page-1 read per note
     "nirmal-bang-research": {"max_pages": 700, "polite": 0.3},
+    "axis-direct-research": {"max_pages": 200, "polite": 0.3},     # back to Jul 2025
+    "hdfc-securities-research": {"page_size": 1000},                # one call, back to mid-2024
 }
 
 

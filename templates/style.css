@@ -3641,3 +3641,177 @@
             .sn-co-row { grid-template-columns: minmax(0, 1fr) auto auto; }
             .sn-co-broker { grid-column: 1 / -1; }
         }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           This Week — homepage calendar (calendar_events.py → static/calendar.json).
+           One list of days, three ways by width:
+             ≥1600px    .wk-wide  rail in the right margin, stays in view; the page
+                                  shifts left just enough to make room
+             769–1599px .wk-fold  folded day column on the right edge + .wk-pop
+             ≤768px     .wk-strip day strip under the tabs; .wk-chip in the top bar
+                                  once the strip has scrolled away
+           It never adds a section to the main column (user, 11 Nov 2026).
+           ═══════════════════════════════════════════════════════════════════ */
+        .wk { display: none; }
+        .wk.wk-ready { display: block; }
+        .wk-wide, .wk-fold, .wk-strip, .wk-chip { display: none; }
+        /* The side rails sit in <body>, outside the Home tab (see renderWeekCal) */
+        #week-cal-side { display: none; }
+        body:has(#tab-home.active) #week-cal-side.wk-ready { display: block; animation: wk-fade .3s ease-out; }
+        @keyframes wk-fade { from { opacity: 0; } }
+        @media (prefers-reduced-motion: reduce) { body:has(#tab-home.active) #week-cal-side.wk-ready { animation: none; } }
+
+        .wk-mk { display: inline-block; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; }
+        .wk-mk-big { width: 8px; height: 8px; border-radius: 1px; background: var(--accent); transform: rotate(45deg); }
+        .wk-mk-india { background: #4A8F7A; }
+        .wk-mk-policy { background: var(--accent); }
+        .wk-mk-market { background: #5E6A96; }
+        .wk-mk-global { background: #4A8A9A; }
+        .wk-mk-results { background: #9A8345; }
+
+        .wk-evs { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+        .wk-ev { display: flex; gap: 9px; align-items: flex-start; font-size: var(--t-s); line-height: 1.4; color: var(--text-primary); }
+        .wk-ev .wk-mk { margin-top: 0.5em; }
+        .wk-ev b { font-weight: 700; }
+        .wk-meta { color: var(--text-secondary); }
+        .wk-res { color: var(--text-secondary); }
+        .wk-res b { color: var(--text-primary); }
+        .wk-more, .wk-link {
+            font: inherit; font-weight: 700; color: var(--accent); background: none; border: 0;
+            padding: 0; cursor: pointer; text-align: left;
+        }
+        .wk-more:hover, .wk-link:hover { text-decoration: underline; }
+        .wk-none { margin: 0; font-size: var(--t-s); color: var(--text-muted); }
+        .wk-dl { display: block; font-size: var(--t-s); font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+        .is-today > .wk-dl { color: var(--accent); }
+        .wk-ics { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-s); font-weight: 700; color: var(--text-secondary); text-decoration: none; }
+        .wk-ics:hover { color: var(--accent); }
+        .wk-ics svg { width: 15px; height: 15px; }
+
+        /* Day chips (folded rail + phone strip) */
+        .wk-c {
+            font: inherit; flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 3px; width: 50px; min-height: 56px; padding: 5px 0; border-radius: 10px; cursor: pointer;
+            border: 1px solid transparent; background: transparent; color: var(--text-primary);
+        }
+        .wk-c-dow { font-size: 11px; font-weight: 700; color: var(--text-secondary); }
+        .wk-c.is-today .wk-c-dow { color: var(--accent); }
+        .wk-c-num { font-family: var(--serif); font-size: 18px; font-weight: 500; line-height: 1; }
+        .wk-c-mks { display: flex; gap: 3px; align-items: center; height: 9px; }
+        .wk-c-mks .wk-mk { width: 6px; height: 6px; }
+        .wk-c-mks .wk-mk-big { width: 7px; height: 7px; }
+        .wk-c:hover, .wk-c.is-open { background: #FBEEE8; }
+        .wk-c:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+        /* Wide screens: rail in the right margin */
+        @media (min-width: 1600px) {
+            /* Page shifts left just enough; the rail is fixed 16px inside the page's right edge.
+               Both use the same left-margin formula (100% = page width in both cases). */
+            body:has(#tab-home.active):has(#week-cal-side.wk-ready) .container {
+                margin-left: max(24px, min(calc((100% - 1240px) / 2), calc(100% - 1530px)));
+                margin-right: auto;
+            }
+            .wk-wide {
+                display: block; position: fixed; z-index: 90; width: 272px;
+                top: calc(var(--head-h) + 32px);
+                left: calc(max(24px, min(calc((100% - 1240px) / 2), calc(100% - 1530px))) + 1224px);
+            }
+            .wk-wide-in {
+                max-height: calc(100vh - var(--head-h) - 48px); overflow-y: auto; scrollbar-width: thin;
+                border-top: 1.5px solid var(--text-primary); padding-top: 10px; background: var(--bg-primary);
+            }
+            .wk-head { display: flex; align-items: center; gap: 6px; }
+            .wk-title { font-family: var(--serif); font-size: 21px; font-weight: 500; margin: 0; }
+            .wk-days { list-style: none; margin: 4px 0 0; padding: 0; }
+            .wk-day { padding: 11px 0 10px; border-bottom: 1px solid var(--rule); }
+            .wk-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 0 4px; font-size: var(--t-s); }
+        }
+
+        /* Laptops and tablets: folded day column on the right edge */
+        @media (min-width: 769px) and (max-width: 1599px) {
+            .wk-fold {
+                display: flex; flex-direction: column; align-items: center; gap: 2px;
+                position: fixed; z-index: 90; right: 12px; top: calc(var(--head-h) + 16px);
+                width: 60px; padding: 6px 0; max-height: calc(100vh - var(--head-h) - 32px); overflow-y: auto; scrollbar-width: none;
+                background: #FFFDF9; border: 1px solid var(--rule); border-radius: 14px;
+                box-shadow: 0 2px 10px rgba(44, 40, 37, 0.06);
+            }
+            .wk-fold-all {
+                width: 44px; height: 40px; margin-top: 4px; border: 0; border-top: 1px solid var(--rule); border-radius: 0;
+                background: none; color: var(--text-secondary); display: grid; place-items: center; cursor: pointer;
+            }
+            .wk-fold-all svg { width: 18px; height: 18px; }
+            .wk-fold-all:hover { color: var(--accent); }
+            .wk-pop {
+                position: fixed; z-index: 95; width: 300px; box-sizing: border-box; padding: 14px 16px;
+                background: #FFFDF9; border: 1px solid var(--border); border-radius: 10px;
+                box-shadow: 0 12px 32px rgba(44, 40, 37, 0.14); display: none;
+            }
+            .wk-pop-day { margin: 0 0 8px; font-size: var(--t-s); font-weight: 700; }
+            .wk-pop .wk-link { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--rule); width: 100%; font-size: var(--t-s); }
+        }
+        /* Below 1384px the page has no right margin left for the column: make room. */
+        @media (min-width: 769px) and (max-width: 1383px) {
+            body:has(#tab-home.active):has(#week-cal-side.wk-ready) .container { padding-right: 88px; }
+        }
+
+        /* Phones: strip under the tabs, then a chip in the top bar */
+        @media (max-width: 768px) {
+            .wk-strip { display: block; margin: calc(-1 * var(--s-2)) -16px var(--s-5); padding: 0 0 var(--s-3); border-bottom: 1px solid var(--rule); }
+            .wk-strip-head { display: flex; justify-content: space-between; align-items: baseline; padding: 0 16px 6px; font-size: var(--t-s); }
+            .wk-strip-title { font-weight: 700; color: var(--text-secondary); }
+            .wk-strip-days { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+            .wk-strip-days::-webkit-scrollbar { display: none; }
+            .wk-sd { width: 54px; border-color: var(--rule); background: #FFFDF9; }
+            .wk-sd.is-today { border-color: var(--accent); }
+            body.wk-strip-off:has(#tab-home.active .wk-ready) .wk-chip { display: inline-flex; }
+            /* Room for the chip next to search + bookmarks at 360–390px */
+            body.wk-strip-off:has(#tab-home.active .wk-ready) .utility-nav { gap: 14px; }
+            body.wk-strip-off:has(#tab-home.active .wk-ready) .utility .wordmark { font-size: 21px; }
+            .utility.search-active .wk-chip { display: none !important; }
+            .wk-chip {
+                align-items: center; gap: 6px; min-height: 32px; max-width: 34vw; padding: 0 10px;
+                border: 1px solid var(--accent); border-radius: 999px; background: #FBEEE8;
+                font: inherit; font-size: 12.5px; color: var(--text-primary); white-space: nowrap; cursor: pointer;
+            }
+            .wk-chip > span { overflow: hidden; text-overflow: ellipsis; }
+        }
+
+        /* Drawer (full calendar; a phone's single day). Frame = .bs-drawer. */
+        .wk-drawer { width: min(500px, 100vw); }
+        .wk-filters { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: var(--s-3); }
+        .wk-filter {
+            font: inherit; font-size: var(--t-s); color: var(--text-secondary); background: none; border: 0;
+            padding: 4px 0; cursor: pointer;
+        }
+        .wk-filter:hover { color: var(--accent); }
+        .wk-filter.is-on { color: var(--text-primary); font-weight: 700; box-shadow: inset 0 -2px 0 var(--accent); }
+        .wk-dr-body { gap: var(--s-5); }
+        .wk-dr-week h3 { margin: 0 0 4px; padding-bottom: 6px; border-bottom: 1.5px solid var(--text-primary); font-size: var(--t-s); font-weight: 700; }
+        .wk-dr-day { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+        .wk-dr-day .wk-dl { margin: 0; font-weight: 600; color: var(--text-secondary); }
+        .wk-dr-day.is-today .wk-dl { color: var(--accent); font-weight: 700; }
+        .wk-dr-body > .wk-evs .wk-ev, .wk-dr-day .wk-ev { font-size: var(--t-m); }
+        .wk-dr-foot {
+            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px;
+            padding: var(--s-3) var(--s-5) calc(var(--s-3) + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--rule);
+            font-size: var(--t-s);
+        }
+        .wk-note { color: var(--text-muted); font-size: var(--t-xs); }
+        .wk-dr-step { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-right: 36px; }
+        .wk-dr-step .bs-title { margin: 0; text-align: center; padding-right: 0; }
+        .wk-step {
+            width: 40px; height: 40px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%;
+            border: 1px solid var(--rule); background: #FFFDF9; color: var(--text-primary); cursor: pointer;
+        }
+        .wk-step svg { width: 15px; height: 15px; }
+        .wk-step:disabled { opacity: 0.35; cursor: default; }
+        @media (max-width: 768px) {
+            .wk-dr-day { grid-template-columns: 64px minmax(0, 1fr); }
+            .wk-dr-foot { padding-left: var(--s-4); padding-right: var(--s-4); }
+        }
+
+        /* "Paid" label: ICRA / India Ratings cards open a free summary; the full report is paid */
+        .paid-tag { display: inline-block; font-size: 11px; line-height: 1.4; padding: 0 6px; margin-left: 6px;
+            border: 1px solid var(--border); border-radius: 4px; color: var(--text-secondary); background: var(--bg-secondary);
+            font-weight: 600; letter-spacing: 0.02em; vertical-align: middle; }

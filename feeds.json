@@ -1200,6 +1200,15 @@
     "publisher": "Baroda eTrade"
   },
   {
+    "id": "baroda-etrade-mer",
+    "name": "Baroda eTrade — BOB Economics",
+    "url": "https://www.barodaetrade.com/research-Details/MER",
+    "feed": "baroda:mer",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Baroda eTrade"
+  },
+  {
     "id": "baroda-etrade-sor",
     "name": "Baroda eTrade — SOR",
     "url": "https://www.barodaetrade.com/research-Details/SOR",
@@ -1263,7 +1272,10 @@
     "category": "Reports",
     "region": "Indian",
     "publisher": "Axis Direct",
-    "kind": "stock_note"
+    "kind": "stock_note",
+    "max_pages": 40,
+    "polite": 0.3,
+    "max_items": 200
   },
   {
     "id": "moneycontrol-stock-ideas",
@@ -1410,8 +1422,29 @@
     "max_age_days": 14
   },
   {
+    "id": "hdfc-securities-sector",
+    "name": "HDFC Securities — Sector & Economy",
+    "url": "https://www.hdfcsec.com/research/equity/sector-reports",
+    "feed": "hdfcsec:sector",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "HDFC Securities",
+    "page_size": 300
+  },
+  {
+    "id": "axis-direct-sector",
+    "name": "Axis Direct — Sector & Economy",
+    "url": "https://simplehai.axisdirect.in/research/reports/fundamental",
+    "feed": "axis:sector",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Axis Direct",
+    "max_pages": 40,
+    "polite": 0.3
+  },
+  {
     "id": "nirmal-bang-sector",
-    "name": "Nirmal Bang — Sector & Thematic",
+    "name": "Nirmal Bang — Sector & Economy",
     "url": "https://www.nirmalbang.com/nb-research/institutional-research-reports.aspx",
     "feed": "nirmalbang:sector",
     "category": "Reports",
@@ -1421,7 +1454,7 @@
   },
   {
     "id": "sbisec-sector",
-    "name": "SBI Securities — Sector & Thematic",
+    "name": "SBI Securities — Sector & Economy",
     "url": "https://www.sbisecurities.in/research/fundamental",
     "feed": "sbisector:thematic",
     "category": "Reports",
@@ -2362,5 +2395,38 @@
     "category": "Reports",
     "region": "Indian",
     "publisher": "CSEP"
+  },
+  {
+    "id": "icra-research",
+    "name": "ICRA — Sector Research",
+    "url": "https://www.icra.in/Research/AllResearchReports?isSpecialComments=False",
+    "feed": "icra:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "ICRA",
+    "paid": true,
+    "max_items": 60,
+    "polite": 0.5
+  },
+  {
+    "id": "india-ratings-research",
+    "name": "India Ratings — Research",
+    "url": "https://www.indiaratings.co.in/research",
+    "feed": "indiaratings:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "India Ratings",
+    "paid": true,
+    "max_items": 60
+  },
+  {
+    "id": "icicidirect-sector",
+    "name": "ICICI Direct — Sector Notes",
+    "url": "https://www.icicidirect.com/research/equity/blog",
+    "feed": "icicisector:blog",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "ICICI Securities",
+    "polite": 0.3
   }
 ]

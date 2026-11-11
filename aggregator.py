@@ -45,6 +45,7 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 
 # Report scrapers
 from reports_fetcher import get_report_fetcher, _atomic_write_json
+from calendar_events import build_calendar
 from stock_notes import (ARCHIVE_FILE as STOCK_NOTES_FILE, STOCK_NOTE_KIND, fill_headlines,
                          load_archive, merge_into_archive, save_archive, select_home_notes,
                          write_note_chunks, pdf_first_page_lines, rule_headlines, RULE_HEADLINE_BROKERS)
@@ -517,6 +518,7 @@ def generate_html(
     slow_reads=None,
     stock_notes_home=None,
     stock_note_publishers=None,
+    paid_publishers=None,
 ):
     """Generate the static HTML website."""
 
@@ -1167,6 +1169,7 @@ def generate_html(
         var STOCK_NOTES = null;  // static/stock_notes.json, fetched on first click of Stock notes
         var STOCK_NOTES_HOME = null;  // static/tab_stock_notes_home.json — newest ~30 for the homepage slider
         var STOCK_NOTE_PUBLISHERS = {json.dumps(stock_note_publishers or [])};  // kept out of the homepage Research Reports slider
+        var PAID_PUBLISHERS = {json.dumps(paid_publishers or [])};  // full report needs a login/payment: cards say "Paid"
         var RESEARCH_PUBLISHERS = {research_publishers_json};
         var NEWS_ARTICLES = null;
         var SLOW_READS = null;
@@ -1682,6 +1685,9 @@ def main():
     grouped_count = len(filtered_articles) - len(article_groups)
     logger.info(f"After grouping similar headlines: {len(article_groups)} groups ({grouped_count} articles merged)")
 
+    # Homepage "This Week" calendar (static/calendar.json + calendar.ics). Never raises.
+    build_calendar(logger=logger)
+
     generate_html(
         article_groups,
         video_articles,
@@ -1693,6 +1699,7 @@ def main():
         stock_notes_home=select_home_notes(load_archive(STOCK_NOTES_FILE)),
         # Publishers with only stock-note feeds; brokers that also publish sector
         # reports (Nirmal Bang, SBI Securities) must still reach the homepage slider.
+        paid_publishers=sorted({f.get("publisher", "") for f in feeds if f.get("paid") and f.get("publisher")}),
         stock_note_publishers=sorted(
             {f.get("publisher", "") for f in feeds if f.get("kind") == STOCK_NOTE_KIND and f.get("publisher")}
             - {f.get("publisher", "") for f in feeds if f.get("category") == "Reports" and f.get("kind") != STOCK_NOTE_KIND}),
