@@ -1,0 +1,12 @@
+name: probe-broker-sites
+on:
+  push:
+    branches: [probe-broker-sites]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash probe_brokers.sh
