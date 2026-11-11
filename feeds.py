@@ -879,6 +879,85 @@ def fetch_rbi_press_releases(feed_config):
 
     return articles
 
+DGFT_LISTS = {
+    "notifications": "https://www.dgft.gov.in/CP/?opt=notification",
+    "public-notices": "https://www.dgft.gov.in/CP/?opt=public-notice",
+    "trade-notices": "https://www.dgft.gov.in/CP/?opt=trade-notice",
+}
+_DGFT_ROW = re.compile(
+    r"<tr>\s*<td>\d+</td>\s*<td>(?P<num>.*?)</td>\s*<td>.*?</td>\s*<td>(?P<subject>.*?)</td>\s*"
+    r"<td>(?P<date>\d{2}/\d{2}/\d{4})</td>\s*<td[^>]*>(?P<stamp>[^<]*)</td>\s*<td>.*?href=\"(?P<href>[^\"]+)\"",
+    re.S,
+)
+_DGFT_TAIL = re.compile(r"[\s.\-\u2013\u2014:]*\b(regarding|reg)\b[\s.\-]*$", re.I)
+
+
+def parse_dgft_table(page, feed_config, max_age_days=30, now=None):
+    """DGFT's lists (notifications, public notices, trade notices) are server-rendered
+    tables: number | year | subject | date | hidden timestamp | PDF link. The subject
+    becomes the title, with the trailing "- regarding." dropped; the link is the PDF."""
+    now = now or datetime.now(IST_TZ)
+    cutoff = now - timedelta(days=max_age_days)
+    out, seen = [], set()
+    for m in _DGFT_ROW.finditer(page):
+        subject = html.unescape(re.sub(r"<[^>]+>", " ", m.group("subject")))
+        subject = re.sub(r"\s+", " ", subject).strip()
+        subject = _DGFT_TAIL.sub("", subject).rstrip(" ,;-\u2013\u2014").strip()
+        if not subject:
+            continue
+        stamp = m.group("stamp").strip()
+        try:
+            dt = datetime.strptime(stamp, "%d/%m/%Y %H:%M:%S")
+        except ValueError:
+            dt = datetime.strptime(m.group("date"), "%d/%m/%Y")
+        dt = dt.replace(tzinfo=IST_TZ)
+        if dt < cutoff:
+            continue
+        href = html.unescape(m.group("href")).strip()
+        parts = urllib.parse.urlsplit(href)
+        link = urllib.parse.urlunsplit(parts._replace(path=urllib.parse.quote(parts.path)))
+        if link in seen:
+            continue
+        seen.add(link)
+        out.append({
+            "title": subject,
+            "link": link,
+            "date": dt,
+            "description": "DGFT " + re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", m.group("num")))).strip(),
+            "source": feed_config["name"],
+            "source_url": feed_config.get("url", ""),
+            "category": feed_config.get("category", "News"),
+            "region": feed_config.get("region", "Indian"),
+            "publisher": feed_config.get("publisher", ""),
+            "source_tier": feed_config.get("source_tier", ""),
+            "feed_id": feed_config["id"],
+        })
+    return out
+
+
+def fetch_dgft(feed_config):
+    """`dgft:<list>` → DGFT notifications / public notices / trade notices (Directorate
+    General of Foreign Trade: import and export policy changes). No RSS; the listing
+    page carries the whole table, newest first."""
+    feed_name = feed_config["name"]
+    which = feed_config.get("feed", "").split(":", 1)[-1] or "notifications"
+    url = DGFT_LISTS.get(which, DGFT_LISTS["notifications"])
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": DEFAULT_USER_AGENT,
+            "Accept": "text/html",
+            "Accept-Language": "en-US,en;q=0.9",
+        })
+        with urllib.request.urlopen(req, timeout=25, context=SSL_CONTEXT) as response:
+            page = response.read().decode("utf-8", errors="replace")
+        articles = parse_dgft_table(page, feed_config)
+        print(f"  [OK] {feed_name}: {len(articles)} articles (scraper)")
+        return articles
+    except Exception as e:
+        print(f"  [FAIL] {feed_name}: {str(e)[:60]}")
+        return []
+
+
 def fetch_the_ken(feed_config):
     """Fetch The Ken with resilient fallback: RSS -> HTML -> Google News RSS."""
     feed_name = feed_config["name"]
