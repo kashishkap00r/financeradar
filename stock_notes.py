@@ -84,6 +84,9 @@ _BROKER_ALIASES = [
     (r"^idbi cap", "IDBI Capital"),
     (r"^ambit", "Ambit Capital"),
     (r"^nuvama", "Nuvama"),
+    (r"^ventura", "Ventura Securities"),
+    (r"^way ?2 ?wealth", "Way2Wealth"),
+    (r"^sbi ?(cap )?sec", "SBI Securities"),
 ]
 
 # Never shown in Stock notes: foreign houses (view is Indian-only) and
