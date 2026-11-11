@@ -368,3 +368,23 @@ class TestArihant(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestNoUnverifiedTls(unittest.TestCase):
+    """Nov 2026: the unverified-TLS fallback was removed everywhere; a bad certificate must fail loudly."""
+
+    def test_fetch_raises_on_bad_certificate(self):
+        import ssl
+        err = ssl.SSLCertVerificationError("certificate verify failed")
+        with mock.patch.object(rf.urllib.request, "urlopen", side_effect=err) as opened:
+            with self.assertRaises(ssl.SSLCertVerificationError):
+                rf._fetch_url("https://expired.example.com/")
+        self.assertEqual(opened.call_count, 1)  # no second, unverified attempt
+
+    def test_no_unverified_context_anywhere(self):
+        import pathlib
+        root = pathlib.Path(rf.__file__).parent
+        for py in root.glob("*.py"):
+            text = py.read_text(encoding="utf-8")
+            self.assertNotIn("CERT_NONE", text, py.name)
+            self.assertNotIn("NOVERIFY", text, py.name)

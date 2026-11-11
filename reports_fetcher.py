@@ -56,7 +56,6 @@ from config import (
     SCRAPER_TIMEOUT_OVERRIDES,
     SCRAPER_RETRY_OVERRIDES,
     SSL_CONTEXT,
-    SSL_CONTEXT_NOVERIFY,
 )
 
 
@@ -138,12 +137,11 @@ def _fetch_url(url, accept="text/html", timeout=None, feed_config=None, data=Non
                     with urllib.request.urlopen(req, timeout=effective_timeout, context=ssl_context or SSL_CONTEXT) as resp:
                         return resp.read()
                 except ssl.SSLCertVerificationError:
-                    if ssl_context is not None:
-                        raise  # a site with its own trust setup must verify; never fall back to unverified
-                    print(f"  [WARN] TLS verification failed for {url}, falling back to unverified")
-                    req = urllib.request.Request(url, data=data, headers=headers)
-                    with urllib.request.urlopen(req, timeout=effective_timeout, context=SSL_CONTEXT_NOVERIFY) as resp:
-                        return resp.read()
+                    # Never fall back to an unverified connection (removed Nov 2026). A site
+                    # that leaves out its intermediate certificate gets it shipped in certs/
+                    # and passed as ssl_context (see Monarch Networth); anything else fails loudly.
+                    print(f"  [FAIL] TLS certificate check failed for {url}")
+                    raise
             except urllib.error.HTTPError as e:
                 if e.code == 403:
                     for ua in ["FeedFetcher/1.0", "Mozilla/5.0 (compatible; RSS Reader)"]:
