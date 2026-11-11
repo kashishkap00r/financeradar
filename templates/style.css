@@ -3655,6 +3655,11 @@
         .wk { display: none; }
         .wk.wk-ready { display: block; }
         .wk-wide, .wk-fold, .wk-strip, .wk-chip { display: none; }
+        /* The side rails sit in <body>, outside the Home tab (see renderWeekCal) */
+        #week-cal-side { display: none; }
+        body:has(#tab-home.active) #week-cal-side.wk-ready { display: block; animation: wk-fade .3s ease-out; }
+        @keyframes wk-fade { from { opacity: 0; } }
+        @media (prefers-reduced-motion: reduce) { body:has(#tab-home.active) #week-cal-side.wk-ready { animation: none; } }
 
         .wk-mk { display: inline-block; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; }
         .wk-mk-big { width: 8px; height: 8px; border-radius: 1px; background: var(--accent); transform: rotate(45deg); }
@@ -3700,16 +3705,20 @@
 
         /* Wide screens: rail in the right margin */
         @media (min-width: 1600px) {
-            body:has(#tab-home.active .wk-ready) .container {
-                margin-left: max(24px, min(calc((100% - 1240px) / 2), calc(100% - 1240px - 290px)));
+            /* Page shifts left just enough; the rail is fixed 16px inside the page's right edge.
+               Both use the same left-margin formula (100% = page width in both cases). */
+            body:has(#tab-home.active):has(#week-cal-side.wk-ready) .container {
+                margin-left: max(24px, min(calc((100% - 1240px) / 2), calc(100% - 1530px)));
                 margin-right: auto;
             }
-            #tab-home { position: relative; }
-            .wk-wide { display: block; position: absolute; top: 0; bottom: 0; left: calc(100% + 32px); width: 272px; }
+            .wk-wide {
+                display: block; position: fixed; z-index: 90; width: 272px;
+                top: calc(var(--head-h) + 32px);
+                left: calc(max(24px, min(calc((100% - 1240px) / 2), calc(100% - 1530px))) + 1224px);
+            }
             .wk-wide-in {
-                position: sticky; top: calc(var(--head-h) + 4px);
-                max-height: calc(100vh - var(--head-h) - 24px); overflow-y: auto; scrollbar-width: thin;
-                border-top: 1.5px solid var(--text-primary); padding-top: 10px;
+                max-height: calc(100vh - var(--head-h) - 48px); overflow-y: auto; scrollbar-width: thin;
+                border-top: 1.5px solid var(--text-primary); padding-top: 10px; background: var(--bg-primary);
             }
             .wk-head { display: flex; align-items: center; gap: 6px; }
             .wk-title { font-family: var(--serif); font-size: 21px; font-weight: 500; margin: 0; }
@@ -3743,7 +3752,7 @@
         }
         /* Below 1384px the page has no right margin left for the column: make room. */
         @media (min-width: 769px) and (max-width: 1383px) {
-            body:has(#tab-home.active .wk-ready) .container { padding-right: 88px; }
+            body:has(#tab-home.active):has(#week-cal-side.wk-ready) .container { padding-right: 88px; }
         }
 
         /* Phones: strip under the tabs, then a chip in the top bar */

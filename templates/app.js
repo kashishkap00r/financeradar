@@ -3029,6 +3029,11 @@
             wkStripObserver.observe(strip);
         }
 
+        // Two hosts. The phone strip scrolls with the page, so it lives in the Home tab.
+        // The margin rail and the folded column are position: fixed, so they live in
+        // <body>: the tab's fade-in animates `transform`, and a transformed ancestor
+        // pins fixed children to itself — the rail sat over the text for half a second
+        // after every switch back to Home. CSS shows #week-cal-side only on Home.
         function renderWeekCal() {
             var host = document.getElementById('week-cal');
             if (!host) {
@@ -3040,12 +3045,25 @@
                 host.className = 'wk';
                 tabHome.insertBefore(host, paper);
             }
+            var side = document.getElementById('week-cal-side');
+            if (!side) {
+                side = document.createElement('div');
+                side.id = 'week-cal-side';
+                document.body.appendChild(side);
+            }
             hideWkPop();
-            if (!CALENDAR) { host.classList.remove('wk-ready'); host.innerHTML = ''; wkChipUpdate(null); return; }
+            if (!CALENDAR) {
+                host.classList.remove('wk-ready'); host.innerHTML = '';
+                side.classList.remove('wk-ready'); side.innerHTML = '';
+                wkChipUpdate(null);
+                return;
+            }
             var today = wkTodayIST();
             var days = wkUpcoming(today);
-            host.innerHTML = wkWideHtml(days, today) + wkFoldHtml(days, today) + wkStripHtml(days, today);
+            host.innerHTML = wkStripHtml(days, today);
+            side.innerHTML = wkWideHtml(days, today) + wkFoldHtml(days, today);
             host.classList.add('wk-ready');
+            side.classList.add('wk-ready');
             wkChipUpdate(wkNext(today), today);
             wkObserveStrip(host.querySelector('.wk-strip'));
         }
