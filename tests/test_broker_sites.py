@@ -316,5 +316,55 @@ class TestPaidAndBlogSectorSources(unittest.TestCase):
         self.assertFalse(feeds["icicidirect-sector"].get("paid"))
 
 
+class TestFicciNiti(unittest.TestCase):
+    def test_ficci_study_cards(self):
+        recent = (datetime.now(IST_TZ) - timedelta(days=3)).strftime("%b %d, %Y")
+        page = ('<a href="https://ficci.in/study_details/maize-sector-in-india-24326"> <div class="border-card bg-grey"> '
+                '<div class="img-wrapper"><img class="study-image" src="x.png" alt="FICCI Study: Maize"></div> '
+                f'<h3>Maize Sector in India</h3> <time> {recent} </time> <span class="d-flex items-center category"> '
+                '<a href="https://ficci.in/sector/agriculture"> Agriculture </a> </span> </div> </a>')
+        detail = '<a href="https://ficci.in/public/storage/SPDocument/24326/Cnu.pdf" class="download-pdf-btn">'
+        cfg = {"name": "FICCI", "url": "https://ficci.in/studies", "publisher": "FICCI"}
+        with mock.patch.object(rf, "_fetch_url", side_effect=[page.encode(), detail.encode()]):
+            out = rf.fetch_ficci_studies(cfg)
+        self.assertEqual([(a["title"], a["link"], a["description"]) for a in out],
+                         [("Maize Sector in India", "https://ficci.in/public/storage/SPDocument/24326/Cnu.pdf", "Agriculture")])
+
+    def test_niti_dates_with_comma_or_year_only(self):
+        month = datetime.now(IST_TZ).strftime("%B, %Y")
+        ym = datetime.now(IST_TZ).strftime("%Y-%m")
+        page = (f'<td headers="view-title-table-column">Trade Watch</td><td headers="view-field-publication-date-papers-table-column">{month}</td>'
+                '<td headers="view-nothing-table-column"><a href="/sites/default/files/x/tw.pdf">pdf</a></td>'
+                '<td headers="view-title-table-column">Data Centre Framework</td><td headers="view-field-publication-date-papers-table-column">2026</td>'
+                f'<td headers="view-nothing-table-column"><a href="/sites/default/files/{ym}/dc.pdf">pdf</a></td>'
+                '<td headers="view-title-table-column">Undated thing</td><td headers="view-field-publication-date-papers-table-column">2026</td>'
+                '<td headers="view-nothing-table-column"><a href="/sites/default/files/misc/u.pdf">pdf</a></td>')
+        cfg = {"name": "NITI", "url": "https://www.niti.gov.in/publications/division-reports", "publisher": "NITI Aayog"}
+        with mock.patch.object(rf, "_fetch_url", return_value=page.encode()):
+            out = rf.fetch_niti_aayog(cfg)
+        self.assertEqual([a["title"] for a in out], ["Trade Watch", "Data Centre Framework"])  # undated one skipped
+        self.assertTrue(all(a["date"].day == 15 for a in out))
+
+
+class TestArihant(unittest.TestCase):
+    def test_file_names(self):
+        self.assertEqual(rf.classify_arihant("Voltas_Q2FY27_Result_update.pdf"), ("stock", "Voltas", "Q2FY27 Result Update"))
+        self.assertEqual(rf.classify_arihant("Inox_Wind_Initiating_Coverage_Report.pdf"), ("stock", "Inox Wind", "Initiating Coverage"))
+        self.assertEqual(rf.classify_arihant("Meesho_Ltd_IPO_Note.pdf"), ("stock", "Meesho", "IPO note"))
+        self.assertEqual(rf.classify_arihant("Q4FY24-Sandhar Technologies Limited.pdf"), ("stock", "Sandhar Technologies", "Q4FY24 Result Update"))
+        self.assertEqual(rf.classify_arihant("Graphite_Electrodes_&_Anode_Sector_Arihant_Capital_ Ltd.pdf"),
+                         ("sector", "Graphite Electrodes & Anode Sector"))
+        self.assertEqual(rf.classify_arihant("IT Services_ Q2FY24 Preview.pdf")[0], "sector")
+        for junk in ("Arihant_Diwali_Picks_Large_Cap_Diwali_ke_Diye.pdf", "Day 2 Bharat Connect Conference March 2026 - Webinar Links.pdf",
+                     "Research_TEST_123_DOC.pdf", "17th Nov 2022.pdf", "Equirius - Cement Sector.pdf"):
+            self.assertEqual(rf.classify_arihant(junk), ("skip",), junk)
+
+    def test_page_one(self):
+        dt, head, name = rf.arihant_page_one("Q2FY27 Result update\n11th Nov 2026\nVoltas Ltd\nDurable Leadership, Margin Normalisation Ahead\nCMP: INR 1,123", "Voltas")
+        self.assertEqual((dt.date().isoformat(), head, name), ("2026-11-11", "Durable Leadership, Margin Normalisation Ahead", "Voltas Ltd"))
+        dt, head, _ = rf.arihant_page_one("RESET DONE, RE-RATING AHEAD\n4th November 2026\n", "Sammaan Capital")
+        self.assertEqual((dt.date().isoformat(), head), ("2026-11-04", "RESET DONE, RE-RATING AHEAD"))
+
+
 if __name__ == "__main__":
     unittest.main()

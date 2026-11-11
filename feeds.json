@@ -1237,6 +1237,16 @@
     "publisher": "FICCI"
   },
   {
+    "id": "ficci-studies",
+    "name": "FICCI — Studies",
+    "url": "https://ficci.in/studies",
+    "feed": "ficcistudies:studies",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "FICCI",
+    "polite": 0.3
+  },
+  {
     "id": "ceew-publications",
     "name": "CEEW — Publications",
     "url": "https://www.ceew.in/rss.xml",
@@ -1420,6 +1430,28 @@
     "kind": "stock_note",
     "max_items": 200,
     "max_age_days": 14
+  },
+  {
+    "id": "arihant-research",
+    "name": "Arihant Capital — Research",
+    "url": "https://arihantresearch.arihantcapital.com/Mumbai_Research/",
+    "feed": "arihant:research",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Arihant Capital",
+    "kind": "stock_note",
+    "max_items": 200,
+    "max_age_days": 14,
+    "polite": 0.2
+  },
+  {
+    "id": "arihant-sector",
+    "name": "Arihant Capital — Sector & Strategy",
+    "url": "https://arihantresearch.arihantcapital.com/Mumbai_Research/",
+    "feed": "arihant:sector",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Arihant Capital"
   },
   {
     "id": "hdfc-securities-sector",
@@ -2285,6 +2317,24 @@
     "name": "NITI Aayog — Division Reports",
     "url": "https://www.niti.gov.in/publications/division-reports",
     "feed": "niti:niti-division-reports",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "NITI Aayog"
+  },
+  {
+    "id": "niti-working-papers",
+    "name": "NITI Aayog — Working Papers",
+    "url": "https://www.niti.gov.in/publications/working-papers",
+    "feed": "niti:niti-working-papers",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "NITI Aayog"
+  },
+  {
+    "id": "niti-research-papers",
+    "name": "NITI Aayog — Research Papers",
+    "url": "https://www.niti.gov.in/publications/research-paper",
+    "feed": "niti:niti-research-papers",
     "category": "Reports",
     "region": "Indian",
     "publisher": "NITI Aayog"

@@ -53,6 +53,7 @@ DIRECT_HISTORY = {
     "nirmal-bang-research": {"max_pages": 700, "polite": 0.3},
     "axis-direct-research": {"max_pages": 200, "polite": 0.3},     # back to Jul 2025
     "hdfc-securities-research": {"page_size": 1000},                # one call, back to mid-2024
+    "arihant-research": {"folders": ["Mumbai_Research", "Insti"], "max_lookups": 4000, "polite": 0.2},  # page 1 per note
 }
 
 

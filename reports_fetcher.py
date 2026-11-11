@@ -1443,6 +1443,11 @@ def fetch_niti_aayog(feed_config):
         r'headers="view-nothing-table-column"[^>]*>\s*<a\s+href="([^"]+)"',
         content, re.DOTALL,
     )
+    if not links:  # Working Papers / Research Papers put the PDF in an upload column instead
+        links = re.findall(
+            r'headers="view-field-report-upload-table-column"[^>]*>.*?<a[^>]+href="([^"]+)"',
+            content, re.DOTALL,
+        )
 
     count = min(len(titles), len(dates), len(links))
     seen = set()
@@ -1457,17 +1462,20 @@ def fetch_niti_aayog(feed_config):
         seen.add(href)
         link = href if href.startswith("http") else "https://www.niti.gov.in" + href
 
-        # Date is month-only ("July 2026"); anchor to the 15th as a midpoint.
+        # Date is month-only ("October, 2026"); anchor to the 15th as a midpoint.
+        # Working Papers give only a year, so fall back to the upload month in
+        # the PDF path (/sites/default/files/2026-10/…). Undated items are
+        # skipped — before Nov 2026 the comma broke parsing and every NITI
+        # report counted as fresh forever.
         dt = None
-        date_str = _strip_html(dates[i]).strip()
-        if date_str:
-            try:
-                dt = datetime.strptime(date_str, "%B %Y").replace(
-                    day=15, tzinfo=IST_TZ
-                )
-            except ValueError:
-                dt = _parse_date_flexible(date_str)
-        if not _is_fresh(dt):
+        date_str = re.sub(r"[,\s]+", " ", _strip_html(dates[i])).strip()
+        try:
+            dt = datetime.strptime(date_str, "%B %Y").replace(day=15, tzinfo=IST_TZ)
+        except ValueError:
+            m = re.search(r"/files/(20\d\d)-(\d\d)/", link)
+            if m:
+                dt = datetime(int(m.group(1)), int(m.group(2)), 15, tzinfo=IST_TZ)
+        if dt is None or not _is_fresh(dt, _feed_cutoff(feed_config)):
             continue
 
         division = html.unescape(_strip_html(divisions[i])).strip() if i < len(divisions) else ""
@@ -3538,6 +3546,165 @@ def fetch_icicidirect_sector(feed_config):
     return articles
 
 
+# FICCI Studies (ficci.in/studies): sector studies with a direct public PDF
+# (maize, textiles & apparel, cocoa, real estate …). The list gives title,
+# date and sector; the PDF link is on each study's page, so only studies
+# inside the window are opened (a handful a month).
+
+_FICCI_CARD = re.compile(
+    r'<a href="(https://ficci\.in/study_details/[^"]+)">\s*<div class="border-card[^"]*">.*?<h3>(.*?)</h3>\s*'
+    r'<time>\s*(.*?)\s*</time>(.*?)</div>\s*</a>', re.S)
+
+
+@scraper
+def fetch_ficci_studies(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    lookups = feed_config.get("max_lookups", 15)
+    page = _fetch_url(feed_config["url"], feed_config=feed_config).decode("utf-8", "replace")
+    articles, seen = [], set()
+    for url, title, date_text, rest in _FICCI_CARD.findall(page):
+        if url in seen:
+            continue
+        seen.add(url)
+        dt = _parse_day(_strip_html(date_text), "%b %d, %Y")
+        if dt is None or not _is_fresh(dt, cutoff):
+            continue
+        sector = re.search(r'class="d-flex items-center category">\s*<a[^>]*>(.*?)</a>', rest, re.S)
+        link = url
+        if lookups > 0:
+            lookups -= 1
+            _polite(feed_config)
+            try:
+                detail = _fetch_url(url, feed_config=feed_config).decode("utf-8", "replace")
+                pdf = re.search(r'href="(https://ficci\.in/public/storage/SPDocument/[^"]+\.pdf)"', detail)
+                link = pdf.group(1) if pdf else url
+            except Exception as e:
+                print(f"  [WARN] FICCI study page {url[-50:]}: {str(e)[:80]}")
+        articles.append(_make_article(re.sub(r"\s+", " ", html.unescape(_strip_html(title))).strip(), link, dt,
+                                      html.unescape(_strip_html(sector.group(1))).strip() if sector else "",
+                                      feed_config))
+    return articles
+
+
+# Arihant Capital (user, 11 Nov 2026: "include"). No research page: its PDFs
+# sit in open server folders (raw file listings, probably left on by
+# accident — the user knows and chose to include it). Mumbai_Research is
+# current; Insti stopped Dec 2025 and is read for history. Only .pdf files
+# are ever fetched. File names say what a report is: single-stock notes and
+# IPO notes → Stock notes, sector/strategy/budget notes → Reports (Indian),
+# picks lists, conference links and test files → skipped. Page 1 gives the
+# real date and headline (upload times change when a file is re-uploaded).
+
+_ARIHANT_BASE = "https://arihantresearch.arihantcapital.com"
+_ARIHANT_ROW = re.compile(r'(\d{1,2}/\d{1,2}/\d{4})\s+\d{1,2}:\d{2}\s+[AP]M\s+\S+\s+<A HREF="([^"]+)">([^<]+)</A>', re.I)
+_ARIHANT_SKIP = re.compile(r"diwali|chhota|chota|packet|webinar|conference|teaser|test|portfolio|equiri|equirus|"
+                           r"series round|vikas|links", re.I)
+_ARIHANT_SECTOR = re.compile(r"sector|industry|strategy|budget|\bfta\b|gst|channel[ _-]?check|compendium|preview|"
+                             r"^(fmcg|it|auto|banking|cement|pharma|metals?|oil|power)[ _-]+(update|note)", re.I)
+_ARIHANT_KIND = re.compile(
+    r"(?:^|[\s_\-.(])(q[1-4]\s?(?:fy|cy)\s?\d\d|result|ru|ic|initiating|management|ir|sales|company update|update|"
+    r"one\s?pager|onepager|stock\s?idea|investor|pre[\s_-]?ipo|ipo|fpo|demerger|m&a|meeting|interaction|report|note|"
+    r"plant visit|visit|analyst|"
+    r"v\d)(?=$|[\s_\-.)])", re.I)
+
+
+def classify_arihant(filename):
+    """File name → ('stock', company, label) | ('sector', title) | ('skip',)."""
+    name = re.sub(r"\.pdf$", "", html.unescape(urllib.parse.unquote(filename or "")), flags=re.I)
+    words = re.sub(r"[_]+", " ", name).strip()
+    if not words or _ARIHANT_SKIP.search(words):
+        return ("skip",)
+    if _ARIHANT_SECTOR.search(words):
+        title = re.sub(r"\s*(arihant\s+capital(\s+ltd)?|\(\d\))\s*", " ", words, flags=re.I)
+        return ("sector", re.sub(r"\s+", " ", title).strip(" -"))
+    lead = re.match(r"(q[1-4]\s?(?:fy|cy)\s?\d\d)\s*[-_ ]\s*(.+)$", words, re.I)
+    if lead:  # "Q4FY24-Sandhar Technologies Limited"
+        return ("stock", _tidy_company(lead.group(2)), report_label(lead.group(1) + " result update", "Result Update"))
+    m = _ARIHANT_KIND.search(words)
+    if not m:
+        return ("skip",)  # an undescribed file (e.g. "Studds_Accessories_Ltd") — page 1 alone can't be trusted to say what it is
+    company = _tidy_company(re.sub(r"\s*-\s*$", "", words[:m.start()]).strip(" -"))
+    if not company or len(company) < 2:
+        return ("skip",)
+    tail = words[m.start():]
+    label = ("FPO note" if re.search(r"fpo", tail, re.I) else
+             "IPO note" if re.search(r"ipo", tail, re.I) else
+             "Plant Visit Note" if re.search(r"visit", tail, re.I) else
+             "Initiating Coverage" if re.search(r"\bic\b|initiating", tail, re.I) else
+             "Management Meet" if re.search(r"management|interaction|meeting|\bir\b", tail, re.I) else
+             report_label(tail, "Company Update"))
+    return ("stock", company, label)
+
+
+def arihant_page_one(text, company):
+    """(date, headline, company line) from page 1: type line, date, "Voltas Ltd", headline
+    (some initiations print the headline above the date)."""
+    lines = [ln.strip() for ln in (text or "").splitlines() if ln.strip()]
+    for i, line in enumerate(lines[:8]):
+        dt = _first_date_in(line) if len(line) < 40 else None
+        if not dt:
+            continue
+        comp = (company or "").lower()[:8]
+        name_line, headline = "", ""
+        for cand in lines[i + 1:i + 5]:
+            low = cand.lower()
+            if re.search(r"\b(ltd|limited)\.?$", low) and len(cand) < 70:
+                name_line = name_line or cand  # "Voltas Ltd", "GMM Pfaudler Ltd."
+                continue
+            if (comp and low.startswith(comp)) or re.match(r"(cmp|rating|target|face value|stock info|issue|bse|nse)\b", low):
+                continue
+            if 8 <= len(cand) <= 140 and len(cand.split()) >= 2 and not re.search(r"\breported\b|\bstood at\b", low):
+                headline = cand
+                break
+        if not headline and i > 0 and 8 <= len(lines[i - 1]) <= 120 and not _REPORT_KIND.search(lines[i - 1]) \
+                and len(lines[i - 1].split()) >= 2:
+            headline = lines[i - 1]  # printed above the date
+        return dt, headline, name_line
+    return None, "", ""
+
+
+@scraper
+def fetch_arihant(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    sector_feed = _wants_sector(feed_config)
+    known = set() if sector_feed else _known_notes(feed_config)
+    lookups = feed_config.get("max_lookups", _DEFAULT_MAX_LOOKUPS)
+    articles, seen = [], set()
+    for folder in feed_config.get("folders") or ["Mumbai_Research"]:
+        listing = _fetch_url(f"{_ARIHANT_BASE}/{folder}/", feed_config=feed_config).decode("utf-8", "replace")
+        rows = sorted(_ARIHANT_ROW.findall(listing),
+                      key=lambda r: datetime.strptime(r[0], "%m/%d/%Y"), reverse=True)
+        for date_text, href, name in rows:
+            if not href.lower().endswith(".pdf"):
+                continue  # never fetch anything else from these folders
+            uploaded = _parse_day(date_text, "%m/%d/%Y")
+            if uploaded is None or not _is_fresh(uploaded, cutoff):
+                continue
+            pdf = urllib.parse.quote(urllib.parse.urljoin(_ARIHANT_BASE + "/", html.unescape(href)), safe=":/%&()")
+            if pdf in seen or pdf in known:
+                continue
+            seen.add(pdf)
+            kind = classify_arihant(name)
+            if kind[0] == "sector" and sector_feed:
+                articles.append(_make_article(kind[1], pdf, uploaded, "", feed_config))
+            elif kind[0] == "stock" and not sector_feed:
+                dt, headline, name_line = None, "", ""
+                if lookups > 0:
+                    lookups -= 1
+                    _polite(feed_config)
+                    try:
+                        dt, headline, name_line = arihant_page_one(pdf_first_page_text(pdf, user_agent=UA), kind[1])
+                    except Exception as e:
+                        print(f"  [WARN] Arihant page 1 {name[:50]}: {str(e)[:80]}")
+                dt = dt if dt and dt <= uploaded + timedelta(days=2) else uploaded
+                if not _is_fresh(dt, cutoff):
+                    continue  # an old note re-uploaded
+                company = _tidy_company(name_line) if name_line else kind[1]  # page 1 has the full name ("HUL" → …)
+                articles.append(_direct_note(feed_config, company=company or kind[1], dt=dt, pdf=pdf,
+                                             headline=headline or kind[2]))
+    return articles
+
+
 REPORT_FETCHERS = {
     "crisilratings:": fetch_crisil_ratings,
     "crisilreports:": fetch_crisil_reports,
@@ -3586,6 +3753,8 @@ REPORT_FETCHERS = {
     "icra:": fetch_icra,
     "indiaratings:": fetch_india_ratings,
     "icicisector:": fetch_icicidirect_sector,
+    "ficcistudies:": fetch_ficci_studies,
+    "arihant:": fetch_arihant,
 }
 
 
