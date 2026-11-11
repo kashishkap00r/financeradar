@@ -1375,6 +1375,30 @@
     "max_age_days": 14
   },
   {
+    "id": "idbi-capital-research",
+    "name": "IDBI Capital — Research",
+    "url": "https://www.idbidirect.in/Researchreports.aspx?Option=investment",
+    "feed": "idbicap:research",
+    "publisher": "IDBI Capital",
+    "category": "Reports",
+    "region": "Indian",
+    "kind": "stock_note",
+    "max_items": 200,
+    "max_age_days": 14
+  },
+  {
+    "id": "mncl-research",
+    "name": "Monarch Networth Capital — Research",
+    "url": "https://www.mnclgroup.com/research-reports",
+    "feed": "mncl:research",
+    "publisher": "Monarch Networth Capital",
+    "category": "Reports",
+    "region": "Indian",
+    "kind": "stock_note",
+    "max_items": 200,
+    "max_age_days": 14
+  },
+  {
     "id": "ing-think-rss",
     "name": "ING THINK",
     "url": "https://think.ing.com/",
