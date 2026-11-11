@@ -1399,6 +1399,18 @@
     "max_age_days": 14
   },
   {
+    "id": "nirmal-bang-research",
+    "name": "Nirmal Bang — Institutional Research",
+    "url": "https://www.nirmalbang.com/nb-research/institutional-research-reports.aspx",
+    "feed": "nirmalbang:institutional",
+    "publisher": "Nirmal Bang",
+    "category": "Reports",
+    "region": "Indian",
+    "kind": "stock_note",
+    "max_items": 200,
+    "max_age_days": 14
+  },
+  {
     "id": "ing-think-rss",
     "name": "ING THINK",
     "url": "https://think.ing.com/",

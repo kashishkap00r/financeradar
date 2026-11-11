@@ -50,6 +50,7 @@ DIRECT_HISTORY = {
     "ventura-research": {"max_pages": 300, "polite": 0.3},
     "idbi-capital-research": {"max_pages": 200, "polite": 0.3},
     "mncl-research": {"max_lookups": 1000, "polite": 0.2},  # one PDF page-1 read per note
+    "nirmal-bang-research": {"max_pages": 700, "polite": 0.3},
 }
 
 

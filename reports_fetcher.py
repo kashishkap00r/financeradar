@@ -2495,6 +2495,7 @@ def _parse_day(text, fmt):
 
 
 _QUARTER = re.compile(r"\bQ\s*([1-4])\s*[_ ]?\s*(FY|CY)\s*[_ ']?\s*(\d{2})(?!\d)", re.I)
+_QUARTER_NB = re.compile(r"\b([1-4])\s*Q\s*(FY|CY)\s*'?(\d{2})(?!\d)", re.I)  # Nirmal Bang writes "2QFY27"
 _REPORT_KINDS = [  # (pattern, label) — first match wins
     (r"initiat", "Initiating Coverage"),
     (r"light\s*house", "Light House Update"),
@@ -2515,7 +2516,7 @@ def report_label(text, default_kind=""):
     page 1 only names the report type), this is the most honest title there is.
     """
     text = re.sub(r"[_+]", " ", urllib.parse.unquote(text or ""))
-    q = _QUARTER.search(text)
+    q = _QUARTER.search(text) or _QUARTER_NB.search(text)
     quarter = f"Q{q.group(1)}{q.group(2).upper()}{q.group(3)}" if q else ""
     kind = next((label for pat, label in _REPORT_KINDS if re.search(pat, text, re.I)), default_kind)
     return " ".join(p for p in (quarter, kind) if p)
@@ -3118,6 +3119,85 @@ def fetch_mncl(feed_config):
     return articles
 
 
+# Nirmal Bang Institutional Equities (nirmalbang.com/nb-research): titles read
+# "Fine Organic Industries (FINEORG) - BUY - Chemicals | 2QFY27 Result Update -
+# Expansion plans to fructify from FY29 - 09 November 2026". Listing pages come
+# from Ajaxpages/ResearchReports.aspx?id=49&pageNo=N (15 a page, back to 2018).
+# The site puts a mobile-number form in front of each download, but the PDFs
+# are plain public files at /Upload/<name>; the user chose direct links
+# (11 Nov 2026). Mornings, macro trackers and "AI Powered Insights" are skipped.
+
+_NB_PAGE = "https://www.nirmalbang.com/Ajaxpages/ResearchReports.aspx?id=49&pageNo={}"
+_NB_ITEM = re.compile(r'<div class="rsrchsec">\s*<h2[^>]*>(.*?)</h2>\s*<span[^>]*>(.*?)</span>'
+                      r".*?ValidateResearchPDF\('([^']+)','([^']+)'", re.S)
+_NB_NOT_STOCK = re.compile(r"economy|sector|strategy|thematic|morning|insights|diwali|picks|tracker|"
+                           r"preview|roundup|outlook|monthly|weekly", re.I)
+_NB_KIND = re.compile(r"result update|result preview|initiating|company update|update|visit|meet|ipo note", re.I)
+_NB_SEP = re.compile(r"\s*[-–]\s+")  # "Result Update - x" and older "Result Update- x"; "Broad-Based" stays whole
+_NB_TAIL_RATING = re.compile(r"[;,.]?\s*\b(maintain|retain|reiterate|upgrade|downgrade)\w*\b[^;]*$"
+                             r"|[;,.]?\s*\b(buy|sell|hold|accumulate|reduce|neutral)\b\.?$", re.I)
+
+
+def split_nb_title(title):
+    """Nirmal Bang title → (company, headline); ('', '') for anything but a single-stock note."""
+    title = re.sub(r"\s+", " ", html.unescape(_strip_html(title))).strip()
+    left, bar, right = title.partition("|")
+    if not bar:  # before mid-2023: "Company- 4QFY23 Result Update- headline"
+        head, *rest = _NB_SEP.split(title)
+        left, right = head, " - ".join(rest)
+        if not rest or _QUARTER_NB.search(left) or _QUARTER.search(left):
+            return "", ""
+    if _NB_NOT_STOCK.search(left):
+        return "", ""
+    parts = [p.strip() for p in _NB_SEP.split(right.strip()) if p.strip()]
+    if not parts or not _NB_KIND.search(parts[0]) or re.search(r"economy|sector|strategy", parts[0], re.I):
+        return "", ""
+    m = re.match(r"(.*?)\s*\(([A-Z0-9&\-]{2,})\)", left)  # first upper-case paren is the ticker
+    company = _tidy_company(m.group(1) if m else _NB_SEP.split(left)[0])
+    if parts and _first_date_in(parts[-1]) and len(parts[-1]) < 30:
+        parts.pop()  # trailing "09 November 2026"
+    headline = _NB_TAIL_RATING.sub("", " - ".join(parts[1:])).strip(" -;,")
+    return company, headline or report_label(parts[0], "Update")
+
+
+@scraper
+def fetch_nirmal_bang(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    articles, seen, stale_pages = [], set(), 0
+    first = feed_config.get("start_page") or 1  # history runs can resume part-way
+    for page_no in range(first, first + (feed_config.get("max_pages") or 2)):
+        page = _fetch_url(_NB_PAGE.format(page_no), feed_config=feed_config,
+                          extra_headers={"Referer": feed_config["url"]}).decode("utf-8", "replace")
+        raw = _NB_ITEM.findall(page)
+        for _retry in range(2):  # the server sometimes answers a burst of requests with a blank page
+            if raw:
+                break
+            time.sleep(5)
+            page = _fetch_url(_NB_PAGE.format(page_no), feed_config=feed_config,
+                              extra_headers={"Referer": feed_config["url"]}).decode("utf-8", "replace")
+            raw = _NB_ITEM.findall(page)
+        if not raw:
+            break  # past the last page
+        items = [i for i in raw if i[2] not in seen]
+        any_fresh = False
+        for title, date_text, filename, folder in items:
+            seen.add(filename)
+            dt = _parse_day(_strip_html(date_text), "%d-%b-%y")
+            if dt is None or not _is_fresh(dt, cutoff):
+                continue
+            any_fresh = True
+            company, headline = split_nb_title(title)
+            if company and filename.lower().endswith(".pdf"):
+                pdf = f"https://www.nirmalbang.com/{urllib.parse.quote(folder)}/{urllib.parse.quote(filename)}"
+                articles.append(_direct_note(feed_config, company=company, headline=headline, dt=dt, pdf=pdf))
+        # One odd page (repeats, a blip) must not end a history run: stop after 3 stale pages.
+        stale_pages = 0 if any_fresh else stale_pages + 1
+        if stale_pages >= 3:
+            break
+        _polite(feed_config)
+    return articles
+
+
 REPORT_FETCHERS = {
     "crisilratings:": fetch_crisil_ratings,
     "crisilreports:": fetch_crisil_reports,
@@ -3160,6 +3240,7 @@ REPORT_FETCHERS = {
     "ventura:": fetch_ventura,
     "idbicap:": fetch_idbi_capital,
     "mncl:": fetch_mncl,
+    "nirmalbang:": fetch_nirmal_bang,
 }
 
 
