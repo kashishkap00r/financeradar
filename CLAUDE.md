@@ -149,7 +149,7 @@ Indian brokers' notes on single stocks live in the Reports tab's own **Stock not
   - These notes have `via: ""`. `dedup_stock_notes()` prefers them over a Moneycontrol/BS copy of the same note and carries over a headline already read for the copy. Broker sites rarely print a target, so without one the match is same broker + first two company words (prefix ok: "Aarti Ind" = "Aarti Industries") within 3 days; two direct notes never merge (HDFC put out two Dabur reports a day apart).
   - Some sources need a request per report (PL's report page, Kotak's PDF header, ICICI's page 1). Scrapers skip links and pages already in the archive (`known_note_keys()`; PL entries store the report page as `page`) and cap the rest with `max_lookups` (default 40), so an hourly run makes a handful of requests per broker.
   - **Titles (user, 11 Nov 2026: no company-only cards):** PL and Choice give real headlines; ICICI Direct's is read from the PDF's page 1 (`icici_headline()`: the line after the report date, ending in "…"). Ventura, Kotak and Way2Wealth reports carry **no headline at all** — page 1 only names the report type — so their title is `report_label()` from the file name or caption, e.g. "Q2FY27 Result Update". SBI's is its list label.
-  - **Order = latest first (user, 11 Nov 2026).** `sort_notes()`: by day, then by `ts` within the day — the time the note was published (PL/Choice/Kotak give one; Moneycontrol and HDFC links carry `YYYYMMDDHHMM…`; Ventura file names start with .NET ticks of the upload) or else the moment it was first seen. Older notes with no known time follow, A→Z by broker. Before this, ties fell Z→A by broker name, which pinned Ventura to the top of every day.
+  - **Order (user, 11 Nov 2026): latest day first, then A→Z by company** so one stock's notes sit together (`sort_notes()`, names tidied by `_company_sort_key()`: "Mahindra & Mahindra Ltd" = "Mahindra and Mahindra"); within one stock, latest first by `ts` — the time the note was published (PL/Choice/Kotak give one; Moneycontrol and HDFC links carry `YYYYMMDDHHMM…`; Ventura file names start with .NET ticks of the upload) or else when first seen. Multi-stock dailies close the day.
   - HEAD requests lie on these sites: ICICI and Kotak bounce HEAD to login / a bot check but serve the PDF to a plain GET. Ventura's PDFs return 403 to GitHub's IPs (its list works); readers open them from their own browsers.
   - History: `python3 stock_notes_backfill.py --no-headlines --direct [feed ids]` (per-site depth in `DIRECT_HISTORY`). PL alone is ~2.6k report pages.
 - No counts anywhere in the Stock notes view (button or header line) — user's call.
@@ -252,6 +252,7 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 - Make changes incrementally. Never introduce a rendering gate that can blank the page.
 - The feed's lead card on the homepage supports `why_it_matters`, `signal_type` badges, and consensus indicators from AI rankings.
 - `about.html` is standalone (its own inline CSS) but mirrors the site's design tokens — keep the two in step when the design changes.
+- Tabs show no counts (user, 11 Nov 2026: "just let those tabs be"). Don't add numbers back to the tab bar.
 - No dark mode. The site is light-only — do not add dark theme variables, toggle buttons, or theme-switching JS.
 
 ## GitHub Actions Workflows

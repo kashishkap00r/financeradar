@@ -257,12 +257,22 @@ def _archive_sort_key(entry):
     return (entry.get("date") or "", entry.get("ts") or "")
 
 
+def _company_sort_key(company):
+    """'Mahindra & Mahindra Ltd' and 'Mahindra and Mahindra' sort as one name; no company sorts last."""
+    name = re.sub(r"\([^)]*\)", " ", (company or "").lower()).replace("&", " and ")
+    words = [w for w in re.findall(r"[a-z0-9]+", name) if w not in ("ltd", "limited", "the", "pvt", "private")]
+    return " ".join(words) or "\uffff"
+
+
 def sort_notes(entries):
-    """Latest first (user, 11 Nov 2026). Within one day: by `ts`, the time the
-    note was published or first seen; notes with no time (older history from
-    sources that give none) follow, A→Z by broker then company."""
-    steady = sorted(entries, key=lambda e: (e.get("broker") or "", e.get("company") or "", e.get("link") or ""))
-    return sorted(steady, key=_archive_sort_key, reverse=True)
+    """Latest day first; within a day A→Z by company, so one stock's notes sit
+    together (user, 11 Nov 2026); within one stock, the latest note first
+    (`ts`: published or first-seen time), then broker. Multi-stock dailies
+    (no company) close the day."""
+    out = sorted(entries, key=lambda e: (e.get("broker") or "", e.get("link") or ""))
+    out = sorted(out, key=lambda e: e.get("ts") or "", reverse=True)
+    out = sorted(out, key=lambda e: _company_sort_key(e.get("company")))
+    return sorted(out, key=lambda e: e.get("date") or "", reverse=True)
 
 
 _LINK_STAMP = re.compile(r"/(20\d{6})(\d{4})\d{2}_|HSIE-(20\d{6})(\d{4})")  # Moneycontrol, HDFC Securities
