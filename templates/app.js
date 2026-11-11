@@ -1809,8 +1809,8 @@
         const RESEARCH_PAGE_SIZE = 20;
         let selectedResearchPublishers = new Set();
         let researchRegionFilter = 'all'; // 'all' | 'indian' | 'international' | 'stocknotes'
-        // Broker stock notes live in their own file (static/stock_notes.json, all
-        // history), loaded only when the Stock notes view is first opened.
+        // Broker stock notes live in their own files (static/stock_notes/), fetched in
+        // pieces only when the Stock notes view is opened — see loadStockNotes().
         const RESEARCH_VIEW_IDS = { all: 'research-region-all', indian: 'research-region-indian', international: 'research-region-international', stocknotes: 'research-region-stocknotes' };
 
 
@@ -3660,16 +3660,59 @@
             };
         }
 
+        // Stock notes load in pieces so the first page shows at once (user, 11 Nov
+        // 2026): static/stock_notes/recent.json holds the newest ~10 pages plus the
+        // broker list; a year file (static/stock_notes/<year>.json) is fetched only
+        // when someone pages near the end of what's loaded, searches, or picks brokers.
+        let stockNoteYearsLeft = null;   // years not fetched yet, newest first
+        let stockNoteBrokers = [];
+        const stockNoteLinks = new Set();
+        let stockNoteYearLoad = null;
+
+        function addStockNotes(list) {
+            (Array.isArray(list) ? list : []).forEach(function(n) {
+                if (!n || !n.link || stockNoteLinks.has(n.link)) return;
+                stockNoteLinks.add(n.link);
+                STOCK_NOTES.push(toStockNoteCard(n));
+            });
+        }
+
         function loadStockNotes() {
             if (STOCK_NOTES) return Promise.resolve();
-            return _safeLoad('stock_notes', 'static/stock_notes.json', function(d) {
-                STOCK_NOTES = Array.isArray(d) ? d.map(toStockNoteCard) : [];
-            }).then(function() { if (!STOCK_NOTES) STOCK_NOTES = []; });
+            return _safeLoad('stock_notes_recent', 'static/stock_notes/recent.json', function(d) {
+                STOCK_NOTES = [];
+                stockNoteBrokers = d.brokers || [];
+                stockNoteYearsLeft = (d.years || []).slice();
+                addStockNotes(d.notes);
+            }).then(function() {
+                if (!STOCK_NOTES) { STOCK_NOTES = []; stockNoteYearsLeft = []; }
+            });
+        }
+
+        // Next year's notes (or every remaining year). Year files arrive newest
+        // first and each is sorted, so appending keeps the list in date order.
+        function loadMoreStockNotes(all) {
+            if (stockNoteYearLoad) return stockNoteYearLoad;
+            if (!stockNoteYearsLeft || !stockNoteYearsLeft.length) return Promise.resolve(false);
+            const years = all ? stockNoteYearsLeft.splice(0) : stockNoteYearsLeft.splice(0, 1);
+            stockNoteYearLoad = Promise.all(years.map(function(y) {
+                return loadTabData('stock_notes_' + y, 'static/stock_notes/' + y + '.json');
+            })).then(function(lists) {
+                lists.forEach(addStockNotes);
+                stockNoteYearLoad = null;
+                return true;
+            });
+            return stockNoteYearLoad;
+        }
+
+        function refreshStockNotes() {
+            if (researchRegionFilter === 'stocknotes') filterResearch(true);
         }
 
         // Publishers for the dropdown: brokers in Stock notes, research houses elsewhere.
         function currentResearchPublishers() {
             if (researchRegionFilter !== 'stocknotes') return RESEARCH_PUBLISHERS;
+            if (stockNoteBrokers.length) return stockNoteBrokers;  // every broker, not just the loaded pages
             return [...new Set((STOCK_NOTES || []).map(r => r.publisher).filter(Boolean))].sort();
         }
 
@@ -3680,7 +3723,7 @@
             });
         }
 
-        function filterResearch() {
+        function filterResearch(keepPage) {
             const query = document.getElementById('search-input').value.toLowerCase().trim();
             const notesView = researchRegionFilter === 'stocknotes';
             if (notesView && !STOCK_NOTES) {
@@ -3693,6 +3736,11 @@
                 });
                 return;
             }
+            // A search or a broker pick has to see every note: fetch the remaining
+            // years, show what's loaded meanwhile, then filter again.
+            if (notesView && (query || selectedResearchPublishers.size) && stockNoteYearsLeft && stockNoteYearsLeft.length) {
+                loadMoreStockNotes(true).then(refreshStockNotes);
+            }
             filteredResearch = (notesView ? STOCK_NOTES : RESEARCH_REPORTS).filter(r => {
                 const matchesSearch = !query || (r.title + ' ' + r.source + ' ' + (r.publisher || '') + ' ' + (r.description || '')).toLowerCase().includes(query);
                 const pub = r.publisher || r.source;
@@ -3701,7 +3749,7 @@
                 const matchesRegion = notesView || researchRegionFilter === 'all' || region === researchRegionFilter;
                 return matchesSearch && matchesPublisher && matchesRegion;
             });
-            researchPage = 1;
+            if (!keepPage) researchPage = 1;
             applyResearchPagination();
         }
 
@@ -3749,6 +3797,11 @@
         function applyResearchPagination() {
             const totalPages = Math.max(1, Math.ceil(filteredResearch.length / RESEARCH_PAGE_SIZE));
             if (researchPage > totalPages) researchPage = totalPages;
+            // Two pages from the end of the loaded notes: fetch the next year.
+            if (researchRegionFilter === 'stocknotes' && researchPage >= totalPages - 1
+                    && stockNoteYearsLeft && stockNoteYearsLeft.length) {
+                loadMoreStockNotes(false).then(function(added) { if (added) refreshStockNotes(); });
+            }
 
             document.getElementById('research-visible-count').textContent = filteredResearch.length;
             // Stock notes show no counts (user's call); research views keep them.

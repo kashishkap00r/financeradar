@@ -112,6 +112,10 @@ SCRAPER_TIMEOUT_OVERRIDES = {    # source-specific timeout overrides by feed id
     "csep-publications": 8,
     # The whole research list (~6.5 MB) is embedded in one page.
     "business-standard-research": 45,
+    # Brokers' own sites (Stock notes): Choice's API answers 100 rows in ~2 MB,
+    # Kotak's one-pager page is ~1 MB of Next.js payload.
+    "choice-research": 45,
+    "kotak-opportune": 30,
 }
 SCRAPER_RETRY_OVERRIDES = {      # source-specific retry overrides by feed id
     "baroda-etrade-str": 0,

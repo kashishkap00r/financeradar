@@ -3,6 +3,8 @@
     python3 stock_notes_backfill.py                 # full history + headlines
     python3 stock_notes_backfill.py --headlines-only --limit 2000
     python3 stock_notes_backfill.py --no-headlines  # history only (no Gemini key needed)
+    python3 stock_notes_backfill.py --no-headlines --direct                 # brokers' own sites, all history
+    python3 stock_notes_backfill.py --no-headlines --direct ventura-research  # just one
 
 1. Pages through every note Moneycontrol still lists (back to Jan 2024)
    and Business Standard's whole list (back to Nov 2024), and merges them
@@ -21,8 +23,8 @@ import shutil
 import sys
 import time
 
-from reports_fetcher import fetch_bs_research, fetch_moneycontrol_ideas
-from stock_notes import ARCHIVE_FILE, fill_headlines, load_archive, merge_into_archive, save_archive
+from reports_fetcher import fetch_bs_research, fetch_moneycontrol_ideas, get_report_fetcher
+from stock_notes import ARCHIVE_FILE, fill_headlines, load_archive, merge_into_archive, save_archive, write_note_chunks
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -32,11 +34,37 @@ def _feed(feed_id):
         return next(x for x in json.load(f) if x["id"] == feed_id)
 
 
+from datetime import date
+from stock_notes import min_note_date
+# Back to the start of the rolling window (5 years) and no further.
+EVERYTHING = {"max_age_days": (date.today() - date.fromisoformat(min_note_date())).days + 1, "max_items": 100000}
+
+# Brokers' own sites: how deep each one's history goes (pages / per-report lookups).
+DIRECT_HISTORY = {
+    "plindia-research": {"max_pages": 120, "max_lookups": 10000, "polite": 0.3},  # ~2.6k reports, one page each
+    "icicidirect-ideas": {},                                                       # only the latest ~15 are listed
+    "kotak-opportune": {"max_lookups": 300, "polite": 0.2},
+    "sbisec-research": {},                                                         # the API returns everything
+    "choice-research": {"max_pages": 20},
+    "way2wealth-research": {"max_pages": 150, "polite": 0.3},
+    "ventura-research": {"max_pages": 300, "polite": 0.3},
+}
+
+
 def fetch_history():
-    everything = {"max_age_days": 3650, "max_items": 100000}
-    mc = fetch_moneycontrol_ideas({**_feed("moneycontrol-stock-ideas"), **everything, "max_pages": 200})
-    bs = fetch_bs_research({**_feed("business-standard-research"), **everything})
+    mc = fetch_moneycontrol_ideas({**_feed("moneycontrol-stock-ideas"), **EVERYTHING, "max_pages": 200})
+    bs = fetch_bs_research({**_feed("business-standard-research"), **EVERYTHING})
     return mc + bs
+
+
+def fetch_direct_history(only=None):
+    out = []
+    for feed_id, extra in DIRECT_HISTORY.items():
+        if only and feed_id not in only:
+            continue
+        feed = _feed(feed_id)
+        out += get_report_fetcher(feed["feed"])({**feed, **EVERYTHING, **extra})
+    return out
 
 
 def main():
@@ -45,14 +73,18 @@ def main():
     ap.add_argument("--no-headlines", action="store_true", help="only fetch the history")
     ap.add_argument("--limit", type=int, default=100000, help="max headlines to try this run")
     ap.add_argument("--workers", type=int, default=6, help="parallel PDF downloads / Gemini calls")
+    ap.add_argument("--direct", nargs="*", metavar="FEED_ID",
+                    help="fetch brokers' own sites instead of Moneycontrol/BS (all, or the feed ids given)")
     args = ap.parse_args()
 
     archive = load_archive(ARCHIVE_FILE)
     print(f"archive: {len(archive)} notes")
     if not args.headlines_only:
         before = len(archive)
-        archive = merge_into_archive(archive, fetch_history())
+        fetched = fetch_direct_history(args.direct) if args.direct is not None else fetch_history()
+        archive = merge_into_archive(archive, fetched)
         save_archive(ARCHIVE_FILE, archive)
+        write_note_chunks(archive)
         print(f"history merged: {len(archive)} notes (+{len(archive) - before})")
 
     if args.no_headlines:

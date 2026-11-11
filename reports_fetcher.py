@@ -25,12 +25,16 @@ import xml.etree.ElementTree as ET
 
 from articles import IST_TZ
 from stock_notes import (
+    ARCHIVE_FILE as STOCK_NOTES_ARCHIVE,
     STOCK_NOTE_KIND,
     canonical_broker,
     canonical_rating,
     clean_company,
+    known_note_keys,
+    load_archive,
     note_title,
     parse_price,
+    pdf_first_page_text,
 )
 # Google News RSS helpers, reused so the CREA news fallback resolves redirect
 # links and strips source suffixes exactly like every other Google-backed feed.
@@ -2393,6 +2397,527 @@ def fetch_bs_research(feed_config):
     return articles
 
 
+# ── Brokers' own sites (Stock notes, Nov 2026) ───────────────────────
+# Seven brokers that publish single-stock PDFs without a login (map from
+# India Research Hub's scrapers; recipes re-written, not copied). `via` is
+# empty, so dedup_stock_notes() keeps these over a Moneycontrol/BS copy of
+# the same note — "skip the middleman" (user, Nov 2026). Locked sites stay
+# on the aggregators: Motilal Oswal, Anand Rathi, Emkay, Geojit (login),
+# Sharekhan (OTP), Nirmal Bang (sign-up form).
+#
+# Some sources need one extra request per report (PL's report page for the
+# PDF, Kotak's PDF header or ICICI's page 1 for the date). Links and pages
+# already in static/stock_notes.json are skipped, and `max_lookups` caps
+# the rest, so an hourly run makes a handful of requests per broker.
+
+_KNOWN_NOTES = None
+_NAME_SPELLINGS = None
+_KNOWN_NOTES_LOCK = threading.Lock()
+_DEFAULT_MAX_LOOKUPS = 40
+_FORM_HEADERS = {"Content-Type": "application/x-www-form-urlencoded"}
+_MONTH_DATE = re.compile(
+    r"\b(\d{1,2})(?:st|nd|rd|th)?[\s\-]+(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*[\s,.\-]+(20\d\d)\b"
+    r"|\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(20\d\d)\b", re.I)
+
+
+def _known_notes(feed_config):
+    """Links and broker pages already archived (tests pass `_known`)."""
+    if "_known" in feed_config:
+        return feed_config["_known"]
+    _load_archive_lookups()
+    return _KNOWN_NOTES
+
+
+def _load_archive_lookups():
+    global _KNOWN_NOTES, _NAME_SPELLINGS
+    with _KNOWN_NOTES_LOCK:
+        if _KNOWN_NOTES is None:
+            archive = load_archive(STOCK_NOTES_ARCHIVE)
+            _KNOWN_NOTES = known_note_keys(archive)
+            _NAME_SPELLINGS = archive_spellings(archive)
+
+
+def archive_spellings(entries):
+    """lowercased company → the spelling Moneycontrol/BS use most ("ICICI Bank", not "Icici Bank")."""
+    counts = {}
+    for e in entries:
+        name = e.get("company") or ""
+        if e.get("via") and name and not name.isupper():
+            counts.setdefault(name.lower(), {}).setdefault(name, 0)
+            counts[name.lower()][name] += 1
+    return {k: max(v, key=v.get) for k, v in counts.items()}
+
+
+def _house_spelling(company, feed_config):
+    """Sites that shout ("CIPLA", "MAHINDRA & MAHINDRA LTD") get the archive's usual spelling."""
+    if "_known" in feed_config:  # tests: no real archive
+        spellings = feed_config.get("_spellings", {})
+    else:
+        _load_archive_lookups()
+        spellings = _NAME_SPELLINGS
+    return spellings.get(company.lower(), company)
+
+
+def _tidy_company(raw):
+    """'Aarti Industries (ARTO)' / 'MAHINDRA & MAHINDRA LTD' → 'Aarti Industries' / 'Mahindra & Mahindra'."""
+    name = re.sub(r"\s+", " ", html.unescape(raw or "")).strip()
+    name = re.sub(r"\s*\([^)]*\)\s*$", "", name)  # trailing ticker / short name
+    name = clean_company(name)
+    if name.isupper() and len(name) > 5:
+        # Short codes and vowel-less ones stay: M&M, ITC, HDFC, NTPC
+        name = " ".join(w if len(w) <= 3 or not re.search(r"[AEIOU]", w) else w.capitalize()
+                        for w in name.split())
+    return name
+
+
+def _first_date_in(text):
+    """First 'DD Mon YYYY' / 'Month DD, YYYY' in text, as an IST datetime."""
+    m = _MONTH_DATE.search(text or "")
+    if not m:
+        return None
+    day, mon, year = (m.group(1), m.group(2), m.group(3)) if m.group(1) else (m.group(5), m.group(4), m.group(6))
+    try:
+        return datetime.strptime(f"{int(day)} {mon[:3].title()} {year}", "%d %b %Y").replace(tzinfo=IST_TZ)
+    except ValueError:
+        return None
+
+
+def _parse_day(text, fmt):
+    """A whole date string in `fmt` → IST datetime (unlike _ist_date, no 10-char cut)."""
+    try:
+        return datetime.strptime(str(text or "").strip(), fmt).replace(tzinfo=IST_TZ)
+    except ValueError:
+        return None
+
+
+def _direct_note(feed_config, *, company, headline, dt, pdf, target=None, page=None):
+    """One note from a broker's own site. Headline only when the site gives a real one."""
+    company = _house_spelling(company, feed_config)
+    article = _make_article(f"{company}: {headline}" if headline else company, pdf, dt, "", feed_config)
+    article.update({
+        "publisher": canonical_broker(feed_config.get("publisher")) or feed_config.get("publisher", ""),
+        "region": "Indian",
+        "kind": STOCK_NOTE_KIND,
+        "via": "",
+        "company": company,
+        "headline": headline or "",
+        "target": target,
+        "page": page,
+    })
+    return article
+
+
+def _polite(feed_config):
+    if feed_config.get("polite"):
+        time.sleep(feed_config["polite"])
+
+
+def _form_post(url, fields, feed_config):
+    body = urllib.parse.urlencode(fields).encode()
+    return _fetch_url(url, feed_config=feed_config, data=body, extra_headers=_FORM_HEADERS).decode("utf-8", "replace")
+
+
+def _aspnet_hidden(page):
+    """ASP.NET WebForms state (__VIEWSTATE etc.) to send back with a postback."""
+    fields = {}
+    for tag in re.findall(r"<input[^>]*>", page):
+        if 'type="hidden"' not in tag:
+            continue
+        name = re.search(r'name="([^"]+)"', tag)
+        value = re.search(r'value="([^"]*)"', tag)
+        if name:
+            fields[name.group(1)] = html.unescape(value.group(1)) if value else ""
+    return fields
+
+
+# PL Capital (Prabhudas Lilladher): plindia.com/pl-research/, 30 cards a
+# page, newest first, ~2.6k reports back to late 2024. Card titles read
+# "Safari Industries (India) (SII IN) – Q2FY27 Result Update – Capacity
+# expansion to drive growth – BUY". The PDF and exact date are on the
+# report's own page; its WordPress REST API is switched off (401).
+
+_PL_TITLE = re.compile(r"^(?P<company>.+?)\s*\((?P<ticker>[A-Z0-9&.\-]+) IN\)\s*(?:[-–—]\s*(?P<rest>.*))?$")
+_PL_RATING = re.compile(r"^(strong )?(buy|sell|hold|accumulate|reduce|add|neutral|under ?perform|out ?perform|not rated|nr)$", re.I)
+_PL_RATING_MOVE = re.compile(r"^(up|down)grade(d)?\b|^(maintain|retain|reiterate)\w*\s+['‘’\"]?(buy|sell|hold|accumulate|reduce)", re.I)
+_REPORT_KIND = re.compile(
+    r"\b(result|update|initiating|coverage|preview|q[1-4]\s?fy\s?\d\d|analyst meet|management meet|visit)\b", re.I)
+
+
+def split_pl_title(title):
+    """PL card title → (company, headline). Non-company reports → ('', '')."""
+    m = _PL_TITLE.match(re.sub(r"\s+", " ", html.unescape(title or "")).strip())
+    if not m:
+        return "", ""
+    parts = [p.strip(" '\"‘’“”") for p in re.split(r"\s+[-–—]\s+", m.group("rest") or "") if p.strip()]
+    while parts and (_PL_RATING.match(parts[-1]) or _PL_RATING_MOVE.match(parts[-1])):
+        parts.pop()  # ratings stay off the card (user's call): "BUY", "Downgrade to 'ACCUMULATE'"
+    if parts and _REPORT_KIND.search(parts[0]) and len(parts[0].split()) <= 5:
+        parts.pop(0)  # "Q2FY27 Result Update" is the report type, not the headline
+    return clean_company(m.group("company")), " – ".join(parts)
+
+
+@scraper
+def fetch_plindia(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    known = _known_notes(feed_config)
+    lookups = feed_config.get("max_lookups", _DEFAULT_MAX_LOOKUPS)
+    base = feed_config["url"]
+    articles = []
+    for page_no in range(1, (feed_config.get("max_pages") or 2) + 1):
+        try:
+            listing = _fetch_url(base if page_no == 1 else f"{base}page/{page_no}/",
+                                 feed_config=feed_config).decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code == 404:  # past the last page
+                break
+            raise
+        cards = re.findall(r'<a href="(https://www\.plindia\.com/pl-research/[^"]+)" class="report-card-link">'
+                           r'.*?<h3>(.*?)</h3>', listing, re.S)
+        if not cards:
+            break
+        stale = 0
+        for page_url, raw_title in cards:
+            company, headline = split_pl_title(_strip_html(raw_title))
+            if not company or page_url in known:
+                continue
+            if lookups <= 0:
+                return articles
+            lookups -= 1
+            _polite(feed_config)
+            try:
+                report = _fetch_url(page_url, feed_config=feed_config).decode("utf-8", "replace")
+            except Exception as e:  # one bad report page must not drop the rest
+                print(f"  [WARN] PL report page {page_url[-60:]}: {str(e)[:80]}")
+                continue
+            dm = re.search(r'"datePublished":"([^"]+)"', report)
+            pm = re.search(r'class="research-cta">.*?href="([^"]+\.pdf)"', report, re.S | re.I)
+            if not dm or not pm:
+                continue
+            dt = datetime.fromisoformat(dm.group(1)).astimezone(IST_TZ)
+            if not _is_fresh(dt, cutoff):
+                stale += 1
+                continue
+            pdf = re.sub(r"^http://", "https://", pm.group(1).replace(" ", "%20"))
+            articles.append(_direct_note(feed_config, company=company, headline=headline, dt=dt,
+                                         pdf=pdf, page=page_url))
+        if stale and stale >= len(cards) - 2:  # whole page past the window
+            break
+    return articles
+
+
+# ICICI Securities (ICICI Direct): the "Investing ideas" cards on
+# /research/equity — the latest ~15 result notes, each a public PDF on
+# mailcontent.icicidirect.com with CMP and target. No date on the card, so
+# a new PDF's page 1 is read for it (pdftotext); else the day it was seen.
+# A HEAD request is bounced to login; a plain GET returns the PDF.
+
+@scraper
+def fetch_icicidirect(feed_config):
+    known = _known_notes(feed_config)
+    lookups = feed_config.get("max_lookups", _DEFAULT_MAX_LOOKUPS)
+    page = _fetch_url(feed_config["url"], feed_config=feed_config).decode("utf-8", "replace")
+    now = datetime.now(IST_TZ)
+    articles, seen = [], set()
+    for m in re.finditer(r'href="(https://mailcontent\.icicidirect\.com/mailcontent/idirect_[^"]+\.pdf)"[^>]*'
+                         r"onclick=\"trackCustomEventVPV_researchEquity\('investing_ideas_([^']+)'", page):
+        pdf, company = m.group(1), _tidy_company(m.group(2))
+        if pdf in seen or pdf in known or not company:
+            continue
+        seen.add(pdf)
+        card = page[max(0, m.start() - 2500):m.start()]
+        targets = re.findall(r"Target Price</label>\s*<\w+ class=\"label_value\">(?:<span[^>]*></span>)?([\d,.]+)", card)
+        dt = None
+        if lookups > 0:
+            lookups -= 1
+            try:
+                dt = _first_date_in(pdf_first_page_text(pdf, user_agent=UA))
+            except Exception as e:
+                print(f"  [WARN] ICICI page 1 {pdf[-40:]}: {str(e)[:80]}")
+        if dt is None or dt > now or now - dt > timedelta(days=120):
+            dt = now  # unreadable or implausible: the day we first saw it
+        articles.append(_direct_note(feed_config, company=company, headline="", dt=dt, pdf=pdf,
+                                     target=parse_price(targets[-1]) if targets else None))
+    return articles
+
+
+# Kotak Securities (kotakneo.com): "Opportune" one-pagers, one per
+# company (~90), newest edition only. PDFs are public on /uploads/; the
+# date comes from the file name when it has one, else the PDF's
+# Last-Modified header (GET — HEAD is bounced to a bot check).
+
+def _last_modified(url, feed_config):
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/pdf,*/*",
+                                               "Referer": feed_config["url"]})
+    with urllib.request.urlopen(req, timeout=SCRAPER_FETCH_TIMEOUT * 4, context=SSL_CONTEXT) as resp:
+        stamp = resp.headers.get("Last-Modified")  # body is never read
+    return parsedate_to_datetime(stamp).astimezone(IST_TZ) if stamp else None
+
+
+@scraper
+def fetch_kotak_opportune(feed_config):
+    known = _known_notes(feed_config)
+    lookups = feed_config.get("max_lookups", _DEFAULT_MAX_LOOKUPS)
+    page = _fetch_url(feed_config["url"], feed_config=feed_config).decode("utf-8", "replace")
+    articles, seen = [], set()
+    for pdf, label in re.findall(r'href="(https://www\.kotakneo\.com/uploads/[^"]+\.pdf)"[^>]*'
+                                 r'title="Download research report PDF for ([^"]+)"', page):
+        company = _tidy_company(label)
+        if pdf in seen or pdf in known or not company:
+            continue
+        seen.add(pdf)
+        dt = _first_date_in(urllib.parse.unquote(pdf.rsplit("/", 1)[-1]).replace("_", " "))
+        if dt is None:
+            if lookups <= 0:
+                continue
+            lookups -= 1
+            _polite(feed_config)
+            try:
+                dt = _last_modified(pdf, feed_config)
+            except Exception as e:
+                print(f"  [WARN] Kotak PDF date {pdf[-50:]}: {str(e)[:80]}")
+        if dt is None:
+            continue
+        articles.append(_direct_note(feed_config, company=company, headline="", dt=dt, pdf=pdf))
+    return articles
+
+
+# SBI Securities: the research page's Angular app calls
+# /apiconnect/research/getreports with an AES-CBC-wrapped body. Key and
+# IV are fixed strings shipped in the site's public JS bundle (the hub's
+# recipe), so this is an encoding, not a login. openssl does the AES —
+# no Python crypto package needed. Only the single-stock lists are read.
+
+_SBI_API = "https://www.sbisecurities.in/apiconnect/research/getreports"
+_SBI_KEY = b"12345678901234567890123456789012"
+_SBI_IV = b"1234567890123456"
+_SBI_LISTS = ("Pick Of the Day", "Pick Of the Week", "IPO notes")
+
+
+def _sbi_aes(data, decrypt=False):
+    cmd = ["openssl", "enc", "-aes-256-cbc", "-K", _SBI_KEY.hex(), "-iv", _SBI_IV.hex(), "-base64", "-A"]
+    return subprocess.run(cmd + (["-d"] if decrypt else []), input=data, capture_output=True,
+                          check=True, timeout=30).stdout
+
+
+def split_sbi_desc(desc):
+    """'Pick of the Day (Short Term Delivery Call)_ITC Hotels Ltd.' → ('ITC Hotels', 'Pick of the Day (Short Term Delivery Call)')."""
+    parts = [p.strip(" ._") for p in re.split(r"_+", desc or "") if p.strip(" ._")]
+    label = next((p for p in parts if re.search(r"pick of the|ipo note", p, re.I)), "")
+    rest = [p for p in parts if p != label]
+    company = _tidy_company(" ".join(rest)) if label and rest else ""
+    if not company:  # 'Acme Ltd IPO Note' without an underscore
+        m = re.match(r"(.+?)\s+IPO note\s*$", desc or "", re.I)
+        company, label = (_tidy_company(m.group(1)), "IPO note") if m else ("", label)
+    return company, _sbi_label(label) if company else ""
+
+
+def _sbi_label(label):
+    """One spelling per list ('IPO NOTE', 'IPO Note-01-03-2023', 'Pick of the week' all occur)."""
+    low = label.lower()
+    if "ipo" in low:
+        return "IPO note"
+    if "week" in low:
+        return "Pick of the Week"
+    return "Pick of the Day (short-term delivery call)" if "short term" in low else "Pick of the Day"
+
+
+@scraper
+def fetch_sbisec(feed_config):
+    headers = {"Content-Type": "application/json", "Origin": "https://www.sbisecurities.in",
+               "Referer": feed_config["url"], "client_id": "no-client"}
+    articles = []
+    for sub in _SBI_LISTS:
+        body = _sbi_aes(json.dumps({"category_name": "fundamental", "sub_category_name": sub}).encode())
+        raw = _fetch_url(_SBI_API, accept="application/json", feed_config=feed_config, data=body,
+                         extra_headers=headers)
+        wrapped = json.loads(raw.decode("utf-8", "replace")).get("response")
+        if not wrapped:
+            continue
+        for row in json.loads(_sbi_aes(wrapped.encode(), decrypt=True)).get("data") or []:
+            company, label = split_sbi_desc(row.get("report_desc"))
+            link = (row.get("report_link") or "").strip()
+            dt = _parse_day(row.get("disp_date"), "%d %b %Y")
+            if not company or not link.lower().endswith(".pdf") or dt is None:
+                continue
+            articles.append(_direct_note(feed_config, company=company, headline=label, dt=dt,
+                                         pdf=urllib.parse.quote(link, safe=":/%()")))
+    return articles
+
+
+# Choice Broking: the JSON API behind choiceindia.com/research-listing.
+# "Fundamental" rows are institutional research with a PDF; the first line
+# of `plain_description` is the report's headline (sometimes run into the
+# summary as "Headline: summary…"). "Technical" rows are desk trading calls
+# and are skipped. Back to Nov 2024.
+
+_CHOICE_API = "https://finx.choiceindia.com/api/researchreport/v2/api/research-report-new"
+_CHOICE_PAGE = 100
+
+
+def choice_headline(plain):
+    line = re.sub(r"\s+", " ", (plain or "").strip().split("\n")[0]).strip()
+    if len(line) > 110 and ": " in line:
+        line = line.split(": ", 1)[0]
+    return line if 8 <= len(line) <= 140 else ""
+
+
+@scraper
+def fetch_choice(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    headers = {"Content-Type": "application/json", "Origin": "https://choiceindia.com",
+               "Referer": "https://choiceindia.com/"}
+    articles = []
+    for page_no in range(feed_config.get("max_pages") or 3):
+        body = {"end_date": "", "is_expert": 0, "research_type": "", "limit": _CHOICE_PAGE,
+                "offset": page_no * _CHOICE_PAGE, "segment": "EQ", "start_date": "", "status": "",
+                "subcategory_id": "", "search": "", "id": "", "user_id": ""}
+        raw = _fetch_url(_CHOICE_API, accept="application/json", feed_config=feed_config,
+                         data=json.dumps(body).encode(), extra_headers=headers)
+        rows = ((json.loads(raw.decode("utf-8", "replace")) or {}).get("response") or {}).get("research") or []
+        any_fresh = False
+        for row in rows:
+            dt = _ist_date(row.get("published_date"), "%Y-%m-%d")
+            if dt is None or not _is_fresh(dt, cutoff):
+                continue
+            any_fresh = True
+            pdf = (row.get("file_upload") or "").replace("choiceindia.comresearchfiles", "choiceindia.com/researchfiles")
+            company = _tidy_company(row.get("scrip_sec_desc"))
+            if row.get("category_name") != "Fundamental" or not pdf.lower().endswith(".pdf") or not company:
+                continue
+            points = {d.get("key"): d.get("value") for d in row.get("datapoints") or [] if isinstance(d, dict)}
+            articles.append(_direct_note(feed_config, company=company,
+                                         headline=choice_headline(row.get("plain_description")),
+                                         dt=dt, pdf=pdf, target=parse_price(points.get("target"))))
+        if not any_fresh or len(rows) < _CHOICE_PAGE:
+            break
+    return articles
+
+
+# Way2Wealth: an ASP.NET grid at /research-details/fundamental-research,
+# 10 rows a page, one category at a time (postback on the drop-down; pages
+# must be stepped through in order — a jump past the visible pager is a
+# 500). Captions read "J K Cement Ltd. - Result Update – 09 November 2026";
+# event notes and Diwali picks have no company and are skipped.
+
+_W2W_CATEGORIES = ("3", "2", "1")  # Special Reports (default), Updates, Investment Ideas
+_W2W_ROW = re.compile(r'grdreport_lblrdate_\d+">([^<]+)</span>.*?href="([^"]+\.pdf)".*?lblcap_\d+">(.*?)</span>', re.S)
+_W2W_KIND = re.compile(r"result update|light ?house update|initiating coverage|company update|ipo note|"
+                       r"q[1-4]\s?fy\d\d|update$", re.I)
+
+
+def split_w2w_caption(caption):
+    parts = re.split(r"\s*[-–]\s+", re.sub(r"\s+", " ", html.unescape(_strip_html(caption))).strip())
+    if len(parts) < 2 or not _W2W_KIND.search(parts[1]) or re.search(r"event update", parts[1], re.I):
+        return ""
+    return _tidy_company(parts[0])
+
+
+@scraper
+def fetch_way2wealth(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    url = feed_config["url"]
+    first = _fetch_url(url, feed_config=feed_config).decode("utf-8", "replace")
+    select = re.search(r'<select name="([^"]*ddlsubcat[^"]*)"', first)
+    articles, seen = [], set()
+    for cat in _W2W_CATEGORIES:
+        if cat == _W2W_CATEGORIES[0]:
+            page = first
+        elif select:
+            page = _form_post(url, {**_aspnet_hidden(first), "__EVENTTARGET": select.group(1),
+                                    "__EVENTARGUMENT": "", select.group(1): cat}, feed_config)
+        else:
+            break
+        for page_no in range(1, (feed_config.get("max_pages") or 1) + 1):
+            rows = [r for r in _W2W_ROW.findall(page) if r[1] not in seen]
+            any_fresh = False
+            for date_text, pdf, caption in rows:
+                seen.add(pdf)
+                dt = _parse_day(date_text, "%d %b %Y")
+                if dt is None or not _is_fresh(dt, cutoff):
+                    continue
+                any_fresh = True
+                company = split_w2w_caption(caption)
+                if company:
+                    articles.append(_direct_note(feed_config, company=company, headline="", dt=dt,
+                                                 pdf=urllib.parse.urljoin(url, pdf)))
+            if not rows or not any_fresh or f"Page${page_no + 1}" not in page or not select:
+                break
+            _polite(feed_config)
+            page = _form_post(url, {**_aspnet_hidden(page), "__EVENTTARGET": "grdreport",
+                                    "__EVENTARGUMENT": f"Page${page_no + 1}", select.group(1): cat}, feed_config)
+    return articles
+
+
+# Ventura Securities (ventura1.com): Research/Recommendation.aspx lists
+# company result updates, 10 a page with date, company and PDF. The plain
+# page is the newest 10; history needs the date-range search postback plus
+# "Next" (129 pages back to Nov 2023). Ventura's PDFs refuse GitHub's IPs
+# (403) — fine, readers open them from their own browsers.
+
+_VENTURA_CP = "ctl00$ContentPlaceHolder1$"
+
+
+def _ventura_rows(page):
+    rows = []
+    for tr in re.findall(r'<tr>\s*<td class="GridDataCenter">(.*?)</tr>', page, re.S):
+        cells = re.findall(r"<td[^>]*>(.*?)</td>", '<td class="GridDataCenter">' + tr, re.S)
+        link = re.search(r"href='([^']+\.pdf)'", tr, re.I)
+        if len(cells) >= 2 and link:
+            rows.append((_strip_html(cells[0]).strip(), _strip_html(cells[1]).strip(), link.group(1)))
+    return rows
+
+
+def _ventura_selects(page):
+    out = {}
+    for name, body in re.findall(r'<select[^>]*name="([^"]+)"[^>]*>(.*?)</select>', page, re.S):
+        opt = re.search(r'<option selected="selected" value="([^"]*)"', body) or re.search(r'<option value="([^"]*)"', body)
+        out[name] = opt.group(1) if opt else ""
+    return out
+
+
+@scraper
+def fetch_ventura(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    url = feed_config["url"]
+    page = _fetch_url(url, feed_config=feed_config).decode("utf-8", "replace")
+    max_pages = feed_config.get("max_pages") or 1
+    if max_pages > 1:  # history: search from the window's start to today, then step "Next"
+        today = datetime.now(IST_TZ)
+        start = today - cutoff
+        years = re.search(r'DateUsrCtl1\$ddlYear"[^>]*>(.*?)</select>', page, re.S)
+        oldest = min((int(y) for y in re.findall(r'value="(\d{4})"', years.group(1))), default=start.year) if years else start.year
+        if start.year < oldest:  # the form only offers some years; anything earlier silently returns page 1
+            start = datetime(oldest, 1, 1, tzinfo=IST_TZ)
+        cp = _VENTURA_CP
+        fields = {**_aspnet_hidden(page), **_ventura_selects(page),
+                  cp + "HiddenFromDate": start.strftime("%d-%b-%Y"), cp + "HiddenToDate": today.strftime("%d-%b-%Y"),
+                  cp + "DateUsrCtl1$ddlYear": str(start.year), cp + "DateUsrCtl1$ddlMonth": start.strftime("%b"),
+                  cp + "DateUsrCtl1$ddlDay": start.strftime("%d"),
+                  cp + "DateUsrCtl2$ddlYear": str(today.year), cp + "DateUsrCtl2$ddlMonth": today.strftime("%b"),
+                  cp + "DateUsrCtl2$ddlDay": today.strftime("%d"), "__EVENTTARGET": cp + "A1"}
+        page = _form_post(url, fields, feed_config)
+    articles, seen = [], set()
+    for _ in range(max_pages):
+        rows = [r for r in _ventura_rows(page) if r[2] not in seen]
+        any_fresh = False
+        for date_text, company, pdf in rows:
+            seen.add(pdf)
+            dt = _parse_day(date_text, "%d-%b-%Y")
+            if dt is None or not _is_fresh(dt, cutoff):
+                continue
+            any_fresh = True
+            company = _tidy_company(company)
+            if company:
+                articles.append(_direct_note(feed_config, company=company, headline="", dt=dt,
+                                             pdf=urllib.parse.quote(pdf, safe=":/%")))
+        if not rows or not any_fresh or "btnNext" not in page:
+            break
+        _polite(feed_config)
+        page = _form_post(url, {**_aspnet_hidden(page), **_ventura_selects(page),
+                                _VENTURA_CP + "btnNext": "Next >"}, feed_config)
+    return articles
+
+
 REPORT_FETCHERS = {
     "crisilratings:": fetch_crisil_ratings,
     "crisilreports:": fetch_crisil_reports,
@@ -2425,6 +2950,14 @@ REPORT_FETCHERS = {
     "filtercoffee:": fetch_filtercoffee,
     "mcideas:": fetch_moneycontrol_ideas,
     "bsresearch:": fetch_bs_research,
+    # Brokers' own sites → Stock notes
+    "plindia:": fetch_plindia,
+    "icicidirect:": fetch_icicidirect,
+    "kotaksec:": fetch_kotak_opportune,
+    "sbisec:": fetch_sbisec,
+    "choice:": fetch_choice,
+    "way2wealth:": fetch_way2wealth,
+    "ventura:": fetch_ventura,
 }
 
 

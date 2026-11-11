@@ -43,6 +43,29 @@ PDF_TIMEOUT = 40
 # note by the report, Business Standard sometimes by its own posting day.
 DEDUP_WINDOW_DAYS = 3
 
+# How far back notes are kept: a rolling window (user, 11 Nov 2026: "max 5
+# years"). Way2Wealth goes back to 2016; anything older than the window is
+# dropped on every merge, so the archive trims itself day by day.
+NOTE_HISTORY_YEARS = 5
+
+
+def min_note_date(today=None):
+    """Oldest date kept, as 'YYYY-MM-DD': today minus NOTE_HISTORY_YEARS (29 Feb → 28 Feb)."""
+    today = today or datetime.now(IST_TZ).date()
+    try:
+        return today.replace(year=today.year - NOTE_HISTORY_YEARS).isoformat()
+    except ValueError:
+        return today.replace(year=today.year - NOTE_HISTORY_YEARS, day=28).isoformat()
+
+# What the browser loads (the full archive above stays the pipeline's copy):
+# static/stock_notes/recent.json = the newest RECENT_NOTES (first pages, shown
+# at once) + the broker list and the years on offer; static/stock_notes/<year>.json
+# = that year's notes, fetched only when someone pages, searches or filters
+# past what is loaded.
+NOTE_CHUNKS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "stock_notes")
+RECENT_NOTES = 200
+_BROWSER_FIELDS = ("date", "broker", "company", "headline", "link", "via")
+
 # (pattern on the lowercased name, canonical name). First match wins.
 _BROKER_ALIASES = [
     (r"^motilal+a? oswal", "Motilal Oswal"),
@@ -71,6 +94,9 @@ _BROKER_ALIASES = [
     (r"^idbi cap", "IDBI Capital"),
     (r"^ambit", "Ambit Capital"),
     (r"^nuvama", "Nuvama"),
+    (r"^ventura", "Ventura Securities"),
+    (r"^way ?2 ?wealth", "Way2Wealth"),
+    (r"^sbi ?(cap )?sec", "SBI Securities"),
 ]
 
 # Never shown in Stock notes: foreign houses (view is Indian-only) and
@@ -139,44 +165,86 @@ def note_title(company, rating, target):
     return f"{company}: {', '.join(parts)}" if parts else company
 
 
+def _company_words(company):
+    return [t for t in re.findall(r"[a-z0-9]+", (company or "").lower()) if t not in _TOKEN_STOP]
+
+
 def _company_key(company):
-    tokens = [t for t in re.findall(r"[a-z0-9]+", (company or "").lower()) if t not in _TOKEN_STOP]
+    tokens = _company_words(company)
     return tokens[0] if tokens else ""
 
 
 def _richness(note):
-    """Prefer the listing that carries more: a headline, then previous call, then reco price."""
-    return (bool(note.get("headline")), note.get("prev_target") is not None, note.get("reco_price") is not None)
+    """Which listing of one call to keep.
+
+    The broker's own site beats a middleman (no `via`: user's call, Nov
+    2026 — "skip the middleman"), then a headline, then previous call,
+    then reco price.
+    """
+    return (not note.get("via"), bool(note.get("headline")),
+            note.get("prev_target") is not None, note.get("reco_price") is not None)
+
+
+def _same_call(item, other, window):
+    d1, d2 = item.get("date"), other.get("date")
+    if not (d1 is None or d2 is None or abs(d1 - d2) <= window):
+        return False
+    t1, t2 = item.get("target"), other.get("target")
+    if t1 and t2:
+        return round(t1, 2) == round(t2, 2)
+    if not item.get("via") and not other.get("via"):
+        return False  # a broker's own site never lists one report twice (HDFC: Dabur results, then an update a day later)
+    # Brokers' own sites rarely print a target: same broker + same stock
+    # within the window is then the same note. Without a target to lean on,
+    # the second word must agree too ("Mahindra Lifespace" ≠ "Mahindra
+    # Logistics"); a prefix is enough ("Aarti Ind" = "Aarti Industries").
+    w1, w2 = _company_words(item.get("company")), _company_words(other.get("company"))
+    if not w1 or not w2 or w1[0] != w2[0]:
+        return False
+    if len(w1) < 2 or len(w2) < 2:
+        return len(w1) == len(w2)
+    return w1[1].startswith(w2[1]) or w2[1].startswith(w1[1])
+
+
+def _keep_headline(winner, loser):
+    """A direct link replacing a middleman's copy keeps the headline already read for it."""
+    if winner.get("headline") or not loser.get("headline"):
+        return
+    winner["headline"] = loser["headline"]
+    if "_entry" in winner and "_entry" in loser:
+        winner["_entry"]["headline"] = loser["_entry"].get("headline", "")
+        winner["_entry"]["headline_tries"] = loser["_entry"].get("headline_tries", 0)
 
 
 def dedup_stock_notes(items, window_days=DEDUP_WINDOW_DAYS):
     """Drop repeat listings of one broker call; other reports pass through.
 
-    Same call = same broker, same target, same first word of the company
-    name, dated within `window_days`. Sites spell company names differently
-    ("M & M" vs "Mahindra and Mahindra") so the target does most of the
-    work; two different stocks from one broker with one target in one
-    3-day window is vanishingly rare. Order of survivors is preserved.
+    Same call = same broker, same first word of the company name, dated
+    within `window_days`, and the same target when both listings have one.
+    Sites spell company names differently ("M & M" vs "Mahindra and
+    Mahindra") so the target does most of the work between aggregators;
+    a broker's own site gives no target, so broker + stock + window decides.
+    Multi-stock dailies (no company) only collapse on an equal target.
+    Order of survivors is preserved.
     """
     window = timedelta(days=window_days)
     kept = []          # survivors in input order
-    by_key = {}        # (broker, target, company key) → [index into kept]
+    by_key = {}        # (broker, company key) → [index into kept]
     for item in items:
-        if item.get("kind") != STOCK_NOTE_KIND or not item.get("target"):
+        if item.get("kind") != STOCK_NOTE_KIND:
             kept.append(item)
             continue
-        key = (item.get("publisher"), round(item["target"], 2), _company_key(item.get("company")))
-        match = None
-        for idx in by_key.get(key, []):
-            other = kept[idx]
-            d1, d2 = item.get("date"), other.get("date")
-            if d1 is None or d2 is None or abs(d1 - d2) <= window:
-                match = idx
-                break
+        ckey = _company_key(item.get("company"))
+        if not ckey and not item.get("target"):
+            kept.append(item)
+            continue
+        key = (item.get("publisher"), ckey)
+        match = next((idx for idx in by_key.get(key, []) if _same_call(item, kept[idx], window)), None)
         if match is None:
             by_key.setdefault(key, []).append(len(kept))
             kept.append(item)
         elif _richness(item) > _richness(kept[match]):
+            _keep_headline(item, kept[match])
             kept[match] = item
     return kept
 
@@ -215,10 +283,10 @@ def _to_entry(article):
     dt = article.get("date")
     if dt is not None and dt.tzinfo is not None:
         dt = dt.astimezone(IST_TZ)
-    company, headline = article.get("company") or "", ""
-    if not company:  # broker-site reports (Axis Direct, HDFC Securities, Baroda eTrade) only have a title
+    company, headline = article.get("company") or "", article.get("headline") or ""
+    if not company:  # Axis Direct, HDFC Securities, Baroda eTrade only have a title
         company, headline = split_report_title(article.get("title"))
-    return {
+    entry = {
         "date": dt.date().isoformat() if dt else "",
         "broker": canonical_broker(article.get("publisher")) or article.get("publisher") or "",
         "company": company,
@@ -228,6 +296,9 @@ def _to_entry(article):
         "target": article.get("target"),
         "headline_tries": 0,
     }
+    if article.get("page"):  # the broker's page for the report, when the PDF sits behind one (PL)
+        entry["page"] = article["page"]
+    return entry
 
 
 def _entry_as_note(entry, **extra):
@@ -238,7 +309,16 @@ def _entry_as_note(entry, **extra):
         dt = None
     return {"kind": STOCK_NOTE_KIND, "publisher": entry.get("broker"), "company": entry.get("company"),
             "target": entry.get("target"), "date": dt, "headline": entry.get("headline"),
-            "_entry": entry, **extra}
+            "via": entry.get("via"), "_entry": entry, **extra}
+
+
+def known_note_keys(entries):
+    """Every link and broker page already archived — scrapers skip these
+    instead of re-fetching a report page or PDF header each hour."""
+    keys = set()
+    for e in entries:
+        keys.update(k for k in (e.get("link"), e.get("page")) if k)
+    return keys
 
 
 def merge_into_archive(archive, articles):
@@ -249,10 +329,14 @@ def merge_into_archive(archive, articles):
     site — is dropped by the same rule as dedup_stock_notes(), with the
     headline-bearing entry winning.
     """
+    floor = min_note_date()
+    archive = [e for e in archive if (e.get("date") or "9") >= floor]
     known = {e["link"] for e in archive}
     fresh = []
     for art in articles:
         if art.get("kind") != STOCK_NOTE_KIND or not art.get("link") or art["link"] in known:
+            continue
+        if art.get("date") is not None and art["date"].astimezone(IST_TZ).date().isoformat() < floor:
             continue
         known.add(art["link"])
         fresh.append(_entry_as_note(_to_entry(art), prev_target=art.get("prev_target"),
@@ -262,6 +346,53 @@ def merge_into_archive(archive, articles):
     notes = [_entry_as_note(e) for e in archive] + fresh
     kept = dedup_stock_notes(notes)
     return sorted((n["_entry"] for n in kept), key=_archive_sort_key, reverse=True)
+
+
+def _write_json_atomic(path, payload):
+    fd, tmp = tempfile.mkstemp(dir=os.path.dirname(path) or ".", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+        os.chmod(tmp, 0o644)  # mkstemp makes it owner-only; this is a public web file
+        os.replace(tmp, path)
+    except BaseException:
+        if os.path.exists(tmp):
+            os.unlink(tmp)
+        raise
+
+
+def write_note_chunks(entries, out_dir=NOTE_CHUNKS_DIR, recent=RECENT_NOTES):
+    """Split the archive into what the browser loads: recent.json first, a file per year after.
+
+    Only files whose content changed are rewritten, so an hourly run
+    touches recent.json and the current year, not every year.
+    """
+    os.makedirs(out_dir, exist_ok=True)
+    floor = min_note_date()
+    entries = sorted((e for e in entries if (e.get("date") or "") >= floor),
+                     key=_archive_sort_key, reverse=True)
+    slim = [{k: e.get(k) or "" for k in _BROWSER_FIELDS} for e in entries]
+    by_year = {}
+    for note in slim:
+        by_year.setdefault(note["date"][:4], []).append(note)
+    files = {f"{year}.json": notes for year, notes in by_year.items()}
+    files["recent.json"] = {
+        "notes": slim[:recent],
+        "years": sorted(by_year, reverse=True),
+        "brokers": sorted({n["broker"] for n in slim if n["broker"]}),
+    }
+    written = []
+    for name, payload in files.items():
+        path = os.path.join(out_dir, name)
+        try:
+            with open(path, encoding="utf-8") as f:
+                if json.load(f) == payload:
+                    continue
+        except (OSError, ValueError):
+            pass
+        _write_json_atomic(path, payload)
+        written.append(name)
+    return written
 
 
 def load_archive(path=ARCHIVE_FILE):
