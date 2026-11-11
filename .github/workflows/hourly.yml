@@ -48,6 +48,9 @@ jobs:
         run: python3 telegram_fetcher.py
 
       - name: Install pdftotext (stock-note headlines)
+        # Optional: without it the aggregator just skips reading PDF page 1.
+        # A flaky apt mirror (11 Nov 2026) must not block the hourly update.
+        continue-on-error: true
         run: command -v pdftotext || (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils)
 
       - name: Run aggregator
