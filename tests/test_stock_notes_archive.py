@@ -203,3 +203,31 @@ class TestHeadlineMinDate(unittest.TestCase):
                        pdf_text=lambda link: "page", ask_model=lambda b: (asked.extend(x["link"] for x in b) or {x["link"]: "A headline" for x in b}))
         self.assertEqual(asked, ["https://new"])
         self.assertEqual([e["headline"] for e in items], ["A headline", ""])
+
+
+class TestHistoryFloorAndBrowserChunks(unittest.TestCase):
+    def test_notes_before_2020_are_dropped(self):
+        from stock_notes import MIN_NOTE_DATE
+        old = {"date": "2019-12-31", "broker": "Way2Wealth", "company": "Cipla", "headline": "", "link": "https://w/old.pdf",
+               "via": "", "target": None, "headline_tries": 0}
+        art = _article("Emkay Global", "Infosys", 1300.0, 0, "Moneycontrol", "https://mc/a.pdf")
+        ancient = {**art, "link": "https://w/2016.pdf", "date": datetime(2016, 5, 1, tzinfo=IST_TZ)}
+        out = merge_into_archive([old], [art, ancient])
+        self.assertEqual([e["link"] for e in out], ["https://mc/a.pdf"])
+        self.assertEqual(MIN_NOTE_DATE, "2020-01-01")
+
+    def test_chunks_recent_first_then_one_file_per_year(self):
+        from stock_notes import write_note_chunks
+        entries = [_entry(f"https://n/{i}", days_ago=i * 200, company=f"Co{i}", broker=b)
+                   for i, b in enumerate(["Emkay Global", "Way2Wealth", "Emkay Global", "Ventura Securities"])]
+        with tempfile.TemporaryDirectory() as d:
+            written = write_note_chunks(entries, out_dir=d, recent=2)
+            recent = json.load(open(os.path.join(d, "recent.json")))
+            self.assertEqual([n["link"] for n in recent["notes"]], ["https://n/0", "https://n/1"])
+            self.assertEqual(set(recent["notes"][0]), {"date", "broker", "company", "headline", "link", "via"})
+            self.assertEqual(recent["brokers"], ["Emkay Global", "Ventura Securities", "Way2Wealth"])
+            years = recent["years"]
+            self.assertEqual(years, sorted(years, reverse=True))
+            self.assertEqual(sum(len(json.load(open(os.path.join(d, f"{y}.json")))) for y in years), 4)
+            self.assertIn("recent.json", written)
+            self.assertEqual(write_note_chunks(entries, out_dir=d, recent=2), [])  # unchanged → nothing rewritten

@@ -46,7 +46,8 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 # Report scrapers
 from reports_fetcher import get_report_fetcher, _atomic_write_json
 from stock_notes import (ARCHIVE_FILE as STOCK_NOTES_FILE, STOCK_NOTE_KIND, fill_headlines,
-                         load_archive, merge_into_archive, save_archive, select_home_notes)
+                         load_archive, merge_into_archive, save_archive, select_home_notes,
+                         write_note_chunks)
 import shutil
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
@@ -189,13 +190,19 @@ def update_stock_notes_archive(stock_note_articles, logger):
                                     workers=STOCK_NOTE_HEADLINE_WORKERS,
                                     min_date=((datetime.now(IST_TZ) - timedelta(days=STOCK_NOTE_HEADLINE_MAX_AGE_DAYS)).date().isoformat()
                                               if STOCK_NOTE_HEADLINE_MAX_AGE_DAYS else None))
-        if before and len(archive) < before:
+        # A broker's own link can replace two middleman copies of one note, so
+        # a note or two may go; a real loss is a bug and must not be saved.
+        if before and len(archive) < before * 0.9:
             raise RuntimeError(f"archive shrank {before} → {len(archive)}")
         save_archive(STOCK_NOTES_FILE, archive)
         logger.info(f"Stock notes: {len(archive)} in archive (+{added} new, {filled} headlines filled)")
     except Exception as e:
         logger.warn("Stock notes", f"archive not updated: {str(e)[:120]}")
         archive = load_archive(STOCK_NOTES_FILE)
+    try:  # what the browser loads: static/stock_notes/recent.json + one file per year
+        write_note_chunks(archive)
+    except Exception as e:
+        logger.warn("Stock notes", f"browser files not written: {str(e)[:120]}")
     return len(archive)
 
 
