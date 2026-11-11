@@ -1,26 +1,131 @@
 {
-  "generated_at": "2026-11-11T22:16:34.042472+05:30",
+  "generated_at": "2026-11-11T22:24:52.354798+05:30",
   "meta": {
     "source_mode": "rsshub",
     "google_stats": {
       "feeds_total": 50,
       "feeds_ok": 49,
       "feeds_failed": 1,
-      "items_raw": 1045,
-      "resolve_attempted": 858,
-      "resolve_resolved": 858,
-      "resolve_cache_hits": 855
+      "items_raw": 1044,
+      "resolve_attempted": 854,
+      "resolve_resolved": 854,
+      "resolve_cache_hits": 854
     },
     "rsshub_stats": {
       "status": "loaded",
-      "age_hours": 1.0,
-      "items": 791,
-      "handles_ok": 46
+      "age_hours": 0.1,
+      "items": 812,
+      "handles_ok": 47
     },
     "warning": "",
-    "generated_at": "2026-11-11T22:16:34.042407+05:30"
+    "generated_at": "2026-11-11T22:24:52.354745+05:30"
   },
   "items": [
+    {
+      "title": "US spent 3 years from 2022 to 2025 building rules to stop Nvidia chips reaching China December 2025, Trump allowed H200 chip sales at 25% cut going to...",
+      "link": "https://x.com/Normal_2610/status/2120557258488922121",
+      "date": "2026-11-11T16:40:23+00:00",
+      "tweet_id": "2120557258488922121",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "US spent 3 years from 2022 to 2025 building rules to stop Nvidia chips reaching China <br><br>December 2025, Trump allowed H200 chip sales at 25% cut going to Washington. Months later, Nvidia H200 chips pile up in Hong Kong warehouses because Beijing will not let them in. China may allow fewer than 200,000 foreign chips total. Nvidia booked $400 million in losses on chips nobody bought <br><br>Washington opened one door right when Beijing had closed its own. Security became commerce, and that commerce is not arriving<br><br>Huawei is making 600,000 Ascend 910C chips in 2026, double from last year. At same time, Nvidia H200s sit blocked in Hong Kong because Beijing will not approve them that matching number is not random, it is planned substitution<br><br>Beijing forces Chinese firms to buy Huawei by choking foreign supply. Quality gaps shrink under real demand pressure, then winners scale with state orders. Ascend chips are slower per unit but Beijing does not care about speed. It cares about owning supply. Once switched, buyers do not come back<br><br>China ran this same pattern in solar panels, EVs, and batteries. Let foreign tech in first. Subsidize domestic versions until they reach 70% of foreign quality. Make local firms fight each other on cost, Scale winners with state orders and cheap loans. <br><br>Then block imports once domestic makers fill demand. AI chips are now in that fighting phase. Huawei, Cambricon, and Biren compete while Beijing blocks Nvidia at customs. <br><br>Pattern is running right in front of everyone. Washington saw it in solar and still missed it here.",
+      "category": "Twitter"
+    },
+    {
+      "title": "Singulus Technologies made \u20ac48 million in revenue last year. SpaceX just ordered 100 GW per year of solar cell making machines from them, worth over ...",
+      "link": "https://x.com/Normal_2610/status/2120556469699723627",
+      "date": "2026-11-11T16:37:15+00:00",
+      "tweet_id": "2120556469699723627",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW262HCbwAgPpq4?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Singulus Technologies made \u20ac48 million in revenue last year. SpaceX just ordered 100 GW per year of solar cell making machines from them, worth over $69 million.<br><br>Total US solar panel manufacturing is only 60 GW in 2026. One order from one company is bigger than what one whole country makes that gap between what SpaceX wants and what exists today is wild. <br><br>SpaceX is not getting into solar power. It is making orbital computers that need their own power. Nobody else is even trying this<br><br>SpaceX does not need solar panels for rooftops. It needs power for Starmind, up to 1 million AI satellites carrying NVIDIA chips running in space. Each satellite uses 250 kW at peak from its own panels. <br><br>With 100 GW per year of cell production, SpaceX can power hundreds of thousands of satellites every year. All ground level debates about grid access and land for solar farms stop mattering when your buyer flies in orbit. <br><br>Musk is not fighting power companies. He is making computers that bring their own energy<br><br>SpaceX picked Singulus from Germany to make its HJT solar cell lines. Tesla separately ordered over $2 billion of equipment from Chinese makers. Same boss, split supply chain, and nobody in Washington saw this coming<br><br>Chinese equipment arriving before November 2026 gets tariff breaks. Europe charges twice as much as China for solar gear but delivers in 5 weeks with no tariff worry. Musk is playing both sides of US-China rivalry while building capacity that no government had in any plan<br><img width=\"1107\" height=\"213\" style=\"\" src=\"https://pbs.twimg.com/media/HW262HCbwAgPpq4?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "India built 5 lakh circuit km of power lines by January 2026, Another 40,000 km are being built right now Old porcelain insulators break easily in dir...",
+      "link": "https://x.com/Normal_2610/status/2120553357836529893",
+      "date": "2026-11-11T16:24:53+00:00",
+      "tweet_id": "2120553357836529893",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "India built 5 lakh circuit km of power lines by January 2026, Another 40,000 km are being built right now<br><br>Old porcelain insulators break easily in dirty and salty air, and utilities kept using them anyway, wasting steel on every new line. Composite insulators are lighter, do not break from salt, and last longer. This market is growing at 6.7% every year toward $5 billion by 2035. <br><br>State power companies buy 42% of all composite insulators in India, and slow switching costs everyone. Cost savings here add up quickly<br><br>Porcelain insulators made Indian power companies build bigger, heavier towers with more steel and wider bases. Porcelain cracks in salty air, gets worse with pollution, and nobody fixed that for decades.<br><br>Composite insulators use silicone rubber and fiberglass instead. They weigh far less, so towers can be smaller and cheaper to build. For 400 kV and 765 kV power lines running through coastal and factory areas, porcelain was never built for those conditions. <br><br>Composite changes what utilities thought was normal. Better options exist right now<br><br>When you swap out one material in power lines, that change spreads across decades of new building. India grew its grid 71.6% since 2014, adding 209,000 circuit km, with 33 GW of HVDC power lines planned next. <br><br>Porcelain insulators need replacing every time dirty air or salt eats into them, and keeping them makes no sense. Composite polymer handles all of that and weighs 70% less. <br><br>Tower steel goes down, speed goes up, repair costs drop. One swap cuts 3 costs at once. Growing demand rewards early makers",
+      "category": "Twitter"
+    },
+    {
+      "title": "Berkshire Hathaway is making a historic comeback: Berkshire Hathaway outperformed the S&P 500 by +19.2 percentage points over the 1 month ending Thurs...",
+      "link": "https://x.com/KobeissiLetter/status/2120549335096033776",
+      "date": "2026-11-11T16:08:54+00:00",
+      "tweet_id": "2120549335096033776",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW1j7oTXEAAryuC?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Berkshire Hathaway is making a historic comeback:<br><br>Berkshire Hathaway outperformed the S&amp;P 500 by +19.2 percentage points over the 1 month ending Thursday, its largest rolling monthly outperformance since 2010.<br><br>This also ranks as the 4th-largest such outperformance in 30 years.<br><br>By comparison, its biggest monthly rolling outperformance occurred during the 2008 Financial Crisis, at +29.6 percentage points.<br><br>As of Tuesday's close, the performance gap narrowed to +16.9 percentage points, but it still ranked as one of the largest since 1996.<br><br>This comes as Berkshire Hathaway's Class B stock has surged +13.2% over the last month, to an all-time high, while the S&amp;P 500 has declined -3.7% over the same period.<br><br>To put this into perspective, Berkshire was underperforming the S&amp;P 500 by -14.3 percentage points in May 2026.<br><br>Berkshire Hathaway appears strong, even without Warren Buffett as CEO.<br><img width=\"1560\" height=\"1041\" style=\"\" src=\"https://pbs.twimg.com/media/HW1j7oTXEAAryuC?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Median Growth rates of 1303 companies that have reported till now: PAT Growth: 29.5% Sales Growth: 22.5% Operating Profit Growth:27.5% This has been t...",
+      "link": "https://x.com/soicfinance/status/2120548190508519435",
+      "date": "2026-11-11T16:04:21+00:00",
+      "tweet_id": "2120548190508519435",
+      "source": "Intrinsic Compounding",
+      "publisher": "SOIC",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW2zLI-a8AAEkfG?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Median Growth rates of 1303 companies that have reported till now:<br><br>PAT Growth: 29.5%<br>Sales Growth: 22.5%<br>Operating Profit Growth:27.5%<br><br>This has been the strongest results season since June 2022 Quarter.<br><br>Data of last 20 Quarters from @stockscansin below<br><img width=\"2048\" height=\"1136\" style=\"\" src=\"https://pbs.twimg.com/media/HW2zLI-a8AAEkfG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "Yup But Who will sacrifice for this? And very few are eligible for this Job :)",
+      "link": "https://x.com/Normal_2610/status/2120546984121762101",
+      "date": "2026-11-11T15:59:33+00:00",
+      "tweet_id": "2120546984121762101",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Yup But Who will sacrifice for this? And very few are eligible for this Job :)<div class=\"rsshub-quote\"><br><br>Rahul Raj:\u2002Pollution, garbage, corruption, traffic chaos and food adulteration persist because we have normalised them. We are conditioned to believe \u201cItna toh chalta hai.\u201d<br><br>Social benchmarks will rise only when people develop a stronger sense of self-respect and demand accountability.<br></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "The Cybertruck\u2019s brief lifespan captures the effective end of Tesla\u2019s original mission to bring electric vehicles to the masses, @liamdenning says ...",
+      "link": "https://x.com/opinion/status/2120546162751000686",
+      "date": "2026-11-11T15:56:17+00:00",
+      "tweet_id": "2120546162751000686",
+      "source": "Bloomberg Opinion",
+      "publisher": "Bloomberg Opinion",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2120545783514562560/img/rgPTYYoIl3tA0jV9.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The Cybertruck\u2019s brief lifespan captures the effective end of Tesla\u2019s original mission to bring electric vehicles to the masses, @liamdenning says \ud83c\udfa5<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2120545783514562560/vid/avc1/1080x1920/YV4rXYHgCGPxtUPP.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2120545783514562560/img/rgPTYYoIl3tA0jV9.jpg\"></video>",
+      "category": "Twitter"
+    },
     {
       "title": "HINDCOPPER: Q2 REVENUE 11.75B RUPEES VS 7.18B (YOY) HINDCOPPER: Q2 SL NET PROFIT 5.19B RUPEES VS 1.86B (YOY) HINDCOPPER: Q2 EBITDA 7.03B RUPEES VS 2.8...",
       "link": "https://x.com/REDBOXINDIA/status/2120543222556721407",
@@ -559,6 +664,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "TSFINV: Q2 CONS NET PROFIT 1.5B RUPEES VS 1B (YOY)<br><br>TSFINV: Q2 EBITDA 676M RUPEES VS 504.7M (YOY); Q2 EBITDA MARGIN 21.32% VS 20.18% (YOY)<br><br>TSFINV: Q2 REVENUE 3.17B RUPEES VS 2.5B (YOY)",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Bloomberg: In today\u2019s India Edition, Menaka Doshi looks at the NBFC fundraising boom and Aryan Gupta examines why domestic carriers are operating ...",
+      "link": "https://x.com/menakadoshi/status/2120544913872015374",
+      "date": "2026-11-11T13:45:04+00:00",
+      "tweet_id": "2120544913872015374",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Bloomberg<br>In today\u2019s India Edition, Menaka Doshi looks at the NBFC fundraising boom and Aryan Gupta examines why domestic carriers are operating fewer flights. https://www.bloomberg.com/news/newsletters/2026-11-11/india-s-bajaj-finance-iifl-raise-capital-as-retail-credit-and-gold-loans-surge?taid=6af47160c6e52100014ae953&amp;utm_campaign=trueanthem&amp;utm_content=business&amp;utm_medium=social&amp;utm_source=twitter",
       "category": "Twitter"
     },
     {
@@ -1162,6 +1282,36 @@
       "category": "Twitter"
     },
     {
+      "title": "The smart money was mostly those who bought before this, honestly. But big buying so far by FPIs in November, hoping it lasts through the month!",
+      "link": "https://x.com/deepakshenoy/status/2120488972493463714",
+      "date": "2026-11-11T12:09:02+00:00",
+      "tweet_id": "2120488972493463714",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW17QsNaAAAEueX?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "The smart money was mostly those who bought before this, honestly. But big buying so far by FPIs in November, hoping it lasts through the month!<div class=\"rsshub-quote\"><br><br>Capitalmind Mutual Fund:\u2002\ud83d\udccaFPI Equity Flows Update<br><br>FPIs have bought \u20b960,698 crore of Indian equities in just seven trading days of November. That's the highest net buying over any seven consecutive trading days since January 2021.<br><br>And two of the four biggest single day net inflows since January 2021<br><br><img width=\"1632\" height=\"932\" style=\"\" src=\"https://pbs.twimg.com/media/HW17QsNaAAAEueX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Deepak Shenoy: The smart money was mostly those who bought before this, honestly. But big buying so far by FPIs in November, hoping it lasts throug...",
+      "link": "https://x.com/Normal_2610/status/2120546498031313132",
+      "date": "2026-11-11T12:09:02+00:00",
+      "tweet_id": "2120546498031313132",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW17QsNaAAAEueX?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Deepak Shenoy<br>The smart money was mostly those who bought before this, honestly. But big buying so far by FPIs in November, hoping it lasts through the month!<div class=\"rsshub-quote\"><br><br>Capitalmind Mutual Fund:\u2002\ud83d\udccaFPI Equity Flows Update<br><br>FPIs have bought \u20b960,698 crore of Indian equities in just seven trading days of November. That's the highest net buying over any seven consecutive trading days since January 2021.<br><br>And two of the four biggest single day net inflows since January 2021<br><br><img width=\"1632\" height=\"932\" style=\"\" src=\"https://pbs.twimg.com/media/HW17QsNaAAAEueX?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "Fairfax likely to exit India's IIFL Finance, Reuters @GopikaGopa reports. https://www.reuters.com/world/india/canadas-fairfax-likely-exit-indias-iifl-...",
       "link": "https://x.com/dugalira/status/2120488630921969840",
       "date": "2026-11-11T12:07:41+00:00",
@@ -1717,6 +1867,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Nifty 500 this far. Doesn't look too bad at all. 20% PAT growth (median). Source: https://thewrap.in by @itsTarH",
+      "link": "https://x.com/deepakshenoy/status/2120443410519842912",
+      "date": "2026-11-11T09:07:59+00:00",
+      "tweet_id": "2120443410519842912",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW1T_KeaoAAvKGZ?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Nifty 500 this far. Doesn't look too bad at all. 20% PAT growth (median). Source: https://thewrap.in by @itsTarH<br><img width=\"1153\" height=\"577\" style=\"\" src=\"https://pbs.twimg.com/media/HW1T_KeaoAAvKGZ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "#DeutscheBank has launched its digital asset custody service for paying clients, Reuters reported on Wednesday, marking another step towards greater a...",
       "link": "https://x.com/ETMarkets/status/2120442494169297162",
       "date": "2026-11-11T09:04:21+00:00",
@@ -1939,6 +2104,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "#Nvidia Stock Sell-Off Deepens: Spy scandal, price target cuts put AI giant under pressure<br><br>https://economictimes.indiatimes.com/markets/us-stocks/news/nvidia-stock-sell-off-deepens-spy-scandal-price-target-cuts-put-ai-giant-under-pressure/nvidia-stock-loses-10-as-sell-off-intensifies/slideshow/135728557.cms",
+      "category": "Twitter"
+    },
+    {
+      "title": "India's crude purchase price has dropped to $96 and possibly lower today as crude prices have corrected.",
+      "link": "https://x.com/deepakshenoy/status/2120421038479778138",
+      "date": "2026-11-11T07:39:05+00:00",
+      "tweet_id": "2120421038479778138",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW0_oLea0AA93V6?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "India's crude purchase price has dropped to $96 and possibly lower today as crude prices have corrected.<br><img width=\"1486\" height=\"448\" style=\"\" src=\"https://pbs.twimg.com/media/HW0_oLea0AA93V6?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2329,6 +2509,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT @avatans: In my latest @ThePrintIndia opinion piece, I argue that rising anti-Hindu sentiment in the US should be understood in its hist\u2026",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Capitalmind Mutual Fund: \ud83d\udccaFPI Sector Flows | October 2026 FPIs were net sellers in 17 of the 23 sectors in October. But IT and Telecom stood out...",
+      "link": "https://x.com/deepakshenoy/status/2120399352221073819",
+      "date": "2026-11-11T04:51:38+00:00",
+      "tweet_id": "2120399352221073819",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW0Wjt3acAAK7qF?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Capitalmind Mutual Fund<br>\ud83d\udccaFPI Sector Flows | October 2026<br><br>FPIs were net sellers in 17 of the 23 sectors in October. But IT and Telecom stood out. <br><br>FPIs invested a net \u20b913,514 crore in IT and \u20b97,137 crore in telecom. Meanwhile FMCG and Financial Services saw the biggest outflows.<br><br>Here's a closer look at which sectors FPIs bought and sold in October 2026.<br><img width=\"1632\" height=\"932\" style=\"\" src=\"https://pbs.twimg.com/media/HW0Wjt3acAAK7qF?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -2992,21 +3187,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Russia\u2019s takeover of Japan Tobacco\u2019s factories is the latest provocation that demands a stronger response from Sanae Takaichi, writes @GearoidReidy ...",
-      "link": "https://x.com/opinion/status/2120233805365616937",
-      "date": "2026-11-10T19:15:05+00:00",
-      "tweet_id": "2120233805365616937",
-      "source": "Bloomberg Opinion",
-      "publisher": "Bloomberg Opinion",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Russia\u2019s takeover of Japan Tobacco\u2019s factories is the latest provocation that demands a stronger response from Sanae Takaichi, writes @GearoidReidy https://www.bloomberg.com/opinion/articles/2026-11-10/japan-s-dreams-of-better-russian-ties-have-gone-up-in-smoke?taid=6af36d39191e680001120162&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter",
-      "category": "Twitter"
-    },
-    {
       "title": "BREAKING: Democratic Senate Leader Schumer calls President Trump's defense of Nvidia, $NVDA, CEO Jensen Huang \"troubling\" and a \"failure to address fo...",
       "link": "https://x.com/KobeissiLetter/status/2120227350927548503",
       "date": "2026-11-10T18:49:27+00:00",
@@ -3652,21 +3832,6 @@
       "category": "Twitter"
     },
     {
-      "title": "BREAKING: October CPI inflation rises +0.4% month-over-month, above expectations of +0.3%. Core CPI inflation rose +0.3%, also above expectations of +...",
-      "link": "https://x.com/KobeissiLetter/status/2120147133542125818",
-      "date": "2026-11-10T13:30:41+00:00",
-      "tweet_id": "2120147133542125818",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "BREAKING: October CPI inflation rises +0.4% month-over-month, above expectations of +0.3%.<br><br>Core CPI inflation rose +0.3%, also above expectations of +0.2%.<br><br>BLS will not be releasing year-over-year figures due to the October 2025 government shutdown.<br><br>Inflation still appears to be running hot.",
-      "category": "Twitter"
-    },
-    {
       "title": "What a quote - It is said that no tree can grow to heaven unless its roots reach down to hell!",
       "link": "https://x.com/aditya_kondawar/status/2120144469098139670",
       "date": "2026-11-10T13:20:06+00:00",
@@ -3919,6 +4084,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Oil falls below $90 as Trump pulls back from threat to strike Iran https://ft.trib.al/n44xBWr",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Capitalmind: In July 2001, 2 crore Indians found out they couldn't get their money out of India's most trusted investment. US-64 paid tax-free divi...",
+      "link": "https://x.com/deepakshenoy/status/2120177378475573293",
+      "date": "2026-11-10T10:29:50+00:00",
+      "tweet_id": "2120177378475573293",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Capitalmind<br>In July 2001, 2 crore Indians found out they couldn't get their money out of India's most trusted investment. <br><br>US-64 paid tax-free dividends for years at a price UTI simply announced. No NAV, holdings carried at cost, and dividends paid out of reserves until the reserves went negative. <br><br>Then the 2001 crash hit, redemptions poured in, and UTI froze repurchases. The government bailout cost around Rs 14,000 crore. <br><br>Almost every rule fund houses follow today (publish the NAV, disclose holdings, no guaranteed returns) traces back to this. <br><br>In this episode of the Capitalmind Podcast, @deepakshenoy and @shraychandra discuss what went wrong with US-64, and what it changed for the Mutual Fund industry<br><br>https://www.youtube.com/watch?v=fLscF7UnvSw",
       "category": "Twitter"
     },
     {
@@ -4249,6 +4429,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Insane thread<div class=\"rsshub-quote\"><br><br>Culper:\u2002NEW: We are short Nvidia $NVDA. We believe Nvidia has a significant China problem. Please see our full report and disclosures now available on our website, link in bio.<br><br><img width=\"1266\" height=\"843\" style=\"\" src=\"https://pbs.twimg.com/media/HIN9bgMX0AAsyVV?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Sanjeev: Hope you like this post. Also inspired by @deepakshenoy https://lnkd.in/p/dqnMbX5P",
+      "link": "https://x.com/deepakshenoy/status/2120177409819611285",
+      "date": "2026-11-10T05:18:59+00:00",
+      "tweet_id": "2120177409819611285",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Sanjeev<br>Hope you like this post.<br><br>Also inspired by @deepakshenoy<br><br>https://lnkd.in/p/dqnMbX5P",
       "category": "Twitter"
     },
     {
@@ -5647,21 +5842,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Should be implemented across MMR",
-      "link": "https://x.com/menakadoshi/status/2119695901270892560",
-      "date": "2026-11-09T07:37:39+00:00",
-      "tweet_id": "2119695901270892560",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWp_DBfbcAAMQWS?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Should be implemented across MMR<div class=\"rsshub-quote\"><br><br>Richa Pinto:\u2002Complete ban imposed on rockets and similar aerial fireworks across Thane district<br><br>District Collector Shrikrishna Panchal issues orders; ban to remain in force until January 8, 2027. The order will come into effect at 12.01 pm on November 9, 2026.<br><br><img width=\"719\" height=\"1356\" style=\"\" src=\"https://pbs.twimg.com/media/HWp_DBfbcAAMQWS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
       "title": "Turn disaster into opportunity :) Dyson is still leading the market, and as per the PM, we have to work on that. Made-in-India products must be bought...",
       "link": "https://x.com/Normal_2610/status/2119695774883684369",
       "date": "2026-11-09T07:37:09+00:00",
@@ -6202,66 +6382,6 @@
       "category": "Twitter"
     },
     {
-      "title": "Building new businesses through adjacencies is something that big companies can do much more easily because they already have the support, network, in...",
-      "link": "https://x.com/Normal_2610/status/2119475625274888538",
-      "date": "2026-11-08T17:02:21+00:00",
-      "tweet_id": "2119475625274888538",
-      "source": "Normal Guy",
-      "publisher": "Normal Guy",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWniPuNbYAAaT3K?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Building new businesses through adjacencies is something that big companies can do much more easily because they already have the support, network, intelligence and capital required.<br><br>There are plenty of examples. Birla Group has created several new businesses, some of which now have market caps exceeding \u20b92,000 crore. Jio Financial is another example. It started almost like an additional offering within the Jio ecosystem but has the potential to become a large business in its own right.<br><br>First build the muscle, then expand into new branches. Once you have the infrastructure, capital and ecosystem in place, building new businesses becomes much easier.<br><br>take this as a case study report<br><img width=\"692\" height=\"296\" style=\"\" src=\"https://pbs.twimg.com/media/HWniPuNbYAAaT3K?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"733\" height=\"316\" style=\"\" src=\"https://pbs.twimg.com/media/HWnibIEakAANiMu?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"755\" height=\"477\" style=\"\" src=\"https://pbs.twimg.com/media/HWnisWJbAAAu2zx?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"761\" height=\"317\" style=\"\" src=\"https://pbs.twimg.com/media/HWni6JcbsAAgk4A?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Seinfeld ended almost 30 years ago, but in 2026 about 72 million Americans (over 20% of the US) watched it. Netflix pays $100+ million a year just to ...",
-      "link": "https://x.com/Normal_2610/status/2119472911929225606",
-      "date": "2026-11-08T16:51:34+00:00",
-      "tweet_id": "2119472911929225606",
-      "source": "Normal Guy",
-      "publisher": "Normal Guy",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWnhXxCa4AAM80a?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Seinfeld ended almost 30 years ago, but in 2026 about 72 million Americans (over 20% of the US) watched it. Netflix pays $100+ million a year just to stream old episodes<br><br>In total, about $7 billion+ came from a $250 million show, roughly 30 times its cost. It still adds about $1 billion every decade.<br><img width=\"805\" height=\"402\" style=\"\" src=\"https://pbs.twimg.com/media/HWnhXxCa4AAM80a?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
-      "title": "Promoters sold more than foreigners Everyone talked about foreign investors (FPIs) selling. But in the last 12 months, Indian promoters sold more than...",
-      "link": "https://x.com/Normal_2610/status/2119468763880071295",
-      "date": "2026-11-08T16:35:05+00:00",
-      "tweet_id": "2119468763880071295",
-      "source": "Normal Guy",
-      "publisher": "Normal Guy",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWndZi5bMAAYfny?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Promoters sold more than foreigners<br><br>Everyone talked about foreign investors (FPIs) selling. But in the last 12 months, Indian promoters sold more than FPIs did<br><br>Flows don\u2019t create returns. Flows follow returns. Money coming in or going out only changes short-term swings. Long-term returns come from earnings<br><br>Peaks in promoter selling often match market tops or flat periods. High prices plus a large supply of shares being sold keep markets from rising.<br><br>Track promoter selling data. Heavy selling usually comes when prices, valuations and mood are all high<br><br>In small caps, mid caps and new-age companies with large promoter selling, be very sure about the business and the valuation before you buy.<br><br>Expensive markets can stay expensive for a long time, and cheap markets can stay cheap. In this same week, indices moved 15\u201320% in a few days, which no valuation chart could have predicted. India is average, not cheap<br><br>Source - DSP monthly Report<br><img width=\"913\" height=\"473\" style=\"\" src=\"https://pbs.twimg.com/media/HWndZi5bMAAYfny?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"921\" height=\"445\" style=\"\" src=\"https://pbs.twimg.com/media/HWndffXbAAA_gH9?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"917\" height=\"441\" style=\"\" src=\"https://pbs.twimg.com/media/HWndiUgaEAA-xgG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"918\" height=\"443\" style=\"\" src=\"https://pbs.twimg.com/media/HWndmfracAA3ODB?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Normal Guy:\u2002DSP studied 25 years of promoter selling in all forms: stake sales, OFS, IPOs and QIPs. What they found is -<br><br>Promoters usually buy when their stock is in the cheapest zones, and those stocks tend to do well afterwards <br><br>Sample - SSWL ( Did highlisghted in Market Intelligence too<br><br><img width=\"773\" height=\"307\" style=\"\" src=\"https://pbs.twimg.com/media/HWncHrDaQAAxGEU?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
-      "category": "Twitter"
-    },
-    {
-      "title": "DSP studied 25 years of promoter selling in all forms: stake sales, OFS, IPOs and QIPs. What they found is - Promoters usually buy when their stock is...",
-      "link": "https://x.com/Normal_2610/status/2119467132828454974",
-      "date": "2026-11-08T16:28:36+00:00",
-      "tweet_id": "2119467132828454974",
-      "source": "Normal Guy",
-      "publisher": "Normal Guy",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWncHrDaQAAxGEU?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "DSP studied 25 years of promoter selling in all forms: stake sales, OFS, IPOs and QIPs. What they found is -<br><br>Promoters usually buy when their stock is in the cheapest zones, and those stocks tend to do well afterwards <br><br>Sample - SSWL ( Did highlisghted in Market Intelligence too )<br><img width=\"773\" height=\"307\" style=\"\" src=\"https://pbs.twimg.com/media/HWncHrDaQAAxGEU?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
-      "category": "Twitter"
-    },
-    {
       "title": "Analysis: India\u2019s power-sector CO2 falls for only second time in half a century | @AggarwalAnubhaa @laurimyllyvirta Nandikesh Sivalingam Read here: h...",
       "link": "https://x.com/CarbonBrief/status/2119453664339206425",
       "date": "2026-11-08T15:35:05+00:00",
@@ -6469,6 +6589,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002StratNewsGlobal<br>There's A Push Out Of China Due To Export Controls, But Can India Pull?<br><br>Watch @aishparikh speak with Pranay Kotasthane,<br>Deputy Director of the Takshashila Institution<br><br>Tune in to The Gist on 8 November at 7 PM IST<br><br>@TakshashilaInst @pranaykotas<br><img width=\"1920\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HWhK9mtbEAAQ1Fq?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Capitalmind Mutual Fund: Celebrating the spirit of this festive season together with all Indians, beyond the barriers of languages, cultures and st...",
+      "link": "https://x.com/deepakshenoy/status/2119409924438716499",
+      "date": "2026-11-08T09:23:40+00:00",
+      "tweet_id": "2119409924438716499",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2119359459248271361/img/E_v9EtfX4RyNxBVB.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Capitalmind Mutual Fund<br>Celebrating the spirit of this festive season together with all Indians, beyond the barriers of languages, cultures and states.<br><br>Happy Diwali to our investors, partners, distributors and the greater ecosystem.<br><br>From,<br>All of Us Here at Capitalmind Mutual Fund.<br><video width=\"2048\" height=\"1152\" src=\"https://video.twimg.com/amplify_video/2119359459248271361/vid/avc1/3840x2160/f1hRdUPNDbd4PQaM.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2119359459248271361/img/E_v9EtfX4RyNxBVB.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -6967,6 +7102,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Happy Diwali folks! Every year, I make an annual set of predictions - just once a year - to show why predictions can be quite useless to make. I also ...",
+      "link": "https://x.com/deepakshenoy/status/2119066412476182946",
+      "date": "2026-11-07T13:56:17+00:00",
+      "tweet_id": "2119066412476182946",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Happy Diwali folks! Every year, I make an annual set of predictions - just once a year - to show why predictions can be quite useless to make. I also look at the scorecard of how the previous year's predictions turned out. Here's the 2026 version: <br><br>https://www.capitalmind.in/insights/happy-diwali-2026-revisiting-my-annual-predictions",
+      "category": "Twitter"
+    },
+    {
       "title": "Happy Diwali!",
       "link": "https://x.com/dugalira/status/2119066366158442776",
       "date": "2026-11-07T13:56:06+00:00",
@@ -7039,6 +7189,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Amrendra Bahubali \ud83c\uddee\ud83c\uddf3<br>Real Sanatani Heroes.. \ud83d\udea9\ud83d\ude4f<br><br>Reviving our ancient temples and preserving our glorious heritage.<br><br>800-year-old Mukkanteswara Temple, Kusumanchi village, Khammam district, gets a much-needed cleanup<br><video width=\"720\" height=\"1280\" src=\"https://video.twimg.com/amplify_video/2119034014992633857/vid/avc1/720x1280/taIr-Hjm0HXxK4js.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2119034014992633857/img/DLV9P3bhROv7QkrI.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
+      "title": "Wish you all a Happy, Prosperous, Fun filled, Healthy Diwali! From our incredibly diverse team, in the languages we know:",
+      "link": "https://x.com/deepakshenoy/status/2119028791716749755",
+      "date": "2026-11-07T11:26:48+00:00",
+      "tweet_id": "2119028791716749755",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2119028343488311296/img/GbAn56Vo1JjSwbN0.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Wish you all a Happy, Prosperous, Fun filled, Healthy Diwali! From our incredibly diverse team, in the languages we know:<br><video width=\"1152\" height=\"2048\" src=\"https://video.twimg.com/amplify_video/2119028343488311296/vid/avc1/2160x3840/HIL7w0hyceRjcvR4.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2119028343488311296/img/GbAn56Vo1JjSwbN0.jpg\"></video>",
       "category": "Twitter"
     },
     {
@@ -7267,6 +7432,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Priyanka Kamath: Re Spectacular Episode @CapitalmindMF @deepakshenoy @CalmInvestor, after watching the Diwali spl realized what makes #Capitalmind ...",
+      "link": "https://x.com/deepakshenoy/status/2119015141689950324",
+      "date": "2026-11-07T06:50:56+00:00",
+      "tweet_id": "2119015141689950324",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Priyanka Kamath<br>Re Spectacular Episode @CapitalmindMF  @deepakshenoy @CalmInvestor, after watching the Diwali spl realized what makes #Capitalmind distinctive is its evolution, intellectual honesty, independent thinking, and the belief that building an investment institution is a journey of continuous learning rather than simply growing assets. Happy Diwali Team CapitalMind \ud83c\udf87\ud83e\ude94",
+      "category": "Twitter"
+    },
+    {
       "title": "Aptus Value Housing : Asset quality concerns continue\u2757\ufe0f Q2FY27 AUM \ud83d\udd3c20% - 14,177 Cr PAT \ud83d\udd3c18% - 267 Cr RoA - 7.7% | RoE - 20.1% Profitability h...",
       "link": "https://x.com/EquityInsightss/status/2118957596732432512",
       "date": "2026-11-07T06:43:54+00:00",
@@ -7294,6 +7474,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "This Diwali, you will hardly see any stock recommendations or the usual \"Diwali Picks\" doing the rounds!<br><br>It reflects how significantly market sentiment has changed<br><br>This is actually a healthy development!<br><br>Sometimes, the absence of excitement is itself an encouraging sign!",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Capitalmind: Wishing you and your family a prosperous and joyful Diwali.",
+      "link": "https://x.com/deepakshenoy/status/2118949023680004578",
+      "date": "2026-11-07T05:30:00+00:00",
+      "tweet_id": "2118949023680004578",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWeH7mIboAAZhZV?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Capitalmind<br>Wishing you and your family a prosperous and joyful Diwali.<br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HWeH7mIboAAZhZV?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -7522,6 +7717,21 @@
       "category": "Twitter"
     },
     {
+      "title": "In the spirit of Diwali, Anoop @calminvestor and I spoke with @_soniashenoy on the journey at @capitalmind_in from a blog to a PMS and also a mutual f...",
+      "link": "https://x.com/deepakshenoy/status/2118710075103834545",
+      "date": "2026-11-06T14:20:20+00:00",
+      "tweet_id": "2118710075103834545",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2118708173175721984/img/YNCsVFRO1cYan2Hn.jpg",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "In the spirit of Diwali, Anoop @calminvestor and I spoke with @_soniashenoy on the journey at @capitalmind_in from a blog to a PMS and also a mutual fund, our investment philosophy, and untold stories. (And why my prediction post fails every year)<br><br>Link: https://youtu.be/R13lMfqKgBc<br><video width=\"2048\" height=\"1152\" src=\"https://video.twimg.com/amplify_video/2118708173175721984/vid/avc1/3840x2160/zzqzex8e6EeK10NQ.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2118708173175721984/img/YNCsVFRO1cYan2Hn.jpg\"></video>",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Ideas of India: In the latest episode of the 2026 Ideas of India job market series, Shruti Rajagopalan (@srajagopalan) speaks with economics doctor...",
       "link": "https://x.com/srajagopalan/status/2118708842468983198",
       "date": "2026-11-06T13:59:55+00:00",
@@ -7534,6 +7744,21 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Ideas of India<br>In the latest episode of the 2026 Ideas of India job market series, Shruti Rajagopalan (@srajagopalan) speaks with economics doctoral candidate Merve Demirel of @Stockholm_Uni about the nonfinancial costs of migrating for higher education in India, why students prefer colleges closer to home despite greater opportunities elsewhere, the gender differences in migration decisions, and how peer mentorship influences students\u2019 educational choices.<br><br>Check out the full conversation:<br>https://www.mercatus.org/ideasofindia/merve-demirel-costs-migrating-higher-education-india",
+      "category": "Twitter"
+    },
+    {
+      "title": "Oh, don't say the LRS is what caused dollar outflows! A deeper look at the data for the Liberalised Remittance Scheme (LRS) outflows shows it actually...",
+      "link": "https://x.com/deepakshenoy/status/2118704107716571171",
+      "date": "2026-11-06T13:56:37+00:00",
+      "tweet_id": "2118704107716571171",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Oh, don't say the LRS is what caused dollar outflows! A deeper look at the data for the Liberalised Remittance Scheme (LRS) outflows shows it actually falling: https://x.com/i/article/2118700855025414144",
       "category": "Twitter"
     },
     {
@@ -7552,6 +7777,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Happy Dhanteras! Enjoy the festivities, folks!",
+      "link": "https://x.com/deepakshenoy/status/2118694283075330417",
+      "date": "2026-11-06T13:17:35+00:00",
+      "tweet_id": "2118694283075330417",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWcDSBXbUAAOooy?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Happy Dhanteras! Enjoy the festivities, folks!<div class=\"rsshub-quote\"><br><br>Capitalmind Mutual Fund:\u2002Happy and prosperous Dhanteras from all of us at Capitalmind Mutual Fund.<br><br>Mutual Fund investments are subject to market risks, read all scheme related documents carefully.<br><br><img width=\"1080\" height=\"1350\" style=\"\" src=\"https://pbs.twimg.com/media/HWcDSBXbUAAOooy?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "RT Internet Freedom Foundation (IFF): We went to the Delhi High Court today to protect our own X account. Two takedown notices in the Delhi Police\u2019s ...",
       "link": "https://x.com/andymukherjee70/status/2118917502025732416",
       "date": "2026-11-06T13:12:14+00:00",
@@ -7567,6 +7807,21 @@
       "category": "Twitter"
     },
     {
+      "title": "Excellent set of arguments. We should definitely reduce FPI taxation on cap gains to zero like nearly all other countries do. I also think bond taxati...",
+      "link": "https://x.com/deepakshenoy/status/2118692725012795398",
+      "date": "2026-11-06T13:11:23+00:00",
+      "tweet_id": "2118692725012795398",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "Excellent set of arguments. We should definitely reduce FPI taxation on cap gains to zero like nearly all other countries do.<br><br>I also think bond taxation through mutual funds is actually worth revisiting since bonds have some inherent risk (fixed deposits don't). But the data is clear: Bank FDs are simply the biggest place that people invest in, period.<br><br>The data for FY26:<br>Households invested 15 lakh crore in FDs<br>They invested 9 lakh crore in EPF/PPF, which is mostly invested in bonds (govt + some corporate)<br>They invested 3 lakh crore in NSC/Post Office deposits which is just fixed income<br>About 5 lakh cr went into insurance (which is partly fixed income/partly equity)<br><br>They invested net 5 lakh crore into equity+mutual funds<br>(Source: RBI Bulletin)<br><br>Equity is a very small part of household saving incremental allocations (just 12% of the 43 lakh crore additional savings by households in FY26 went into equity)<br><br>We can make equity relatively unattractive, but it's still too small a portion of household incremental flows, even compared worldwide. We should promote the bond market by lower taxation perhaps (allowing debt funds a lower capital gains tax) but not promote FDs any more - they are a HUGE part of all incremental allocations.<div class=\"rsshub-quote\"><br><br>Latha Venkatesh:\u2002Excellent arguments by 2 of India\u2019s  best experts - @ananthng and @udaykotak on why and how capital gains tax needs to be recast @FinMinIndia @RBI <br>https://youtu.be/lpQo3rJkX6Y<br></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "RT CNBC-TV18: #FundFlow | FIIs Net Buy \u20b913,749.82 Cr While DIIs Net Sell \u20b95,968.70 Cr In Equities Today (Provisional)",
       "link": "https://x.com/dugalira/status/2118707245848703138",
       "date": "2026-11-06T13:10:26+00:00",
@@ -7579,6 +7834,36 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002CNBC-TV18<br>#FundFlow | FIIs Net Buy \u20b913,749.82 Cr While DIIs Net Sell \u20b95,968.70 Cr In Equities Today (Provisional)<br><img width=\"1440\" height=\"805\" style=\"\" src=\"https://pbs.twimg.com/media/HWcbeHrbEAA0SE7?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "The rupee is now less than Rs. 94 to the USD. Huge move, the lowest the USDINR has been since April:",
+      "link": "https://x.com/deepakshenoy/status/2118687530925338647",
+      "date": "2026-11-06T12:50:45+00:00",
+      "tweet_id": "2118687530925338647",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWcXE0pbIAE8wdR?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The rupee is now less than Rs. 94 to the USD. Huge move, the lowest the USDINR has been since April:<br><img width=\"1526\" height=\"1055\" style=\"\" src=\"https://pbs.twimg.com/media/HWcXE0pbIAE8wdR?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
+      "title": "The second half of 2026 has been super kind to India but nearly all of the good is in the last one week:",
+      "link": "https://x.com/deepakshenoy/status/2118685346225586542",
+      "date": "2026-11-06T12:42:04+00:00",
+      "tweet_id": "2118685346225586542",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWcVFO4agAAdhxd?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The second half of 2026 has been super kind to India but nearly all of the good is in the last one week:<br><img width=\"747\" height=\"626\" style=\"\" src=\"https://pbs.twimg.com/media/HWcVFO4agAAdhxd?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -7864,6 +8149,21 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "UGRO CAPITAL Q2FY27 \u2013 Few things to note<br><br>Disbursements \u20b93,159 Cr, up 77% YoY<br>PAT \u20b950.7 Cr, up 17% YoY<br>Operating costs down 38% in 2 quarters<br>Portfolio yield up 108 bps to 18.7%<br>Higher-yielding businesses now 53% of AUM vs 32% nine months ago<br><br>Quite a bit has changed in the business.<br><br>Now add Profectus merger which is expected to reduce income reversals and make profits more predictable.<br><br>Accounting reset will also change the reported book value.<br><br>For anyone following UGRO's valuation, have to watch how the improving lending mix, cost structure and earnings consistency will come together post the merger.<br><br>Next few quarters should give better picture of returns new model can generate.<div class=\"rsshub-quote\"><br><br>UGRO Capital:\u2002The Reset is working. The results are showing.<br><br>UGRO Capital's Q2 FY27 results reflect strong progress on our strategic realignment.<br><br>* 53% of AUM in focused verticals, up from 32% in Dec'25<br>* \u20b93,159 Cr net disbursements, up 77% YoY<br>* \u20b968.2 Cr PBT, up 12% YoY<br>* \u20b91,000+ Cr<br><br><video width=\"1024\" height=\"576\" src=\"https://video.twimg.com/amplify_video/2118590373333434368/vid/avc1/1024x576/xmLPJHh6gz2fTa5C.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2118590373333434368/img/5EwabNnAmltehnYh.jpg\"></video></div>",
+      "category": "Twitter"
+    },
+    {
+      "title": "RT Capitalmind Mutual Fund: Our October 2026 factsheet is out! \ud83e\uddf5",
+      "link": "https://x.com/deepakshenoy/status/2118598142182801778",
+      "date": "2026-11-06T06:44:16+00:00",
+      "tweet_id": "2118598142182801778",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWbC_AQacAAoxrs?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Capitalmind Mutual Fund<br>Our October 2026 factsheet is out! \ud83e\uddf5<br><img width=\"1448\" height=\"2048\" style=\"\" src=\"https://pbs.twimg.com/media/HWbC_AQacAAoxrs?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
@@ -8242,6 +8542,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT yellowdoodle: Re @deepakshenoy the same guy again",
+      "link": "https://x.com/deepakshenoy/status/2118399403589587349",
+      "date": "2026-11-05T17:29:50+00:00",
+      "tweet_id": "2118399403589587349",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWXxiLAWcAAxl-f?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002yellowdoodle<br>Re @deepakshenoy the same guy again<div class=\"rsshub-quote\"><br><br>Mike Investing:\u2002JUST IN: Leopold Aschenbrenners Fund (Situational Awareness) has reportedly officially blown up\u2026<br><br>These are the current (now liquidated) holdings:<br><br>- $MU bought at $1,153, now $703, (-39%)<br>- $CORZ bought at $25.6, now $11.1, (-56%)<br>- $SNDK bought at $2,268, now $874, (-61%)<br>-<br><br><img width=\"396\" height=\"505\" style=\"\" src=\"https://pbs.twimg.com/media/HWXxiLAWcAAxl-f?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><br><img width=\"1206\" height=\"1332\" style=\"\" src=\"https://pbs.twimg.com/media/HWXxiK-W0AA3Myr?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>",
+      "category": "Twitter"
+    },
+    {
       "title": "BREAKING NEWS Nasdaq tumbles as chip rout intensifies in wake of US midterm election results. The tech-heavy Nasdaq was 5 per cent lower an hour into ...",
       "link": "https://x.com/TamalBandyo/status/2118388681379873008",
       "date": "2026-11-05T17:03:14+00:00",
@@ -8437,6 +8752,21 @@
       "category": "Twitter"
     },
     {
+      "title": "RT Capitalmind Mutual Fund: \ud83d\udccaNifty 500, Gold or Silver. Which one did better each year? We looked at 21 years of returns. Nifty 500 led in 9 years,...",
+      "link": "https://x.com/deepakshenoy/status/2118432711337767133",
+      "date": "2026-11-05T12:52:42+00:00",
+      "tweet_id": "2118432711337767133",
+      "source": "Deepak Shenoy",
+      "publisher": "Deepak Shenoy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HWXJ3fwbMAASXzO?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Capitalmind Mutual Fund<br>\ud83d\udccaNifty 500, Gold or Silver. Which one did better each year? <br><br>We looked at 21 years of returns. Nifty 500 led in 9 years, Gold in 7 years and Silver in 5 years.<br><img width=\"1154\" height=\"1397\" style=\"\" src=\"https://pbs.twimg.com/media/HWXJ3fwbMAASXzO?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
+      "category": "Twitter"
+    },
+    {
       "title": "More than one in two gold loan borrowers with good credit profiles taking another gold loan within 12 months. Repeat origination stood at 57% for loan...",
       "link": "https://x.com/TamalBandyo/status/2118314545894813808",
       "date": "2026-11-05T12:08:38+00:00",
@@ -8494,21 +8824,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002CNBC-TV18<br>#2QWithCNBCTV18 | Stove Kraft Falls 3% Despite Strong Q2FY27 Results<br><br>MD, Rajendra Gandhi To @CNBCTV18News<br>* Expect FY27 EBITDA margin at 11-12%<br>* See significant growth opportunities in induction cooktops, pressure cookers and cookware<br>* Expect IKEA business to generate Rs 200-300 crore revenue over the next few years<br><br>Watch: https://youtu.be/RhE9v4uyld8<br><br>@blitzkreigm @_ritusingh #StoveKraft #Q2FY27 #ConsumerDurables #Earnings #CNBCTV18Market",
-      "category": "Twitter"
-    },
-    {
-      "title": "Health of the broader market is improving @stockscansin Stocks above 20DEMA at 60%+",
-      "link": "https://x.com/soicfinance/status/2118276240906060149",
-      "date": "2026-11-05T09:36:26+00:00",
-      "tweet_id": "2118276240906060149",
-      "source": "Intrinsic Compounding",
-      "publisher": "SOIC",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWWg63hb0AARdZn?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Health of the broader market is improving @stockscansin <br><br>Stocks above 20DEMA at 60%+<br><img width=\"2048\" height=\"1187\" style=\"\" src=\"https://pbs.twimg.com/media/HWWg63hb0AARdZn?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">",
       "category": "Twitter"
     },
     {
