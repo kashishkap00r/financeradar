@@ -256,3 +256,36 @@ class TestLatestFirst(unittest.TestCase):
             {"date": "2026-11-12", "broker": "Zed", "company": "E", "link": "5"},
         ]
         self.assertEqual([n["link"] for n in sort_notes(notes)], ["5", "2", "1", "4", "3"])
+
+
+class TestRuleHeadlines(unittest.TestCase):
+    """Page-1 layout rules (no AI) for ICICI Securities and Motilal Oswal."""
+
+    def test_icici_securities_headline_follows_company_and_sector(self):
+        from stock_notes import rule_headline
+        lines = [(17.5, 18, "BUY (Maintain)"), (9, 60, "11 November 2026"),
+                 (9, 70, "India | Equity Research | Results Update"), (17.5, 100, "Motilal Oswal Financial Services"),
+                 (9, 120, "Exchanges"), (15.1, 149, "Excess inventory likely to weigh on rest of FY26; Downgrade to HOLD"),
+                 (9, 170, "Voltas’ Q1FY26 performance was weighed down by softer summer product sales"),
+                 (9, 180, "body"), (9, 190, "body"), (9, 200, "body")]
+        self.assertEqual(rule_headline("ICICI Securities", lines, "Voltas"),
+                         "Excess inventory likely to weigh on rest of FY26; Downgrade to HOLD")
+
+    def test_motilal_takes_largest_line_that_is_not_a_name_or_price(self):
+        from stock_notes import rule_headline
+        lines = [(26.0, 58, "Fujiyama Power Systems"), (14.0, 98, "TP: INR500 (+40%)"),
+                 (14.0, 118, "Strong volume-led growth supported by"), (14.0, 134, "channel expansion"),
+                 (11.0, 300, "Investors are advised to refer through important disclosures")]
+        self.assertEqual(rule_headline("Motilal Oswal", lines, "Fujiyama Power Systems"),
+                         "Strong volume-led growth supported by channel expansion")
+        self.assertEqual(rule_headline("Emkay Global", lines, "X"), "")  # no rule → no guess
+
+    def test_fill_only_touches_rule_brokers(self):
+        from stock_notes import rule_headlines
+        items = [_entry("https://mc/mo.pdf", broker="Motilal Oswal", company="Aarti Industries"),
+                 _entry("https://mc/em.pdf", broker="Emkay Global")]
+        page = [(26.0, 73, "Aarti Industries"), (24.0, 717, "Fuel additives lead; core chemistry gains momentum")]
+        fill_headlines(items, limit=10, pdf_text=lambda link: page, ask_model=rule_headlines,
+                       brokers=("ICICI Securities", "Motilal Oswal"))
+        self.assertEqual([e["headline"] for e in items], ["Fuel additives lead; core chemistry gains momentum", ""])
+        self.assertEqual(items[1]["headline_tries"], 0)

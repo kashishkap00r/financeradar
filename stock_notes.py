@@ -12,6 +12,7 @@ to agree across sources lives here:
 - dedup_stock_notes(): the same call listed on two sites is kept once
 """
 
+import html
 import json
 import os
 import re
@@ -482,6 +483,102 @@ def pdf_first_page_text(link, user_agent="Mozilla/5.0 (compatible; FinanceRadar)
     return text[:HEADLINE_PAGE_CHARS]
 
 
+# ── Headlines without AI: page-1 layout rules per broker ─────────────
+# The user wants no AI headlines (Nov 2026). Two big brokers that reach us
+# only through Moneycontrol/BS lay page 1 out predictably enough for rules:
+# ICICI Securities (institutional) prints "India | Equity Research | …",
+# then the company, the sector, and the headline; Motilal Oswal's headline is
+# the largest line that isn't the company, a price or a disclaimer.
+
+RULE_HEADLINE_BROKERS = ("ICICI Securities", "Motilal Oswal")
+_NOT_HEADLINE = re.compile(
+    r"\b(cmp|tp|target|inr|rs|buy|sell|hold|neutral|add|reduce|accumulate|maintain(ed)?|sector|"
+    r"research analyst|disclosures?|advised|bloomberg|sensex|nifty|s&p|equity research|estimate change|"
+    r"rating change|tp change|financial summary|investment rationale|key financials|stock info|"
+    r"shareholding|result(s)? update|company update|initiating coverage|price performance)\b|@|www\.|₹",
+    re.I)
+
+
+def pdf_first_page_lines(link, user_agent="Mozilla/5.0 (compatible; FinanceRadar)"):
+    """Page 1 as [(text height, y, text)] in reading order (pdftotext -bbox-layout)."""
+    req = urllib.request.Request(link, headers={"User-Agent": user_agent, "Accept": "application/pdf,*/*"})
+    with urllib.request.urlopen(req, timeout=PDF_TIMEOUT) as resp:
+        data = resp.read(PDF_MAX_BYTES + 1)
+    if len(data) > PDF_MAX_BYTES or not data.startswith(b"%PDF"):
+        raise ValueError("not a PDF (or too large)")
+    with tempfile.NamedTemporaryFile(suffix=".pdf") as tmp:
+        tmp.write(data)
+        tmp.flush()
+        out = subprocess.run(["pdftotext", "-f", "1", "-l", "1", "-bbox-layout", tmp.name, "-"],
+                             capture_output=True, timeout=30, check=True)
+    lines = []
+    for m in re.finditer(r'<line xMin="[\d.]+" yMin="([\d.]+)" xMax="[\d.]+" yMax="([\d.]+)">(.*?)</line>',
+                         out.stdout.decode("utf-8", "replace"), re.S):
+        text = html.unescape(" ".join(re.findall(r">([^<]*)</word>", m.group(3)))).strip()
+        if text:
+            lines.append((round(float(m.group(2)) - float(m.group(1)), 1), float(m.group(1)), text))
+    if not lines:
+        raise ValueError("page 1 has no text (scanned image?)")
+    return lines
+
+
+_NEVER_HEADLINE = re.compile(r"@|www\.|₹|\bINR\b|equity research|^[A-Z]{1,4}:\s", re.I)
+
+
+def _headline_like(text, company, strict=True):
+    t = re.sub(r"\s+", " ", text).strip()
+    if not (12 <= len(t) <= 150) or len(t.split()) < 3 or _NEVER_HEADLINE.search(t):
+        return False
+    if strict and _NOT_HEADLINE.search(t):
+        return False
+    if sum(ch.isalpha() for ch in t) < 0.6 * len(t):
+        return False
+    words = [w for w in re.findall(r"[A-Za-z][\w'’-]*", t)]
+    if len(words) <= 4 and all(w[0].isupper() for w in words):
+        return False  # a name or a sector ("Asset Management Companies"); headlines read as sentences
+    low, comp = t.lower(), (company or "").lower()
+    return not (comp and (low == comp or low.startswith(comp + " (") or comp.startswith(low)))
+
+
+def _with_continuation(lines, i, strict=True):
+    """A headline that wraps: following lines of the same size directly below."""
+    h, y, text = lines[i]
+    for h2, y2, t2 in lines[i + 1:i + 3]:
+        if abs(h2 - h) > 0.3 or not (0 < y2 - y < 1.8 * h) or _NEVER_HEADLINE.search(t2) \
+                or (strict and _NOT_HEADLINE.search(t2)):
+            break
+        text, y = f"{text} {t2}", y2
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def rule_headline(broker, lines, company):
+    """Headline from page-1 layout, or '' when the rule isn't sure."""
+    if broker == "ICICI Securities":
+        heights = sorted(h for h, _, _ in lines)
+        body = heights[len(heights) // 2]  # the usual text size on the page
+        for i, (_, _, t) in enumerate(lines):
+            if t.startswith("India | Equity Research"):
+                for j in range(i + 2, min(i + 6, len(lines))):  # company, sector, then the headline
+                    h, _, cand = lines[j]
+                    # Position decides here, so a rating in the headline is fine ("…; Downgrade to HOLD")
+                    if h > body + 0.5 and _headline_like(cand, company, strict=False):
+                        return _with_continuation(lines, j, strict=False)
+                return ""
+        return ""
+    if broker == "Motilal Oswal":
+        cands = [i for i, (_, _, t) in enumerate(lines) if _headline_like(t, company)]
+        if not cands:
+            return ""
+        top = max(lines[i][0] for i in cands)
+        return _with_continuation(lines, min((i for i in cands if lines[i][0] == top), key=lambda i: lines[i][1]))
+    return ""
+
+
+def rule_headlines(batch):
+    """fill_headlines() `ask_model` stand-in: layout rules instead of a model."""
+    return {b["link"]: rule_headline(b["broker"], b["text"], b["company"]) for b in batch}
+
+
 _HEADLINE_PROMPT = """Below is the text of page 1 of {n} Indian brokerage research reports, extracted from PDFs (columns may be jumbled).
 For each report, return the report's HEADLINE: the analyst's one-line title or thesis, usually in large type near the top.
 Examples of headlines: "Production drag persists; valuations factor in USD62/bbl Brent", "2Q beat led by strong growth across brands", "Consistent and meaningful execution!".
@@ -519,7 +616,7 @@ def _gemini_headlines(batch):
 
 
 def fill_headlines(entries, *, limit, pdf_text=pdf_first_page_text, ask_model=_gemini_headlines,
-                   workers=4, batch_size=8, time_budget=None, on_progress=None, min_date=None):
+                   workers=4, batch_size=8, time_budget=None, on_progress=None, min_date=None, brokers=None):
     """Give archive entries their PDF headline, newest first, in place.
 
     Returns how many got one. A failed download or a page with no headline
@@ -529,7 +626,8 @@ def fill_headlines(entries, *, limit, pdf_text=pdf_first_page_text, ask_model=_g
     started = time.monotonic()
     pending = [e for e in sort_notes(entries)
                if not e.get("headline") and e.get("headline_tries", 0) < HEADLINE_MAX_TRIES
-               and (min_date is None or (e.get("date") or "") >= min_date)][:limit]
+               and (min_date is None or (e.get("date") or "") >= min_date)
+               and (brokers is None or e.get("broker") in brokers)][:limit]
     filled = 0
     for start in range(0, len(pending), batch_size * workers):
         if time_budget is not None and time.monotonic() - started > time_budget:
