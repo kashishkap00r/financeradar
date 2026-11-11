@@ -252,7 +252,39 @@ def dedup_stock_notes(items, window_days=DEDUP_WINDOW_DAYS):
 # ── Archive: static/stock_notes.json ─────────────────────────────────
 
 def _archive_sort_key(entry):
-    return (entry.get("date") or "", entry.get("broker") or "", entry.get("company") or "", entry.get("link") or "")
+    """Newest first: by day, then by time within the day (notes with a known time first)."""
+    return (entry.get("date") or "", entry.get("ts") or "")
+
+
+def sort_notes(entries):
+    """Latest first (user, 11 Nov 2026). Within one day: by `ts`, the time the
+    note was published or first seen; notes with no time (older history from
+    sources that give none) follow, A→Z by broker then company."""
+    steady = sorted(entries, key=lambda e: (e.get("broker") or "", e.get("company") or "", e.get("link") or ""))
+    return sorted(steady, key=_archive_sort_key, reverse=True)
+
+
+_LINK_STAMP = re.compile(r"/(20\d{6})(\d{4})\d{2}_|HSIE-(20\d{6})(\d{4})")  # Moneycontrol, HDFC Securities
+_LINK_TICKS = re.compile(r"/(6\d{17})_")  # Ventura: .NET ticks of the upload
+
+
+def note_time(link, dt=None, now=None):
+    """'YYYY-MM-DDTHH:MM' (IST) for ordering within a day.
+
+    A source time when there is one (the fetcher's datetime if it carries a
+    time, else a stamp in the PDF link), otherwise the moment it was first seen.
+    """
+    if dt is not None and (dt.hour or dt.minute):
+        return dt.astimezone(IST_TZ).strftime("%Y-%m-%dT%H:%M")
+    m = _LINK_STAMP.search(link or "")
+    if m:
+        day, hm = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
+        return f"{day[:4]}-{day[4:6]}-{day[6:]}T{hm[:2]}:{hm[2:]}"
+    m = _LINK_TICKS.search(link or "")
+    if m:
+        stamp = datetime(1, 1, 1) + timedelta(microseconds=int(m.group(1)) // 10)
+        return stamp.strftime("%Y-%m-%dT%H:%M")
+    return (now or datetime.now(IST_TZ)).strftime("%Y-%m-%dT%H:%M")
 
 
 _REPORT_TYPE_PREFIX = re.compile(
@@ -295,6 +327,7 @@ def _to_entry(article):
         "via": article.get("via") or "",
         "target": article.get("target"),
         "headline_tries": 0,
+        "ts": note_time(article.get("link"), dt),
     }
     if article.get("page"):  # the broker's page for the report, when the PDF sits behind one (PL)
         entry["page"] = article["page"]
@@ -342,10 +375,10 @@ def merge_into_archive(archive, articles):
         fresh.append(_entry_as_note(_to_entry(art), prev_target=art.get("prev_target"),
                                     reco_price=art.get("reco_price")))
     if not fresh:
-        return sorted(archive, key=_archive_sort_key, reverse=True)
+        return sort_notes(archive)
     notes = [_entry_as_note(e) for e in archive] + fresh
     kept = dedup_stock_notes(notes)
-    return sorted((n["_entry"] for n in kept), key=_archive_sort_key, reverse=True)
+    return sort_notes(n["_entry"] for n in kept)
 
 
 def _write_json_atomic(path, payload):
@@ -369,8 +402,7 @@ def write_note_chunks(entries, out_dir=NOTE_CHUNKS_DIR, recent=RECENT_NOTES):
     """
     os.makedirs(out_dir, exist_ok=True)
     floor = min_note_date()
-    entries = sorted((e for e in entries if (e.get("date") or "") >= floor),
-                     key=_archive_sort_key, reverse=True)
+    entries = sort_notes(e for e in entries if (e.get("date") or "") >= floor)
     slim = [{k: e.get(k) or "" for k in _BROWSER_FIELDS} for e in entries]
     by_year = {}
     for note in slim:
@@ -406,7 +438,7 @@ def load_archive(path=ARCHIVE_FILE):
 
 def save_archive(path, entries):
     """Atomic write, one note per line: hourly commits then touch a few lines, not the file."""
-    entries = sorted(entries, key=_archive_sort_key, reverse=True)
+    entries = sort_notes(entries)
     body = "[\n" + ",\n".join(json.dumps(e, ensure_ascii=False, sort_keys=True) for e in entries) + "\n]\n"
     fd, tmp = tempfile.mkstemp(dir=os.path.dirname(path) or ".", suffix=".tmp")
     try:
@@ -495,7 +527,7 @@ def fill_headlines(entries, *, limit, pdf_text=pdf_first_page_text, ask_model=_g
     the PDF's fault), so those notes are simply retried next run.
     """
     started = time.monotonic()
-    pending = [e for e in sorted(entries, key=_archive_sort_key, reverse=True)
+    pending = [e for e in sort_notes(entries)
                if not e.get("headline") and e.get("headline_tries", 0) < HEADLINE_MAX_TRIES
                and (min_date is None or (e.get("date") or "") >= min_date)][:limit]
     filled = 0
@@ -558,7 +590,7 @@ def select_home_notes(entries, limit=HOME_NOTES_LIMIT):
     Written to static/tab_stock_notes_home.json — a few KB, unlike the
     full archive, so the homepage can afford to load it.
     """
-    picked = [e for e in sorted(entries, key=_archive_sort_key, reverse=True) if e.get("company")][:limit]
+    picked = [e for e in sort_notes(entries) if e.get("company")][:limit]
     return [{
         "title": " — ".join(x for x in (e["company"], e.get("headline")) if x),
         "link": e["link"],

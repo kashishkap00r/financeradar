@@ -42,7 +42,7 @@ class TestMerge(unittest.TestCase):
         ])
         self.assertEqual([e["link"] for e in out], ["https://bs/b.pdf", "https://mc/a.pdf"])
         e = out[1]
-        self.assertEqual(set(e), {"date", "broker", "company", "headline", "link", "via", "target", "headline_tries"})
+        self.assertEqual(set(e), {"date", "broker", "company", "headline", "link", "via", "target", "headline_tries", "ts"})
         self.assertEqual(e["broker"], "Emkay Global")
         self.assertEqual(e["headline"], "")
         self.assertEqual(e["date"], (datetime.now(IST_TZ) - timedelta(days=3)).date().isoformat())
@@ -234,3 +234,25 @@ class TestHistoryFloorAndBrowserChunks(unittest.TestCase):
             self.assertEqual(sum(len(json.load(open(os.path.join(d, f"{y}.json")))) for y in years), 4)
             self.assertIn("recent.json", written)
             self.assertEqual(write_note_chunks(entries, out_dir=d, recent=2), [])  # unchanged → nothing rewritten
+
+
+class TestLatestFirst(unittest.TestCase):
+    def test_note_time_from_source_link_or_first_seen(self):
+        from stock_notes import note_time
+        self.assertEqual(note_time("https://images.moneycontrol.com/x/2026/11/20261109080824_Mphasis.pdf"), "2026-11-09T08:08")
+        self.assertEqual(note_time("https://www.hdfcsec.com/hsl.docs/Dabur - Q2FY27 - HSIE-202611050746138922064.pdf"), "2026-11-05T07:46")
+        self.assertEqual(note_time("https://ventura1.com/q/639298433316872389_HCC Result Update Q2FY27.pdf")[:10], "2026-11-09")
+        self.assertEqual(note_time("https://pl/x.pdf", datetime(2026, 11, 11, 10, 52, tzinfo=IST_TZ)), "2026-11-11T10:52")
+        seen = datetime(2026, 11, 11, 14, 5, tzinfo=IST_TZ)
+        self.assertEqual(note_time("https://w2w/RR1.pdf", datetime(2026, 11, 9, tzinfo=IST_TZ), now=seen), "2026-11-11T14:05")
+
+    def test_within_a_day_latest_first_then_untimed_a_to_z(self):
+        from stock_notes import sort_notes
+        notes = [
+            {"date": "2026-11-11", "broker": "Ventura Securities", "company": "A", "link": "1", "ts": "2026-11-11T09:00"},
+            {"date": "2026-11-11", "broker": "Prabhudas Lilladher", "company": "B", "link": "2", "ts": "2026-11-11T16:30"},
+            {"date": "2026-11-11", "broker": "Way2Wealth", "company": "C", "link": "3"},
+            {"date": "2026-11-11", "broker": "Choice Broking", "company": "D", "link": "4"},
+            {"date": "2026-11-12", "broker": "Zed", "company": "E", "link": "5"},
+        ]
+        self.assertEqual([n["link"] for n in sort_notes(notes)], ["5", "2", "1", "4", "3"])

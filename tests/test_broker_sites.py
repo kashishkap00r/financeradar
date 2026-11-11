@@ -47,12 +47,26 @@ class TestTitleParsing(unittest.TestCase):
         self.assertEqual(rf.choice_headline(""), "")
 
     def test_way2wealth_captions(self):
-        self.assertEqual(rf.split_w2w_caption("J K Cement Ltd. -  Result Update  –  09 November 2026"), "J K Cement")
-        self.assertEqual(rf.split_w2w_caption("IDFC First Bank Ltd.-  Light House Update  – 29 October 2026"), "IDFC First Bank")
-        self.assertEqual(rf.split_w2w_caption("National Stock Exchange of India Ltd. (NSE Ltd.) -  Result Update  – 09 November 2026"),
+        self.assertEqual(rf.split_w2w_caption("J K Cement Ltd. -  Result Update  –  09 November 2026"), ("J K Cement", "Result Update"))
+        self.assertEqual(rf.split_w2w_caption("IDFC First Bank Ltd.-  Light House Update  – 29 October 2026"),
+                         ("IDFC First Bank", "Light House Update"))
+        self.assertEqual(rf.split_w2w_caption("National Stock Exchange of India Ltd. (NSE Ltd.) -  Result Update  – 09 November 2026")[0],
                          "National Stock Exchange of India")
-        self.assertEqual(rf.split_w2w_caption("Diwali Picks - 2026 - 03 November 2026"), "")
-        self.assertEqual(rf.split_w2w_caption("RBI Monetary Policy - Event Update - 07 October 2026"), "")
+        self.assertEqual(rf.split_w2w_caption("Diwali Picks - 2026 - 03 November 2026"), ("", ""))
+        self.assertEqual(rf.split_w2w_caption("RBI Monetary Policy - Event Update - 07 October 2026"), ("", ""))
+
+    def test_report_type_titles_for_brokers_without_headlines(self):
+        self.assertEqual(rf.report_label("639159344546009946_ONGC Q4FY26 result update.pdf", "Result Update"), "Q4FY26 Result Update")
+        self.assertEqual(rf.report_label("637777469508275819_Infosys Ltd - Q3FY22.pdf", "Result Update"), "Q3FY22 Result Update")
+        self.assertEqual(rf.report_label("Aarti_Ind_One_Pager_Q2_FY_27_Result_Update_1d91911ca6.pdf", "Update"), "Q2FY27 Result Update")
+        self.assertEqual(rf.report_label("ABB_One_Pager_Q2_CY_26_Update_56ac8d1eb7.pdf", "Update"), "Q2CY26 Update")
+        self.assertEqual(rf.report_label("Light House Update", "Update"), "Light House Update")
+
+    def test_icici_headline_is_the_line_after_the_date(self):
+        page = ("x\nVenus Pipes and Tubes (VENPIP)\nCMP: ₹1,740\nTarget ₹ 2,340 (35%)\nBUY\nNovember 6, 2026\n"
+                "Muted quarterly results , guides for strong H2’FY27\n…\n: Venus Pipes and Tubes (VPT), established in 2015")
+        self.assertEqual(rf.icici_headline(page), "Muted quarterly results, guides for strong H2’FY27")
+        self.assertEqual(rf.icici_headline("no date here\nat all"), "")
 
     def test_company_tidy_and_dates(self):
         self.assertEqual(rf._tidy_company("MAHINDRA & MAHINDRA LTD"), "Mahindra & Mahindra")
