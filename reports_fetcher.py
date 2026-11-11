@@ -2495,6 +2495,7 @@ def _parse_day(text, fmt):
 
 
 _QUARTER = re.compile(r"\bQ\s*([1-4])\s*[_ ]?\s*(FY|CY)\s*[_ ']?\s*(\d{2})(?!\d)", re.I)
+_QUARTER_NB = re.compile(r"\b([1-4])\s*Q\s*(FY|CY)\s*'?(\d{2})(?!\d)", re.I)  # Nirmal Bang writes "2QFY27"
 _REPORT_KINDS = [  # (pattern, label) — first match wins
     (r"initiat", "Initiating Coverage"),
     (r"light\s*house", "Light House Update"),
@@ -2515,7 +2516,7 @@ def report_label(text, default_kind=""):
     page 1 only names the report type), this is the most honest title there is.
     """
     text = re.sub(r"[_+]", " ", urllib.parse.unquote(text or ""))
-    q = _QUARTER.search(text)
+    q = _QUARTER.search(text) or _QUARTER_NB.search(text)
     quarter = f"Q{q.group(1)}{q.group(2).upper()}{q.group(3)}" if q else ""
     kind = next((label for pat, label in _REPORT_KINDS if re.search(pat, text, re.I)), default_kind)
     return " ".join(p for p in (quarter, kind) if p)
@@ -2792,6 +2793,15 @@ def fetch_sbisec(feed_config):
             if not company or not link.lower().endswith(".pdf") or dt is None:
                 continue
             articles.append(_direct_note(feed_config, company=company, headline=label, dt=dt,
+                                         pdf=urllib.parse.quote(link, safe=":/%()")))
+    # The "Thematic Reports" list also carries single-stock notes (result
+    # updates, initiations, plant visits); its sector pieces go to Reports.
+    for row in _sbi_rows(feed_config, "Thematic Reports"):
+        kind = split_sbi_thematic(row.get("report_desc"))
+        link = (row.get("report_link") or "").strip()
+        dt = _parse_day(row.get("disp_date"), "%d %b %Y")
+        if kind[0] == "stock" and link.lower().endswith(".pdf") and dt:
+            articles.append(_direct_note(feed_config, company=kind[1], headline=kind[2], dt=dt,
                                          pdf=urllib.parse.quote(link, safe=":/%()")))
     return articles
 
@@ -3118,6 +3128,181 @@ def fetch_mncl(feed_config):
     return articles
 
 
+# Nirmal Bang Institutional Equities (nirmalbang.com/nb-research): titles read
+# "Fine Organic Industries (FINEORG) - BUY - Chemicals | 2QFY27 Result Update -
+# Expansion plans to fructify from FY29 - 09 November 2026". Listing pages come
+# from Ajaxpages/ResearchReports.aspx?id=49&pageNo=N (15 a page, back to 2018).
+# The site puts a mobile-number form in front of each download, but the PDFs
+# are plain public files at /Upload/<name>; the user chose direct links
+# (11 Nov 2026). Mornings, macro trackers and "AI Powered Insights" are skipped.
+
+_NB_PAGE = "https://www.nirmalbang.com/Ajaxpages/ResearchReports.aspx?id=49&pageNo={}"
+_NB_ITEM = re.compile(r'<div class="rsrchsec">\s*<h2[^>]*>(.*?)</h2>\s*<span[^>]*>(.*?)</span>'
+                      r".*?ValidateResearchPDF\('([^']+)','([^']+)'", re.S)
+_NB_NOT_STOCK = re.compile(r"economy|sector|strategy|thematic|morning|insights|diwali|picks|tracker|"
+                           r"preview|roundup|outlook|monthly|weekly", re.I)
+_NB_KIND = re.compile(r"result update|result preview|initiating|company update|update|visit|meet|ipo note", re.I)
+_NB_SEP = re.compile(r"\s*[-–]\s+")  # "Result Update - x" and older "Result Update- x"; "Broad-Based" stays whole
+_NB_TAIL_RATING = re.compile(r"[;,.]?\s*\b(maintain|retain|reiterate|upgrade|downgrade)\w*\b[^;]*$"
+                             r"|[;,.]?\s*\b(buy|sell|hold|accumulate|reduce|neutral)\b\.?$", re.I)
+
+
+def split_nb_title(title):
+    """Nirmal Bang title → (company, headline); ('', '') for anything but a single-stock note."""
+    title = re.sub(r"\s+", " ", html.unescape(_strip_html(title))).strip()
+    left, bar, right = title.partition("|")
+    if not bar:  # before mid-2023: "Company- 4QFY23 Result Update- headline"
+        head, *rest = _NB_SEP.split(title)
+        left, right = head, " - ".join(rest)
+        if not rest or _QUARTER_NB.search(left) or _QUARTER.search(left):
+            return "", ""
+    m = re.match(r"(.*?)\s*\(([A-Z0-9&\-]{2,})\)", left)  # first upper-case paren is the ticker
+    if not m and _NB_NOT_STOCK.search(left):  # "Bata India Ltd. (BIL) - Retail Sector | …" is still one stock
+        return "", ""
+    parts = [p.strip() for p in _NB_SEP.split(right.strip()) if p.strip()]
+    if not parts or not _NB_KIND.search(parts[0]) or re.search(r"economy|sector|strategy", parts[0], re.I):
+        return "", ""
+    company = _tidy_company(m.group(1) if m else _NB_SEP.split(left)[0])
+    if parts and _first_date_in(parts[-1]) and len(parts[-1]) < 30:
+        parts.pop()  # trailing "09 November 2026"
+    headline = _NB_TAIL_RATING.sub("", " - ".join(parts[1:])).strip(" -;,")
+    return company, headline or report_label(parts[0], "Update")
+
+
+@scraper
+def fetch_nirmal_bang(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    articles, seen, stale_pages = [], set(), 0
+    first = feed_config.get("start_page") or 1  # history runs can resume part-way
+    for page_no in range(first, first + (feed_config.get("max_pages") or 2)):
+        page = _fetch_url(_NB_PAGE.format(page_no), feed_config=feed_config,
+                          extra_headers={"Referer": feed_config["url"]}).decode("utf-8", "replace")
+        raw = _NB_ITEM.findall(page)
+        for _retry in range(2):  # the server sometimes answers a burst of requests with a blank page
+            if raw:
+                break
+            time.sleep(5)
+            page = _fetch_url(_NB_PAGE.format(page_no), feed_config=feed_config,
+                              extra_headers={"Referer": feed_config["url"]}).decode("utf-8", "replace")
+            raw = _NB_ITEM.findall(page)
+        if not raw:
+            break  # past the last page
+        items = [i for i in raw if i[2] not in seen]
+        any_fresh = False
+        for title, date_text, filename, folder in items:
+            seen.add(filename)
+            dt = _parse_day(_strip_html(date_text), "%d-%b-%y")
+            if dt is None or not _is_fresh(dt, cutoff):
+                continue
+            any_fresh = True
+            company, headline = split_nb_title(title)
+            if company and filename.lower().endswith(".pdf"):
+                pdf = f"https://www.nirmalbang.com/{urllib.parse.quote(folder)}/{urllib.parse.quote(filename)}"
+                articles.append(_direct_note(feed_config, company=company, headline=headline, dt=dt, pdf=pdf))
+        # One odd page (repeats, a blip) must not end a history run: stop after 3 stale pages.
+        stale_pages = 0 if any_fresh else stale_pages + 1
+        if stale_pages >= 3:
+            break
+        _polite(feed_config)
+    return articles
+
+
+# ── Brokers' sector & thematic reports → Reports (Indian), Nov 2026 ──
+# User: "I also want sector reports … under Indian, not Stock notes". Same
+# listings as the stock-note scrapers above; these keep what those skip,
+# minus dailies, picks lists and pure economy/RBI notes. Plain Reports items
+# (no `kind`), so they get the Reports tab's 30-day window and the ranker.
+
+_SECTOR_NOISE = re.compile(r"morning|roundup|ai powered|insights-|diwali|muhurat|picks|technical|derivative|"
+                           r"rollover|newsletter|ipo note", re.I)
+_ECONOMY_ONLY = re.compile(r"india economy|\beconomic report|\bmacro\b|\brbi (mpc|policy)|monetary policy|"
+                           r"data preview|\bgdp\b|\bunion budget", re.I)
+_NB_DATE_TAIL = re.compile(r"\s*[-–]\s*\d{1,2}(st|nd|rd|th)?\s+[A-Za-z]+\s+\d{4}\s*$")
+
+
+def nb_sector_title(title):
+    """A Nirmal Bang sector/thematic report's display title, or '' for anything else."""
+    title = re.sub(r"\s+", " ", html.unescape(_strip_html(title))).strip()
+    if split_nb_title(title)[0] or _SECTOR_NOISE.search(title):
+        return ""
+    if _ECONOMY_ONLY.search(title) and not re.search(r"thematic", title, re.I):
+        return ""  # economy trackers and data previews are not sector reports
+    return _NB_DATE_TAIL.sub("", title)
+
+
+@scraper
+def fetch_nirmal_bang_sector(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    articles = []
+    for page_no in range(1, (feed_config.get("max_pages") or 3) + 1):
+        page = _fetch_url(_NB_PAGE.format(page_no), feed_config=feed_config,
+                          extra_headers={"Referer": feed_config["url"]}).decode("utf-8", "replace")
+        items = _NB_ITEM.findall(page)
+        if not items:
+            break
+        any_fresh = False
+        for raw_title, date_text, filename, folder in items:
+            dt = _parse_day(_strip_html(date_text), "%d-%b-%y")
+            if dt is None or not _is_fresh(dt, cutoff):
+                continue
+            any_fresh = True
+            title = nb_sector_title(raw_title)
+            if title and filename.lower().endswith(".pdf"):
+                pdf = f"https://www.nirmalbang.com/{urllib.parse.quote(folder)}/{urllib.parse.quote(filename)}"
+                articles.append(_make_article(title, pdf, dt, "", feed_config))
+        if not any_fresh:
+            break
+    return articles
+
+
+_SBI_STOCK_KIND = re.compile(r"results? update|initiating|company update|plant visit|rising star|[-_\s]IC$", re.I)
+_SBI_HOUSE = re.compile(r"^(sbi ?cap|sbi) securities( ltd)?\s*[-_]\s*", re.I)
+
+
+def split_sbi_thematic(desc):
+    """SBI's "Thematic Reports" list mixes stock notes and sector pieces.
+
+    → ('stock', company, label) | ('sector', title) | ('skip',)
+    """
+    desc = re.sub(r"\s+", " ", (desc or "")).strip()
+    if not desc or _SECTOR_NOISE.search(desc):
+        return ("skip",)
+    if _SBI_STOCK_KIND.search(desc) and not _SBI_HOUSE.match(desc):
+        head = re.split(r"(?:_|\s*-\s*)", desc, maxsplit=1)[0]
+        tail = desc[len(head):].strip(" _-")
+        company = _tidy_company(head)
+        if company and not re.search(r"thematic|rockstars", desc, re.I):
+            label = ("Initiating Coverage" if re.search(r"(^|[-_\s])IC$", desc) else
+                     "Plant Visit Note" if re.search(r"plant visit", desc, re.I) else
+                     report_label(tail, "Update"))
+            return ("stock", company, label)
+    if _ECONOMY_ONLY.search(desc):
+        return ("skip",)
+    title = _SBI_HOUSE.sub("", desc).replace("_", " – ").strip()
+    return ("sector", title) if title else ("skip",)
+
+
+def _sbi_rows(feed_config, sub):
+    headers = {"Content-Type": "application/json", "Origin": "https://www.sbisecurities.in",
+               "Referer": feed_config["url"], "client_id": "no-client"}
+    body = _sbi_aes(json.dumps({"category_name": "fundamental", "sub_category_name": sub}).encode())
+    raw = _fetch_url(_SBI_API, accept="application/json", feed_config=feed_config, data=body, extra_headers=headers)
+    wrapped = json.loads(raw.decode("utf-8", "replace")).get("response")
+    return (json.loads(_sbi_aes(wrapped.encode(), decrypt=True)).get("data") or []) if wrapped else []
+
+
+@scraper
+def fetch_sbisec_sector(feed_config):
+    articles = []
+    for row in _sbi_rows(feed_config, "Thematic Reports"):
+        kind = split_sbi_thematic(row.get("report_desc"))
+        link = (row.get("report_link") or "").strip()
+        dt = _parse_day(row.get("disp_date"), "%d %b %Y")
+        if kind[0] == "sector" and link.lower().endswith(".pdf") and dt:
+            articles.append(_make_article(kind[1], urllib.parse.quote(link, safe=":/%()"), dt, "", feed_config))
+    return articles
+
+
 REPORT_FETCHERS = {
     "crisilratings:": fetch_crisil_ratings,
     "crisilreports:": fetch_crisil_reports,
@@ -3160,6 +3345,9 @@ REPORT_FETCHERS = {
     "ventura:": fetch_ventura,
     "idbicap:": fetch_idbi_capital,
     "mncl:": fetch_mncl,
+    "nirmalbang:sector": fetch_nirmal_bang_sector,   # before "nirmalbang:" (prefix order)
+    "nirmalbang:": fetch_nirmal_bang,
+    "sbisector:": fetch_sbisec_sector,
 }
 
 

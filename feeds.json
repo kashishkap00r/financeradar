@@ -1192,13 +1192,12 @@
   },
   {
     "id": "baroda-etrade-str",
-    "name": "Baroda eTrade — STR",
+    "name": "Baroda eTrade — Sector Reports",
     "url": "https://www.barodaetrade.com/research-Details/STR",
     "feed": "baroda:str",
     "category": "Reports",
     "region": "Indian",
-    "publisher": "Baroda eTrade",
-    "kind": "stock_note"
+    "publisher": "Baroda eTrade"
   },
   {
     "id": "baroda-etrade-sor",
@@ -1397,6 +1396,37 @@
     "kind": "stock_note",
     "max_items": 200,
     "max_age_days": 14
+  },
+  {
+    "id": "nirmal-bang-research",
+    "name": "Nirmal Bang — Institutional Research",
+    "url": "https://www.nirmalbang.com/nb-research/institutional-research-reports.aspx",
+    "feed": "nirmalbang:institutional",
+    "publisher": "Nirmal Bang",
+    "category": "Reports",
+    "region": "Indian",
+    "kind": "stock_note",
+    "max_items": 200,
+    "max_age_days": 14
+  },
+  {
+    "id": "nirmal-bang-sector",
+    "name": "Nirmal Bang — Sector & Thematic",
+    "url": "https://www.nirmalbang.com/nb-research/institutional-research-reports.aspx",
+    "feed": "nirmalbang:sector",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Nirmal Bang",
+    "max_pages": 8
+  },
+  {
+    "id": "sbisec-sector",
+    "name": "SBI Securities — Sector & Thematic",
+    "url": "https://www.sbisecurities.in/research/fundamental",
+    "feed": "sbisector:thematic",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "SBI Securities"
   },
   {
     "id": "ing-think-rss",

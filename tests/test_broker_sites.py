@@ -200,8 +200,58 @@ class TestRoundTwoBrokers(unittest.TestCase):
         self.assertEqual(rf.mncl_page_one("scanned cover"), (None, ""))
         self.assertEqual(rf._tidy_company("J .G. Chemicals Ltd."), "J.G. Chemicals")
 
+    def test_nirmal_bang_titles(self):
+        self.assertEqual(rf.split_nb_title(
+            "Fine Organic Industries (FINEORG) - BUY - Chemicals | 2QFY27 Result Update - Expansion plans to fructify from FY29 - 09 November 2026"),
+            ("Fine Organic Industries", "Expansion plans to fructify from FY29"))
+        self.assertEqual(rf.split_nb_title(
+            "Gland Pharma (GLAND) - Pharmaceuticals | 2QFY27 Result update - CDMO engine firing, Cenexi still the swing factor; maintain HOLD - 09 November 2026"),
+            ("Gland Pharma", "CDMO engine firing, Cenexi still the swing factor"))
+        self.assertEqual(rf.split_nb_title("Linc Ltd. - BUY -  Stationery | 2QFY27 Result Update - Market-share Gains Take Priority - 08 November 2026"),
+                         ("Linc", "Market-share Gains Take Priority"))
+        self.assertEqual(rf.split_nb_title("Fortnightly Macro Tracker - India Economy | Update - Economic activity mixed - 10 Nov"), ("", ""))
+        self.assertEqual(rf.split_nb_title("India Morning Roundup - 9 November 2026"), ("", ""))
+        self.assertEqual(rf.split_nb_title("Gujarat State Petronet Ltd (GUJS)- Oil & Gas | 4QFY24 Result Update- Still awaiting clarity on what lies ahead"),
+                         ("Gujarat State Petronet", "Still awaiting clarity on what lies ahead"))
+        company, head = rf.split_nb_title("PVRINOX Ltd. (PVRINOX)- Film Exhibition | 2QFY26 Result Preview- A strong end to 1H with momentum to continue")
+        self.assertEqual((company.lower(), head), ("pvrinox", "A strong end to 1H with momentum to continue"))
+        self.assertEqual(rf.split_nb_title("Tiles Sector- 2QFY26 Result Preview- Q2FY26: Weak start"), ("", ""))
+        self.assertEqual(rf.split_nb_title("Power Mech Projects- 4QFY23 Result Update- Strong quarter; Targeting order inflow of Rs100bn for FY24"),
+                         ("Power Mech Projects", "Strong quarter; Targeting order inflow of Rs100bn for FY24"))
+        self.assertEqual(rf.split_nb_title("Berger Paints India Ltd.- 3QFY21 Result Update- Strong broad-based performance; Maintain Sell"),
+                         ("Berger Paints India", "Strong broad-based performance"))
+        self.assertEqual(rf.split_nb_title("4QFY23/FY23 GDP Growth Review- Economy Update- 4QFY23 GDP at 6.1%"), ("", ""))
+        self.assertEqual(rf.split_nb_title("India Morning Roundup-3 July 2023"), ("", ""))
+        self.assertEqual(rf.split_nb_title("HCL Technologies (HCLT) - IT | 1QFY27 Result Update - 14 July 2026"),
+                         ("HCL Technologies", "Q1FY27 Result Update"))
+        self.assertEqual(rf.split_nb_title("State Bank of India (SBIN) - Banks | 1QFY27 Result Update - Broad-based performance; margins back on track. BUY. - 08 August 2026")[1],
+                         "Broad-based performance; margins back on track")
+
     def test_mncl_certificate_is_bundled(self):
         self.assertTrue(rf.os.path.exists(rf._MNCL_CA))
+
+
+class TestSectorReports(unittest.TestCase):
+    def test_nirmal_bang_sector_titles(self):
+        self.assertEqual(rf.nb_sector_title("Cement Channel Check – Oct ’26 - Sector Update - Cement Prices Recover - 29 October 2026"),
+                         "Cement Channel Check – Oct ’26 - Sector Update - Cement Prices Recover")
+        self.assertTrue(rf.nb_sector_title("RBI Sectoral Deployment - Banking | Sector Update - Robust broad-based credit momentum"))
+        self.assertTrue(rf.nb_sector_title("India Capex Pipeline - India Economy | Thematic - A New Private Sector-Led Investment Cycle"))
+        for noise in ("India Morning Roundup - 9 November 2026", "NBIE AI Powered Insights- 11 Nov 2026",
+                      "Fortnightly Macro Tracker - India Economy | Update - Economic activity mixed",
+                      "Fine Organic Industries (FINEORG) - BUY - Chemicals | 2QFY27 Result Update - Expansion plans"):
+            self.assertEqual(rf.nb_sector_title(noise), "", noise)
+        # a single-stock note with "Sector" in it stays a stock note
+        self.assertEqual(rf.split_nb_title("Bata India Ltd. (BIL) - Retail Sector | 2QFY27 Result Update - ASP-led recovery")[0], "Bata India")
+
+    def test_sbi_thematic_split(self):
+        self.assertEqual(rf.split_sbi_thematic("Carysil Ltd._2QFY27 Result Update"), ("stock", "Carysil", "Q2FY27 Result Update"))
+        self.assertEqual(rf.split_sbi_thematic("JTL Industries Ltd-IC"), ("stock", "JTL Industries", "Initiating Coverage"))
+        self.assertEqual(rf.split_sbi_thematic("Manorama Industries Ltd_Plant Visit Note"), ("stock", "Manorama Industries", "Plant Visit Note"))
+        self.assertEqual(rf.split_sbi_thematic("SBICAP Securities - Metal Pulse Nov'26"), ("sector", "Metal Pulse Nov'26"))
+        self.assertEqual(rf.split_sbi_thematic("Thematic Report_Rockstars of 1QFY27 Result")[0], "sector")
+        for skip in ("Macro Trends_Monthly Economic Report_Oct'26", "RBI MPC Meeting Oct'26", "SBI Securities Diwali Muhurat Picks_2026"):
+            self.assertEqual(rf.split_sbi_thematic(skip), ("skip",), skip)
 
 
 if __name__ == "__main__":

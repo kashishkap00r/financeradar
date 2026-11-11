@@ -1691,8 +1691,11 @@ def main():
         twitter_lane_meta=twitter_lane_stats,
         slow_reads=slow_reads,
         stock_notes_home=select_home_notes(load_archive(STOCK_NOTES_FILE)),
-        stock_note_publishers=sorted({f.get("publisher", "") for f in feeds
-                                      if f.get("kind") == STOCK_NOTE_KIND and f.get("publisher")}),
+        # Publishers with only stock-note feeds; brokers that also publish sector
+        # reports (Nirmal Bang, SBI Securities) must still reach the homepage slider.
+        stock_note_publishers=sorted(
+            {f.get("publisher", "") for f in feeds if f.get("kind") == STOCK_NOTE_KIND and f.get("publisher")}
+            - {f.get("publisher", "") for f in feeds if f.get("category") == "Reports" and f.get("kind") != STOCK_NOTE_KIND}),
     )
     export_articles_json(article_groups)
     export_published_snapshot(
