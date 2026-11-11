@@ -283,6 +283,7 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 | `hourly.yml` | Every hour | telegram_fetcher → aggregator → commit + push |
 | `ai-ranking.yml` | 2x daily (UTC 10, 22) | ai_ranker → wsw_ranker → commit + push. WSW and commit run with `if: !cancelled()`, so one ranker failing never blocks the other's output. Targets 6 AM / 6 PM IST completion (cron offset 2.5 hrs earlier for Actions delay) |
 | `missing-story-audit.yml` | Daily UTC 00:30 | Audit 7-day SLA breaches |
+| `feed-health.yml` | Mondays UTC 03:30 | `feed_health.py --report`: lists feeds quiet past their limit (newest item older than News 10 / Reports 30 / Videos 21 / Stock notes 21 days, or `quiet_days` in feeds.json) from `static/feed_health.json`, which every hourly run updates. Fails when anything is quiet, so GitHub emails the owner; the table is on the run summary |
 | `deploy-rss-proxy.yml` | Manual | Deploy Cloudflare RSS proxy worker |
 
 Required secrets: `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `TELEGRAM_SESSION`, `GEMINI_API_KEY`, `RSS_PROXY_URL` (optional), `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.

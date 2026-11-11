@@ -1,0 +1,539 @@
+{
+ "feeds": {
+  "a-wealth-of-common-sense": {
+   "newest": "2026-11-11"
+  },
+  "apollo-daily-spark": {
+   "newest": "2026-11-11"
+  },
+  "apollo-insights": {
+   "newest": "2026-10-30"
+  },
+  "apollo-media": {
+   "newest": "2026-11-09"
+  },
+  "arihant-research": {
+   "newest": "2026-11-11"
+  },
+  "asia-news-cnbc": {
+   "newest": "2026-11-11"
+  },
+  "axis-direct-research": {
+   "newest": "2026-11-11"
+  },
+  "axis-direct-sector": {
+   "newest": "2026-11-02"
+  },
+  "baroda-etrade-mer": {
+   "newest": "2026-11-11"
+  },
+  "baroda-etrade-sor": {
+   "newest": "2026-11-11"
+  },
+  "baroda-etrade-str": {
+   "newest": "2026-11-11"
+  },
+  "bbc-news-business": {
+   "newest": "2026-11-12"
+  },
+  "bharatnama": {
+   "newest": "2026-11-11"
+  },
+  "biznewsbyjay": {
+   "newest": "2026-11-11"
+  },
+  "bloomberg-economics": {
+   "newest": "2026-11-11"
+  },
+  "bloomberg-india": {
+   "newest": "2026-11-11"
+  },
+  "bloomberg-markets-daily-riley": {
+   "newest": "2026-11-10"
+  },
+  "bloomberg-mihir-sharma": {
+   "newest": "2026-11-07"
+  },
+  "bloomberg-money-stuff-levine": {
+   "newest": "2026-11-11"
+  },
+  "bloomberg-new-economy-daily-holland": {
+   "newest": "2026-11-10"
+  },
+  "bloomberg-supply-lines-curtis": {
+   "newest": "2026-11-10"
+  },
+  "business-standard-companies": {
+   "newest": "2026-11-11"
+  },
+  "business-standard-economy": {
+   "newest": "2026-11-11"
+  },
+  "business-standard-india": {
+   "newest": "2026-11-11"
+  },
+  "business-standard-industry": {
+   "newest": "2026-11-11"
+  },
+  "business-standard-number-wise": {
+   "newest": "2026-11-06"
+  },
+  "business-standard-research": {
+   "newest": "2026-11-11"
+  },
+  "businessline-all": {
+   "newest": "2026-11-11"
+  },
+  "businessline-companies-rss-feeder": {
+   "newest": "2026-11-11"
+  },
+  "businessline-data-stories": {
+   "newest": "2026-11-10"
+  },
+  "businessline-economy-policy": {
+   "newest": "2026-11-11"
+  },
+  "businessline-editorial": {
+   "newest": "2026-11-10"
+  },
+  "businessline-latest-news": {
+   "newest": "2026-11-11"
+  },
+  "businessline-markets-service": {
+   "newest": "2026-11-11"
+  },
+  "businessline-money-and-banking": {
+   "newest": "2026-11-11"
+  },
+  "by-the-numbers": {
+   "newest": "2026-11-03"
+  },
+  "capitalquill-substack": {
+   "newest": "2026-11-07"
+  },
+  "carbon-brief": {
+   "newest": "2026-11-11"
+  },
+  "ceew-publications": {
+   "newest": "2026-11-10"
+  },
+  "choice-research": {
+   "newest": "2026-11-09"
+  },
+  "cnbc-economy": {
+   "newest": "2026-11-12"
+  },
+  "crea-news": {
+   "newest": "2026-11-11"
+  },
+  "crea-publications": {
+   "newest": "2026-10-27"
+  },
+  "crisil-ratings-press-releases": {
+   "newest": "2026-11-09"
+  },
+  "crisil-ratings-reports": {
+   "newest": "2026-09-30"
+  },
+  "crisil-research": {
+   "newest": "2026-10-29"
+  },
+  "csep-publications": {
+   "newest": "2026-10-26"
+  },
+  "csis-analysis": {
+   "newest": "2026-11-11"
+  },
+  "data-for-india": {
+   "newest": "2026-11-11"
+  },
+  "decoding-the-dragon": {
+   "newest": "2026-11-11"
+  },
+  "downtoearth": {
+   "newest": "2026-11-11"
+  },
+  "ecb-blog": {
+   "newest": "2026-11-11"
+  },
+  "ecb-press": {
+   "newest": "2026-11-10"
+  },
+  "ecb-pub": {
+   "newest": "2026-11-11"
+  },
+  "ecb-wppub": {
+   "newest": "2026-11-11"
+  },
+  "economic-times-company-news-http": {
+   "newest": "2026-11-11"
+  },
+  "economist-business": {
+   "newest": "2026-11-09"
+  },
+  "economist-finance-and-economics": {
+   "newest": "2026-11-11"
+  },
+  "ember-analysis": {
+   "newest": "2026-11-05"
+  },
+  "ember-energy-insights": {
+   "newest": "2026-11-11"
+  },
+  "et-bfsi-articles": {
+   "newest": "2026-11-11"
+  },
+  "et-now-companies": {
+   "newest": "2026-11-11"
+  },
+  "et-now-economy": {
+   "newest": "2026-11-10"
+  },
+  "ficci-economic-wrap": {
+   "newest": "2026-11-06"
+  },
+  "ficci-studies": {
+   "newest": "2026-10-22"
+  },
+  "filtercoffee-site": {
+   "newest": "2026-11-11"
+  },
+  "filtercoffee-substack": {
+   "newest": "2026-11-11"
+  },
+  "financial-express-economy": {
+   "newest": "2026-11-11"
+  },
+  "financial-express-industry": {
+   "newest": "2026-11-11"
+  },
+  "finshots": {
+   "newest": "2026-11-11"
+  },
+  "fred-blog": {
+   "newest": "2026-11-09"
+  },
+  "ft-india": {
+   "newest": "2026-11-10"
+  },
+  "ft-markets": {
+   "newest": "2026-11-12"
+  },
+  "gem-reports": {
+   "newest": "2026-10-07"
+  },
+  "goldman-sachs-reports": {
+   "newest": "2026-11-11"
+  },
+  "gs-publishing-research": {
+   "newest": "2026-10-26"
+  },
+  "guardian-global-economy": {
+   "newest": "2026-11-11"
+  },
+  "hdfc-securities-research": {
+   "newest": "2026-11-11"
+  },
+  "hdfc-securities-sector": {
+   "newest": "2026-11-05"
+  },
+  "icici-bank-research": {
+   "newest": "2026-11-09"
+  },
+  "icicidirect-ideas": {
+   "newest": "2026-11-09"
+  },
+  "icicidirect-sector": {
+   "newest": "2026-10-30"
+  },
+  "icra-research": {
+   "newest": "2026-11-06"
+  },
+  "idbi-capital-research": {
+   "newest": "2026-11-11"
+  },
+  "ideas-for-india": {
+   "newest": "2026-11-10"
+  },
+  "iea-reports": {
+   "newest": "2026-11-06"
+  },
+  "ieefa-insights": {
+   "newest": "2026-11-09"
+  },
+  "ieefa-reports": {
+   "newest": "2026-11-11"
+  },
+  "india-dispatch": {
+   "newest": "2026-11-02"
+  },
+  "india-ratings-research": {
+   "newest": "2026-11-05"
+  },
+  "indian-express-business": {
+   "newest": "2026-11-11"
+  },
+  "indiaspend-news": {
+   "newest": "2026-11-07"
+  },
+  "ing-think-rss": {
+   "newest": "2026-11-11"
+  },
+  "kotak-opportune": {
+   "newest": "2026-11-09"
+  },
+  "livemint-companies": {
+   "newest": "2026-11-12"
+  },
+  "livemint-industry": {
+   "newest": "2026-11-11"
+  },
+  "livemint-markets": {
+   "newest": "2026-11-12"
+  },
+  "livemint-opinion": {
+   "newest": "2026-11-11"
+  },
+  "marketbites-substack": {
+   "newest": "2026-11-01"
+  },
+  "mncl-research": {
+   "newest": "2026-11-11"
+  },
+  "moneycontrol-stock-ideas": {
+   "newest": "2026-11-11"
+  },
+  "musings-on-markets-substack": {
+   "newest": "2026-11-10"
+  },
+  "nirmal-bang-research": {
+   "newest": "2026-11-09"
+  },
+  "nirmal-bang-sector": {
+   "newest": "2026-11-11"
+  },
+  "niti-division-reports": {
+   "newest": "2026-10-15"
+  },
+  "niti-working-papers": {
+   "newest": "2026-10-15"
+  },
+  "noahpinion": {
+   "newest": "2026-11-11"
+  },
+  "not-ship": {
+   "newest": "2026-11-04"
+  },
+  "our-world-in-data": {
+   "newest": "2026-11-02"
+  },
+  "our-world-in-data-insights": {
+   "newest": "2026-11-10"
+  },
+  "pib-cabinet": {
+   "newest": "2026-11-11"
+  },
+  "pib-commerce": {
+   "newest": "2026-11-11"
+  },
+  "pib-finance": {
+   "newest": "2026-11-11"
+  },
+  "plindia-research": {
+   "newest": "2026-11-11"
+  },
+  "prosperiti-insights": {
+   "newest": "2026-10-28"
+  },
+  "rbi-notifications": {
+   "newest": "2026-11-11"
+  },
+  "rbi-press-releases": {
+   "newest": "2026-11-11"
+  },
+  "rest-of-world-latest-slash": {
+   "newest": "2026-11-09"
+  },
+  "reuters-business": {
+   "newest": "2026-11-11"
+  },
+  "reuters-india": {
+   "newest": "2026-11-11"
+  },
+  "sbi-research": {
+   "newest": "2026-11-11"
+  },
+  "sbisec-research": {
+   "newest": "2026-11-09"
+  },
+  "sbisec-sector": {
+   "newest": "2026-11-11"
+  },
+  "sebi-adjudication-orders": {
+   "newest": "2026-08-19"
+  },
+  "sebi-enforcement-orders": {
+   "newest": "2026-08-31"
+  },
+  "sebi-rss": {
+   "newest": "2026-11-11"
+  },
+  "soic-substack": {
+   "newest": "2026-10-29"
+  },
+  "ssga-insights": {
+   "newest": "2026-11-10"
+  },
+  "swarajya-business": {
+   "newest": "2026-11-11"
+  },
+  "swarajya-economy": {
+   "newest": "2026-11-11"
+  },
+  "takshashila-publications": {
+   "newest": "2026-11-02"
+  },
+  "techmeme": {
+   "newest": "2026-11-12"
+  },
+  "the-arc": {
+   "newest": "2026-11-10"
+  },
+  "the-hindu-business-all": {
+   "newest": "2026-11-11"
+  },
+  "the-india-forum": {
+   "newest": "2026-11-04"
+  },
+  "the-ken": {
+   "newest": "2026-11-11"
+  },
+  "the-leap-blog": {
+   "newest": "2026-11-03"
+  },
+  "the-morning-context": {
+   "newest": "2026-11-11"
+  },
+  "thecore": {
+   "newest": "2026-11-11"
+  },
+  "thecore-opinion": {
+   "newest": "2026-11-06"
+  },
+  "theprint-economy": {
+   "newest": "2026-11-11"
+  },
+  "this-week-in-fintech": {
+   "newest": "2026-11-11"
+  },
+  "ubs-insights": {
+   "newest": "2026-11-10"
+  },
+  "ventura-research": {
+   "newest": "2026-11-11"
+  },
+  "way2wealth-research": {
+   "newest": "2026-11-09"
+  },
+  "wsj-economy-google-rss": {
+   "newest": "2026-11-11"
+  },
+  "yt-aswath-damodaran": {
+   "newest": "2026-11-09"
+  },
+  "yt-backstage-millionaires": {
+   "newest": "2026-11-01"
+  },
+  "yt-bloomberg-originals": {
+   "newest": "2026-11-10"
+  },
+  "yt-bond-economist": {
+   "newest": "2026-10-28"
+  },
+  "yt-business-explains-world": {
+   "newest": "2026-11-02"
+  },
+  "yt-business-insider": {
+   "newest": "2026-11-11"
+  },
+  "yt-business-standard": {
+   "newest": "2026-11-11"
+  },
+  "yt-cfa-society-india": {
+   "newest": "2026-11-06"
+  },
+  "yt-cleaning-up-pod": {
+   "newest": "2026-11-11"
+  },
+  "yt-cleo-abram": {
+   "newest": "2026-11-10"
+  },
+  "yt-cnbc-tv18": {
+   "newest": "2026-11-11"
+  },
+  "yt-economics-explained": {
+   "newest": "2026-11-10"
+  },
+  "yt-et-now": {
+   "newest": "2026-11-12"
+  },
+  "yt-fd-finance": {
+   "newest": "2026-11-08"
+  },
+  "yt-marcellus-invest": {
+   "newest": "2026-11-09"
+  },
+  "yt-motley-fool": {
+   "newest": "2026-11-10"
+  },
+  "yt-ndtv-profit": {
+   "newest": "2026-11-11"
+  },
+  "yt-norges-bank": {
+   "newest": "2026-11-11"
+  },
+  "yt-norges-bank-im": {
+   "newest": "2026-11-02"
+  },
+  "yt-novara-media": {
+   "newest": "2026-11-11"
+  },
+  "yt-sahil-kapoor-netra": {
+   "newest": "2026-11-07"
+  },
+  "yt-soic-clips": {
+   "newest": "2026-11-11"
+  },
+  "yt-soic-finance": {
+   "newest": "2026-11-08"
+  },
+  "yt-the-core": {
+   "newest": "2026-11-11"
+  },
+  "yt-the-print": {
+   "newest": "2026-11-11"
+  },
+  "yt-think-school": {
+   "newest": "2026-11-06"
+  },
+  "yt-upstox-markets-today": {
+   "newest": "2026-11-11"
+  },
+  "yt-veritasium": {
+   "newest": "2026-11-11"
+  },
+  "yt-vox": {
+   "newest": "2026-11-11"
+  },
+  "yt-wef": {
+   "newest": "2026-11-11"
+  },
+  "yt-wocomo-docs": {
+   "newest": "2026-11-11"
+  },
+  "yt-wsj": {
+   "newest": "2026-11-11"
+  }
+ },
+ "tracking_since": "2026-11-12"
+}

@@ -1,0 +1,32 @@
+name: Quiet feeds report
+
+# Weekly: lists feeds whose newest item is older than their limit
+# (static/feed_health.json, updated by every hourly run). Any quiet feed makes
+# this job fail, so GitHub emails the repo owner; the list is on the run's
+# summary page.
+"on":
+  schedule:
+    - cron: "30 3 * * 1"   # Mondays 03:30 UTC = 09:00 IST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Report quiet feeds
+        run: python3 feed_health.py --report

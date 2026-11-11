@@ -117,7 +117,8 @@
     "url": "https://prosperiti.substack.com",
     "feed": "https://prosperiti.substack.com/feed",
     "category": "News",
-    "publisher": "Prosperiti Insights"
+    "publisher": "Prosperiti Insights",
+    "quiet_days": 120
   },
   {
     "id": "decoding-the-dragon",
