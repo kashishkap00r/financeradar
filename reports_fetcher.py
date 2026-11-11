@@ -3208,15 +3208,14 @@ def fetch_nirmal_bang(feed_config):
 
 
 # ── Brokers' sector & thematic reports → Reports (Indian), Nov 2026 ──
-# User: "I also want sector reports … under Indian, not Stock notes". Same
-# listings as the stock-note scrapers above; these keep what those skip,
-# minus dailies, picks lists and pure economy/RBI notes. Plain Reports items
+# User: "I also want sector reports … under Indian, not Stock notes", then
+# their economy notes too (macro trackers, CPI/WPI, RBI). Same listings as
+# the stock-note scrapers above; these keep what those skip, minus market
+# dailies (morning roundups, AI insights) and picks lists. Plain Reports items
 # (no `kind`), so they get the Reports tab's 30-day window and the ranker.
 
 _SECTOR_NOISE = re.compile(r"morning|roundup|ai powered|insights-|diwali|muhurat|picks|technical|derivative|"
                            r"rollover|newsletter|ipo note", re.I)
-_ECONOMY_ONLY = re.compile(r"india economy|\beconomic report|\bmacro\b|\brbi (mpc|policy)|monetary policy|"
-                           r"data preview|\bgdp\b|\bunion budget", re.I)
 _NB_DATE_TAIL = re.compile(r"\s*[-–]\s*\d{1,2}(st|nd|rd|th)?\s+[A-Za-z]+\s+\d{4}\s*$")
 
 
@@ -3225,8 +3224,6 @@ def nb_sector_title(title):
     title = re.sub(r"\s+", " ", html.unescape(_strip_html(title))).strip()
     if split_nb_title(title)[0] or _SECTOR_NOISE.search(title):
         return ""
-    if _ECONOMY_ONLY.search(title) and not re.search(r"thematic", title, re.I):
-        return ""  # economy trackers and data previews are not sector reports
     return _NB_DATE_TAIL.sub("", title)
 
 
@@ -3276,8 +3273,6 @@ def split_sbi_thematic(desc):
                      "Plant Visit Note" if re.search(r"plant visit", desc, re.I) else
                      report_label(tail, "Update"))
             return ("stock", company, label)
-    if _ECONOMY_ONLY.search(desc):
-        return ("skip",)
     title = _SBI_HOUSE.sub("", desc).replace("_", " – ").strip()
     return ("sector", title) if title else ("skip",)
 

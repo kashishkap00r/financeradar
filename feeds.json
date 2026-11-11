@@ -1420,7 +1420,7 @@
   },
   {
     "id": "nirmal-bang-sector",
-    "name": "Nirmal Bang — Sector & Thematic",
+    "name": "Nirmal Bang — Sector & Economy",
     "url": "https://www.nirmalbang.com/nb-research/institutional-research-reports.aspx",
     "feed": "nirmalbang:sector",
     "category": "Reports",
@@ -1430,7 +1430,7 @@
   },
   {
     "id": "sbisec-sector",
-    "name": "SBI Securities — Sector & Thematic",
+    "name": "SBI Securities — Sector & Economy",
     "url": "https://www.sbisecurities.in/research/fundamental",
     "feed": "sbisector:thematic",
     "category": "Reports",

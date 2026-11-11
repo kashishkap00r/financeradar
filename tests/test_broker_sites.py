@@ -237,8 +237,8 @@ class TestSectorReports(unittest.TestCase):
                          "Cement Channel Check – Oct ’26 - Sector Update - Cement Prices Recover")
         self.assertTrue(rf.nb_sector_title("RBI Sectoral Deployment - Banking | Sector Update - Robust broad-based credit momentum"))
         self.assertTrue(rf.nb_sector_title("India Capex Pipeline - India Economy | Thematic - A New Private Sector-Led Investment Cycle"))
+        self.assertTrue(rf.nb_sector_title("Fortnightly Macro Tracker - India Economy | Update - Economic activity mixed"))
         for noise in ("India Morning Roundup - 9 November 2026", "NBIE AI Powered Insights- 11 Nov 2026",
-                      "Fortnightly Macro Tracker - India Economy | Update - Economic activity mixed",
                       "Fine Organic Industries (FINEORG) - BUY - Chemicals | 2QFY27 Result Update - Expansion plans"):
             self.assertEqual(rf.nb_sector_title(noise), "", noise)
         # a single-stock note with "Sector" in it stays a stock note
@@ -250,8 +250,10 @@ class TestSectorReports(unittest.TestCase):
         self.assertEqual(rf.split_sbi_thematic("Manorama Industries Ltd_Plant Visit Note"), ("stock", "Manorama Industries", "Plant Visit Note"))
         self.assertEqual(rf.split_sbi_thematic("SBICAP Securities - Metal Pulse Nov'26"), ("sector", "Metal Pulse Nov'26"))
         self.assertEqual(rf.split_sbi_thematic("Thematic Report_Rockstars of 1QFY27 Result")[0], "sector")
-        for skip in ("Macro Trends_Monthly Economic Report_Oct'26", "RBI MPC Meeting Oct'26", "SBI Securities Diwali Muhurat Picks_2026"):
-            self.assertEqual(rf.split_sbi_thematic(skip), ("skip",), skip)
+        self.assertEqual(rf.split_sbi_thematic("Macro Trends_Monthly Economic Report_Oct'26"),
+                         ("sector", "Macro Trends – Monthly Economic Report – Oct'26"))
+        self.assertEqual(rf.split_sbi_thematic("RBI MPC Meeting Oct'26")[0], "sector")
+        self.assertEqual(rf.split_sbi_thematic("SBI Securities Diwali Muhurat Picks_2026"), ("skip",))
 
 
 if __name__ == "__main__":
