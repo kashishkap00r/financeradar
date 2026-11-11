@@ -98,6 +98,7 @@ _BROKER_ALIASES = [
     (r"^ventura", "Ventura Securities"),
     (r"^way ?2 ?wealth", "Way2Wealth"),
     (r"^sbi ?(cap )?sec", "SBI Securities"),
+    (r"^monarch|^mncl\b", "Monarch Networth Capital"),
 ]
 
 # Never shown in Stock notes: foreign houses (view is Indian-only) and
@@ -479,10 +480,10 @@ def clean_headline(text, company):
     return h
 
 
-def pdf_first_page_text(link, user_agent="Mozilla/5.0 (compatible; FinanceRadar)"):
+def pdf_first_page_text(link, user_agent="Mozilla/5.0 (compatible; FinanceRadar)", context=None):
     """Download one PDF to a temp file and return page 1 as text (needs poppler's pdftotext)."""
     req = urllib.request.Request(link, headers={"User-Agent": user_agent, "Accept": "application/pdf,*/*"})
-    with urllib.request.urlopen(req, timeout=PDF_TIMEOUT) as resp:
+    with urllib.request.urlopen(req, timeout=PDF_TIMEOUT, context=context) as resp:
         data = resp.read(PDF_MAX_BYTES + 1)
     if len(data) > PDF_MAX_BYTES or not data.startswith(b"%PDF"):
         raise ValueError("not a PDF (or too large)")

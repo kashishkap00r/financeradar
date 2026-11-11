@@ -183,5 +183,26 @@ class TestFetchers(unittest.TestCase):
         self.assertEqual(out[0]["publisher"], "ICICI Securities")
 
 
+class TestRoundTwoBrokers(unittest.TestCase):
+    def test_idbi_titles(self):
+        self.assertEqual(rf.split_idbi_title("India Shelter Finance (INDIASHL): Q2FY27 Result Review"),
+                         ("India Shelter Finance", "Q2FY27 Result Review"))
+        self.assertEqual(rf.split_idbi_title("TECHNICAL PICK: CDSL"), ("", ""))
+        self.assertEqual(rf.split_idbi_title("Strategy Capital Market - November 2026"), ("", ""))
+
+    def test_mncl_page_one(self):
+        page = ("Company Update\nINDIA l Institutional Research l Capital Goods l 3 November 2026\n"
+                "Grindwell Norton (GNO) l BUY l TP: Rs 2,412 l Upside: 25%\n"
+                "Ceramics Drives Growth; Abrasives Remain Resilient\nWe maintain our BUY rating on Grindwell Norton")
+        dt, head = rf.mncl_page_one(page)
+        self.assertEqual(dt.date().isoformat(), "2026-11-03")
+        self.assertEqual(head, "Ceramics Drives Growth; Abrasives Remain Resilient")
+        self.assertEqual(rf.mncl_page_one("scanned cover"), (None, ""))
+        self.assertEqual(rf._tidy_company("J .G. Chemicals Ltd."), "J.G. Chemicals")
+
+    def test_mncl_certificate_is_bundled(self):
+        self.assertTrue(rf.os.path.exists(rf._MNCL_CA))
+
+
 if __name__ == "__main__":
     unittest.main()

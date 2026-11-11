@@ -109,7 +109,8 @@ def scraper(func):
     return wrapper
 
 
-def _fetch_url(url, accept="text/html", timeout=None, feed_config=None, data=None, extra_headers=None):
+def _fetch_url(url, accept="text/html", timeout=None, feed_config=None, data=None, extra_headers=None,
+               ssl_context=None):
     """Shared URL fetcher with urllib + curl fallback and retry logic.
 
     Passing `data` (bytes) makes it a POST — needed for Drupal's /views/ajax,
@@ -134,9 +135,11 @@ def _fetch_url(url, accept="text/html", timeout=None, feed_config=None, data=Non
             try:
                 req = urllib.request.Request(url, data=data, headers=headers)
                 try:
-                    with urllib.request.urlopen(req, timeout=effective_timeout, context=SSL_CONTEXT) as resp:
+                    with urllib.request.urlopen(req, timeout=effective_timeout, context=ssl_context or SSL_CONTEXT) as resp:
                         return resp.read()
                 except ssl.SSLCertVerificationError:
+                    if ssl_context is not None:
+                        raise  # a site with its own trust setup must verify; never fall back to unverified
                     print(f"  [WARN] TLS verification failed for {url}, falling back to unverified")
                     req = urllib.request.Request(url, data=data, headers=headers)
                     with urllib.request.urlopen(req, timeout=effective_timeout, context=SSL_CONTEXT_NOVERIFY) as resp:
@@ -2462,6 +2465,7 @@ def _tidy_company(raw):
     """'Aarti Industries (ARTO)' / 'MAHINDRA & MAHINDRA LTD' → 'Aarti Industries' / 'Mahindra & Mahindra'."""
     name = re.sub(r"\s+", " ", html.unescape(raw or "")).strip()
     name = re.sub(r"\s*\([^)]*\)\s*$", "", name)  # trailing ticker / short name
+    name = re.sub(r"\s+\.", ".", name)               # "J .G. Chemicals" → "J.G. Chemicals"
     name = clean_company(name)
     if name.isupper() and len(name) > 5:
         # Short codes and vowel-less ones stay: M&M, ITC, HDFC, NTPC
@@ -2495,6 +2499,7 @@ _REPORT_KINDS = [  # (pattern, label) — first match wins
     (r"initiat", "Initiating Coverage"),
     (r"light\s*house", "Light House Update"),
     (r"result\s*preview", "Result Preview"),
+    (r"result\s*review", "Result Review"),
     (r"result", "Result Update"),
     (r"management\s*meet|analyst\s*meet", "Management Meet Update"),
     (r"ipo\s*note", "IPO Note"),
@@ -2968,6 +2973,151 @@ def fetch_ventura(feed_config):
     return articles
 
 
+# IDBI Capital (idbidirect.in): Researchreports.aspx?Option=investment, an
+# ASP.NET table (Name | Date), 10 rows a page, newest first, back to 2013.
+# Titles read "Astral: Q2FY27 Result Review" — company + report type, no
+# headline (page 1 has none either). Technical picks, sector and strategy
+# reports share the table and are skipped. Paging is a postback that needs
+# the session cookie, so history runs use their own cookie-keeping opener.
+
+_IDBI_ROW = re.compile(r'<td style="text-align: left;">\s*<a class="Txtlink" href="([^"]+\.pdf)"[^>]*>(.*?)</a>\s*</td>'
+                       r'\s*<td[^>]*>(.*?)</td>', re.S | re.I)
+_IDBI_KEEP = re.compile(r"result review|result update|initiating|company update", re.I)
+_IDBI_SKIP = re.compile(r"technical pick|sector|preview|strategy|monthly", re.I)
+_IDBI_NEXT = "ctl00$ContentPlaceHolder1$dtpgrGain$ctl02$ctl00"
+
+
+def split_idbi_title(title):
+    """'India Shelter Finance (INDIASHL): Q2FY27 Result Review' → ('India Shelter Finance', 'Q2FY27 Result Review')."""
+    title = re.sub(r"\s+", " ", html.unescape(_strip_html(title))).strip()
+    if not _IDBI_KEEP.search(title) or _IDBI_SKIP.search(title) or ":" not in title:
+        return "", ""
+    company, _, kind = title.partition(":")
+    return _tidy_company(company), report_label(kind, "Update")
+
+
+@scraper
+def fetch_idbi_capital(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    url = feed_config["url"]
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(),
+                                         urllib.request.HTTPSHandler(context=SSL_CONTEXT))
+    headers = {"User-Agent": UA, "Accept": "text/html", "Accept-Language": "en-US,en;q=0.9", "Referer": url}
+
+    def get(data=None):
+        req = urllib.request.Request(url, data=urllib.parse.urlencode(data).encode() if data else None,
+                                     headers={**headers, **(_FORM_HEADERS if data else {})})
+        with opener.open(req, timeout=SCRAPER_FETCH_TIMEOUT * 3) as resp:
+            return resp.read().decode("utf-8", "replace")
+
+    page = get()
+    articles, seen = [], set()
+    for _ in range(feed_config.get("max_pages") or 1):
+        rows = [r for r in _IDBI_ROW.findall(page) if r[0] not in seen]
+        any_fresh = False
+        for href, title, date_text in rows:
+            seen.add(href)
+            dt = _parse_day(_strip_html(date_text), "%d-%b-%Y")
+            if dt is None or not _is_fresh(dt, cutoff):
+                continue
+            any_fresh = True
+            company, label = split_idbi_title(title)
+            if company:
+                articles.append(_direct_note(feed_config, company=company, headline=label, dt=dt,
+                                             pdf=urllib.parse.quote(urllib.parse.urljoin(url, href), safe=":/%")))
+        if not rows or not any_fresh or _IDBI_NEXT not in page:
+            break
+        _polite(feed_config)
+        page = get({**_aspnet_hidden(page), "__EVENTTARGET": _IDBI_NEXT, "__EVENTARGUMENT": ""})
+    return articles
+
+
+# Monarch Networth Capital (mnclgroup.com/research-reports): one static page
+# of company blocks, each listing its notes (PDF link, a "Company l BUY l TP"
+# line, a month). The exact date and the real headline are on the PDF's
+# page 1: "INDIA l Institutional Research l Capital Goods l 3 November 2026",
+# then the company/rating line, then the headline. Sector reports and IPO
+# notes are skipped. The server leaves out its intermediate certificate, so
+# certs/ ships Sectigo's public "DV R36" and verification stays on.
+
+_MNCL_CA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "certs", "sectigo-public-server-auth-ca-dv-r36.pem")
+_MNCL_SSL = None
+_MNCL_BLOCK = re.compile(r'<h2 class="job-title">(.*?)</h2>(.*?)</ul>', re.S)
+_MNCL_ITEM = re.compile(r'<a href="([^"]+)"[^>]*>\s*<span class="report-pdf-left">(.*?)</span>\s*'
+                        r'<span class="year-reports">(.*?)</span>', re.S)
+_MNCL_SKIP = re.compile(r"sector|preview|ipo|strategy|thematic|diwali|outlook", re.I)
+
+
+def _mncl_ssl():
+    global _MNCL_SSL
+    if _MNCL_SSL is None:
+        ctx = ssl.create_default_context()
+        ctx.load_verify_locations(cafile=_MNCL_CA)
+        _MNCL_SSL = ctx
+    return _MNCL_SSL
+
+
+def mncl_page_one(text):
+    """(date, headline) from MNCL's page 1, either may be None/''."""
+    lines = [ln.strip() for ln in (text or "").splitlines() if ln.strip()]
+    for i, line in enumerate(lines):
+        if re.search(r"institutional research", line, re.I):
+            dt = _first_date_in(line)
+            for cand in lines[i + 2:i + 4]:  # after the "Company l BUY l TP" line
+                if 8 <= len(cand) <= 140 and len(cand.split()) >= 2 and not re.search(r"\bl\s+(buy|sell|hold|tp)\b|^we\b", cand, re.I):
+                    return dt, cand
+            return dt, ""
+    return None, ""
+
+
+def _month_start(text):
+    m = re.match(r"([A-Za-z]{3})[a-z]*\.?\s+(\d{4})", (text or "").strip())
+    if not m:
+        return None
+    try:
+        return datetime.strptime(f"1 {m.group(1).title()} {m.group(2)}", "%d %b %Y").replace(tzinfo=IST_TZ)
+    except ValueError:
+        return None
+
+
+@scraper
+def fetch_mncl(feed_config):
+    cutoff = _feed_cutoff(feed_config)
+    known = _known_notes(feed_config)
+    lookups = feed_config.get("max_lookups", _DEFAULT_MAX_LOOKUPS)
+    base = feed_config["url"]
+    page = _fetch_url(base, feed_config=feed_config, ssl_context=_mncl_ssl()).decode("utf-8", "replace")
+    now = datetime.now(IST_TZ)
+    articles, seen = [], set()
+    for name, body in _MNCL_BLOCK.findall(page):
+        company = _tidy_company(_strip_html(name))
+        if not company or _MNCL_SKIP.search(company):
+            continue
+        for href, title, month in _MNCL_ITEM.findall(body):
+            pdf = urllib.parse.urljoin("https://www.mnclgroup.com/", href.strip())
+            if not pdf.lower().endswith(".pdf") or pdf in seen or pdf in known or _MNCL_SKIP.search(pdf + " " + title):
+                continue
+            seen.add(pdf)
+            listed = _month_start(_strip_html(month))
+            if listed is None or not _is_fresh(listed + timedelta(days=31), cutoff):
+                continue  # whole month is older than the window
+            dt, headline = None, ""
+            if lookups > 0:
+                lookups -= 1
+                _polite(feed_config)
+                try:
+                    dt, headline = mncl_page_one(pdf_first_page_text(pdf, user_agent=UA, context=_mncl_ssl()))
+                except Exception as e:
+                    print(f"  [WARN] MNCL page 1 {pdf[-50:]}: {str(e)[:80]}")
+            if dt is None or dt > now:
+                dt = now if (listed.year, listed.month) == (now.year, now.month) else listed
+            if not _is_fresh(dt, cutoff):
+                continue
+            articles.append(_direct_note(feed_config, company=company, dt=dt, pdf=pdf,
+                                         headline=headline or report_label(pdf.rsplit("/", 1)[-1], "Company Update")))
+    return articles
+
+
 REPORT_FETCHERS = {
     "crisilratings:": fetch_crisil_ratings,
     "crisilreports:": fetch_crisil_reports,
@@ -3008,6 +3158,8 @@ REPORT_FETCHERS = {
     "choice:": fetch_choice,
     "way2wealth:": fetch_way2wealth,
     "ventura:": fetch_ventura,
+    "idbicap:": fetch_idbi_capital,
+    "mncl:": fetch_mncl,
 }
 
 
