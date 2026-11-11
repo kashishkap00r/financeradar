@@ -4,6 +4,11 @@
         if (!('STOCK_NOTES' in window)) window.STOCK_NOTES = null;
         if (!('STOCK_NOTES_HOME' in window)) window.STOCK_NOTES_HOME = null;
         if (!('STOCK_NOTE_PUBLISHERS' in window)) window.STOCK_NOTE_PUBLISHERS = [];
+        if (!('PAID_PUBLISHERS' in window)) window.PAID_PUBLISHERS = [];
+        // ICRA, India Ratings: the card opens a free summary; the full report is paid (user, Nov 2026).
+        function paidTagHtml(publisher) {
+            return PAID_PUBLISHERS.indexOf(publisher) !== -1 ? '<span class="paid-tag" title="Full report needs a login or payment; the link opens a free summary">Paid</span>' : '';
+        }
 
         // Theme toggle (persisted)
         const safeStorage = {
@@ -2290,7 +2295,7 @@
                     + '<div class="slider-card-header"><div><div class="rp-publisher">' + pub + '</div>'
                     + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     + '</div>' + bk + '</div>'
-                    + (regionBadge || dateStr ? '<div class="card-signals">' + regionBadge + (dateStr ? '<span class="rp-date">' + dateStr + '</span>' : '') + '</div>' : '')
+                    + (regionBadge || dateStr ? '<div class="card-signals">' + regionBadge + paidTagHtml(r.publisher || r.source) + (dateStr ? '<span class="rp-date">' + dateStr + '</span>' : '') + '</div>' : '')
                     + '</div></div>';
             }).join('');
             return '<section class="slider-section">'
@@ -4382,6 +4387,7 @@
                             <div class="report-card-left">
                                 ${sourceHtml}
                                 <span class="region-tag">${region === 'international' ? 'International' : 'Indian'}</span>
+                                ${paidTagHtml(r.publisher || r.source)}
                             </div>
                             <div class="report-card-right">
                                 ${r.date && !isStockNote(r) ? `<span class="report-card-date">${formatResearchDate(r.date)}</span>` : ''}

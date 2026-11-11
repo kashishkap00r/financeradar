@@ -3810,3 +3810,8 @@
             .wk-dr-day { grid-template-columns: 64px minmax(0, 1fr); }
             .wk-dr-foot { padding-left: var(--s-4); padding-right: var(--s-4); }
         }
+
+        /* "Paid" label: ICRA / India Ratings cards open a free summary; the full report is paid */
+        .paid-tag { display: inline-block; font-size: 11px; line-height: 1.4; padding: 0 6px; margin-left: 6px;
+            border: 1px solid var(--border); border-radius: 4px; color: var(--text-secondary); background: var(--bg-secondary);
+            font-weight: 600; letter-spacing: 0.02em; vertical-align: middle; }
