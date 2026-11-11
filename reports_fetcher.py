@@ -2490,6 +2490,50 @@ def _parse_day(text, fmt):
         return None
 
 
+_QUARTER = re.compile(r"\bQ\s*([1-4])\s*[_ ]?\s*(FY|CY)\s*[_ ']?\s*(\d{2})(?!\d)", re.I)
+_REPORT_KINDS = [  # (pattern, label) — first match wins
+    (r"initiat", "Initiating Coverage"),
+    (r"light\s*house", "Light House Update"),
+    (r"result\s*preview", "Result Preview"),
+    (r"result", "Result Update"),
+    (r"management\s*meet|analyst\s*meet", "Management Meet Update"),
+    (r"ipo\s*note", "IPO Note"),
+    (r"co(mpany)?\s*update", "Company Update"),
+    (r"update", "Update"),
+]
+
+
+def report_label(text, default_kind=""):
+    """'…Q2_FY_27_Result_Update…' / 'Q2FY27 result update' → 'Q2FY27 Result Update'.
+
+    For brokers whose reports carry no headline (Ventura, Kotak, Way2Wealth:
+    page 1 only names the report type), this is the most honest title there is.
+    """
+    text = re.sub(r"[_+]", " ", urllib.parse.unquote(text or ""))
+    q = _QUARTER.search(text)
+    quarter = f"Q{q.group(1)}{q.group(2).upper()}{q.group(3)}" if q else ""
+    kind = next((label for pat, label in _REPORT_KINDS if re.search(pat, text, re.I)), default_kind)
+    return " ".join(p for p in (quarter, kind) if p)
+
+
+def icici_headline(page_text):
+    """ICICI Direct notes print the headline on the line after the report date, ending in '…'."""
+    lines = [ln.strip() for ln in (page_text or "").splitlines() if ln.strip()]
+    for i, line in enumerate(lines):
+        if _first_date_in(line) and len(line) < 40:
+            picked = []
+            for nxt in lines[i + 1:i + 3]:
+                if nxt.startswith((":", "About the stock", "…")):
+                    break
+                picked.append(nxt)
+                if nxt.endswith(("…", "...")):
+                    break
+            head = re.sub(r"\s*(…|\.\.\.)\s*$", "", " ".join(picked))
+            head = re.sub(r"\s+([,;:)])", r"\1", re.sub(r"\s+", " ", head)).strip()
+            return head if 8 <= len(head) <= 150 else ""
+    return ""
+
+
 def _direct_note(feed_config, *, company, headline, dt, pdf, target=None, page=None):
     """One note from a broker's own site. Headline only when the site gives a real one."""
     company = _house_spelling(company, feed_config)
@@ -2626,16 +2670,18 @@ def fetch_icicidirect(feed_config):
         seen.add(pdf)
         card = page[max(0, m.start() - 2500):m.start()]
         targets = re.findall(r"Target Price</label>\s*<\w+ class=\"label_value\">(?:<span[^>]*></span>)?([\d,.]+)", card)
-        dt = None
+        dt, headline = None, ""
         if lookups > 0:
             lookups -= 1
             try:
-                dt = _first_date_in(pdf_first_page_text(pdf, user_agent=UA))
+                text = pdf_first_page_text(pdf, user_agent=UA)
+                dt, headline = _first_date_in(text), icici_headline(text)
             except Exception as e:
                 print(f"  [WARN] ICICI page 1 {pdf[-40:]}: {str(e)[:80]}")
         if dt is None or dt > now or now - dt > timedelta(days=120):
             dt = now  # unreadable or implausible: the day we first saw it
-        articles.append(_direct_note(feed_config, company=company, headline="", dt=dt, pdf=pdf,
+        headline = headline or report_label(pdf.rsplit("/", 1)[-1].replace("coupdate", "company update"), "Result Update")
+        articles.append(_direct_note(feed_config, company=company, headline=headline, dt=dt, pdf=pdf,
                                      target=parse_price(targets[-1]) if targets else None))
     return articles
 
@@ -2677,7 +2723,8 @@ def fetch_kotak_opportune(feed_config):
                 print(f"  [WARN] Kotak PDF date {pdf[-50:]}: {str(e)[:80]}")
         if dt is None:
             continue
-        articles.append(_direct_note(feed_config, company=company, headline="", dt=dt, pdf=pdf))
+        articles.append(_direct_note(feed_config, company=company, dt=dt, pdf=pdf,
+                                     headline=report_label(pdf.rsplit("/", 1)[-1], "Update")))
     return articles
 
 
@@ -2776,7 +2823,8 @@ def fetch_choice(feed_config):
         rows = ((json.loads(raw.decode("utf-8", "replace")) or {}).get("response") or {}).get("research") or []
         any_fresh = False
         for row in rows:
-            dt = _ist_date(row.get("published_date"), "%Y-%m-%d")
+            dt = (_parse_day(row.get("published_date"), "%Y-%m-%d %H:%M:%S")
+                  or _ist_date(row.get("published_date"), "%Y-%m-%d"))
             if dt is None or not _is_fresh(dt, cutoff):
                 continue
             any_fresh = True
@@ -2806,10 +2854,11 @@ _W2W_KIND = re.compile(r"result update|light ?house update|initiating coverage|c
 
 
 def split_w2w_caption(caption):
+    """'J K Cement Ltd. - Result Update – 09 November 2026' → ('J K Cement', 'Result Update')."""
     parts = re.split(r"\s*[-–]\s+", re.sub(r"\s+", " ", html.unescape(_strip_html(caption))).strip())
     if len(parts) < 2 or not _W2W_KIND.search(parts[1]) or re.search(r"event update", parts[1], re.I):
-        return ""
-    return _tidy_company(parts[0])
+        return "", ""
+    return _tidy_company(parts[0]), report_label(parts[1], "Update")
 
 
 @scraper
@@ -2836,9 +2885,9 @@ def fetch_way2wealth(feed_config):
                 if dt is None or not _is_fresh(dt, cutoff):
                     continue
                 any_fresh = True
-                company = split_w2w_caption(caption)
+                company, label = split_w2w_caption(caption)
                 if company:
-                    articles.append(_direct_note(feed_config, company=company, headline="", dt=dt,
+                    articles.append(_direct_note(feed_config, company=company, headline=label, dt=dt,
                                                  pdf=urllib.parse.urljoin(url, pdf)))
             if not rows or not any_fresh or f"Page${page_no + 1}" not in page or not select:
                 break
@@ -2908,7 +2957,8 @@ def fetch_ventura(feed_config):
             any_fresh = True
             company = _tidy_company(company)
             if company:
-                articles.append(_direct_note(feed_config, company=company, headline="", dt=dt,
+                articles.append(_direct_note(feed_config, company=company, dt=dt,
+                                             headline=report_label(pdf.rsplit("/", 1)[-1], "Result Update"),
                                              pdf=urllib.parse.quote(pdf, safe=":/%")))
         if not rows or not any_fresh or "btnNext" not in page:
             break

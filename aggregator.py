@@ -47,7 +47,7 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 from reports_fetcher import get_report_fetcher, _atomic_write_json
 from stock_notes import (ARCHIVE_FILE as STOCK_NOTES_FILE, STOCK_NOTE_KIND, fill_headlines,
                          load_archive, merge_into_archive, save_archive, select_home_notes,
-                         write_note_chunks)
+                         write_note_chunks, pdf_first_page_lines, rule_headlines, RULE_HEADLINE_BROKERS)
 import shutil
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
@@ -164,6 +164,11 @@ STOCK_NOTE_HEADLINE_MAX_AGE_DAYS = 30
 # Off at the user's request (10 Nov 2026): no Gemini headlines, old or new.
 # Jan 2025 → 10 Nov 2026 headlines were read by Claude locally and stay.
 STOCK_NOTE_HEADLINES_ENABLED = False
+# No-AI headlines (11 Nov 2026): page-1 layout rules for brokers that only
+# reach us via Moneycontrol/BS (ICICI Securities, Motilal Oswal; 149/150
+# matched the Claude-read headlines in a check). Needs only pdftotext.
+STOCK_NOTE_RULE_HEADLINES = True
+STOCK_NOTE_RULE_HEADLINES_PER_RUN = 150
 
 
 def update_stock_notes_archive(stock_note_articles, logger):
@@ -178,6 +183,11 @@ def update_stock_notes_archive(stock_note_articles, logger):
         archive = merge_into_archive(archive, stock_note_articles)
         added = len(archive) - before
         filled = 0
+        if STOCK_NOTE_RULE_HEADLINES and shutil.which("pdftotext"):
+            filled += fill_headlines(archive, limit=STOCK_NOTE_RULE_HEADLINES_PER_RUN, time_budget=180,
+                                     pdf_text=pdf_first_page_lines, ask_model=rule_headlines,
+                                     workers=STOCK_NOTE_HEADLINE_WORKERS, brokers=RULE_HEADLINE_BROKERS,
+                                     min_date=(datetime.now(IST_TZ) - timedelta(days=STOCK_NOTE_HEADLINE_MAX_AGE_DAYS)).date().isoformat())
         if not STOCK_NOTE_HEADLINES_ENABLED:
             pass
         elif not os.environ.get("GEMINI_API_KEY"):

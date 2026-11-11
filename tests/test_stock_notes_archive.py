@@ -42,7 +42,7 @@ class TestMerge(unittest.TestCase):
         ])
         self.assertEqual([e["link"] for e in out], ["https://bs/b.pdf", "https://mc/a.pdf"])
         e = out[1]
-        self.assertEqual(set(e), {"date", "broker", "company", "headline", "link", "via", "target", "headline_tries"})
+        self.assertEqual(set(e), {"date", "broker", "company", "headline", "link", "via", "target", "headline_tries", "ts"})
         self.assertEqual(e["broker"], "Emkay Global")
         self.assertEqual(e["headline"], "")
         self.assertEqual(e["date"], (datetime.now(IST_TZ) - timedelta(days=3)).date().isoformat())
@@ -234,3 +234,58 @@ class TestHistoryFloorAndBrowserChunks(unittest.TestCase):
             self.assertEqual(sum(len(json.load(open(os.path.join(d, f"{y}.json")))) for y in years), 4)
             self.assertIn("recent.json", written)
             self.assertEqual(write_note_chunks(entries, out_dir=d, recent=2), [])  # unchanged → nothing rewritten
+
+
+class TestLatestFirst(unittest.TestCase):
+    def test_note_time_from_source_link_or_first_seen(self):
+        from stock_notes import note_time
+        self.assertEqual(note_time("https://images.moneycontrol.com/x/2026/11/20261109080824_Mphasis.pdf"), "2026-11-09T08:08")
+        self.assertEqual(note_time("https://www.hdfcsec.com/hsl.docs/Dabur - Q2FY27 - HSIE-202611050746138922064.pdf"), "2026-11-05T07:46")
+        self.assertEqual(note_time("https://ventura1.com/q/639298433316872389_HCC Result Update Q2FY27.pdf")[:10], "2026-11-09")
+        self.assertEqual(note_time("https://pl/x.pdf", datetime(2026, 11, 11, 10, 52, tzinfo=IST_TZ)), "2026-11-11T10:52")
+        seen = datetime(2026, 11, 11, 14, 5, tzinfo=IST_TZ)
+        self.assertEqual(note_time("https://w2w/RR1.pdf", datetime(2026, 11, 9, tzinfo=IST_TZ), now=seen), "2026-11-11T14:05")
+
+    def test_within_a_day_latest_first_then_untimed_a_to_z(self):
+        from stock_notes import sort_notes
+        notes = [
+            {"date": "2026-11-11", "broker": "Ventura Securities", "company": "A", "link": "1", "ts": "2026-11-11T09:00"},
+            {"date": "2026-11-11", "broker": "Prabhudas Lilladher", "company": "B", "link": "2", "ts": "2026-11-11T16:30"},
+            {"date": "2026-11-11", "broker": "Way2Wealth", "company": "C", "link": "3"},
+            {"date": "2026-11-11", "broker": "Choice Broking", "company": "D", "link": "4"},
+            {"date": "2026-11-12", "broker": "Zed", "company": "E", "link": "5"},
+        ]
+        self.assertEqual([n["link"] for n in sort_notes(notes)], ["5", "2", "1", "4", "3"])
+
+
+class TestRuleHeadlines(unittest.TestCase):
+    """Page-1 layout rules (no AI) for ICICI Securities and Motilal Oswal."""
+
+    def test_icici_securities_headline_follows_company_and_sector(self):
+        from stock_notes import rule_headline
+        lines = [(17.5, 18, "BUY (Maintain)"), (9, 60, "11 November 2026"),
+                 (9, 70, "India | Equity Research | Results Update"), (17.5, 100, "Motilal Oswal Financial Services"),
+                 (9, 120, "Exchanges"), (15.1, 149, "Excess inventory likely to weigh on rest of FY26; Downgrade to HOLD"),
+                 (9, 170, "Voltas’ Q1FY26 performance was weighed down by softer summer product sales"),
+                 (9, 180, "body"), (9, 190, "body"), (9, 200, "body")]
+        self.assertEqual(rule_headline("ICICI Securities", lines, "Voltas"),
+                         "Excess inventory likely to weigh on rest of FY26; Downgrade to HOLD")
+
+    def test_motilal_takes_largest_line_that_is_not_a_name_or_price(self):
+        from stock_notes import rule_headline
+        lines = [(26.0, 58, "Fujiyama Power Systems"), (14.0, 98, "TP: INR500 (+40%)"),
+                 (14.0, 118, "Strong volume-led growth supported by"), (14.0, 134, "channel expansion"),
+                 (11.0, 300, "Investors are advised to refer through important disclosures")]
+        self.assertEqual(rule_headline("Motilal Oswal", lines, "Fujiyama Power Systems"),
+                         "Strong volume-led growth supported by channel expansion")
+        self.assertEqual(rule_headline("Emkay Global", lines, "X"), "")  # no rule → no guess
+
+    def test_fill_only_touches_rule_brokers(self):
+        from stock_notes import rule_headlines
+        items = [_entry("https://mc/mo.pdf", broker="Motilal Oswal", company="Aarti Industries"),
+                 _entry("https://mc/em.pdf", broker="Emkay Global")]
+        page = [(26.0, 73, "Aarti Industries"), (24.0, 717, "Fuel additives lead; core chemistry gains momentum")]
+        fill_headlines(items, limit=10, pdf_text=lambda link: page, ask_model=rule_headlines,
+                       brokers=("ICICI Securities", "Motilal Oswal"))
+        self.assertEqual([e["headline"] for e in items], ["Fuel additives lead; core chemistry gains momentum", ""])
+        self.assertEqual(items[1]["headline_tries"], 0)

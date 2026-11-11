@@ -12,6 +12,7 @@ to agree across sources lives here:
 - dedup_stock_notes(): the same call listed on two sites is kept once
 """
 
+import html
 import json
 import os
 import re
@@ -252,7 +253,39 @@ def dedup_stock_notes(items, window_days=DEDUP_WINDOW_DAYS):
 # ── Archive: static/stock_notes.json ─────────────────────────────────
 
 def _archive_sort_key(entry):
-    return (entry.get("date") or "", entry.get("broker") or "", entry.get("company") or "", entry.get("link") or "")
+    """Newest first: by day, then by time within the day (notes with a known time first)."""
+    return (entry.get("date") or "", entry.get("ts") or "")
+
+
+def sort_notes(entries):
+    """Latest first (user, 11 Nov 2026). Within one day: by `ts`, the time the
+    note was published or first seen; notes with no time (older history from
+    sources that give none) follow, A→Z by broker then company."""
+    steady = sorted(entries, key=lambda e: (e.get("broker") or "", e.get("company") or "", e.get("link") or ""))
+    return sorted(steady, key=_archive_sort_key, reverse=True)
+
+
+_LINK_STAMP = re.compile(r"/(20\d{6})(\d{4})\d{2}_|HSIE-(20\d{6})(\d{4})")  # Moneycontrol, HDFC Securities
+_LINK_TICKS = re.compile(r"/(6\d{17})_")  # Ventura: .NET ticks of the upload
+
+
+def note_time(link, dt=None, now=None):
+    """'YYYY-MM-DDTHH:MM' (IST) for ordering within a day.
+
+    A source time when there is one (the fetcher's datetime if it carries a
+    time, else a stamp in the PDF link), otherwise the moment it was first seen.
+    """
+    if dt is not None and (dt.hour or dt.minute):
+        return dt.astimezone(IST_TZ).strftime("%Y-%m-%dT%H:%M")
+    m = _LINK_STAMP.search(link or "")
+    if m:
+        day, hm = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
+        return f"{day[:4]}-{day[4:6]}-{day[6:]}T{hm[:2]}:{hm[2:]}"
+    m = _LINK_TICKS.search(link or "")
+    if m:
+        stamp = datetime(1, 1, 1) + timedelta(microseconds=int(m.group(1)) // 10)
+        return stamp.strftime("%Y-%m-%dT%H:%M")
+    return (now or datetime.now(IST_TZ)).strftime("%Y-%m-%dT%H:%M")
 
 
 _REPORT_TYPE_PREFIX = re.compile(
@@ -295,6 +328,7 @@ def _to_entry(article):
         "via": article.get("via") or "",
         "target": article.get("target"),
         "headline_tries": 0,
+        "ts": note_time(article.get("link"), dt),
     }
     if article.get("page"):  # the broker's page for the report, when the PDF sits behind one (PL)
         entry["page"] = article["page"]
@@ -342,10 +376,10 @@ def merge_into_archive(archive, articles):
         fresh.append(_entry_as_note(_to_entry(art), prev_target=art.get("prev_target"),
                                     reco_price=art.get("reco_price")))
     if not fresh:
-        return sorted(archive, key=_archive_sort_key, reverse=True)
+        return sort_notes(archive)
     notes = [_entry_as_note(e) for e in archive] + fresh
     kept = dedup_stock_notes(notes)
-    return sorted((n["_entry"] for n in kept), key=_archive_sort_key, reverse=True)
+    return sort_notes(n["_entry"] for n in kept)
 
 
 def _write_json_atomic(path, payload):
@@ -369,8 +403,7 @@ def write_note_chunks(entries, out_dir=NOTE_CHUNKS_DIR, recent=RECENT_NOTES):
     """
     os.makedirs(out_dir, exist_ok=True)
     floor = min_note_date()
-    entries = sorted((e for e in entries if (e.get("date") or "") >= floor),
-                     key=_archive_sort_key, reverse=True)
+    entries = sort_notes(e for e in entries if (e.get("date") or "") >= floor)
     slim = [{k: e.get(k) or "" for k in _BROWSER_FIELDS} for e in entries]
     by_year = {}
     for note in slim:
@@ -406,7 +439,7 @@ def load_archive(path=ARCHIVE_FILE):
 
 def save_archive(path, entries):
     """Atomic write, one note per line: hourly commits then touch a few lines, not the file."""
-    entries = sorted(entries, key=_archive_sort_key, reverse=True)
+    entries = sort_notes(entries)
     body = "[\n" + ",\n".join(json.dumps(e, ensure_ascii=False, sort_keys=True) for e in entries) + "\n]\n"
     fd, tmp = tempfile.mkstemp(dir=os.path.dirname(path) or ".", suffix=".tmp")
     try:
@@ -450,6 +483,102 @@ def pdf_first_page_text(link, user_agent="Mozilla/5.0 (compatible; FinanceRadar)
     return text[:HEADLINE_PAGE_CHARS]
 
 
+# ── Headlines without AI: page-1 layout rules per broker ─────────────
+# The user wants no AI headlines (Nov 2026). Two big brokers that reach us
+# only through Moneycontrol/BS lay page 1 out predictably enough for rules:
+# ICICI Securities (institutional) prints "India | Equity Research | …",
+# then the company, the sector, and the headline; Motilal Oswal's headline is
+# the largest line that isn't the company, a price or a disclaimer.
+
+RULE_HEADLINE_BROKERS = ("ICICI Securities", "Motilal Oswal")
+_NOT_HEADLINE = re.compile(
+    r"\b(cmp|tp|target|inr|rs|buy|sell|hold|neutral|add|reduce|accumulate|maintain(ed)?|sector|"
+    r"research analyst|disclosures?|advised|bloomberg|sensex|nifty|s&p|equity research|estimate change|"
+    r"rating change|tp change|financial summary|investment rationale|key financials|stock info|"
+    r"shareholding|result(s)? update|company update|initiating coverage|price performance)\b|@|www\.|₹",
+    re.I)
+
+
+def pdf_first_page_lines(link, user_agent="Mozilla/5.0 (compatible; FinanceRadar)"):
+    """Page 1 as [(text height, y, text)] in reading order (pdftotext -bbox-layout)."""
+    req = urllib.request.Request(link, headers={"User-Agent": user_agent, "Accept": "application/pdf,*/*"})
+    with urllib.request.urlopen(req, timeout=PDF_TIMEOUT) as resp:
+        data = resp.read(PDF_MAX_BYTES + 1)
+    if len(data) > PDF_MAX_BYTES or not data.startswith(b"%PDF"):
+        raise ValueError("not a PDF (or too large)")
+    with tempfile.NamedTemporaryFile(suffix=".pdf") as tmp:
+        tmp.write(data)
+        tmp.flush()
+        out = subprocess.run(["pdftotext", "-f", "1", "-l", "1", "-bbox-layout", tmp.name, "-"],
+                             capture_output=True, timeout=30, check=True)
+    lines = []
+    for m in re.finditer(r'<line xMin="[\d.]+" yMin="([\d.]+)" xMax="[\d.]+" yMax="([\d.]+)">(.*?)</line>',
+                         out.stdout.decode("utf-8", "replace"), re.S):
+        text = html.unescape(" ".join(re.findall(r">([^<]*)</word>", m.group(3)))).strip()
+        if text:
+            lines.append((round(float(m.group(2)) - float(m.group(1)), 1), float(m.group(1)), text))
+    if not lines:
+        raise ValueError("page 1 has no text (scanned image?)")
+    return lines
+
+
+_NEVER_HEADLINE = re.compile(r"@|www\.|₹|\bINR\b|equity research|^[A-Z]{1,4}:\s", re.I)
+
+
+def _headline_like(text, company, strict=True):
+    t = re.sub(r"\s+", " ", text).strip()
+    if not (12 <= len(t) <= 150) or len(t.split()) < 3 or _NEVER_HEADLINE.search(t):
+        return False
+    if strict and _NOT_HEADLINE.search(t):
+        return False
+    if sum(ch.isalpha() for ch in t) < 0.6 * len(t):
+        return False
+    words = [w for w in re.findall(r"[A-Za-z][\w'’-]*", t)]
+    if len(words) <= 4 and all(w[0].isupper() for w in words):
+        return False  # a name or a sector ("Asset Management Companies"); headlines read as sentences
+    low, comp = t.lower(), (company or "").lower()
+    return not (comp and (low == comp or low.startswith(comp + " (") or comp.startswith(low)))
+
+
+def _with_continuation(lines, i, strict=True):
+    """A headline that wraps: following lines of the same size directly below."""
+    h, y, text = lines[i]
+    for h2, y2, t2 in lines[i + 1:i + 3]:
+        if abs(h2 - h) > 0.3 or not (0 < y2 - y < 1.8 * h) or _NEVER_HEADLINE.search(t2) \
+                or (strict and _NOT_HEADLINE.search(t2)):
+            break
+        text, y = f"{text} {t2}", y2
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def rule_headline(broker, lines, company):
+    """Headline from page-1 layout, or '' when the rule isn't sure."""
+    if broker == "ICICI Securities":
+        heights = sorted(h for h, _, _ in lines)
+        body = heights[len(heights) // 2]  # the usual text size on the page
+        for i, (_, _, t) in enumerate(lines):
+            if t.startswith("India | Equity Research"):
+                for j in range(i + 2, min(i + 6, len(lines))):  # company, sector, then the headline
+                    h, _, cand = lines[j]
+                    # Position decides here, so a rating in the headline is fine ("…; Downgrade to HOLD")
+                    if h > body + 0.5 and _headline_like(cand, company, strict=False):
+                        return _with_continuation(lines, j, strict=False)
+                return ""
+        return ""
+    if broker == "Motilal Oswal":
+        cands = [i for i, (_, _, t) in enumerate(lines) if _headline_like(t, company)]
+        if not cands:
+            return ""
+        top = max(lines[i][0] for i in cands)
+        return _with_continuation(lines, min((i for i in cands if lines[i][0] == top), key=lambda i: lines[i][1]))
+    return ""
+
+
+def rule_headlines(batch):
+    """fill_headlines() `ask_model` stand-in: layout rules instead of a model."""
+    return {b["link"]: rule_headline(b["broker"], b["text"], b["company"]) for b in batch}
+
+
 _HEADLINE_PROMPT = """Below is the text of page 1 of {n} Indian brokerage research reports, extracted from PDFs (columns may be jumbled).
 For each report, return the report's HEADLINE: the analyst's one-line title or thesis, usually in large type near the top.
 Examples of headlines: "Production drag persists; valuations factor in USD62/bbl Brent", "2Q beat led by strong growth across brands", "Consistent and meaningful execution!".
@@ -487,7 +616,7 @@ def _gemini_headlines(batch):
 
 
 def fill_headlines(entries, *, limit, pdf_text=pdf_first_page_text, ask_model=_gemini_headlines,
-                   workers=4, batch_size=8, time_budget=None, on_progress=None, min_date=None):
+                   workers=4, batch_size=8, time_budget=None, on_progress=None, min_date=None, brokers=None):
     """Give archive entries their PDF headline, newest first, in place.
 
     Returns how many got one. A failed download or a page with no headline
@@ -495,9 +624,10 @@ def fill_headlines(entries, *, limit, pdf_text=pdf_first_page_text, ask_model=_g
     the PDF's fault), so those notes are simply retried next run.
     """
     started = time.monotonic()
-    pending = [e for e in sorted(entries, key=_archive_sort_key, reverse=True)
+    pending = [e for e in sort_notes(entries)
                if not e.get("headline") and e.get("headline_tries", 0) < HEADLINE_MAX_TRIES
-               and (min_date is None or (e.get("date") or "") >= min_date)][:limit]
+               and (min_date is None or (e.get("date") or "") >= min_date)
+               and (brokers is None or e.get("broker") in brokers)][:limit]
     filled = 0
     for start in range(0, len(pending), batch_size * workers):
         if time_budget is not None and time.monotonic() - started > time_budget:
@@ -558,7 +688,7 @@ def select_home_notes(entries, limit=HOME_NOTES_LIMIT):
     Written to static/tab_stock_notes_home.json — a few KB, unlike the
     full archive, so the homepage can afford to load it.
     """
-    picked = [e for e in sorted(entries, key=_archive_sort_key, reverse=True) if e.get("company")][:limit]
+    picked = [e for e in sort_notes(entries) if e.get("company")][:limit]
     return [{
         "title": " — ".join(x for x in (e["company"], e.get("headline")) if x),
         "link": e["link"],
