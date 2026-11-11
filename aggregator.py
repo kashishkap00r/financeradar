@@ -46,6 +46,7 @@ from feeds import (load_feeds, fetch_feed, fetch_careratings, fetch_the_ken,
 # Report scrapers
 from reports_fetcher import get_report_fetcher, _atomic_write_json
 from calendar_events import build_calendar
+from official_sources import fetch_official
 from stock_notes import (ARCHIVE_FILE as STOCK_NOTES_FILE, STOCK_NOTE_KIND, fill_headlines,
                          load_archive, merge_into_archive, save_archive, select_home_notes,
                          write_note_chunks, pdf_first_page_lines, rule_headlines, RULE_HEADLINE_BROKERS)
@@ -568,7 +569,8 @@ def generate_html(
         "India Desk": ["ET", "The Hindu", "BusinessLine", "Business Standard", "Mint", "ThePrint", "Firstpost", "Indian Express", "The Core", "Financial Express", "Power Line Magazine", "Filter Coffee"],
         "World Desk": ["BBC", "CNBC", "WSJ", "The Economist", "The Guardian", "Financial Times", "Reuters", "Bloomberg", "CSIS", "Techmeme"],
         "Indie Voices": ["Finshots", "This Week in Fintech", "SOIC", "The Ken", "The Morning Context", "The Arc", "Not-Ship", "India Dispatch", "Carbon Brief", "Our World in Data", "Data For India", "IndiaSpend", "Down To Earth", "The LEAP Blog", "By the Numbers", "Musings on Markets", "A Wealth of Common Sense", "BS Number Wise", "Market Bites", "Capital Quill", "Noah Smith", "Ideas For India", "The India Forum", "Takshashila", "Prosperiti Insights", "Decoding the Dragon", "BharatNama", "Biz News+", "Ember", "CREA", "Apollo", "Rest of World"],
-        "Official Channels": ["RBI", "SEBI", "DGFT", "ECB", "ADB", "FRED", "PIB", "MoSPI"]
+        "Official Channels": ["RBI", "SEBI", "DGFT", "DGTR", "CBIC", "IRDAI", "PFRDA", "IFSCA", "CCI", "MCA", "DPIIT",
+                              "ECB", "ADB", "FRED", "PIB", "MoSPI"]
     }
 
     # Twitter publisher presets
@@ -1261,6 +1263,8 @@ def main():
                 futures[executor.submit(fetch_careratings, feed)] = feed
             elif feed_field.startswith("rbi-scraper:"):
                 futures[executor.submit(fetch_rbi_press_releases, feed)] = feed
+            elif feed_field.startswith("official:"):
+                futures[executor.submit(fetch_official, feed)] = feed
             elif feed_field.startswith("dgft:"):
                 futures[executor.submit(fetch_dgft, feed)] = feed
             elif feed_field.startswith("beehiiv:"):

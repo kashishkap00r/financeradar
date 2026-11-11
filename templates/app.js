@@ -2362,7 +2362,7 @@
         // "From The Source" = every official-channel news item + SEBI notices, merged.
         // Official channels mirror the News tab's "official-channels" desk, matched by
         // publisher (fallback source) substring — see NEWS_DESKS['official-channels'].
-        var OFFICIAL_CHANNEL_NAMES = ['RBI', 'SEBI', 'DGFT', 'ECB', 'ADB', 'FRED', 'PIB', 'MoSPI'];
+        var OFFICIAL_CHANNEL_NAMES = ['RBI', 'SEBI', 'DGFT', 'DGTR', 'CBIC', 'IRDAI', 'PFRDA', 'IFSCA', 'CCI', 'MCA', 'DPIIT', 'ECB', 'ADB', 'FRED', 'PIB', 'MoSPI'];
         function isOfficialChannelArticle(a) {
             var pub = (a && (a.publisher || a.source)) || '';
             for (var i = 0; i < OFFICIAL_CHANNEL_NAMES.length; i++) {
@@ -2487,6 +2487,14 @@
             { re: /\bRBI\b|Reserve Bank/i, code: 'RBI', c: '#2F5D8A' },
             { re: /\bSEBI\b/i, code: 'SEBI', c: '#7A4E8C' },
             { re: /\bDGFT\b|Foreign Trade/i, code: 'DGFT', c: '#8C3F55' },
+            { re: /\bDGTR\b|Trade Remedies/i, code: 'DGTR', c: '#A14A3B' },
+            { re: /\bCBIC\b|Customs/i, code: 'CBIC', c: '#5C6E2E' },
+            { re: /\bIRDAI\b/i, code: 'IRDAI', c: '#3A6F9A' },
+            { re: /\bPFRDA\b/i, code: 'PFRDA', c: '#6A5A9C' },
+            { re: /\bIFSCA\b/i, code: 'IFSCA', c: '#2E7A8C' },
+            { re: /\bCCI\b|Competition Commission/i, code: 'CCI', c: '#8A4F7D' },
+            { re: /\bMCA\b|Corporate Affairs/i, code: 'MCA', c: '#7A6A3A' },
+            { re: /\bDPIIT\b/i, code: 'DPIIT', c: '#9C5B2E' },
             { re: /\bPIB\b|Press Information Bureau/i, code: 'PIB', c: '#B0602A' },
             { re: /MoSPI|Statistics/i, code: 'MoSPI', c: '#3F7F6A' },
             { re: /\bECB\b|European Central/i, code: 'ECB', c: '#2C6E86' },
