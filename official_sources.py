@@ -20,6 +20,7 @@ import re
 import ssl
 import subprocess
 import tempfile
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta
@@ -39,6 +40,30 @@ def http_get(url, accept="text/html", headers=None, data=None, timeout=TIMEOUT):
     req = urllib.request.Request(url, data=data, headers=h)
     with urllib.request.urlopen(req, timeout=timeout, context=SSL_CONTEXT) as resp:
         return resp.read().decode("utf-8", errors="replace")
+
+
+def via_proxy(url, encoding="utf-8", timeout=TIMEOUT):
+    """Fetch through the Cloudflare relay (RSS_PROXY_URL, a GitHub secret) for sites
+    that refuse GitHub's servers (DGFT, MCA answer 403 there, 200 from India)."""
+    base = (os.getenv("RSS_PROXY_URL") or "").strip()
+    if not base:
+        raise RuntimeError("no RSS_PROXY_URL")
+    sep = "&" if "?" in base else "?"
+    req = urllib.request.Request(base + sep + urllib.parse.urlencode({"url": url}), headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=timeout + 10, context=SSL_CONTEXT) as resp:
+        return resp.read().decode(encoding, errors="replace")
+
+
+def get_or_proxy(url, encoding="utf-8", **kw):
+    """Direct first; on a block (403/429/451) or a dead connection, the relay."""
+    try:
+        return http_get(url, **kw)
+    except Exception as e:
+        blocked = getattr(e, "code", None) in (403, 429, 451) or isinstance(e, urllib.error.URLError)
+        if not blocked or not (os.getenv("RSS_PROXY_URL") or "").strip():
+            raise
+        print(f"  [INFO] {urllib.parse.urlsplit(url).netloc}: {e}; retrying via the relay")
+        return via_proxy(url, encoding=encoding)
 
 
 def clean_text(text):
@@ -408,7 +433,15 @@ def mca_rows(feed_config):
     rows, titles = [], set()
     for cat, page in (("Notifications", "notifications"), ("Circulars", "circulars")):
         referer = f"https://www.mca.gov.in/content/mca/global/en/acts-rules/ebooks/{page}.html"
-        for row in parse_mca(json.loads(_curl(MCA_LIST.format(cat=cat), referer)), cat):
+        url = MCA_LIST.format(cat=cat)
+        try:
+            body = _curl(url, referer)
+        except Exception as e:
+            if not (os.getenv("RSS_PROXY_URL") or "").strip():
+                raise
+            print(f"  [INFO] www.mca.gov.in: {e}; retrying via the relay")
+            body = via_proxy(url, encoding="cp1252")
+        for row in parse_mca(json.loads(body), cat):
             if row[0].lower() not in titles:
                 titles.add(row[0].lower())
                 rows.append(row)

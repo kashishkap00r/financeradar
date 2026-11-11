@@ -143,3 +143,25 @@ class FetchOfficialTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ProxyFallbackTests(unittest.TestCase):
+    def test_blocked_site_goes_through_the_relay(self):
+        import os
+        import urllib.error
+        from unittest.mock import patch
+        blocked = urllib.error.HTTPError("https://www.dgft.gov.in/x", 403, "Forbidden", {}, None)
+        with patch.dict(os.environ, {"RSS_PROXY_URL": "https://relay.example/"}), \
+                patch.object(osrc, "http_get", side_effect=blocked), \
+                patch.object(osrc, "via_proxy", return_value="<html>ok</html>") as relay:
+            self.assertEqual(osrc.get_or_proxy("https://www.dgft.gov.in/x"), "<html>ok</html>")
+            relay.assert_called_once()
+
+    def test_no_relay_configured_raises(self):
+        import os
+        import urllib.error
+        from unittest.mock import patch
+        blocked = urllib.error.HTTPError("https://x", 403, "Forbidden", {}, None)
+        with patch.dict(os.environ, {"RSS_PROXY_URL": ""}), patch.object(osrc, "http_get", side_effect=blocked):
+            with self.assertRaises(urllib.error.HTTPError):
+                osrc.get_or_proxy("https://x")
