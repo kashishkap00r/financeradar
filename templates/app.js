@@ -3649,6 +3649,8 @@
         function toStockNoteCard(n) {
             return {
                 title: [n.company, n.headline].filter(Boolean).join(' — '),
+                company: n.company || '',
+                headline: n.headline || '',
                 link: n.link,
                 date: n.date ? n.date + 'T00:00:00+05:30' : null,
                 publisher: n.broker,
@@ -3709,6 +3711,126 @@
             if (researchRegionFilter === 'stocknotes') filterResearch(true);
         }
 
+        // "By company" (user, 11 Nov 2026): every company with a note in the last
+        // 3 months, A–Z, each with all of its notes from that window, newest first.
+        // No counts (Stock notes stays count-free).
+        let stockNotesArrange = 'date';   // 'date' | 'company'
+        const STOCK_NOTES_COMPANY_DAYS = 91;
+
+        function stockNotesCompanyCutoff() {
+            return new Date(Date.now() - STOCK_NOTES_COMPANY_DAYS * 86400000).toISOString().slice(0, 10);
+        }
+
+        // Same idea as _company_sort_key() in stock_notes.py: "Mahindra & Mahindra Ltd" = "Mahindra and Mahindra".
+        function stockNoteCompanyKey(name) {
+            const words = (name || '').toLowerCase().replace(/\([^)]*\)/g, ' ').replace(/&/g, ' and ')
+                .match(/[a-z0-9]+/g) || [];
+            const kept = words.filter(w => !['ltd', 'limited', 'the', 'pvt', 'private'].includes(w));
+            const tail = ['company', 'co', 'corporation', 'corp', 'india', 'industries', 'inds', 'enterprises', 'enterprise'];
+            while (kept.length > 1 && tail.includes(kept[kept.length - 1])) kept.pop();  // "Titan Company" = "Titan"
+            return kept.join(' ');
+        }
+
+        function stockNotesNeedYearsFor(cutoff) {
+            return !!(stockNoteYearsLeft && stockNoteYearsLeft.length && stockNoteYearsLeft[0] >= cutoff.slice(0, 4));
+        }
+
+        function loadStockNotesSince(cutoff) {
+            if (!stockNotesNeedYearsFor(cutoff)) return Promise.resolve();
+            return loadMoreStockNotes(false).then(function() { return loadStockNotesSince(cutoff); });
+        }
+
+        function setStockNotesArrange(mode) {
+            stockNotesArrange = mode === 'company' ? 'company' : 'date';
+            researchPage = 1;
+            filterResearch(true);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function syncStockNotesArrange() {
+            const notesView = researchRegionFilter === 'stocknotes';
+            const bar = document.getElementById('sn-arrange');
+            if (bar) bar.style.display = notesView ? '' : 'none';
+            const byCompany = notesView && stockNotesArrange === 'company';
+            const d = document.getElementById('sn-by-date'), c = document.getElementById('sn-by-company');
+            if (d) d.classList.toggle('active', !byCompany);
+            if (c) c.classList.toggle('active', byCompany);
+            const hint = document.getElementById('sn-arrange-hint');
+            if (hint) hint.textContent = byCompany ? 'A–Z · companies with notes in the last 3 months' : '';
+            const az = document.getElementById('sn-az');
+            if (az && !byCompany) az.style.display = 'none';
+        }
+
+        function stockNotesByCompany() {
+            const cutoff = stockNotesCompanyCutoff();
+            const groups = new Map();
+            filteredResearch.forEach(function(r) {
+                if (!r.company || !r.date || r.date.slice(0, 10) < cutoff) return;
+                const key = stockNoteCompanyKey(r.company);
+                if (!key) return;
+                if (!groups.has(key)) groups.set(key, { key: key, name: r.company, notes: [] });
+                groups.get(key).notes.push(r);  // filteredResearch is newest first
+            });
+            return [...groups.values()].sort((a, b) => a.key.localeCompare(b.key));
+        }
+
+        function stockNoteShortDate(iso) {
+            const d = new Date(iso);
+            return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+        }
+
+        function renderStockNotesByCompany() {
+            const all = stockNotesByCompany();
+            const totalPages = Math.max(1, Math.ceil(all.length / RESEARCH_PAGE_SIZE));
+            if (researchPage > totalPages) researchPage = totalPages;
+            const start = (researchPage - 1) * RESEARCH_PAGE_SIZE;
+            const container = document.getElementById('research-container');
+            const page = all.slice(start, start + RESEARCH_PAGE_SIZE);
+            container.innerHTML = page.length ? page.map(function(g, i) {
+                return `<section class="sn-co" id="sn-co-${start + i}"><h3 class="sn-co-name">${escapeHtml(g.name)}</h3>` +
+                    g.notes.map(function(r) {
+                        const url = sanitizeUrl(r.link || '');
+                        const publisher = escapeHtml(r.publisher || '');
+                        const head = r.headline ? escapeHtml(r.headline) : '<span class="sn-co-plain">Report</span>';
+                        return `<div class="sn-co-row">
+                            <span class="report-channel sn-co-broker">${publisher}</span>
+                            <a href="${escapeForAttr(url)}" target="_blank" rel="noopener" class="sn-co-title">${head}</a>
+                            <span class="sn-co-date">${stockNoteShortDate(r.date)}</span>
+                            <button class="bookmark-btn" data-url="${escapeForAttr(url)}" data-title="${escapeForAttr(r.title)}" data-source="${publisher}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark report" title="Bookmark">
+                                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                            </button>
+                        </div>`;
+                    }).join('') + '</section>';
+            }).join('') : '<div style="padding:40px 20px;text-align:center;color:var(--text-muted);font-size:14px;">No company notes in the last 3 months match.</div>';
+            renderStockNotesAZ(all);
+            syncBookmarkState();
+            renderResearchPagination(totalPages);
+        }
+
+        function renderStockNotesAZ(all) {
+            const az = document.getElementById('sn-az');
+            if (!az) return;
+            const query = document.getElementById('search-input').value.trim();
+            if (query || all.length <= RESEARCH_PAGE_SIZE) { az.style.display = 'none'; return; }
+            const first = {};
+            all.forEach(function(g, i) {
+                const ch = g.key.charAt(0).toUpperCase();
+                const letter = /[A-Z]/.test(ch) ? ch : '#';
+                if (!(letter in first)) first[letter] = i;
+            });
+            az.innerHTML = ['#', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map(L => L in first
+                ? `<button type="button" onclick="jumpToStockNotesLetter(${first[L]})">${L}</button>`
+                : `<span>${L}</span>`).join('');
+            az.style.display = '';
+        }
+
+        function jumpToStockNotesLetter(index) {
+            researchPage = Math.floor(index / RESEARCH_PAGE_SIZE) + 1;
+            renderStockNotesByCompany();
+            const el = document.getElementById('sn-co-' + index);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
         // Publishers for the dropdown: brokers in Stock notes, research houses elsewhere.
         function currentResearchPublishers() {
             if (researchRegionFilter !== 'stocknotes') return RESEARCH_PUBLISHERS;
@@ -3738,8 +3860,12 @@
             }
             // A search or a broker pick has to see every note: fetch the remaining
             // years, show what's loaded meanwhile, then filter again.
-            if (notesView && (query || selectedResearchPublishers.size) && stockNoteYearsLeft && stockNoteYearsLeft.length) {
+            // (By company only covers 3 months, so it never needs the older years.)
+            if (notesView && stockNotesArrange !== 'company' && (query || selectedResearchPublishers.size)
+                    && stockNoteYearsLeft && stockNoteYearsLeft.length) {
                 loadMoreStockNotes(true).then(refreshStockNotes);
+            } else if (notesView && stockNotesArrange === 'company' && stockNotesNeedYearsFor(stockNotesCompanyCutoff())) {
+                loadStockNotesSince(stockNotesCompanyCutoff()).then(refreshStockNotes);
             }
             filteredResearch = (notesView ? STOCK_NOTES : RESEARCH_REPORTS).filter(r => {
                 const matchesSearch = !query || (r.title + ' ' + r.source + ' ' + (r.publisher || '') + ' ' + (r.description || '')).toLowerCase().includes(query);
@@ -3795,6 +3921,13 @@
         }
 
         function applyResearchPagination() {
+            syncStockNotesArrange();
+            if (researchRegionFilter === 'stocknotes' && stockNotesArrange === 'company') {
+                const stats = document.getElementById('research-stats');
+                if (stats) stats.style.visibility = 'hidden';
+                renderStockNotesByCompany();
+                return;
+            }
             const totalPages = Math.max(1, Math.ceil(filteredResearch.length / RESEARCH_PAGE_SIZE));
             if (researchPage > totalPages) researchPage = totalPages;
             // Two pages from the end of the loaded notes: fetch the next year.

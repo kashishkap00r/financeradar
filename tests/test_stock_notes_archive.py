@@ -259,6 +259,10 @@ class TestLatestFirst(unittest.TestCase):
         ]
         # 12 Nov first; then 11 Nov: Astral, the three M&M notes (latest first, untimed last), Titan, the daily
         self.assertEqual([n["link"] for n in sort_notes(notes)], ["7", "5", "4", "2", "6", "1", "3"])
+        from stock_notes import _company_sort_key
+        self.assertEqual(_company_sort_key("Titan Company Ltd"), _company_sort_key("Titan"))
+        self.assertEqual(_company_sort_key("GAIL (India)"), _company_sort_key("GAIL India"))
+        self.assertNotEqual(_company_sort_key("Reliance Power"), _company_sort_key("Reliance Industries"))
 
 class TestRuleHeadlines(unittest.TestCase):
     """Page-1 layout rules (no AI) for ICICI Securities and Motilal Oswal."""

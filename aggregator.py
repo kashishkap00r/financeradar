@@ -1016,6 +1016,14 @@ def generate_html(
                     </div>
                 </div>
             </div>
+            <div class="sn-arrange" id="sn-arrange" style="display:none">
+                <div class="tg-view-toggle" role="group" aria-label="Arrange stock notes">
+                    <button class="tg-view-btn active" id="sn-by-date" onclick="setStockNotesArrange('date')">By date</button>
+                    <button class="tg-view-btn" id="sn-by-company" onclick="setStockNotesArrange('company')">By company</button>
+                </div>
+                <span class="sn-arrange-hint" id="sn-arrange-hint"></span>
+            </div>
+            <nav class="sn-az" id="sn-az" aria-label="Jump to companies by letter" style="display:none"></nav>
             <div id="research-container"></div>
             <div id="research-pagination-bottom" class="pagination bottom"></div>
         </div><!-- /tab-research -->

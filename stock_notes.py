@@ -257,10 +257,15 @@ def _archive_sort_key(entry):
     return (entry.get("date") or "", entry.get("ts") or "")
 
 
+_GENERIC_TAIL = {"company", "co", "corporation", "corp", "india", "industries", "inds", "enterprises", "enterprise"}
+
+
 def _company_sort_key(company):
     """'Mahindra & Mahindra Ltd' and 'Mahindra and Mahindra' sort as one name; no company sorts last."""
     name = re.sub(r"\([^)]*\)", " ", (company or "").lower()).replace("&", " and ")
     words = [w for w in re.findall(r"[a-z0-9]+", name) if w not in ("ltd", "limited", "the", "pvt", "private")]
+    while len(words) > 1 and words[-1] in _GENERIC_TAIL:  # "Titan Company" = "Titan", "Maruti Suzuki India" = "Maruti Suzuki"
+        words.pop()
     return " ".join(words) or "\uffff"
 
 
