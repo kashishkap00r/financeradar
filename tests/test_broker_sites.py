@@ -231,5 +231,28 @@ class TestRoundTwoBrokers(unittest.TestCase):
         self.assertTrue(rf.os.path.exists(rf._MNCL_CA))
 
 
+class TestSectorReports(unittest.TestCase):
+    def test_nirmal_bang_sector_titles(self):
+        self.assertEqual(rf.nb_sector_title("Cement Channel Check – Oct ’26 - Sector Update - Cement Prices Recover - 29 October 2026"),
+                         "Cement Channel Check – Oct ’26 - Sector Update - Cement Prices Recover")
+        self.assertTrue(rf.nb_sector_title("RBI Sectoral Deployment - Banking | Sector Update - Robust broad-based credit momentum"))
+        self.assertTrue(rf.nb_sector_title("India Capex Pipeline - India Economy | Thematic - A New Private Sector-Led Investment Cycle"))
+        for noise in ("India Morning Roundup - 9 November 2026", "NBIE AI Powered Insights- 11 Nov 2026",
+                      "Fortnightly Macro Tracker - India Economy | Update - Economic activity mixed",
+                      "Fine Organic Industries (FINEORG) - BUY - Chemicals | 2QFY27 Result Update - Expansion plans"):
+            self.assertEqual(rf.nb_sector_title(noise), "", noise)
+        # a single-stock note with "Sector" in it stays a stock note
+        self.assertEqual(rf.split_nb_title("Bata India Ltd. (BIL) - Retail Sector | 2QFY27 Result Update - ASP-led recovery")[0], "Bata India")
+
+    def test_sbi_thematic_split(self):
+        self.assertEqual(rf.split_sbi_thematic("Carysil Ltd._2QFY27 Result Update"), ("stock", "Carysil", "Q2FY27 Result Update"))
+        self.assertEqual(rf.split_sbi_thematic("JTL Industries Ltd-IC"), ("stock", "JTL Industries", "Initiating Coverage"))
+        self.assertEqual(rf.split_sbi_thematic("Manorama Industries Ltd_Plant Visit Note"), ("stock", "Manorama Industries", "Plant Visit Note"))
+        self.assertEqual(rf.split_sbi_thematic("SBICAP Securities - Metal Pulse Nov'26"), ("sector", "Metal Pulse Nov'26"))
+        self.assertEqual(rf.split_sbi_thematic("Thematic Report_Rockstars of 1QFY27 Result")[0], "sector")
+        for skip in ("Macro Trends_Monthly Economic Report_Oct'26", "RBI MPC Meeting Oct'26", "SBI Securities Diwali Muhurat Picks_2026"):
+            self.assertEqual(rf.split_sbi_thematic(skip), ("skip",), skip)
+
+
 if __name__ == "__main__":
     unittest.main()

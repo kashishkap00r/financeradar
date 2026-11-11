@@ -1411,6 +1411,25 @@
     "max_age_days": 14
   },
   {
+    "id": "nirmal-bang-sector",
+    "name": "Nirmal Bang — Sector & Thematic",
+    "url": "https://www.nirmalbang.com/nb-research/institutional-research-reports.aspx",
+    "feed": "nirmalbang:sector",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "Nirmal Bang",
+    "max_pages": 8
+  },
+  {
+    "id": "sbisec-sector",
+    "name": "SBI Securities — Sector & Thematic",
+    "url": "https://www.sbisecurities.in/research/fundamental",
+    "feed": "sbisector:thematic",
+    "category": "Reports",
+    "region": "Indian",
+    "publisher": "SBI Securities"
+  },
+  {
     "id": "ing-think-rss",
     "name": "ING THINK",
     "url": "https://think.ing.com/",
