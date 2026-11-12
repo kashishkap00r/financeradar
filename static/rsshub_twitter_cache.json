@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T15:47:12.766718+00:00",
+  "generated_at": "2026-11-12T16:47:15.537092+00:00",
   "meta": {
     "source": "rsshub_local",
     "base_url": "http://localhost:1200",
@@ -7,7 +7,7 @@
     "handles_ok": 46,
     "handles_empty": 3,
     "handles_error": 1,
-    "items_total": 794
+    "items_total": 792
   },
   "items": [
     {
@@ -191,6 +191,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Caixin: \"Guangzhou has proposed easing land sale rules that require housing developers to build roads, parks and other public facilities, shifting more responsibility for infrastructure to the government. The changes could ease developers\u2019 construction burdens but would require local authorities to fund more infrastructure as land sale revenue comes under pressure.\"<br>https://www.caixinglobal.com/2026-11-07/guangzhou-proposes-easing-developers-infrastructure-obligations-102502039.html?cxg=web&amp;Sfrom=twitter"
+    },
+    {
+      "title": "RT Lloyd Blankfein: Sad about Jensen. Shakespearean. But as de Gaulle said, \u201cThe graveyards are filled with indispensable men.\u201d",
+      "link": "https://x.com/menakadoshi/status/2120906091399991763",
+      "date": "2026-11-12T14:53:16+00:00",
+      "tweet_id": "2120906091399991763",
+      "source": "menaka doshi",
+      "publisher": "Menaka Doshi",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Lloyd Blankfein<br>Sad about Jensen. Shakespearean. But as de Gaulle said, \u201cThe graveyards are filled with indispensable men.\u201d"
     },
     {
       "title": "Congratulations @gautambhatia88",
@@ -431,20 +445,6 @@
       "description_html": "This is not a private celebration of a festival. It's a public menace and could easily cause injury to others. <br><br>If the police jailed even a few such people the message would go out country-wide.<div class=\"rsshub-quote\"><br><br>Manraj Meena:\u2002\u0939\u092e\u093e\u0930\u0947 \u0926\u0947\u0936 \u0915\u094b \u0938\u092c\u0938\u0947 \u091c\u094d\u092f\u093e\u0926\u093e \u091c\u0930\u0942\u0930\u0924 \u092a\u093e\u0917\u0932\u0916\u093e\u0928\u094b\u0902 \u0915\u0940 \u0939\u0948\u0964<br><br><video width=\"1080\" height=\"1350\" src=\"https://video.twimg.com/amplify_video/2119736592902590464/vid/avc1/1080x1350/1KAgbDhqqJDWsuGw.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2119736592902590464/img/xsDW_OCvwzmpAsUo.jpg\"></video></div>"
     },
     {
-      "title": "It gets worse. Nvidia\u2019s general counsel intervened in a US government probe of suspected smuggling of AI chips by Megaspeed International. https://ww...",
-      "link": "https://x.com/menakadoshi/status/2120042398269210715",
-      "date": "2026-11-10T06:34:30+00:00",
-      "tweet_id": "2120042398269210715",
-      "source": "menaka doshi",
-      "publisher": "Menaka Doshi",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "It gets worse.<br><br>Nvidia\u2019s general counsel intervened in a US government probe of suspected smuggling of AI chips by Megaspeed International.<br> https://www.bloomberg.com/news/articles/2026-11-09/nvidia-intervened-in-us-probe-of-megaspeed-chip-smuggling?utm_source=website&amp;utm_medium=share&amp;utm_campaign=twitter"
-    },
-    {
       "title": "RT Reuters: Exclusive: A covert Russian network sought to exploit last month's riots in France by using social media to blame the unrest on uncontroll...",
       "link": "https://x.com/menakadoshi/status/2120734376116064357",
       "date": "2026-11-09T06:30:00+00:00",
@@ -457,6 +457,34 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "RT\u2002Reuters<br>Exclusive: A covert Russian network sought to exploit last month's riots in France by using social media to blame the unrest on uncontrolled immigration and portray the government as having lost control, according to an internal EU assessment seen by Reuters https://reut.rs/3UMHXCW"
+    },
+    {
+      "title": "Mississippi's blood-soaked past gives Colom's win extra weight, writes @niamalikah https://www.bloomberg.com/opinion/articles/2026-11-12/colom-s-missi...",
+      "link": "https://x.com/opinion/status/2120913279048462535",
+      "date": "2026-11-12T16:15:05+00:00",
+      "tweet_id": "2120913279048462535",
+      "source": "Bloomberg Opinion",
+      "publisher": "Bloomberg Opinion",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Mississippi's blood-soaked past gives Colom's win extra weight, writes @niamalikah https://www.bloomberg.com/opinion/articles/2026-11-12/colom-s-mississippi-win-shows-a-seismic-shift-in-the-deep-south?taid=6af5e6087186690001d1a9cc&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter"
+    },
+    {
+      "title": "The immediate fallout from Huang's resignation will likely be tighter controls on existing access to Nvidia chips and a slowdown in the American AI in...",
+      "link": "https://x.com/opinion/status/2120909580804804907",
+      "date": "2026-11-12T16:00:23+00:00",
+      "tweet_id": "2120909580804804907",
+      "source": "Bloomberg Opinion",
+      "publisher": "Bloomberg Opinion",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "The immediate fallout from Huang's resignation will likely be tighter controls on existing access to Nvidia chips and a slowdown in the American AI industry, @DaveLeeBBG says https://www.bloomberg.com/opinion/articles/2026-11-12/nvidia-ceo-jensen-huang-s-downfall-knocks-american-ai-onto-a-different-course?taid=6af5e297c6e52100014d99aa&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter"
     },
     {
       "title": "Jensen Huang just incinerated the bridges he spent years building between Silicon Valley and Chinese AI firms, writes @cathythorbecke. That leaves Chi...",
@@ -709,34 +737,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Company leaders are \u201cdelayering\u201d because of AI? Please speak in English, I beg of you https://www.bloomberg.com/opinion/newsletters/2026-11-11/delayering-is-an-ai-job-cut-in-disguise?taid=6af51db122159d00010a1509&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter"
-    },
-    {
-      "title": "A simmering battle over global airlines\u2019 access to India\u2019s commercial capital has become a test case for the rising clout of its tycoons, writes @an...",
-      "link": "https://x.com/opinion/status/2120679230543409383",
-      "date": "2026-11-12T00:45:03+00:00",
-      "tweet_id": "2120679230543409383",
-      "source": "Bloomberg Opinion",
-      "publisher": "Bloomberg Opinion",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "A simmering battle over global airlines\u2019 access to India\u2019s commercial capital has become a test case for the rising clout of its tycoons, writes @andymukherjee70 https://www.bloomberg.com/opinion/articles/2026-11-12/mumbai-airport-becomes-a-test-case-for-india-s-adani?taid=6af50c0f191e680001db400a&amp;utm_campaign=trueanthem&amp;utm_content=view&amp;utm_medium=social&amp;utm_source=twitter"
-    },
-    {
-      "title": "A $269 million Navy contract is a small start against South Korea's $150 billion shipbuilding pledge. @julianaliu explains why Washington must follow ...",
-      "link": "https://x.com/opinion/status/2120667893759140208",
-      "date": "2026-11-12T00:00:00+00:00",
-      "tweet_id": "2120667893759140208",
-      "source": "Bloomberg Opinion",
-      "publisher": "Bloomberg Opinion",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2120591674703220736/img/Z6i9mg1hHGd1g-ha.jpg",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "A $269 million Navy contract is a small start against South Korea's $150 billion shipbuilding pledge. @julianaliu explains why Washington must follow up with repeat orders \ud83c\udfa5<br><video width=\"1080\" height=\"1920\" src=\"https://video.twimg.com/amplify_video/2120591674703220736/vid/avc1/1080x1920/GutY4N7DOGfM78O8.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2120591674703220736/img/Z6i9mg1hHGd1g-ha.jpg\"></video>"
     },
     {
       "title": "RT Intrinsic Compounding: A super detailed breakdown of Forgings and casting value chain here:- Complete forging value chain here https://soic-forging...",
@@ -2349,6 +2349,48 @@
       "description_html": "RT\u2002Capt Venkat \ud83c\uddee\ud83c\uddf3<br>Please help us in our efforts to build a funding support platform for hardware builders. <br><br>Please Try this / share this / Repost. We need real users on the platform for feedback. \ud83d\ude4f\ud83d\ude4f\ud83d\ude4f<br><br>Any hardware builder looking to raise a small amount to take a prototype to pilot?<br><br>Try https://bidfund.me.<br><br>A brand-new platform built in just one day at the Midnight Moonshot Hackathon by two hardware builders who understand this problem firsthand.<br><br>Upload your build. Tell people what you\u2019re trying to do next and how much you need.<br><br>You never know who might support you.<br><br>There\u2019s a world of people willing to chip in small amounts, with no strings attached, just to help good builds move forward.<br><br>Good luck. Get funded on BidFund."
     },
     {
+      "title": "#Nvidia shares plunge 35% from peak, chipmaker slips to third spot in global market cap rankings @yoosefkp https://www.cnbctv18.com/technology/nvidia-...",
+      "link": "https://x.com/CNBCTV18Live/status/2120911495466975260",
+      "date": "2026-11-12T16:07:59+00:00",
+      "tweet_id": "2120911495466975260",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#Nvidia shares plunge 35% from peak, chipmaker slips to third spot in global market cap rankings<br><br>@yoosefkp <br><br>https://www.cnbctv18.com/technology/nvidia-shares-plunge-35pc-from-peak-chipmaker-slips-to-third-spot-in-global-market-cap-rankings-20032937.htm"
+    },
+    {
+      "title": "RT Shereen Bhan: Trump says Tim Cook is the best man to replace Jensen Huang! Posts on Truth Social \ud83d\udc47 \u201cNOW THAT Nvidia CEO JENSEN HUANG, who has d...",
+      "link": "https://x.com/CNBCTV18Live/status/2120911315858555118",
+      "date": "2026-11-12T16:00:14+00:00",
+      "tweet_id": "2120911315858555118",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Shereen Bhan<br>Trump says Tim Cook is the best man to replace Jensen Huang! Posts on Truth Social \ud83d\udc47 <br><br>\u201cNOW THAT Nvidia CEO JENSEN HUANG, who has done a fantastic job, has resigned, there is only one man to take his place - TIM COOK of Apple. A Legend replaces a Legend!\u201d<br>@CNBCTV18News @CNBCTV18Live #Nvidia #JensenHuang #TimCook<div class=\"rsshub-quote\"><br><br>Shereen Bhan:\u2002#Nvidia board thanks Jensen for his immeasurable contribution to the company and industry. End of the Jensen Huang era at the company he co-founded more than 33 years ago @CNBCTV18News @CNBCTV18Live #JensenHuang<br></div>"
+    },
+    {
+      "title": "#NewsFlash | NOW THAT Nvidia CEO JENSEN HUANG, who has done a fantastic job, has resigned, there is only one man to take his place - TIM COOK of Apple...",
+      "link": "https://x.com/CNBCTV18Live/status/2120907799580520533",
+      "date": "2026-11-12T15:53:18+00:00",
+      "tweet_id": "2120907799580520533",
+      "source": "CNBC-TV18",
+      "publisher": "CNBC-TV18",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW75_UaaIAEYiFJ?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "#NewsFlash | NOW THAT Nvidia CEO JENSEN HUANG, who has done a fantastic job, has resigned, there is only one man to take his place - TIM COOK of Apple. A Legend replaces a Legend! President DONALD J. TRUMP<br><br>#DonaldTrump #Nvidia<br><img width=\"464\" height=\"127\" style=\"\" src=\"https://pbs.twimg.com/media/HW75_UaaIAEYiFJ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "#JensenHuang resigns: Meet the two women at the centre of the #Nvidia controversy https://www.cnbctv18.com/photos/business/jensen-huang-resigns-alice-...",
       "link": "https://x.com/CNBCTV18Live/status/2120904490517950626",
       "date": "2026-11-12T15:40:09+00:00",
@@ -2573,46 +2615,60 @@
       "description_html": "RT\u2002Shereen Bhan<br>As Bharti Group turns 50, Sunil Mittal tells me he is raring to go! \u2018I have 11 years, before I turn 80. Will be a very different decade\u2019.<br>Mittal is on a mission to expand globally. \u2018We have the opportunity to be the world\u2019s first telecom company to have a billion customers globally\u2019 Outside of India &amp; Africa, he says he is looking at \u201c$30 ARPU markets\u2019. He tells me, will look at \u201ctuck in\u201d acquisitions in Europe. <br>Financial services is among the top 3 bets, \u2018an IPO of Airtel Payment bank is likely in the next 3 years\u2019<br>Recent corporate battles have pushed him to \u201cspeed up\u201d\u2018equity consolidation in the promoter vehicle Bharti Telecom to 50%, \u2018needed for stability\u2019 <br>On competition, he says \u2018what Jio has done can\u2019t be replicated anywhere in the world again\u2019. <br>Plenty more in a comprehensive chat. All day tomorrow on @CNBCTV18News @CNBCTV18Live @airtelnews #CNBCTV18Market #CNBCTV18Exclusive<div class=\"rsshub-quote\"><br><br>CNBC-TV18:\u2002#CNBCTV18Exclusive | As Bharti Group marks 50 years and Airtel completes 30, Founder &amp; Chairman Sunil Bharti Mittal speaks to @ShereenBhan about the group's next growth phase.<br><br>Mittal discusses Airtel's ambition to reach 1 billion customers, potential acquisitions in Europe,<br><br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/amplify_video/2120852070219853824/vid/avc1/1920x1080/omX_me4CQUPeDXwU.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2120852070219853824/img/n6otaQXsLp0O8Zh0.jpg\"></video></div>"
     },
     {
-      "title": "US stock market today: #Nasdaq futures fall as #Nvidia slides 9% on Jensen Huang reports https://www.cnbctv18.com/market/us-stock-market-today-nasdaq-...",
-      "link": "https://x.com/CNBCTV18Live/status/2120866760480198794",
-      "date": "2026-11-12T13:10:14+00:00",
-      "tweet_id": "2120866760480198794",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "Ahead of Market: 10 things that will decide stock market action on Friday #ETMarkets https://economictimes.indiatimes.com/markets/stocks/news/ahead-of...",
+      "link": "https://x.com/ETMarkets/status/2120919473079427400",
+      "date": "2026-11-12T16:39:41+00:00",
+      "tweet_id": "2120919473079427400",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "US stock market today: #Nasdaq futures fall as #Nvidia slides 9% on Jensen Huang reports<br><br>https://www.cnbctv18.com/market/us-stock-market-today-nasdaq-dow-jones-nvidia-shares-jensen-huang-oil-prices-20032753.htm"
+      "description_html": "Ahead of Market: 10 things that will decide stock market action on Friday<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/stocks/news/ahead-of-market-10-things-that-will-decide-stock-market-action-on-friday/articleshow/135775788.cms"
     },
     {
-      "title": "Stocks to Watch for November 13: #IRCTC, #OilIndia, M&M, #OlaElectric, #HitachiEnergy and more @Navneetvats0009 https://www.cnbctv18.com/photos/market...",
-      "link": "https://x.com/CNBCTV18Live/status/2120859185273614732",
-      "date": "2026-11-12T12:40:08+00:00",
-      "tweet_id": "2120859185273614732",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "Vodafone Idea Q2 Results: Loss widens to Rs 5,975 crore, revenue rises 6% YoY; ARPU jumps to Rs 198 #ETMarkets https://economictimes.indiatimes.com/ma...",
+      "link": "https://x.com/ETMarkets/status/2120915976862724330",
+      "date": "2026-11-12T16:25:48+00:00",
+      "tweet_id": "2120915976862724330",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
       "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "Stocks to Watch for November 13: #IRCTC, #OilIndia, M&amp;M, #OlaElectric, #HitachiEnergy and more<br><br>@Navneetvats0009 <br><br>https://www.cnbctv18.com/photos/market/stocks-to-watch-for-november-13-irctc-oil-india-mm-ola-electric-hitachi-energy-and-more-20032579.htm"
+      "description_html": "Vodafone Idea Q2 Results: Loss widens to Rs 5,975 crore, revenue rises 6% YoY; ARPU jumps to Rs 198<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/stocks/earnings/vodafone-idea-q2-results-net-loss-widens-to-rs-5979-crore-revenue-rises-6-yoy-to-rs-11884-crore/articleshow/135771531.cms"
     },
     {
-      "title": "#BlockDeal | Block Deal In #Meesho; \u23e9Sources Say #SVFIIMeerkat Likely To Sell 1% Of Total Equity",
-      "link": "https://x.com/CNBCTV18Live/status/2120858844448616738",
-      "date": "2026-11-12T12:38:46+00:00",
-      "tweet_id": "2120858844448616738",
-      "source": "CNBC-TV18",
-      "publisher": "CNBC-TV18",
+      "title": "Man Industries' consol profit more than doubles to Rs 82 crore in Jul-Sep #ETMarkets https://economictimes.indiatimes.com/markets/stocks/earnings/man-...",
+      "link": "https://x.com/ETMarkets/status/2120912297698922585",
+      "date": "2026-11-12T16:11:11+00:00",
+      "tweet_id": "2120912297698922585",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
       "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HW7Np7_aYAA5tkz?format=jpg&name=orig",
+      "image": "",
       "is_retweet": false,
       "is_quote": false,
       "is_reply": false,
-      "description_html": "#BlockDeal | Block Deal In #Meesho; <br><br>\u23e9Sources Say #SVFIIMeerkat Likely To Sell 1% Of Total Equity<br><img width=\"1080\" height=\"1080\" style=\"\" src=\"https://pbs.twimg.com/media/HW7Np7_aYAA5tkz?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+      "description_html": "Man Industries' consol profit more than doubles to Rs 82 crore in Jul-Sep<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/stocks/earnings/man-industries-consol-profit-more-than-doubles-to-rs-82-crore-in-jul-sep/articleshow/135776042.cms"
+    },
+    {
+      "title": "Early bet, massive payoff: Anthropic IPO may value Krishna Rao's equity stake at Rs 6,600 crore, up 57 times #ETMarkets https://economictimes.indiatim...",
+      "link": "https://x.com/ETMarkets/status/2120907158753816645",
+      "date": "2026-11-12T15:50:45+00:00",
+      "tweet_id": "2120907158753816645",
+      "source": "ETMarkets",
+      "publisher": "ET Markets",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Early bet, massive payoff: Anthropic IPO may value Krishna Rao's equity stake at Rs 6,600 crore, up 57 times<br><br>#ETMarkets<br><br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/early-bet-massive-payoff-anthropic-ipo-may-value-krishna-raos-equity-stake-at-rs-6600-crore-up-57-times/articleshow/135774924.cms"
     },
     {
       "title": "Nvidia shares plunge 10% after Jensen Huang quits as CEO; Colette Kress named interim chief #ETMarkets https://economictimes.indiatimes.com/markets/us...",
@@ -2823,62 +2879,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Bulls lose grip as #Sensex drops 500 pts from day's high; FMCG, auto &amp; IT drag<br><br>Catch all the LIVE updates here <br>https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-tata-power-cupid-share-price-12-november-2026/liveblog/135752335.cms<br><img width=\"900\" height=\"391\" style=\"\" src=\"https://pbs.twimg.com/media/HW6BdW-a0AAX1cj?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "#FIIs are back! Jefferies lists 11 stocks that can be the biggest beneficiaries https://economictimes.indiatimes.com/inflow-revival/slideshow/13575827...",
-      "link": "https://x.com/ETMarkets/status/2120773590752928027",
-      "date": "2026-11-12T07:00:00+00:00",
-      "tweet_id": "2120773590752928027",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "#FIIs are back! <br><br>Jefferies lists 11 stocks that can be the biggest beneficiaries<br><br>https://economictimes.indiatimes.com/inflow-revival/slideshow/135758277.cms"
-    },
-    {
-      "title": "Foreign institutional investors (#FIIs) are returning to Indian stocks with a force that is beginning to rival the scale of their earlier exodus. Afte...",
-      "link": "https://x.com/ETMarkets/status/2120769813983211911",
-      "date": "2026-11-12T06:45:00+00:00",
-      "tweet_id": "2120769813983211911",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Foreign institutional investors (#FIIs) are returning to Indian stocks with a force that is beginning to rival the scale of their earlier exodus. After selling a record Rs 2.95 lakh crore worth of Indian stocks in the first 10 months of 2026, FIIs are now poised to set a new monthly buying record in November to help drive the Sensex and Nifty up about 10% this month.<br>#ETMarkets <br><br>Read more here <br>https://economictimes.indiatimes.com//markets/stocks/news/sell-fast-buy-faster-fiis-broke-every-selling-record-in-2026-now-their-buying-is-breaking-records/articleshow/135757276.cms?utm_source=contentofinterest&amp;utm_medium=text&amp;utm_campaign=cppst"
-    },
-    {
-      "title": "Google parent #Alphabet's maiden Hong Kong and Singapore dollar bond offerings attract combined orders of around $5 billion, highlighting strong inves...",
-      "link": "https://x.com/ETMarkets/status/2120766040757940558",
-      "date": "2026-11-12T06:30:00+00:00",
-      "tweet_id": "2120766040757940558",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Google parent #Alphabet's maiden Hong Kong and Singapore dollar bond offerings attract combined orders of around $5 billion, highlighting strong investor demand as the technology giant ramps up spending on artificial intelligence (AI) infrastructure, according to a Reuters report.<br><br>Read more here <br>https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/alphabets-first-hong-kong-singapore-dollar-bond-sales-draw-5-billion-orders/articleshow/135757136.cms"
-    },
-    {
-      "title": "When #AI firm #Anthropic starts trading after its expected IPO next week, its share price in the first few weeks will largely be determined by who is ...",
-      "link": "https://x.com/ETMarkets/status/2120763522191860143",
-      "date": "2026-11-12T06:20:00+00:00",
-      "tweet_id": "2120763522191860143",
-      "source": "ETMarkets",
-      "publisher": "ET Markets",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "When #AI firm #Anthropic starts trading after its expected IPO next week, its share price in the first few weeks will largely be determined by who is forced to buy it rather than who wants to buy it. And investors are examining SpaceX's successful June stock market debut for clues.<br><br>Read more here<br>https://economictimes.indiatimes.com/markets/stocks/news/from-spacex-to-anthropic-markets-have-a-new-playbook-for-mega-share-debuts/articleshow/135756798.cms"
     },
     {
       "title": "BLOCK DEAL ALERT: MEESHO MS launches block deal for 1% stake in co SVF Fund to sell stake worth Rs 1175 crores Deal floor price at Rs 246 per share , ...",
@@ -3413,6 +3413,20 @@
       "description_html": "Given that oil price is the biggest impact India and many other countries  are facing today because of the war, a coordinated effort to reduce fuel usage may help reduce major impact. During COVID the world went into a complete shut down and oil prices had dropped to below $20 and futures had crashed to -$37 in April 2020. Maybe we can introduce partial work from home and keep industrial activities open, and I am sure this itself (if done globally) will help correct oil prices significantly. For India will help our trade deficit as well as lower pressure on our currency in addition to lowering input costs for many industries thereby reducing impact on profitability. COVID helped us develop and test technologies and platforms that made work from home easy and this may be a very good time to use them until war uncertainties remain. @narendramodi @nitin_gadkari @nsitharaman"
     },
     {
+      "title": "Steve Jobs leaving Apple equivalent event in corporate history",
+      "link": "https://x.com/itsTarH/status/2120913093060620571",
+      "date": "2026-11-12T16:14:20+00:00",
+      "tweet_id": "2120913093060620571",
+      "source": "Tar \u26a1",
+      "publisher": "TarH",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW7_NvtbkAE-KVk?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Steve Jobs leaving Apple equivalent event in corporate history<br><img width=\"1080\" height=\"784\" style=\"\" src=\"https://pbs.twimg.com/media/HW7_NvtbkAE-KVk?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "Nvidia down 9% and counting in after hours",
       "link": "https://x.com/itsTarH/status/2120655898989449267",
       "date": "2026-11-11T23:12:20+00:00",
@@ -3621,20 +3635,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "Recursive Self Improvement<br><br>Models improving other models and soon themselves<div class=\"rsshub-quote\"><br><br>Rikiya Takehi:\u2002We asked GPT-6 Astra to edit Qwen3.5-0.8B weights to improve math.<br>It directly changed only 0.016% of weights, fixing 0.8B's reasoning loops &amp; improving math up to 6x and even instruction following 3x, without gradients or training.<br><br>We call this Weight-Space Programming:<br><br><img width=\"1200\" height=\"625\" style=\"\" src=\"https://pbs.twimg.com/media/HWI1oKUWUAAWoZp?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
-    },
-    {
-      "title": "Anthropic H1 Revenue: $16.3 B Q3: $17B Acceleration continues",
-      "link": "https://x.com/itsTarH/status/2117285040560455863",
-      "date": "2026-11-02T15:57:45+00:00",
-      "tweet_id": "2117285040560455863",
-      "source": "Tar \u26a1",
-      "publisher": "TarH",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWIbb2EagAAFlFG?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Anthropic <br><br>H1 Revenue: $16.3 B<br>Q3: $17B<br><br>Acceleration continues<br><img width=\"2048\" height=\"1217\" style=\"\" src=\"https://pbs.twimg.com/media/HWIbb2EagAAFlFG?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Tar \u26a1:\u2002Anthropic S1 just dropped<br><br>Here is a 100 page deck that covers their entire S1 without any legalese and boilerplate jargon<br><br>https://thewrapanthropic.tiiny.site/#1<br><br>Anthropic has over 12K customers that spend $100K a year<br><br><img width=\"2048\" height=\"1120\" style=\"\" src=\"https://pbs.twimg.com/media/HVkLAdTbUAATYAD?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"></div>"
     },
     {
       "title": "FII Buying in Nov 2026 - DateAmount (\u20b9 Cr) Nov 12+7,830.60 Nov 11+12,563.33 Nov 9+7,212.22 Nov 8-0.25 Nov 6+13,749.82 Nov 5+14,974.68 Nov 4+7,284.03 ...",
@@ -4057,6 +4057,20 @@
       "description_html": "RT\u2002Amar Govindarajan<br>The Lodha Theoretical Physics Institute is quite different from any institute you may have heard about. <br><br>The story behind its founding director\u2019s career in theoretical physics is also quite unique.<br><br>What makes it different:<br>- Launched in Mumbai in May 2026 by the Lodha Foundation<br>-Theory only: no teaching, no grant-chasing, no admin, no degrees<br>-At public institutions, a professor can get \u201cfive minutes a day\u201d for research, says Jain<br><br>Its founding director, Jainendra Jain, is a recipient of the Wolf Prize \u2014 in physics, it\u2019s considered second only to the Nobel. <br><br>(Even after his physics PhD, his father kept mailing him UPSC forms so his son could become an IAS officer. Thankfully, Jain stuck to his guns.)<br><br>From Sambhar to Yale:<br>- Hindi-medium government school in a Rajasthan salt town<br>-Lost his mother and a foot in a tram accident at 12<br>-IIT Kanpur fees: ~Rs 35 a month, paid by a since-scrapped national scholarship<br><br>The puzzle he cracked:<br>-Squeeze electrons into an ultra-thin layer under a strong magnet, and their resistance moves in neat steps: 1, 2, 3<br>-Then came steps at odd fractions \u2014 1/3, 2/5, 3/7 \u2014 that nobody could fully explain<br>-Jain\u2019s idea, over Christmas 1988: each electron grabs a bit of the magnetic field and becomes a new particle, for which the fractions are whole numbers<br><br>A wonderful profile of Jainendra Jain and what the new institute is trying to do by @astrokaran (link in next tweet)"
     },
     {
+      "title": "RT Hindu Voice: #WestBengal Bhai Phonta(\u09ad\u09be\u0987 \u09ab\u09cb\u0981\u099f\u09be in Bengali) of Veer Khudiram Bose. British killed freedom fighter Veer Khudiram Bose. His el...",
+      "link": "https://x.com/sanjeevsanyal/status/2120907238047142342",
+      "date": "2026-11-12T06:01:23+00:00",
+      "tweet_id": "2120907238047142342",
+      "source": "Sanjeev Sanyal",
+      "publisher": "Sanjeev Sanyal",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2120758782305488896/img/RKF8HUBpQvRh6iKd.jpg",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Hindu Voice<br>#WestBengal<br>Bhai Phonta(\u09ad\u09be\u0987 \u09ab\u09cb\u0981\u099f\u09be in Bengali) of Veer Khudiram Bose.<br><br>British killed freedom fighter Veer Khudiram Bose. His elder sister Aparupa Devi couldn't get a chance to give Bhai Phonta to her brother. <br><br>In remembrance of this, every year, family members of Aparupa Devi organises \u2018Bhai Phonta\u2019 on the statue of Veer Khudiram Bose.<br><video width=\"720\" height=\"1280\" src=\"https://video.twimg.com/amplify_video/2120758782305488896/vid/avc1/720x1280/bzMbaM_N_DrddNY3.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2120758782305488896/img/RKF8HUBpQvRh6iKd.jpg\"></video>"
+    },
+    {
       "title": "RT The Times Of India: A day after a home guard was arrested for allegedly extorting money in the name of a Diwali gift, police commissioner Shibash K...",
       "link": "https://x.com/sanjeevsanyal/status/2120726246904717665",
       "date": "2026-11-11T14:00:01+00:00",
@@ -4295,20 +4309,6 @@
       "description_html": "RT\u2002IndiaSportsHub<br>INDIA HAS A NEW WORLD NO. 1! \ud83c\uddee\ud83c\uddf3<br><br>Lalit Sehrawat rises to the top of the latest world rankings in 55kg Greco-Roman wrestling!<br><br>A huge milestone for Indian wrestling and another reason to celebrate our rising stars.<br><br>#Wrestling #LalitSehrawat #IndianWrestling #IndiaSportsHub<br><img width=\"1280\" height=\"1599\" style=\"\" src=\"https://pbs.twimg.com/media/HWcuDhoasAAZ3VJ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "RT Rahul Shivshankar: \u201cDISRUPT FACTORY WORK AND FACE JAIL WITHIN 15 MINUTES\u201d Bengal CM Suvendu Adhikari sends an unmistakable warning to CPM and TMC...",
-      "link": "https://x.com/sanjeevsanyal/status/2118775388134592790",
-      "date": "2026-11-06T02:03:10+00:00",
-      "tweet_id": "2118775388134592790",
-      "source": "Sanjeev Sanyal",
-      "publisher": "Sanjeev Sanyal",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2118524536694169600/img/iyfu3Qk51Nu3dpeQ.jpg",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002Rahul Shivshankar<br>\u201cDISRUPT FACTORY WORK AND FACE JAIL WITHIN 15 MINUTES\u201d<br>Bengal CM Suvendu Adhikari sends an unmistakable warning to CPM and TMC as Bengal rolls out its new Industrial Policy. <br>+ No factory gate blockades. <br>+ No forced shutdowns. <br>+ No political muscle-flexing to hold industry hostage.<br>+ Workers can raise grievances through the Labour Commissioner.<br>THE MESSAGE<br>Bengal is open for business. Bengal means business.<br><video width=\"480\" height=\"270\" src=\"https://video.twimg.com/amplify_video/2118524536694169600/vid/avc1/480x270/RFpZ-xeNgGT5IKJW.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2118524536694169600/img/iyfu3Qk51Nu3dpeQ.jpg\"></video>"
-    },
-    {
       "title": "Q2FY27 is shaping up as one of the strongest quarters for earnings growth across the India companies on the SOIC Research (India + Global) watchlist. ...",
       "link": "https://x.com/ResearchSOIC/status/2117997054865883476",
       "date": "2026-11-04T15:07:03+00:00",
@@ -4351,6 +4351,20 @@
       "description_html": "RT\u2002SOIC Research<br>Re So what is this chain, really?<br><br>It looks like an oil-price trade. It isn't. It's a capex pipeline with a policy valve in the middle. The price decides who earns this quarter; the capex decides who earns for the next five years.<br><br>Here is the complete flow of money that happens across the value chain<br><video width=\"1080\" height=\"1350\" src=\"https://video.twimg.com/amplify_video/2110406575110459392/vid/avc1/1080x1350/_9c4XKE07QWzuhHB.mp4?tag=29\" controls=\"controls\" poster=\"https://pbs.twimg.com/amplify_video_thumb/2110406575110459392/img/EDC14iv_4WdHlz4m.jpg\"></video>"
     },
     {
+      "title": "RT Anika Patel: NEW - China Briefing: COP31 Special \ud83c\udf10 Fresh from Antalya, today's @CarbonBrief China Briefing brings you the latest from the first ...",
+      "link": "https://x.com/CarbonBrief/status/2120906021791035663",
+      "date": "2026-11-12T15:37:14+00:00",
+      "tweet_id": "2120906021791035663",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW72ZVMW4AARazc?format=jpg&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Anika Patel<br>NEW - China Briefing: COP31 Special \ud83c\udf10<br><br>Fresh from Antalya, today's @CarbonBrief China Briefing brings you the latest from the first days of COP31, inc:<br>\ud83d\udce3 What top negotiators said<br>\ud83d\udca5 Averted agenda fight<br>\ud83d\udcb0 Disagreements over finance<br><br>Read more via the link in the comments \u2b07\ufe0f<br><img width=\"1807\" height=\"1355\" style=\"\" src=\"https://pbs.twimg.com/media/HW72ZVMW4AARazc?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "The Carbon Brief Profile: Nigeria - Everything you need to know about Nigeria's climate and energy policy | @daisydunnesci #CBarchive Read here: https...",
       "link": "https://x.com/CarbonBrief/status/2120903223468826636",
       "date": "2026-11-12T15:35:07+00:00",
@@ -4363,6 +4377,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "The Carbon Brief Profile: Nigeria - Everything you need to know about Nigeria's climate and energy policy | @daisydunnesci #CBarchive<br><br>Read here: https://bit.ly/2VyhQNT"
+    },
+    {
+      "title": "RT Simon Evans: COP31: It's day 4 and negotiations are firmly underway Of more than 100 agenda items on day 1\u2026 \u26ab11 postponed \ud83d\udfe144 have draft text ...",
+      "link": "https://x.com/CarbonBrief/status/2120906540261441594",
+      "date": "2026-11-12T14:28:45+00:00",
+      "tweet_id": "2120906540261441594",
+      "source": "Carbon Brief",
+      "publisher": "Carbon Brief",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW7nDUpWgAAGpsp?format=png&name=orig",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002Simon Evans<br>COP31: It's day 4 and negotiations are firmly underway<br><br>Of more than 100 agenda items on day 1\u2026<br><br>\u26ab11 postponed<br>\ud83d\udfe144 have draft text<br>\ud83d\udd3448 have no text<br><br>I've just reviewed some of the latest drafts over at CB Connect:<br><br>https://connect.carbonbrief.org/t/cop31-draft-text-update-12-november/141/1<br><img width=\"1552\" height=\"1244\" style=\"\" src=\"https://pbs.twimg.com/media/HW7nDUpWgAAGpsp?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Today, Ed Miliband, the UK foreign secretary and COP veteran, will be answering questions from Carbon Brief readers about COP31. Join the conversation...",
@@ -4545,34 +4573,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Daily Briefing: Clean electrification call | CO2 drop | Permitting bill \u2018advances\u2019 <br><br>Read today's briefing here \u27a1\ufe0f https://buff.ly/IrFL0NN <br><br>Sign up to our email briefings \u27a1\ufe0f https://buff.ly/TwwsRyc<br><video width=\"1920\" height=\"1080\" src=\"https://video.twimg.com/ext_tw_video/2120089589326991360/pu/vid/avc1/1280x720/l8DXhgbx8I4eAmAB.mp4?tag=12\" controls=\"controls\" poster=\"https://pbs.twimg.com/ext_tw_video_thumb/2120089589326991360/pu/img/8tLbK-LHJyOa4iO9.jpg\"></video>"
-    },
-    {
-      "title": "Q&A: Does the world need \u2018carbon capture and storage\u2019 to reach net-zero? \u270d\ufe0f Written by Josh Gabbatiss \ud83d\udcac With comments from Andrew Reid, Dr Jenn...",
-      "link": "https://x.com/CarbonBrief/status/2120054353637626107",
-      "date": "2026-11-10T07:22:01+00:00",
-      "tweet_id": "2120054353637626107",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "Q&amp;A: Does the world need \u2018carbon capture and storage\u2019 to reach net-zero? <br><br>\u270d\ufe0f Written by Josh Gabbatiss <br>\ud83d\udcac  With comments from Andrew Reid, Dr Jennifer Roberts, Enrique Cornejo, @Haszeldine and Lina Lefstad <br><br>Read here: https://buff.ly/A7rY6I7"
-    },
-    {
-      "title": "NEW \u2013 Analysis: Fossil-fuel CO2 emissions set to dip in 2026 as Iran conflict hits oil use \u270d\ufe0f Written by @hausfath and Pierre Freiedlingstein Read ...",
-      "link": "https://x.com/CarbonBrief/status/2119958905556021416",
-      "date": "2026-11-10T01:02:44+00:00",
-      "tweet_id": "2119958905556021416",
-      "source": "Carbon Brief",
-      "publisher": "Carbon Brief",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWubY8iXEAAE_Ex?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "NEW \u2013 Analysis: Fossil-fuel CO2 emissions set to dip in 2026 as Iran conflict hits oil use <br><br>\u270d\ufe0f Written by @hausfath and Pierre Freiedlingstein <br><br>Read here: https://buff.ly/l26fGuf<br><img width=\"2048\" height=\"1597\" style=\"\" src=\"https://pbs.twimg.com/media/HWubY8iXEAAE_Ex?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Europe is home to some global electrification leaders. Electricity\u2019s share of final energy reached as high as 54% in Norway and 33% in Sweden in 2025...",
@@ -5457,6 +5457,20 @@
       "description_html": "RT\u2002Samarth Jajoo<br>It may be possible to train music generation models which have a shot at treating, and perhaps even preventing Alzheimer's. <br><br>It'd take ~$5m to build and run trials for what could become one of the most widely deployed public health interventions.<br><br>https://jajoo.sh/gamma"
     },
     {
+      "title": "RT Shereen Bhan: Trump says Tim Cook is the best man to replace Jensen Huang! Posts on Truth Social \ud83d\udc47 \u201cNOW THAT Nvidia CEO JENSEN HUANG, who has d...",
+      "link": "https://x.com/Nigel__DSouza/status/2120911341469028592",
+      "date": "2026-11-12T16:00:14+00:00",
+      "tweet_id": "2120911341469028592",
+      "source": "Nigel D'Souza",
+      "publisher": "Nigel D'Souza",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": true,
+      "is_reply": false,
+      "description_html": "RT\u2002Shereen Bhan<br>Trump says Tim Cook is the best man to replace Jensen Huang! Posts on Truth Social \ud83d\udc47 <br><br>\u201cNOW THAT Nvidia CEO JENSEN HUANG, who has done a fantastic job, has resigned, there is only one man to take his place - TIM COOK of Apple. A Legend replaces a Legend!\u201d<br>@CNBCTV18News @CNBCTV18Live #Nvidia #JensenHuang #TimCook<div class=\"rsshub-quote\"><br><br>Shereen Bhan:\u2002#Nvidia board thanks Jensen for his immeasurable contribution to the company and industry. End of the Jensen Huang era at the company he co-founded more than 33 years ago @CNBCTV18News @CNBCTV18Live #JensenHuang<br></div>"
+    },
+    {
       "title": "What\u2019s on the bullish investor\u2019s wish list for Indian markets? 1. FIIs turn aggressive buyers: Net FII buying crosses \u20b91 lakh cr in a single month....",
       "link": "https://x.com/Nigel__DSouza/status/2120902343965503569",
       "date": "2026-11-12T15:31:37+00:00",
@@ -5525,6 +5539,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Page Industries lost \u20b95000 cr in Mcap today on poor results &amp; on FEMA concerns<br><br>Company on con call says<br>-Don\u2019t expect operational impact  <br>-Penalty could be 0.75% on amount involved <br>-Amount involved as per them is \u20b948 cr &amp; in an extreme case penalty could be 3x amount involved<br><br>So appears impact can \u20b930-40 lakh while in an extreme case is \u20b9144 cr<br><br>\ud83d\udea8 note no view on the stock \ud83d\udea8"
+    },
+    {
+      "title": "RT CNBC-TV18: #EditorsPlaybook | FPIs are back... Is This A Lasting Romance Or Just Another Market Fling? FPIs ghosted India's blue-chips for two year...",
+      "link": "https://x.com/Nigel__DSouza/status/2120914007569973567",
+      "date": "2026-11-12T10:02:39+00:00",
+      "tweet_id": "2120914007569973567",
+      "source": "Nigel D'Souza",
+      "publisher": "Nigel D'Souza",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": true,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "RT\u2002CNBC-TV18<br>#EditorsPlaybook | FPIs are back... Is This A Lasting Romance Or Just Another Market Fling?<br><br>FPIs ghosted India's blue-chips for two years. Now, they're back, bringing $7 billion with them since October 7. Is this a situationship, just another fling..or a lasting romance. @ShereenBhan and her team of editors decode<br><br>WATCH: https://youtube.com/live/Ke4KmGVWV_A <br>@Nigel__DSouza @nimeshscnbc @iyer_sriram @hormaz_fatakia"
     },
     {
       "title": "Premier Energies details growth ambitions - Transformer quarterly revenue could scale up 3x to \u20b9350 cr over the next few years - Consolidated EBITDA ...",
@@ -5679,34 +5707,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Bernstein\u2019s Venugopal Garre raises the December Nifty target to 26,100 (18.5x FY28 earnings), from the earlier 25,000 (18x).<br><br>Global easing &amp; positive momentum offer near-term valuation support.<br><br>However, rich valuations, weaker earnings, limited upgrades and India's weak global positioning across trade, AI and energy pose downside risks.<br><br>Stance: Near-term Trading Buy; Neutral over the next 12 months<br><br>@CNBCTV18Live"
-    },
-    {
-      "title": "India has gone from last to first. Source: Emkay note Over the past four weeks, Indian equities have surged 13.9% in dollar terms, making India the be...",
-      "link": "https://x.com/Nigel__DSouza/status/2120143550465835124",
-      "date": "2026-11-10T13:16:27+00:00",
-      "tweet_id": "2120143550465835124",
-      "source": "Nigel D'Souza",
-      "publisher": "Nigel D'Souza",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "India has gone from last to first.<br>Source: Emkay note <br><br>Over the past four weeks, Indian equities have surged 13.9% in dollar terms, making India the best performer among 11 major markets over 1, 3 &amp; 6 months. Three weeks ago, it ranked last on 3-month returns.<br><br>But this is catch-up, not yet leadership. India has recovered roughly 40% of its relative underperformance versus emerging markets over the past year.<br><br>Trends that stand out:<br>Decoupling: India's correlation with global markets has fallen close to zero, a 10-year low. Domestic factors are driving markets for now.<br>Asian tech weakness: Taiwan (-22%) &amp; Korea (-24%) are down sharply over four weeks.<br>Capital rotation: Money flowing out of Asian tech is improving India's relative standing.<br><br>Will India sustain this outperformance?<br><br>@CNBCTV18Live"
-    },
-    {
-      "title": "RT CNBC-TV18: In the PSU basket defense sectors have done the best: Ramesh DAMANI, Member, BSE \ud83d\udca1 PSU Story Discovered: Damani highlights that while...",
-      "link": "https://x.com/Nigel__DSouza/status/2120159670296092988",
-      "date": "2026-11-10T03:30:01+00:00",
-      "tweet_id": "2120159670296092988",
-      "source": "Nigel D'Souza",
-      "publisher": "Nigel D'Souza",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002CNBC-TV18<br>In the PSU basket defense sectors have done the best: Ramesh DAMANI, Member, BSE  <br><br>\ud83d\udca1 PSU Story Discovered: Damani highlights that while the broader PSU rally is well-known, new themes are emerging.  <br><br>\u26cf\ufe0f Next Big Bet: Predicts companies focused on critical materials could see strong momentum in the coming years! \ud83d\ude80 <br><br>Watch: https://youtube.com/shorts/TwjrIfhV6sk <br><br>#RameshDamani #PSU #DefenceStocks #CriticalMaterials #StockMarketIndia #Nifty50 #Sensex #InvestingTips #CNBCTV18Digital"
     },
     {
       "title": "RT Capitalmind: From \u2018There Is No Alternative\u2019 to \u2018Anywhere But India\u2019, the market sentiment has swung and how. But the structural changes shaping...",
@@ -6185,6 +6185,20 @@
       "description_html": "\ud835\uddd6\ud835\uddee\ud835\uddfb \ud835\uddff\ud835\uddf2\ud835\ude00\ud835\uddf6\ud835\uddf9\ud835\uddf6\ud835\uddf2\ud835\uddfb\ud835\uddf0\ud835\uddf2 \ud835\ude04\ud835\uddf6\ud835\ude01\ud835\uddf5\ud835\ude00\ud835\ude01\ud835\uddee\ud835\uddfb\ud835\uddf1 \ud835\uddff\ud835\uddf6\ud835\ude00\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\uddf6\ud835\uddfb\ud835\uddf3\ud835\uddf9\ud835\uddee\ud835\ude01\ud835\uddf6\ud835\uddfc\ud835\uddfb \ud835\uddee\ud835\uddfb\ud835\uddf1 \ud835\uddf4\ud835\uddf2\ud835\uddfc\ud835\uddfd\ud835\uddfc\ud835\uddf9\ud835\uddf6\ud835\ude01\ud835\uddf6\ud835\uddf0\ud835\uddee\ud835\uddf9 \ud835\ude00\ud835\uddf5\ud835\uddfc\ud835\uddf0\ud835\uddf8\ud835\ude00?<br><br>As global growth navigates persistent inflationary pressures and elevated energy prices, India\u2019s macroeconomic fundamentals continue to show relative strength. Yet, emerging risks warrant closer attention.<br><br>Key Takeaways:<br>\u2022 High-Frequency indicators tell a positive story, but risks warrant caution.<br>\u2022 Elevated crude oil prices, food inflation, and rising input costs are broadening inflationary pressures, with CPI inflation expected to average around 5% in FY27.<br>\u2022 Merchandise exports have maintained double-digit growth momentum, although higher oil and electronics imports have widened the trade deficit.<br>\u2022 Healthy public capex continues to support infrastructure and capital goods growth, providing an important buffer to economic activity.<br>\u2022 Given the current growth-inflation dynamics, the current hiking cycle will be shallow, with a further cumulative increase of 50 bps over the next few policy meetings.<br><br>Read the full report: https://www.careratings.com/uploads/newsfiles/1793344772_CareEdge%20Economic%20Pathway-October%202026.pdf<br><br>@RajaniSinha2025  | Akanksha Bhende | Bharadwaja Adiraju | Tanya Singh<br><br>#CareEdgeRatings #EconomicPathway #IndiaEconomy #Macroeconomics #EconomicOutlook #Inflation #Exports #Infrastructure #MonetaryPolicy #CapitalMarkets #CreditInsights #EconomicResearch<br><img width=\"617\" height=\"352\" style=\"\" src=\"https://pbs.twimg.com/media/HWHMm_7aUAAHG9H?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Adding the combined fall in benchmark oil prices, physical differentials, and freight costs, global \"landed\" oil prices at the refinery gate are down ...",
+      "link": "https://x.com/JavierBlas/status/2120920859095306729",
+      "date": "2026-11-12T16:45:12+00:00",
+      "tweet_id": "2120920859095306729",
+      "source": "Javier Blas",
+      "publisher": "Javier Blas",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Adding the combined fall in benchmark oil prices, physical differentials, and freight costs, global \"landed\" oil prices at the refinery gate are down 35-40% since a peak around Sep. 15th."
+    },
+    {
       "title": "US President Donald Trump on Iran talks: \u201c\u2026 We don\u2019t need a deal with Iran. Those days have long since passed. We\u2019ve got their money, Hundreds of ...",
       "link": "https://x.com/JavierBlas/status/2120877211687309361",
       "date": "2026-11-12T13:51:45+00:00",
@@ -6393,34 +6407,6 @@
       "is_quote": true,
       "is_reply": false,
       "description_html": "WCS (Hardisty) crude at ~$58.4 a barrel.<div class=\"rsshub-quote\"><br><br>Javier Blas:\u2002Canadian oil (WCS) prices will start with a 5-handle very soon. <br><br>During the world's largest ever oil crisis. Quite the shock.<br></div>"
-    },
-    {
-      "title": "The first (of the 3 major agencies: IEA, OPEC and EIA) estimate on Saudi crude production for October is out: @EIAgov pegs it at 9.3 million barrels a...",
-      "link": "https://x.com/JavierBlas/status/2120209329777262820",
-      "date": "2026-11-10T17:37:50+00:00",
-      "tweet_id": "2120209329777262820",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "The first (of the 3 major agencies: IEA, OPEC and EIA) estimate on Saudi crude production for October is out: @EIAgov pegs it at 9.3 million barrels a day."
-    },
-    {
-      "title": "CHART OF THE DAY: The COP31 climate summit is focusing on boosting electrification. That\u2019s good as too much of the world\u2019s primary energy is lost as...",
-      "link": "https://x.com/JavierBlas/status/2120205862367064541",
-      "date": "2026-11-10T17:24:03+00:00",
-      "tweet_id": "2120205862367064541",
-      "source": "Javier Blas",
-      "publisher": "Javier Blas",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWx7_lpWsAAxqkH?format=png&name=orig",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "CHART OF THE DAY: The COP31 climate summit is focusing on boosting electrification. That\u2019s good as too much of the world\u2019s primary energy is lost as heat. <br><br>Yet, when thinking about electrification is important to remember how that electricity is generated: coal and natural gas are omnipresent.<br><img width=\"688\" height=\"517\" style=\"\" src=\"https://pbs.twimg.com/media/HWx7_lpWsAAxqkH?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
       "title": "Can green cement decarbonise the data centre building boom? https://ft.trib.al/z3Tbhsm",
@@ -6703,6 +6689,20 @@
       "description_html": "Saudi Arabia\u2019s vital East-West pipeline struck in attack https://ft.trib.al/IauK5qi"
     },
     {
+      "title": "BREAKING: The S&P 500 erases all losses and turns green as investors buy the dip in Nvidia, $NVDA. Nvidia has now erased more than half of its loss on...",
+      "link": "https://x.com/KobeissiLetter/status/2120908498804293843",
+      "date": "2026-11-12T15:56:05+00:00",
+      "tweet_id": "2120908498804293843",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW77Ce1WQAA9-n1?format=jpg&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: The S&amp;P 500 erases all losses and turns green as investors buy the dip in Nvidia, $NVDA.<br><br>Nvidia has now erased more than half of its loss on the day.<br><img width=\"1206\" height=\"1739\" style=\"\" src=\"https://pbs.twimg.com/media/HW77Ce1WQAA9-n1?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "BREAKING: President Trump calls for former Apple CEO Tim Cook to become the next CEO of Nvidia, $NVDA. \u201cA legend replaces a legend,\u201d Trump says.",
       "link": "https://x.com/KobeissiLetter/status/2120904975320789406",
       "date": "2026-11-12T15:42:05+00:00",
@@ -6787,20 +6787,6 @@
       "description_html": "BREAKING: Nvidia stock, $NVDA, plunges over -10% after Jensen Huang officially resigns as CEO.<br><br>The stock has now erased -$750 billion in market cap since the scandal began.<br><img width=\"1206\" height=\"1803\" style=\"\" src=\"https://pbs.twimg.com/media/HW7fFkIXIAALHJS?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
-      "title": "RT The Kobeissi Letter: BREAKING: Nvidia, $NVDA, CEO Jensen Huang has resigned as CEO, President, and member of the Board of Directors, effective imme...",
-      "link": "https://x.com/KobeissiLetter/status/2120881197274235335",
-      "date": "2026-11-12T13:51:49+00:00",
-      "tweet_id": "2120881197274235335",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HW7emC3WcAArwHJ?format=jpg&name=orig",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002The Kobeissi Letter<br>BREAKING: Nvidia, $NVDA, CEO Jensen Huang has resigned as CEO, President, and member of the Board of Directors, effective immediately.<br><img width=\"700\" height=\"466\" style=\"\" src=\"https://pbs.twimg.com/media/HW7emC3WcAArwHJ?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
       "title": "BREAKING: Nvidia, $NVDA, CEO Jensen Huang has resigned as CEO, President, and member of the Board of Directors, effective immediately.",
       "link": "https://x.com/KobeissiLetter/status/2120877226459820170",
       "date": "2026-11-12T13:51:49+00:00",
@@ -6869,20 +6855,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BREAKING: Nvidia stock, $NVDA, pares losses, rising +6% from its low but still trading -5% below yesterday\u2019s close, as markets pare back bets on Jensen Huang being fired.<br><br>We expect a highly eventful day ahead.<br><img width=\"1206\" height=\"1753\" style=\"\" src=\"https://pbs.twimg.com/media/HW6y8N0WkAAq8Oi?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "RT The Kobeissi Letter: Our message to Nvidia's board: Do not fire Jensen Huang. There is no clear replacement for Jensen Huang. We are confident that...",
-      "link": "https://x.com/KobeissiLetter/status/2120849454614155679",
-      "date": "2026-11-12T01:53:49+00:00",
-      "tweet_id": "2120849454614155679",
-      "source": "The Kobeissi Letter",
-      "publisher": "Kobeissi Letter",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": true,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RT\u2002The Kobeissi Letter<br>Our message to Nvidia's board:<br><br>Do not fire Jensen Huang.<br><br>There is no clear replacement for Jensen Huang. We are confident that his departure would ultimately be a net negative for Nvidia, its shareholders, and the AI Revolution.<br><br>First, take a look at the data. History also suggests that removing a successful CEO will come with a significant cost.<br><br>A study of 187 forced CEO departures from S&amp;P 1500 companies found that removing outperforming CEOs resulted in negative long-term stock returns. This case would be no different, in our view.<br><br>Jensen Huang is the definition of an outperforming CEO. Nvidia's board must not make a decision in the heat of the moment.<br><br>The board should take the time to conduct a thorough investigation and consult with shareholders, with a strong emphasis on the latter.<br><br>Quite literally, Nvidia's board should convene a special shareholder meeting and hold an advisory vote on this decision. This is the most consequential CEO controversy in world history. Shareholders deserve a say.<br><br>In addition, Nvidia's stock, $NVDA, is now down -35% in 26 trading days, nearly half of which is a result of the recent scandal.<br><br>We believe Jensen Huang's potential removal as CEO is now ~80% priced in.<br><br>Why take an action with massive downside potential when the market has already priced in much of that risk?<br><br>The downside of retaining Huang may be limited, while the potential upside is tremendous.<br><br>Lastly, history shows that retaining Jensen Huang could still lead to a favorable outcome. In 2019, Amazon retained Jeff Bezos as CEO after his extramarital affair became public, and the company's stock subsequently surged +108% by 2021.<br><br>Personal misconduct should not be ignored, but it must also be distinguished from corporate wrongdoing and weighed against the consequences of removing an executive who is instrumental to the company's success.<br><br>We believe Jensen Huang is an irreplaceable part of Nvidia and the AI Revolution more broadly.<br><br>Once the dust settles, firing Jensen Huang would prove to be a costly mistake.<br><br>It is time to pause and consult your shareholders."
     },
     {
       "title": "Our message to Nvidia's board: Do not fire Jensen Huang. There is no clear replacement for Jensen Huang. We are confident that his departure would ult...",
@@ -6967,6 +6939,20 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "BREAKING: Nvidia stock, $NVDA, crashes over -10% on reports that the company\u2019s board is preparing to fire him from his role as CEO after news of a second affair.<br><img width=\"1206\" height=\"1728\" style=\"\" src=\"https://pbs.twimg.com/media/HW4MlMEXoAA3qCl?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
+      "title": "BREAKING: Nvidia, $NVDA, is preparing to fire Jensen Huang, its founder and CEO, after allegations of a second affair have surfaced, per WSJ. The boar...",
+      "link": "https://x.com/KobeissiLetter/status/2120645818587951491",
+      "date": "2026-11-11T22:32:17+00:00",
+      "tweet_id": "2120645818587951491",
+      "source": "The Kobeissi Letter",
+      "publisher": "Kobeissi Letter",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BREAKING: Nvidia, $NVDA, is preparing to fire Jensen Huang, its founder and CEO, after allegations of a second affair have surfaced, per WSJ.<br><br>The board is preparing to meet as soon as today to determine his future."
     },
     {
       "title": "Breaking News ! JENSEN HUANG RESIGNS. #Nvidia",
@@ -9447,6 +9433,104 @@
       "description_html": "RT\u2002Tijori<br>KRN Heat is emerging as one of the cleanest data centre plays<br><br>~19% of their revenue in latest quarter was from data centres with active customers from North America<br><img width=\"595\" height=\"813\" style=\"\" src=\"https://pbs.twimg.com/media/HIWd890acAETVMZ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "DEV INFORMATION TECHNOLOGY: CO SECURES \u20b915.50 CRORE WORK ORDER FROM VADODARA MUNICIPAL CORPORATION FOR 3 YEARS TO PROVIDE PROJECT MANAGEMENT & STAFF ...",
+      "link": "https://x.com/REDBOXINDIA/status/2120921241196671417",
+      "date": "2026-11-12T16:46:43+00:00",
+      "tweet_id": "2120921241196671417",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "DEV INFORMATION TECHNOLOGY: CO SECURES \u20b915.50 CRORE WORK ORDER FROM VADODARA MUNICIPAL CORPORATION FOR 3 YEARS TO PROVIDE PROJECT MANAGEMENT &amp; STAFF AUGMENTATION SERVICES ACROSS APPLICATION DEVELOPMENT, CYBERSECURITY, DATABASE MANAGEMENT, GIS AND EMERGING TECHNOLOGIES"
+    },
+    {
+      "title": "DEV INFORMATION TECHNOLOGY: CO REPORTS Q2 FY27 TOTAL INCOME OF \u20b963.07 CR, UP 28% YOY; H1 FY27 TOTAL INCOME REACHES \u20b9107.72 CR, UP 16% YOY",
+      "link": "https://x.com/REDBOXINDIA/status/2120920874434146532",
+      "date": "2026-11-12T16:45:15+00:00",
+      "tweet_id": "2120920874434146532",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "DEV INFORMATION TECHNOLOGY: CO REPORTS Q2 FY27 TOTAL INCOME OF \u20b963.07 CR, UP 28% YOY; H1 FY27 TOTAL INCOME REACHES \u20b9107.72 CR, UP 16% YOY"
+    },
+    {
+      "title": "EMERALD FINANCE: CO HAS ENTERED INTO A DSA AGREEMENT WITH UTKARSH SMALL FINANCE BANK FOR ITS GOLD LOAN VERTICAL",
+      "link": "https://x.com/REDBOXINDIA/status/2120920319427006500",
+      "date": "2026-11-12T16:43:03+00:00",
+      "tweet_id": "2120920319427006500",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "EMERALD FINANCE: CO HAS ENTERED INTO A DSA AGREEMENT WITH UTKARSH SMALL FINANCE BANK FOR ITS GOLD LOAN VERTICAL"
+    },
+    {
+      "title": "PUSHPA JEWELLERS: H1 SL NET PROFIT 202M RUPEES VS 149M (YOY) || H1 REVENUE 3.1B RUPEES VS 2.5B (YOY)",
+      "link": "https://x.com/REDBOXINDIA/status/2120919778021998660",
+      "date": "2026-11-12T16:40:54+00:00",
+      "tweet_id": "2120919778021998660",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "PUSHPA JEWELLERS: H1 SL NET PROFIT 202M RUPEES VS 149M (YOY) || H1 REVENUE 3.1B RUPEES VS 2.5B (YOY)"
+    },
+    {
+      "title": "ABS MARINE: H1 SL NET PROFIT 388M RUPEES VS 306M (YOY) || H1 REVENUE 1.67B RUPEES VS 1.36B (YOY)",
+      "link": "https://x.com/REDBOXINDIA/status/2120918696101392576",
+      "date": "2026-11-12T16:36:36+00:00",
+      "tweet_id": "2120918696101392576",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "ABS MARINE: H1 SL NET PROFIT 388M RUPEES VS 306M (YOY) || H1 REVENUE 1.67B RUPEES VS 1.36B (YOY)"
+    },
+    {
+      "title": "FLYSBS AVIATION: H1 SL NET PROFIT 374M RUPEES VS 238M (YOY) || H1 REVENUE 1.9B RUPEES VS 1.4B (YOY)",
+      "link": "https://x.com/REDBOXINDIA/status/2120917772708589610",
+      "date": "2026-11-12T16:32:56+00:00",
+      "tweet_id": "2120917772708589610",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "FLYSBS AVIATION: H1 SL NET PROFIT 374M RUPEES VS 238M (YOY) || H1 REVENUE 1.9B RUPEES VS 1.4B (YOY)"
+    },
+    {
+      "title": "BAAZAR STYLE RETAIL INCORPORATES 100% WHOLLY OWNED SUBSIDIARY SUNRIGHT PRIVATE LIMITED IN RENEWABLE ENERGY SECTOR TO SET UP SOLAR POWER GENERATION PRO...",
+      "link": "https://x.com/REDBOXINDIA/status/2120916835134845331",
+      "date": "2026-11-12T16:29:12+00:00",
+      "tweet_id": "2120916835134845331",
+      "source": "RedboxGlobal India",
+      "publisher": "Redbox India",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "BAAZAR STYLE RETAIL INCORPORATES 100% WHOLLY OWNED SUBSIDIARY SUNRIGHT PRIVATE LIMITED IN RENEWABLE ENERGY SECTOR TO SET UP SOLAR POWER GENERATION PROJECTS AND ALLIED ACTIVITIES; SUBSIDIARY INCORPORATED ON NOVEMBER 12, 2026"
+    },
+    {
       "title": "NSLNISP: Q2 REVENUE 37.64B RUPEES VS 33.9B (YOY) NSLNISP: Q2 STANDALONE NET PROFIT 610.3M RUPEES VS LOSS 1.15B (YOY) NSLNISP: Q2 EBITDA 4.63B RUPEES V...",
       "link": "https://x.com/REDBOXINDIA/status/2120899273298706828",
       "date": "2026-11-12T15:19:25+00:00",
@@ -9627,104 +9711,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "PRAKASH: Q2 STANDALONE NET PROFIT 653.7M RUPEES VS 615.7M (YOY)<br><br>PRAKASH: Q2 EBITDA 1.42B RUPEES VS 1.08B (YOY); Q2 EBITDA MARGIN 15.80% VS 14.96% (YOY)<br><br>PRAKASH: Q2 REVENUE 8.96B RUPEES VS 7.23B (YOY)"
-    },
-    {
-      "title": "RELIGARE: Q2 CONS NET LOSS 499.8M RUPEES VS PROFIT 388.3M (YOY) RELIGARE: Q2 REVENUE 23.81B RUPEES VS 20.77B (YOY)",
-      "link": "https://x.com/REDBOXINDIA/status/2120879112608964806",
-      "date": "2026-11-12T13:59:19+00:00",
-      "tweet_id": "2120879112608964806",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "RELIGARE: Q2 CONS NET LOSS 499.8M RUPEES VS PROFIT 388.3M (YOY)<br><br>RELIGARE: Q2 REVENUE 23.81B RUPEES VS 20.77B (YOY)"
-    },
-    {
-      "title": "TRAVELFOOD: Q2 CONS NET PROFIT 1.46B RUPEES VS 957.7M (YOY) TRAVELFOOD: Q2 EBITDA 1.58B RUPEES VS 1.35B (YOY); Q2 EBITDA MARGIN 37.13% VS 37.99% (YOY)...",
-      "link": "https://x.com/REDBOXINDIA/status/2120879000012931224",
-      "date": "2026-11-12T13:58:52+00:00",
-      "tweet_id": "2120879000012931224",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "TRAVELFOOD: Q2 CONS NET PROFIT 1.46B RUPEES VS 957.7M (YOY)<br><br>TRAVELFOOD: Q2 EBITDA 1.58B RUPEES VS 1.35B (YOY); Q2 EBITDA MARGIN 37.13% VS 37.99% (YOY)<br><br>TRAVELFOOD: Q2 REVENUE 4.25B RUPEES VS 3.56B (YOY)"
-    },
-    {
-      "title": "INDNIPPON: Q2 STANDALONE NET PROFIT 218.1M RUPEES VS 232M (YOY) INDNIPPON: Q2 EBITDA 331.6M RUPEES VS 295.3M (YOY); Q2 EBITDA MARGIN 9.54% VS 10.83% (...",
-      "link": "https://x.com/REDBOXINDIA/status/2120876335627423963",
-      "date": "2026-11-12T13:48:17+00:00",
-      "tweet_id": "2120876335627423963",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "INDNIPPON: Q2 STANDALONE NET PROFIT 218.1M RUPEES VS 232M (YOY)<br><br>INDNIPPON: Q2 EBITDA 331.6M RUPEES VS 295.3M (YOY); Q2 EBITDA MARGIN 9.54% VS 10.83% (YOY)<br><br>INDNIPPON: Q2 REVENUE 3.47B RUPEES VS 2.73B (YOY)"
-    },
-    {
-      "title": "ETHOSLTD: Q2 CONS NET PROFIT 288.1M RUPEES VS 233.2M (YOY) ETHOSLTD: Q2 EBITDA 605.1M RUPEES VS 489.1M (YOY); Q2 EBITDA MARGIN 12.13% VS 12.76% (YOY) ...",
-      "link": "https://x.com/REDBOXINDIA/status/2120876285920715087",
-      "date": "2026-11-12T13:48:05+00:00",
-      "tweet_id": "2120876285920715087",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "ETHOSLTD: Q2 CONS NET PROFIT 288.1M RUPEES VS 233.2M (YOY)<br><br>ETHOSLTD: Q2 EBITDA 605.1M RUPEES VS 489.1M (YOY); Q2 EBITDA MARGIN 12.13% VS 12.76% (YOY)<br><br>ETHOSLTD: Q2 REVENUE 4.99B RUPEES VS 3.83B (YOY)"
-    },
-    {
-      "title": "MALLCOM: Q2 CONS NET PROFIT 77.4M RUPEES VS 37.4M (YOY) MALLCOM: Q2 EBITDA 152.2M RUPEES VS 98.7M (YOY); Q2 EBITDA MARGIN 10.62% VS 7.08% (YOY) MALLCO...",
-      "link": "https://x.com/REDBOXINDIA/status/2120876224004395412",
-      "date": "2026-11-12T13:47:50+00:00",
-      "tweet_id": "2120876224004395412",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "MALLCOM: Q2 CONS NET PROFIT 77.4M RUPEES VS 37.4M (YOY)<br><br>MALLCOM: Q2 EBITDA 152.2M RUPEES VS 98.7M (YOY); Q2 EBITDA MARGIN 10.62% VS 7.08% (YOY)<br><br>MALLCOM: Q2 REVENUE 1.43B RUPEES VS 1.39B (YOY)"
-    },
-    {
-      "title": "LANDMARK: Q2 CONS NET PROFIT 184.9M RUPEES VS 11.9M (YOY) LANDMARK: Q2 EBITDA 831.5M RUPEES VS 542.5M (YOY); Q2 EBITDA MARGIN 5.73% VS 4.48% (YOY) LAN...",
-      "link": "https://x.com/REDBOXINDIA/status/2120876165015699543",
-      "date": "2026-11-12T13:47:36+00:00",
-      "tweet_id": "2120876165015699543",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "LANDMARK: Q2 CONS NET PROFIT 184.9M RUPEES VS 11.9M (YOY)<br><br>LANDMARK: Q2 EBITDA 831.5M RUPEES VS 542.5M (YOY); Q2 EBITDA MARGIN 5.73% VS 4.48% (YOY)<br><br>LANDMARK: Q2 REVENUE 14.52B RUPEES VS 12.11B (YOY)"
-    },
-    {
-      "title": "KODY TECHNOLAB ENTERS US MARKET WITH FIRST COMMERCIAL ORDER FOR ODIGO AI ROBOTS; MARKS MAJOR GLOBAL EXPANSION MILESTONE",
-      "link": "https://x.com/REDBOXINDIA/status/2120872930603335756",
-      "date": "2026-11-12T13:34:45+00:00",
-      "tweet_id": "2120872930603335756",
-      "source": "RedboxGlobal India",
-      "publisher": "Redbox India",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": false,
-      "is_reply": false,
-      "description_html": "KODY TECHNOLAB ENTERS US MARKET WITH FIRST COMMERCIAL ORDER FOR ODIGO AI ROBOTS; MARKS MAJOR GLOBAL EXPANSION MILESTONE"
     },
     {
       "title": "Over the past decade, Mainland China has gone from being the largest importer of key chemicals to the largest exporter",
@@ -10903,6 +10889,34 @@
       "description_html": "RT\u2002Patterns<br>INDIA'S EARNING GROWTH TO OUTPACE ASIA:<br><br>\ud83c\uddee\ud83c\uddf3 FactSet expects Indian 'Corporate Earnings' to compound at 16.5% annually over 2026\u20132028<br><br>Notably, India's earnings growth is projected to exceed Asia ex-Japan by 2028,<br><br>As earning growth among Asian technology leaders (Samsung, Taiwan semiconductor MFG) is expected to slow<br><img width=\"2048\" height=\"1304\" style=\"\" src=\"https://pbs.twimg.com/media/HWGwDqjasAAfEaM?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\">"
     },
     {
+      "title": "Off for the next 4 days for Chhath Puja. I am from Bihar and this festival is very special for us. I will not be active on X or the website. I have al...",
+      "link": "https://x.com/Normal_2610/status/2120912952681459936",
+      "date": "2026-11-12T16:13:47+00:00",
+      "tweet_id": "2120912952681459936",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Off for the next 4 days for Chhath Puja. I am from Bihar and this festival is very special for us. I will not be active on X or the website. I have already shared a lot, so do read it, especially the Market Outlook. See you after 4 days"
+    },
+    {
+      "title": "Andhra Pradesh CM Naidu plans to bring Investment Protection Act before state assembly Law will make land deals, factory permits, incentive promises l...",
+      "link": "https://x.com/Normal_2610/status/2120907635654586769",
+      "date": "2026-11-12T15:52:39+00:00",
+      "tweet_id": "2120907635654586769",
+      "source": "Normal Guy",
+      "publisher": "Normal Guy",
+      "source_mode": "rsshub",
+      "image": "https://pbs.twimg.com/media/HW76P4GbEAAW2XQ?format=png&name=orig",
+      "is_retweet": false,
+      "is_quote": false,
+      "is_reply": false,
+      "description_html": "Andhra Pradesh CM Naidu plans to bring Investment Protection Act before state assembly<br><br>Law will make land deals, factory permits, incentive promises legally locked so future governments cannot cancel them. This matters because AP foreign investment fell from $609m to $92m under previous regime that ran reverse tendering on every big project <br><br>Polavaram dam sat idle five years over political fights. India paid $305m settling Dabhol after Maharashtra cancelled one power deal post elections. No state tried fixing this through law, which makes no sense<br><br>Naidu\u2019s proposed Investment Protection Act in Andhra Pradesh tackles one of India oldest investor problems. New state governments routinely cancel predecessor deals, and nobody questions this pattern. West Bengal threw out 30 years of industrial incentives under TMC. <br><br>Previous AP regime stopped Amaravati, pushed out Lulu Group, cancelled clean energy contracts worth billions. Goldman Sachs, SoftBank, Brookfield had money in AP and watched deals get reopened, which was careless <br><br>Centre tried similar protection law in 2020, dropped it without any follow up. AP is now doing what Centre refused to<br><br>Andhra Pradesh wants to pass Investment Protection Act that locks in deals for investors across political cycles But Indian law lets any state assembly change or remove acts made by previous assembly. Supreme Court in March 2026 said Maharashtra could change industrial policy even after 25 years.<br><br>So no future AP government is legally forced to keep this act. Investors still want it because visible political cost on reversal matters more than legal promise. <br><br>Right now cancelling deals costs nothing in Indian states, which is why so many do it<br><img width=\"827\" height=\"371\" style=\"\" src=\"https://pbs.twimg.com/media/HW76P4GbEAAW2XQ?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
+    },
+    {
       "title": "DGFT banned lithium-ion battery black mass exports on November 10, starting right away Black mass is powder made by shredding old batteries, containin...",
       "link": "https://x.com/Normal_2610/status/2120559874279194817",
       "date": "2026-11-11T16:50:46+00:00",
@@ -11083,48 +11097,6 @@
       "is_quote": false,
       "is_reply": false,
       "description_html": "Divi's is the sleep-at-night pick. Wrote in May till now it almost Double for reference read last Quarter concall Guys :)<br><br>https://www.normalguy.co.in/post/the-overlapping-butterfly-effect-of-glp-1-part-2<br><img width=\"882\" height=\"477\" style=\"\" src=\"https://pbs.twimg.com/media/HWqtP-xbYAA7Ukw?format=png&amp;name=orig\" referrerpolicy=\"no-referrer\">"
-    },
-    {
-      "title": "Turn disaster into opportunity :) Dyson is still leading the market, and as per the PM, we have to work on that. Made-in-India products must be bought...",
-      "link": "https://x.com/Normal_2610/status/2119695774883684369",
-      "date": "2026-11-09T07:37:09+00:00",
-      "tweet_id": "2119695774883684369",
-      "source": "Normal Guy",
-      "publisher": "Normal Guy",
-      "source_mode": "rsshub",
-      "image": "https://pbs.twimg.com/media/HWqonTaa0AAzJhW?format=jpg&name=orig",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "Turn disaster into opportunity :)<br><br>Dyson is still leading the market, and as per the PM, we have to work on that. Made-in-India products must be bought. ITC will be affected, but I care about the hospitals in Delhi the most and the pharma players overall. Take this as a positive for the Indian market. <br><br>Hospitals have some competition coming due to more beds, so pharma is more secure now. The way things are going, it gives me new energy and motivates me that India have not to become like China<br><br>People die even if they die 10 years earlier, or kids below 10 develop problems. Is that such a big deal? Not at all. Why are you making money just to pay taxes? Pay for medicines and hospital bills too <br><br>I support the regime. A slow death is a blessing until the next generation's genes and DNA are compromised, like an asset being taken over by newer forms of complications. That's how capitalist society works <br><br>Just like the public regime is a mirror of the public, what you vote for is what you get in return. If you don't raise your voice, the consequences will eventually enter your home and fuck up your life<br><br>Posting on Instagram and Twitter will only take you so far. It will not work. The regime is a street fighter, and you have to take the fight to the streets, even for laddus and a new Education Minister who is sleeping with an N95 mask :)<br><br>I know the regime and the public both love content. Probably Gen Z will make reels in a smoky-flavoured environment, go viral and earn money. This will also boost informal employment in India<br><br>And this is only going to last a few months, so why care so much? When will Indians become careful and responsible? When we fight over parking it give real kick <br><br>Let's hope we forget this scene and again vote for development and the 2047 ambition. I love this inspiration.<br><br>I am just sharing my personal view. And probably I like the smoky flavour because this is an opportunity for me, at least until it reaches my home and fucks me<br><img width=\"910\" height=\"741\" style=\"\" src=\"https://pbs.twimg.com/media/HWqonTaa0AAzJhW?format=jpg&amp;name=orig\" referrerpolicy=\"no-referrer\"><div class=\"rsshub-quote\"><br><br>Tavleen Singh:\u2002The air in Delhi is unbreathable. Babies could get asthma, old people could die and the \u2018triple-engine\u2019 BJP government spreads conspiracy theories about arsonists in Punjab. We need solutions not conspiracies.<br></div>"
-    },
-    {
-      "title": "The world rewards self-interest more often than goodness, but that doesn't mean we should stop being good people",
-      "link": "https://x.com/Normal_2610/status/2119688078214455443",
-      "date": "2026-11-09T07:06:34+00:00",
-      "tweet_id": "2119688078214455443",
-      "source": "Normal Guy",
-      "publisher": "Normal Guy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "The world rewards self-interest more often than goodness, but that doesn't mean we should stop being good people<div class=\"rsshub-quote\"><br><br>Aseem Dhru:\u2002Goodness, Fairness and Justice: humans are in conflict with nature.&nbsp;<br><br>A pair of birds find a safe place, make a nest, lay eggs, hatch them and then work all day to feed the hungry mouths.&nbsp; Meanwhile an eagle may eat the babies or a cat could eat the mother and the process could<br></div>"
-    },
-    {
-      "title": "The mistake by Jensen was brutal, but US intelligence is exceptional. They have likely known for a while that the asset is compromised. How this unfol...",
-      "link": "https://x.com/Normal_2610/status/2119682985368924605",
-      "date": "2026-11-09T06:46:20+00:00",
-      "tweet_id": "2119682985368924605",
-      "source": "Normal Guy",
-      "publisher": "Normal Guy",
-      "source_mode": "rsshub",
-      "image": "",
-      "is_retweet": false,
-      "is_quote": true,
-      "is_reply": false,
-      "description_html": "The mistake by Jensen was brutal, but US intelligence is exceptional. <br><br>They have likely known for a while that the asset is compromised. How this unfolds will probably affect China as well, which has been carefully hiding its intentions and projecting an attitude of indifference, as if it doesn't need these chips.<br><br>The deal could remain stuck until both sides reach a give-and-take arrangement involving US access to more rare earths and critical minerals. <br><br>And one big question will remain open for US intelligence - how many top talents have been compromised?<br><br>For Refence yu can watch - The Agency, Lioness yu will get to know how asset work .... The Agency is top notch :)<div class=\"rsshub-quote\"><br><br>Jukan:\u2002Taiwanese semiconductor analyst Andrew Lu\u2019s take on the recent scandal involving Jensen Huang:<br><br>Why the US Seized on the Scandal to Draw Its Sword: Three Strategic Objectives<br><br>The purpose of this scandal is by no means to expose an affair. It is to force through three critical<br></div>"
     }
   ]
 }
