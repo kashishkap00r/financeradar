@@ -2057,11 +2057,11 @@
   },
   {
     "id": "x-indiaspend",
-    "name": "IndiaSpend (X)",
-    "url": "https://x.com/IndiaSpend",
-    "feed": "https://news.google.com/rss/search?q=site:x.com/IndiaSpend/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "name": "ISignal (X)",
+    "url": "https://x.com/ISignalOfficial",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/ISignalOfficial/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
-    "publisher": "IndiaSpend"
+    "publisher": "ISignal"
   },
   {
     "id": "x-ideas-for-india",
@@ -2367,6 +2367,294 @@
     "feed": "https://news.google.com/rss/search?q=site:x.com/Normal_2610/status&hl=en-IN&gl=IN&ceid=IN:en",
     "category": "Twitter",
     "publisher": "Normal Guy"
+  },
+  {
+    "id": "x-latha-venkatesh",
+    "name": "Latha Venkatesh (X)",
+    "url": "https://x.com/latha_venkatesh",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/latha_venkatesh/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Latha Venkatesh"
+  },
+  {
+    "id": "x-niraj-shah",
+    "name": "Niraj Shah (X)",
+    "url": "https://x.com/niraj_shah",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/niraj_shah/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Niraj Shah"
+  },
+  {
+    "id": "x-sanjay-bakshi",
+    "name": "Sanjay Bakshi (X)",
+    "url": "https://x.com/Sanjay__Bakshi",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Sanjay__Bakshi/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Sanjay Bakshi"
+  },
+  {
+    "id": "x-amit-mantri",
+    "name": "Amit Mantri (X)",
+    "url": "https://x.com/amitmantri",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/amitmantri/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Amit Mantri"
+  },
+  {
+    "id": "x-prabhakar-kudva",
+    "name": "Prabhakar Kudva (X)",
+    "url": "https://x.com/prabhakarkudva",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/prabhakarkudva/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Prabhakar Kudva"
+  },
+  {
+    "id": "x-amit-kumar-gupta",
+    "name": "Amit Kumar Gupta (X)",
+    "url": "https://x.com/amitgupta0310",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/amitgupta0310/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Amit Kumar Gupta"
+  },
+  {
+    "id": "x-vijay-malik",
+    "name": "Vijay Malik (X)",
+    "url": "https://x.com/drvijaymalik",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/drvijaymalik/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Vijay Malik"
+  },
+  {
+    "id": "x-sahil-kapoor",
+    "name": "Sahil Kapoor (X)",
+    "url": "https://x.com/SahilKapoor",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/SahilKapoor/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Sahil Kapoor"
+  },
+  {
+    "id": "x-ajay-shah",
+    "name": "Ajay Shah (X)",
+    "url": "https://x.com/ajay_shah",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/ajay_shah/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Ajay Shah"
+  },
+  {
+    "id": "x-roshan-kishore",
+    "name": "Roshan Kishore (X)",
+    "url": "https://x.com/Roshanjnu",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Roshanjnu/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Roshan Kishore"
+  },
+  {
+    "id": "x-ila-patnaik",
+    "name": "Ila Patnaik (X)",
+    "url": "https://x.com/IlaPatnaik",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/IlaPatnaik/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Ila Patnaik"
+  },
+  {
+    "id": "x-rukmini-s",
+    "name": "Rukmini S (X)",
+    "url": "https://x.com/Rukmini",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Rukmini/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Rukmini S"
+  },
+  {
+    "id": "x-pramit-bhattacharya",
+    "name": "Pramit Bhattacharya (X)",
+    "url": "https://x.com/pramit_b",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/pramit_b/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Pramit Bhattacharya"
+  },
+  {
+    "id": "x-karthik-muralidharan",
+    "name": "Karthik Muralidharan (X)",
+    "url": "https://x.com/karthik_econ",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/karthik_econ/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Karthik Muralidharan"
+  },
+  {
+    "id": "x-milan-vaishnav",
+    "name": "Milan Vaishnav (X)",
+    "url": "https://x.com/MilanV",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/MilanV/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Milan Vaishnav"
+  },
+  {
+    "id": "x-epw",
+    "name": "EPW (X)",
+    "url": "https://x.com/epw_in",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/epw_in/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "EPW"
+  },
+  {
+    "id": "x-brad-setser",
+    "name": "Brad Setser (X)",
+    "url": "https://x.com/Brad_Setser",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Brad_Setser/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Brad Setser"
+  },
+  {
+    "id": "x-adam-tooze",
+    "name": "Adam Tooze (X)",
+    "url": "https://x.com/adam_tooze",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/adam_tooze/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Adam Tooze"
+  },
+  {
+    "id": "x-robin-brooks",
+    "name": "Robin Brooks (X)",
+    "url": "https://x.com/robin_j_brooks",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/robin_j_brooks/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Robin Brooks"
+  },
+  {
+    "id": "x-tracy-alloway",
+    "name": "Tracy Alloway (X)",
+    "url": "https://x.com/tracyalloway",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/tracyalloway/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Tracy Alloway"
+  },
+  {
+    "id": "x-john-burn-murdoch",
+    "name": "John Burn-Murdoch (X)",
+    "url": "https://x.com/jburnmurdoch",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/jburnmurdoch/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "John Burn-Murdoch"
+  },
+  {
+    "id": "x-ed-conway",
+    "name": "Ed Conway (X)",
+    "url": "https://x.com/EdConwaySky",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/EdConwaySky/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Ed Conway"
+  },
+  {
+    "id": "x-liz-ann-sonders",
+    "name": "Liz Ann Sonders (X)",
+    "url": "https://x.com/LizAnnSonders",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/LizAnnSonders/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Liz Ann Sonders"
+  },
+  {
+    "id": "x-george-magnus",
+    "name": "George Magnus (X)",
+    "url": "https://x.com/georgemagnus1",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/georgemagnus1/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "George Magnus"
+  },
+  {
+    "id": "x-chad-bown",
+    "name": "Chad Bown (X)",
+    "url": "https://x.com/ChadBown",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/ChadBown/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Chad Bown"
+  },
+  {
+    "id": "x-bis",
+    "name": "BIS (X)",
+    "url": "https://x.com/BIS_org",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/BIS_org/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "BIS"
+  },
+  {
+    "id": "x-ft-data",
+    "name": "FT Data (X)",
+    "url": "https://x.com/ftdata",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/ftdata/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "FT Data"
+  },
+  {
+    "id": "x-wsj-graphics",
+    "name": "WSJ Graphics (X)",
+    "url": "https://x.com/WSJGraphics",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/WSJGraphics/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "WSJ Graphics"
+  },
+  {
+    "id": "x-rory-johnston",
+    "name": "Rory Johnston (X)",
+    "url": "https://x.com/Rory_Johnston",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/Rory_Johnston/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Rory Johnston"
+  },
+  {
+    "id": "x-anas-alhajji",
+    "name": "Anas Alhajji (X)",
+    "url": "https://x.com/anasalhajji",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/anasalhajji/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Anas Alhajji"
+  },
+  {
+    "id": "x-eia",
+    "name": "EIA (X)",
+    "url": "https://x.com/EIAgov",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/EIAgov/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "EIA"
+  },
+  {
+    "id": "x-business-standard",
+    "name": "Business Standard (X)",
+    "url": "https://x.com/bsindia",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/bsindia/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Business Standard"
+  },
+  {
+    "id": "x-nikkei-asia",
+    "name": "Nikkei Asia (X)",
+    "url": "https://x.com/NikkeiAsia",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/NikkeiAsia/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Nikkei Asia"
+  },
+  {
+    "id": "x-epoch-ai",
+    "name": "Epoch AI (X)",
+    "url": "https://x.com/EpochAIResearch",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/EpochAIResearch/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Epoch AI"
+  },
+  {
+    "id": "x-dwarkesh-patel",
+    "name": "Dwarkesh Patel (X)",
+    "url": "https://x.com/dwarkesh_sp",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/dwarkesh_sp/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Dwarkesh Patel"
+  },
+  {
+    "id": "x-kyle-chan",
+    "name": "Kyle Chan (X)",
+    "url": "https://x.com/kyleichan",
+    "feed": "https://news.google.com/rss/search?q=site:x.com/kyleichan/status&hl=en-IN&gl=IN&ceid=IN:en",
+    "category": "Twitter",
+    "publisher": "Kyle Chan"
   },
   {
     "id": "powerline-magazine",
