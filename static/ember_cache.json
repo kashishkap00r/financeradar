@@ -1,10 +1,24 @@
 {
-  "generated_at": "2026-11-09T04:59:21.442236+00:00",
+  "generated_at": "2026-11-12T04:00:26.143778+00:00",
   "meta": {
     "source": "ember_wp_rest",
     "items_total": 120
   },
   "items": [
+    {
+      "title": "Japan and the electrotech revolution",
+      "link": "https://ember-energy.org/latest-insights/japan-and-the-electrotech-revolution",
+      "date": "2026-11-11T00:01:00",
+      "type": "Analysis",
+      "description": "Japan builds the technologies of the electric age but runs on the fuels of the past. Electrification and renewables can cut its $161 billion annual fuel import bill by three-quarters and secure its industrial future."
+    },
+    {
+      "title": "T\u00fcrkiye generated $500 million in exports through interconnections in 20 months",
+      "link": "https://ember-energy.org/latest-insights/turkiye-generated-500-million-in-exports-through-interconnections-in-20-months",
+      "date": "2026-11-10T01:00:00",
+      "type": "Analysis",
+      "description": "T\u00fcrkiye has an opportunity to become a key hub in the regional clean electricity transition. Record power export revenue in 2025, new regional interconnection projects and electricity shortages in neighbouring countries provide a strong foundation, while T\u00fcrkiye\u2019s renewable energy ambitions of"
+    },
     {
       "title": "Building a grid for the age of power",
       "link": "https://ember-energy.org/latest-insights/building-a-grid-for-the-age-of-power",
@@ -305,20 +319,6 @@
       "date": "2026-05-21T00:01:00",
       "type": "Analysis",
       "description": "In a warming climate, power grids must manage not only transition-driven variability, but also adapt towards proactive, climate-ready system design. AI offers strategic capabilities to support this shift by integrating fragmented data, linking models across sectors and translating system complexity"
-    },
-    {
-      "title": "Transmission gaps are beginning to constrain India\u2019s rapid renewables integration",
-      "link": "https://ember-energy.org/latest-insights/transmission-gaps-are-beginning-to-constrain-indias-rapid-renewables-integration",
-      "date": "2026-05-19T00:01:00",
-      "type": "Analysis",
-      "description": "India had to curtail 300 GWh of renewable energy in Q1 (Jan-March) 2026 due to transmission constraints, accounting for nearly two-thirds of the total curtailment across the national grid."
-    },
-    {
-      "title": "British power prices are increasingly independent from gas",
-      "link": "https://ember-energy.org/latest-insights/british-power-prices-are-increasingly-independent-from-gas",
-      "date": "2026-05-13T07:18:07",
-      "type": "Analysis",
-      "description": "An increasing proportion of clean power is already priced independently from fossil fuels in Britain, and a de-linking is beginning to emerge."
     },
     {
       "title": "Why it\u2019s time for a strategic reset on negative emissions",
