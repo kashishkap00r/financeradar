@@ -1,0 +1,7 @@
+# Finance Radar — https://financeradar.news
+# Everyone is welcome to read and index the site, search engines and AI crawlers alike.
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://financeradar.news/sitemap.xml

@@ -270,6 +270,12 @@ Then regenerate locally if needed. Prefer `git pull --no-rebase` over rebase.
 - **TLS is always verified (Nov 2026).** The old "verification failed → retry unverified" fallback (in reports_fetcher, feeds and telegram_fetcher) was removed; it had not fired once in 40 hourly runs. A site whose server leaves out its intermediate certificate gets that public certificate shipped in `certs/` and passed as `ssl_context` (Monarch Networth); never disable verification. Tests fail if `CERT_NONE` or `NOVERIFY` appears in any module.
 - Any cache the pipeline both reads and writes must be written atomically (`_atomic_write_json`). A half-written file read back as `{}` will silently wipe an accumulating cache — this happened to `ieefa_cache.json` when the rsshub timer's git operations raced an aggregator run. `fetch_ieefa` also refuses to write when the load came back empty but the file on disk is populated.
 
+## Search engines and AI crawlers (Nov 2026)
+- `seo.py` owns the homepage `<title>`, meta description, canonical, og/twitter text tags and JSON-LD (`head_tags()`), plus the **crawler digest** (`crawler_digest_html()`): the site description and the top 20 AI-ranked headlines as plain HTML inside `#home-newspaper`. Most AI crawlers don't run JavaScript; before this the raw page was ~200 words of buttons.
+- Readers never see the digest: the first inline script adds `html.js`, CSS hides `.crawler-digest` under it, and `renderHomeTab()` replaces `#home-newspaper` anyway. Without JS it shows (and the skeleton hides). Keep the digest inside `#home-newspaper` and keep the `js` class — `tests/test_seo.py` pins both. It must stay the same stories readers get (no crawler-only content).
+- Static, hand-kept at repo root: `robots.txt` (allows everyone, AI crawlers included), `sitemap.xml` (`/` + `/about`), `llms.txt` (plain-text site summary for AI tools — update it when tabs or source groups change), `404.html` (its presence turns off Cloudflare Pages' serve-the-homepage-for-every-path fallback; the site has no client-side routes, so nothing relies on it). `about.html` carries its own description/canonical/og tags.
+- Share-preview image (og:image) is not built yet — `twitter:card` is `summary` until it is.
+
 ## UI Development
 - Edit `templates/app.js` and `templates/style.css`, then `python3 aggregator.py` to regenerate.
 - Test mobile (≤640px) before committing — filters collapse by default on mobile, sidebars use body scroll lock.

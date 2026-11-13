@@ -3815,3 +3815,15 @@
         .paid-tag { display: inline-block; font-size: 11px; line-height: 1.4; padding: 0 6px; margin-left: 6px;
             border: 1px solid var(--border); border-radius: 4px; color: var(--text-secondary); background: var(--bg-secondary);
             font-weight: 600; letter-spacing: 0.02em; vertical-align: middle; }
+
+        /* Crawler digest (seo.py): plain top-stories list inside #home-newspaper for
+           crawlers and no-JS readers. With JavaScript on it is never shown — app.js
+           replaces it, and html.js hides it until then, so slow loads don't flash it. */
+        html.js .crawler-digest { display: none; }
+        html:not(.js) #home-loading { display: none; }  /* no JS: no skeleton above the list */
+        .crawler-digest { max-width: 720px; padding: var(--s-5, 24px) 0; line-height: 1.5; }
+        .crawler-digest h1 { font-family: var(--serif, Georgia, serif); font-size: 28px; margin-bottom: 8px; }
+        .crawler-digest h2 { font-family: var(--serif, Georgia, serif); font-size: 18px; margin: 20px 0 8px; }
+        .crawler-digest ol { padding-left: 20px; }
+        .crawler-digest li { margin: 6px 0; }
+        .crawler-digest a { color: inherit; }

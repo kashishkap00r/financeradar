@@ -61,6 +61,7 @@ from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     SLOW_READS_SOURCES, SLOW_READS_WINDOW_DAYS,
                     SLOW_READS_ALL_POSTS_DAYS, SLOW_READS_MAX_PER_SOURCE)
 from log_utils import FeedLogger
+import seo
 from twitter_signal import build_twitter_lanes
 from twitter_fetcher import fetch_twitter_articles
 
@@ -616,6 +617,7 @@ def generate_html(
         _normalize_ai_rankings_telegram(ai_rankings_bootstrap)
         ai_rankings_bootstrap_json = json.dumps(ai_rankings_bootstrap)
     except (IOError, json.JSONDecodeError):
+        ai_rankings_bootstrap = None
         ai_rankings_bootstrap_json = "null"
 
     # Prepare video data
@@ -749,9 +751,9 @@ def generate_html(
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script data-cfasync="false">try{{var t=localStorage.getItem('financeradar_active_tab')||'news';if(localStorage.getItem('financeradar_filters_collapsed_'+t)!=='false')document.documentElement.classList.add('filters-collapsed')}}catch(e){{}}</script>
+    <script data-cfasync="false">document.documentElement.classList.add('js');try{{var t=localStorage.getItem('financeradar_active_tab')||'news';if(localStorage.getItem('financeradar_filters_collapsed_'+t)!=='false')document.documentElement.classList.add('filters-collapsed')}}catch(e){{}}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finance Radar</title>
+    {seo.head_tags()}
     <link rel="icon" href="static/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -864,7 +866,7 @@ def generate_html(
 
         <div id="tab-home" class="tab-content active">
             <div id="home-loading" class="tab-loading"><div class="skel skel-wide"></div><div class="skel skel-med"></div><div class="skel skel-short"></div><div class="skel skel-gap skel-wide"></div><div class="skel skel-med"></div><div class="skel skel-short"></div><div class="skel skel-gap skel-wide"></div><div class="skel skel-med"></div></div>
-            <div id="home-newspaper"></div>
+            <div id="home-newspaper">{seo.crawler_digest_html(ai_rankings_bootstrap, today_str)}</div>
             <div class="home-no-results hidden" id="home-no-results">No results match your search.</div>
         </div><!-- /tab-home -->
 
