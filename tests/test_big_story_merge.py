@@ -41,13 +41,34 @@ class BigStoryMergeTests(unittest.TestCase):
         self.assertEqual(out[0]["models"], 2)
         self.assertEqual(out[0]["summary"], "Huang quit.")
 
-    def test_bridge_cluster_folds_two_entries_and_counts_models_once(self):
-        # a and b don't overlap; c shares a URL with a and the group of b.
+    def test_one_model_twice_on_a_story_counts_once(self):
         out = _merge({
             "a": {"status": "ok", "clusters": [_c("X one", ["u1", "u2"], "s1"),
                                                _c("X again", ["u9", "u8"], "s1")]},
-            "b": {"status": "ok", "clusters": [_c("X two", ["u3", "u4"], "s2")]},
-            "c": {"status": "ok", "clusters": [_c("X three", ["u1", "u5"], "s2")]},
+            "b": {"status": "ok", "clusters": [_c("X two", ["u3", "u4"], "s1")]},
+        })
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]["models"], 2)
+
+    def test_shared_roundup_video_does_not_fuse_different_stories(self):
+        # 14 Nov 2026: "Global Lens | Microsoft Outage, Huang Summoned…" sat in both a
+        # Nvidia and a Microsoft cluster and swallowed the Microsoft story.
+        roundup = "https://youtube.com/watch?v=roundup"
+        out = _merge({
+            "a": {"status": "ok", "clusters": [_c("Nvidia CEO exits", ["n1", roundup], "s1"),
+                                               _c("Microsoft outage", ["m1", "m2"], "s2")]},
+            "b": {"status": "ok", "clusters": [_c("Huang resigns", ["n2", "n3"], "s1"),
+                                               _c("Global outage", ["m3", roundup], "s2")]},
+        })
+        self.assertEqual([(o["label"], o["models"]) for o in out],
+                         [("Nvidia CEO exits", 2), ("Microsoft outage", 2)])
+
+    def test_old_files_bridge_cluster_folds_two_entries(self):
+        # No story_group (files from before Nov 2026): c overlaps both a and b.
+        out = _merge({
+            "a": {"status": "ok", "clusters": [_c("X one", ["u1", "u2"])]},
+            "b": {"status": "ok", "clusters": [_c("X two", ["u3", "u4"])]},
+            "c": {"status": "ok", "clusters": [_c("X three", ["u1", "u3"])]},
         })
         self.assertEqual(len(out), 1)
         self.assertEqual(out[0]["models"], 3)

@@ -1337,10 +1337,13 @@
                 return urls;
             }
 
-            // Two clusters are one story if ai_ranker linked them (same story_group:
-            // it reads every model's label + summary) or if they share any article URL.
+            // Two clusters are one story if ai_ranker linked them (same story_group: it reads
+            // every model's label + summary). When groups exist they decide alone: a shared URL
+            // can be a roundup video ("Microsoft outage, Huang summoned…") that two models put
+            // in two different stories, and it used to fuse them. Files from before
+            // story_group fall back to any shared article URL.
             function matchesStory(entry, urls, group) {
-                if (group && entry._groups.has(group)) return true;
+                if (group && entry._groups.size) return entry._groups.has(group);
                 var existingUrls = getClusterUrls(entry);
                 var overlap = false;
                 urls.forEach(function(u) { if (existingUrls.has(u)) overlap = true; });
