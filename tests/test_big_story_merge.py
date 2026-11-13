@@ -81,5 +81,13 @@ class BigStoryMergeTests(unittest.TestCase):
         self.assertEqual([(o["label"], o["models"]) for o in out], [("A", 2), ("C", 1)])
 
 
+class PageCodeCacheTests(unittest.TestCase):
+    def test_app_js_is_never_cached_longer_than_the_data(self):
+        with open(os.path.join(ROOT, "_headers"), encoding="utf-8") as f:
+            rules = f.read()
+        block = rules[rules.index("/templates/*"):]
+        self.assertIn("max-age=0", block.splitlines()[1])
+
+
 if __name__ == "__main__":
     unittest.main()
