@@ -1012,22 +1012,6 @@
       "image": "https://www.thecore.in/h-upload/2026/10/14/1105224-04thudownthe-core-report1200x630.webp",
       "feed_id": "thecore",
       "guid": "https://www.thecore.in/podcasts/goldmans-big-prediction-for-indian-ai-stocks-872443"
-    },
-    {
-      "title": "Long-Term Strategy And India Blueprint Help Navigate Global Headwinds: Hyundai Motor CEO Jos\u00e9 Mu\u00f1oz",
-      "link": "https://www.thecore.in/business/long-term-strategy-and-india-blueprint-help-navigate-global-headwinds-hyundai-motor-ceo-jos-muoz-872436",
-      "date": "2026-10-14T13:55:15+00:00",
-      "description": "Hyundai\u2019s chief says the group\u2019s mix of carmaking, steel, robots and data centres gives it room to pivot, and India shows how to go local.",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/10/14/1105214-feature-style1200x630jpg.webp",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/business/long-term-strategy-and-india-blueprint-help-navigate-global-headwinds-hyundai-motor-ceo-jos-muoz-872436"
     }
   ],
   "thecore-opinion": [
@@ -1100,7 +1084,7 @@
     {
       "title": "Harnessing the winds - Ember Energy",
       "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5YdmNZQjR2XzE5X0ZhNUNkaHRDc0xuYXlLeEYxTVY5RUFYVVBqNElZajhLMzlwcnROSmc1SU5HQnVHZE9sZDN2X2tEZ1gwMmhYbWZ1MUJ1OUt5YnJZQkg5TkhtN0hfOFRLZHRleldxcw?oc=5",
-      "date": "2026-11-13T00:16:17+00:00",
+      "date": "2026-11-13T06:33:46+00:00",
       "description": "Harnessing the winds Ember Energy",
       "source": "Ember Energy",
       "source_url": "https://ember-energy.org/",
@@ -2166,6 +2150,22 @@
   ],
   "decoding-the-dragon": [
     {
+      "title": "#161: Why did a $3,000 laser part crash to $150?",
+      "link": "https://decodingthedragon.substack.com/p/161-why-did-a-3000-laser-part-crash",
+      "date": "2026-11-13T13:30:57+00:00",
+      "description": "One little-known Jiangsu firm now steers most of the world's laser beams, and India's fast-growing laser-marking trade runs almost entirely on its cheap Chinese parts.",
+      "source": "Decoding the Dragon",
+      "source_url": "https://decodingthedragon.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Decoding the Dragon",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!L8NM!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3416055d-4078-4412-b5c5-3f5a1415d9b5_1024x572.png",
+      "feed_id": "decoding-the-dragon",
+      "guid": "https://decodingthedragon.substack.com/p/161-why-did-a-3000-laser-part-crash"
+    },
+    {
       "title": "#160: Why does China recover 90% of the lithium India ignores?",
       "link": "https://decodingthedragon.substack.com/p/160-why-does-china-recover-90-of",
       "date": "2026-11-13T01:30:38+00:00",
@@ -2980,25 +2980,25 @@
       "image": "https://substackcdn.com/image/fetch/$s_!ob6r!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56f70cec-51ff-44e9-84e6-cf1457767b36_1024x572.png",
       "feed_id": "decoding-the-dragon",
       "guid": "https://decodingthedragon.substack.com/p/110-how-is-china-selling-humanoid"
-    },
-    {
-      "title": "#109: Why does one Shenzhen firm cool 30% of China's AI?",
-      "link": "https://decodingthedragon.substack.com/p/109-why-does-one-shenzhen-firm-cool",
-      "date": "2026-10-14T13:32:54+00:00",
-      "description": "Envicool commoditised the plumbing that keeps NVIDIA's hottest chips alive, squeezed Vertiv on price, and left India without an answer of its own.",
-      "source": "Decoding the Dragon",
-      "source_url": "https://decodingthedragon.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Decoding the Dragon",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!M_Xp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3dde263e-0e33-46a7-843b-ab987ada9705_1024x572.png",
-      "feed_id": "decoding-the-dragon",
-      "guid": "https://decodingthedragon.substack.com/p/109-why-does-one-shenzhen-firm-cool"
     }
   ],
   "bharatnama": [
+    {
+      "title": "#137: Why is India building giant water batteries in its hills?",
+      "link": "https://bharatnama.substack.com/p/137-why-is-india-building-giant-water",
+      "date": "2026-11-13T13:31:00+00:00",
+      "description": "Solar power floods the grid at noon and vanishes at sunset. India\u2019s answer is an old idea: pump water uphill, and let it fall later.",
+      "source": "BharatNama",
+      "source_url": "https://bharatnama.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "BharatNama",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!-yEd!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F43dc837d-8a96-4fa2-8479-316c444f2f79_1376x768.png",
+      "feed_id": "bharatnama",
+      "guid": "https://bharatnama.substack.com/p/137-why-is-india-building-giant-water"
+    },
     {
       "title": "#136: Does India\u2019s new rural job law guarantee more or less?",
       "link": "https://bharatnama.substack.com/p/136-does-indias-new-rural-job-law",
@@ -3798,25 +3798,25 @@
       "image": "https://substackcdn.com/image/fetch/$s_!oZju!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F31a535b4-d377-4f7e-b6cc-e9ed79b146cf_1024x572.jpeg",
       "feed_id": "bharatnama",
       "guid": "https://bharatnama.substack.com/p/87-why-can-just-23-of-indias-third"
-    },
-    {
-      "title": "#86: Why does India's formalised economy still pay \u20b912,000 a month?",
-      "link": "https://bharatnama.substack.com/p/86-why-does-indias-formalised-economy",
-      "date": "2026-10-14T13:32:54+00:00",
-      "description": "India has built the world's largest digital tax and payments rails, yet nine in ten of its workers are still informal and the average one takes home \u20b912,000 a month.",
-      "source": "BharatNama",
-      "source_url": "https://bharatnama.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "BharatNama",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!hmVW!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc3720662-9252-456d-a991-6e670afe9b34_1024x572.jpeg",
-      "feed_id": "bharatnama",
-      "guid": "https://bharatnama.substack.com/p/86-why-does-indias-formalised-economy"
     }
   ],
   "biznewsbyjay": [
+    {
+      "title": "#112: Why does Jaipur cut 80% of emeralds yet earn little?",
+      "link": "https://biznewsbyjay.substack.com/p/112-why-does-jaipur-cut-80-of-emeralds",
+      "date": "2026-11-13T13:31:00+00:00",
+      "description": "Jaipur cuts the bulk of the planet's commercial emeralds, yet the real money quietly pools upstream with the mines and downstream with the retailers.",
+      "source": "Biz News+",
+      "source_url": "https://biznewsbyjay.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Biz News+",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!tuyq!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe7f22d2f-887e-4e63-9468-a14fe6bb482e_1024x572.jpeg",
+      "feed_id": "biznewsbyjay",
+      "guid": "https://biznewsbyjay.substack.com/p/112-why-does-jaipur-cut-80-of-emeralds"
+    },
     {
       "title": "#111: Why does India\u2019s top property platform close deals instead of selling ads?",
       "link": "https://biznewsbyjay.substack.com/p/111-why-does-indias-top-property",
@@ -4600,22 +4600,6 @@
       "image": "https://substackcdn.com/image/fetch/$s_!nb3G!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb8afa369-e931-4767-bde7-fd6391da601d_1024x572.png",
       "feed_id": "biznewsbyjay",
       "guid": "https://biznewsbyjay.substack.com/p/63-why-does-indias-10900-crore-ev"
-    },
-    {
-      "title": "#62: Why has JFE bet its entire India play on one family?",
-      "link": "https://biznewsbyjay.substack.com/p/62-why-has-jfe-bet-its-entire-india",
-      "date": "2026-10-14T13:32:52+00:00",
-      "description": "Japan's second-largest steelmaker has wired itself into two arms of the Jindal clan, and the reason it is safe to concentrate rather than diversify is the most interesting part.",
-      "source": "Biz News+",
-      "source_url": "https://biznewsbyjay.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Biz News+",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!dqes!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7541fa81-1fc4-4dec-9a5b-96fc330a529a_1024x572.png",
-      "feed_id": "biznewsbyjay",
-      "guid": "https://biznewsbyjay.substack.com/p/62-why-has-jfe-bet-its-entire-india"
     }
   ],
   "india-dispatch": [
