@@ -400,3 +400,61 @@ class ReportRegionTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class StoryLinkTest(unittest.TestCase):
+    """The same event picked by several models must end up as one Big Story
+    (Nov 2026: Nvidia CEO exit showed 3 times, CPI twice — the models had
+    picked different articles, so the old URL-only merge never joined them)."""
+
+    @staticmethod
+    def _providers():
+        def c(sid, label, summary, url):
+            return {"story_id": sid, "story_label": label, "story_summary": summary,
+                    "lead": {"title": label, "url": url}, "related": []}
+        return {
+            "m1": {"status": "ok", "clusters": [
+                c("nv1", "Nvidia's Jensen Huang exits, stock plunges", "Huang resigned as Nvidia CEO; shares fell.", "u1"),
+                c("cpi1", "Retail inflation breaches RBI's 6% band in October", "CPI rose to 6.09% in October.", "u2"),
+                c("tm", "Tata Motors posts Q2 loss on JLR charges", "JLR restructuring hit Tata Motors.", "u3"),
+            ]},
+            "m2": {"status": "ok", "clusters": [
+                c("nv2", "Jensen Huang steps down as Nvidia CEO following scandal", "Nvidia named Colette Kress interim CEO.", "u4"),
+                c("tt", "Tata Trusts trustees clash with Noel Tata", "Trustees pushed back over board powers.", "u5"),
+            ]},
+            "m3": {"status": "ok", "clusters": [
+                c("cpi2", "Retail inflation breaches 6% as credit growth stays high", "October CPI crossed the upper band.", "u6"),
+            ]},
+            "dead": {"status": "error"},
+        }
+
+    def _groups(self, providers):
+        return {c["story_id"]: c["story_group"] for p in providers.values() for c in p.get("clusters", [])}
+
+    def test_llm_groups_join_same_event_only(self):
+        from ai_ranker import link_same_stories
+        providers = self._providers()
+        # numbering follows provider order: nv1=1 cpi1=2 tm=3 nv2=4 tt=5 cpi2=6
+        with patch("ai_ranker.generate_json", return_value=([[1, 4], [2, 6]], "m")):
+            n = link_same_stories(providers, {"name": "x", "chain": ["m"]})
+        g = self._groups(providers)
+        self.assertEqual(n, 4)
+        self.assertEqual(g["nv1"], g["nv2"])
+        self.assertEqual(g["cpi1"], g["cpi2"])
+        self.assertNotEqual(g["tm"], g["tt"])
+        self.assertEqual(len({g["nv1"], g["cpi1"], g["tm"], g["tt"]}), 4)
+
+    def test_failed_call_falls_back_to_word_overlap(self):
+        from ai_ranker import link_same_stories
+        providers = self._providers()
+        with patch("ai_ranker.generate_json", side_effect=RuntimeError("down")):
+            link_same_stories(providers, {"name": "x", "chain": ["m"]})
+        g = self._groups(providers)
+        self.assertEqual(g["nv1"], g["nv2"])
+        self.assertEqual(g["cpi1"], g["cpi2"])
+        self.assertNotEqual(g["tm"], g["tt"])
+
+    def test_junk_answers_are_ignored(self):
+        from ai_ranker import parse_story_link_groups
+        self.assertEqual(parse_story_link_groups([[1, 99], ["x", 2, 2], 5, [3]], 4), [])
+        self.assertEqual(parse_story_link_groups({"groups": [[1, 2, 3]]}, 4), [(0, 1), (0, 2)])

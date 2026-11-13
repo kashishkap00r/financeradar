@@ -1010,6 +1010,148 @@ def cluster_ranked_items(all_items, model_config, max_clusters=AI_RANKER_MAX_CLU
         return []
 
 
+# ---------------------------------------------------------------------------
+# Linking the same story across models
+#
+# Each model clusters on its own, and when a story has 20+ articles each model
+# picks a different handful. The browser used to join two models' clusters only
+# when they shared an exact article URL, so one big story (Nvidia CEO exit,
+# Nov 2026) showed up three times. Here one short call reads every model's
+# label + summary and says which are the same event; each cluster gets a
+# `story_group` and the browser joins clusters that share it.
+# ---------------------------------------------------------------------------
+
+_LINK_STOPWORDS = set(
+    "a an the is are was were be of in on at to for with by from as into and or "
+    "but its it this that after amid over his her their than india indian s rbi "
+    "rs crore lakh new hits hit high record".split()
+)
+LINK_FALLBACK_JACCARD = 0.2
+
+
+def _cluster_refs(providers):
+    """Every (provider_key, cluster) from providers that ran, in provider order."""
+    refs = []
+    for key, payload in providers.items():
+        if not isinstance(payload, dict) or payload.get("status") not in ("ok", "partial"):
+            continue
+        for cluster in payload.get("clusters") or []:
+            if isinstance(cluster, dict):
+                refs.append((key, cluster))
+    return refs
+
+
+def build_story_link_prompt(refs):
+    lines = []
+    for i, (_key, cluster) in enumerate(refs):
+        label = sanitize_headline(cluster.get("story_label", ""))
+        summary = sanitize_headline(cluster.get("story_summary", ""))
+        lines.append(f"{i+1}. {label} — {summary}" if summary else f"{i+1}. {label}")
+    numbered = "\n".join(lines)
+    return f"""Several editors each picked the big stories of the day. Their picks overlap: the same event often appears more than once under different wording.
+
+Group the numbers that describe the SAME specific event or development.
+- YES, same: "Jensen Huang resigns as Nvidia CEO" and "Nvidia shares plunge after Huang exit" (one event, different angles)
+- YES, same: "Retail inflation breaches 6% in October" and "CPI crosses RBI's upper band as credit grows"
+- NO, different: "Tata Trusts trustees clash with Noel Tata" and "Tata Motors posts Q2 loss" (same group of companies, different events)
+- NO, different: two separate Cabinet decisions announced on the same day
+- When unsure, keep them apart.
+
+## Stories
+{numbered}
+
+OUTPUT: Valid JSON array only, no commentary. Each element is an array of 2+ story numbers that are the same event. Leave out stories that match nothing. If nothing matches, return []."""
+
+
+def _union_find_groups(n, pairs):
+    parent = list(range(n))
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    for a, b in pairs:
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[max(ra, rb)] = min(ra, rb)
+    return [find(i) for i in range(n)]
+
+
+def parse_story_link_groups(raw, n):
+    """LLM answer → list of index pairs (0-based) to join. Ignores junk."""
+    if isinstance(raw, dict):
+        raw = raw.get("groups", raw.get("items", []))
+    pairs = []
+    for group in raw if isinstance(raw, list) else []:
+        if isinstance(group, dict):
+            group = group.get("stories", group.get("items", []))
+        if not isinstance(group, list):
+            continue
+        idx = []
+        for v in group:
+            try:
+                i = int(v) - 1
+            except (TypeError, ValueError):
+                continue
+            if 0 <= i < n and i not in idx:
+                idx.append(i)
+        pairs.extend((idx[0], j) for j in idx[1:])
+    return pairs
+
+
+def _link_words(cluster):
+    text = f"{cluster.get('story_label', '')} {cluster.get('story_summary', '')}".lower()
+    return {w for w in re.findall(r"[a-z0-9]+", text) if len(w) > 2 and w not in _LINK_STOPWORDS}
+
+
+def heuristic_story_link_pairs(refs, threshold=LINK_FALLBACK_JACCARD):
+    """Backup when the linking call fails: join clusters from different models
+    whose label + summary share enough words."""
+    words = [_link_words(c) for _k, c in refs]
+    pairs = []
+    for i in range(len(refs)):
+        for j in range(i + 1, len(refs)):
+            if refs[i][0] == refs[j][0] or not words[i] or not words[j]:
+                continue
+            jac = len(words[i] & words[j]) / len(words[i] | words[j])
+            if jac >= threshold:
+                pairs.append((i, j))
+    return pairs
+
+
+def link_same_stories(providers, model_config):
+    """Give every cluster a `story_group`; clusters that are the same event share one.
+    Never raises: on failure it falls back to word overlap."""
+    refs = _cluster_refs(providers)
+    if not refs:
+        return 0
+    pairs = []
+    if len({k for k, _c in refs}) > 1:
+        try:
+            raw, model_id = call_provider(model_config, build_story_link_prompt(refs), label="story-links")
+            pairs = parse_story_link_groups(raw, len(refs))
+            print(f"  [OK] story links: {len(pairs)} joins ({model_id})")
+        except Exception as err:
+            pairs = heuristic_story_link_pairs(refs)
+            print(f"  [WARN] story-link call failed ({sanitize_error(str(err))}); word overlap found {len(pairs)} joins")
+    roots = _union_find_groups(len(refs), pairs)
+    for (_key, cluster), root in zip(refs, roots):
+        cluster["story_group"] = f"s{root + 1}"
+    return len(set(roots))
+
+
+def story_link_model_config():
+    """Every slot's chain, in order, so the call survives any one model being down."""
+    chain = []
+    for cfg in MODELS.values():
+        for m in cfg["chain"]:
+            if m not in chain:
+                chain.append(m)
+    return {"name": "story links", "chain": chain}
+
+
 def main():
     print("=" * 50)
     print("AI News Ranker")
@@ -1143,6 +1285,10 @@ def main():
         # Keep the last good file: an all-error payload would blank the homepage.
         print("\nAll models failed; keeping the previous ai_rankings.json.")
         sys.exit(1)
+
+    print("\n[Linking the same story across models]")
+    n_stories = link_same_stories(results["providers"], story_link_model_config())
+    print(f"  [OK] {n_stories} distinct stories")
 
     output_path = os.path.join(SCRIPT_DIR, "static", "ai_rankings.json")
     tmp_fd, tmp_path = tempfile.mkstemp(dir=os.path.dirname(output_path), suffix='.tmp')

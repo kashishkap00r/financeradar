@@ -1288,12 +1288,15 @@
         function getMergedClusters() {
             if (!aiRankings || !aiRankings.providers) return [];
             var providerClusters = [];
-            Object.values(aiRankings.providers).forEach(function(p) {
+            var providerKeys = [];
+            Object.keys(aiRankings.providers).forEach(function(key) {
+                var p = aiRankings.providers[key];
                 if (!p || typeof p !== 'object') return;
                 var status = p.status || 'ok';
                 if (status !== 'ok' && status !== 'partial') return;
                 if (Array.isArray(p.clusters) && p.clusters.length > 0) {
                     providerClusters.push(p.clusters);
+                    providerKeys.push(key);
                 }
             });
             if (!providerClusters.length) return [];
@@ -1334,59 +1337,80 @@
                 return urls;
             }
 
-            function findOverlapping(urls) {
-                for (var i = 0; i < merged.length; i++) {
-                    var existingUrls = getClusterUrls(merged[i]);
-                    var overlap = false;
-                    urls.forEach(function(u) { if (existingUrls.has(u)) overlap = true; });
-                    if (overlap) return i;
-                }
-                return -1;
+            // Two clusters are one story if ai_ranker linked them (same story_group:
+            // it reads every model's label + summary) or if they share any article URL.
+            function matchesStory(entry, urls, group) {
+                if (group && entry._groups.has(group)) return true;
+                var existingUrls = getClusterUrls(entry);
+                var overlap = false;
+                urls.forEach(function(u) { if (existingUrls.has(u)) overlap = true; });
+                return overlap;
             }
 
-            providerClusters.forEach(function(clusters) {
+            function findMatches(urls, group) {
+                var hits = [];
+                for (var i = 0; i < merged.length; i++) {
+                    if (matchesStory(merged[i], urls, group)) hits.push(i);
+                }
+                return hits;
+            }
+
+            function mergeInto(existing, cluster, providerKey) {
+                existing._providers.add(providerKey);
+                existing._providerCount = existing._providers.size;
+                if (cluster.story_group) existing._groups.add(cluster.story_group);
+                var seenUrls = getClusterUrls(existing);
+                var existingTitles = [existing.lead.title || ''];
+                (existing.related || []).forEach(function(r) { existingTitles.push(r.title || ''); });
+
+                // Add articles that are genuinely new (dedup by URL + title similarity)
+                function isNewArticle(art) {
+                    var url = String(art.url || '').toLowerCase().trim();
+                    if (url && seenUrls.has(url)) return false;
+                    var title = art.title || '';
+                    for (var t = 0; t < existingTitles.length; t++) {
+                        if (_titleSimilar(title, existingTitles[t])) return false;
+                    }
+                    return true;
+                }
+                [cluster.lead].concat(cluster.related || []).forEach(function(art) {
+                    if (!art || !isNewArticle(art)) return;
+                    seenUrls.add(String(art.url || '').toLowerCase().trim());
+                    existingTitles.push(art.title || '');
+                    existing.related.push(art);
+                });
+                if (!existing.story_summary && cluster.story_summary) existing.story_summary = cluster.story_summary;
+            }
+
+            providerClusters.forEach(function(clusters, pi) {
+                var providerKey = providerKeys[pi];
                 clusters.forEach(function(cluster) {
                     if (!cluster || !cluster.lead) return;
                     var clusterUrls = getClusterUrls(cluster);
                     if (!clusterUrls.size) return;
-                    var idx = findOverlapping(clusterUrls);
+                    var group = cluster.story_group || '';
+                    var hits = findMatches(clusterUrls, group);
 
-                    if (idx >= 0) {
-                        // Merge into existing: add new articles, dedup by URL + title similarity
-                        var existing = merged[idx];
-                        existing._providerCount++;
-                        var seenUrls = getClusterUrls(existing);
-                        var existingTitles = [existing.lead.title || ''];
-                        (existing.related || []).forEach(function(r) { existingTitles.push(r.title || ''); });
-
-                        function isNewArticle(art) {
-                            var url = String(art.url || '').toLowerCase().trim();
-                            if (url && seenUrls.has(url)) return false;
-                            var title = art.title || '';
-                            for (var t = 0; t < existingTitles.length; t++) {
-                                if (_titleSimilar(title, existingTitles[t])) return false;
-                            }
-                            return true;
+                    if (hits.length) {
+                        var target = merged[hits[0]];
+                        // This cluster bridges two stories already on the list: fold the later ones in.
+                        for (var h = hits.length - 1; h >= 1; h--) {
+                            var other = merged[hits[h]];
+                            other._providers.forEach(function(k) { target._providers.add(k); });
+                            other._groups.forEach(function(g) { target._groups.add(g); });
+                            mergeInto(target, other, providerKey);
+                            merged.splice(hits[h], 1);
                         }
-                        // Add lead as related if it's genuinely new
-                        if (cluster.lead && isNewArticle(cluster.lead)) {
-                            existing.related.push(cluster.lead);
-                            seenUrls.add(String(cluster.lead.url || '').toLowerCase().trim());
-                            existingTitles.push(cluster.lead.title || '');
-                        }
-                        (cluster.related || []).forEach(function(r) {
-                            if (isNewArticle(r)) {
-                                seenUrls.add(String(r.url || '').toLowerCase().trim());
-                                existingTitles.push(r.title || '');
-                                existing.related.push(r);
-                            }
-                        });
+                        mergeInto(target, cluster, providerKey);
                     } else {
                         merged.push({
                             story_id: cluster.story_id || '',
                             story_label: cluster.story_label || '',
+                            story_summary: cluster.story_summary || '',
                             lead: cluster.lead,
                             related: (cluster.related || []).slice(),
+                            _providers: new Set([providerKey]),
+                            _groups: new Set(group ? [group] : []),
                             _providerCount: 1
                         });
                     }
