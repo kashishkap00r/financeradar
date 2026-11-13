@@ -3827,3 +3827,28 @@
         .crawler-digest ol { padding-left: 20px; }
         .crawler-digest li { margin: 6px 0; }
         .crawler-digest a { color: inherit; }
+
+        /* Share (app.js shareLinkHtml / bsShareStoryHtml): a quiet "· Share" at the end of each
+           item's source line, and "Share story" next to "See all sources" on Big Stories.
+           The words are ::after content so homepage and tab search never match "share". */
+        .share-link { display: inline-flex; align-items: center; gap: 3px; background: none; border: 0; padding: 0; margin: 0 0 0 6px;
+            font-family: var(--sans); font-size: inherit; font-weight: 600; line-height: inherit; text-transform: none; letter-spacing: 0;
+            color: var(--text-muted); cursor: pointer; white-space: nowrap; vertical-align: baseline; }
+        .share-link::before { content: "·"; margin-right: 3px; font-weight: 400; color: var(--text-muted); }
+        .share-link::after { content: "Share"; }
+        .share-link.copied::after { content: "Link copied"; }
+        .share-link:hover, .share-link:focus-visible, .share-link.copied { color: var(--accent); }
+        .share-link svg, .bs-share svg { width: 0.95em; height: 0.95em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .hero-source .share-link, .bs-src-m .share-link, .report-card-left .share-link,
+        .tweet-card-left .share-link, .article-meta .share-link { margin-left: 0; }
+        .article-meta .share-link { margin-right: auto; }  /* phones: keep the bookmark pushed right */
+        .bs-share { margin-left: var(--s-5); }
+        .bs-share svg { width: 13px; height: 13px; }
+        .bs-share::after { content: "Share story"; }
+        .bs-share.copied::after { content: "Link copied"; }
+        .bs-dr-head .bs-share { margin-left: 0; }
+        /* Coverage rows: keep source · angle · Share on one line; the angle gives way first. */
+        .bs-src-m { flex-wrap: nowrap; min-width: 0; }
+        .bs-src-m > * { flex-shrink: 0; }
+        .bs-src-m .bs-angle { flex-shrink: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .report-card-left .share-link, .tweet-card-left .share-link { font-size: var(--t-s); }

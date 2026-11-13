@@ -884,6 +884,110 @@
             }, 2000);
         }
 
+        // ==================== SHARE + "VIA FINANCE RADAR" ====================
+        // Outbound article links get utm_source=financeradar.news at click time, so
+        // publishers see where readers came from in their analytics. Nothing about the
+        // reader is recorded. Hrefs, bookmarks and right-click "copy link" stay clean.
+        // Skipped where a tag can break the link or nobody reads it: files (PDFs etc.),
+        // Google News redirects, social platforms, links that already carry a tag or a
+        // signature.
+        var REF_SOURCE = 'financeradar.news';
+        var REF_SKIP_HOSTS = /(^|\.)(google\.com|x\.com|twitter\.com|t\.me|telegram\.me|youtube\.com|youtu\.be|linkedin\.com|instagram\.com|facebook\.com|financeradar\.news)$/i;
+        var REF_SKIP_PATH = /\.(pdf|xlsx?|csv|zip|pptx?|docx?)$/i;
+        var REF_SKIP_QUERY = /(^|&)(utm_[a-z]+|x-amz-[a-z-]+|signature|sig|token|expires)=/i;
+        function referralUrl(url, medium) {
+            var u;
+            try { u = new URL(url); } catch (e) { return url; }
+            if (u.protocol !== 'https:' && u.protocol !== 'http:') return url;
+            if (u.hostname === location.hostname || REF_SKIP_HOSTS.test(u.hostname)) return url;
+            if (REF_SKIP_PATH.test(u.pathname) || REF_SKIP_QUERY.test(u.search.slice(1))) return url;
+            // Append by hand: rebuilding via searchParams would re-encode the publisher's own query.
+            var hash = url.indexOf('#');
+            var base = hash === -1 ? url : url.slice(0, hash);
+            var frag = hash === -1 ? '' : url.slice(hash);
+            return base + (base.indexOf('?') === -1 ? '?' : (/[?&]$/.test(base) ? '' : '&'))
+                + 'utm_source=' + REF_SOURCE + '&utm_medium=' + (medium || 'referral') + frag;
+        }
+
+        function tagOutboundLink(e) {
+            if (e.button === 2) return;
+            var a = e.target.closest && e.target.closest('a[href]');
+            if (!a) return;
+            var href = a.getAttribute('href');
+            if (!/^https?:/i.test(href)) return;
+            var tagged = referralUrl(href, 'referral');
+            if (tagged === href) return;
+            a.setAttribute('href', tagged);
+            setTimeout(function() { a.setAttribute('href', href); }, 0);  // navigation already has the tagged URL
+        }
+        document.addEventListener('click', tagOutboundLink, true);
+        document.addEventListener('auxclick', tagOutboundLink, true);
+
+        // "Share" sits at the end of each item's source line; "Share story" on Big Stories.
+        // The words come from CSS (::after), so homepage/tab search never matches "share".
+        // Phones (coarse pointer + Web Share) open the phone's share menu; laptops copy.
+        var SHARE_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>';
+
+        function shareLinkHtml(url, title, source) {
+            if (!sanitizeUrl(url || '')) return '';
+            return '<button type="button" class="share-link" aria-label="Share"'
+                + ' data-share-url="' + escapeForAttr(url) + '"'
+                + ' data-share-title="' + escapeForAttr(title || '') + '"'
+                + ' data-share-source="' + escapeForAttr(source || '') + '">' + SHARE_SVG + '</button>';
+        }
+
+        function bsShareStoryHtml(idx) {
+            return '<button type="button" class="bs-see bs-share" aria-label="Share story" data-story="' + idx + '">' + SHARE_SVG + '</button>';
+        }
+
+        // Titles reach the buttons already HTML-escaped in some templates; undo that for plain text.
+        function decodeEntities(s) {
+            var t = document.createElement('textarea');
+            t.innerHTML = s || '';
+            return t.value;
+        }
+
+        function shareOrCopy(btn, text, title) {
+            var touch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+            if (touch && navigator.share) {
+                navigator.share({ title: title, text: text }).catch(function() {});
+                return;
+            }
+            copyTextWithFallback(text, function() {
+                btn.classList.add('copied');
+                setTimeout(function() { btn.classList.remove('copied'); }, 2000);
+            });
+        }
+
+        function shareItemText(title, source, url) {
+            return title + (source ? ' — ' + source : '') + '\n' + referralUrl(url, 'share') + '\n\nvia financeradar.news';
+        }
+
+        function shareStoryText(cluster) {
+            var arts = getClusterArticles(cluster).filter(function(a) { return sanitizeUrl(a.url || ''); });
+            var lines = [cluster.story_label || '', ''];
+            arts.slice(0, 3).forEach(function(a) {
+                lines.push('• ' + cleanHomeTitle(a.title) + ' — ' + homeSourceName(a.source, a.source_type));
+                lines.push(referralUrl(a.url, 'share'));
+            });
+            lines.push('', (arts.length > 3 ? 'All ' + arts.length + ' sources' : 'More') + ' on financeradar.news');
+            return lines.join('\n');
+        }
+
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest && e.target.closest('.share-link, .bs-share');
+            if (!btn) return;
+            e.preventDefault();
+            if (btn.classList.contains('bs-share')) {
+                var cluster = bigStoriesShown[Number(btn.dataset.story)];
+                if (cluster) shareOrCopy(btn, shareStoryText(cluster), cluster.story_label || 'Finance Radar');
+                return;
+            }
+            var d = btn.dataset;
+            var title = decodeEntities(d.shareTitle).trim();
+            shareOrCopy(btn, shareItemText(title, decodeEntities(d.shareSource).trim(), d.shareUrl), title);
+        });
+
         function removeBookmark(url) {
             let bookmarks = getBookmarks();
             bookmarks = bookmarks.filter(b => b.url !== url);
@@ -2204,7 +2308,7 @@
                 + catMeta(item) + bk
                 + '<h2 class="hero-title">' + titleHtml + '</h2>'
                 + desc + why
-                + '<div class="hero-source">' + source + signal + consensus + '</div></div>';
+                + '<div class="hero-source">' + source + signal + consensus + shareLinkHtml(url, title, source) + '</div></div>';
         }
 
         function cardCompact(item) {
@@ -2219,7 +2323,7 @@
                 : '<span class="compact-link">' + title + '</span>';
             return '<div class="card-compact"><span class="cat-dot" style="background:' + color + '"></span><div class="compact-body">'
                 + linkHtml
-                + '<span class="compact-src">' + source + '</span></div>' + bk + '</div>';
+                + '<span class="compact-src">' + source + shareLinkHtml(url, title, source) + '</span></div>' + bk + '</div>';
         }
 
         // ==================== NEWSPAPER PATTERN BUILDERS ====================
@@ -2272,7 +2376,7 @@
                     + (thumb ? '<a href="' + escapeForAttr(url) + '" target="_blank" rel="noopener" class="yt-thumb" style="background-image:url(' + escapeForAttr(thumb) + ')"><span class="yt-play">&#9654;</span></a>' : '')
                     + '<div class="slider-card-body"><div class="slider-card-header">'
                     + '<a class="yt-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
-                    + bk + '</div><div class="yt-channel">' + channel + '</div></div></div>';
+                    + bk + '</div><div class="yt-channel">' + channel + shareLinkHtml(url, title, channel) + '</div></div></div>';
             }).join('');
             return '<section class="slider-section">'
                 + sliderHead('Watch', items.length + ' videos picked today', 'yt-track')
@@ -2292,7 +2396,7 @@
                 const d = r.date ? new Date(r.date) : null;
                 const dateStr = d && !isNaN(d) ? escapeHtml(d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
                 return '<div class="slider-card slider-rp"><div class="slider-card-body">'
-                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + pub + '</div>'
+                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + pub + shareLinkHtml(url, title, pub) + '</div>'
                     + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     + '</div>' + bk + '</div>'
                     + (regionBadge || dateStr ? '<div class="card-signals">' + regionBadge + paidTagHtml(r.publisher || r.source) + (dateStr ? '<span class="rp-date">' + dateStr + '</span>' : '') + '</div>' : '')
@@ -2324,7 +2428,7 @@
                 const author = escapeHtml(t.publisher || t.source || 'Twitter');
                 const bk = npBookmarkBtn(url, title, author);
                 return '<div class="slider-card slider-tw"><div class="slider-card-body">'
-                    + '<div class="slider-card-header"><div><div class="tw-author">' + author + '</div>'
+                    + '<div class="slider-card-header"><div><div class="tw-author">' + author + shareLinkHtml(url, title, author) + '</div>'
                     + '<a class="tw-text" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     + '</div>' + bk + '</div>'
                     + '<div class="card-signals">' + k.kind + '<span class="bs-sigs">' + agreementHtml(t._providerCount) + '</span></div>'
@@ -2544,7 +2648,7 @@
                     : '<span class="source-row-title">' + title + '</span>';
                 return '<li class="source-row">'
                     + '<span class="issuer-badge" style="--c:' + iss.c + '" title="' + escapeForAttr(pubRaw) + '">' + escapeHtml(iss.code) + '</span>'
-                    + '<span class="source-row-main">' + link + '<span class="source-row-pub">' + src + '</span></span>'
+                    + '<span class="source-row-main">' + link + '<span class="source-row-pub">' + src + shareLinkHtml(url, title, src) + '</span></span>'
                     + '<span class="source-row-date">' + dateStr + '</span>'
                     + npBookmarkBtn(url, title, src) + '</li>';
             }).join('');
@@ -2571,7 +2675,7 @@
                 const dateStr = n.date ? escapeHtml(new Date(n.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
                 const bk = npBookmarkBtn(url, title, src);
                 return '<div class="slider-card slider-slow"><div class="slider-card-body">'
-                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + src + '</div>'
+                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + src + shareLinkHtml(url, title, src) + '</div>'
                     + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     + (dateStr ? '<span class="rp-region">' + dateStr + '</span>' : '')
                     + '</div>' + bk + '</div></div></div>';
@@ -2592,7 +2696,7 @@
                 const dateStr = n.date ? escapeHtml(new Date(n.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })) : '';
                 const bk = npBookmarkBtn(url, title, broker);
                 return '<div class="slider-card slider-rp"><div class="slider-card-body">'
-                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + broker + '</div>'
+                    + '<div class="slider-card-header"><div><div class="rp-publisher">' + broker + shareLinkHtml(url, title, broker) + '</div>'
                     + '<a class="rp-title" href="' + escapeForAttr(url) + '" target="_blank" rel="noopener">' + title + '</a>'
                     + '</div>' + bk + '</div>'
                     + (dateStr ? '<div class="card-signals"><span class="rp-date">' + dateStr + '</span></div>' : '')
@@ -2635,6 +2739,7 @@
                 + '<span class="wsw-qm" aria-hidden="true">“</span>'
                 + '<div class="wsw-body"><blockquote class="wsw-text">' + quoteHtml + '</blockquote>'
                 + '<figcaption class="wsw-cite"><b>' + escapeHtml(who.name) + '</b>'
+                + shareLinkHtml(url, '“' + quote + '”', who.name)
                 + (who.role ? '<span class="wsw-role">' + escapeHtml(who.role) + '</span>' : '')
                 + '</figcaption></div>' + bk + '</figure>';
         }
@@ -2757,7 +2862,8 @@
                 + '<div class="bs-src-m"><span class="bs-dot" style="background:' + SOURCE_TYPE_DOTS[bsType(a)] + '"></span>'
                 + '<b>' + escapeHtml(homeSourceName(a.source, a.source_type)) + '</b>'
                 + (a.source_tier === 'official' ? '<span class="official-badge">Primary source</span>' : '')
-                + (angle ? '<span>· ' + escapeHtml(angle) + '</span>' : '')
+                + (angle ? '<span class="bs-angle">· ' + escapeHtml(angle) + '</span>' : '')
+                + shareLinkHtml(aUrl, aTitle, homeSourceName(a.source, a.source_type))
                 + '</div></div>'
                 + (aUrl ? npBookmarkBtn(aUrl, aTitle, a.source || 'Home') : '')
                 + '</li>';
@@ -2795,7 +2901,7 @@
                 + (leadSummary ? '<p class="bs-sum">' + escapeHtml(leadSummary) + '</p>' : '') + '</div>'
                 + '<div class="bs-cover"><h3>Coverage</h3><ul class="bs-srcs">'
                 + leadArts.slice(0, BIG_STORY_COVERAGE).map(bsSource).join('') + '</ul>'
-                + bsShow(0, leadArts.length > BIG_STORY_COVERAGE ? 'See all ' + leadArts.length + ' sources' : 'Open in the panel')
+                + bsShow(0, leadArts.length > BIG_STORY_COVERAGE ? 'See all ' + leadArts.length + ' sources' : 'Open in the panel') + bsShareStoryHtml(0)
                 + '</div></article>';
 
             if (two.length) {
@@ -2804,7 +2910,7 @@
                     var sum = clusterSummary(c);
                     return '<article>' + bsKick(c, arts, i + 1) + bsTitle(c, i + 1, 'h3')
                         + (sum ? '<p class="bs-sum bs-clamp3">' + escapeHtml(sum) + '</p>' : '')
-                        + bsShow(i + 1, 'Show sources') + '</article>';
+                        + bsShow(i + 1, 'Show sources') + bsShareStoryHtml(i + 1) + '</article>';
                 }).join('') + '</div>';
             }
 
@@ -2847,7 +2953,7 @@
                 + '<div class="bs-dr-head"><button class="bs-x" type="button" onclick="closeStoryDrawer()" aria-label="Close">' + BS_CLOSE + '</button>'
                 + bsKick(cluster, arts, idx)
                 + '<h2 class="bs-title" id="bs-drawer-title">' + escapeHtml(cluster.story_label || '') + '</h2>'
-                + (sum ? '<p class="bs-sum">' + escapeHtml(sum) + '</p>' : '') + '</div>'
+                + (sum ? '<p class="bs-sum">' + escapeHtml(sum) + '</p>' : '') + bsShareStoryHtml(idx) + '</div>'
                 + '<div class="bs-dr-body">' + groups + '</div></aside>';
             document.body.appendChild(wrap);
             lockBodyScroll();
@@ -3578,6 +3684,7 @@
                     + '<h3 class="article-title">' + focusDot + '<a href="' + escapeForAttr(a.link) + '" target="_blank" rel="noopener">' + escapeHtml(deshoutTitle(a.title)) + '</a>' + sourceBadge + '</h3>'
                     + '<div class="article-meta">'
                     + '<a href="' + escapeForAttr(a.source_url) + '" target="_blank" class="source-tag" title="' + escapeForAttr(a.source) + '">' + sourceDisplay + '</a>'
+                    + shareLinkHtml(a.link, deshoutTitle(a.title), a.source)
                     + '<button class="bookmark-btn" onclick="toggleBookmark(this)" aria-label="Bookmark article" title="Bookmark">'
                     + '<svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>'
                     + '</button>'
@@ -4002,6 +4109,7 @@
                             <div class="report-card-left">
                                 ${sourceHtml}
                                 ${typeBadge}
+                                ${shareLinkHtml(reportUrl, bookmarkTitleRaw || (r.text || '').slice(0, 120), r.channel || '')}
                             </div>
                             <div class="report-card-right">
                                 <span class="report-card-date">${formatReportDate(r.date)}</span>
@@ -4219,7 +4327,7 @@
                         const head = r.headline ? escapeHtml(r.headline) : '<span class="sn-co-plain">Report</span>';
                         return `<div class="sn-co-row">
                             <span class="report-channel sn-co-broker">${publisher}</span>
-                            <a href="${escapeForAttr(url)}" target="_blank" rel="noopener" class="sn-co-title">${head}</a>
+                            <span class="sn-co-head"><a href="${escapeForAttr(url)}" target="_blank" rel="noopener" class="sn-co-title">${head}</a>${shareLinkHtml(url, r.title, r.publisher)}</span>
                             <span class="sn-co-date">${stockNoteShortDate(r.date)}</span>
                             <button class="bookmark-btn" data-url="${escapeForAttr(url)}" data-title="${escapeForAttr(r.title)}" data-source="${publisher}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark report" title="Bookmark">
                                 <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -4412,6 +4520,7 @@
                                 ${sourceHtml}
                                 <span class="region-tag">${region === 'international' ? 'International' : 'Indian'}</span>
                                 ${paidTagHtml(r.publisher || r.source)}
+                                ${shareLinkHtml(cardUrl, r.title, r.publisher || r.source)}
                             </div>
                             <div class="report-card-right">
                                 ${r.date && !isStockNote(r) ? `<span class="report-card-date">${formatResearchDate(r.date)}</span>` : ''}
@@ -4743,7 +4852,7 @@
                             ${sourceHtml}
                             <div class="video-title">${titleHtml}</div>
                             <div class="video-meta">
-                                <span>${formatYoutubeDate(v.date)}</span>
+                                <span>${formatYoutubeDate(v.date)}</span>${shareLinkHtml(bookmarkUrl, v.title, v.publisher || v.source || '')}
                             </div>
                         </div>
                         <button class="bookmark-btn video-bookmark" data-url="${escapeForAttr(bookmarkUrl)}" data-title="${escapeForAttr(v.title)}" data-source="${channel}" onclick="toggleGenericBookmark(this)" aria-label="Bookmark video" title="Bookmark">
@@ -5073,6 +5182,7 @@
                             <div class="tweet-card-left">
                                 ${publisherHtml}
                                 ${badgeHtml}
+                                ${shareLinkHtml(bookmarkUrl, t.title, t.publisher || t.source || '')}
                             </div>
                             <div class="tweet-card-right">
                                 ${t.date ? `<span class="tweet-card-date">${formatTwitterDate(t.date)}</span>` : ''}
