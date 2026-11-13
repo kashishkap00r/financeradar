@@ -927,22 +927,6 @@
       "image": "https://www.thecore.in/h-upload/2026/10/14/1105193-mumbai-airport1200x630jpg.webp",
       "feed_id": "thecore",
       "guid": "https://www.thecore.in/business/adani-run-mumbai-airport-defers-terminal-overhaul-fight-to-summer-after-airline-pushback-872420"
-    },
-    {
-      "title": "IKEA Bets On Hotels, Offices To Expand India Footprint",
-      "link": "https://www.thecore.in/business/ikea-india-expansion-hotels-offices-mixed-use-developments-872411",
-      "date": "2026-10-14T06:08:11+00:00",
-      "description": "IKEA is expanding beyond furniture retail with mixed-use developments featuring hotels, offices and shopping centres, while scaling up smaller stores and local sourcing in India.",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/10/14/1105186-ikea1200x630.webp",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/business/ikea-india-expansion-hotels-offices-mixed-use-developments-872411"
     }
   ],
   "thecore-opinion": [
@@ -1012,6 +996,22 @@
     }
   ],
   "ember-energy-insights": [
+    {
+      "title": "Harnessing the winds - Ember Energy",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5YdmNZQjR2XzE5X0ZhNUNkaHRDc0xuYXlLeEYxTVY5RUFYVVBqNElZajhLMzlwcnROSmc1SU5HQnVHZE9sZDN2X2tEZ1gwMmhYbWZ1MUJ1OUt5YnJZQkg5TkhtN0hfOFRLZHRleldxcw?oc=5",
+      "date": "2026-11-13T06:33:45+00:00",
+      "description": "Harnessing the winds Ember Energy",
+      "source": "Ember Energy",
+      "source_url": "https://ember-energy.org/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Ember",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "ember-energy-insights",
+      "guid": "CBMib0FVX3lxTE5YdmNZQjR2XzE5X0ZhNUNkaHRDc0xuYXlLeEYxTVY5RUFYVVBqNElZajhLMzlwcnROSmc1SU5HQnVHZE9sZDN2X2tEZ1gwMmhYbWZ1MUJ1OUt5YnJZQkg5TkhtN0hfOFRLZHRleldxcw"
+    },
     {
       "title": "Building a grid for the age of power - Ember Energy",
       "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPUE5IMDV0SUYxZjFXTU1wSC1WVjlqajgwb2JaWEJtemhWcmQzVzZOVEdTTk41SjhnbncxaVBPMzhKWC1iRDl5b0JfV2dPejR0UUE4SmZZanRZYlRGU1lHZndUVGh1R3BLbk5IS0VCdFlHSzhZSnhnTUhla2VVUFBRcDdyN3M?oc=5",
@@ -1304,6 +1304,22 @@
     }
   ],
   "ideas-for-india": [
+    {
+      "title": "ideasforindia",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOMF81Zm1YSlhwMVVUTndiYnZRM2ZEVUVRaldrZ2ttMG1JRzFTV1QtT2ZtOVFXMjd1S1JCQmtuS2ZWOU1tSXk5dEpuM2pMT0hYZEJqSXlSd3BTcmtHeXc5WVlzMXFMX3FoV3BvNHJJRzQ1OWJGTUFDQUw4eEw1QjB5WjQ3ZjdqX3RtOUt1Y0RDWTRleWxTdlhzTFFpTnhyNkhJcF81Y0p3?oc=5",
+      "date": "2026-11-13T05:52:33+00:00",
+      "description": "ideasforindia Ideas for India",
+      "source": "Ideas For India",
+      "source_url": "https://www.ideasforindia.in/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Ideas For India",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "ideas-for-india",
+      "guid": "CBMipgFBVV95cUxOMF81Zm1YSlhwMVVUTndiYnZRM2ZEVUVRaldrZ2ttMG1JRzFTV1QtT2ZtOVFXMjd1S1JCQmtuS2ZWOU1tSXk5dEpuM2pMT0hYZEJqSXlSd3BTcmtHeXc5WVlzMXFMX3FoV3BvNHJJRzQ1OWJGTUFDQUw4eEw1QjB5WjQ3ZjdqX3RtOUt1Y0RDWTRleWxTdlhzTFFpTnhyNkhJcF81Y0p3"
+    },
     {
       "title": "ideasforindia",
       "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNUUpDVTU4ZWVqMlJGVDZWLVB4T05CenctRHhWaGhxODZMeW1Xam83aGNiQWMxUGJKdFdxajRiV3NjcTRfb21Cd0JTZU5yS21odWRBQTBfNjBQZVFWUmhIOGQzdkhCaVMzcHY3YXJMU3RZaUhWWHFwSUwxaTRLT2w2UjhJTHN5R3BleWtLSGlKell0T0VFa2dtVGVmWnJSRG5qZGlKVnliRm1pN054X1Aw?oc=5",
@@ -1945,22 +1961,6 @@
       "image": "",
       "feed_id": "the-india-forum",
       "guid": "CBMia0FVX3lxTE4xcS1pdGVrZGxqelo3eV96MnpiWktRTG50WDJoeXFsWjJaZ29zbFFuVVZldEJ1NUNsN3JHcUxLeFJmZEd6ejNWZVctZ2FRamdiRU92bF8yc05aWldOTEtkSlZweFdFN1l2Q1lF"
-    },
-    {
-      "title": "India\u2019s Industrial Policy Missteps in Retrospect",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPNkp2ZDY3S3BZdVpIb3lZZ1lwelNHdFJoSHVDZndycGhiV0VwaF9maEw3dVB4RXJxYkQ1SG9hQ003WTZ5SWpab0VZNGtkMjR0NnZsZWI2MzRKN3h0TDFWVmVfNk1RRU5rVWttRlU1MHNJUFA1TGlvUFU1QzVGM0trWVV3T1paTzlL?oc=5",
-      "date": "2026-10-14T07:00:00+00:00",
-      "description": "India\u2019s Industrial Policy Missteps in Retrospect The India Forum",
-      "source": "The India Forum",
-      "source_url": "https://www.theindiaforum.in/",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The India Forum",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "the-india-forum",
-      "guid": "CBMiiAFBVV95cUxPNkp2ZDY3S3BZdVpIb3lZZ1lwelNHdFJoSHVDZndycGhiV0VwaF9maEw3dVB4RXJxYkQ1SG9hQ003WTZ5SWpab0VZNGtkMjR0NnZsZWI2MzRKN3h0TDFWVmVfNk1RRU5rVWttRlU1MHNJUFA1TGlvUFU1QzVGM0trWVV3T1paTzlL"
     }
   ],
   "takshashila-publications": [
@@ -3733,10 +3733,10 @@
   ],
   "biznewsbyjay": [
     {
-      "title": "#111: Why does India's top property platform earn most from loans?",
+      "title": "#111: Why does India\u2019s top property platform close deals instead of selling ads?",
       "link": "https://biznewsbyjay.substack.com/p/111-why-does-indias-top-property",
       "date": "2026-11-13T01:30:38+00:00",
-      "description": "The portals sell visibility and stay small. Square Yards does the deal, and the surprise is where most of its \u20b92,086 crore actually comes from.",
+      "description": "The portals sell visibility and stay small. Square Yards handles the whole home journey, from the deal to the loan to the interiors to the rental, and that is how it got to \u20b92,086 crore.",
       "source": "Biz News+",
       "source_url": "https://biznewsbyjay.substack.com",
       "category": "News",
@@ -4906,22 +4906,6 @@
       "image": "https://substackcdn.com/image/fetch/$s_!s3qK!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2dcfc6ae-2b60-45f5-97b1-5efa50bbdaa1_2048x1826.png",
       "feed_id": "by-the-numbers",
       "guid": "https://hannahritchie.substack.com/p/uk-taxes"
-    },
-    {
-      "title": "One in ten people are older than 65. Three in four live under a leader who is.",
-      "link": "https://hannahritchie.substack.com/p/how-old-are-leaders",
-      "date": "2026-10-14T05:59:03+00:00",
-      "description": "How old are leaders across the world, and how long have they been in power?",
-      "source": "By the Numbers",
-      "source_url": "https://hannahritchie.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "By the Numbers",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!5vaG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F32daaec1-d2fa-4fd6-97ce-fafc18d1eee9_2048x2048.png",
-      "feed_id": "by-the-numbers",
-      "guid": "https://hannahritchie.substack.com/p/how-old-are-leaders"
     }
   ],
   "the-ken": [
@@ -5934,54 +5918,6 @@
       "image": "",
       "feed_id": "the-morning-context",
       "guid": "CBMimgFBVV95cUxORHJUanl5cnFVdng2Z19aNlByWVdHRXlHQXNzZ0dOMUx2NUFaenBYZ3BwOXB1MzJJbzJSbERJSzMzOHZ4SDFSSUlxbEtTMUNoN0JCbFNQYzFBaVBNcUtjMnpKaW9Ic0N0SmdsYW5LM2lZYU9OeHowMEJJNTduc3VzakRpS1BPSjJQdTd2em1EdkF5SzNNN0RMa1F3"
-    },
-    {
-      "title": "The surge in loans against mutual funds\u2014who wins and who pays the price",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNcE1YbVhDZXB2cUpwcWFPV21NVG9LcThCQWE5R2dOQU0xRm1UcHV6WkJQZ0hjVWk4MGFId000eXYyb0QwMXFrYVE5SFZEdVFBUzIxeW95bXBkNVRjRmxnQ0dMa202RnRWSWJYTXhmOUdaV1BocE52UVJRTEE0bGRQY09sbkNMckl1Qk1zVTdZRkxMYUhTcGVKSDRDSmlVblA0ZEg0SXVwQ0lwelYtSHc?oc=5",
-      "date": "2026-10-14T07:00:00+00:00",
-      "description": "The surge in loans against mutual funds\u2014who wins and who pays the price The Morning Context",
-      "source": "The Morning Context",
-      "source_url": "https://themorningcontext.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Morning Context",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "the-morning-context",
-      "guid": "CBMirgFBVV95cUxNcE1YbVhDZXB2cUpwcWFPV21NVG9LcThCQWE5R2dOQU0xRm1UcHV6WkJQZ0hjVWk4MGFId000eXYyb0QwMXFrYVE5SFZEdVFBUzIxeW95bXBkNVRjRmxnQ0dMa202RnRWSWJYTXhmOUdaV1BocE52UVJRTEE0bGRQY09sbkNMckl1Qk1zVTdZRkxMYUhTcGVKSDRDSmlVblA0ZEg0SXVwQ0lwelYtSHc"
-    },
-    {
-      "title": "Dubai real estate: \u2018it\u2019s a buyer\u2019s market now\u2019",
-      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNNlpvOWZOemh5Z2NtV0V4S0pkallzcTV4NWJkOXpvaFNXMkJYT0tzbi1fa25NdXowQmREanY3UVliRDZEMWlIX3BYRkUtTXYwNzJiQndxMjNyS042UUxpamlRX20xOXdrMHVYSDNvUldVc04wQ2Fkd3d3WV9PMkdRQm8zR3M2RGs?oc=5",
-      "date": "2026-10-14T07:00:00+00:00",
-      "description": "Dubai real estate: \u2018it\u2019s a buyer\u2019s market now\u2019 The Morning Context",
-      "source": "The Morning Context",
-      "source_url": "https://themorningcontext.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Morning Context",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "the-morning-context",
-      "guid": "CBMihwFBVV95cUxNNlpvOWZOemh5Z2NtV0V4S0pkallzcTV4NWJkOXpvaFNXMkJYT0tzbi1fa25NdXowQmREanY3UVliRDZEMWlIX3BYRkUtTXYwNzJiQndxMjNyS042UUxpamlRX20xOXdrMHVYSDNvUldVc04wQ2Fkd3d3WV9PMkdRQm8zR3M2RGs"
-    },
-    {
-      "title": "A Saudi OpenAI engineer and a covert recording device",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQbkhjRFhFUWRoekVzWjhVVHR6WUtwRHRuTWF6dDdoVlRITmtST29tMFRsdkFLNkgxdENzY29iLVhpUm1nRGRsVlhLcE5aR1dfSXBGdE9HOEdYUldOaVJhZ3QyVTFTYzVsZDlFR0dwWEEwMkJTcUtfblRHOXlua0tCSlN2dk85aVFkRUpvS2Q1MW1oaExfVXhV?oc=5",
-      "date": "2026-10-14T07:00:00+00:00",
-      "description": "A Saudi OpenAI engineer and a covert recording device The Morning Context",
-      "source": "The Morning Context",
-      "source_url": "https://themorningcontext.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Morning Context",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "the-morning-context",
-      "guid": "CBMilwFBVV95cUxQbkhjRFhFUWRoekVzWjhVVHR6WUtwRHRuTWF6dDdoVlRITmtST29tMFRsdkFLNkgxdENzY29iLVhpUm1nRGRsVlhLcE5aR1dfSXBGdE9HOEdYUldOaVJhZ3QyVTFTYzVsZDlFR0dwWEEwMkJTcUtfblRHOXlua0tCSlN2dk85aVFkRUpvS2Q1MW1oaExfVXhV"
     }
   ],
   "the-leap-blog": [
@@ -6957,22 +6893,6 @@
       "image": "https://storage.ghost.io/c/f0/60/f060ef3f-d4e0-4af4-9255-1373fbf0a44f/content/images/2026/10/featured-3.png",
       "feed_id": "not-ship",
       "guid": "6acbb293e1b398000109a641"
-    },
-    {
-      "title": "How Amazon pushes up prices all across the Internet",
-      "link": "https://www.not-ship.com/how-amazon-pushes-up-prices-all-across-the-internet/",
-      "date": "2026-10-14T06:00:00+00:00",
-      "description": "You don\u2019t have to shop on Amazon to pay Amazon's high prices.",
-      "source": "Not-Ship",
-      "source_url": "https://www.not-ship.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Not-Ship",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://storage.ghost.io/c/f0/60/f060ef3f-d4e0-4af4-9255-1373fbf0a44f/content/images/2026/10/featured_02.png",
-      "feed_id": "not-ship",
-      "guid": "6acb924ae1b398000109a617"
     }
   ]
 }
