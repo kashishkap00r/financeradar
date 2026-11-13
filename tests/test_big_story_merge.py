@@ -81,12 +81,24 @@ class BigStoryMergeTests(unittest.TestCase):
         self.assertEqual([(o["label"], o["models"]) for o in out], [("A", 2), ("C", 1)])
 
 
-class PageCodeCacheTests(unittest.TestCase):
-    def test_app_js_is_never_cached_longer_than_the_data(self):
-        with open(os.path.join(ROOT, "_headers"), encoding="utf-8") as f:
-            rules = f.read()
-        block = rules[rules.index("/templates/*"):]
-        self.assertIn("max-age=0", block.splitlines()[1])
+class PageCodeVersionTests(unittest.TestCase):
+    """Cloudflare keeps .js/.css in browsers for 4 hours; the data is never cached.
+    The page must link app.js/style.css by content hash so code and data match."""
+
+    def test_asset_url_changes_with_the_file(self):
+        import sys
+        sys.path.insert(0, ROOT)
+        from aggregator import asset_url
+        url = asset_url("templates/app.js")
+        self.assertRegex(url, r"^templates/app\.js\?v=[0-9a-f]{10}$")
+        self.assertEqual(asset_url("no/such/file.js"), "no/such/file.js")
+
+    def test_page_links_assets_by_version(self):
+        with open(os.path.join(ROOT, "aggregator.py"), encoding="utf-8") as f:
+            src = f.read()
+        self.assertIn("src=\"{asset_url('templates/app.js')}\"", src)
+        self.assertIn("href=\"{asset_url('templates/style.css')}\"", src)
+        self.assertNotIn('src="templates/app.js"', src)
 
 
 if __name__ == "__main__":

@@ -66,6 +66,22 @@ from twitter_signal import build_twitter_lanes
 from twitter_fetcher import fetch_twitter_articles
 
 
+def asset_url(rel_path):
+    """templates/app.js → templates/app.js?v=<content hash>.
+
+    Cloudflare's zone-wide Browser Cache TTL keeps .js/.css in browsers for
+    4 hours, while index.html and the JSON data are never cached. Without a
+    version, readers ran old code on new data for hours after a deploy
+    (14 Nov 2026: Paytm showed twice in Big Stories). A changed file gets a
+    new URL, so no browser has it cached."""
+    import hashlib
+    try:
+        with open(os.path.join(SCRIPT_DIR, rel_path), "rb") as f:
+            return f"{rel_path}?v={hashlib.sha256(f.read()).hexdigest()[:10]}"
+    except OSError:
+        return rel_path
+
+
 def _to_iso_datetime(dt):
     """Serialize a datetime to ISO8601, preserving timezone when present."""
     if not dt:
@@ -758,7 +774,7 @@ def generate_html(
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="templates/style.css">
+    <link rel="stylesheet" href="{asset_url('templates/style.css')}">
     <link rel="preload" href="static/tab_news.json" as="fetch" crossorigin>
     <link rel="preload" href="static/tab_telegram.json" as="fetch" crossorigin>
     <link rel="preload" href="static/tab_youtube.json" as="fetch" crossorigin>
@@ -1182,9 +1198,9 @@ def generate_html(
         var TODAY_ISO = "{today_iso}";
         var SITE_GENERATED_AT = "{now_ist.isoformat()}";
 """
-    html += """
+    html += f"""
     </script>
-    <script data-cfasync="false" src="templates/app.js" defer></script>
+    <script data-cfasync="false" src="{asset_url('templates/app.js')}" defer></script>
 </body>
 </html>
 """

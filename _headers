@@ -1,8 +1,0 @@
-# Cloudflare Pages response headers.
-# The page code must never be older than the data: ai_rankings.json is served
-# with max-age=0, and app.js used to get Pages' default 4 hours. For 4 hours
-# after a deploy, readers ran old code on new data (14 Nov 2026: the old Big
-# Stories merge ignored story_group and showed Paytm twice). Browsers revalidate
-# with the ETag, so an unchanged file costs a 304, not a download.
-/templates/*
-  Cache-Control: public, max-age=0, must-revalidate
