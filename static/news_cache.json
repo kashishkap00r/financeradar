@@ -1,6 +1,22 @@
 {
   "thecore": [
     {
+      "title": "Will The Markets Affair With AI Take A Pause?",
+      "link": "https://www.thecore.in/podcasts/will-the-markets-affair-with-ai-take-a-pause-873950",
+      "date": "2026-11-13T00:30:26+00:00",
+      "description": "Jensen Huang has resigned as CEO of NVIDIA following revelations of his affair with an alleged Chinese spy",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/11/12/1107378-05friupthe-core-report1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/will-the-markets-affair-with-ai-take-a-pause-873950"
+    },
+    {
       "title": "FPIs Have Invested $6 Billion This Month Already",
       "link": "https://www.thecore.in/podcasts/fpis-have-invested-6-billion-this-month-already-873915",
       "date": "2026-11-12T00:30:11+00:00",
@@ -895,41 +911,25 @@
       "image": "https://www.thecore.in/h-upload/2026/10/14/1105186-ikea1200x630.webp",
       "feed_id": "thecore",
       "guid": "https://www.thecore.in/business/ikea-india-expansion-hotels-offices-mixed-use-developments-872411"
-    },
-    {
-      "title": "Why IT Stocks Are Bouncing Back",
-      "link": "https://www.thecore.in/podcasts/why-it-stocks-are-bouncing-back-872371",
-      "date": "2026-10-14T00:30:34+00:00",
-      "description": "IT stocks have recovered from a seeming slumber and are headed for their biggest jump in 17 months",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/10/13/1105125-03wedupthe-core-report1200x630.webp",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/podcasts/why-it-stocks-are-bouncing-back-872371"
-    },
-    {
-      "title": "India\u2019s Food Brands Face A Labelling Crisis That Hits Small Firms Harder",
-      "link": "https://www.thecore.in/business/india-food-labelling-rules-small-businesses-fssai-872352",
-      "date": "2026-10-14T00:30:23+00:00",
-      "description": "Chips, biscuits, snacks, instant noodles and cold drinks you buy will soon carry a bright red warning on the front of the pack if they have too much sugar, salt or fat.",
-      "source": "The Core",
-      "source_url": "https://www.thecore.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Core",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://www.thecore.in/h-upload/2026/10/13/1105085-fssai1200x630jpg.webp",
-      "feed_id": "thecore",
-      "guid": "https://www.thecore.in/business/india-food-labelling-rules-small-businesses-fssai-872352"
     }
   ],
   "thecore-opinion": [
+    {
+      "title": "India's Rs 2,000 Cr EV-Charger Subsidy Has No Working Public Charger, No Room For Startups",
+      "link": "https://www.thecore.in/opinion/the-plinth/pm-e-drive-ev-charging-subsidy-india-startups-disadvantage-873941",
+      "date": "2026-11-13T00:30:09+00:00",
+      "description": "The scheme's rules favour government land and big operators, and shut out the small private companies that build chargers where drivers stop and could make better use of the money.",
+      "source": "The Core Opinion",
+      "source_url": "https://www.thecore.in/opinion",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/11/12/1107353-e-drive1200x630.webp",
+      "feed_id": "thecore-opinion",
+      "guid": "https://www.thecore.in/opinion/the-plinth/pm-e-drive-ev-charging-subsidy-india-startups-disadvantage-873941"
+    },
     {
       "title": "India\u2019s Rs 10,000 Cr Container Scheme Doesn't Reduce China Dependence",
       "link": "https://www.thecore.in/opinion/the-plinth/india-container-manufacturing-scheme-shipping-boxes-china-873635",
@@ -1219,22 +1219,6 @@
       "image": "",
       "feed_id": "ember-energy-insights",
       "guid": "CBMiW0FVX3lxTE9LV05mb3VwZ2RuNk1nMFVIR29BOTYxMUl0dGc4VWhJZnB4eTE5NjR1d3NrNmR4eFpudlJ5ek1YX2FEdVdHM3JNekl4RHJSci05QTc3N0JfV09vcUE"
-    },
-    {
-      "title": "Electric energy security\ua789 how EVs are reducing oil import vulnerabilities - Ember Energy",
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbUh5b1dCRk8taWpjOTF6NWlEWDhsMTExQThOSWVNYXY3Um93Wl94TmxpRkp5N3pvM0tEbTZNRkJJVXUxTlVFZEIxVHp1Wk94WHpiRy1vVElKVjhGMEl3QlRzSlFxdjgyZkNYRnhCdkJFWTVPYTZOSm1CT3ZxQ2RzNVFuQ1FPWWZ0QXRjZzBNeHVTbzNmd2h2WTlnUFJPY2lhR2xlYmNkckowVmJWckQ1c2FSSVc?oc=5",
-      "date": "2026-10-13T23:39:42+00:00",
-      "description": "Electric energy security\ua789 how EVs are reducing oil import vulnerabilities Ember Energy",
-      "source": "Ember Energy",
-      "source_url": "https://ember-energy.org/",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Ember",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "ember-energy-insights",
-      "guid": "CBMitAFBVV95cUxQbUh5b1dCRk8taWpjOTF6NWlEWDhsMTExQThOSWVNYXY3Um93Wl94TmxpRkp5N3pvM0tEbTZNRkJJVXUxTlVFZEIxVHp1Wk94WHpiRy1vVElKVjhGMEl3QlRzSlFxdjgyZkNYRnhCdkJFWTVPYTZOSm1CT3ZxQ2RzNVFuQ1FPWWZ0QXRjZzBNeHVTbzNmd2h2WTlnUFJPY2lhR2xlYmNkckowVmJWckQ1c2FSSVc"
     }
   ],
   "business-standard-number-wise": [
@@ -2048,6 +2032,22 @@
     }
   ],
   "decoding-the-dragon": [
+    {
+      "title": "#160: Why does China recover 90% of the lithium India ignores?",
+      "link": "https://decodingthedragon.substack.com/p/160-why-does-china-recover-90-of",
+      "date": "2026-11-13T01:30:38+00:00",
+      "description": "A little-known Xi\u2019an firm, Sunresin, quietly turned worthless brine into batteries, gallium and weight-loss drugs, while India sits on reserves it cannot process.",
+      "source": "Decoding the Dragon",
+      "source_url": "https://decodingthedragon.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Decoding the Dragon",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!albY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffa64084a-c2c2-405c-933d-291b99bf5fad_1024x572.png",
+      "feed_id": "decoding-the-dragon",
+      "guid": "https://decodingthedragon.substack.com/p/160-why-does-china-recover-90-of"
+    },
     {
       "title": "#159: Why does $800 of Chinese audio gear beat a $3,499 rival?",
       "link": "https://decodingthedragon.substack.com/p/159-why-does-800-of-chinese-audio",
@@ -2863,25 +2863,25 @@
       "image": "https://substackcdn.com/image/fetch/$s_!M_Xp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3dde263e-0e33-46a7-843b-ab987ada9705_1024x572.png",
       "feed_id": "decoding-the-dragon",
       "guid": "https://decodingthedragon.substack.com/p/109-why-does-one-shenzhen-firm-cool"
-    },
-    {
-      "title": "#108: How did China fit 32 lasers into one 3D printer?",
-      "link": "https://decodingthedragon.substack.com/p/108-how-did-china-fit-32-lasers-into",
-      "date": "2026-10-14T01:30:38+00:00",
-      "description": "China turned metal 3D printing from a lab curiosity into mass production, and India's tiny additive industry is watching from the sidelines.",
-      "source": "Decoding the Dragon",
-      "source_url": "https://decodingthedragon.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Decoding the Dragon",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!Xw1r!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F51cccfac-d671-40eb-a1e2-94111a801d0c_1024x572.png",
-      "feed_id": "decoding-the-dragon",
-      "guid": "https://decodingthedragon.substack.com/p/108-how-did-china-fit-32-lasers-into"
     }
   ],
   "bharatnama": [
+    {
+      "title": "#136: Does India\u2019s new rural job law guarantee more or less?",
+      "link": "https://bharatnama.substack.com/p/136-does-indias-new-rural-job-law",
+      "date": "2026-11-13T01:30:36+00:00",
+      "description": "The new law promises 125 days of work instead of 100. But it also caps the budget and shifts costs to states. Which matters more?",
+      "source": "BharatNama",
+      "source_url": "https://bharatnama.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "BharatNama",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!5D1C!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F90caaf76-af30-4f69-879f-50abc6b8e04e_1376x768.png",
+      "feed_id": "bharatnama",
+      "guid": "https://bharatnama.substack.com/p/136-does-indias-new-rural-job-law"
+    },
     {
       "title": "#135: Why is India\u2019s China deficit on track to beat $112bn?",
       "link": "https://bharatnama.substack.com/p/135-why-is-indias-china-deficit-on",
@@ -3681,22 +3681,6 @@
       "image": "https://substackcdn.com/image/fetch/$s_!hmVW!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc3720662-9252-456d-a991-6e670afe9b34_1024x572.jpeg",
       "feed_id": "bharatnama",
       "guid": "https://bharatnama.substack.com/p/86-why-does-indias-formalised-economy"
-    },
-    {
-      "title": "#85: Why does a 60-km Mumbai local cost just \u20b920?",
-      "link": "https://bharatnama.substack.com/p/85-why-does-a-60-km-mumbai-local",
-      "date": "2026-10-14T01:30:50+00:00",
-      "description": "The world's most crowded commuter railway is priced below cost on purpose, and freight shippers across India quietly pay the difference.",
-      "source": "BharatNama",
-      "source_url": "https://bharatnama.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "BharatNama",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!sP4v!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F45ca3888-e474-45d6-ab56-b6faf8ebf254_1024x572.jpeg",
-      "feed_id": "bharatnama",
-      "guid": "https://bharatnama.substack.com/p/85-why-does-a-60-km-mumbai-local"
     }
   ],
   "biznewsbyjay": [
@@ -4483,22 +4467,6 @@
       "image": "https://substackcdn.com/image/fetch/$s_!dqes!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7541fa81-1fc4-4dec-9a5b-96fc330a529a_1024x572.png",
       "feed_id": "biznewsbyjay",
       "guid": "https://biznewsbyjay.substack.com/p/62-why-has-jfe-bet-its-entire-india"
-    },
-    {
-      "title": "#61: Why is GE handing India 80% of its jet engine?",
-      "link": "https://biznewsbyjay.substack.com/p/61-why-is-ge-handing-india-80-of",
-      "date": "2026-10-14T01:30:39+00:00",
-      "description": "Airbus sourcing has tripled to $1.5bn and America is transferring engine IP, yet India still imports the raw metal the whole thing rests on.",
-      "source": "Biz News+",
-      "source_url": "https://biznewsbyjay.substack.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Biz News+",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!cBz3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2b1e122a-74ea-4363-8177-0c32e346b330_1024x572.png",
-      "feed_id": "biznewsbyjay",
-      "guid": "https://biznewsbyjay.substack.com/p/61-why-is-ge-handing-india-80-of"
     }
   ],
   "india-dispatch": [
@@ -5247,6 +5215,22 @@
     }
   ],
   "the-morning-context": [
+    {
+      "title": "Thomas Scott stages a comeback. Now comes the real test",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRGlLMTl2VW1hQ0ljbXRha1g0WGhiM08wdjF0UUs2dUdPakFkd242SXpma0d0MHFPd0Q3Uy1kU3JFbS02NUMwMFlJZWhOUkxENzRMbnBBWGhwZFdQaExzQmxfUmc2U2k0M3g1YzFoNjdnYVBfcV9zc0NnOXZlWjJ4ck9EM0kwM1dnbmpaOFA2Q0k1bEpZT2dPTg?oc=5",
+      "date": "2026-11-12T19:51:46+00:00",
+      "description": "Thomas Scott stages a comeback. Now comes the real test The Morning Context",
+      "source": "The Morning Context",
+      "source_url": "https://themorningcontext.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Morning Context",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-morning-context",
+      "guid": "CBMimAFBVV95cUxQRGlLMTl2VW1hQ0ljbXRha1g0WGhiM08wdjF0UUs2dUdPakFkd242SXpma0d0MHFPd0Q3Uy1kU3JFbS02NUMwMFlJZWhOUkxENzRMbnBBWGhwZFdQaExzQmxfUmc2U2k0M3g1YzFoNjdnYVBfcV9zc0NnOXZlWjJ4ck9EM0kwM1dnbmpaOFA2Q0k1bEpZT2dPTg"
+    },
     {
       "title": "Thomas Scott stages a comeback. Now comes the real test",
       "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOdXIycGFLMm04RDhHM3FFUGxtbXpxTGhqRDV1TXZHcGppWG5tS3BfbEQxaE9FY2ZQRkFPUFJ2dVd4VThsVVVaeDlaWW5wbk5pNlNpMVBYV0duaDRxN1N3OHNZWEQ3c2RxVS1HR2JLQ2xQcnEyaGJTLXVGX0NnT3Yybm9YRUhqUWNwQi1YQ1NUVF85UEM2eDNlcG13MklOaFY4VkJoaEdJWWVya3c1WmtJ?oc=5",
@@ -6068,6 +6052,22 @@
   ],
   "finshots": [
     {
+      "title": "Can tyre makers keep rising costs from puncturing their profits?",
+      "link": "https://finshots.in/markets/can-tyre-makers-keep-rising-costs-from-puncturing-their-profits/",
+      "date": "2026-11-13T01:30:59+00:00",
+      "description": "An explainer on why profits are shrinking in India's tyre industry.",
+      "source": "Finshots",
+      "source_url": "https://finshots.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Finshots",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://cdn.finshots.app/images/2026/11/Tyre-Industry-02.jpg",
+      "feed_id": "finshots",
+      "guid": "6af5e14604bd2406332fe258"
+    },
+    {
       "title": "What happens to the AI industry if Nvidia falters",
       "link": "https://finshots.in/archive/what-happens-to-ai-industry-if-nvidia-falters/",
       "date": "2026-11-12T01:30:28+00:00",
@@ -6498,22 +6498,6 @@
       "image": "https://cdn.finshots.app/images/2026/10/Jio-Starlink.jpg",
       "feed_id": "finshots",
       "guid": "6acf940804bd2406332fdc96"
-    },
-    {
-      "title": "The new GST reforms explained",
-      "link": "https://finshots.in/archive/the-new-gst-reforms-explained/",
-      "date": "2026-10-14T01:30:42+00:00",
-      "description": "An explainer on the reforms proposed at the 57th GST Council meeting and how they could make life easier for businesses.",
-      "source": "Finshots",
-      "source_url": "https://finshots.in",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Finshots",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "https://cdn.finshots.app/images/2026/10/GST-Reforms-2026-V2.jpg",
-      "feed_id": "finshots",
-      "guid": "6ace494504bd2406332fdc64"
     }
   ],
   "marketbites-substack": [
