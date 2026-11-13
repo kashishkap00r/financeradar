@@ -1,6 +1,22 @@
 {
   "thecore": [
     {
+      "title": "The Rise Of The Forward Deployed Engineer",
+      "link": "https://www.thecore.in/podcasts/the-rise-of-the-forward-deployed-engineer-873948",
+      "date": "2026-11-13T02:00:39+00:00",
+      "description": "Is this a truly new role, or mostly hype?",
+      "source": "The Core",
+      "source_url": "https://www.thecore.in",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Core",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://www.thecore.in/h-upload/2026/11/12/1107365-signal-forward-deployment1200x630.webp",
+      "feed_id": "thecore",
+      "guid": "https://www.thecore.in/podcasts/the-rise-of-the-forward-deployed-engineer-873948"
+    },
+    {
       "title": "Will The Markets Affair With AI Take A Pause?",
       "link": "https://www.thecore.in/podcasts/will-the-markets-affair-with-ai-take-a-pause-873950",
       "date": "2026-11-13T00:30:26+00:00",
@@ -1187,38 +1203,6 @@
       "image": "",
       "feed_id": "ember-energy-insights",
       "guid": "CBMi1AFBVV95cUxPRzFoUzJzQTUzbWpHRkoyVV81b1FSQTFvcXpndXB6ZUl1dk1SdnpQUmZuWktuc1hTVmxPOTNDcTQzTHoxNGNGN3lGQnlqcjFjU0hrdjJ1WEVaZ3dPd1M0Q2VlX0pod3NJZmU1YmItSWRxVWRud19uX0RYNldjVmNZUlZudnFlTWRhbl91WFdMWGZnRXF1ZDB2QlFhMTN6Z2hEV0dzWW9WWEQ5amdtR3ZUdWhYZVN3d2FDMlRsc0NnWURzOTd1Xzdtejg3aS04T2h2NW45Yw"
-    },
-    {
-      "title": "Monthly EV Sales Data",
-      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBpRVVwR01ibjhuZC11Q1ItOTNzRFJQcEJ2M19fNVNWaU1vek02YmQzN01UTTNjNDFJbFc2aFBTQzJSaWFINUV4Q3lhT3lPYUNUeEM5dHZicXd2aHJvZlRpVVNR?oc=5",
-      "date": "2026-10-14T03:17:49+00:00",
-      "description": "Monthly EV Sales Data ember-energy.org",
-      "source": "Ember Energy",
-      "source_url": "https://ember-energy.org/",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Ember",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "ember-energy-insights",
-      "guid": "CBMiYkFVX3lxTFBpRVVwR01ibjhuZC11Q1ItOTNzRFJQcEJ2M19fNVNWaU1vek02YmQzN01UTTNjNDFJbFc2aFBTQzJSaWFINUV4Q3lhT3lPYUNUeEM5dHZicXd2aHJvZlRpVVNR"
-    },
-    {
-      "title": "EV Sales Data Tracker - Ember-climate.org",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9LV05mb3VwZ2RuNk1nMFVIR29BOTYxMUl0dGc4VWhJZnB4eTE5NjR1d3NrNmR4eFpudlJ5ek1YX2FEdVdHM3JNekl4RHJSci05QTc3N0JfV09vcUE?oc=5",
-      "date": "2026-10-14T02:46:54+00:00",
-      "description": "EV Sales Data Tracker Ember-climate.org",
-      "source": "Ember Energy",
-      "source_url": "https://ember-energy.org/",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "Ember",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "ember-energy-insights",
-      "guid": "CBMiW0FVX3lxTE9LV05mb3VwZ2RuNk1nMFVIR29BOTYxMUl0dGc4VWhJZnB4eTE5NjR1d3NrNmR4eFpudlJ5ek1YX2FEdVdHM3JNekl4RHJSci05QTc3N0JfV09vcUE"
     }
   ],
   "business-standard-number-wise": [
@@ -1594,6 +1578,38 @@
     }
   ],
   "the-india-forum": [
+    {
+      "title": "Peter Newell",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFB2dENibHpjMUh4SmFXVHAybEt2V045UTZ5VEJBMEd3dVpnSjk4bEFFVlVpem1ZakxUNi1pZmhpdEN2SW9idGNXR2tPbGNLNlJjWkx4c1gzWWNkMTdHSmc?oc=5",
+      "date": "2026-11-11T08:00:00+00:00",
+      "description": "Peter Newell The India Forum",
+      "source": "The India Forum",
+      "source_url": "https://www.theindiaforum.in/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The India Forum",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-india-forum",
+      "guid": "CBMiXkFVX3lxTFB2dENibHpjMUh4SmFXVHAybEt2V045UTZ5VEJBMEd3dVpnSjk4bEFFVlVpem1ZakxUNi1pZmhpdEN2SW9idGNXR2tPbGNLNlJjWkx4c1gzWWNkMTdHSmc"
+    },
+    {
+      "title": "Freddie Daley",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBFY21BbGpPVHJuOXNLYjJCVGJLTDB0QzB6TnFKR2M4WmQ0angxMkI1bEVxLTREVE1neXMtdS1TY0tOTkNHbFhJSTA4NXJEWWc2QUc5OEhuc0JweFhTWmY4?oc=5",
+      "date": "2026-11-11T08:00:00+00:00",
+      "description": "Freddie Daley The India Forum",
+      "source": "The India Forum",
+      "source_url": "https://www.theindiaforum.in/",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The India Forum",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-india-forum",
+      "guid": "CBMiX0FVX3lxTFBFY21BbGpPVHJuOXNLYjJCVGJLTDB0QzB6TnFKR2M4WmQ0angxMkI1bEVxLTREVE1neXMtdS1TY0tOTkNHbFhJSTA4NXJEWWc2QUc5OEhuc0JweFhTWmY4"
+    },
     {
       "title": "December 4, 2026",
       "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5uc2k2Rk9ReVNMRlpzM1RRN1lXRlRfRWprQzJ2dEdlTExwRHdKWWFRb1EtV01YdlVqdzZBXzBkQXFxck5Rb0FRTkNrN25mejJWeVMtVlRzQjgxbHhscHF4Vw?oc=5",
@@ -3685,6 +3701,22 @@
   ],
   "biznewsbyjay": [
     {
+      "title": "#111: Why does India's top property platform earn most from loans?",
+      "link": "https://biznewsbyjay.substack.com/p/111-why-does-indias-top-property",
+      "date": "2026-11-13T01:30:38+00:00",
+      "description": "The portals sell visibility and stay small. Square Yards does the deal, and the surprise is where most of its \u20b92,086 crore actually comes from.",
+      "source": "Biz News+",
+      "source_url": "https://biznewsbyjay.substack.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "Biz News+",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!yQYY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa7526ba5-730c-4ff6-8a2a-4025044131ce_1376x768.png",
+      "feed_id": "biznewsbyjay",
+      "guid": "https://biznewsbyjay.substack.com/p/111-why-does-indias-top-property"
+    },
+    {
       "title": "#110: Why does India still import half its AC compressors?",
       "link": "https://biznewsbyjay.substack.com/p/110-why-does-india-still-import-half",
       "date": "2026-11-12T13:31:20+00:00",
@@ -4862,6 +4894,22 @@
   ],
   "the-ken": [
     {
+      "title": "He reshaped Gurugram\u2019s healthcare with Medanta. Now he\u2019s fighting to power the city",
+      "link": "https://the-ken.com/story/he-reshaped-gurugrams-healthcare-with-medanta-now-hes-fighting-to-power-the-city/",
+      "date": "2026-11-13T02:30:16+00:00",
+      "description": "The post He reshaped Gurugram\u2019s healthcare with Medanta. Now he\u2019s fighting to power the city appeared first on The Ken .",
+      "source": "The Ken",
+      "source_url": "https://the-ken.com",
+      "category": "News",
+      "region": "Indian",
+      "publisher": "The Ken",
+      "youtube_bucket": "",
+      "source_tier": "",
+      "image": "",
+      "feed_id": "the-ken",
+      "guid": "https://the-ken.com/story//"
+    },
+    {
       "title": "NSE told brokers to drop digital gold. Then it hired the biggest digital-gold seller",
       "link": "https://the-ken.com/story/why-nses-tie-up-with-augmont-doesnt-add-up/",
       "date": "2026-11-12T02:30:04+00:00",
@@ -5186,22 +5234,6 @@
       "link": "https://the-ken.com/story/google-and-amazons-newfound-fascination-with-indias-paddy-fields/",
       "date": "2026-10-15T02:30:13+00:00",
       "description": "The post Google and Amazon\u2019s newfound fascination with India\u2019s paddy fields appeared first on The Ken .",
-      "source": "The Ken",
-      "source_url": "https://the-ken.com",
-      "category": "News",
-      "region": "Indian",
-      "publisher": "The Ken",
-      "youtube_bucket": "",
-      "source_tier": "",
-      "image": "",
-      "feed_id": "the-ken",
-      "guid": "https://the-ken.com/story//"
-    },
-    {
-      "title": "Airtel Money is worth $7 billion because Africa never got UPI",
-      "link": "https://the-ken.com/story/airtel-money-is-worth-7-billion-because-africa-never-got-upi/",
-      "date": "2026-10-14T02:30:31+00:00",
-      "description": "The post Airtel Money is worth $7 billion because Africa never got UPI appeared first on The Ken .",
       "source": "The Ken",
       "source_url": "https://the-ken.com",
       "category": "News",
