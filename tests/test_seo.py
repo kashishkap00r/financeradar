@@ -3,6 +3,7 @@
 import json
 import os
 import re
+import struct
 import unittest
 import xml.etree.ElementTree as ET
 
@@ -38,6 +39,29 @@ class HeadTagsTests(unittest.TestCase):
 
     def test_description_fits_google_snippet(self):
         self.assertLessEqual(len(seo.DESCRIPTION), 160)
+
+
+class ShareImageTests(unittest.TestCase):
+    def test_homepage_has_large_image_card(self):
+        html = seo.head_tags()
+        self.assertIn(f'<meta property="og:image" content="{seo.OG_IMAGE_URL}">', html)
+        self.assertIn('<meta name="twitter:card" content="summary_large_image">', html)
+        self.assertNotIn('content="summary">', html)
+        self.assertTrue(seo.OG_IMAGE_URL.startswith("https://"))
+
+    def test_image_file_is_1200x630_and_small(self):
+        path = os.path.join(ROOT, "og-image.png")
+        with open(path, "rb") as f:
+            head = f.read(24)
+        self.assertEqual(head[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertEqual(struct.unpack(">II", head[16:24]), (1200, 630))
+        # WhatsApp skips preview images much past ~300 KB.
+        self.assertLess(os.path.getsize(path), 300_000)
+
+    def test_about_page_uses_the_same_image_version(self):
+        about = _read("about.html")
+        self.assertIn(f'content="{seo.OG_IMAGE_URL}"', about)
+        self.assertIn('content="summary_large_image"', about)
 
 
 class TopHeadlinesTests(unittest.TestCase):

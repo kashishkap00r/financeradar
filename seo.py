@@ -33,6 +33,30 @@ TAGLINE = (
 
 DIGEST_SIZE = 20
 
+# Share-preview image: og-image.png at the repo root, rendered from
+# scripts/og-image.html. Bump the version after re-rendering — WhatsApp, X and
+# LinkedIn cache a preview image by URL for days.
+OG_IMAGE_VERSION = 1
+OG_IMAGE_URL = f"{SITE_URL}og-image.png?v={OG_IMAGE_VERSION}"
+OG_IMAGE_ALT = (
+    "Finance Radar — India's finance news and research, in one feed. "
+    "News, Reports, Telegram, YouTube and Twitter from 290+ sources."
+)
+
+
+def image_tags():
+    """og:image + twitter:image tags; shared by the homepage and about.html."""
+    u, a = escape(OG_IMAGE_URL), escape(OG_IMAGE_ALT)
+    return f"""<meta property="og:image" content="{u}">
+    <meta property="og:image:secure_url" content="{u}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{a}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{u}">
+    <meta name="twitter:image:alt" content="{a}">"""
+
 
 def head_tags():
     """Meta tags for <head>. Returns an HTML string (no <title> duplicates)."""
@@ -77,7 +101,7 @@ def head_tags():
     <meta property="og:description" content="{d}">
     <meta property="og:url" content="{u}">
     <meta property="og:locale" content="en_IN">
-    <meta name="twitter:card" content="summary">
+    {image_tags()}
     <meta name="twitter:title" content="{t}">
     <meta name="twitter:description" content="{d}">
     <script type="application/ld+json">{ld_json}</script>"""
