@@ -495,3 +495,54 @@ def dpiit_rows(feed_config):
         if link:
             rows.append((f"{title}: {subject}" if subject else title, encode_url(link), day, "FDI policy"))
     return rows
+
+
+# ------------------------------------------------------------- RBI Bulletin ----
+# The monthly RBI Bulletin (out around the 20th–25th). Its page lists only the
+# latest issue: a "Date : Oct 23, 2026" header, the issue's full PDF, then sections
+# (MPC statement, Speeches, Article, ~40 Current Statistics tables). We keep the
+# issue itself and the research articles ("State of the Economy" and friends);
+# speeches and MPC documents already come through RBI's own feeds, and the
+# statistics tables are data, not reading.
+RBI_BULLETIN = "https://www.rbi.org.in/Scripts/BS_ViewBulletin.aspx"
+_RBI_BULLETIN_DATE = re.compile(r"Date\s*(?:&nbsp;|\s)*:(?:&nbsp;|\s)*([A-Z][a-z]{2,8}\s+\d{1,2},\s*\d{4})")
+_RBI_BULLETIN_HEAD = re.compile(r'class="tableheader"[^>]*><b>(.*?)</b>', re.S)
+_RBI_BULLETIN_ISSUE = re.compile(
+    r"<td style='word-wrap:break-word;width:450;'>\s*(Reserve Bank of India Bulletin\s*[-–]\s*[^<]+?)\s*</td>"
+    r".*?href='(https://rbidocs\.rbi\.org\.in/[^']+?\.PDF)'", re.S | re.I)
+_RBI_BULLETIN_LINK = re.compile(r"class='link2' href=(BS_ViewBulletin\.aspx\?Id=\d+)>([^<]+)</a>", re.I)
+
+
+def parse_rbi_bulletin(page):
+    m = _RBI_BULLETIN_DATE.search(page)
+    if not m:
+        return []
+    raw = re.sub(r"\s+", " ", m.group(1))
+    day = None
+    for fmt in ("%b %d, %Y", "%B %d, %Y"):
+        try:
+            day = _ist(datetime.strptime(raw, fmt))
+            break
+        except ValueError:
+            pass
+    if day is None:
+        return []
+    rows = []
+    issue = _RBI_BULLETIN_ISSUE.search(page)
+    if issue:
+        title = clean_text(issue.group(1)).replace("Reserve Bank of India Bulletin", "RBI Bulletin")
+        rows.append((title.replace(" - ", " – "), issue.group(2), day, "RBI Bulletin"))
+    # Walk the section headers in order; keep links under the "Article" section only.
+    heads = [(h.start(), clean_text(h.group(1))) for h in _RBI_BULLETIN_HEAD.finditer(page)]
+    for link in _RBI_BULLETIN_LINK.finditer(page):
+        section = next((name for pos, name in reversed(heads) if pos < link.start()), "")
+        if section.lower() not in ("article", "articles"):
+            continue
+        rows.append((f"RBI Bulletin: {clean_text(link.group(2))}",
+                     f"https://www.rbi.org.in/Scripts/{link.group(1)}", day, "RBI Bulletin article"))
+    return rows
+
+
+@source("rbi-bulletin")
+def rbi_bulletin_rows(feed_config):
+    return parse_rbi_bulletin(get_or_proxy(RBI_BULLETIN))

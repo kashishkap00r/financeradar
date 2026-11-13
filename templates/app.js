@@ -2455,6 +2455,7 @@
                 + '<div class="slider-nav">' + sliderArrows(trackId) + '</div></div>';
         }
 
+        var RBI_ALWAYS_SOURCES = { 'RBI — Bulletin': true, 'RBI — Speeches': true };
         function getFromSourceItems() {
             var out = [];
             var seen = {};
@@ -2477,7 +2478,21 @@
             out.sort(function(a, b) {
                 return new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
             });
-            return out.slice(0, 25);
+            out = out.slice(0, 25);
+            seen = {};
+            out.forEach(function(o) { var k = String(o.url || '').toLowerCase().trim(); if (k) seen[k] = true; });
+            // RBI's monthly Bulletin (incl. State of the Economy) and its speeches land a
+            // few times a month, so the busy daily feeds would push them out of the newest
+            // 25 within a day. Always list the last 35 days of them, in date order.
+            (NEWS_ARTICLES || []).forEach(function(a) {
+                if (RBI_ALWAYS_SOURCES[a.source] !== true) return;
+                if (new Date(a.date || 0).getTime() < Date.now() - 35 * 86400000) return;
+                add(a.title, a.link || a.source_url || '', a.publisher || a.source, a.date);
+            });
+            out.sort(function(a, b) {
+                return new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
+            });
+            return out;
         }
 
         // From the Source: a list, not a strip — source (RBI / SEBI / PIB) | headline | date | bookmark.

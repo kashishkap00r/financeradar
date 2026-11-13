@@ -66,7 +66,30 @@ MCA_DATA = {"data": [
 ]}
 
 
+RBI_BULLETIN_PAGE = """<table class="tablebg" width="100%"><tr><td align="Left" class="tableheader" colspan="4" nowrap><b>Date &nbsp;:&nbsp;Oct 23, 2026</b></td></tr><tr><td style='word-wrap:break-word;width:450;'>Reserve Bank of India Bulletin - October 2026</td><td nowrap>&nbsp;</td><td  nowrap><a id='APDF_0B' target='_blank' href='https://rbidocs.rbi.org.in/rdocs/Bulletin/PDFs/0BULLETIN25102026AB.PDF'><img alt='PDF'></a></td></tr>
+<tr><td style='word-wrap:break-word;width:450;'><a class='link2' href=BS_ViewBulletin.aspx?Id=24508>Contents</a></td></tr>
+<tr><td align="Left" class="tableheader" colspan="4" nowrap><b>Speeches</b></td></tr><tr><td style='word-wrap:break-word;width:450;'><a class='link2' href=BS_ViewBulletin.aspx?Id=24514>Preserving Financial Stability - Shri Sanjay Malhotra</a></td></tr>
+<tr><td align="Left" class="tableheader" colspan="4" nowrap><b>Article</b></td></tr><tr><td style='word-wrap:break-word;width:450;'><a class='link2' href=BS_ViewBulletin.aspx?Id=24516>State of the Economy</a></td></tr>
+<tr><td style='word-wrap:break-word;width:450;'><a class='link2' href=BS_ViewBulletin.aspx?Id=24518>Performance of the NBFC Sector: Review for 2025</a></td></tr>
+<tr><td align="Left" class="tableheader" colspan="4" nowrap><b>Current Statistics General</b></td></tr><tr><td style='word-wrap:break-word;width:450;'><a class='link2' href=BS_ViewBulletin.aspx?Id=24520>1. Select Economic Indicators</a></td></tr></table>"""
+
+
 class ParserTests(unittest.TestCase):
+
+    def test_rbi_bulletin_keeps_issue_and_articles_only(self):
+        rows = osrc.parse_rbi_bulletin(RBI_BULLETIN_PAGE)
+        self.assertEqual([r[0] for r in rows], [
+            "RBI Bulletin – October 2026",
+            "RBI Bulletin: State of the Economy",
+            "RBI Bulletin: Performance of the NBFC Sector: Review for 2025",
+        ])
+        self.assertTrue(rows[0][1].endswith("0BULLETIN25102026AB.PDF"))
+        self.assertEqual(rows[1][1], "https://www.rbi.org.in/Scripts/BS_ViewBulletin.aspx?Id=24516")
+        self.assertTrue(all(r[2] == datetime(2026, 10, 23, tzinfo=IST_TZ) for r in rows))
+
+    def test_rbi_bulletin_without_date_header_returns_nothing(self):
+        self.assertEqual(osrc.parse_rbi_bulletin("<html>maintenance</html>"), [])
+
     def test_dgtr_keeps_initiations_and_findings_only(self):
         rows = osrc.parse_dgtr(DGTR_PAGE)
         titles = [r[0] for r in rows]

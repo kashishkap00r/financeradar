@@ -54,6 +54,7 @@ import shutil
 from feed_health import load_health, record_run, record_stock_notes, save_health
 from config import (FEED_THREAD_WORKERS, MAX_ARTICLES_PER_FEED,
                     NEWS_FRESHNESS_DAYS, TWITTER_FRESHNESS_DAYS,
+                    RBI_LONG_LIFE_DAYS, RBI_LONG_LIFE_SOURCES,
                     TWITTER_HIGH_SIGNAL_WINDOW_HOURS, TWITTER_HIGH_SIGNAL_TARGET,
                     REPORTS_FRESHNESS_DAYS,
                     FEED_FAILURE_ALERT_THRESHOLD,
@@ -1674,6 +1675,10 @@ def main():
         "SEBI — Enforcement Orders",
         "SEBI — Adjudication Orders",
     }
+    # RBI's monthly Bulletin (incl. "State of the Economy") and its speeches come a
+    # few times a month, so the 5-day cut would hide them most days. Keep them for
+    # RBI_LONG_LIFE_DAYS; From the Source always lists them (RBI_ALWAYS_SOURCES in app.js).
+    long_life_cutoff = now - timedelta(days=RBI_LONG_LIFE_DAYS)
     recent_articles = []
     old_count = 0
 
@@ -1681,6 +1686,14 @@ def main():
         article_date = article.get("date")
         if article.get("source") in FRESHNESS_BYPASS_SOURCES:
             recent_articles.append(article)
+            continue
+        if article.get("source") in RBI_LONG_LIFE_SOURCES and article_date is not None:
+            if article_date.tzinfo is None:
+                article_date = article_date.replace(tzinfo=IST_TZ)
+            if article_date >= long_life_cutoff:
+                recent_articles.append(article)
+            else:
+                old_count += 1
             continue
         if article_date is None:
             # Keep articles without dates (will be sorted to end)

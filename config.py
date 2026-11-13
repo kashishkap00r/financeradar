@@ -30,6 +30,10 @@ RSS_PROXY_RETRY_HTTP_CODES = (403, 429)
 
 # ── Article freshness ─────────────────────────────────────────────────
 NEWS_FRESHNESS_DAYS = 5          # News tab: discard articles older than this
+# RBI Bulletin (monthly, incl. "State of the Economy") and RBI speeches: kept this long
+# so From the Source always shows the latest issue and the past month's speeches.
+RBI_LONG_LIFE_DAYS = 35
+RBI_LONG_LIFE_SOURCES = ("RBI — Bulletin", "RBI — Speeches")
 TWITTER_FRESHNESS_DAYS = 5       # Twitter tab: discard tweets older than this
 TWITTER_HIGH_SIGNAL_WINDOW_HOURS = 24  # Twitter high-signal window
 TWITTER_HIGH_SIGNAL_TARGET = 25        # Twitter high-signal lane size

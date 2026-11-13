@@ -435,7 +435,29 @@ def _parse_feed_content(content, feed_config):
                 "guid": guid.text.strip() if guid is not None and guid.text else "",
             })
 
+    if feed_config.get("publisher") == "RBI":
+        articles = tidy_rbi_titles(articles)
     return articles
+
+
+_LATIN = re.compile(r"[A-Za-z]")
+_DEVANAGARI = re.compile(r"[\u0900-\u097F]")
+
+
+def tidy_rbi_titles(articles):
+    """RBI's RSS titles carry escaped entities inside CDATA ("&#2327;…", "&#8377;"),
+    footnote tags ("<sup>[1]</sup>") and a dangling " - " on podcasts. Clean them,
+    and drop Hindi-only items (the English version is published separately)."""
+    out = []
+    for a in articles:
+        title = _clean_html_text(a.get("title", ""))
+        title = re.sub(r"\s*\[\d+\]", "", title)
+        title = re.sub(r"[\s\-\u2013\u2014|:]+$", "", title)
+        if len(_DEVANAGARI.findall(title)) >= len(_LATIN.findall(title)):
+            continue
+        a["title"] = title
+        out.append(a)
+    return out
 
 
 def _clean_html_text(raw):
@@ -850,9 +872,7 @@ def fetch_rbi_press_releases(feed_config):
             am = article_pattern.search(line)
             if am:
                 prid = am.group(1)
-                title = am.group(2).strip()
-                title = title.replace("&amp;", "&").replace("&#8211;", "\u2013").replace("&#8212;", "\u2014")
-                title = title.replace("&ndash;", "\u2013").replace("&mdash;", "\u2014")
+                title = html.unescape(am.group(2)).strip()
                 if not title:
                     continue
                 link = f"https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid={prid}"

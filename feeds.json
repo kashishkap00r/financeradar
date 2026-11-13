@@ -699,6 +699,7 @@
     "url": "http://www.rbi.org.in",
     "feed": "https://rbi.org.in/speeches_rss.xml",
     "category": "News",
+    "keep_days": 35,
     "publisher": "RBI",
     "source_tier": "official"
   },
@@ -708,6 +709,17 @@
     "url": "http://www.rbi.org.in",
     "feed": "https://rbi.org.in/Publication_rss.xml",
     "category": "News",
+    "publisher": "RBI",
+    "source_tier": "official"
+  },
+  {
+    "id": "rbi-bulletin",
+    "name": "RBI — Bulletin",
+    "url": "https://www.rbi.org.in/Scripts/BS_ViewBulletin.aspx",
+    "feed": "official:rbi-bulletin",
+    "category": "News",
+    "max_age_days": 40,
+    "keep_days": 35,
     "publisher": "RBI",
     "source_tier": "official"
   },
