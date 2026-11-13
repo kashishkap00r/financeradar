@@ -101,10 +101,11 @@ A post-ranking step in `ai_ranker.py` clusters articles **across all content typ
 - `dedup_cluster_articles()` removes near-duplicate articles via Jaccard title similarity (0.4 same-type, 0.6 cross-type)
 - `filter_cluster_noise()` strips Sensex/Nifty market-movement articles from clusters
 - `enrich_clusters_from_rankings()` attaches `why_it_matters` and `signal_type` from ranked items
+- `link_same_stories()` runs once after all models: one call reads every model's label + summary and groups the same event → `story_group` on each cluster (backup if the call fails: word overlap on label + summary, Jaccard ≥ 0.2, different models only)
 - Clustering failure → `clusters: []`, no crash, page looks like normal
 
 **Frontend (`app.js`):**
-- `getMergedClusters()` merges clusters across providers using any-URL overlap (not just lead URL), then sorts by `_providerCount` (how many models picked the story)
+- `getMergedClusters()` merges clusters across providers by `story_group` (set by `link_same_stories()` in ai_ranker.py), then sorts by `_providerCount` = distinct models that picked the story. Files without `story_group` fall back to any shared article URL. **Don't go back to URL-only:** on a big story each model picks a different handful of its 20+ articles, so Nvidia's CEO exit showed 3 times and October CPI twice (14 Nov 2026); and roundup videos sit in two stories at once, so URL overlap fused Microsoft's outage into Nvidia
 - "The Big Stories" section renders at the top of the homepage; clustered items are removed from the feed/sliders below (no duplicates)
 - Layout (Oct 2026, "front page + drawer"): story 1 is the lead (headline, summary, signal row, and a **Coverage** list of its top 4 sources — the only sources shown up front); stories 2–3 sit side by side with "Show sources"; **every** story after the top 3 is a one-line brief in "Also developing" (single-model picks included)
 - Sources open in a side drawer (`openStoryDrawer()`; a bottom sheet ≤768px), grouped by type. **Never expand sources in place** — the user hates anything that pushes the page down. Titles open the drawer too. `html { scrollbar-gutter: stable }` stops the sideways shift when scrolling locks
